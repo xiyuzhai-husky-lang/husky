@@ -120,44 +120,34 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
                 ident,
                 is_generic,
                 body_kind,
+                saved_stream_state,
             } => {
                 if let Some(entity_path) = entity_path {
-                    match entity_path {
-                        EntityPath::Module(module_path) => {
-                            match self.nodes.insert_new(EntitySymbol::Submodule {
-                                ident: *ident,
-                                accessibility: *accessibility,
-                                module_path: *module_path,
-                                ast_idx,
-                            }) {
-                                Ok(_) => (),
-                                Err(e) => {
-                                    let old_node = &self.nodes.data()[e.old];
-                                    self.errors
-                                        .push(EntityTreeError::EntitySymbolAlreadyDefined {
-                                            old: old_node.ast_idx().unwrap(),
-                                            new: ast_idx,
-                                        })
-                                }
-                            }
+                    let new_node = match entity_path {
+                        EntityPath::Module(module_path) => EntitySymbol::Submodule {
+                            ident: *ident,
+                            accessibility: *accessibility,
+                            module_path: *module_path,
+                            ast_idx,
+                        },
+                        EntityPath::ModuleItem(module_item_path) => EntitySymbol::ModuleItem {
+                            ident: *ident,
+                            accessibility: *accessibility,
+                            ast_idx,
+                            path: *module_item_path,
+                        },
+                        EntityPath::AssociatedItem(_) | EntityPath::EnumVariant(_) => return,
+                    };
+                    match self.nodes.insert_new(new_node) {
+                        Ok(_) => (),
+                        Err(e) => {
+                            let old_node = &self.nodes.data()[e.old];
+                            self.errors
+                                .push(EntityTreeError::EntitySymbolAlreadyDefined {
+                                    old: old_node.ast_idx().unwrap(),
+                                    new: ast_idx,
+                                })
                         }
-                        EntityPath::ModuleItem(module_item_path) => {
-                            match self.nodes.insert_new(EntitySymbol::ModuleItem {
-                                ident: *ident,
-                                accessibility: *accessibility,
-                                ast_idx,
-                                path: *module_item_path,
-                            }) {
-                                Ok(_) => (),
-                                Err(_) => {
-                                    p!(self.nodes);
-                                    p!(ident.data(self.db));
-                                    todo!()
-                                }
-                            }
-                        }
-                        EntityPath::AssociatedItem(_) => (),
-                        EntityPath::EnumVariant(_) => (),
                     }
                 }
             }

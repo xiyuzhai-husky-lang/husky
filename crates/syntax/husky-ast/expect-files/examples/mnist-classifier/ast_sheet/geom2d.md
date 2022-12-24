@@ -55,6 +55,9 @@ Ok(
                     ident: `from_i_shift28`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 3,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -75,6 +78,9 @@ Ok(
                     ident: `vector`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -95,6 +101,9 @@ Ok(
                     ident: `to`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -115,6 +124,9 @@ Ok(
                     ident: `norm`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -135,6 +147,9 @@ Ok(
                     ident: `dist`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -426,6 +441,9 @@ Ok(
                     ident: `point`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -446,6 +464,9 @@ Ok(
                     ident: `to`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -466,6 +487,9 @@ Ok(
                     ident: `norm`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -486,6 +510,9 @@ Ok(
                     ident: `dot`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -506,6 +533,9 @@ Ok(
                     ident: `cross`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -526,6 +556,9 @@ Ok(
                     ident: `angle`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Comment {
                     token_group_idx: TokenGroupIdx(
@@ -551,6 +584,9 @@ Ok(
                     ident: `rotation_direction_to`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -571,6 +607,9 @@ Ok(
                     ident: `angle_to`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -647,6 +686,9 @@ Ok(
                     ident: `relative_range`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -667,6 +709,9 @@ Ok(
                     ident: `relative_point`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -703,6 +748,9 @@ Ok(
                     ident: `relative_bounding_box`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -723,6 +771,9 @@ Ok(
                     ident: `relative_point`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -743,6 +794,9 @@ Ok(
                     ident: `xmin`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -763,6 +817,9 @@ Ok(
                     ident: `xmax`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -783,6 +840,9 @@ Ok(
                     ident: `ymin`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -803,6 +863,9 @@ Ok(
                     ident: `ymax`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -855,6 +918,9 @@ Ok(
                     ident: `xmin`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -875,6 +941,9 @@ Ok(
                     ident: `xmax`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -895,6 +964,9 @@ Ok(
                     ident: `ymin`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -915,6 +987,9 @@ Ok(
                     ident: `ymax`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -943,6 +1018,9 @@ Ok(
                     ident: `Point2d`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
@@ -979,6 +1057,9 @@ Ok(
                     ident: `RelativePoint2d`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1007,6 +1088,9 @@ Ok(
                     ident: `Vector2d`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
@@ -1043,6 +1127,9 @@ Ok(
                     ident: `ClosedRange`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
@@ -1079,6 +1166,9 @@ Ok(
                     ident: `BoundingBox`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
@@ -1115,6 +1205,9 @@ Ok(
                     ident: `RelativeBoundingBox`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(

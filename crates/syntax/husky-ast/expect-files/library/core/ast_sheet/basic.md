@@ -23,6 +23,9 @@ Ok(
                     ident: `bool`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 3,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -45,6 +48,9 @@ Ok(
                     ident: `Trait`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 3,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -67,6 +73,9 @@ Ok(
                     ident: `Module`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 3,
+                    },
                 },
             ],
         },

@@ -18,7 +18,7 @@ pub use use_expr::*;
 use husky_entity_path::{EntityPath, ModuleItemVariantPath};
 use husky_entity_taxonomy::EntityKind;
 use husky_text::*;
-use husky_token::TokenGroupIdx;
+use husky_token::{TokenGroupIdx, TokenIterState};
 use husky_vfs::*;
 
 use husky_word::*;
@@ -71,6 +71,7 @@ pub enum Ast {
         ident: Identifier,
         is_generic: bool,
         body_kind: DefnBodyKind,
+        saved_stream_state: TokenIterState,
     },
     ModuleItemVariant {
         token_group_idx: TokenGroupIdx,
@@ -236,6 +237,7 @@ impl<Db: AstDb> salsa::DebugWithDb<Db> for Ast {
                 ident,
                 is_generic,
                 body_kind,
+                saved_stream_state,
             } => f
                 .debug_struct("Defn")
                 .field("token_group_idx", token_group_idx)
@@ -249,6 +251,7 @@ impl<Db: AstDb> salsa::DebugWithDb<Db> for Ast {
                 .field("ident", &ident.debug_with(db, include_all_fields))
                 .field("is_generic", is_generic)
                 .field("body_kind", body_kind)
+                .field("saved_stream_state", saved_stream_state)
                 .finish(),
             Ast::ModuleItemVariant {
                 token_group_idx,

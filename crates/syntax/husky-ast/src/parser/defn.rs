@@ -17,9 +17,11 @@ impl<'a> AstParser<'a> {
         let mut aux_parser = BasicAuxAstParser::new(
             ctx,
             self.module_path,
-            self.token_sheet.token_group_token_iter(token_group_idx),
+            self.token_sheet
+                .token_group_token_iter(token_group_idx, None),
         );
-        let (accessibility, entity_kind, ident, is_generic) = parse_head(aux_parser)?;
+        let (accessibility, entity_kind, ident, is_generic, saved_stream_state) =
+            parse_head(aux_parser)?;
         let (entity_path, ast_parent): (Option<EntityPath>, AstParent) = match entity_kind {
             EntityKind::Module => (
                 Some(EntityPath::Module(ModulePath::new_child(
@@ -94,6 +96,7 @@ impl<'a> AstParser<'a> {
             body_kind,
             entity_kind,
             entity_path,
+            saved_stream_state,
         })
     }
 
@@ -146,10 +149,16 @@ impl<'a> AstParser<'a> {
 
 fn parse_head(
     mut aux_parser: BasicAuxAstParser,
-) -> Result<(Accessibility, EntityKind, Identifier, bool), AstError> {
+) -> Result<(Accessibility, EntityKind, Identifier, bool, TokenIterState), AstError> {
     let accessibility = aux_parser.parse_accessibility()?;
     let entity_kind = aux_parser.parse_entity_kind()?;
     let ident = aux_parser.parse_ident()?;
     let is_generic = aux_parser.parse_is_generic();
-    Ok((accessibility, entity_kind, ident, is_generic))
+    Ok((
+        accessibility,
+        entity_kind,
+        ident,
+        is_generic,
+        aux_parser.finish_with_saved_stream_state(),
+    ))
 }

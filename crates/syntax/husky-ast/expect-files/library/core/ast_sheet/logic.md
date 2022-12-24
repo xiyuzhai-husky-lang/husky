@@ -23,6 +23,9 @@ Ok(
                     ident: `LogicAnd`,
                     is_generic: true,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 3,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -45,6 +48,9 @@ Ok(
                     ident: `LogicOr`,
                     is_generic: true,
                     body_kind: EnumVariants,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 3,
+                    },
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(

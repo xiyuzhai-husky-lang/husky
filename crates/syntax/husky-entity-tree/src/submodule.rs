@@ -12,16 +12,7 @@ pub(crate) fn submodules(
     Ok(ast_sheet
         .top_level_asts_iter()
         .filter_map(|ast| match ast {
-            Ast::Defn {
-                token_group_idx,
-                body,
-                accessibility,
-                entity_kind,
-                entity_path,
-                ident,
-                is_generic,
-                body_kind,
-            } => match (*entity_path)? {
+            Ast::Defn { entity_path, .. } => match (*entity_path)? {
                 EntityPath::Module(module_path) => Some(module_path),
                 EntityPath::ModuleItem(_)
                 | EntityPath::AssociatedItem(_)

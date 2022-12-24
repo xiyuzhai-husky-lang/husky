@@ -4,7 +4,7 @@ use husky_entity_path::EntityPath;
 use husky_entity_taxonomy::{EntityKind, ModuleItemKind, TypeKind};
 use husky_entity_tree::{EntitySymbol, EntityTreeSheet};
 use husky_print_utils::p;
-use husky_token::{TokenIdentifier, TokenSheet};
+use husky_token::{TokenIdentifier, TokenIterState, TokenSheet};
 use parsec::ParseFrom;
 use vec_like::VecPairMap;
 
@@ -56,6 +56,7 @@ impl<'a> DeclCollector<'a> {
                 ident,
                 is_generic,
                 body_kind,
+                saved_stream_state,
             } => match entity_kind {
                 EntityKind::ModuleItem(module_item_kind) => match module_item_kind {
                     ModuleItemKind::Type(type_kind) => match type_kind {
@@ -64,7 +65,9 @@ impl<'a> DeclCollector<'a> {
                         TypeKind::Record => todo!(),
                         TypeKind::Struct => todo!(),
                         TypeKind::Structure => todo!(),
-                        TypeKind::Form => self.parse_form_decl(token_group_idx, body),
+                        TypeKind::Form => {
+                            self.parse_form_decl(token_group_idx, body, saved_stream_state)
+                        }
                     },
                     ModuleItemKind::Trait => todo!(),
                     ModuleItemKind::Form => todo!(),
@@ -91,8 +94,11 @@ impl<'a> DeclCollector<'a> {
         &self,
         token_group_idx: husky_token::TokenGroupIdx,
         body: &AstIdxRange,
+        saved_stream_state: TokenIterState,
     ) -> DeclResult<Decl> {
-        let mut token_iter = self.token_sheet.token_group_token_iter(token_group_idx);
+        let mut token_iter = self
+            .token_sheet
+            .token_group_token_iter(token_group_idx, Some(saved_stream_state));
         let a = TokenIdentifier::parse_from(&mut token_iter)?;
         p!(a);
         todo!()

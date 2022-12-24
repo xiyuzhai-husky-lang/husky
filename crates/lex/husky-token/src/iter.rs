@@ -9,30 +9,26 @@ pub struct TokenIter<'a> {
     next_relative: usize,
 }
 
-impl<'a> TokenIter<'a> {
-    pub fn new(base: usize, tokens: &'a [Token]) -> Self {
-        TokenIter {
-            base,
-            tokens,
-            next_relative: 0,
-        }
-    }
-}
-
 impl TokenSheet {
-    pub fn token_group_token_iter<'a>(&'a self, token_group_idx: TokenGroupIdx) -> TokenIter<'a> {
+    pub fn token_group_token_iter<'a>(
+        &'a self,
+        token_group_idx: TokenGroupIdx,
+        state: Option<TokenIterState>,
+    ) -> TokenIter<'a> {
+        let next_relative = state.map(|state| state.next_relative).unwrap_or_default();
         let tokens = &self[token_group_idx];
         assert!(tokens.len() > 0);
         TokenIter {
             base: self.group_start(token_group_idx),
             tokens,
-            next_relative: 0,
+            next_relative,
         }
     }
 }
 
-pub struct TokenStreamState {
-    next: usize,
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct TokenIterState {
+    next_relative: usize,
 }
 
 impl<'a> TokenIter<'a> {
@@ -60,14 +56,14 @@ impl<'a> TokenIter<'a> {
         (text_start..self.text_end()).into()
     }
 
-    pub fn save_state(&self) -> TokenStreamState {
-        TokenStreamState {
-            next: self.next_relative,
+    pub fn save_state(&self) -> TokenIterState {
+        TokenIterState {
+            next_relative: self.next_relative,
         }
     }
 
-    pub fn rollback(&mut self, state: TokenStreamState) {
-        self.next_relative = state.next;
+    pub fn rollback(&mut self, state: TokenIterState) {
+        self.next_relative = state.next_relative;
     }
 
     pub fn next(&mut self) -> Option<&'a Token> {
@@ -143,7 +139,7 @@ fn next_indexed_works() {
         group_starts: vec![0],
     };
     let (token_group_idx, _) = token_sheet.token_group_iter().next().unwrap();
-    let mut token_iter = token_sheet.token_group_token_iter(token_group_idx);
+    let mut token_iter = token_sheet.token_group_token_iter(token_group_idx, None);
     while let Some((token_idx, token)) = token_iter.next_indexed() {
         assert_eq!(&token_sheet[token_idx], token)
     }

@@ -227,6 +227,9 @@ Ok(
                     ident: `is_convex`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
             ],
         },

@@ -4,7 +4,8 @@ use husky_opn_syntax::Bracket;
 use husky_token::*;
 use std::iter::Peekable;
 
-pub(super) trait AuxAstParser<'aux> {
+pub(super) trait ParseTokenInto<'aux> {
+    fn token_iter(&self) -> &TokenIter<'aux>;
     fn token_iter_mut(&mut self) -> &mut TokenIter<'aux>;
     fn ast_parent(&self) -> AstParent;
     fn module_path(&self) -> ModulePath;
@@ -90,10 +91,10 @@ pub(super) trait AuxAstParser<'aux> {
             .ok_or(AstError::ExpectIdentifier(Some(token.range)))
     }
 
-    fn parse_is_generic(&mut self) -> bool {
+    fn parse_is_generic(&self) -> bool {
         let Some (token) = &self
-            .token_iter_mut()
-            .next() else { return false };
+            .token_iter()
+            .peek() else { return false };
         match token.kind {
             TokenKind::Special(SpecialToken::LAngle) => true,
             _ => false,
@@ -101,7 +102,7 @@ pub(super) trait AuxAstParser<'aux> {
     }
 }
 
-impl<'a> AuxAstParser<'a> for BasicAuxAstParser<'a> {
+impl<'a> ParseTokenInto<'a> for BasicAuxAstParser<'a> {
     fn token_iter_mut(&mut self) -> &mut TokenIter<'a> {
         &mut self.iter
     }
@@ -112,6 +113,10 @@ impl<'a> AuxAstParser<'a> for BasicAuxAstParser<'a> {
 
     fn module_path(&self) -> ModulePath {
         self.module_path
+    }
+
+    fn token_iter(&self) -> &TokenIter<'a> {
+        &self.iter
     }
 }
 
@@ -128,5 +133,9 @@ impl<'a> BasicAuxAstParser<'a> {
             module_path,
             iter,
         }
+    }
+
+    pub(super) fn finish_with_saved_stream_state(self) -> TokenIterState {
+        self.iter.save_state()
     }
 }

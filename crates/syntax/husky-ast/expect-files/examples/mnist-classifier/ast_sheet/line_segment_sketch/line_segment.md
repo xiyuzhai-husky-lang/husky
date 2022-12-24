@@ -149,6 +149,9 @@ Ok(
                     ident: `displacement`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -175,6 +178,9 @@ Ok(
                     ident: `dist_to_point`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
@@ -217,6 +223,9 @@ Ok(
                     ident: `LineSegment`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
             ],
         },
