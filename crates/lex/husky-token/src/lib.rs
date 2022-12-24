@@ -51,6 +51,12 @@ pub struct TokenSheet {
     group_starts: Vec<usize>,
 }
 
+impl TokenSheet {
+    pub fn len(&self) -> usize {
+        self.tokens.len()
+    }
+}
+
 impl Token {
     pub fn new(i: u32, start: u32, end: u32, kind: TokenKind) -> Token {
         Token {

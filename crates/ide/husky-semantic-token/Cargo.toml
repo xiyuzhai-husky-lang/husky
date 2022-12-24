@@ -16,7 +16,7 @@ husky-token = { path = "../../lex/husky-token" }
 # infer
 husky-token-infer = { path = "../../infer/husky-token-infer" }
 # kernel
-husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
+husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 # syntax
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-decl = { path = "../../syntax/husky-decl" }

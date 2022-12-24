@@ -30,6 +30,7 @@ fn entity_tree_presheet_works() {
 pub(crate) struct EntityTreePresheet {
     module_path: ModulePath,
     module_symbols: VecMap<EntitySymbol>,
+    associated_items: VecMap<AssociatedItem>,
     entity_use_trackers: EntityUseExprTrackers,
     use_all_trackers: UseAllTrackers,
     errors: Vec<EntityTreeError>,
@@ -37,7 +38,7 @@ pub(crate) struct EntityTreePresheet {
 
 impl Into<EntityTreeSheet> for EntityTreePresheet {
     fn into(self) -> EntityTreeSheet {
-        EntityTreeSheet::new(self.module_path, self.module_symbols)
+        EntityTreeSheet::new(self.module_path, self.module_symbols, self.associated_items)
     }
 }
 
@@ -93,6 +94,7 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
             entity_use_trackers: self.entity_use_trackers,
             use_all_trackers: Default::default(),
             errors: self.errors,
+            associated_items: Default::default(),
         }
     }
 

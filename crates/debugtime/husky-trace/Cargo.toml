@@ -22,7 +22,7 @@ husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-text = { path = "../../lex/husky-text" }
-husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
+husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }

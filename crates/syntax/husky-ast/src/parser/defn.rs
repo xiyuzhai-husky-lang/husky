@@ -1,5 +1,5 @@
-use husky_entity_kind::{ModuleItemKind, TypeKind};
 use husky_entity_path::{AssociatedItemPath, ModuleItemPath, ModuleItemVariantPath};
+use husky_entity_taxonomy::{ModuleItemKind, TypeKind};
 use husky_print_utils::p;
 
 use super::*;

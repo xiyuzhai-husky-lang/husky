@@ -15,8 +15,8 @@ pub use range::*;
 pub use specs::*;
 pub use use_expr::*;
 
-use husky_entity_kind::EntityKind;
 use husky_entity_path::{EntityPath, ModuleItemVariantPath};
+use husky_entity_taxonomy::EntityKind;
 use husky_text::*;
 use husky_token::TokenGroupIdx;
 use husky_vfs::*;
