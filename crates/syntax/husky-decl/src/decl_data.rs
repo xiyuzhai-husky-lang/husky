@@ -9,6 +9,8 @@ pub use trai::*;
 pub use ty::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum DeclData {
+pub enum Decl {
+    Type(TypeDecl),
     Form(FormDecl),
+    Trait(TraitDecl),
 }
