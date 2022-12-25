@@ -13,6 +13,8 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             ResolvedTokenKind::Suffix(opr) => {
                 Ok(self.accept_suffix_opr(/* ad hoc */ opr.clone(), token.text_end()))
             }
+            ResolvedTokenKind::Bra(_) => todo!(),
+            ResolvedTokenKind::Ket(_) => todo!(),
         }
     }
 

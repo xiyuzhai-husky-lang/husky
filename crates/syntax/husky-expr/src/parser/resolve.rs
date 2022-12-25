@@ -19,8 +19,8 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             TokenKind::Identifier(ident) => self.resolve_ident(ident),
             TokenKind::Special(special) => match special {
                 SpecialToken::BinaryOpr(opr) => ResolvedTokenKind::BinaryOpr(opr),
-                SpecialToken::Bra(_) => todo!(),
-                SpecialToken::Ket(_) => todo!(),
+                SpecialToken::Bra(bra) => ResolvedTokenKind::Bra(bra),
+                SpecialToken::Ket(ket) => ResolvedTokenKind::Ket(ket),
                 SpecialToken::LAngle => todo!(),
                 SpecialToken::RAngle => todo!(),
                 SpecialToken::DeriveAssign => todo!(),
@@ -142,6 +142,8 @@ pub(crate) enum ResolvedTokenKind {
     BinaryOpr(BinaryOpr),
     Prefix(PrefixOpr),
     Suffix(RawSuffixOpr),
+    Bra(Bracket),
+    Ket(Bracket),
 }
 
 impl From<Symbol> for ResolvedTokenKind {
