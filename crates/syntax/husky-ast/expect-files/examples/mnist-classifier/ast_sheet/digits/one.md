@@ -609,12 +609,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::digits::one::one_fermi_match`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::digits::one`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 210,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `one_fermi_match`,
@@ -638,12 +650,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::digits::one::is_one`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::digits::one`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 91,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `is_one`,
@@ -667,12 +691,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::digits::one::upmost`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::digits::one`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 211,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `upmost`,
@@ -696,12 +732,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::digits::one::downmost`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::digits::one`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 205,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `downmost`,
@@ -725,12 +773,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::digits::one::hat`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::digits::one`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 212,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `hat`,

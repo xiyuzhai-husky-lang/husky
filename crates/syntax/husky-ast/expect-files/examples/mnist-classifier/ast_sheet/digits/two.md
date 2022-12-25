@@ -613,12 +613,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::digits::two::two_match`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::digits::two`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 265,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `two_match`,
@@ -642,12 +654,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::digits::two::left_cc_pattern`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::digits::two`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 266,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `left_cc_pattern`,
@@ -671,12 +695,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::digits::two::right_cc_pattern`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::digits::two`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 267,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `right_cc_pattern`,
@@ -700,12 +736,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::digits::two::down_cc_pattern`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::digits::two`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 268,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `down_cc_pattern`,
@@ -729,12 +777,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::digits::two::is_two`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::digits::two`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 99,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `is_two`,

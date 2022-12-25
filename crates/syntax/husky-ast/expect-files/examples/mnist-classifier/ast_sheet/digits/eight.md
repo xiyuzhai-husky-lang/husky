@@ -323,12 +323,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::digits::eight::upper_mouth_match`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::digits::eight`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 166,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `upper_mouth_match`,
@@ -352,12 +364,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::digits::eight::is_eight`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::digits::eight`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 95,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `is_eight`,
@@ -381,12 +405,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::digits::eight::big_mouth`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::digits::eight`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 169,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `big_mouth`,

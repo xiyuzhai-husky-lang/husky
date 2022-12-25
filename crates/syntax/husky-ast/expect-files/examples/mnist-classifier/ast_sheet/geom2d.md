@@ -50,7 +50,9 @@ Ok(
                         0..1,
                     ),
                     accessibility: Public,
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `from_i_shift28`,
                     is_generic: false,
@@ -73,7 +75,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `vector`,
                     is_generic: false,
@@ -96,7 +100,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `to`,
                     is_generic: false,
@@ -119,7 +125,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `norm`,
                     is_generic: false,
@@ -142,7 +150,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `dist`,
                     is_generic: false,
@@ -436,7 +446,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `point`,
                     is_generic: false,
@@ -459,7 +471,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `to`,
                     is_generic: false,
@@ -482,7 +496,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `norm`,
                     is_generic: false,
@@ -505,7 +521,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `dot`,
                     is_generic: false,
@@ -528,7 +546,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `cross`,
                     is_generic: false,
@@ -551,7 +571,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `angle`,
                     is_generic: false,
@@ -579,7 +601,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `rotation_direction_to`,
                     is_generic: false,
@@ -602,7 +626,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `angle_to`,
                     is_generic: false,
@@ -681,7 +707,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `relative_range`,
                     is_generic: false,
@@ -704,7 +732,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `relative_point`,
                     is_generic: false,
@@ -743,7 +773,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `relative_bounding_box`,
                     is_generic: false,
@@ -766,7 +798,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `relative_point`,
                     is_generic: false,
@@ -789,7 +823,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `xmin`,
                     is_generic: false,
@@ -812,7 +848,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `xmax`,
                     is_generic: false,
@@ -835,7 +873,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `ymin`,
                     is_generic: false,
@@ -858,7 +898,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `ymax`,
                     is_generic: false,
@@ -913,7 +955,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `xmin`,
                     is_generic: false,
@@ -936,7 +980,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `xmax`,
                     is_generic: false,
@@ -959,7 +1005,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `ymin`,
                     is_generic: false,
@@ -982,7 +1030,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `ymax`,
                     is_generic: false,
@@ -1005,14 +1055,26 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Type(
+                    entity_kind: ModuleItem {
+                        item_kind: Type(
                             Struct,
                         ),
-                    ),
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::geom2d::Point2d`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 294,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `Point2d`,
@@ -1044,14 +1106,26 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Type(
+                    entity_kind: ModuleItem {
+                        item_kind: Type(
                             Struct,
                         ),
-                    ),
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::geom2d::RelativePoint2d`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 300,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `RelativePoint2d`,
@@ -1075,14 +1149,26 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Type(
+                    entity_kind: ModuleItem {
+                        item_kind: Type(
                             Struct,
                         ),
-                    ),
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::geom2d::Vector2d`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 297,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `Vector2d`,
@@ -1114,14 +1200,26 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Type(
+                    entity_kind: ModuleItem {
+                        item_kind: Type(
                             Struct,
                         ),
-                    ),
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::geom2d::ClosedRange`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 314,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `ClosedRange`,
@@ -1153,14 +1251,26 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Type(
+                    entity_kind: ModuleItem {
+                        item_kind: Type(
                             Struct,
                         ),
-                    ),
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::geom2d::BoundingBox`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 319,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `BoundingBox`,
@@ -1192,14 +1302,26 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Type(
+                    entity_kind: ModuleItem {
+                        item_kind: Type(
                             Struct,
                         ),
-                    ),
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::geom2d::RelativeBoundingBox`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 322,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `RelativeBoundingBox`,

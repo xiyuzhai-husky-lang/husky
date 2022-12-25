@@ -16,7 +16,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `add`,
                     is_generic: false,
@@ -55,14 +57,26 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Type(
+                    entity_kind: ModuleItem {
+                        item_kind: Type(
                             Inductive,
                         ),
-                    ),
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `natural_number_game::Nat`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `natural_number_game`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 442,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `Nat`,
@@ -126,14 +140,26 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Type(
+                    entity_kind: ModuleItem {
+                        item_kind: Type(
                             Structure,
                         ),
-                    ),
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `natural_number_game::OddNat`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `natural_number_game`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 446,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `OddNat`,
@@ -157,14 +183,26 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Type(
+                    entity_kind: ModuleItem {
+                        item_kind: Type(
                             Structure,
                         ),
-                    ),
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `natural_number_game::EvenNat`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `natural_number_game`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 449,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `EvenNat`,

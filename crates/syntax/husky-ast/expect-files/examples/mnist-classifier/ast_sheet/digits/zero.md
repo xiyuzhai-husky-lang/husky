@@ -337,12 +337,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::digits::zero::open_one_match`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::digits::zero`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 281,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `open_one_match`,
@@ -366,12 +378,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::digits::zero::almost_closed`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::digits::zero`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 282,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `almost_closed`,
@@ -395,12 +419,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::digits::zero::is_zero`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::digits::zero`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 93,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `is_zero`,

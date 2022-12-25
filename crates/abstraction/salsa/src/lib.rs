@@ -5,6 +5,7 @@ pub mod database;
 pub mod debug;
 pub mod durability;
 pub mod event;
+pub mod ext;
 pub mod function;
 pub mod hash;
 pub mod id;

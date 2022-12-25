@@ -62,14 +62,26 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Type(
+                    entity_kind: ModuleItem {
+                        item_kind: Type(
                             Struct,
                         ),
-                    ),
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 341,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `ConvexCompoent`,

@@ -34,7 +34,9 @@ Ok(
                         0..2,
                     ),
                     accessibility: Public,
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `new`,
                     is_generic: false,
@@ -57,7 +59,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `displacement`,
                     is_generic: false,
@@ -208,7 +212,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `concave_components`,
                     is_generic: false,
@@ -231,7 +237,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `bounding_box`,
                     is_generic: false,
@@ -248,7 +256,9 @@ Ok(
                         20..21,
                     ),
                     accessibility: Public,
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `new`,
                     is_generic: false,
@@ -1513,14 +1523,26 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Type(
+                    entity_kind: ModuleItem {
+                        item_kind: Type(
                             Struct,
                         ),
-                    ),
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::line_segment_sketch::LineSegmentStroke`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 325,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `LineSegmentStroke`,
@@ -1552,14 +1574,26 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Type(
+                    entity_kind: ModuleItem {
+                        item_kind: Type(
                             Struct,
                         ),
-                    ),
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::line_segment_sketch::LineSegmentSketch`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 324,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `LineSegmentSketch`,
@@ -1591,12 +1625,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::line_segment_sketch::go_right`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 359,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `go_right`,
@@ -1620,12 +1666,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::line_segment_sketch::go_left`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 364,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `go_left`,
@@ -1649,12 +1707,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::line_segment_sketch::extend_end`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 365,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `extend_end`,
@@ -1678,12 +1748,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::line_segment_sketch::extend_start`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 373,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `extend_start`,
@@ -1707,12 +1789,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::line_segment_sketch::find_line_segments`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 85,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `find_line_segments`,

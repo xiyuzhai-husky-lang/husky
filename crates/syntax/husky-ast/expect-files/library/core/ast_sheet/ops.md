@@ -16,14 +16,34 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Type(
+                    entity_kind: AssociatedItem {
+                        item_kind: Type(
                             Form,
                         ),
-                    ),
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `core::ops::Output`,
+                        AssociatedItem(
+                            AssociatedItemPath {
+                                parent_path: Connected(
+                                    ConnectedModuleItemPath {
+                                        module_path: `core::ops`,
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 22,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 30,
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ident: `Output`,
@@ -47,11 +67,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: Some(
                         AssociatedItem(
                             AssociatedItemPath {
-                                parent_path: `core::ops::Add`,
+                                parent_path: Connected(
+                                    ConnectedModuleItemPath {
+                                        module_path: `core::ops`,
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 22,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
                                 ident: Identifier(
                                     Word(
                                         Id {
@@ -82,12 +115,24 @@ Ok(
                         0..2,
                     ),
                     accessibility: Public,
-                    entity_kind: ModuleItem(
-                        Trait,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Trait,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `core::ops::Add`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `core::ops`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 22,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `Add`,

@@ -8,7 +8,18 @@ Ok(
                     `mnist_classifier::digits::nine`,
                 ),
                 ast_idx: 54,
-                path: `mnist_classifier::digits::nine::nine_match`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `mnist_classifier::digits::nine`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 204,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
             ModuleItem {
                 ident: `nine_match_refine`,
@@ -16,7 +27,18 @@ Ok(
                     `mnist_classifier::digits::nine`,
                 ),
                 ast_idx: 55,
-                path: `mnist_classifier::digits::nine::nine_match_refine`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `mnist_classifier::digits::nine`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 206,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
             ModuleItem {
                 ident: `is_nine`,
@@ -24,7 +46,18 @@ Ok(
                     `mnist_classifier::digits::nine`,
                 ),
                 ast_idx: 56,
-                path: `mnist_classifier::digits::nine::is_nine`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `mnist_classifier::digits::nine`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 97,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
             ModuleItem {
                 ident: `downmost`,
@@ -32,7 +65,18 @@ Ok(
                     `mnist_classifier::digits::nine`,
                 ),
                 ast_idx: 57,
-                path: `mnist_classifier::digits::nine::downmost`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `mnist_classifier::digits::nine`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 205,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
             ModuleItem {
                 ident: `big_cc`,
@@ -40,7 +84,18 @@ Ok(
                     `mnist_classifier::digits::nine`,
                 ),
                 ast_idx: 58,
-                path: `mnist_classifier::digits::nine::big_cc`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `mnist_classifier::digits::nine`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 207,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

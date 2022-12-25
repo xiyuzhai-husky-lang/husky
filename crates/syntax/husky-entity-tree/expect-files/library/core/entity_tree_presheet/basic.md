@@ -6,19 +6,52 @@ Ok(
                 ident: `bool`,
                 accessibility: Public,
                 ast_idx: 0,
-                path: `core::basic::bool`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `core::basic`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 7,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
             ModuleItem {
                 ident: `Trait`,
                 accessibility: Public,
                 ast_idx: 1,
-                path: `core::basic::Trait`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `core::basic`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 8,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
             ModuleItem {
                 ident: `Module`,
                 accessibility: Public,
                 ast_idx: 2,
-                path: `core::basic::Module`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `core::basic`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 9,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

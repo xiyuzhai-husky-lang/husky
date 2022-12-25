@@ -8,7 +8,18 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 79,
-                path: `mnist_classifier::geom2d::Point2d`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `mnist_classifier::geom2d`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 294,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
             ModuleItem {
                 ident: `RelativePoint2d`,
@@ -16,7 +27,18 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 81,
-                path: `mnist_classifier::geom2d::RelativePoint2d`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `mnist_classifier::geom2d`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 300,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
             ModuleItem {
                 ident: `Vector2d`,
@@ -24,7 +46,18 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 82,
-                path: `mnist_classifier::geom2d::Vector2d`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `mnist_classifier::geom2d`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 297,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
             ModuleItem {
                 ident: `ClosedRange`,
@@ -32,7 +65,18 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 84,
-                path: `mnist_classifier::geom2d::ClosedRange`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `mnist_classifier::geom2d`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 314,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
             ModuleItem {
                 ident: `BoundingBox`,
@@ -40,7 +84,18 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 86,
-                path: `mnist_classifier::geom2d::BoundingBox`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `mnist_classifier::geom2d`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 319,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
             ModuleItem {
                 ident: `RelativeBoundingBox`,
@@ -48,7 +103,18 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 88,
-                path: `mnist_classifier::geom2d::RelativeBoundingBox`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `mnist_classifier::geom2d`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 322,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

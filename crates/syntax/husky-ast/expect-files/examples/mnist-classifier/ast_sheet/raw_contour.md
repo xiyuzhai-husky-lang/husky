@@ -232,7 +232,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `line_segment_sketch`,
                     is_generic: false,
@@ -255,7 +257,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `bounding_box`,
                     is_generic: false,
@@ -278,7 +282,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `relative_bounding_box`,
                     is_generic: false,
@@ -301,7 +307,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `contour_len`,
                     is_generic: false,
@@ -324,7 +332,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `displacement`,
                     is_generic: false,
@@ -1755,14 +1765,26 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Type(
+                    entity_kind: ModuleItem {
+                        item_kind: Type(
                             Struct,
                         ),
-                    ),
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::raw_contour::RawContour`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::raw_contour`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 111,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `RawContour`,
@@ -1794,14 +1816,26 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Type(
+                    entity_kind: ModuleItem {
+                        item_kind: Type(
                             Enum,
                         ),
-                    ),
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::raw_contour::Direction`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::raw_contour`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 397,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `Direction`,
@@ -1857,12 +1891,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::raw_contour::get_pixel_pair`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::raw_contour`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 402,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `get_pixel_pair`,
@@ -1886,12 +1932,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::raw_contour::get_pixel_to_the_left`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::raw_contour`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 404,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `get_pixel_to_the_left`,
@@ -1915,12 +1973,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::raw_contour::get_pixel_to_the_right`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::raw_contour`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 405,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `get_pixel_to_the_right`,
@@ -1944,12 +2014,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::raw_contour::get_inward_direction`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::raw_contour`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 406,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `get_inward_direction`,
@@ -1973,12 +2055,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::raw_contour::get_angle_change`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::raw_contour`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 414,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `get_angle_change`,
@@ -2002,12 +2096,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::raw_contour::get_outward_direction`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::raw_contour`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 419,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `get_outward_direction`,
@@ -2031,14 +2137,26 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Type(
+                    entity_kind: ModuleItem {
+                        item_kind: Type(
                             Struct,
                         ),
-                    ),
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::raw_contour::StreakCache`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::raw_contour`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 421,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `StreakCache`,
@@ -2062,12 +2180,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::raw_contour::get_concave_middle_point`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::raw_contour`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 424,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `get_concave_middle_point`,
@@ -2091,12 +2221,24 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
+                    entity_kind: ModuleItem {
+                        item_kind: Form,
+                        connection: Connected,
+                    },
                     entity_path: Some(
-                        ModuleItem(
-                            `mnist_classifier::raw_contour::find_raw_contours`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module_path: `mnist_classifier::raw_contour`,
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 84,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `find_raw_contours`,
