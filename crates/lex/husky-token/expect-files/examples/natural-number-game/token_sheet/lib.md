@@ -370,7 +370,7 @@ Ok(
             Token {
                 range: [8:37, 8:38),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1006,7 +1006,7 @@ Ok(
             Token {
                 range: [15:43, 15:44),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1236,7 +1236,7 @@ Ok(
             Token {
                 range: [20:33, 20:34),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {

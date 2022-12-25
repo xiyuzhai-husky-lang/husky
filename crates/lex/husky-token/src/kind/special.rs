@@ -13,7 +13,7 @@ pub enum SpecialToken {
     Minus,             // -
     DoubleVertical,    // ||
     BitNot,            // ~
-    FieldAccess,       // .
+    Dot,               // .
     Colon,             // :
     Comma,             // ,
     Ambersand,         // &
@@ -47,7 +47,7 @@ impl SpecialToken {
             SpecialToken::Minus => "-",
             SpecialToken::DoubleVertical => "||",
             SpecialToken::BitNot => "~",
-            SpecialToken::FieldAccess => ".",
+            SpecialToken::Dot => ".",
             SpecialToken::Colon => ":",
             SpecialToken::Comma => ",",
             SpecialToken::Ambersand => "&",

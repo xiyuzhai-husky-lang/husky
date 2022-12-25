@@ -1,25 +1,26 @@
 use super::*;
 
 impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
-    pub(super) fn synthesize_all_above(&mut self, threshold: Precedence) -> ExprSyntaxResult<()> {
-        while let Some(stack_opr) = self.stack.top_opr() {
+    pub(super) fn synthesize_all_above(&mut self, threshold: Precedence) -> ExprResult<()> {
+        while let Some(stack_opr) = self.top_opr() {
             if stack_opr.precedence() >= threshold {
-                let stack_opr = self.stack.pop_opr().unwrap();
-                match stack_opr.variant {
-                    OnStackOprVariant::Binary(binary) => self.synthesize_binary(binary),
-                    OnStackOprVariant::Prefix { prefix, start } => {
-                        self.synthesize_prefix(prefix, start)
-                    }
-                    OnStackOprVariant::LambdaHead { inputs, start } => {
-                        self.synthesize_lambda(inputs, start)
-                    }
-                    OnStackOprVariant::ListItem(_position) => {
-                        let (_bra, _start) = loop {
-                            if let Some(opr) = self.stack.pop_opr() {
-                                match opr.variant {
-                                    OnStackOprVariant::ListStart { bra, start, .. } => {
-                                        break (bra, start)
-                                    }
+                let stack_opr = self.pop_opr().unwrap();
+                match stack_opr {
+                    StackOpr::Binary { binary, .. } => self.synthesize_binary(binary),
+                    StackOpr::Prefix {
+                        prefix,
+                        prefix_token_idx,
+                    } => self.synthesize_prefix(prefix, prefix_token_idx),
+                    StackOpr::LambdaHead { inputs, start } => self.synthesize_lambda(inputs, start),
+                    StackOpr::ListItem { .. } => {
+                        let (_bra, bra_token) = loop {
+                            if let Some(opr) = self.pop_opr() {
+                                match opr {
+                                    StackOpr::ListStart {
+                                        bra,
+                                        bra_token_idx: bra_token,
+                                        ..
+                                    } => break (bra, bra_token),
                                     _ => (),
                                 }
                             } else {
@@ -39,7 +40,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                         //     dev_src: dev_src!(),
                         // });
                     }
-                    OnStackOprVariant::ListStart { .. } => {
+                    StackOpr::ListStart { .. } => {
                         todo!()
                         // return Err(AstError {
                         //     variant: AstErrorVariant::Original {
@@ -49,6 +50,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                         //     dev_src: dev_src!(),
                         // })
                     }
+                    StackOpr::Dot { dot_token_idx } => todo!(),
                 }
             } else {
                 return Ok(());
@@ -65,15 +67,14 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         // self.synthesize_opn(binary.into(), 2, range)
     }
 
-    fn synthesize_prefix(&mut self, prefix: PrefixOpr, start: TextPosition) {
+    fn synthesize_prefix(&mut self, prefix: PrefixOpr, prefix_token_idx: TokenIdx) {
         todo!()
         // let range = (start..self.stack.top_expr().unwrap().range.end).into();
         // self.synthesize_opn(prefix.into(), 1, range)
     }
 
-    pub(super) fn synthesize_suffix(&mut self, suffix: RawSuffixOpr, end: TextPosition) {
-        // let range = (self.stack.top_expr().unwrap().text_start()..end).into();
-        // self.synthesize_opn(suffix.into(), 1, range)
+    pub(super) fn synthesize_suffix(&mut self, suffix: RawSuffixOpr, suffix_token_idx: TokenIdx) {
+        self.synthesize_opn(suffix.into(), 1);
         todo!()
     }
 
@@ -88,17 +89,14 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         // )
     }
 
-    fn synthesize_opn(&mut self, opn_variant: RawOpnVariant, n_opds: usize, range: TextRange) {
-        todo!()
-        // let _len = self.stack.number_of_exprs();
-        // let opds = self
-        //     .arena
-        //     .alloc_batch(self.stack.drain_exprs(n_opds).into());
-        // self.stack.push_expr(Expr::new(
-        //     Expr::Opn { opn_variant, opds },
-        //     range,
-        //     self.arena,
-        // ));
+    fn synthesize_opn(&mut self, opn: Opn, nopds: usize) {
+        let opds = self.take_opds(nopds);
+        self.push_expr(Expr::Opn { opn, opds });
+    }
+
+    fn take_opds(&mut self, nopds: usize) -> ExprIdxRange {
+        let drained_exprs = self.drain_exprs(nopds);
+        self.arena.alloc_batch(drained_exprs)
     }
 
     fn synthesize_lambda(

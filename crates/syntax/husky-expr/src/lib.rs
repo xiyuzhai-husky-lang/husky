@@ -30,10 +30,8 @@ pub enum BaseScopeResult {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum Expr {
     Atom(AtomExpr),
-    Opn {
-        opn_variant: RawOpnVariant,
-        opds: ExprRange,
-    },
+    Opn { opn: Opn, opds: ExprIdxRange },
+    Bracketed(ExprIdx),
 }
 
 // impl Expr {
@@ -69,7 +67,7 @@ use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 
 pub type ExprArena = Arena<Expr>;
 pub type ExprIdx = ArenaIdx<Expr>;
-pub type ExprRange = ArenaIdxRange<Expr>;
+pub type ExprIdxRange = ArenaIdxRange<Expr>;
 pub type ExprMap<V> = ArenaMap<Expr, V>;
 
 // impl Expr {

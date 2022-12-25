@@ -1,5 +1,5 @@
 use crate::*;
-use husky_expr::{AtomExpr, ExprIdx, ExprRange};
+use husky_expr::{AtomExpr, ExprIdx, ExprIdxRange};
 use husky_print_utils::p;
 use husky_symbol::Symbol;
 use husky_term::Term;
@@ -30,7 +30,11 @@ impl<'a> InferContext<'a> {
         }
     }
 
-    fn infer_opn(&mut self, opn_kind: NormalizedOpnKind, opds: ExprRange) -> TermInferResult<Term> {
+    fn infer_opn(
+        &mut self,
+        opn_kind: NormalizedOpnKind,
+        opds: ExprIdxRange,
+    ) -> TermInferResult<Term> {
         match opn_kind {
             NormalizedOpnKind::ApplyMethod {
                 opt_trait_entity,

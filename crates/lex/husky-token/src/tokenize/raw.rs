@@ -353,7 +353,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                     _ => SpecialToken::Vertical,
                 },
                 '~' => SpecialToken::BitNot,
-                '.' => SpecialToken::FieldAccess,
+                '.' => SpecialToken::Dot,
                 ';' => SpecialToken::Semicolon,
                 '%' => {
                     SpecialToken::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::RemEuclid))

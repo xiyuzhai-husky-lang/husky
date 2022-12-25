@@ -190,7 +190,7 @@ Ok(
             Token {
                 range: [2:18, 2:19),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1816,7 +1816,7 @@ Ok(
             Token {
                 range: [26:16, 26:17),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1928,7 +1928,7 @@ Ok(
             Token {
                 range: [27:8, 27:9),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {

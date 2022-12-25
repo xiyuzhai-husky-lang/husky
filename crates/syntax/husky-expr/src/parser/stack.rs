@@ -2,50 +2,59 @@ use super::*;
 
 #[derive(Default)]
 pub(crate) struct AutomataStack {
-    oprs: Vec<OnStackOpr>,
+    oprs: Vec<(StackOpr, Precedence)>,
     exprs: Vec<Expr>,
 }
 
-impl AutomataStack {
+impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
+    pub(super) fn number_of_oprs(&self) -> usize {
+        self.stack.oprs.len()
+    }
+
     pub(super) fn number_of_exprs(&self) -> usize {
-        self.exprs.len()
-    }
-
-    pub(super) fn top_opr(&self) -> Option<&OnStackOpr> {
-        self.oprs.last()
-    }
-
-    pub(super) fn push_opr(&mut self, opr: OnStackOpr) {
-        self.oprs.push(opr)
-    }
-
-    pub(super) fn pop_opr(&mut self) -> Option<OnStackOpr> {
-        self.oprs.pop()
+        self.stack.exprs.len()
     }
 
     pub(super) fn top_expr(&self) -> Option<&Expr> {
-        self.exprs.last()
-    }
-
-    pub(super) fn push_expr(&mut self, expr: Expr) {
-        self.exprs.push(expr)
+        self.stack.exprs.last()
     }
 
     pub(super) fn pop_expr(&mut self) -> Option<Expr> {
-        self.exprs.pop()
+        self.stack.exprs.pop()
     }
 
     pub(super) fn topk_exprs(&self, k: usize) -> &[Expr] {
-        &self.exprs[(self.exprs.len() - k)..]
+        &self.stack.exprs[(self.stack.exprs.len() - k)..]
+    }
+
+    pub(super) fn last_token_in_exprs(&self) -> TokenIdx {
+        todo!()
+    }
+    pub(super) fn expr(&self, idx: usize) -> &Expr {
+        &self.stack.exprs[idx]
+    }
+
+    pub(super) fn push_expr(&mut self, expr: Expr) {
+        self.stack.exprs.push(expr)
+    }
+
+    pub(super) fn push_opr(&mut self, opr: StackOpr) {
+        let precedence = opr.precedence();
+        self.stack.oprs.push((opr, precedence))
+    }
+
+    pub(super) fn top_opr(&self) -> Option<&StackOpr> {
+        self.stack.oprs.last().map(|(opr, _)| opr)
+    }
+
+    pub(super) fn pop_opr(&mut self) -> Option<StackOpr> {
+        self.stack.oprs.pop().map(|(opr, _)| opr)
     }
 
     pub(super) fn drain_exprs(&mut self, k: usize) -> Vec<Expr> {
-        self.exprs.drain((self.exprs.len() - k)..).collect()
-    }
-}
-
-impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
-    pub(super) fn expr(&self, idx: usize) -> &Expr {
-        &self.stack.exprs[idx]
+        self.stack
+            .exprs
+            .drain((self.stack.exprs.len() - k)..)
+            .collect()
     }
 }

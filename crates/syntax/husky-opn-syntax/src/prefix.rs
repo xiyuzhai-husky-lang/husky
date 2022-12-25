@@ -9,9 +9,9 @@ pub enum PrefixOpr {
     Move,   // !$0 after WithType or Vec or Array
 }
 
-impl Into<RawOpnVariant> for PrefixOpr {
-    fn into(self) -> RawOpnVariant {
-        RawOpnVariant::Prefix(self)
+impl Into<Opn> for PrefixOpr {
+    fn into(self) -> Opn {
+        Opn::Prefix(self)
     }
 }
 

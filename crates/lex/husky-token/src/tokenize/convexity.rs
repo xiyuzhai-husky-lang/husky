@@ -53,7 +53,7 @@ impl Token {
                 SpecialToken::Minus => todo!(),
                 SpecialToken::DoubleVertical => todo!(),
                 SpecialToken::BitNot => todo!(),
-                SpecialToken::FieldAccess => Convexity::Concave,
+                SpecialToken::Dot => Convexity::Concave,
                 SpecialToken::Colon => Convexity::Any,
                 SpecialToken::Comma => Convexity::Concave,
                 SpecialToken::Ambersand => todo!(),

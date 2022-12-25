@@ -11,7 +11,7 @@ pub use suffix::*;
 use husky_text::RangedIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum RawOpnVariant {
+pub enum Opn {
     Binary(BinaryOpr),
     Prefix(PrefixOpr),
     Suffix(RawSuffixOpr),

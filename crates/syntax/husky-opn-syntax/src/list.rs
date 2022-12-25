@@ -12,9 +12,9 @@ pub enum ListOpr {
     MethodCall { ranged_ident: RangedIdentifier },
 }
 
-impl Into<RawOpnVariant> for ListOpr {
-    fn into(self) -> RawOpnVariant {
-        RawOpnVariant::List(self)
+impl Into<Opn> for ListOpr {
+    fn into(self) -> Opn {
+        Opn::List(self)
     }
 }
 

@@ -5,10 +5,10 @@ use husky_term::Term;
 use husky_token::SpecialToken;
 
 impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
-    pub(crate) fn resolve_token(&self, token: &Token) -> ResolvedToken {
+    pub(crate) fn resolve_token(&self, token_idx: TokenIdx, token: &Token) -> ResolvedToken {
         ResolvedToken {
+            token_idx,
             kind: self.resolve_token_kind(token),
-            range: token.range,
         }
     }
 
@@ -30,7 +30,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 SpecialToken::Decr => ResolvedTokenKind::Suffix(RawSuffixOpr::Decr),
                 SpecialToken::DoubleVertical => todo!(),
                 SpecialToken::BitNot => todo!(),
-                SpecialToken::FieldAccess => todo!(),
+                SpecialToken::Dot => ResolvedTokenKind::Dot,
                 SpecialToken::BinaryOpr(BinaryOpr::Curry) => todo!(),
                 SpecialToken::BinaryOpr(BinaryOpr::ScopeResolution) => todo!(),
                 SpecialToken::Colon => todo!(),
@@ -79,7 +79,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     }
 
     fn resolve_previous_entity(&self) -> Option<Term> {
-        self.stack.top_expr().map(|expr| self.resolve_entity(expr))
+        self.top_expr().map(|expr| self.resolve_entity(expr))
     }
 
     fn resolve_entity(&self, expr: &Expr) -> Term {
@@ -110,13 +110,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
 #[derive(Clone)]
 pub(crate) struct ResolvedToken {
     kind: ResolvedTokenKind,
-    range: TextRange,
-}
-
-impl HasTextRange for ResolvedToken {
-    fn text_range(&self) -> TextRange {
-        self.range
-    }
+    token_idx: TokenIdx,
 }
 
 impl ResolvedToken {
@@ -134,6 +128,10 @@ impl ResolvedToken {
         // };
         // Expr::new(variant, self.range, arena)
     }
+
+    pub(crate) fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
 }
 
 #[derive(Clone)]
@@ -144,6 +142,7 @@ pub(crate) enum ResolvedTokenKind {
     Suffix(RawSuffixOpr),
     Bra(Bracket),
     Ket(Bracket),
+    Dot,
 }
 
 impl From<Symbol> for ResolvedTokenKind {
