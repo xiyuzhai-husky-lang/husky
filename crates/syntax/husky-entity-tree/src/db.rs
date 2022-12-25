@@ -22,6 +22,7 @@ pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + AstDb + EntityPathDb + Manife
     fn all_modules_within_crate(&self, crate_path: CratePath) -> VfsResult<&[ModulePath]>;
     fn entity_tree_bundle(&self, crate_path: CratePath) -> EntityTreeResult<&EntityTreeBundle>;
     fn entity_tree_sheet(&self, module_path: ModulePath) -> EntityTreeResult<&EntityTreeSheet>;
+    fn crate_prelude<'a>(&'a self, crate_path: CratePath) -> EntityTreeResult<CratePrelude<'a>>;
 }
 
 impl<T> EntityTreeDb for T
@@ -55,5 +56,9 @@ where
 
     fn entity_tree_sheet(&self, module_path: ModulePath) -> EntityTreeResult<&EntityTreeSheet> {
         entity_tree_sheet(self, module_path)
+    }
+
+    fn crate_prelude<'a>(&'a self, crate_path: CratePath) -> EntityTreeResult<CratePrelude<'a>> {
+        crate_prelude(self, crate_path)
     }
 }

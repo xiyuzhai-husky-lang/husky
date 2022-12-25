@@ -4,14 +4,14 @@ use husky_vfs::{ModulePath, VfsResult};
 use salsa::DbWithJar;
 
 pub trait DeclDb: DbWithJar<DeclJar> + EntityTreeDb {
-    fn decl_sheet(&self, module_path: ModulePath) -> VfsResult<&DeclSheet>;
+    fn decl_sheet(&self, module_path: ModulePath) -> DeclResult<&DeclSheet>;
 }
 
 impl<Db> DeclDb for Db
 where
     Db: DbWithJar<DeclJar> + EntityTreeDb,
 {
-    fn decl_sheet(&self, module_path: ModulePath) -> VfsResult<&DeclSheet> {
+    fn decl_sheet(&self, module_path: ModulePath) -> DeclResult<&DeclSheet> {
         Ok(decl_sheet(self, module_path).as_ref()?)
     }
 }
