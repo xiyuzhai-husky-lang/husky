@@ -39,7 +39,7 @@ impl crate::options::AllowedOptions for Accumulator {
 
     const CONSTRUCTOR_NAME: bool = false;
 
-    const DERIVE_DEBUG_WITH_DB: bool = false;
+    const OVERRIDE_DEBUG: bool = false;
 }
 
 fn accumulator_contents(

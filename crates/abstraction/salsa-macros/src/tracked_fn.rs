@@ -79,7 +79,7 @@ impl crate::options::AllowedOptions for TrackedFn {
 
     const CONSTRUCTOR_NAME: bool = false;
 
-    const DERIVE_DEBUG_WITH_DB: bool = false;
+    const OVERRIDE_DEBUG: bool = false;
 }
 
 type ImplArgs = Options<TrackedImpl>;
@@ -183,7 +183,7 @@ impl crate::options::AllowedOptions for TrackedImpl {
 
     const SINGLETON: bool = false;
 
-    const DERIVE_DEBUG_WITH_DB: bool = false;
+    const OVERRIDE_DEBUG: bool = false;
 }
 
 fn tracked_method(
