@@ -362,7 +362,7 @@ Ok(
             Token {
                 range: [12:23, 12:24),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -436,7 +436,7 @@ Ok(
             Token {
                 range: [13:24, 13:25),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -502,7 +502,7 @@ Ok(
             Token {
                 range: [13:38, 13:39),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -684,7 +684,7 @@ Ok(
             Token {
                 range: [18:23, 18:24),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -758,7 +758,7 @@ Ok(
             Token {
                 range: [19:24, 19:25),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -824,7 +824,7 @@ Ok(
             Token {
                 range: [19:38, 19:39),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1006,7 +1006,7 @@ Ok(
             Token {
                 range: [24:23, 24:24),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1080,7 +1080,7 @@ Ok(
             Token {
                 range: [25:24, 25:25),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1146,7 +1146,7 @@ Ok(
             Token {
                 range: [25:38, 25:39),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1164,7 +1164,7 @@ Ok(
             Token {
                 range: [25:51, 25:52),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1498,7 +1498,7 @@ Ok(
             Token {
                 range: [32:40, 32:41),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1672,7 +1672,7 @@ Ok(
             Token {
                 range: [35:22, 35:23),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1794,7 +1794,7 @@ Ok(
             Token {
                 range: [37:16, 37:17),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1832,7 +1832,7 @@ Ok(
             Token {
                 range: [37:28, 37:29),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {

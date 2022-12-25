@@ -44,9 +44,10 @@ impl<'a> InferContext<'a> {
                 AtomExpr::Uncertain(_) => todo!(),
             },
             Expr::Opn {
-                ref opn_variant,
+                opn: ref opn_variant,
                 ref opds,
             } => todo!(),
+            Expr::Bracketed(_) => todo!(),
         }
     }
 }

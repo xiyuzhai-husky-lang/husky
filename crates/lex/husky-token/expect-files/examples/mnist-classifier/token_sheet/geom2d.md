@@ -526,7 +526,7 @@ Ok(
             Token {
                 range: [11:22, 11:23),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -562,7 +562,7 @@ Ok(
             Token {
                 range: [11:30, 11:31),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -712,7 +712,7 @@ Ok(
             Token {
                 range: [14:23, 14:24),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -752,7 +752,7 @@ Ok(
             Token {
                 range: [14:32, 14:33),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -788,7 +788,7 @@ Ok(
             Token {
                 range: [14:41, 14:42),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -828,7 +828,7 @@ Ok(
             Token {
                 range: [14:50, 14:51),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -936,7 +936,7 @@ Ok(
             Token {
                 range: [17:14, 17:15),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -976,7 +976,7 @@ Ok(
             Token {
                 range: [17:23, 17:24),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1016,7 +1016,7 @@ Ok(
             Token {
                 range: [17:32, 17:33),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1056,7 +1056,7 @@ Ok(
             Token {
                 range: [17:41, 17:42),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1082,7 +1082,7 @@ Ok(
             Token {
                 range: [17:44, 17:45),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1220,7 +1220,7 @@ Ok(
             Token {
                 range: [20:13, 20:14),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1266,7 +1266,7 @@ Ok(
             Token {
                 range: [20:23, 20:24),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1634,7 +1634,7 @@ Ok(
             Token {
                 range: [34:21, 34:22),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1670,7 +1670,7 @@ Ok(
             Token {
                 range: [34:29, 34:30),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1820,7 +1820,7 @@ Ok(
             Token {
                 range: [37:23, 37:24),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1860,7 +1860,7 @@ Ok(
             Token {
                 range: [37:32, 37:33),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1896,7 +1896,7 @@ Ok(
             Token {
                 range: [37:41, 37:42),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1936,7 +1936,7 @@ Ok(
             Token {
                 range: [37:50, 37:51),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -2044,7 +2044,7 @@ Ok(
             Token {
                 range: [40:14, 40:15),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -2084,7 +2084,7 @@ Ok(
             Token {
                 range: [40:23, 40:24),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -2124,7 +2124,7 @@ Ok(
             Token {
                 range: [40:32, 40:33),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -2164,7 +2164,7 @@ Ok(
             Token {
                 range: [40:41, 40:42),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -2190,7 +2190,7 @@ Ok(
             Token {
                 range: [40:44, 40:45),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -2328,7 +2328,7 @@ Ok(
             Token {
                 range: [43:13, 43:14),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -2368,7 +2368,7 @@ Ok(
             Token {
                 range: [43:23, 43:24),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -2408,7 +2408,7 @@ Ok(
             Token {
                 range: [43:32, 43:33),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -2448,7 +2448,7 @@ Ok(
             Token {
                 range: [43:42, 43:43),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -2570,7 +2570,7 @@ Ok(
             Token {
                 range: [46:13, 46:14),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -2610,7 +2610,7 @@ Ok(
             Token {
                 range: [46:23, 46:24),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -2650,7 +2650,7 @@ Ok(
             Token {
                 range: [46:32, 46:33),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -2690,7 +2690,7 @@ Ok(
             Token {
                 range: [46:42, 46:43),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -2842,7 +2842,7 @@ Ok(
             Token {
                 range: [49:26, 49:27),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -2882,7 +2882,7 @@ Ok(
             Token {
                 range: [49:33, 49:34),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -2924,7 +2924,7 @@ Ok(
             Token {
                 range: [49:41, 49:42),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -3124,7 +3124,7 @@ Ok(
             Token {
                 range: [56:18, 56:19),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -3142,7 +3142,7 @@ Ok(
             Token {
                 range: [56:20, 56:21),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -3224,7 +3224,7 @@ Ok(
             Token {
                 range: [56:47, 56:48),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -3440,7 +3440,7 @@ Ok(
             Token {
                 range: [63:21, 63:22),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -3498,7 +3498,7 @@ Ok(
             Token {
                 range: [64:14, 64:15),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -3694,7 +3694,7 @@ Ok(
             Token {
                 range: [67:25, 67:26),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -3798,7 +3798,7 @@ Ok(
             Token {
                 range: [69:27, 69:28),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -3910,7 +3910,7 @@ Ok(
             Token {
                 range: [71:26, 71:27),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -4024,7 +4024,7 @@ Ok(
             Token {
                 range: [71:65, 71:66),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -4246,7 +4246,7 @@ Ok(
             Token {
                 range: [78:30, 78:31),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -4340,7 +4340,7 @@ Ok(
             Token {
                 range: [78:79, 78:80),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -4786,7 +4786,7 @@ Ok(
             Token {
                 range: [90:25, 90:26),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -4898,7 +4898,7 @@ Ok(
             Token {
                 range: [91:25, 91:26),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -5508,7 +5508,7 @@ Ok(
             Token {
                 range: [109:19, 109:20),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -5546,7 +5546,7 @@ Ok(
             Token {
                 range: [109:40, 109:41),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -5590,7 +5590,7 @@ Ok(
             Token {
                 range: [110:19, 110:20),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -5628,7 +5628,7 @@ Ok(
             Token {
                 range: [110:40, 110:41),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -5794,7 +5794,7 @@ Ok(
             Token {
                 range: [115:19, 115:20),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -5832,7 +5832,7 @@ Ok(
             Token {
                 range: [115:40, 115:41),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -5876,7 +5876,7 @@ Ok(
             Token {
                 range: [116:19, 116:20),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -5914,7 +5914,7 @@ Ok(
             Token {
                 range: [116:40, 116:41),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -6038,7 +6038,7 @@ Ok(
             Token {
                 range: [121:15, 121:16),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -6140,7 +6140,7 @@ Ok(
             Token {
                 range: [125:15, 125:16),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -6240,7 +6240,7 @@ Ok(
             Token {
                 range: [129:15, 129:16),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -6334,7 +6334,7 @@ Ok(
             Token {
                 range: [132:15, 132:16),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -6566,7 +6566,7 @@ Ok(
             Token {
                 range: [142:15, 142:16),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -6658,7 +6658,7 @@ Ok(
             Token {
                 range: [145:15, 145:16),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -6750,7 +6750,7 @@ Ok(
             Token {
                 range: [148:15, 148:16),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -6842,7 +6842,7 @@ Ok(
             Token {
                 range: [151:15, 151:16),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {

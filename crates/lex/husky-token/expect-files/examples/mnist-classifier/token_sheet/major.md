@@ -532,7 +532,7 @@ Ok(
             Token {
                 range: [12:33, 12:34),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -642,7 +642,7 @@ Ok(
             Token {
                 range: [13:51, 13:52),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -956,7 +956,7 @@ Ok(
             Token {
                 range: [21:33, 21:34),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1060,7 +1060,7 @@ Ok(
             Token {
                 range: [22:39, 22:40),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1120,7 +1120,7 @@ Ok(
             Token {
                 range: [23:43, 23:44),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1212,7 +1212,7 @@ Ok(
             Token {
                 range: [26:30, 26:31),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1292,7 +1292,7 @@ Ok(
             Token {
                 range: [30:30, 30:31),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1392,7 +1392,7 @@ Ok(
             Token {
                 range: [33:22, 33:23),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {
@@ -1484,7 +1484,7 @@ Ok(
             Token {
                 range: [36:30, 36:31),
                 kind: Special(
-                    FieldAccess,
+                    Dot,
                 ),
             },
             Token {

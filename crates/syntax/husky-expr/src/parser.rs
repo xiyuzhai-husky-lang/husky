@@ -41,15 +41,16 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
 
     fn parse_all(mut self) -> ExprIdx {
         while !self.tokens().is_empty() {
-            let token = &self.token_iter.next().unwrap();
-            match self.accept_token(self.resolve_token(token)) {
+            let (token_idx, token) = self.token_iter.next_indexed().unwrap();
+            match self.accept_token(self.resolve_token(token_idx, token)) {
                 Ok(()) => (),
                 Err(_) => todo!(),
             }
         }
         self.synthesize_all_above(Precedence::None).expect("todo");
-        should!(self.stack.number_of_exprs() == 1);
-        self.arena.alloc_one(self.stack.pop_expr().unwrap())
+        should!(self.number_of_exprs() == 1);
+        let last_expr = self.pop_expr().unwrap();
+        self.arena.alloc_one(last_expr)
     }
 }
 

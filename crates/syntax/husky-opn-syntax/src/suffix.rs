@@ -2,13 +2,13 @@ use std::borrow::Cow;
 
 use super::*;
 
-impl From<RawSuffixOpr> for RawOpnVariant {
+impl From<RawSuffixOpr> for Opn {
     fn from(suffix: RawSuffixOpr) -> Self {
         Self::Suffix(suffix)
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum RawSuffixOpr {
     Incr, // ++
     Decr, // --

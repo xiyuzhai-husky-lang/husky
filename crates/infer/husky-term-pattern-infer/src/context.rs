@@ -44,9 +44,10 @@ impl<'a> TermPatternInferContext<'a> {
         match self.expr() {
             Expr::Atom(ref atom) => self.infer_atom(atom, sheet),
             Expr::Opn {
-                ref opn_variant,
+                opn: ref opn_variant,
                 ref opds,
             } => self.infer_opn_ty(opn_variant, opds, sheet),
+            Expr::Bracketed(_) => todo!(),
         }
     }
 
@@ -91,25 +92,25 @@ impl<'a> TermPatternInferContext<'a> {
 
     fn infer_opn_ty(
         &self,
-        opn_variant: &RawOpnVariant,
-        opds: &ExprRange,
+        opn_variant: &Opn,
+        opds: &ExprIdxRange,
         sheet: &mut TermPatternInferSheet,
     ) -> ExprTermPatternInferRawResults {
         match opn_variant {
-            RawOpnVariant::Binary(opr) => self.infer_binary_opn(*opr, opds, sheet),
-            RawOpnVariant::Prefix(_) => todo!(),
-            RawOpnVariant::Suffix(_) => todo!(),
-            RawOpnVariant::CurlBracketed => todo!(),
-            RawOpnVariant::List(_) => todo!(),
-            RawOpnVariant::Field(_) => todo!(),
-            RawOpnVariant::Abstraction => todo!(),
+            Opn::Binary(opr) => self.infer_binary_opn(*opr, opds, sheet),
+            Opn::Prefix(_) => todo!(),
+            Opn::Suffix(_) => todo!(),
+            Opn::CurlBracketed => todo!(),
+            Opn::List(_) => todo!(),
+            Opn::Field(_) => todo!(),
+            Opn::Abstraction => todo!(),
         }
     }
 
     fn infer_binary_opn(
         &self,
         opr: BinaryOpr,
-        opds: &ExprRange,
+        opds: &ExprIdxRange,
         sheet: &mut TermPatternInferSheet,
     ) -> ExprTermPatternInferRawResults {
         match opr {
@@ -190,10 +191,11 @@ impl<'a> TermPatternInferContext<'a> {
         }
     }
 
-    fn subexprs(&self) -> Option<ExprRange> {
+    fn subexprs(&self) -> Option<ExprIdxRange> {
         match self.expr() {
             Expr::Atom(_) => None,
             Expr::Opn { ref opds, .. } => Some(opds.clone()),
+            Expr::Bracketed(_) => todo!(),
         }
     }
 

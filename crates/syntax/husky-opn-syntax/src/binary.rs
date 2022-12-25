@@ -19,9 +19,9 @@ pub enum BinaryOpr {
     As,              // as
 }
 
-impl Into<RawOpnVariant> for BinaryOpr {
-    fn into(self) -> RawOpnVariant {
-        RawOpnVariant::Binary(self)
+impl Into<Opn> for BinaryOpr {
+    fn into(self) -> Opn {
+        Opn::Binary(self)
     }
 }
 

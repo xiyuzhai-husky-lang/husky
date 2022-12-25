@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_path::EntityPath;
 use husky_expr::*;
-use husky_opn_syntax::{BinaryOpr, BinaryPureClosedOpr, RawOpnVariant};
+use husky_opn_syntax::{BinaryOpr, BinaryPureClosedOpr, Opn};
 use husky_term::Term;
 use husky_word::{Identifier, WordDb};
 
@@ -9,7 +9,7 @@ pub(crate) enum NormalizedExpr<'a> {
     Atom(&'a AtomExpr),
     Opn {
         opn_kind: NormalizedOpnKind,
-        opds: ExprRange,
+        opds: ExprIdxRange,
     },
 }
 
@@ -28,20 +28,21 @@ impl<'a> InferContext<'a> {
         match self.expr() {
             Expr::Atom(ref atom) => NormalizedExpr::Atom(atom),
             Expr::Opn {
-                ref opn_variant,
+                opn: ref opn_variant,
                 ref opds,
             } => match opn_variant {
-                RawOpnVariant::Binary(opr) => NormalizedExpr::Opn {
+                Opn::Binary(opr) => NormalizedExpr::Opn {
                     opn_kind: self.resolve_binary_opr(*opr),
                     opds: opds.clone(),
                 },
-                RawOpnVariant::Prefix(_) => todo!(),
-                RawOpnVariant::Suffix(_) => todo!(),
-                RawOpnVariant::CurlBracketed => todo!(),
-                RawOpnVariant::List(_) => todo!(),
-                RawOpnVariant::Field(_) => todo!(),
-                RawOpnVariant::Abstraction => todo!(),
+                Opn::Prefix(_) => todo!(),
+                Opn::Suffix(_) => todo!(),
+                Opn::CurlBracketed => todo!(),
+                Opn::List(_) => todo!(),
+                Opn::Field(_) => todo!(),
+                Opn::Abstraction => todo!(),
             },
+            Expr::Bracketed(_) => todo!(),
         }
     }
 
