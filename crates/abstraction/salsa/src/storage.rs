@@ -1,6 +1,7 @@
 use std::{fmt, sync::Arc};
 
 use parking_lot::Condvar;
+use upcast::Upcast;
 
 use crate::cycle::CycleRecoveryStrategy;
 use crate::ingredient::Ingredient;

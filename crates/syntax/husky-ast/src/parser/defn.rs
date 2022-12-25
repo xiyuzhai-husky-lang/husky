@@ -1,6 +1,7 @@
 use husky_entity_path::*;
-use husky_entity_taxonomy::{ModuleItemKind, TypeKind};
+use husky_entity_taxonomy::{ItemKind, ModuleItemConnection, TypeKind};
 use husky_print_utils::p;
+use husky_token::TypeKeyword;
 use salsa::DebugWithDb;
 
 use super::*;
@@ -16,83 +17,43 @@ impl<'a> AstParser<'a> {
 
     fn parse_defn_aux(&mut self, ctx: &Context, token_group_idx: TokenGroupIdx) -> AstResult<Ast> {
         let mut aux_parser = BasicAuxAstParser::new(
+            self.db,
             ctx,
             self.module_path,
             self.token_sheet
                 .token_group_token_iter(token_group_idx, None),
         );
         let (accessibility, entity_kind, ident, is_generic, saved_stream_state) =
-            parse_head(aux_parser)?;
-        let (entity_path, ast_parent): (Option<EntityPath>, AstParent) = match entity_kind {
-            EntityKind::Module => (
-                Some(EntityPath::Module(ModulePath::new_child(
-                    self.db,
-                    self.module_path,
-                    ident,
-                ))),
-                AstParent::NoChild,
-            ),
-            EntityKind::ModuleItem(module_item_kind) => {
-                let module_item_path = match ctx.parent() {
-                    AstParent::Form => todo!(),
-                    AstParent::EnumLike => todo!(),
-                    AstParent::TraitOrNonEnumLikeType { module_item_path } => {
-                        p!(module_item_path.debug(self.db as &dyn EntityPathDb));
-                        todo!()
-                    }
-                    AstParent::Impl => todo!(),
-                    AstParent::Module => {
-                        ConnectedModuleItemPath::new(self.db, self.module_path, ident).into()
-                    }
-                    AstParent::MatchStmt => todo!(),
-                    AstParent::NoChild => todo!(),
-                };
-                // ConnectedModuleItemPath::new(self.db, self.module_path, ident);
-                let entity_path = Some(EntityPath::ModuleItem(module_item_path));
-                (
-                    entity_path,
-                    match module_item_kind {
-                        ModuleItemKind::Type(ty_kind) => match ctx.parent() {
-                            AstParent::Form => match ty_kind {
-                                TypeKind::Enum | TypeKind::Inductive => AstParent::EnumLike,
-                                TypeKind::Record | TypeKind::Struct | TypeKind::Structure => {
-                                    AstParent::TraitOrNonEnumLikeType { module_item_path }
-                                }
-                                TypeKind::Form => AstParent::Form,
-                            },
-                            AstParent::TraitOrNonEnumLikeType { .. } => AstParent::Form,
-                            AstParent::Module => AstParent::Form,
-                            AstParent::MatchStmt | AstParent::EnumLike => unreachable!(),
-                            AstParent::NoChild => todo!(),
-                            AstParent::Impl => todo!(),
-                        },
-                        ModuleItemKind::Trait => {
-                            AstParent::TraitOrNonEnumLikeType { module_item_path }
-                        }
-                        ModuleItemKind::Form => AstParent::Form,
-                    },
-                )
+            aux_parser.parse_head()?;
+        let entity_path: Option<husky_entity_path::EntityPath> = match entity_kind {
+            EntityKind::Module => {
+                Some(ModulePath::new_child(self.db, self.module_path, ident).into())
             }
-            EntityKind::EnumVariant => (todo!(), AstParent::NoChild),
-            EntityKind::AssociatedItem => (
-                ctx.parent().module_item_path().map(|module_item_path| {
-                    EntityPath::AssociatedItem(AssociatedItemPath::new(
-                        self.db,
-                        module_item_path,
-                        ident,
-                    ))
-                }),
-                AstParent::Form,
-            ),
+            EntityKind::ModuleItem {
+                item_kind: module_item_kind,
+                connection,
+            } => match connection {
+                ModuleItemConnection::Connected => {
+                    Some(ConnectedModuleItemPath::new(self.db, self.module_path, ident).into())
+                }
+                ModuleItemConnection::Disconnected => todo!(),
+            },
+            EntityKind::AssociatedItem { .. } => {
+                ctx.kind().module_item_path().map(|module_item_path| {
+                    AssociatedItemPath::new(self.db, module_item_path, ident).into()
+                })
+            }
+            EntityKind::Variant => todo!(),
         };
+        let ast_ctx_kind = AstContextKind::inside_defn(entity_kind, entity_path);
         let (body, body_kind) = {
-            let body = self.parse_asts(ctx.subcontext(ast_parent));
+            let body = self.parse_asts(ctx.subcontext(ast_ctx_kind));
             match body.last() {
                 Some(_) => (body, DefnBodyKind::Block),
                 None => match self.token_groups.peek_with_exact_indent(ctx.indent()) {
                     Some((_token_group_idx, token_group)) => match token_group.first().kind {
                         TokenKind::Special(SpecialToken::Vertical) => (
-                            self.parse_enum_variants(ctx.subcontext(ast_parent)),
+                            self.parse_enum_variants(ctx.subcontext(ast_ctx_kind)),
                             DefnBodyKind::EnumVariants,
                         ),
                         _ => (Default::default(), DefnBodyKind::None),
@@ -145,15 +106,7 @@ impl<'a> AstParser<'a> {
             },
             None => todo!(),
         };
-        let module_item_path = match context.parent() {
-            AstParent::Form => todo!(),
-            AstParent::EnumLike => todo!(),
-            AstParent::TraitOrNonEnumLikeType { .. } => todo!(),
-            AstParent::Module => todo!(),
-            AstParent::MatchStmt => todo!(),
-            AstParent::NoChild => todo!(),
-            AstParent::Impl => todo!(),
-        };
+        let module_item_path = todo!();
         Ast::ModuleItemVariant {
             token_group_idx,
             module_item_variant_path: ModuleItemVariantPath::new(self.db, module_item_path, ident),
@@ -162,18 +115,103 @@ impl<'a> AstParser<'a> {
     }
 }
 
-fn parse_head(
-    mut aux_parser: BasicAuxAstParser,
-) -> Result<(Accessibility, EntityKind, Identifier, bool, TokenIterState), AstError> {
-    let accessibility = aux_parser.parse_accessibility()?;
-    let entity_kind = aux_parser.parse_entity_kind()?;
-    let ident = aux_parser.parse_ident()?;
-    let is_generic = aux_parser.parse_is_generic();
-    Ok((
-        accessibility,
-        entity_kind,
-        ident,
-        is_generic,
-        aux_parser.finish_with_saved_stream_state(),
-    ))
+impl<'a> BasicAuxAstParser<'a> {
+    fn parse_head(
+        mut self,
+    ) -> Result<(Accessibility, EntityKind, Identifier, bool, TokenIterState), AstError> {
+        let accessibility = self.parse_accessibility()?;
+        let entity_kind_keyword = self.take_entity_kind_keyword()?;
+        let ident = self.parse_ident()?;
+        let is_generic = self.parse_is_generic();
+        let coarse_item_kind: CoarseEntityKind = match entity_kind_keyword {
+            Keyword::Config(_) => todo!(),
+            Keyword::Paradigm(_) => ItemKind::Form.into(),
+            Keyword::Type(kw) => {
+                let type_kind = match kw {
+                    TypeKeyword::Type => TypeKind::Form,
+                    TypeKeyword::Struct => TypeKind::Struct,
+                    TypeKeyword::Enum => TypeKind::Enum,
+                    TypeKeyword::Record => TypeKind::Record,
+                    TypeKeyword::Structure => TypeKind::Structure,
+                    TypeKeyword::Inductive => TypeKind::Inductive,
+                };
+                ItemKind::Type(type_kind).into()
+            }
+            Keyword::Stmt(_) => todo!(),
+            Keyword::Liason(_) => todo!(),
+            Keyword::Main => todo!(),
+            Keyword::Use => todo!(),
+            Keyword::Mod => CoarseEntityKind::Module,
+            Keyword::Visual => todo!(),
+            Keyword::Impl => todo!(),
+            Keyword::Trait => ItemKind::Trait.into(),
+            Keyword::End(_) => todo!(),
+        };
+        let entity_kind = match self.ast_context_kind() {
+            AstContextKind::InsideTrait { module_item_path } => match coarse_item_kind {
+                CoarseEntityKind::Module => todo!(),
+                CoarseEntityKind::Item(item_kind) => EntityKind::AssociatedItem {
+                    item_kind: item_kind,
+                },
+                CoarseEntityKind::Variant => todo!(),
+            },
+            AstContextKind::InsideEnumLikeType { module_item_path } => todo!(),
+            AstContextKind::InsideForm => match coarse_item_kind {
+                CoarseEntityKind::Module => todo!(),
+                CoarseEntityKind::Item(item_kind) => {
+                    match item_kind {
+                        ItemKind::Type(_) => todo!(),
+                        ItemKind::Trait => todo!(),
+                        ItemKind::Form => todo!(),
+                    }
+                    p!(self.text_start(), self.module_path().debug(self.db()));
+                    todo!();
+                    EntityKind::ModuleItem {
+                        item_kind,
+                        connection: ModuleItemConnection::Disconnected,
+                    }
+                }
+                CoarseEntityKind::Variant => todo!(),
+            },
+            AstContextKind::InsideImpl => match coarse_item_kind {
+                CoarseEntityKind::Module => todo!(),
+                CoarseEntityKind::Item(item_kind) => match item_kind {
+                    ItemKind::Type(_) => todo!(),
+                    ItemKind::Trait => todo!(),
+                    ItemKind::Form => EntityKind::AssociatedItem { item_kind },
+                },
+                CoarseEntityKind::Variant => todo!(),
+            },
+            AstContextKind::InsideModule => match coarse_item_kind {
+                CoarseEntityKind::Module => EntityKind::Module,
+                CoarseEntityKind::Item(item_kind) => EntityKind::ModuleItem {
+                    item_kind,
+                    connection: ModuleItemConnection::Connected,
+                },
+                CoarseEntityKind::Variant => todo!(),
+            },
+            AstContextKind::InsideMatchStmt => todo!(),
+            AstContextKind::InsideNoChild => return Err(AstError::ExpectNothing),
+        };
+        Ok((
+            accessibility,
+            entity_kind,
+            ident,
+            is_generic,
+            self.finish_with_saved_stream_state(),
+        ))
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+enum CoarseEntityKind {
+    Module,
+    Item(ItemKind),
+    Variant,
+}
+
+impl From<ItemKind> for CoarseEntityKind {
+    fn from(v: ItemKind) -> Self {
+        Self::Item(v)
+    }
 }

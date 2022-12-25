@@ -15,7 +15,9 @@ crossbeam-utils = { version = "0.8", default-features = false }
 log = "0.4.5"
 parking_lot = "0.12.1"
 smallvec = "1.0.0"
-salsa-macros = { path = "../salsa-macros" }
+# abstraction
+upcast = { path = "../../abstraction/upcast" }
+salsa-macros = { path = "../../abstraction/salsa-macros" }
 vec-like = { path = "../../abstraction/vec-like" }
 
 [dev-dependencies]

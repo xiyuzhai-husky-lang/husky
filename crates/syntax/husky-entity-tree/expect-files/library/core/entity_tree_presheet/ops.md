@@ -3,18 +3,21 @@ Ok(
         module_path: `core::ops`,
         module_symbols: [
             ModuleItem {
-                ident: `Output`,
-                accessibility: PubicUnder(
-                    `core::ops`,
-                ),
-                ast_idx: 0,
-                path: `core::ops::Output`,
-            },
-            ModuleItem {
                 ident: `Add`,
                 accessibility: Public,
                 ast_idx: 3,
-                path: `core::ops::Add`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `core::ops`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 22,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

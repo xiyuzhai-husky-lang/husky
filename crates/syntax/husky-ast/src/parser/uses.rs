@@ -34,7 +34,7 @@ impl<'a> AstParser<'a> {
 
 pub struct EntityUseExprParser<'b> {
     token_iter: TokenIter<'b>,
-    parent: AstParent,
+    parent: AstContextKind,
     module_path: ModulePath,
     arena: &'b mut UseExprArena,
 }
@@ -44,7 +44,7 @@ impl<'aux> ParseTokenInto<'aux> for EntityUseExprParser<'aux> {
         &mut self.token_iter
     }
 
-    fn ast_parent(&self) -> AstParent {
+    fn ast_context_kind(&self) -> AstContextKind {
         self.parent
     }
 
@@ -89,7 +89,7 @@ impl<'b> EntityUseExprParser<'b> {
                 token_iter,
                 arena,
                 module_path,
-                parent: ctx.parent(),
+                parent: ctx.kind(),
             },
         )
     }

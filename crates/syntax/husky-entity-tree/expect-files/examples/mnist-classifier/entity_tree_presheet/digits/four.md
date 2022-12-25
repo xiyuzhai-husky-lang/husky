@@ -8,7 +8,18 @@ Ok(
                     `mnist_classifier::digits::four`,
                 ),
                 ast_idx: 75,
-                path: `mnist_classifier::digits::four::left_components`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `mnist_classifier::digits::four`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 185,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
             ModuleItem {
                 ident: `left_coordinate_max`,
@@ -16,7 +27,18 @@ Ok(
                     `mnist_classifier::digits::four`,
                 ),
                 ast_idx: 76,
-                path: `mnist_classifier::digits::four::left_coordinate_max`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `mnist_classifier::digits::four`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 186,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
             ModuleItem {
                 ident: `components_max_downwards`,
@@ -24,7 +46,18 @@ Ok(
                     `mnist_classifier::digits::four`,
                 ),
                 ast_idx: 77,
-                path: `mnist_classifier::digits::four::components_max_downwards`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `mnist_classifier::digits::four`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 188,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
             ModuleItem {
                 ident: `components_max_heights`,
@@ -32,7 +65,18 @@ Ok(
                     `mnist_classifier::digits::four`,
                 ),
                 ast_idx: 78,
-                path: `mnist_classifier::digits::four::components_max_heights`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `mnist_classifier::digits::four`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 190,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
             ModuleItem {
                 ident: `is_four`,
@@ -40,7 +84,18 @@ Ok(
                     `mnist_classifier::digits::four`,
                 ),
                 ast_idx: 79,
-                path: `mnist_classifier::digits::four::is_four`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `mnist_classifier::digits::four`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 192,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
             ModuleItem {
                 ident: `displacement_downwards`,
@@ -48,7 +103,18 @@ Ok(
                     `mnist_classifier::digits::four`,
                 ),
                 ast_idx: 80,
-                path: `mnist_classifier::digits::four::displacement_downwards`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `mnist_classifier::digits::four`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 189,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
             ModuleItem {
                 ident: `cc_box_heights`,
@@ -56,7 +122,18 @@ Ok(
                     `mnist_classifier::digits::four`,
                 ),
                 ast_idx: 81,
-                path: `mnist_classifier::digits::four::cc_box_heights`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `mnist_classifier::digits::four`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 191,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

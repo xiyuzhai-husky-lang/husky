@@ -9,7 +9,7 @@ use date::*;
 use husky_platform::Platform;
 use std::path::PathBuf;
 
-#[salsa::interned(jar = VfsJar, db = VfsDb, override_debug)]
+#[salsa::interned(jar = VfsJar, db = VfsDb)]
 pub struct Toolchain {
     #[return_ref]
     pub data: ToolchainData,
@@ -55,7 +55,7 @@ impl<Db: VfsDb> salsa::DebugWithDb<Db> for ToolchainData {
     }
 }
 
-#[salsa::interned(jar=VfsJar, override_debug)]
+#[salsa::interned(jar=VfsJar)]
 pub struct PublishedToolchain {
     channel: ToolchainChannel,
     date: ToolchainDate,

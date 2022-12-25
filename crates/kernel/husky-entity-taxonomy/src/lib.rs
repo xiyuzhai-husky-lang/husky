@@ -13,16 +13,27 @@ pub enum TypeKind {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum EntityKind {
     Module,
-    ModuleItem(ModuleItemKind),
-    AssociatedItem,
-    EnumVariant,
+    ModuleItem {
+        item_kind: ItemKind,
+        connection: ModuleItemConnection,
+    },
+    AssociatedItem {
+        item_kind: ItemKind,
+    },
+    Variant,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum ModuleItemKind {
+pub enum ItemKind {
     Type(TypeKind),
     Trait,
     Form,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum ModuleItemConnection {
+    Connected,
+    Disconnected,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

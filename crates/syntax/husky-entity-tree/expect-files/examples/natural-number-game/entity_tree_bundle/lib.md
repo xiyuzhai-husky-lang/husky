@@ -10,7 +10,18 @@ Ok(
                             `natural_number_game`,
                         ),
                         ast_idx: 3,
-                        path: `natural_number_game::Nat`,
+                        path: Connected(
+                            ConnectedModuleItemPath {
+                                module_path: `natural_number_game`,
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 339,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     },
                     ModuleItem {
                         ident: `OddNat`,
@@ -18,7 +29,18 @@ Ok(
                             `natural_number_game`,
                         ),
                         ast_idx: 9,
-                        path: `natural_number_game::OddNat`,
+                        path: Connected(
+                            ConnectedModuleItemPath {
+                                module_path: `natural_number_game`,
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 344,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     },
                     ModuleItem {
                         ident: `EvenNat`,
@@ -26,7 +48,18 @@ Ok(
                             `natural_number_game`,
                         ),
                         ast_idx: 10,
-                        path: `natural_number_game::EvenNat`,
+                        path: Connected(
+                            ConnectedModuleItemPath {
+                                module_path: `natural_number_game`,
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 347,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     },
                 ],
             },

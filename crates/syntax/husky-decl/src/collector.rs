@@ -1,7 +1,7 @@
 use crate::*;
 use husky_ast::{Ast, AstIdx, AstIdxRange, AstSheet};
 use husky_entity_path::EntityPath;
-use husky_entity_taxonomy::{EntityKind, ModuleItemKind, TypeKind};
+use husky_entity_taxonomy::{EntityKind, ItemKind, TypeKind};
 use husky_entity_tree::{EntitySymbol, EntityTreeSheet};
 use husky_expr::{parse_expr, ExprArena};
 use husky_print_utils::p;
@@ -60,8 +60,11 @@ impl<'a> DeclCollector<'a> {
                 body_kind,
                 saved_stream_state,
             } => match entity_kind {
-                EntityKind::ModuleItem(module_item_kind) => match module_item_kind {
-                    ModuleItemKind::Type(type_kind) => match type_kind {
+                EntityKind::ModuleItem {
+                    item_kind: module_item_kind,
+                    ..
+                } => match module_item_kind {
+                    ItemKind::Type(type_kind) => match type_kind {
                         TypeKind::Enum => todo!(),
                         TypeKind::Inductive => todo!(),
                         TypeKind::Record => todo!(),
@@ -71,10 +74,10 @@ impl<'a> DeclCollector<'a> {
                             self.parse_form_decl(token_group_idx, body, saved_stream_state)
                         }
                     },
-                    ModuleItemKind::Trait => todo!(),
-                    ModuleItemKind::Form => todo!(),
+                    ItemKind::Trait => todo!(),
+                    ItemKind::Form => todo!(),
                 },
-                EntityKind::Module | EntityKind::AssociatedItem | EntityKind::EnumVariant => {
+                EntityKind::Module | EntityKind::AssociatedItem { .. } | EntityKind::Variant => {
                     unreachable!()
                 }
             },

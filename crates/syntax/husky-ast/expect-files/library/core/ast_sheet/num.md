@@ -10,7 +10,9 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `abs`,
                     is_generic: false,
@@ -27,7 +29,9 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `add`,
                     is_generic: false,
@@ -44,7 +48,9 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `abs`,
                     is_generic: false,
@@ -61,7 +67,9 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `add`,
                     is_generic: false,
@@ -78,7 +86,9 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `abs`,
                     is_generic: false,
@@ -101,7 +111,9 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `add`,
                     is_generic: false,
@@ -118,7 +130,9 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `abs`,
                     is_generic: false,
@@ -135,7 +149,9 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_kind: AssociatedItem,
+                    entity_kind: AssociatedItem {
+                        item_kind: Form,
+                    },
                     entity_path: None,
                     ident: `add`,
                     is_generic: false,
@@ -157,20 +173,17 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_kind: ModuleItem(
-                        Type(
+                    entity_kind: ModuleItem {
+                        item_kind: Type(
                             Form,
                         ),
-                    ),
+                        connection: Connected,
+                    },
                     entity_path: Some(
                          ModuleItem(
                             Connected(
                                 ConnectedModuleItemPath {
-                                    module: ModulePath(
-                                        Id {
-                                            value: 4,
-                                        },
-                                    ),
+                                    module_path: `core::num`,
                                     ident: Identifier(
                                         Word(
                                             Id {
@@ -218,20 +231,17 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_kind: ModuleItem(
-                        Type(
+                    entity_kind: ModuleItem {
+                        item_kind: Type(
                             Form,
                         ),
-                    ),
+                        connection: Connected,
+                    },
                     entity_path: Some(
                          ModuleItem(
                             Connected(
                                 ConnectedModuleItemPath {
-                                    module: ModulePath(
-                                        Id {
-                                            value: 4,
-                                        },
-                                    ),
+                                    module_path: `core::num`,
                                     ident: Identifier(
                                         Word(
                                             Id {
@@ -279,20 +289,17 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_kind: ModuleItem(
-                        Type(
+                    entity_kind: ModuleItem {
+                        item_kind: Type(
                             Form,
                         ),
-                    ),
+                        connection: Connected,
+                    },
                     entity_path: Some(
                          ModuleItem(
                             Connected(
                                 ConnectedModuleItemPath {
-                                    module: ModulePath(
-                                        Id {
-                                            value: 4,
-                                        },
-                                    ),
+                                    module_path: `core::num`,
                                     ident: Identifier(
                                         Word(
                                             Id {
@@ -346,20 +353,17 @@ Ok(
                             },
                         ),
                     ),
-                    entity_kind: ModuleItem(
-                        Type(
+                    entity_kind: ModuleItem {
+                        item_kind: Type(
                             Form,
                         ),
-                    ),
+                        connection: Connected,
+                    },
                     entity_path: Some(
                          ModuleItem(
                             Connected(
                                 ConnectedModuleItemPath {
-                                    module: ModulePath(
-                                        Id {
-                                            value: 4,
-                                        },
-                                    ),
+                                    module_path: `core::num`,
                                     ident: Identifier(
                                         Word(
                                             Id {

@@ -91,11 +91,11 @@ impl<'a> AstParser<'a> {
                 Keyword::Use => self.parse_uses(token_group_idx, context),
                 Keyword::Main => Ast::Main {
                     token_group_idx,
-                    body: self.parse_asts(context.subcontext(AstParent::Form)),
+                    body: self.parse_asts(context.subcontext(AstContextKind::InsideForm)),
                 },
                 Keyword::Config(_) => Ast::Config {
                     token_group_idx,
-                    body: self.parse_asts(context.subcontext(AstParent::Form)),
+                    body: self.parse_asts(context.subcontext(AstContextKind::InsideForm)),
                 },
                 Keyword::Mod
                 | Keyword::Paradigm(_)
@@ -104,7 +104,7 @@ impl<'a> AstParser<'a> {
                 | Keyword::Type(_) => self.parse_defn(context, token_group_idx),
                 Keyword::Impl => Ast::Impl {
                     token_group_idx,
-                    body: self.parse_asts(context.subcontext(AstParent::Impl)),
+                    body: self.parse_asts(context.subcontext(AstContextKind::InsideImpl)),
                 },
                 Keyword::End(_) => unreachable!(),
             },
@@ -121,7 +121,7 @@ impl<'a> AstParser<'a> {
     fn parse_if_else_stmts(&mut self, idx: TokenGroupIdx, context: &Context) -> Ast {
         Ast::IfElseStmts {
             if_stmt: self.alloc_stmt(idx, &context),
-            elif_stmts: self.alloc_elif_stmts(context.subcontext(AstParent::Form)),
+            elif_stmts: self.alloc_elif_stmts(context.subcontext(AstContextKind::InsideForm)),
             else_stmt: self.alloc_else_stmt(&context),
         }
     }
@@ -156,7 +156,7 @@ impl<'a> AstParser<'a> {
     fn parse_match_stmts(&mut self, token_group_idx: TokenGroupIdx, context: &Context) -> Ast {
         Ast::MatchStmts {
             pattern_stmt: self.alloc_stmt(token_group_idx, &context),
-            case_stmts: self.parse_case_stmts(context.subcontext(AstParent::MatchStmt)),
+            case_stmts: self.parse_case_stmts(context.subcontext(AstContextKind::InsideMatchStmt)),
         }
     }
 
@@ -166,7 +166,7 @@ impl<'a> AstParser<'a> {
     }
 
     fn parse_stmt(&mut self, token_group_idx: TokenGroupIdx, context: &Context) -> Ast {
-        let body = self.parse_asts(context.subcontext(AstParent::Form));
+        let body = self.parse_asts(context.subcontext(AstContextKind::InsideForm));
         Ast::Stmt {
             token_group_idx,
             body,

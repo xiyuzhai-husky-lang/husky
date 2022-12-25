@@ -1,13 +1,13 @@
 use super::*;
-use husky_entity_taxonomy::{ModuleItemKind, TypeKind};
+use husky_entity_taxonomy::{ItemKind, TypeKind};
 use husky_opn_syntax::Bracket;
 use husky_token::*;
 use std::iter::Peekable;
 
-pub(super) trait ParseTokenInto<'aux> {
-    fn token_iter(&self) -> &TokenIter<'aux>;
-    fn token_iter_mut(&mut self) -> &mut TokenIter<'aux>;
-    fn ast_parent(&self) -> AstParent;
+pub(super) trait ParseTokenInto<'a> {
+    fn token_iter(&self) -> &TokenIter<'a>;
+    fn token_iter_mut(&mut self) -> &mut TokenIter<'a>;
+    fn ast_context_kind(&self) -> AstContextKind;
     fn module_path(&self) -> ModulePath;
 
     fn parse_accessibility(&mut self) -> AstResult<Accessibility> {
@@ -34,51 +34,50 @@ pub(super) trait ParseTokenInto<'aux> {
         })
     }
 
-    fn parse_entity_kind(&mut self) -> AstResult<EntityKind> {
-        Ok(
-            match self
-                .token_iter_mut()
-                .next()
-                .ok_or(AstError::ExpectEntityKeyword)?
-                .kind
-            {
-                TokenKind::Attr(_decor) => self.parse_entity_kind()?,
-                TokenKind::Keyword(kw) => match kw {
-                    Keyword::Paradigm(_) | Keyword::Visual => match self.ast_parent() {
-                        AstParent::EnumLike => todo!(),
-                        AstParent::TraitOrNonEnumLikeType { .. } | AstParent::Impl => {
-                            EntityKind::AssociatedItem
-                        }
-                        AstParent::Form | AstParent::Module => {
-                            EntityKind::ModuleItem(ModuleItemKind::Form)
-                        }
-                        AstParent::MatchStmt => todo!(),
-                        AstParent::NoChild => todo!(),
-                    },
-                    Keyword::Type(ty_kw) => {
-                        let ty_kind = match ty_kw {
-                            TypeKeyword::Type => TypeKind::Form,
-                            TypeKeyword::Struct => TypeKind::Struct,
-                            TypeKeyword::Enum => TypeKind::Enum,
-                            TypeKeyword::Record => TypeKind::Record,
-                            TypeKeyword::Structure => TypeKind::Structure,
-                            TypeKeyword::Inductive => TypeKind::Inductive,
-                        };
-                        EntityKind::ModuleItem(ModuleItemKind::Type(ty_kind))
-                    }
-                    Keyword::Trait => EntityKind::ModuleItem(ModuleItemKind::Trait),
-                    Keyword::Mod => EntityKind::Module,
-                    Keyword::Impl | Keyword::End(_) => return Err(AstError::ExpectEntityKeyword),
-                    Keyword::Config(_)
-                    | Keyword::Stmt(_)
-                    | Keyword::Liason(_)
-                    | Keyword::Main
-                    | Keyword::Use => unreachable!(),
-                },
-                TokenKind::Comment => todo!(),
-                _ => return Err(AstError::ExpectEntityKeyword),
-            },
-        )
+    fn take_entity_kind_keyword(&mut self) -> AstResult<Keyword> {
+        let (idx, token) = self
+            .token_iter_mut()
+            .next_indexed()
+            .ok_or(AstError::ExpectEntityKeyword)?;
+        Ok(match token.kind {
+            TokenKind::Attr(_) => self.take_entity_kind_keyword()?,
+            TokenKind::Keyword(kw) => kw,
+            // match kw {
+            //     Keyword::Paradigm(_) | Keyword::Visual => match self.ast_parent() {
+            //         AstContextInside::Trait { .. } | AstContextInside::Impl => {
+            //             EntityKind::AssociatedItem
+            //         }
+            //         AstContextInside::Form | AstContextInside::Module => {
+            //             EntityKind::ModuleItem(ModuleItemKind::Form)
+            //         }
+            //         AstContextInside::MatchStmt => todo!(),
+            //         AstContextInside::NoChild => todo!(),
+            //         AstContextInside::EnumLikeType { module_item_path } => todo!(),
+            //         AstContextInside::OtherType { module_item_path } => todo!(),
+            //     },
+            //     Keyword::Type(ty_kw) => {
+            //         let ty_kind = match ty_kw {
+            //             TypeKeyword::Type => TypeKind::Form,
+            //             TypeKeyword::Struct => TypeKind::Struct,
+            //             TypeKeyword::Enum => TypeKind::Enum,
+            //             TypeKeyword::Record => TypeKind::Record,
+            //             TypeKeyword::Structure => TypeKind::Structure,
+            //             TypeKeyword::Inductive => TypeKind::Inductive,
+            //         };
+            //         EntityKind::ModuleItem(ModuleItemKind::Type(ty_kind))
+            //     }
+            //     Keyword::Trait => EntityKind::ModuleItem(ModuleItemKind::Trait),
+            //     Keyword::Mod => EntityKind::Module,
+            //     Keyword::Impl | Keyword::End(_) => return Err(AstError::ExpectEntityKeyword),
+            //     Keyword::Config(_)
+            //     | Keyword::Stmt(_)
+            //     | Keyword::Liason(_)
+            //     | Keyword::Main
+            //     | Keyword::Use => unreachable!(),
+            // },
+            TokenKind::Comment => todo!(),
+            _ => return Err(AstError::ExpectEntityKeyword),
+        })
     }
 
     fn parse_ident(&mut self) -> AstResult<Identifier> {
@@ -104,10 +103,10 @@ pub(super) trait ParseTokenInto<'aux> {
 
 impl<'a> ParseTokenInto<'a> for BasicAuxAstParser<'a> {
     fn token_iter_mut(&mut self) -> &mut TokenIter<'a> {
-        &mut self.iter
+        &mut self.token_iter
     }
 
-    fn ast_parent(&self) -> AstParent {
+    fn ast_context_kind(&self) -> AstContextKind {
         self.ast_parent
     }
 
@@ -116,26 +115,41 @@ impl<'a> ParseTokenInto<'a> for BasicAuxAstParser<'a> {
     }
 
     fn token_iter(&self) -> &TokenIter<'a> {
-        &self.iter
+        &self.token_iter
     }
 }
 
 pub(crate) struct BasicAuxAstParser<'a> {
-    ast_parent: AstParent,
+    db: &'a dyn AstDb,
+    ast_parent: AstContextKind,
     module_path: ModulePath,
-    iter: TokenIter<'a>,
+    token_iter: TokenIter<'a>,
 }
 
 impl<'a> BasicAuxAstParser<'a> {
-    pub(super) fn new(ctx: &Context, module_path: ModulePath, iter: TokenIter<'a>) -> Self {
+    pub(super) fn new(
+        db: &'a dyn AstDb,
+        ctx: &Context,
+        module_path: ModulePath,
+        token_iter: TokenIter<'a>,
+    ) -> Self {
         Self {
-            ast_parent: ctx.parent(),
+            db,
+            ast_parent: ctx.kind(),
             module_path,
-            iter,
+            token_iter,
         }
     }
 
     pub(super) fn finish_with_saved_stream_state(self) -> TokenIterState {
-        self.iter.save_state()
+        self.token_iter.save_state()
+    }
+
+    pub(crate) fn db(&self) -> &dyn AstDb {
+        self.db
+    }
+
+    pub(crate) fn text_start(&self) -> TextPosition {
+        self.token_iter.text_start()
     }
 }

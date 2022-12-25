@@ -44,7 +44,7 @@ impl<'a> TokenIter<'a> {
         }
     }
 
-    fn text_end(&self) -> TextPosition {
+    pub fn text_end(&self) -> TextPosition {
         self.tokens[self.next_relative - 1].range.end
     }
 

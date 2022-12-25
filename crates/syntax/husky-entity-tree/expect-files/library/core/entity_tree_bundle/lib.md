@@ -53,19 +53,52 @@ Ok(
                         ident: `bool`,
                         accessibility: Public,
                         ast_idx: 0,
-                        path: `core::basic::bool`,
+                        path: Connected(
+                            ConnectedModuleItemPath {
+                                module_path: `core::basic`,
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 6,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     },
                     ModuleItem {
                         ident: `Trait`,
                         accessibility: Public,
                         ast_idx: 1,
-                        path: `core::basic::Trait`,
+                        path: Connected(
+                            ConnectedModuleItemPath {
+                                module_path: `core::basic`,
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 7,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     },
                     ModuleItem {
                         ident: `Module`,
                         accessibility: Public,
                         ast_idx: 2,
-                        path: `core::basic::Module`,
+                        path: Connected(
+                            ConnectedModuleItemPath {
+                                module_path: `core::basic`,
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 8,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     },
                 ],
             },
@@ -76,13 +109,35 @@ Ok(
                         ident: `LogicAnd`,
                         accessibility: Public,
                         ast_idx: 0,
-                        path: `core::logic::LogicAnd`,
+                        path: Connected(
+                            ConnectedModuleItemPath {
+                                module_path: `core::logic`,
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 9,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     },
                     ModuleItem {
                         ident: `LogicOr`,
                         accessibility: Public,
                         ast_idx: 1,
-                        path: `core::logic::LogicOr`,
+                        path: Connected(
+                            ConnectedModuleItemPath {
+                                module_path: `core::logic`,
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 15,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     },
                 ],
             },
@@ -93,19 +148,52 @@ Ok(
                         ident: `i8`,
                         accessibility: Public,
                         ast_idx: 9,
-                        path: `core::num::i8`,
+                        path: Connected(
+                            ConnectedModuleItemPath {
+                                module_path: `core::num`,
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 19,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     },
                     ModuleItem {
                         ident: `i16`,
                         accessibility: Public,
                         ast_idx: 13,
-                        path: `core::num::i16`,
+                        path: Connected(
+                            ConnectedModuleItemPath {
+                                module_path: `core::num`,
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 26,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     },
                     ModuleItem {
                         ident: `i32`,
                         accessibility: Public,
                         ast_idx: 17,
-                        path: `core::num::i32`,
+                        path: Connected(
+                            ConnectedModuleItemPath {
+                                module_path: `core::num`,
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 27,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     },
                     ModuleItem {
                         ident: `i64`,
@@ -113,7 +201,18 @@ Ok(
                             `core::num`,
                         ),
                         ast_idx: 21,
-                        path: `core::num::i64`,
+                        path: Connected(
+                            ConnectedModuleItemPath {
+                                module_path: `core::num`,
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 28,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     },
                 ],
             },
@@ -121,18 +220,21 @@ Ok(
                 module_path: `core::ops`,
                 module_symbols: [
                     ModuleItem {
-                        ident: `Output`,
-                        accessibility: PubicUnder(
-                            `core::ops`,
-                        ),
-                        ast_idx: 0,
-                        path: `core::ops::Output`,
-                    },
-                    ModuleItem {
                         ident: `Add`,
                         accessibility: Public,
                         ast_idx: 3,
-                        path: `core::ops::Add`,
+                        path: Connected(
+                            ConnectedModuleItemPath {
+                                module_path: `core::ops`,
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 22,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     },
                 ],
             },

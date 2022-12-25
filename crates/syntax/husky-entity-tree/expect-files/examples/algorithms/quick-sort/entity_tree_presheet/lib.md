@@ -6,7 +6,18 @@ Ok(
                 ident: `quick_sort`,
                 accessibility: Public,
                 ast_idx: 30,
-                path: `quick_sort::quick_sort`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `quick_sort`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 35,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
             ModuleItem {
                 ident: `quick_sort_aux`,
@@ -14,7 +25,18 @@ Ok(
                     `quick_sort`,
                 ),
                 ast_idx: 31,
-                path: `quick_sort::quick_sort_aux`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `quick_sort`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 40,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
             ModuleItem {
                 ident: `partition`,
@@ -22,7 +44,18 @@ Ok(
                     `quick_sort`,
                 ),
                 ast_idx: 32,
-                path: `quick_sort::partition`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `quick_sort`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 45,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
             ModuleItem {
                 ident: `quick_sort_works_for_integers`,
@@ -30,7 +63,18 @@ Ok(
                     `quick_sort`,
                 ),
                 ast_idx: 34,
-                path: `quick_sort::quick_sort_works_for_integers`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `quick_sort`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 53,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
             ModuleItem {
                 ident: `quick_sort_works_for_strs`,
@@ -38,7 +82,18 @@ Ok(
                     `quick_sort`,
                 ),
                 ast_idx: 36,
-                path: `quick_sort::quick_sort_works_for_strs`,
+                path: Connected(
+                    ConnectedModuleItemPath {
+                        module_path: `quick_sort`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 55,
+                                },
+                            ),
+                        ),
+                    },
+                ),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

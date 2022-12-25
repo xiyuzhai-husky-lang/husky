@@ -10,20 +10,17 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_kind: ModuleItem(
-                        Type(
+                    entity_kind: ModuleItem {
+                        item_kind: Type(
                             Form,
                         ),
-                    ),
+                        connection: Connected,
+                    },
                     entity_path: Some(
                          ModuleItem(
                             Connected(
                                 ConnectedModuleItemPath {
-                                    module: ModulePath(
-                                        Id {
-                                            value: 2,
-                                        },
-                                    ),
+                                    module_path: `core::basic`,
                                     ident: Identifier(
                                         Word(
                                             Id {
@@ -50,20 +47,17 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_kind: ModuleItem(
-                        Type(
+                    entity_kind: ModuleItem {
+                        item_kind: Type(
                             Structure,
                         ),
-                    ),
+                        connection: Connected,
+                    },
                     entity_path: Some(
                          ModuleItem(
                             Connected(
                                 ConnectedModuleItemPath {
-                                    module: ModulePath(
-                                        Id {
-                                            value: 2,
-                                        },
-                                    ),
+                                    module_path: `core::basic`,
                                     ident: Identifier(
                                         Word(
                                             Id {
@@ -90,20 +84,17 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_kind: ModuleItem(
-                        Type(
+                    entity_kind: ModuleItem {
+                        item_kind: Type(
                             Structure,
                         ),
-                    ),
+                        connection: Connected,
+                    },
                     entity_path: Some(
                          ModuleItem(
                             Connected(
                                 ConnectedModuleItemPath {
-                                    module: ModulePath(
-                                        Id {
-                                            value: 2,
-                                        },
-                                    ),
+                                    module_path: `core::basic`,
                                     ident: Identifier(
                                         Word(
                                             Id {
