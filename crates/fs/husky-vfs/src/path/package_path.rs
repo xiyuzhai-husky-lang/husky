@@ -41,7 +41,7 @@ pub enum PackagePathData {
     },
 }
 
-#[salsa::interned(jar = VfsJar)]
+#[salsa::interned(jar = VfsJar, db = VfsDb, override_debug)]
 pub struct PackagePath {
     pub toolchain: Toolchain,
     #[return_ref]

@@ -46,7 +46,7 @@ impl crate::options::AllowedOptions for TrackedStruct {
 
     const CONSTRUCTOR_NAME: bool = true;
 
-    const DERIVE_DEBUG_WITH_DB: bool = false;
+    const OVERRIDE_DEBUG: bool = false;
 }
 
 impl TrackedStruct {

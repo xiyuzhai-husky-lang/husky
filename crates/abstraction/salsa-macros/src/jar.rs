@@ -48,7 +48,7 @@ impl crate::options::AllowedOptions for Jar {
 
     const CONSTRUCTOR_NAME: bool = false;
 
-    const DERIVE_DEBUG_WITH_DB: bool = true;
+    const OVERRIDE_DEBUG: bool = true;
 }
 
 pub(crate) fn jar_struct_and_friends(

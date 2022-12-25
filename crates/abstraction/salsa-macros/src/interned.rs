@@ -44,7 +44,7 @@ impl crate::options::AllowedOptions for InternedStruct {
 
     const DATA: bool = true;
 
-    const DB: bool = false;
+    const DB: bool = true;
 
     const RECOVERY_FN: bool = false;
 
@@ -52,11 +52,12 @@ impl crate::options::AllowedOptions for InternedStruct {
 
     const CONSTRUCTOR_NAME: bool = true;
 
-    const DERIVE_DEBUG_WITH_DB: bool = true;
+    const OVERRIDE_DEBUG: bool = true;
 }
 
 impl InternedStruct {
     fn generate_interned(&self) -> syn::Result<TokenStream> {
+        use crate::options::AllowedOptions;
         self.validate_interned()?;
         let id_struct = self.id_struct();
         let data_struct = self.data_struct();
@@ -64,8 +65,8 @@ impl InternedStruct {
         let as_id_impl = self.as_id_impl();
         let named_fields_impl = self.inherent_impl_for_named_fields();
         let salsa_struct_in_db_impl = self.salsa_struct_in_db_impl();
-        let as_debug_with_db_impl = self.as_debug_with_db_impl();
-
+        let as_debug_with_db_impl = Some(self.as_debug_with_db_impl());
+        (self.override_debug()).then_some(self.as_debug_with_db_impl());
         Ok(quote! {
             #id_struct
             #data_struct

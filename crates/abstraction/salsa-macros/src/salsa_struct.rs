@@ -104,6 +104,10 @@ impl<A: AllowedOptions> SalsaStruct<A> {
         }
     }
 
+    pub(crate) fn override_debug(&self) -> bool {
+        self.args.override_debug.is_some()
+    }
+
     /// Names of all fields (id and value).
     ///
     /// If this is an enum, empty vec.
