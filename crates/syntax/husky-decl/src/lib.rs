@@ -37,6 +37,6 @@ pub struct DeclJar(
 );
 
 #[salsa::tracked(jar = DeclJar, return_ref)]
-fn decl_sheet(db: &dyn DeclDb, module_path: ModulePath) -> VfsResult<DeclSheet> {
+fn decl_sheet(db: &dyn DeclDb, module_path: ModulePath) -> DeclResult<DeclSheet> {
     Ok(DeclCollector::new(db, module_path)?.collect_all())
 }

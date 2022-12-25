@@ -9,7 +9,8 @@ pub(crate) struct EntityTreeCollector<'a> {
     crate_path: CratePath,
     presheets: VecMap<EntityTreePresheet>,
     core_prelude_module: ModulePath,
-    universal_prelude: Option<&'a [EntitySymbol]>,
+    // can't use `crate_prelude` here because it might not be available
+    opt_universal_prelude: Option<&'a [EntitySymbol]>,
     crate_specific_prelude: &'a [EntitySymbol],
 }
 
@@ -23,18 +24,19 @@ impl<'a> EntityTreeCollector<'a> {
         let toolchain = crate_path.toolchain(db);
         let path_menu = db.dev_path_menu()?;
         let core_prelude_module = path_menu.core_prelude();
-        let universal_prelude: Option<&'a [EntitySymbol]> =
+        let universal_prelude: Option<&'a [EntitySymbol]> = {
             if crate_path != path_menu.core_library() {
                 Some(entity_tree_sheet(db, core_prelude_module)?.module_symbols())
             } else {
                 None
-            };
+            }
+        };
         Ok(Self {
             db,
             crate_path,
             presheets,
             core_prelude_module,
-            universal_prelude,
+            opt_universal_prelude: universal_prelude,
             crate_specific_prelude: crate_specific_prelude(db, crate_path).as_ref()?,
         })
     }

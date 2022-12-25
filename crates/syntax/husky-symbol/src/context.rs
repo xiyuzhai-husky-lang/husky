@@ -1,17 +1,24 @@
 use crate::*;
 
-use husky_entity_tree::EntityTreeDb;
+use husky_entity_tree::{CratePrelude, EntityTreeDb};
 use local_stack::LocalStack;
 
 #[derive(Clone)]
 pub struct SymbolContext<'a> {
-    sheet: &'a LocalSymbolSheet,
+    crate_prelude: CratePrelude<'a>,
+    local_symbol_sheet: &'a LocalSymbolSheet,
 }
 
 impl<'a> SymbolContext<'a> {
-    pub fn new(db: &dyn EntityTreeDb, preludes: &'a [Symbol], locals: &'a [Symbol]) -> Self {
-        todo!()
-        // Self { preludes, locals }
+    pub fn new(
+        db: &dyn EntityTreeDb,
+        crate_prelude: CratePrelude<'a>,
+        local_symbol_sheet: &'a LocalSymbolSheet,
+    ) -> Self {
+        Self {
+            crate_prelude,
+            local_symbol_sheet,
+        }
     }
 
     pub fn define_symbol(&mut self, _symbol: Symbol) {

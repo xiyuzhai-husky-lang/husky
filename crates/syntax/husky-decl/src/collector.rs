@@ -2,25 +2,28 @@ use crate::*;
 use husky_ast::{Ast, AstIdx, AstIdxRange, AstSheet};
 use husky_entity_path::EntityPath;
 use husky_entity_taxonomy::{EntityKind, ItemKind, TypeKind};
-use husky_entity_tree::{EntitySymbol, EntityTreeSheet};
+use husky_entity_tree::{CratePrelude, EntitySymbol, EntityTreeSheet};
 use husky_expr::{parse_expr, ExprArena};
 use husky_print_utils::p;
-use husky_symbol::SymbolContext;
+use husky_symbol::{LocalSymbolSheet, SymbolContext};
 use husky_token::{TokenGroupIdx, TokenIdentifier, TokenIterState, TokenSheet};
 use parsec::ParseFrom;
 use vec_like::VecPairMap;
 
 pub(crate) struct DeclCollector<'a> {
     db: &'a dyn DeclDb,
+    crate_prelude: CratePrelude<'a>,
     token_sheet: &'a TokenSheet,
     ast_sheet: &'a AstSheet,
     entity_tree_sheet: &'a EntityTreeSheet,
 }
 
 impl<'a> DeclCollector<'a> {
-    pub(crate) fn new(db: &'a dyn DeclDb, module_path: ModulePath) -> VfsResult<Self> {
+    pub(crate) fn new(db: &'a dyn DeclDb, module_path: ModulePath) -> DeclResult<Self> {
+        let crate_prelude = db.crate_prelude(module_path.crate_path(db))?;
         Ok(Self {
             db,
+            crate_prelude,
             token_sheet: db.token_sheet(module_path)?,
             ast_sheet: db.ast_sheet(module_path).unwrap(),
             entity_tree_sheet: db.entity_tree_sheet(module_path).unwrap(),
@@ -105,12 +108,17 @@ impl<'a> DeclCollector<'a> {
             .token_sheet
             .token_group_token_iter(token_group_idx, Some(saved_stream_state));
         let mut expr_arena = ExprArena::default();
-        let a = parse_expr(self.ctx(), &mut token_iter, &mut expr_arena);
+        let local_symbol_sheet = LocalSymbolSheet::default();
+        let a = parse_expr(
+            self.ctx(&local_symbol_sheet),
+            &mut token_iter,
+            &mut expr_arena,
+        );
         p!(a);
         todo!()
     }
 
-    fn ctx<'b>(&'b self) -> SymbolContext<'b> {
-        SymbolContext::new(self.db, todo!(), todo!())
+    fn ctx<'b>(&'b self, local_symbol_sheet: &'a LocalSymbolSheet) -> SymbolContext<'b> {
+        SymbolContext::new(self.db, self.crate_prelude, local_symbol_sheet)
     }
 }

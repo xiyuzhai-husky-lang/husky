@@ -18,14 +18,15 @@ mod utils;
 pub use associated_item::*;
 pub use bundle::*;
 pub use db::EntityTreeDb;
+pub use error::EntityTreeError;
 pub use error::*;
+pub use prelude::*;
 pub use sheet::*;
 pub use submodule::*;
 pub use symbol::*;
 
 use collector::*;
 use context::*;
-use error::EntityTreeError;
 use husky_accessibility::*;
 use husky_ast::*;
 use husky_entity_path::*;
@@ -34,7 +35,6 @@ use husky_package_path::*;
 use husky_vfs::*;
 use husky_word::{Identifier, WordDb};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
-use prelude::*;
 use presheet::*;
 use salsa::DebugWithDb;
 #[cfg(test)]

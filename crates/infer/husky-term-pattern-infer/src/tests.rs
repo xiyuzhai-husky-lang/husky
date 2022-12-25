@@ -29,32 +29,20 @@ use std::{collections::HashMap, sync::Arc};
 use upcast::Upcast;
 
 #[salsa::db(TermJar, TermPatternInferJar, VfsJar, EntityPathJar, WordJar)]
-pub struct TermPatternInferFakeDb {
+#[derive(Default)]
+pub(crate) struct DB {
     storage: salsa::Storage<Self>,
-    entity_tys: HashMap<EntityPath, Term>,
-    decls: HashMap<EntityPath, Arc<Decl>>,
-    prelude_symbols: Vec<Symbol>,
 }
 
-impl Upcast<dyn TermDb> for TermPatternInferFakeDb {
+impl Upcast<dyn TermDb> for DB {
     fn upcast(&self) -> &(dyn TermDb + 'static) {
         self
     }
 }
 
-impl Database for TermPatternInferFakeDb {}
+impl Database for DB {}
 
-impl TermPatternInferFakeDb {
-    pub(super) fn new() -> Self {
-        let db = Self {
-            storage: Default::default(),
-            entity_tys: Default::default(),
-            decls: Default::default(),
-            prelude_symbols: Default::default(),
-        };
-        db
-    }
-
+impl DB {
     pub(crate) fn new_sheet(&self, arena: &ExprArena) -> TermPatternInferSheet {
         TermPatternInferSheet::new_test(arena, Default::default())
     }

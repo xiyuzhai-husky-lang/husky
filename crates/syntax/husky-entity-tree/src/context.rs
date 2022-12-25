@@ -60,26 +60,3 @@ impl<'a> EntitySymbolContext<'a> {
             .or_else(|| self.crate_prelude.get(ident))
     }
 }
-
-pub(crate) struct CratePrelude<'a> {
-    universal_prelude: &'a [EntitySymbol],
-    crate_specific_prelude: &'a [EntitySymbol],
-}
-
-impl<'a> CratePrelude<'a> {
-    pub(crate) fn new(
-        universal_prelude: &'a [EntitySymbol],
-        crate_specific_prelude: &'a [EntitySymbol],
-    ) -> Self {
-        Self {
-            universal_prelude,
-            crate_specific_prelude,
-        }
-    }
-
-    fn get(&self, ident: Identifier) -> Option<&'a EntitySymbol> {
-        self.universal_prelude
-            .get_entry(ident)
-            .or_else(|| self.crate_specific_prelude.get_entry(ident))
-    }
-}
