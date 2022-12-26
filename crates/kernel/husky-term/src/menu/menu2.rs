@@ -16,7 +16,7 @@ impl std::ops::Deref for TermMenu2 {
 impl TermMenu2 {
     pub(crate) fn new(db: &dyn TermDb, toolchain: Toolchain, menu1: TermMenu1) -> TermResult<Self> {
         todo!()
-        // db.it_entity_path_term(db.entity_path_menu(toolchain).as_ref()?.b32());
+        // db.it_entity_path_term(db.entity_path_menu(toolchain).as_ref()?.r32());
         // Ok(TermMenu2 { parent: menu1 })
     }
 }

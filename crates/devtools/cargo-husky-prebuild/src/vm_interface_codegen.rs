@@ -24,7 +24,7 @@ pub fn gen_rust_code() -> Result<String, std::fmt::Error> {
 }
 
 pub static PRIMITIVE_TYPES: &'static [&'static str] =
-    &["void", "bool", "i32", "i64", "b32", "b64", "f32", "f64"];
+    &["void", "bool", "i32", "i64", "r32", "b64", "f32", "f64"];
 
 pub static NONPRIMITIVE_BUILTIN_TYPES: &'static [&'static str] =
     &["__VirtualFunction", "__VirtualEnum"];

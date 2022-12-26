@@ -16,7 +16,7 @@
     "output": "Ok(Term(TyDecl { ty_family: Physical, parameters: [] }))"
   },
   {
-    "input": "b32",
+    "input": "r32",
     "output": "Ok(Term(TyDecl { ty_family: Physical, parameters: [] }))"
   },
   {

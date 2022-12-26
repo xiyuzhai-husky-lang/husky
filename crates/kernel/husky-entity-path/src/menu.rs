@@ -45,7 +45,7 @@ pub struct EntityPathMenu {
     i64: ConnectedModuleItemPath,
     f32: ConnectedModuleItemPath,
     f64: ConnectedModuleItemPath,
-    b32: ConnectedModuleItemPath,
+    r32: ConnectedModuleItemPath,
     b64: ConnectedModuleItemPath,
     u32: ConnectedModuleItemPath,
     u64: ConnectedModuleItemPath,
@@ -102,7 +102,7 @@ impl EntityPathMenu {
         let bool = ConnectedModuleItemPath::new(db, core_num, word_menu.bool());
         let f32 = ConnectedModuleItemPath::new(db, core_num, word_menu.f32());
         let f64 = ConnectedModuleItemPath::new(db, core_num, word_menu.f64());
-        let b32 = ConnectedModuleItemPath::new(db, core_num, word_menu.b32());
+        let r32 = ConnectedModuleItemPath::new(db, core_num, word_menu.r32());
         let b64 = ConnectedModuleItemPath::new(db, core_num, word_menu.b64());
         let u32 = ConnectedModuleItemPath::new(db, core_num, word_menu.u32());
         let u64 = ConnectedModuleItemPath::new(db, core_num, word_menu.u64());
@@ -129,7 +129,7 @@ impl EntityPathMenu {
             i64,
             f32,
             f64,
-            b32,
+            r32,
             b64,
             u32,
             u64,
@@ -154,8 +154,8 @@ impl EntityPathMenu {
         self.f64
     }
 
-    pub fn b32(&self) -> ConnectedModuleItemPath {
-        self.b32
+    pub fn r32(&self) -> ConnectedModuleItemPath {
+        self.r32
     }
 
     pub fn b64(&self) -> ConnectedModuleItemPath {

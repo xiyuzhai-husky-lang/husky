@@ -26,18 +26,18 @@ For the task in example, it will introduce implicitly a placeholder `input`, rep
 One can define a 'function' that depends only on `input` by
 
 ```python
-proc trivial_feature -> b32:
+proc trivial_feature -> r32:
     return input[0]
 ```
 
-It reads as a 'function' of name `trivial_feature` and output type `b32` and a definition block of paradigm `procedural`. Note that there is no bracket after the function name indicating that this function is binded to `input` which is brought by the task.
+It reads as a 'function' of name `trivial_feature` and output type `r32` and a definition block of paradigm `procedural`. Note that there is no bracket after the function name indicating that this function is binded to `input` which is brought by the task.
 
 Functions written like this are called `feature`.
 
 To use it in other places (if semantically legal), one just use its function name, without any parentheses.
 
 ```python
-def trivial_feature2 -> b32:
+def trivial_feature2 -> r32:
     trivial_feature
 ```
 
@@ -46,14 +46,14 @@ Here `def` is another paradigm keyword which means `lazy functional`. Under `laz
 Now we can define functions that takes in one feature and create one:
 
 ```python
-def trivial_feature_gen(f: b32) -> b32:
+def trivial_feature_gen(f: r32) -> r32:
     f
 ```
 
-Note here we simply write the type of `f` as `b32`, and it's implicitly interpreted as `Input -> b32`.
+Note here we simply write the type of `f` as `r32`, and it's implicitly interpreted as `Input -> r32`.
 This is what we call task-specific ascension.
 
-In fact, we can also ascend `b32` to `TrainingData Input -> b32` for training.
+In fact, we can also ascend `r32` to `TrainingData Input -> r32` for training.
 
 So there are multiple contexts for a given task, and each context has its way of type ascension.
 

@@ -147,20 +147,20 @@ impl<'a> TermPatternInferContext<'a> {
                     ty: Ok(ty.into()),
                 }
             }
-            LiteralToken::I32(_i) => ExprTermPatternInferRawResults {
-                const_expr: Ok(Some(ConstExprPattern {
-                    term: TermPatternItd::Resolved(todo!()),
-                    opt_substitution_ctx: None,
-                })),
-                ty: Ok(self.term_menu.i32().into()),
-            },
-            LiteralToken::I64(_i) => ExprTermPatternInferRawResults {
-                const_expr: Ok(Some(ConstExprPattern {
-                    term: TermPatternItd::Resolved(todo!()),
-                    opt_substitution_ctx: None,
-                })),
-                ty: Ok(self.term_menu.i32().into()),
-            },
+            // LiteralToken::I32(_i) => ExprTermPatternInferRawResults {
+            //     const_expr: Ok(Some(ConstExprPattern {
+            //         term: TermPatternItd::Resolved(todo!()),
+            //         opt_substitution_ctx: None,
+            //     })),
+            //     ty: Ok(self.term_menu.i32().into()),
+            // },
+            // LiteralToken::I64(_i) => ExprTermPatternInferRawResults {
+            //     const_expr: Ok(Some(ConstExprPattern {
+            //         term: TermPatternItd::Resolved(todo!()),
+            //         opt_substitution_ctx: None,
+            //     })),
+            //     ty: Ok(self.term_menu.i32().into()),
+            // },
             LiteralToken::Float(_) => {
                 let term = sheet.it_unresolved(UnresolvedTerm::FloatLiteral(self.expr_idx()));
                 let ty = sheet.it_unresolved(UnresolvedTerm::FloatType(term));
@@ -172,13 +172,10 @@ impl<'a> TermPatternInferContext<'a> {
                     ty: Ok(ty.into()),
                 }
             }
-            LiteralToken::F32(_) => todo!(),
-            LiteralToken::F64(_) => todo!(),
-            LiteralToken::Bits(_) => todo!(),
-            LiteralToken::B32(_) => todo!(),
-            LiteralToken::B64(_) => todo!(),
             LiteralToken::Bool(_) => todo!(),
             LiteralToken::String(_) => todo!(),
+            LiteralToken::Char(_) => todo!(),
+            LiteralToken::TupleIndex(_) => todo!(),
         }
     }
 

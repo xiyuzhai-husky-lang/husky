@@ -51,7 +51,7 @@ struct ConnectedComponent:
     visual:
         mask
 
-proc horizontal_extend(a: b32, x: b32) -> b32:
+proc horizontal_extend(a: r32, x: r32) -> r32:
     let mut y = a & (x | (x << 1) | (x >> 1))
     let mut z = a & (y | (y << 1) | (y >> 1))
     while z != y:

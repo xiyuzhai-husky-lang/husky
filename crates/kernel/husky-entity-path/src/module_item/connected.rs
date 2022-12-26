@@ -36,5 +36,5 @@ fn connected_module_item_path_debug_with_db_works() {
             ),
         }
     "#]]
-    .assert_debug_eq(&entity_path_menu.b32().debug(&db));
+    .assert_debug_eq(&entity_path_menu.r32().debug(&db));
 }
