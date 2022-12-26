@@ -155,8 +155,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                     _ => (),
                 }
                 let _len = self.buffer.len();
-                RawTokenVariant::Literal(LiteralToken::Float(self.take_buffer::<f64>().into()))
-                    .into()
+                RawTokenVariant::Literal(LiteralToken::Float(todo!())).into()
             }
             'b' => {
                 // b32 or b64
@@ -165,9 +164,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                     '3' => {
                         self.ignore_char();
                         if self.peek_char() != '2' {
-                            RawTokenVariant::Err(TokenError::IllFormedLiteral(LiteralToken::Bits(
-                                self.take_buffer::<u64>().into(),
-                            )))
+                            RawTokenVariant::Err(TokenError::IllFormedLiteral(todo!()))
                         } else {
                             // b32
                             self.ignore_char();

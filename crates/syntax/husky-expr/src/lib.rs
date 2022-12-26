@@ -3,6 +3,7 @@ mod atom;
 mod error;
 mod opn;
 mod parser;
+mod pattern;
 mod precedence;
 mod stmt;
 mod variable;
