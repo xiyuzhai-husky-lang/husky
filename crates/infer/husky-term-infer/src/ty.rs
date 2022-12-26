@@ -52,16 +52,11 @@ impl<'a> InferContext<'a> {
         match literal {
             LiteralToken::Unit => todo!(),
             LiteralToken::Integer(_) => term_menu.i32(),
-            LiteralToken::I32(_) => todo!(),
-            LiteralToken::I64(_) => todo!(),
             LiteralToken::Float(_) => todo!(),
-            LiteralToken::F32(_) => todo!(),
-            LiteralToken::F64(_) => todo!(),
-            LiteralToken::Bits(_) => todo!(),
-            LiteralToken::B32(_) => todo!(),
-            LiteralToken::B64(_) => todo!(),
             LiteralToken::Bool(_) => todo!(),
             LiteralToken::String(_) => todo!(),
+            LiteralToken::Char(_) => todo!(),
+            LiteralToken::TupleIndex(_) => todo!(),
         }
     }
 }

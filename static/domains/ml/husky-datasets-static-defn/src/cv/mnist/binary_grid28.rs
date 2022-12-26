@@ -16,7 +16,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
             dev_src: static_dev_src!(),
             trai: "std::ops::Index<i32>",
             member_impls: &[
-                associated_type_impl!("Output", "b32"),
+                associated_type_impl!("Output", "r32"),
                 EntityStaticDefn {
                     dev_src: husky_dev_utils::static_dev_src!(),
                     name: "index",
@@ -28,7 +28,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                             ty: "i32",
                             name: "todo!()",
                         }],
-                        output_ty: "b32",
+                        output_ty: "r32",
                         output_liason: OutputModifier::MemberAccess {
                             member_liason: MemberModifier::Mutable,
                         },

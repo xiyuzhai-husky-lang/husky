@@ -4,12 +4,11 @@
 use crate::*;
 
 type void = ();
-type b32 = u32;
+type r32 = u32;
 type b64 = u64;
 
-use crate::{*, naive::*};
+use crate::{naive::*, *};
 use husky_vm::*;
-
 
 // NaiveI32Internal
 #[rustfmt::skip]

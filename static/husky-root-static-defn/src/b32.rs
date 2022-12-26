@@ -3,10 +3,10 @@ use husky_static_visualizer::StaticVisualTy;
 use super::*;
 
 pub static B32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
-    name: "b32",
+    name: "r32",
     items: &[],
     variant: EntityStaticDefnVariant::Term {
-        base_route: "b32",
+        base_route: "r32",
         spatial_parameters: &[],
         trait_impls: &[],
         ty_members: &[
@@ -128,7 +128,7 @@ pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
             modifier: ParameterModifier::None,
             ty: "i32",
         }],
-        output_ty: "b32",
+        output_ty: "r32",
         output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,

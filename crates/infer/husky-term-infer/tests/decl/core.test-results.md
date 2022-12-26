@@ -61,7 +61,7 @@ Ok(Term(TyDecl { ty_family: Physical, parameters: [] }))
 input
 
 ```husky
-b32
+r32
 ```
 
 output

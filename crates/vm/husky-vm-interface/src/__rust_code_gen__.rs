@@ -4,7 +4,7 @@
 use crate::*;
 
 type void = ();
-type b32 = u32;
+type r32 = u32;
 type b64 = u64;
 
 // void
@@ -411,7 +411,7 @@ impl<'eval> __Register<'eval> {
     }
 }
 
-// b32
+// r32
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __b32_primitive_value_to_bool(data: __RegisterData) -> bool {
@@ -422,7 +422,7 @@ pub unsafe extern "C" fn __b32_primitive_value_to_bool(data: __RegisterData) -> 
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __b32_primitive_ref_to_bool(data_ptr: *mut std::ffi::c_void) -> bool {
-    let data = unsafe { *(data_ptr as *const b32) };
+    let data = unsafe { *(data_ptr as *const r32) };
     data != 0
 }
 
@@ -430,33 +430,33 @@ pub unsafe extern "C" fn __b32_primitive_ref_to_bool(data_ptr: *mut std::ffi::c_
 #[no_mangle]
 pub unsafe extern "C" fn __b32_primitive_value_to_box(data: __RegisterData) -> *mut std::ffi::c_void {
     let data = data.as_b32;
-    let ptr: *mut b32 = Box::<b32>::into_raw(Box::new(data));
+    let ptr: *mut r32 = Box::<r32>::into_raw(Box::new(data));
     ptr as *mut std::ffi::c_void
 }
 
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __b32_clone(data: *mut c_void) -> *mut std::ffi::c_void {
-    Box::<b32>::into_raw(Box::new((*(data as *mut b32)).clone())) as *mut std::ffi::c_void
+    Box::<r32>::into_raw(Box::new((*(data as *mut r32)).clone())) as *mut std::ffi::c_void
 }
 
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __b32_drop(data: *mut c_void) {
-    drop(Box::from_raw(data as *mut b32))
+    drop(Box::from_raw(data as *mut r32))
 }
 
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __b32_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
-    *(this as *const std::ffi::c_void as *const b32) == *(other as *const std::ffi::c_void as *const b32)
+    *(this as *const std::ffi::c_void as *const r32) == *(other as *const std::ffi::c_void as *const r32)
 }
 
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __b32_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<b32>(&__B32_VTABLE) = registers[1].downcast_b32()
+    *registers[0].downcast_temp_mut::<r32>(&__B32_VTABLE) = registers[1].downcast_b32()
 }
 
 #[rustfmt::skip]
@@ -469,39 +469,39 @@ pub static __B32_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     drop: __b32_drop,
     eq: __b32_eq,
     assign: __b32_assign,
-    typename_str: "b32",
+    typename_str: "r32",
     typename_str_hash_u64: 9758498138566595375,
 };
 
 #[rustfmt::skip]
 impl<'eval> __Register<'eval> {
-    pub fn downcast_b32(&self) -> b32 {
+    pub fn downcast_b32(&self) -> r32 {
         unsafe {
             if self.vtable.typename_str_hash_u64 != 9758498138566595375 {
-                panic!("expect `b32` but get {} instead", self.vtable.typename_str)
+                panic!("expect `r32` but get {} instead", self.vtable.typename_str)
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_b32,
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
-                | __RegisterDataKind::Box => *(self.data.as_ptr as *const b32),
+                | __RegisterDataKind::Box => *(self.data.as_ptr as *const r32),
                 _ => panic!(),
             }
         }
     }
 
-    pub fn downcast_opt_b32(&self) -> Option<b32> {
+    pub fn downcast_opt_b32(&self) -> Option<r32> {
         unsafe {
             if self.vtable.typename_str_hash_u64 != 9758498138566595375 {
-                panic!("expect `b32` but get `{}` instead", self.vtable.typename_str)
+                panic!("expect `r32` but get `{}` instead", self.vtable.typename_str)
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_b32),
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
-                | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const b32)),
+                | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const r32)),
                 __RegisterDataKind::SomeNone => {
                     assert_eq!(unsafe {self.data.as_number_of_somes}, 0);
                     None

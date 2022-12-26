@@ -9,7 +9,7 @@ inductive LiteralToken
   --  | F32(value : OrderedF32)
   --  | F64(value : OrderedF64)
   --  | Bits(value : b64)
-  --  | B32(value : b32)
+  --  | B32(value : r32)
   --  | B64(value : b64)
    | Bool(value : Bool)
 

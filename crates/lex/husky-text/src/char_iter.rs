@@ -62,6 +62,28 @@ impl<'a> TextCharIter<'a> {
         }
     }
 
+    fn eat_char(&mut self) {
+        self.next().expect("what");
+    }
+
+    fn eat_chars_with(&mut self, predicate: impl Fn(char) -> bool) {
+        while let Some(c) = self.peek() {
+            if predicate(c) {
+                self.eat_char();
+            } else {
+                break;
+            }
+        }
+    }
+
+    pub fn get_str_slice_with(&mut self, predicate: impl Fn(char) -> bool) -> &'a str {
+        let slice = self.iter.as_slice();
+        let start = self.current_offset;
+        self.eat_chars_with(predicate);
+        let end = self.current_offset;
+        unsafe { std::str::from_utf8_unchecked(&slice[..(end - start)]) }
+    }
+
     fn next_char_raw(&mut self) -> Option<char> {
         unsafe { core::str::next_code_point(&mut self.iter).map(|ch| char::from_u32_unchecked(ch)) }
     }
@@ -175,6 +197,23 @@ mod tests {
         }
 
         t("a\n\r\n", &['a', '\n', '\n']);
+    }
+
+    #[test]
+    fn get_str_slice_with_works() {
+        fn t(text: &str, n: usize, predicate: impl Fn(char) -> bool, expect: &str) {
+            let text = Text::new(text);
+            let mut char_iter = text.char_iter();
+            for _ in 0..n {
+                char_iter.next();
+            }
+            assert_eq!(char_iter.get_str_slice_with(predicate), expect);
+        }
+
+        t("a\n\r\n", 0, |_| true, "a\n\r\n");
+        t("aa\n\r\n", 1, |_| true, "a\n\r\n");
+        t("i32 sdf", 0, |c| c.is_alphanumeric(), "i32");
+        t("2.0f32+sdf", 3, |c| c.is_alphanumeric(), "f32");
     }
 
     #[test]

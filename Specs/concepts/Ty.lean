@@ -12,7 +12,7 @@ structure i32
 structure i64
   deriving DecidableEq
 
-structure b32
+structure r32
   deriving DecidableEq
 
 structure b64 where

@@ -40,7 +40,7 @@ pub struct TermMenu0 {
     i64: Term,
     f32: Term,
     f64: Term,
-    b32: Term,
+    r32: Term,
     b64: Term,
     bool: Term,
     trai: Term,
@@ -86,7 +86,7 @@ impl TermMenu0 {
         //     i64: db.it_entity_path_term(entity_path_menu.i64()),
         //     f32: db.it_entity_path_term(entity_path_menu.f32()),
         //     f64: db.it_entity_path_term(entity_path_menu.f64()),
-        //     b32: db.it_entity_path_term(entity_path_menu.b32()),
+        //     r32: db.it_entity_path_term(entity_path_menu.r32()),
         //     b64: db.it_entity_path_term(entity_path_menu.b64()),
         // }
     }
@@ -208,8 +208,8 @@ impl TermMenu0 {
         self.f64
     }
 
-    pub fn b32(&self) -> Term {
-        self.b32
+    pub fn r32(&self) -> Term {
+        self.r32
     }
 
     pub fn b64(&self) -> Term {

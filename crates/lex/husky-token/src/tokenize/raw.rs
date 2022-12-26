@@ -121,7 +121,7 @@ impl<'a, 'b> RawTokenIter<'a, 'b> {
     }
 }
 
-impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
+impl<'a, 'b: 'a> RawTokenIter<'a, 'b> {
     fn skip_whitespaces(&mut self) {
         while let Some(' ') = self.char_iter.peek() {
             self.char_iter.next();
@@ -141,128 +141,43 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
     }
 
     fn next_number(&mut self) -> RawTokenVariant {
-        while self.peek_char().is_digit(10) {
-            self.eat_char()
-        }
-        match self.peek_char() {
-            '.' => {
-                self.eat_char();
-                while self.peek_char().is_digit(10) {
-                    self.eat_char()
-                }
-                match self.peek_char() {
-                    'f' => todo!(),
-                    _ => (),
-                }
-                let _len = self.buffer.len();
-                RawTokenVariant::Literal(LiteralToken::Float(todo!())).into()
+        let radix = 10;
+        self.eat_chars_with(|c| char::is_digit(c, radix));
+        if self.try_eat_char(|c| c == '.').is_some() {
+            // parse float type
+            self.eat_chars_with(|c| c.is_digit(radix));
+            let float_suffix = self.get_str_slice_with(|c| c.is_alphanumeric());
+            match float_suffix {
+                "f8" => todo!(),
+                "f16" => todo!(),
+                "f32" => todo!(),
+                "f64" => todo!(),
+                "f128" => todo!(),
+                "f256" => todo!(),
+                invalid_float_suffix => todo!(),
             }
-            'b' => {
-                // b32 or b64
-                self.ignore_char();
-                match self.peek_char() {
-                    '3' => {
-                        self.ignore_char();
-                        if self.peek_char() != '2' {
-                            RawTokenVariant::Err(TokenError::IllFormedLiteral(todo!()))
-                        } else {
-                            // b32
-                            self.ignore_char();
-                            if is_word_char(self.peek_char()) {
-                                todo!()
-                            } else {
-                                RawTokenVariant::Literal(LiteralToken::B32(
-                                    self.take_buffer::<u32>().into(),
-                                ))
-                            }
-                        }
-                    }
-                    '6' => {
-                        self.ignore_char();
-                        if self.peek_char() != '4' {
-                            RawTokenVariant::Err(TokenError::IllFormedLiteral(LiteralToken::Bits(
-                                self.take_buffer::<u64>().into(),
-                            )))
-                        } else {
-                            // b64
-                            self.ignore_char();
-                            if is_word_char(self.peek_char()) {
-                                todo!()
-                            } else {
-                                RawTokenVariant::Literal(LiteralToken::B64(
-                                    self.take_buffer::<u64>().into(),
-                                ))
-                            }
-                        }
-                    }
-                    _ => RawTokenVariant::Err(TokenError::IllFormedLiteral(LiteralToken::B64(
-                        self.take_buffer::<u64>(),
-                    ))),
-                }
-            }
-            'i' => {
-                // i32 or i64
-                self.ignore_char();
-                match self.peek_char() {
-                    '3' => {
-                        self.ignore_char();
-                        if self.peek_char() != '2' {
-                            RawTokenVariant::Err(TokenError::IllFormedLiteral(
-                                LiteralToken::Integer(self.take_buffer::<i32>().into()),
-                            ))
-                        } else {
-                            // i32
-                            self.ignore_char();
-                            if is_word_char(self.peek_char()) {
-                                todo!()
-                            } else {
-                                RawTokenVariant::Literal(LiteralToken::I32(
-                                    self.take_buffer::<i32>().into(),
-                                ))
-                            }
-                        }
-                    }
-                    '6' => {
-                        self.ignore_char();
-                        if self.peek_char() != '4' {
-                            RawTokenVariant::Err(TokenError::IllFormedLiteral(
-                                LiteralToken::Integer(self.take_buffer::<i64>().into()),
-                            ))
-                        } else {
-                            // b64
-                            self.ignore_char();
-                            if is_word_char(self.peek_char()) {
-                                todo!()
-                            } else {
-                                RawTokenVariant::Literal(LiteralToken::I64(
-                                    self.take_buffer::<i64>().into(),
-                                ))
-                            }
-                        }
-                    }
-                    _ => RawTokenVariant::Err(TokenError::IllFormedLiteral(LiteralToken::I64(
-                        self.take_buffer::<i64>(),
-                    ))),
-                }
-            }
-            default => {
-                if default.is_alphabetic() {
-                    // letter other than 'b' or 'i' after integer literal is not allowed
-                    let mut token_len = self.buffer.len() + 1;
-                    while self.peek_char().is_alphabetic() {
-                        self.ignore_char();
-                        token_len += 1;
-                    }
-                    RawTokenVariant::Err(TokenError::IllFormedLiteral(LiteralToken::B64(
-                        self.take_buffer::<u64>().into(),
-                    )))
-                } else {
-                    // integer
-                    let _len = self.buffer.len();
-                    RawTokenVariant::Literal(LiteralToken::Integer(
-                        self.take_buffer::<i32>().into(),
-                    ))
-                }
+        } else {
+            let integer_suffix = self.get_str_slice_with(|c| c.is_alphanumeric());
+            match integer_suffix {
+                "i8" => todo!(),
+                "i16" => todo!(),
+                "i32" => todo!(),
+                "i64" => todo!(),
+                "i128" => todo!(),
+                "i256" => todo!(),
+                "r8" => todo!(),
+                "r16" => todo!(),
+                "r32" => todo!(),
+                "r64" => todo!(),
+                "r128" => todo!(),
+                "r256" => todo!(),
+                "u8" => todo!(),
+                "u16" => todo!(),
+                "u32" => todo!(),
+                "u64" => todo!(),
+                "u128" => todo!(),
+                "u256" => todo!(),
+                invalid_integer_suffix => todo!(),
             }
         }
     }
@@ -305,6 +220,33 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
     fn eat_char(&mut self) {
         let c = self.char_iter.next().expect("what");
         self.buffer.push(c);
+    }
+
+    fn try_eat_char(&mut self, predicate: impl FnOnce(char) -> bool) -> Option<char> {
+        if let Some(c) = self.char_iter.peek() {
+            if predicate(c) {
+                self.eat_char();
+                Some(c)
+            } else {
+                None
+            }
+        } else {
+            None
+        }
+    }
+
+    fn eat_chars_with(&mut self, predicate: impl Fn(char) -> bool) {
+        while let Some(c) = self.char_iter.peek() {
+            if predicate(c) {
+                self.eat_char();
+            } else {
+                break;
+            }
+        }
+    }
+
+    fn get_str_slice_with(&mut self, predicate: impl Fn(char) -> bool) -> &'b str {
+        self.char_iter.get_str_slice_with(predicate)
     }
 
     fn ignore_char(&mut self) {
@@ -443,7 +385,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
             }
         }
         Ok(RawTokenVariant::Literal(LiteralToken::String(
-            StringLiteral::new(s),
+            StringLiteral::new(self.db, s),
         )))
     }
 

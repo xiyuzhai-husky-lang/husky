@@ -11,7 +11,7 @@ impl TermMenu {
             (self.i64(), Arc::new(TyDecl::new(Physical))),
             (self.f32(), Arc::new(TyDecl::new(Physical))),
             (self.f64(), Arc::new(TyDecl::new(Physical))),
-            (self.b32(), Arc::new(TyDecl::new(Physical))),
+            (self.r32(), Arc::new(TyDecl::new(Physical))),
             (self.b64(), Arc::new(TyDecl::new(Physical))),
             (self.bool(), Arc::new(TyDecl::new(Physical))),
         ]

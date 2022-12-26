@@ -2,13 +2,13 @@
 #![feature(const_convert)]
 #![feature(panic_info_message)]
 pub mod __std;
-mod b32;
 mod clone;
 pub mod domains;
 mod eq;
 mod etc;
 mod f32;
 mod i32;
+mod r32;
 mod thick_fp;
 mod vec;
 
@@ -17,11 +17,11 @@ pub use crate::f32::*;
 pub use crate::i32::*;
 pub use __husky::{init::*, root::*};
 pub use __std::*;
-pub use b32::*;
 pub use domains::*;
 pub use eq::*;
 pub use etc::*;
 pub use husky_term::Term as __EntityRoutePtr;
+pub use r32::*;
 pub use serde::Serialize as __Serialize;
 pub use serde_json::value::Value as __JsonValue;
 pub use std::sync::Arc as __Arc;

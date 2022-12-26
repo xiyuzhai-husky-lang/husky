@@ -9,7 +9,7 @@ pub struct WordMenu {
     i64: Identifier,
     u32: Identifier,
     u64: Identifier,
-    b32: Identifier,
+    r32: Identifier,
     b64: Identifier,
     f32: Identifier,
     f64: Identifier,
@@ -27,9 +27,9 @@ impl WordMenu {
             bool: db.it_ident_borrowed("bool").unwrap(),
             i32: db.it_ident_borrowed("i32").unwrap(),
             i64: db.it_ident_borrowed("i64").unwrap(),
-            u32: db.it_ident_borrowed("b32").unwrap(),
+            u32: db.it_ident_borrowed("r32").unwrap(),
             u64: db.it_ident_borrowed("b64").unwrap(),
-            b32: db.it_ident_borrowed("b32").unwrap(),
+            r32: db.it_ident_borrowed("r32").unwrap(),
             b64: db.it_ident_borrowed("b64").unwrap(),
             f32: db.it_ident_borrowed("f32").unwrap(),
             f64: db.it_ident_borrowed("f64").unwrap(),
@@ -55,8 +55,8 @@ impl WordMenu {
         self.i64
     }
 
-    pub fn b32(&self) -> Identifier {
-        self.b32
+    pub fn r32(&self) -> Identifier {
+        self.r32
     }
 
     pub fn b64(&self) -> Identifier {

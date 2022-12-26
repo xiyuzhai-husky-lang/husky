@@ -19,16 +19,16 @@ enum Direction:
 // pub fn Point2dFromIJ28(i: int, j: int) -> Point2d
 //   return Point2d(float(29 - j), float(29 - i))
 
-func get_pixel_pair(row: b32, j: i32) -> b32:
+func get_pixel_pair(row: r32, j: i32) -> r32:
     (row >> (j - 1)) & 3b32
 
-func get_pixel_to_the_left(row: b32, j: i32) -> b32:
+func get_pixel_to_the_left(row: r32, j: i32) -> r32:
     (row >> j) & 1b32
 
-func get_pixel_to_the_right(row: b32, j: i32) -> b32:
+func get_pixel_to_the_right(row: r32, j: i32) -> r32:
     (row >> (j - 1)) & 1b32
 
-func get_inward_direction(row_above: b32, row_below: b32, j: i32) -> Direction:
+func get_inward_direction(row_above: r32, row_below: r32, j: i32) -> Direction:
     pixel_pair_above = get_pixel_pair(row_above, j)
     pixel_pair_below = get_pixel_pair(row_below, j)
     match pixel_pair_above:
@@ -56,7 +56,7 @@ func get_inward_direction(row_above: b32, row_below: b32, j: i32) -> Direction:
                     Direction::UP
 
 func get_angle_change(inward: Direction, outward: Direction) -> i32:
-    raw_angle_change = (((outward as i32) - (inward as i32)) as b32).last_bits(2)
+    raw_angle_change = (((outward as i32) - (inward as i32)) as r32).last_bits(2)
     match raw_angle_change:
         case 0b32 | 1b32 | 2b32:
             raw_angle_change as i32
@@ -64,8 +64,8 @@ func get_angle_change(inward: Direction, outward: Direction) -> i32:
             -1
 
 func get_outward_direction(
-    row_above: b32,
-    row_below: b32,
+    row_above: r32,
+    row_below: r32,
     j: i32,
     inward_direction: Direction
 ) -> Direction:

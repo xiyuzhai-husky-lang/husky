@@ -20,7 +20,7 @@ impl<'a> Display for PrimitiveTypeRegistration<'a> {
         let result = match ty {
             "void" => "false",
             "bool" => "data",
-            "i32" | "i64" | "b32" | "b64" => "data != 0",
+            "i32" | "i64" | "r32" | "b64" => "data != 0",
             "f32" | "f64" => "data != 0.0",
             _ => panic!(),
         };

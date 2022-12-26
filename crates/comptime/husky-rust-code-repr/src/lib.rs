@@ -21,7 +21,7 @@ impl Display for BuildCodeGenStart {
 use crate::*;
 
 type void = ();
-type b32 = u32;
+type r32 = u32;
 type b64 = u64;
 "#
         )
