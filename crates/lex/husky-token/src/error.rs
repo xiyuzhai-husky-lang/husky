@@ -13,6 +13,11 @@ pub enum TokenError {
     UnrecognizedChar(char),
     #[error("ill-formed literal")]
     IllFormedLiteral(LiteralToken),
+    #[error("number pseudoliteral")]
+    NumberPseudoLiteral(NumberPseudoLiteral),
 }
+
+#[derive(Debug, Error, PartialEq, Eq, Clone)]
+pub enum NumberPseudoLiteral {}
 
 pub type TokenResult<T> = Result<T, TokenError>;
