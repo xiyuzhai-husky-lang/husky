@@ -12,7 +12,7 @@ proc horizontal_extend(a: r32, x: r32) -> r32:
     return y
 
 main:
-    assert horizontal_extend(0b32, 0b32) == 0b32
-    assert horizontal_extend(3b32, 1b32) == 3b32
-    assert horizontal_extend(255b32, 1b32) == 255b32
+    assert horizontal_extend(0r32, 0r32) == 0r32
+    assert horizontal_extend(3r32, 1r32) == 3r32
+    assert horizontal_extend(255r32, 1r32) == 255r32
     MnistLabel::One

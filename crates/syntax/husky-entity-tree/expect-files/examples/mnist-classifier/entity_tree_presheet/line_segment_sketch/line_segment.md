@@ -8,18 +8,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch::line_segment`,
                 ),
                 ast_idx: 16,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 334,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::line_segment_sketch::line_segment::LineSegment`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

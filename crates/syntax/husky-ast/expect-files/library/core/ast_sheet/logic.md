@@ -17,20 +17,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `core::logic`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `core::logic::LogicAnd`,
                     ),
                     ident: `LogicAnd`,
                     is_generic: true,
@@ -54,20 +41,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `core::logic`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `core::logic::LogicOr`,
                     ),
                     ident: `LogicOr`,
                     is_generic: true,

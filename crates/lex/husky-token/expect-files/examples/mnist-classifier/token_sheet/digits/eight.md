@@ -1253,7 +1253,7 @@ Ok(
                 range: [31:52, 31:53),
                 kind: Literal(
                     Integer(
-                        1,
+                        Unspecified,
                     ),
                 ),
             },
@@ -1357,7 +1357,7 @@ Ok(
                 range: [32:56, 32:57),
                 kind: Literal(
                     Integer(
-                        0,
+                        Unspecified,
                     ),
                 ),
             },
@@ -1651,9 +1651,7 @@ Ok(
                 range: [38:40, 38:43),
                 kind: Literal(
                     Float(
-                        OrderedFloat(
-                            0.5,
-                        ),
+                        Unspecified,
                     ),
                 ),
             },

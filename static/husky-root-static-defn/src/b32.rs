@@ -39,7 +39,7 @@ pub static B32_LEADING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(
-            |values, _| { (values[0].downcast_b32().leading_zeros() as i32).to_register() },
+            |values, _| { (values[0].downcast_r32().leading_zeros() as i32).to_register() },
             some base (|x| x.leading_zeros() as i32) as fn(u32) -> i32
         )),
     },
@@ -57,7 +57,7 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(
-            |values, _| values[0]. downcast_b32().ctz().to_register(),
+            |values, _| values[0]. downcast_r32().ctz().to_register(),
             some base u32::ctz as fn(u32) -> i32
         )),
     },
@@ -75,7 +75,7 @@ pub static B32_COUNT_ONES: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(
-            |values, _| (values[0].downcast_b32().count_ones() as i32).to_register(),
+            |values, _| (values[0].downcast_r32().count_ones() as i32).to_register(),
             some base u32::co as fn(u32) -> i32
         )),
     },
@@ -93,7 +93,7 @@ pub static B32_SPAN: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(
-            |values, _| values[0]. downcast_b32().span().to_register(),
+            |values, _| values[0]. downcast_r32().span().to_register(),
             some base u32::span as fn(u32) -> i32
         )),
     },
@@ -111,7 +111,7 @@ pub static B32_RIGHT_MASS: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(
-            |values, _| values[0]. downcast_b32().right_mass().to_register(),
+            |values, _| values[0]. downcast_r32().right_mass().to_register(),
             some base u32::span as fn(u32) -> i32
         )),
     },
@@ -134,7 +134,7 @@ pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(
             |values, _| {
-                let b = values[0].downcast_b32();
+                let b = values[0].downcast_r32();
                 let i = values[1].downcast_i32();
                 let last_bits = b & ((1 << i) - 1);
                 last_bits.to_register()

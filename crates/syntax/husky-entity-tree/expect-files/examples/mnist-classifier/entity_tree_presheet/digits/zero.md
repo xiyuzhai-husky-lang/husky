@@ -8,18 +8,7 @@ Ok(
                     `mnist_classifier::digits::zero`,
                 ),
                 ast_idx: 35,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::zero`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 281,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::zero::open_one_match`,
             },
             ModuleItem {
                 ident: `almost_closed`,
@@ -27,18 +16,7 @@ Ok(
                     `mnist_classifier::digits::zero`,
                 ),
                 ast_idx: 36,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::zero`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 282,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::zero::almost_closed`,
             },
             ModuleItem {
                 ident: `is_zero`,
@@ -46,18 +24,7 @@ Ok(
                     `mnist_classifier::digits::zero`,
                 ),
                 ast_idx: 37,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::zero`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 93,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::zero::is_zero`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

@@ -131,20 +131,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 334,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::line_segment_sketch::line_segment::LineSegment`,
                     ),
                     ident: `LineSegment`,
                     is_generic: false,

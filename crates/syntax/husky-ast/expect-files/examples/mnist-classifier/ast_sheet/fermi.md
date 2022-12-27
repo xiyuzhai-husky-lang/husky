@@ -266,20 +266,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::fermi`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 167,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::fermi::FermiMatchResult`,
                     ),
                     ident: `FermiMatchResult`,
                     is_generic: false,
@@ -315,20 +302,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::fermi`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 168,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::fermi::fermi_match`,
                     ),
                     ident: `fermi_match`,
                     is_generic: false,

@@ -5,17 +5,22 @@ use local_stack::LocalStack;
 
 #[derive(Clone)]
 pub struct SymbolContext<'a> {
+    db: &'a dyn EntityTreeDb,
+    entity_path: EntityPath,
     crate_prelude: CratePrelude<'a>,
     local_symbol_sheet: &'a LocalSymbolSheet,
 }
 
 impl<'a> SymbolContext<'a> {
     pub fn new(
-        db: &dyn EntityTreeDb,
+        db: &'a dyn EntityTreeDb,
+        entity_path: EntityPath,
         crate_prelude: CratePrelude<'a>,
         local_symbol_sheet: &'a LocalSymbolSheet,
     ) -> Self {
         Self {
+            db,
+            entity_path,
             crate_prelude,
             local_symbol_sheet,
         }
@@ -35,5 +40,13 @@ impl<'a> SymbolContext<'a> {
         // } else {
         //     None
         // }
+    }
+
+    pub fn entity_path(&self) -> EntityPath {
+        self.entity_path
+    }
+
+    pub fn db(&self) -> &dyn EntityTreeDb {
+        self.db
     }
 }

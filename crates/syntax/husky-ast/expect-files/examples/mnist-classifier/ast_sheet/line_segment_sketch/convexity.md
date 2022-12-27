@@ -221,20 +221,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::convexity`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 338,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::line_segment_sketch::convexity::is_convex`,
                     ),
                     ident: `is_convex`,
                     is_generic: false,

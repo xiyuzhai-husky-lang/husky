@@ -8,18 +8,7 @@ Ok(
                     `mnist_classifier::digits::two`,
                 ),
                 ast_idx: 67,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::two`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 265,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::two::two_match`,
             },
             ModuleItem {
                 ident: `left_cc_pattern`,
@@ -27,18 +16,7 @@ Ok(
                     `mnist_classifier::digits::two`,
                 ),
                 ast_idx: 68,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::two`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 266,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::two::left_cc_pattern`,
             },
             ModuleItem {
                 ident: `right_cc_pattern`,
@@ -46,18 +24,7 @@ Ok(
                     `mnist_classifier::digits::two`,
                 ),
                 ast_idx: 69,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::two`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 267,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::two::right_cc_pattern`,
             },
             ModuleItem {
                 ident: `down_cc_pattern`,
@@ -65,18 +32,7 @@ Ok(
                     `mnist_classifier::digits::two`,
                 ),
                 ast_idx: 70,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::two`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 268,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::two::down_cc_pattern`,
             },
             ModuleItem {
                 ident: `is_two`,
@@ -84,18 +40,7 @@ Ok(
                     `mnist_classifier::digits::two`,
                 ),
                 ast_idx: 71,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::two`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 99,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::two::is_two`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

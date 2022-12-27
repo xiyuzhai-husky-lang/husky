@@ -145,7 +145,7 @@ Arena {
 input
 
 ```husky
-1b32
+1r32
 ```
 
 output

@@ -311,9 +311,7 @@ Ok(
                 range: [11:24, 11:27),
                 kind: Literal(
                     Float(
-                        OrderedFloat(
-                            0.0,
-                        ),
+                        Unspecified,
                     ),
                 ),
             },
@@ -633,9 +631,7 @@ Ok(
                 range: [17:24, 17:27),
                 kind: Literal(
                     Float(
-                        OrderedFloat(
-                            0.0,
-                        ),
+                        Unspecified,
                     ),
                 ),
             },
@@ -955,9 +951,7 @@ Ok(
                 range: [23:24, 23:27),
                 kind: Literal(
                     Float(
-                        OrderedFloat(
-                            0.0,
-                        ),
+                        Unspecified,
                     ),
                 ),
             },

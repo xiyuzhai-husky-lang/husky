@@ -41,7 +41,7 @@ impl<'a> DeclCollector<'a> {
                     accessibility,
                     path,
                     ast_idx,
-                } => decls.insert(((*path).into(), self.parse_decl(*ast_idx))),
+                } => decls.insert(((*path).into(), self.parse_decl((*path).into(), *ast_idx))),
             }
         }
         for associated_item in self.entity_tree_sheet.associated_items().iter() {
@@ -50,14 +50,14 @@ impl<'a> DeclCollector<'a> {
         DeclSheet::new(decls)
     }
 
-    fn parse_decl(&mut self, ast_idx: AstIdx) -> DeclResult<Decl> {
+    fn parse_decl(&mut self, entity_path: EntityPath, ast_idx: AstIdx) -> DeclResult<Decl> {
         match self.ast_sheet[ast_idx] {
             Ast::Defn {
                 token_group_idx,
                 ref body,
                 accessibility,
                 entity_kind,
-                entity_path,
+                entity_path: _,
                 ident,
                 is_generic,
                 body_kind,
@@ -73,9 +73,12 @@ impl<'a> DeclCollector<'a> {
                         TypeKind::Record => todo!(),
                         TypeKind::Struct => todo!(),
                         TypeKind::Structure => todo!(),
-                        TypeKind::Form => {
-                            self.parse_form_decl(token_group_idx, body, saved_stream_state)
-                        }
+                        TypeKind::Form => self.parse_form_decl(
+                            entity_path,
+                            token_group_idx,
+                            body,
+                            saved_stream_state,
+                        ),
                     },
                     ItemKind::Trait => todo!(),
                     ItemKind::Form => todo!(),
@@ -100,6 +103,7 @@ impl<'a> DeclCollector<'a> {
 
     fn parse_form_decl(
         &self,
+        entity_path: EntityPath,
         token_group_idx: TokenGroupIdx,
         body: &AstIdxRange,
         saved_stream_state: TokenIterState,
@@ -110,7 +114,7 @@ impl<'a> DeclCollector<'a> {
         let mut expr_arena = ExprArena::default();
         let local_symbol_sheet = LocalSymbolSheet::default();
         let a = parse_expr(
-            self.ctx(&local_symbol_sheet),
+            self.ctx(entity_path, &local_symbol_sheet),
             &mut token_iter,
             &mut expr_arena,
         );
@@ -118,7 +122,11 @@ impl<'a> DeclCollector<'a> {
         todo!()
     }
 
-    fn ctx<'b>(&'b self, local_symbol_sheet: &'a LocalSymbolSheet) -> SymbolContext<'b> {
-        SymbolContext::new(self.db, self.crate_prelude, local_symbol_sheet)
+    fn ctx<'b>(
+        &'b self,
+        entity_path: EntityPath,
+        local_symbol_sheet: &'a LocalSymbolSheet,
+    ) -> SymbolContext<'b> {
+        SymbolContext::new(self.db, entity_path, self.crate_prelude, local_symbol_sheet)
     }
 }

@@ -69,20 +69,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 341,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent`,
                     ),
                     ident: `ConvexCompoent`,
                     is_generic: false,

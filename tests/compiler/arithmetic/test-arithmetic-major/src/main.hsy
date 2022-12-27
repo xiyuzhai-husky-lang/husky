@@ -2,14 +2,14 @@ func add(x: i32, y: i32) -> i32:
     x + y
 
 proc bitor_assign() -> bool:
-    let mut b = 0b32
-    b |= 1b32
-    return b == 1b32
+    let mut b = 0r32
+    b |= 1r32
+    return b == 1r32
 
 proc bitand_assign() -> bool:
-    let mut b = 0b32
-    b &= 1b32
-    return b == 0b32
+    let mut b = 0r32
+    b &= 1r32
+    return b == 0r32
 
 task:
     ml::datasets::synthetic::trivial::real1d::dataset1()

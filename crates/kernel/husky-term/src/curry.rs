@@ -104,10 +104,10 @@ impl<'a> TermContext<'a> {
 //     //     .curry(TermCurryVariant::Conceptual, menu.f64(), menu.f64())
 //     //     .unwrap();
 //     // assert_eq!(f64_to_f64.to_string(), "f64 -> f64");
-//     // let b32_to_b32 = ctx
+//     // let r32_to_r32 = ctx
 //     //     .curry(TermCurryVariant::Conceptual, menu.r32(), menu.r32())
 //     //     .unwrap();
-//     // assert_eq!(b32_to_b32.to_string(), "r32 -> r32");
+//     // assert_eq!(r32_to_r32.to_string(), "r32 -> r32");
 //     // let b64_to_b64 = ctx
 //     //     .curry(TermCurryVariant::Conceptual, menu.b64(), menu.b64())
 //     //     .unwrap();

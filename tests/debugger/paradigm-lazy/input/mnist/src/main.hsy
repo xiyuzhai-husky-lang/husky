@@ -6,7 +6,7 @@ task:
 
 proc find_a(binary_image: BinaryImage28) -> i32:
     let mut b = binary_image.clone()
-    b[0] = 1b32
+    b[0] = 1r32
     return 1
 
 main:

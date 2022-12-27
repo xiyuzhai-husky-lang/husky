@@ -1,5 +1,6 @@
 use super::*;
 use husky_opn_syntax::*;
+use husky_print_utils::p;
 use husky_text::{TextCharIter, TextRange};
 use husky_word::WordDb;
 use std::str::FromStr;
@@ -27,6 +28,18 @@ pub(crate) enum RawTokenVariant {
     Special(AmbiguousSpecial),
     Comment,
     Err(TokenError),
+}
+
+impl Into<RawTokenVariant> for IntegerLiteral {
+    fn into(self) -> RawTokenVariant {
+        RawTokenVariant::Certain(TokenKind::Literal(LiteralToken::Integer(self)))
+    }
+}
+
+impl Into<RawTokenVariant> for FloatLiteral {
+    fn into(self) -> RawTokenVariant {
+        RawTokenVariant::Certain(TokenKind::Literal(LiteralToken::Float(self)))
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -147,7 +160,8 @@ impl<'a, 'b: 'a> RawTokenIter<'a, 'b> {
             // parse float type
             self.eat_chars_with(|c| c.is_digit(radix));
             let float_suffix = self.get_str_slice_with(|c| c.is_alphanumeric());
-            match float_suffix {
+            let token = match float_suffix {
+                "" => FloatLiteral::Unspecified.into(),
                 "f8" => todo!(),
                 "f16" => todo!(),
                 "f32" => todo!(),
@@ -155,10 +169,13 @@ impl<'a, 'b: 'a> RawTokenIter<'a, 'b> {
                 "f128" => todo!(),
                 "f256" => todo!(),
                 invalid_float_suffix => todo!(),
-            }
+            };
+            self.buffer.clear();
+            token
         } else {
             let integer_suffix = self.get_str_slice_with(|c| c.is_alphanumeric());
-            match integer_suffix {
+            let token: RawTokenVariant = match integer_suffix {
+                "" => IntegerLiteral::Unspecified.into(),
                 "i8" => todo!(),
                 "i16" => todo!(),
                 "i32" => todo!(),
@@ -167,8 +184,8 @@ impl<'a, 'b: 'a> RawTokenIter<'a, 'b> {
                 "i256" => todo!(),
                 "r8" => todo!(),
                 "r16" => todo!(),
-                "r32" => todo!(),
-                "r64" => todo!(),
+                "r32" => IntegerLiteral::R32(self.buffer.parse().unwrap()).into(),
+                "r64" => IntegerLiteral::R64(self.buffer.parse().unwrap()).into(),
                 "r128" => todo!(),
                 "r256" => todo!(),
                 "u8" => todo!(),
@@ -177,8 +194,13 @@ impl<'a, 'b: 'a> RawTokenIter<'a, 'b> {
                 "u64" => todo!(),
                 "u128" => todo!(),
                 "u256" => todo!(),
-                invalid_integer_suffix => todo!(),
-            }
+                invalid_integer_suffix => {
+                    p!(invalid_integer_suffix);
+                    todo!()
+                }
+            };
+            self.buffer.clear();
+            token
         }
     }
 
@@ -192,7 +214,8 @@ impl<'a, 'b: 'a> RawTokenIter<'a, 'b> {
             // ad hoc
             token_kind
         } else {
-            TokenKind::Identifier(self.db.it_ident_owned(word).expect("todo")).into()
+            let identifier = self.db.it_ident_owned(word).unwrap();
+            TokenKind::Identifier(identifier).into()
         }
     }
 
@@ -385,7 +408,7 @@ impl<'a, 'b: 'a> RawTokenIter<'a, 'b> {
             }
         }
         Ok(RawTokenVariant::Literal(LiteralToken::String(
-            StringLiteral::new(self.db, s),
+            StringLiteral::new(s),
         )))
     }
 

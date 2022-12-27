@@ -34,7 +34,7 @@ impl StackOpr {
             StackOpr::Prefix { .. } => Precedence::Prefix,
             StackOpr::ListItem { .. } | StackOpr::ListStart { .. } => Precedence::None,
             StackOpr::LambdaHead { inputs, start } => Precedence::LambdaHead,
-            StackOpr::Dot { dot_token_idx } => todo!(),
+            StackOpr::Dot { dot_token_idx } => Precedence::Dot,
         }
     }
 }

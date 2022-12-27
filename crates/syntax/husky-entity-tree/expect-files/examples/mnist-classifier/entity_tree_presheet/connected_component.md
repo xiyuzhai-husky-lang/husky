@@ -8,18 +8,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 121,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::connected_component`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 104,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::connected_component::ConnectedComponentDistribution`,
             },
             ModuleItem {
                 ident: `EffHoles`,
@@ -27,18 +16,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 122,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::connected_component`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 109,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::connected_component::EffHoles`,
             },
             ModuleItem {
                 ident: `hole_tmpl`,
@@ -46,18 +24,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 123,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::connected_component`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 112,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::connected_component::hole_tmpl`,
             },
             ModuleItem {
                 ident: `ConnectedComponent`,
@@ -65,18 +32,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 124,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::connected_component`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 116,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::connected_component::ConnectedComponent`,
             },
             ModuleItem {
                 ident: `horizontal_extend`,
@@ -84,18 +40,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 125,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::connected_component`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 145,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::connected_component::horizontal_extend`,
             },
             ModuleItem {
                 ident: `find_connected_components`,
@@ -103,18 +48,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 126,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::connected_component`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 151,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::connected_component::find_connected_components`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

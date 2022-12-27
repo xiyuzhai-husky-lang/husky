@@ -180,20 +180,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `core::num`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `core::num::i8`,
                     ),
                     ident: `i8`,
                     is_generic: false,
@@ -238,20 +225,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `core::num`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 26,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `core::num::i16`,
                     ),
                     ident: `i16`,
                     is_generic: false,
@@ -296,20 +270,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `core::num`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 27,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `core::num::i32`,
                     ),
                     ident: `i32`,
                     is_generic: false,
@@ -360,20 +321,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `core::num`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 28,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `core::num::i64`,
                     ),
                     ident: `i64`,
                     is_generic: false,

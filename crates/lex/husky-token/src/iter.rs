@@ -62,6 +62,24 @@ impl<'a> TokenIter<'a> {
         }
     }
 
+    pub fn try_get_one_token_with_indexed<S>(
+        &mut self,
+        f: impl Fn(&TokenKind) -> Option<S>,
+    ) -> Option<(TokenIdx, S)> {
+        let (token_idx, token) = self.next_indexed()?;
+        if let Some(s) = f(&token.kind) {
+            Some((token_idx, s))
+        } else {
+            self.go_back();
+            None
+        }
+    }
+
+    pub fn go_back(&mut self) {
+        assert!(self.next_relative > 0);
+        self.next_relative -= 1;
+    }
+
     pub fn rollback(&mut self, state: TokenIterState) {
         self.next_relative = state.next_relative;
     }

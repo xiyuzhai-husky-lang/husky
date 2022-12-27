@@ -20,8 +20,8 @@ func branch_in_func_function() -> i32:
         2
 
 func match_in_func_function() -> i32:
-    match 1b32:
-        case 2b32:
+    match 1r32:
+        case 2r32:
             1
         case 1 | 0:
             1

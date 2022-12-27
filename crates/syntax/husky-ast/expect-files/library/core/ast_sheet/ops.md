@@ -22,29 +22,16 @@ Ok(
                         ),
                     },
                     entity_path: Some(
-                        AssociatedItem(
-                            AssociatedItemPath {
-                                parent_path: Connected(
-                                    ConnectedModuleItemPath {
-                                        module_path: `core::ops`,
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                        ),
+                        AssociatedItemPath {
+                            parent_path: `core::ops::Add`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 30,
                                     },
                                 ),
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 30,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                            ),
+                        },
                     ),
                     ident: `Output`,
                     is_generic: false,
@@ -71,29 +58,16 @@ Ok(
                         item_kind: Form,
                     },
                     entity_path: Some(
-                        AssociatedItem(
-                            AssociatedItemPath {
-                                parent_path: Connected(
-                                    ConnectedModuleItemPath {
-                                        module_path: `core::ops`,
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                        ),
+                        AssociatedItemPath {
+                            parent_path: `core::ops::Add`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 24,
                                     },
                                 ),
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 24,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                            ),
+                        },
                     ),
                     ident: `add`,
                     is_generic: false,
@@ -120,20 +94,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `core::ops`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `core::ops::Add`,
                     ),
                     ident: `Add`,
                     is_generic: true,

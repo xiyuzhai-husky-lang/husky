@@ -328,20 +328,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::eight`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 166,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::eight::upper_mouth_match`,
                     ),
                     ident: `upper_mouth_match`,
                     is_generic: false,
@@ -369,20 +356,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::eight`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 95,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::eight::is_eight`,
                     ),
                     ident: `is_eight`,
                     is_generic: false,
@@ -410,20 +384,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::eight`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 169,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::eight::big_mouth`,
                     ),
                     ident: `big_mouth`,
                     is_generic: false,

@@ -1091,8 +1091,8 @@ Definition from_parsed (base:positive) (intPart:positive) (expPart:Z) : float32 
 (** Conversions between floats and their concrete in-memory representation
     as a sequence of 32 bits. *)
 
-Definition to_bits (f: float32) : int := Int.repr (bits_of_b32 f).
-Definition of_bits (b: int): float32 := b32_of_bits (Int.unsigned b).
+Definition to_bits (f: float32) : int := Int.repr (bits_of_r32 f).
+Definition of_bits (b: int): float32 := r32_of_bits (Int.unsigned b).
 
 (** ** Properties *)
 
@@ -1194,7 +1194,7 @@ Qed.
 Theorem of_to_bits:
   forall f, of_bits (to_bits f) = f.
 Proof.
-  intros; unfold of_bits, to_bits, bits_of_b32, b32_of_bits.
+  intros; unfold of_bits, to_bits, bits_of_r32, r32_of_bits.
   rewrite Int.unsigned_repr, binary_float_of_bits_of_binary_float; [reflexivity|].
   generalize (bits_of_binary_float_range 23 8 __ __ f).
   change (2^(23+8+1)) with (Int.max_unsigned + 1). lia.
@@ -1203,7 +1203,7 @@ Qed.
 Theorem to_of_bits:
   forall b, to_bits (of_bits b) = b.
 Proof.
-  intros; unfold of_bits, to_bits, bits_of_b32, b32_of_bits.
+  intros; unfold of_bits, to_bits, bits_of_r32, r32_of_bits.
   rewrite bits_of_binary_float_of_bits. apply Int.repr_unsigned.
   apply Int.unsigned_range.
 Qed.

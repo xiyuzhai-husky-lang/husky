@@ -2,7 +2,9 @@ use crate::*;
 use std::ops::Neg;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct FloatLiteral {}
+pub enum FloatLiteral {
+    Unspecified,
+}
 
 impl Neg for FloatLiteral {
     type Output = Self;

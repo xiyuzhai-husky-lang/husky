@@ -8,18 +8,7 @@ Ok(
                     `mnist_classifier::digits::seven`,
                 ),
                 ast_idx: 50,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::seven`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 228,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::seven::simple_seven_match`,
             },
             ModuleItem {
                 ident: `simple_leftdown_pattern`,
@@ -27,18 +16,7 @@ Ok(
                     `mnist_classifier::digits::seven`,
                 ),
                 ast_idx: 51,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::seven`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 229,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::seven::simple_leftdown_pattern`,
             },
             ModuleItem {
                 ident: `special_seven_match`,
@@ -46,18 +24,7 @@ Ok(
                     `mnist_classifier::digits::seven`,
                 ),
                 ast_idx: 52,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::seven`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 230,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::seven::special_seven_match`,
             },
             ModuleItem {
                 ident: `leftupcc_pattern`,
@@ -65,18 +32,7 @@ Ok(
                     `mnist_classifier::digits::seven`,
                 ),
                 ast_idx: 53,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::seven`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 231,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::seven::leftupcc_pattern`,
             },
             ModuleItem {
                 ident: `leftdowncc_pattern`,
@@ -84,18 +40,7 @@ Ok(
                     `mnist_classifier::digits::seven`,
                 ),
                 ast_idx: 54,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::seven`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 232,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::seven::leftdowncc_pattern`,
             },
             ModuleItem {
                 ident: `is_seven`,
@@ -103,18 +48,7 @@ Ok(
                     `mnist_classifier::digits::seven`,
                 ),
                 ast_idx: 55,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::seven`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 94,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::seven::is_seven`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

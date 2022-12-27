@@ -8,18 +8,7 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 79,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::geom2d`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 294,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::geom2d::Point2d`,
             },
             ModuleItem {
                 ident: `RelativePoint2d`,
@@ -27,18 +16,7 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 81,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::geom2d`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 300,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::geom2d::RelativePoint2d`,
             },
             ModuleItem {
                 ident: `Vector2d`,
@@ -46,18 +24,7 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 82,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::geom2d`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 297,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::geom2d::Vector2d`,
             },
             ModuleItem {
                 ident: `ClosedRange`,
@@ -65,18 +32,7 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 84,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::geom2d`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 314,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::geom2d::ClosedRange`,
             },
             ModuleItem {
                 ident: `BoundingBox`,
@@ -84,18 +40,7 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 86,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::geom2d`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 319,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::geom2d::BoundingBox`,
             },
             ModuleItem {
                 ident: `RelativeBoundingBox`,
@@ -103,18 +48,7 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 88,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::geom2d`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 322,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::geom2d::RelativeBoundingBox`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

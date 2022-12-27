@@ -385,20 +385,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::three`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 255,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::three::three_fermi_match`,
                     ),
                     ident: `three_fermi_match`,
                     is_generic: false,
@@ -426,20 +413,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::three`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 96,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::three::is_three`,
                     ),
                     ident: `is_three`,
                     is_generic: false,
@@ -467,20 +441,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::three`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 257,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::three::uparc`,
                     ),
                     ident: `uparc`,
                     is_generic: false,
@@ -508,20 +469,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::three`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 256,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::three::downarc`,
                     ),
                     ident: `downarc`,
                     is_generic: false,
@@ -549,20 +497,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::three`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 258,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::three::back`,
                     ),
                     ident: `back`,
                     is_generic: false,

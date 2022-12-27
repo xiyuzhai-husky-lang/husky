@@ -1,15 +1,15 @@
-mod b32x;
 pub mod domains;
 mod f32x;
 mod i32x;
+mod r32x;
 mod vecx;
 
-pub use b32x::*;
 pub use f32x::*;
 pub use husky_vm_interface::{
     __EvalContext, __Register, __Registrable, __StaticInfo, entity_uid, feature_ptr, ThickFp,
 };
 pub use i32x::*;
+pub use r32x::*;
 pub use vecx::*;
 
 pub mod __std {

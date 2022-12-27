@@ -8,18 +8,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 217,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::raw_contour`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 111,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::raw_contour::RawContour`,
             },
             ModuleItem {
                 ident: `Direction`,
@@ -27,18 +16,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 219,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::raw_contour`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 397,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::raw_contour::Direction`,
             },
             ModuleItem {
                 ident: `get_pixel_pair`,
@@ -46,18 +24,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 224,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::raw_contour`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 402,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::raw_contour::get_pixel_pair`,
             },
             ModuleItem {
                 ident: `get_pixel_to_the_left`,
@@ -65,18 +32,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 225,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::raw_contour`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 404,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::raw_contour::get_pixel_to_the_left`,
             },
             ModuleItem {
                 ident: `get_pixel_to_the_right`,
@@ -84,18 +40,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 226,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::raw_contour`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 405,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::raw_contour::get_pixel_to_the_right`,
             },
             ModuleItem {
                 ident: `get_inward_direction`,
@@ -103,18 +48,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 227,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::raw_contour`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 406,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::raw_contour::get_inward_direction`,
             },
             ModuleItem {
                 ident: `get_angle_change`,
@@ -122,18 +56,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 228,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::raw_contour`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 414,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::raw_contour::get_angle_change`,
             },
             ModuleItem {
                 ident: `get_outward_direction`,
@@ -141,18 +64,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 229,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::raw_contour`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 419,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::raw_contour::get_outward_direction`,
             },
             ModuleItem {
                 ident: `StreakCache`,
@@ -160,18 +72,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 230,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::raw_contour`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 421,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::raw_contour::StreakCache`,
             },
             ModuleItem {
                 ident: `get_concave_middle_point`,
@@ -179,18 +80,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 231,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::raw_contour`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 424,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::raw_contour::get_concave_middle_point`,
             },
             ModuleItem {
                 ident: `find_raw_contours`,
@@ -198,18 +88,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 232,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::raw_contour`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 84,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::raw_contour::find_raw_contours`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

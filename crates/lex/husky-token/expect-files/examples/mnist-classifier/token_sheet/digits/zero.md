@@ -895,9 +895,7 @@ Ok(
                 range: [14:31, 14:34),
                 kind: Literal(
                     Float(
-                        OrderedFloat(
-                            0.0,
-                        ),
+                        Unspecified,
                     ),
                 ),
             },
@@ -908,12 +906,16 @@ Ok(
                 ),
             },
             Token {
+                range: [14:37, 14:38),
+                kind: Special(
+                    Minus,
+                ),
+            },
+            Token {
                 range: [14:38, 14:43),
                 kind: Literal(
                     Float(
-                        OrderedFloat(
-                            -140.0,
-                        ),
+                        Unspecified,
                     ),
                 ),
             },
@@ -967,9 +969,7 @@ Ok(
                 range: [15:24, 15:27),
                 kind: Literal(
                     Float(
-                        OrderedFloat(
-                            0.0,
-                        ),
+                        Unspecified,
                     ),
                 ),
             },
@@ -1149,7 +1149,7 @@ Ok(
                 range: [19:57, 19:58),
                 kind: Literal(
                     Integer(
-                        1,
+                        Unspecified,
                     ),
                 ),
             },
@@ -1241,9 +1241,7 @@ Ok(
                 range: [21:21, 21:24),
                 kind: Literal(
                     Float(
-                        OrderedFloat(
-                            1.5,
-                        ),
+                        Unspecified,
                     ),
                 ),
             },
@@ -1297,7 +1295,7 @@ Ok(
                 range: [22:40, 22:41),
                 kind: Literal(
                     Integer(
-                        0,
+                        Unspecified,
                     ),
                 ),
             },
@@ -1395,7 +1393,7 @@ Ok(
                 range: [23:48, 23:49),
                 kind: Literal(
                     Integer(
-                        1,
+                        Unspecified,
                     ),
                 ),
             },
@@ -1463,7 +1461,7 @@ Ok(
                 range: [24:36, 24:37),
                 kind: Literal(
                     Integer(
-                        0,
+                        Unspecified,
                     ),
                 ),
             },
@@ -1573,9 +1571,7 @@ Ok(
                 range: [25:21, 25:24),
                 kind: Literal(
                     Float(
-                        OrderedFloat(
-                            5.5,
-                        ),
+                        Unspecified,
                     ),
                 ),
             },
@@ -1757,7 +1753,7 @@ Ok(
                 range: [30:9, 30:10),
                 kind: Literal(
                     Integer(
-                        5,
+                        Unspecified,
                     ),
                 ),
             },
@@ -1937,9 +1933,7 @@ Ok(
                 range: [35:36, 35:39),
                 kind: Literal(
                     Float(
-                        OrderedFloat(
-                            3.0,
-                        ),
+                        Unspecified,
                     ),
                 ),
             },
@@ -2011,7 +2005,7 @@ Ok(
                 range: [36:57, 36:58),
                 kind: Literal(
                     Integer(
-                        1,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2113,7 +2107,7 @@ Ok(
                 range: [38:57, 38:58),
                 kind: Literal(
                     Integer(
-                        0,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2225,7 +2219,7 @@ Ok(
                 range: [39:62, 39:63),
                 kind: Literal(
                     Integer(
-                        0,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2647,9 +2641,7 @@ Ok(
                 range: [44:21, 44:24),
                 kind: Literal(
                     Float(
-                        OrderedFloat(
-                            0.4,
-                        ),
+                        Unspecified,
                     ),
                 ),
             },
@@ -2751,31 +2743,31 @@ Ok(
             69,
             77,
             89,
-            97,
-            103,
-            109,
-            113,
-            124,
-            129,
-            133,
-            142,
-            150,
-            166,
-            170,
-            173,
-            182,
-            204,
-            210,
-            221,
+            98,
+            104,
+            110,
+            114,
+            125,
+            130,
+            134,
+            143,
+            151,
+            167,
+            171,
+            174,
+            183,
+            205,
+            211,
             222,
-            233,
-            243,
-            260,
-            277,
+            223,
+            234,
+            244,
+            261,
             278,
-            283,
-            287,
-            292,
+            279,
+            284,
+            288,
+            293,
         ],
     },
 )

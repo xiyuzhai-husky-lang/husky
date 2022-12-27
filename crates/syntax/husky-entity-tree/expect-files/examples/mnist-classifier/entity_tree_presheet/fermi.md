@@ -8,18 +8,7 @@ Ok(
                     `mnist_classifier::fermi`,
                 ),
                 ast_idx: 24,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::fermi`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 167,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::fermi::FermiMatchResult`,
             },
             ModuleItem {
                 ident: `fermi_match`,
@@ -27,18 +16,7 @@ Ok(
                     `mnist_classifier::fermi`,
                 ),
                 ast_idx: 26,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::fermi`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 168,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::fermi::fermi_match`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(
