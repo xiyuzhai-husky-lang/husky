@@ -1,23 +1,25 @@
 use super::*;
-
 use husky_symbol::Symbol;
 use husky_term::Term;
 use husky_token::SpecialToken;
+use std::ops::ControlFlow;
+
+pub type TokenResolveResult<T> = ControlFlow<ExprParsingStopReason, T>;
 
 impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     pub(crate) fn resolve_token(
         &self,
         token_idx: TokenIdx,
         token: &Token,
-    ) -> Option<ResolvedToken> {
-        Some(ResolvedToken {
+    ) -> TokenResolveResult<ResolvedToken> {
+        TokenResolveResult::Continue(ResolvedToken {
             token_idx,
             kind: self.resolve_token_kind(token)?,
         })
     }
 
-    fn resolve_token_kind(&self, token: &Token) -> Option<ResolvedTokenKind> {
-        Some(match token.kind {
+    fn resolve_token_kind(&self, token: &Token) -> TokenResolveResult<ResolvedTokenKind> {
+        TokenResolveResult::Continue(match token.kind {
             TokenKind::Attr(_) => todo!(),
             TokenKind::Keyword(_keyword) => todo!(),
             TokenKind::Identifier(ident) => self.resolve_ident(ident),
@@ -42,7 +44,9 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 SpecialToken::Ambersand => todo!(),
                 SpecialToken::Vertical => todo!(),
                 SpecialToken::DoubleExclamation => todo!(),
-                SpecialToken::Semicolon => return None,
+                SpecialToken::Semicolon => {
+                    return TokenResolveResult::Break(ExprParsingStopReason::Semicolon)
+                }
                 SpecialToken::XmlKet => todo!(),
                 SpecialToken::At => todo!(),
                 SpecialToken::QuestionMark => todo!(),

@@ -75,6 +75,45 @@ impl<'a> TokenIter<'a> {
         }
     }
 
+    pub fn try_eat_with(
+        &mut self,
+        predicate: impl FnOnce(&TokenKind) -> bool,
+        ignore_comment: bool,
+    ) -> Option<&'a Token> {
+        if ignore_comment {
+            self.eat_comments()
+        }
+        let token = self.peek()?;
+        if predicate(&token.kind) {
+            self.next();
+            Some(token)
+        } else {
+            None
+        }
+    }
+
+    pub fn try_eat_special(
+        &mut self,
+        special_token: SpecialToken,
+        ignore_comment: bool,
+    ) -> Option<&'a Token> {
+        self.try_eat_with(
+            |token_kind| token_kind == &TokenKind::Special(special_token),
+            ignore_comment,
+        )
+    }
+
+    pub fn eat_comments(&mut self) {
+        while let Some(token) = self.peek() {
+            match token.kind {
+                TokenKind::Comment => {
+                    self.next();
+                }
+                _ => break,
+            }
+        }
+    }
+
     pub fn go_back(&mut self) {
         assert!(self.next_relative > 0);
         self.next_relative -= 1;

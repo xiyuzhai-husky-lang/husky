@@ -17,7 +17,7 @@ pub enum TokenError {
     NumberPseudoLiteral(NumberPseudoLiteral),
 }
 
-#[derive(Debug, Error, PartialEq, Eq, Clone)]
+#[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
 pub enum NumberPseudoLiteral {}
 
 pub type TokenResult<T> = Result<T, TokenError>;
