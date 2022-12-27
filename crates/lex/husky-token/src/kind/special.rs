@@ -29,6 +29,12 @@ pub enum SpecialToken {
     PoundSign,         // #
 }
 
+impl From<BinaryOpr> for SpecialToken {
+    fn from(v: BinaryOpr) -> Self {
+        Self::BinaryOpr(v)
+    }
+}
+
 impl std::fmt::Display for SpecialToken {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         self.code().fmt(f)

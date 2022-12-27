@@ -19,8 +19,8 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         self.stack.exprs.last()
     }
 
-    pub(super) fn pop_expr(&mut self) -> Option<Expr> {
-        self.stack.exprs.pop()
+    pub(super) fn finish(mut self) -> ExprIdxRange {
+        self.arena.alloc_batch(self.stack.exprs)
     }
 
     pub(super) fn topk_exprs(&self, k: usize) -> &[Expr] {

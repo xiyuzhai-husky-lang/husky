@@ -3,10 +3,11 @@ use husky_ast::{Ast, AstIdx, AstIdxRange, AstSheet};
 use husky_entity_path::EntityPath;
 use husky_entity_taxonomy::{EntityKind, ItemKind, TypeKind};
 use husky_entity_tree::{CratePrelude, EntitySymbol, EntityTreeSheet};
-use husky_expr::{parse_expr, ExprArena};
+use husky_expr::{parse_expr, ExprArena, ExprParsingStopReason};
+use husky_opn_syntax::BinaryOpr;
 use husky_print_utils::p;
 use husky_symbol::{LocalSymbolSheet, SymbolContext};
-use husky_token::{TokenGroupIdx, TokenIdentifier, TokenIterState, TokenSheet};
+use husky_token::{SpecialToken, TokenGroupIdx, TokenIdentifier, TokenIterState, TokenSheet};
 use parsec::ParseFrom;
 use vec_like::VecPairMap;
 
@@ -74,6 +75,7 @@ impl<'a> DeclCollector<'a> {
                         TypeKind::Struct => todo!(),
                         TypeKind::Structure => todo!(),
                         TypeKind::Form => self.parse_form_decl(
+                            entity_kind,
                             entity_path,
                             token_group_idx,
                             body,
@@ -103,6 +105,7 @@ impl<'a> DeclCollector<'a> {
 
     fn parse_form_decl(
         &self,
+        entity_kind: EntityKind,
         entity_path: EntityPath,
         token_group_idx: TokenGroupIdx,
         body: &AstIdxRange,
@@ -113,13 +116,24 @@ impl<'a> DeclCollector<'a> {
             .token_group_token_iter(token_group_idx, Some(saved_stream_state));
         let mut expr_arena = ExprArena::default();
         let local_symbol_sheet = LocalSymbolSheet::default();
-        let a = parse_expr(
-            self.ctx(entity_path, &local_symbol_sheet),
-            &mut token_iter,
-            &mut expr_arena,
-        );
-        p!(a);
-        todo!()
+        if let Some(_) = token_iter.try_eat_special(BinaryOpr::Assign(None).into(), true) {
+            let (expr, stop_reason) = parse_expr(
+                self.ctx(entity_path, &local_symbol_sheet),
+                &mut token_iter,
+                &mut expr_arena,
+            );
+            todo!()
+        } else {
+            match token_iter.try_eat_special(SpecialToken::Semicolon, true) {
+                Some(_) => {
+                    if !token_iter.is_empty() {
+                        todo!()
+                    }
+                    todo!()
+                }
+                None => todo!(),
+            }
+        }
     }
 
     fn ctx<'b>(

@@ -3,8 +3,11 @@ mod iter;
 mod opr;
 mod resolve;
 mod stack;
+mod stop_reason;
 mod synthesize;
 mod utils;
+
+pub use stop_reason::ExprParsingStopReason;
 
 use crate::*;
 use husky_check_utils::should;
@@ -16,6 +19,7 @@ use husky_token::{Token, TokenKind};
 use opr::*;
 use resolve::*;
 use stack::*;
+use std::ops::ControlFlow;
 
 pub(crate) struct ExprParser<'a, 'b, 'c> {
     ctx: SymbolContext<'c>,
@@ -42,21 +46,18 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         }
     }
 
-    fn parse_all(mut self) -> ExprIdx {
-        let mut stop_at = None;
+    fn parse_all(mut self) -> (ExprIdxRange, ExprParsingStopReason) {
         while !self.tokens().is_empty() {
             let (token_idx, token) = self.token_iter.next_indexed().unwrap();
-            if let Some(resolved_token) = self.resolve_token(token_idx, token) {
-                match self.accept_token(resolved_token) {
+            match self.resolve_token(token_idx, token) {
+                ControlFlow::Continue(resolved_token) => match self.accept_token(resolved_token) {
                     Ok(()) => (),
                     Err(e) => {
                         p!(self.report_position());
                         todo!("error = {e}")
                     }
-                }
-            } else {
-                stop_at = Some(token_idx);
-                break;
+                },
+                ControlFlow::Break(reason) => return (self.finish(), reason),
             }
         }
         self.synthesize_all_above(Precedence::None).expect("todo");
@@ -65,8 +66,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             todo!()
         }
         should!(self.number_of_exprs() == 1);
-        let last_expr = self.pop_expr().unwrap();
-        self.arena.alloc_one(last_expr)
+        (self.finish(), ExprParsingStopReason::NoTokens)
     }
 }
 
@@ -74,6 +74,6 @@ pub fn parse_expr<'a>(
     ctx: SymbolContext,
     token_iter: &mut TokenIter<'a>,
     arena: &mut ExprArena,
-) -> ExprIdx {
+) -> (ExprIdxRange, ExprParsingStopReason) {
     ExprParser::new(ctx, token_iter, arena).parse_all()
 }
