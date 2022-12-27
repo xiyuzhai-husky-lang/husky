@@ -103,6 +103,7 @@ impl<'a> DeclCollector<'a> {
         }
     }
 
+    // get declaration from tokens
     fn parse_form_decl(
         &self,
         entity_kind: EntityKind,
