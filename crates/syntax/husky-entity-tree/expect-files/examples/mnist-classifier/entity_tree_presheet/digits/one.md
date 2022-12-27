@@ -8,18 +8,7 @@ Ok(
                     `mnist_classifier::digits::one`,
                 ),
                 ast_idx: 70,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::one`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 210,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::one::one_fermi_match`,
             },
             ModuleItem {
                 ident: `is_one`,
@@ -27,18 +16,7 @@ Ok(
                     `mnist_classifier::digits::one`,
                 ),
                 ast_idx: 71,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::one`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 91,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::one::is_one`,
             },
             ModuleItem {
                 ident: `upmost`,
@@ -46,18 +24,7 @@ Ok(
                     `mnist_classifier::digits::one`,
                 ),
                 ast_idx: 72,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::one`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 211,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::one::upmost`,
             },
             ModuleItem {
                 ident: `downmost`,
@@ -65,18 +32,7 @@ Ok(
                     `mnist_classifier::digits::one`,
                 ),
                 ast_idx: 73,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::one`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 205,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::one::downmost`,
             },
             ModuleItem {
                 ident: `hat`,
@@ -84,18 +40,7 @@ Ok(
                     `mnist_classifier::digits::one`,
                 ),
                 ast_idx: 74,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::one`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 212,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::one::hat`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

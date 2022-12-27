@@ -8,18 +8,7 @@ Ok(
                     `mnist_classifier::digits::six`,
                 ),
                 ast_idx: 59,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::six`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 240,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::six::six_match`,
             },
             ModuleItem {
                 ident: `six_match_refined1`,
@@ -27,18 +16,7 @@ Ok(
                     `mnist_classifier::digits::six`,
                 ),
                 ast_idx: 60,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::six`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 241,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::six::six_match_refined1`,
             },
             ModuleItem {
                 ident: `is_six`,
@@ -46,18 +24,7 @@ Ok(
                     `mnist_classifier::digits::six`,
                 ),
                 ast_idx: 61,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::six`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 92,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::six::is_six`,
             },
             ModuleItem {
                 ident: `upmost`,
@@ -65,18 +32,7 @@ Ok(
                     `mnist_classifier::digits::six`,
                 ),
                 ast_idx: 62,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::six`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 211,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::six::upmost`,
             },
             ModuleItem {
                 ident: `bottom1`,
@@ -84,18 +40,7 @@ Ok(
                     `mnist_classifier::digits::six`,
                 ),
                 ast_idx: 63,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::six`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 242,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::six::bottom1`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

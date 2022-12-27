@@ -59,13 +59,13 @@ enum Direction
 | RIGHT
 
 func get_pixel_pair(row: r32, j: i32) -> r32:
-    (row >> (j - 1)) & 3b32
+    (row >> (j - 1)) & 3r32
 
 func get_pixel_to_the_left(row: r32, j: i32) -> r32:
-    (row >> j) & 1b32
+    (row >> j) & 1r32
 
 func get_pixel_to_the_right(row: r32, j: i32) -> r32:
-    (row >> (j - 1)) & 1b32
+    (row >> (j - 1)) & 1r32
 
 func get_inward_direction(
     row_above: r32,
@@ -205,7 +205,7 @@ proc find_raw_contours(cc: &ConnectedComponent) -> []RawContour:
                 )
                 let angle_change = get_angle_change(inward_direction, outward_direction)
                 // update boundary_unsearched
-                boundary_unsearched[i] = boundary_unsearched[i] & (~(1b32 << j))
+                boundary_unsearched[i] = boundary_unsearched[i] & (~(1r32 << j))
                 if angle_change:
                     // update contour and previous streaks
                     if prev_angle_change1 == -1

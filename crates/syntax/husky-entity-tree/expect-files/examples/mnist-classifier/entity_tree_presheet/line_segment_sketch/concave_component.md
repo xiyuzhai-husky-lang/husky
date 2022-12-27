@@ -8,18 +8,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
                 ast_idx: 77,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 174,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`,
             },
             ModuleItem {
                 ident: `find_concave_components`,
@@ -27,18 +16,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
                 ast_idx: 78,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 336,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::line_segment_sketch::concave_component::find_concave_components`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

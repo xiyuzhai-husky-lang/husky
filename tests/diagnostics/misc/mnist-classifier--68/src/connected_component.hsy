@@ -26,7 +26,7 @@ proc find_connected_components(img: BinaryImage28) -> []ConnectedComponent:
             let a = unsearched[j]
             let shift = a.ctz()
             let mut mask = BinaryImage28()
-            mask[j] = horizontal_extend(a, 1b32 << shift)
+            mask[j] = horizontal_extend(a, 1r32 << shift)
             let mut flag = false
             while !flag :
                 flag = true

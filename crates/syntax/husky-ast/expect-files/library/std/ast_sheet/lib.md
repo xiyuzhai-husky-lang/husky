@@ -18,9 +18,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `std::prelude`,
-                        ),
+                        `std::prelude`,
                     ),
                     ident: `prelude`,
                     is_generic: false,
@@ -45,9 +43,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `std::logic`,
-                        ),
+                        `std::logic`,
                     ),
                     ident: `logic`,
                     is_generic: false,
@@ -72,9 +68,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `std::ops`,
-                        ),
+                        `std::ops`,
                     ),
                     ident: `ops`,
                     is_generic: false,

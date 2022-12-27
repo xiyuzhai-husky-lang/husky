@@ -15,47 +15,47 @@ enum Direction:
 //   return Point2d(float(29 - j), float(29 - i))
 
 func get_pixel_pair(row: r32, j: i32) -> r32:
-    (row >> (j - 1)) & 3b32
+    (row >> (j - 1)) & 3r32
 
 func get_pixel_to_the_left(row: r32, j: i32) -> r32:
-    (row >> j) & 1b32
+    (row >> j) & 1r32
 
 func get_pixel_to_the_right(row: r32, j: i32) -> r32:
-    (row >> (j - 1)) & 1b32
+    (row >> (j - 1)) & 1r32
 
 func get_inward_direction(row_above: r32, row_below: r32, j: i32) -> Direction:
     pixel_pair_above = get_pixel_pair(row_above, j)
     pixel_pair_below = get_pixel_pair(row_below, j)
     match pixel_pair_above:
-        case 0b32:
+        case 0r32:
             match pixel_pair_below:
-                case 1b32 | 3b32:
+                case 1r32 | 3r32:
                     Direction::LEFT
-                case 2b32:
+                case 2r32:
                     Direction::UP
-        case 1b32:
+        case 1r32:
             Direction::DOWN
-        case 2b32: 
+        case 2r32: 
             match pixel_pair_below:
-                case 0b32:
+                case 0r32:
                     Direction::RIGHT
-                case 1b32 | 3b32:
+                case 1r32 | 3r32:
                     Direction::LEFT
-                case 2b32:
+                case 2r32:
                     Direction::UP
-        case 3b32:
+        case 3r32:
             match pixel_pair_below:
-                case 0b32 | 1b32:
+                case 0r32 | 1r32:
                     Direction::RIGHT
-                case 2b32:
+                case 2r32:
                     Direction::UP
 
 func get_angle_change(inward: Direction, outward: Direction) -> i32:
     raw_angle_change = ((outward as i32) - (inward as i32)).bitmod(2)
     match raw_angle_change:
-        case 0b32 | 1b32 | 2b32:
+        case 0r32 | 1r32 | 2r32:
             raw_angle_change
-        case 3b32:
+        case 3r32:
             -1
 
 func get_outward_direction(
@@ -67,41 +67,41 @@ func get_outward_direction(
     pixel_pair_above = get_pixel_pair(row_above, j)
     pixel_pair_below = get_pixel_pair(row_below, j)
     match pixel_pair_above:
-        case 0b32:
+        case 0r32:
             match pixel_pair_below:
-                case 1b32:
+                case 1r32:
                     Direction::DOWN
-                case 2b32 | 3b32:
+                case 2r32 | 3r32:
                     Direction::LEFT
-        case 1b32:
+        case 1r32:
             match pixel_pair_below:
-                case 0b32:
+                case 0r32:
                     Direction::RIGHT
-                case 1b32:
+                case 1r32:
                     Direction::DOWN
-                case 2b32:
+                case 2r32:
                     match inward_direction:
                         case Direction::DOWN:
                             Direction::LEFT
                         case Direction::UP:
                             Direction::RIGHT
-                case 3b32:
+                case 3r32:
                     Direction::LEFT
-        case 2b32:
+        case 2r32:
             match pixel_pair_below:
-                case 0b32 | 2b32 | 3b32:
+                case 0r32 | 2r32 | 3r32:
                     Direction::UP
-                case 1b32:
+                case 1r32:
                     match inward_direction:
                         case Direction::LEFT:
                             Direction::UP
                         case Direction::RIGHT:
                             Direction::DOWN
-        case 3b32:
+        case 3r32:
             match pixel_pair_below:
-                case 0b32 | 2b32:
+                case 0r32 | 2r32:
                     Direction::RIGHT
-                case 1b32:
+                case 1r32:
                     Direction::DOWN
 
 
@@ -154,7 +154,7 @@ proc find_raw_contours(cc: BinaryImage28) -> []RawContour:
                 let outward_direction = get_outward_direction(row_above, row_below, j, inward_direction)
                 let angle_change = get_angle_change(inward_direction, outward_direction)
                 // update boundary_unsearched
-                boundary_unsearched[i] = boundary_unsearched[i] & (~(1b32 << j))
+                boundary_unsearched[i] = boundary_unsearched[i] & (~(1r32 << j))
                 if angle_change:
                     // update contour and previous streaks
                     if prev_angle_change1 == -1 and prev_angle_change2 == -1 and current_streak == 1 and prev_streak1 != -1 and prev_streak2 == 1:

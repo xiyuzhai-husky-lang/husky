@@ -6,35 +6,13 @@ Ok(
                 ident: `LogicAnd`,
                 accessibility: Public,
                 ast_idx: 0,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `core::logic`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 10,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `core::logic::LogicAnd`,
             },
             ModuleItem {
                 ident: `LogicOr`,
                 accessibility: Public,
                 ast_idx: 1,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `core::logic`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 16,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `core::logic::LogicOr`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

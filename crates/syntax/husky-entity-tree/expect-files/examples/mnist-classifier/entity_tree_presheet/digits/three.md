@@ -8,18 +8,7 @@ Ok(
                     `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 44,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::three`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 255,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::three::three_fermi_match`,
             },
             ModuleItem {
                 ident: `is_three`,
@@ -27,18 +16,7 @@ Ok(
                     `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 45,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::three`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 96,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::three::is_three`,
             },
             ModuleItem {
                 ident: `uparc`,
@@ -46,18 +24,7 @@ Ok(
                     `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 46,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::three`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 257,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::three::uparc`,
             },
             ModuleItem {
                 ident: `downarc`,
@@ -65,18 +32,7 @@ Ok(
                     `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 47,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::three`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 256,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::three::downarc`,
             },
             ModuleItem {
                 ident: `back`,
@@ -84,18 +40,7 @@ Ok(
                     `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 48,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::three`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 258,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::three::back`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

@@ -217,11 +217,13 @@ Ok(
                         15..16,
                     ),
                 },
-                Err {
+                Stmt {
                     token_group_idx: TokenGroupIdx(
                         31,
                     ),
-                    error: ExcessiveIndent,
+                    body: ArenaIdxRange(
+                        17..17,
+                    ),
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -328,11 +330,13 @@ Ok(
                         30..31,
                     ),
                 },
-                Err {
+                Stmt {
                     token_group_idx: TokenGroupIdx(
                         51,
                     ),
-                    error: ExcessiveIndent,
+                    body: ArenaIdxRange(
+                        32..32,
+                    ),
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -1062,20 +1066,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 294,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::geom2d::Point2d`,
                     ),
                     ident: `Point2d`,
                     is_generic: false,
@@ -1113,20 +1104,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 300,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::geom2d::RelativePoint2d`,
                     ),
                     ident: `RelativePoint2d`,
                     is_generic: false,
@@ -1156,20 +1134,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 297,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::geom2d::Vector2d`,
                     ),
                     ident: `Vector2d`,
                     is_generic: false,
@@ -1207,20 +1172,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 314,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::geom2d::ClosedRange`,
                     ),
                     ident: `ClosedRange`,
                     is_generic: false,
@@ -1258,20 +1210,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 319,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::geom2d::BoundingBox`,
                     ),
                     ident: `BoundingBox`,
                     is_generic: false,
@@ -1309,20 +1248,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 322,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::geom2d::RelativeBoundingBox`,
                     ),
                     ident: `RelativeBoundingBox`,
                     is_generic: false,

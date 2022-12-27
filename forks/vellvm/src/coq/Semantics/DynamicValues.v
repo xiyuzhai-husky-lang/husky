@@ -1356,12 +1356,12 @@ Class VInt I : Type :=
 
   Definition float_op (fop:fbinop) (v1:ll_float) (v2:ll_float) : undef_or_err dvalue :=
     match fop with
-    | FAdd => ret (DVALUE_Float (b32_plus FT_Rounding v1 v2))
-    | FSub => ret (DVALUE_Float (b32_minus FT_Rounding v1 v2))
-    | FMul => ret (DVALUE_Float (b32_mult FT_Rounding v1 v2))
+    | FAdd => ret (DVALUE_Float (r32_plus FT_Rounding v1 v2))
+    | FSub => ret (DVALUE_Float (r32_minus FT_Rounding v1 v2))
+    | FMul => ret (DVALUE_Float (r32_mult FT_Rounding v1 v2))
     | FDiv => if (Float32.eq_dec v2 Float32.zero)
               then lift (raise "Signed division by 0.")
-              else ret (DVALUE_Float (b32_div FT_Rounding v1 v2))
+              else ret (DVALUE_Float (r32_div FT_Rounding v1 v2))
     | FRem => failwith "unimplemented float operation"
     end.
 

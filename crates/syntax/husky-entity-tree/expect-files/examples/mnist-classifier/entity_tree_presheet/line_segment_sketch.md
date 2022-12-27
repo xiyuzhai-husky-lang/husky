@@ -40,18 +40,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 ast_idx: 169,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::line_segment_sketch`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 325,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::line_segment_sketch::LineSegmentStroke`,
             },
             ModuleItem {
                 ident: `LineSegmentSketch`,
@@ -59,18 +48,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 ast_idx: 171,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::line_segment_sketch`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 324,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::line_segment_sketch::LineSegmentSketch`,
             },
             ModuleItem {
                 ident: `go_right`,
@@ -78,18 +56,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 ast_idx: 173,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::line_segment_sketch`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 359,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::line_segment_sketch::go_right`,
             },
             ModuleItem {
                 ident: `go_left`,
@@ -97,18 +64,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 ast_idx: 174,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::line_segment_sketch`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 364,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::line_segment_sketch::go_left`,
             },
             ModuleItem {
                 ident: `extend_end`,
@@ -116,18 +72,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 ast_idx: 175,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::line_segment_sketch`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 365,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::line_segment_sketch::extend_end`,
             },
             ModuleItem {
                 ident: `extend_start`,
@@ -135,18 +80,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 ast_idx: 176,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::line_segment_sketch`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 373,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::line_segment_sketch::extend_start`,
             },
             ModuleItem {
                 ident: `find_line_segments`,
@@ -154,18 +88,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 ast_idx: 177,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::line_segment_sketch`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 85,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::line_segment_sketch::find_line_segments`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

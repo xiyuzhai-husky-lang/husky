@@ -17,8 +17,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[(
                 __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 __arguments: &mut [__Register<'eval>],
             ) -> __Register<'eval> {
-                let a: u32 = __arguments[0].downcast_b32();
-                let x: u32 = __arguments[1].downcast_b32();
+                let a: u32 = __arguments[0].downcast_r32();
+                let x: u32 = __arguments[1].downcast_r32();
                 horizontal_extend(a, x).to_register()
             }
             __wrapper

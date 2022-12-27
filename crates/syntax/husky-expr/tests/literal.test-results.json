@@ -20,7 +20,7 @@
     "output": "Arena {\n    data: [\n        Expr {\n            variant: Atom(\n                Literal(\n                    I64(\n                        2,\n                    ),\n                ),\n            ),\n            range: [1:1, 1:5),\n            base_scope_result: None,\n        },\n    ],\n}"
   },
   {
-    "input": "1b32",
+    "input": "1r32",
     "output": "Arena {\n    data: [\n        Expr {\n            variant: Atom(\n                Literal(\n                    B32(\n                        1,\n                    ),\n                ),\n            ),\n            range: [1:1, 1:5),\n            base_scope_result: None,\n        },\n    ],\n}"
   },
   {

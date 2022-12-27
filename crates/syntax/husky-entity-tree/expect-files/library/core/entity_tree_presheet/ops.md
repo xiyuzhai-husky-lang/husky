@@ -6,18 +6,7 @@ Ok(
                 ident: `Add`,
                 accessibility: Public,
                 ast_idx: 3,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `core::ops`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `core::ops::Add`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

@@ -18,9 +18,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `mnist_classifier::digits::zero`,
-                        ),
+                        `mnist_classifier::digits::zero`,
                     ),
                     ident: `zero`,
                     is_generic: false,
@@ -45,9 +43,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `mnist_classifier::digits::one`,
-                        ),
+                        `mnist_classifier::digits::one`,
                     ),
                     ident: `one`,
                     is_generic: false,
@@ -72,9 +68,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `mnist_classifier::digits::six`,
-                        ),
+                        `mnist_classifier::digits::six`,
                     ),
                     ident: `six`,
                     is_generic: false,
@@ -99,9 +93,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `mnist_classifier::digits::three`,
-                        ),
+                        `mnist_classifier::digits::three`,
                     ),
                     ident: `three`,
                     is_generic: false,
@@ -126,9 +118,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `mnist_classifier::digits::four`,
-                        ),
+                        `mnist_classifier::digits::four`,
                     ),
                     ident: `four`,
                     is_generic: false,
@@ -153,9 +143,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `mnist_classifier::digits::five`,
-                        ),
+                        `mnist_classifier::digits::five`,
                     ),
                     ident: `five`,
                     is_generic: false,
@@ -180,9 +168,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `mnist_classifier::digits::six`,
-                        ),
+                        `mnist_classifier::digits::six`,
                     ),
                     ident: `six`,
                     is_generic: false,
@@ -207,9 +193,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `mnist_classifier::digits::seven`,
-                        ),
+                        `mnist_classifier::digits::seven`,
                     ),
                     ident: `seven`,
                     is_generic: false,
@@ -234,9 +218,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `mnist_classifier::digits::eight`,
-                        ),
+                        `mnist_classifier::digits::eight`,
                     ),
                     ident: `eight`,
                     is_generic: false,
@@ -261,9 +243,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `mnist_classifier::digits::nine`,
-                        ),
+                        `mnist_classifier::digits::nine`,
                     ),
                     ident: `nine`,
                     is_generic: false,

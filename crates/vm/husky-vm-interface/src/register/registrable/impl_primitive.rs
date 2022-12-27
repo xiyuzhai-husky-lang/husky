@@ -129,7 +129,7 @@ impl __StaticInfo for u32 {
 
 impl<'eval> __Registrable<'eval> for u32 {
     unsafe fn __to_register(self) -> __Register<'eval> {
-        __Register::new_primitive_value(__RegisterData { as_b32: self }, &__B32_VTABLE)
+        __Register::new_primitive_value(__RegisterData { as_r32: self }, &__B32_VTABLE)
     }
 }
 

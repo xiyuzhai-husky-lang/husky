@@ -53,52 +53,19 @@ Ok(
                         ident: `bool`,
                         accessibility: Public,
                         ast_idx: 0,
-                        path: Connected(
-                            ConnectedModuleItemPath {
-                                module_path: `core::basic`,
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 6,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: `core::basic::bool`,
                     },
                     ModuleItem {
                         ident: `Trait`,
                         accessibility: Public,
                         ast_idx: 1,
-                        path: Connected(
-                            ConnectedModuleItemPath {
-                                module_path: `core::basic`,
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 7,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: `core::basic::Trait`,
                     },
                     ModuleItem {
                         ident: `Module`,
                         accessibility: Public,
                         ast_idx: 2,
-                        path: Connected(
-                            ConnectedModuleItemPath {
-                                module_path: `core::basic`,
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 8,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: `core::basic::Module`,
                     },
                 ],
             },
@@ -109,35 +76,13 @@ Ok(
                         ident: `LogicAnd`,
                         accessibility: Public,
                         ast_idx: 0,
-                        path: Connected(
-                            ConnectedModuleItemPath {
-                                module_path: `core::logic`,
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 9,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: `core::logic::LogicAnd`,
                     },
                     ModuleItem {
                         ident: `LogicOr`,
                         accessibility: Public,
                         ast_idx: 1,
-                        path: Connected(
-                            ConnectedModuleItemPath {
-                                module_path: `core::logic`,
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 15,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: `core::logic::LogicOr`,
                     },
                 ],
             },
@@ -148,52 +93,19 @@ Ok(
                         ident: `i8`,
                         accessibility: Public,
                         ast_idx: 9,
-                        path: Connected(
-                            ConnectedModuleItemPath {
-                                module_path: `core::num`,
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: `core::num::i8`,
                     },
                     ModuleItem {
                         ident: `i16`,
                         accessibility: Public,
                         ast_idx: 13,
-                        path: Connected(
-                            ConnectedModuleItemPath {
-                                module_path: `core::num`,
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 26,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: `core::num::i16`,
                     },
                     ModuleItem {
                         ident: `i32`,
                         accessibility: Public,
                         ast_idx: 17,
-                        path: Connected(
-                            ConnectedModuleItemPath {
-                                module_path: `core::num`,
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 27,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: `core::num::i32`,
                     },
                     ModuleItem {
                         ident: `i64`,
@@ -201,18 +113,7 @@ Ok(
                             `core::num`,
                         ),
                         ast_idx: 21,
-                        path: Connected(
-                            ConnectedModuleItemPath {
-                                module_path: `core::num`,
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 28,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: `core::num::i64`,
                     },
                 ],
             },
@@ -223,18 +124,7 @@ Ok(
                         ident: `Add`,
                         accessibility: Public,
                         ast_idx: 3,
-                        path: Connected(
-                            ConnectedModuleItemPath {
-                                module_path: `core::ops`,
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 22,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: `core::ops::Add`,
                     },
                 ],
             },

@@ -569,20 +569,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::four`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 185,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::four::left_components`,
                     ),
                     ident: `left_components`,
                     is_generic: false,
@@ -610,20 +597,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::four`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 186,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::four::left_coordinate_max`,
                     ),
                     ident: `left_coordinate_max`,
                     is_generic: false,
@@ -651,20 +625,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::four`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 188,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::four::components_max_downwards`,
                     ),
                     ident: `components_max_downwards`,
                     is_generic: false,
@@ -692,20 +653,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::four`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 190,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::four::components_max_heights`,
                     ),
                     ident: `components_max_heights`,
                     is_generic: false,
@@ -733,20 +681,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::four`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 192,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::four::is_four`,
                     ),
                     ident: `is_four`,
                     is_generic: false,
@@ -774,20 +709,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::four`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 189,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::four::displacement_downwards`,
                     ),
                     ident: `displacement_downwards`,
                     is_generic: false,
@@ -815,20 +737,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::four`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 191,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::four::cc_box_heights`,
                     ),
                     ident: `cc_box_heights`,
                     is_generic: false,

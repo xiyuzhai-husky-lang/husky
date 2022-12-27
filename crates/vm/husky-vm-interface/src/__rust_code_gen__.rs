@@ -414,74 +414,74 @@ impl<'eval> __Register<'eval> {
 // r32
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __b32_primitive_value_to_bool(data: __RegisterData) -> bool {
-    let data = data.as_b32;
+pub unsafe extern "C" fn __r32_primitive_value_to_bool(data: __RegisterData) -> bool {
+    let data = data.as_r32;
     data != 0
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __b32_primitive_ref_to_bool(data_ptr: *mut std::ffi::c_void) -> bool {
+pub unsafe extern "C" fn __r32_primitive_ref_to_bool(data_ptr: *mut std::ffi::c_void) -> bool {
     let data = unsafe { *(data_ptr as *const r32) };
     data != 0
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __b32_primitive_value_to_box(data: __RegisterData) -> *mut std::ffi::c_void {
-    let data = data.as_b32;
+pub unsafe extern "C" fn __r32_primitive_value_to_box(data: __RegisterData) -> *mut std::ffi::c_void {
+    let data = data.as_r32;
     let ptr: *mut r32 = Box::<r32>::into_raw(Box::new(data));
     ptr as *mut std::ffi::c_void
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __b32_clone(data: *mut c_void) -> *mut std::ffi::c_void {
+pub unsafe extern "C" fn __r32_clone(data: *mut c_void) -> *mut std::ffi::c_void {
     Box::<r32>::into_raw(Box::new((*(data as *mut r32)).clone())) as *mut std::ffi::c_void
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __b32_drop(data: *mut c_void) {
+pub unsafe extern "C" fn __r32_drop(data: *mut c_void) {
     drop(Box::from_raw(data as *mut r32))
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __b32_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+pub unsafe extern "C" fn __r32_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
     *(this as *const std::ffi::c_void as *const r32) == *(other as *const std::ffi::c_void as *const r32)
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __b32_assign(registers: *mut __Register) {
+pub unsafe extern "C" fn __r32_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<r32>(&__B32_VTABLE) = registers[1].downcast_b32()
+    *registers[0].downcast_temp_mut::<r32>(&__B32_VTABLE) = registers[1].downcast_r32()
 }
 
 #[rustfmt::skip]
 #[no_mangle]
 pub static __B32_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
-    primitive_value_to_bool: Some(__b32_primitive_value_to_bool),
-    primitive_ref_to_bool: Some(__b32_primitive_ref_to_bool),
-    primitive_value_to_box: Some(__b32_primitive_value_to_box),
-    clone: __b32_clone,
-    drop: __b32_drop,
-    eq: __b32_eq,
-    assign: __b32_assign,
+    primitive_value_to_bool: Some(__r32_primitive_value_to_bool),
+    primitive_ref_to_bool: Some(__r32_primitive_ref_to_bool),
+    primitive_value_to_box: Some(__r32_primitive_value_to_box),
+    clone: __r32_clone,
+    drop: __r32_drop,
+    eq: __r32_eq,
+    assign: __r32_assign,
     typename_str: "r32",
     typename_str_hash_u64: 9758498138566595375,
 };
 
 #[rustfmt::skip]
 impl<'eval> __Register<'eval> {
-    pub fn downcast_b32(&self) -> r32 {
+    pub fn downcast_r32(&self) -> r32 {
         unsafe {
             if self.vtable.typename_str_hash_u64 != 9758498138566595375 {
                 panic!("expect `r32` but get {} instead", self.vtable.typename_str)
             }
             match self.data_kind {
-                __RegisterDataKind::PrimitiveValue => self.data.as_b32,
+                __RegisterDataKind::PrimitiveValue => self.data.as_r32,
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
@@ -491,13 +491,13 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn downcast_opt_b32(&self) -> Option<r32> {
+    pub fn downcast_opt_r32(&self) -> Option<r32> {
         unsafe {
             if self.vtable.typename_str_hash_u64 != 9758498138566595375 {
                 panic!("expect `r32` but get `{}` instead", self.vtable.typename_str)
             }
             match self.data_kind {
-                __RegisterDataKind::PrimitiveValue => Some(self.data.as_b32),
+                __RegisterDataKind::PrimitiveValue => Some(self.data.as_r32),
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut

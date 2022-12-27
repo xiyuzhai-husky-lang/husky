@@ -618,20 +618,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::two`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 265,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::two::two_match`,
                     ),
                     ident: `two_match`,
                     is_generic: false,
@@ -659,20 +646,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::two`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 266,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::two::left_cc_pattern`,
                     ),
                     ident: `left_cc_pattern`,
                     is_generic: false,
@@ -700,20 +674,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::two`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 267,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::two::right_cc_pattern`,
                     ),
                     ident: `right_cc_pattern`,
                     is_generic: false,
@@ -741,20 +702,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::two`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 268,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::two::down_cc_pattern`,
                     ),
                     ident: `down_cc_pattern`,
                     is_generic: false,
@@ -782,20 +730,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::two`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 99,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::two::is_two`,
                     ),
                     ident: `is_two`,
                     is_generic: false,

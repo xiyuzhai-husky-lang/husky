@@ -64,20 +64,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `natural_number_game`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 442,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `natural_number_game::Nat`,
                     ),
                     ident: `Nat`,
                     is_generic: false,
@@ -147,20 +134,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `natural_number_game`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 446,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `natural_number_game::OddNat`,
                     ),
                     ident: `OddNat`,
                     is_generic: false,
@@ -190,20 +164,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `natural_number_game`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 449,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `natural_number_game::EvenNat`,
                     ),
                     ident: `EvenNat`,
                     is_generic: false,

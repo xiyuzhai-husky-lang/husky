@@ -637,7 +637,7 @@ Ok(
                 range: [8:68, 8:69),
                 kind: Literal(
                     Integer(
-                        1,
+                        Unspecified,
                     ),
                 ),
             },
@@ -835,7 +835,7 @@ Ok(
                 range: [11:47, 11:48),
                 kind: Literal(
                     Integer(
-                        0,
+                        Unspecified,
                     ),
                 ),
             },
@@ -884,12 +884,16 @@ Ok(
                 ),
             },
             Token {
+                range: [12:38, 12:39),
+                kind: Special(
+                    Minus,
+                ),
+            },
+            Token {
                 range: [12:39, 12:47),
                 kind: Literal(
                     Float(
-                        OrderedFloat(
-                            -999999.0,
-                        ),
+                        Unspecified,
                     ),
                 ),
             },
@@ -995,7 +999,7 @@ Ok(
                 range: [13:68, 13:69),
                 kind: Literal(
                     Integer(
-                        1,
+                        Unspecified,
                     ),
                 ),
             },
@@ -1472,12 +1476,16 @@ Ok(
                 ),
             },
             Token {
+                range: [18:37, 18:38),
+                kind: Special(
+                    Minus,
+                ),
+            },
+            Token {
                 range: [18:38, 18:46),
                 kind: Literal(
                     Float(
-                        OrderedFloat(
-                            -999999.0,
-                        ),
+                        Unspecified,
                     ),
                 ),
             },
@@ -2065,7 +2073,7 @@ Ok(
                 range: [25:54, 25:55),
                 kind: Literal(
                     Integer(
-                        0,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2081,19 +2089,19 @@ Ok(
             76,
             85,
             90,
-            95,
-            112,
-            123,
-            138,
-            151,
+            96,
+            113,
+            124,
+            139,
             152,
-            157,
-            170,
-            181,
-            196,
-            209,
-            213,
+            153,
+            159,
+            172,
+            183,
+            198,
+            211,
             215,
+            217,
         ],
     },
 )

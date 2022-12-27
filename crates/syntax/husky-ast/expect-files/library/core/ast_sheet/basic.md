@@ -17,20 +17,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `core::basic`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `core::basic::bool`,
                     ),
                     ident: `bool`,
                     is_generic: false,
@@ -54,20 +41,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `core::basic`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `core::basic::Trait`,
                     ),
                     ident: `Trait`,
                     is_generic: false,
@@ -91,20 +65,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `core::basic`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `core::basic::Module`,
                     ),
                     ident: `Module`,
                     is_generic: false,

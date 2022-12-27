@@ -99,7 +99,7 @@ Ok(
                 range: [5:5, 5:6),
                 kind: Literal(
                     Integer(
-                        1,
+                        Unspecified,
                     ),
                 ),
             },

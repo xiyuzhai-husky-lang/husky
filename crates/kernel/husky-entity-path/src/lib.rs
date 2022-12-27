@@ -64,75 +64,10 @@ impl EntityPath {
         }
     }
 }
-// impl EntityPath {
-//     pub fn new_module(db: &dyn EntityPathDb, module_path: ModulePath) -> Self {
-//         EntityPath::new(db, EntityPathData::Module(module_path))
-//     }
-
-//     pub fn new_child(self, db: &dyn EntityPathDb, ident: &str) -> Option<EntityPath> {
-//         let ident = db.it_ident_borrowed(ident)?;
-//         Some(EntityPath::new(
-//             db,
-//             EntityPathData::Associated {
-//                 parent: self,
-//                 ident,
-//             },
-//         ))
-//     }
-
-//     pub fn show(self, db: &dyn EntityPathDb) -> String {
-//         match self.data(db) {
-//             EntityPathData::Module(_crate_path) => "crate".to_owned(),
-//             EntityPathData::Associated { parent, ident } => {
-//                 format!("{}::{}", parent.show(db), db.dt_ident(ident))
-//             }
-//         }
-//     }
-
-//     pub fn module_ancestry(self, db: &dyn EntityPathDb) -> &EntityAncestry {
-//         entity_module_ancestry(db, self)
-//     }
-
-//     pub fn apparent_crate_path(self, db: &dyn EntityPathDb) -> CratePath {
-//         self.module_ancestry(db).crate_path()
-//     }
-// }
-
-impl salsa::DebugWithDb<dyn EntityPathDb + '_> for EntityPath {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EntityPathDb,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        match self {
-            EntityPath::Module(module_path) => f
-                .debug_tuple("Module")
-                .field(&module_path.debug_with(db as &dyn VfsDb, include_all_fields))
-                .finish(),
-            EntityPath::ModuleItem(module_item_path) => f
-                .debug_tuple(" ModuleItem")
-                .field(&module_item_path.debug_with(db, include_all_fields))
-                .finish(),
-            EntityPath::GenericParameter(generic_parameter_path) => f
-                .debug_tuple("LocalModuleItem")
-                .field(&generic_parameter_path.debug_with(db, include_all_fields))
-                .finish(),
-            EntityPath::AssociatedItem(associated_item_path) => f
-                .debug_tuple("AssociatedItem")
-                .field(&associated_item_path.debug_with(db, include_all_fields))
-                .finish(),
-            EntityPath::EnumVariant(enum_variant_path) => f
-                .debug_tuple("EnumVariantItem")
-                .field(&enum_variant_path.debug_with(db, include_all_fields))
-                .finish(),
-        }
-    }
-}
 
 impl<Db> salsa::DebugWithDb<Db> for EntityPath
 where
-    Db: EntityPathDb,
+    Db: EntityPathDb + ?Sized,
 {
     fn fmt(
         &self,
@@ -140,7 +75,43 @@ where
         db: &Db,
         include_all_fields: bool,
     ) -> std::fmt::Result {
-        self.fmt(f, db as &dyn EntityPathDb, include_all_fields)
+        let db = <Db as DbWithJar<EntityPathJar>>::as_jar_db(db);
+        if include_all_fields {
+            match self {
+                EntityPath::Module(module_path) => f
+                    .debug_tuple("Module")
+                    .field(&module_path.debug_with(db, include_all_fields))
+                    .finish(),
+                EntityPath::ModuleItem(module_item_path) => f
+                    .debug_tuple(" ModuleItem")
+                    .field(&module_item_path.debug_with(db, include_all_fields))
+                    .finish(),
+                EntityPath::GenericParameter(generic_parameter_path) => f
+                    .debug_tuple("GenericParameter")
+                    .field(&generic_parameter_path.debug_with(db, include_all_fields))
+                    .finish(),
+                EntityPath::AssociatedItem(associated_item_path) => f
+                    .debug_tuple("AssociatedItem")
+                    .field(&associated_item_path.debug_with(db, include_all_fields))
+                    .finish(),
+                EntityPath::EnumVariant(enum_variant_path) => f
+                    .debug_tuple("EnumVariant")
+                    .field(&enum_variant_path.debug_with(db, include_all_fields))
+                    .finish(),
+            }
+        } else {
+            match self {
+                EntityPath::Module(module_path) => module_path.fmt(f, db, false),
+                EntityPath::ModuleItem(module_item_path) => module_item_path.fmt(f, db, false),
+                EntityPath::GenericParameter(generic_parameter_path) => {
+                    generic_parameter_path.fmt(f, db, false)
+                }
+                EntityPath::AssociatedItem(associated_item_path) => {
+                    associated_item_path.fmt(f, db, false)
+                }
+                EntityPath::EnumVariant(enum_variant_path) => enum_variant_path.fmt(f, db, false),
+            }
+        }
     }
 }
 

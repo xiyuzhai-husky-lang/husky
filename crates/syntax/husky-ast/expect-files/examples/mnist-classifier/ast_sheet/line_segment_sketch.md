@@ -1347,9 +1347,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `mnist_classifier::line_segment_sketch::concave_component`,
-                        ),
+                        `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     ident: `concave_component`,
                     is_generic: false,
@@ -1374,9 +1372,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `mnist_classifier::line_segment_sketch::convex_component`,
-                        ),
+                        `mnist_classifier::line_segment_sketch::convex_component`,
                     ),
                     ident: `convex_component`,
                     is_generic: false,
@@ -1401,9 +1397,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `mnist_classifier::line_segment_sketch::convexity`,
-                        ),
+                        `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     ident: `convexity`,
                     is_generic: false,
@@ -1428,9 +1422,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `mnist_classifier::line_segment_sketch::line_segment`,
-                        ),
+                        `mnist_classifier::line_segment_sketch::line_segment`,
                     ),
                     ident: `line_segment`,
                     is_generic: false,
@@ -1530,20 +1522,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 325,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::line_segment_sketch::LineSegmentStroke`,
                     ),
                     ident: `LineSegmentStroke`,
                     is_generic: false,
@@ -1581,20 +1560,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 324,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::line_segment_sketch::LineSegmentSketch`,
                     ),
                     ident: `LineSegmentSketch`,
                     is_generic: false,
@@ -1630,20 +1596,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 359,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::line_segment_sketch::go_right`,
                     ),
                     ident: `go_right`,
                     is_generic: false,
@@ -1671,20 +1624,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 364,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::line_segment_sketch::go_left`,
                     ),
                     ident: `go_left`,
                     is_generic: false,
@@ -1712,20 +1652,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 365,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::line_segment_sketch::extend_end`,
                     ),
                     ident: `extend_end`,
                     is_generic: false,
@@ -1753,20 +1680,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 373,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::line_segment_sketch::extend_start`,
                     ),
                     ident: `extend_start`,
                     is_generic: false,
@@ -1794,20 +1708,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 85,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::line_segment_sketch::find_line_segments`,
                     ),
                     ident: `find_line_segments`,
                     is_generic: false,

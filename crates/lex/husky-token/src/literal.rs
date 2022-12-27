@@ -14,7 +14,6 @@ use ordered_float::OrderedFloat;
 use std::sync::Arc;
 
 /// follows mainly from <https://doc.rust-lang.org/reference/tokens.html#literals/>
-
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum LiteralToken {
     Unit,
@@ -25,9 +24,16 @@ pub enum LiteralToken {
     TupleIndex(TupleIndexLiteral),
     Bool(bool),
 }
-#[salsa::tracked(jar = TokenJar)]
+
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct StringLiteral {
     data: String,
+}
+
+impl StringLiteral {
+    pub fn new(data: String) -> Self {
+        Self { data }
+    }
 }
 
 impl LiteralToken {

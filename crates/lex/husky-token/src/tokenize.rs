@@ -15,6 +15,7 @@ pub(crate) use reserved::*;
 use tokenizer::*;
 use word::*;
 
+// #[salsa::tracked(jar = TokenJar)]
 pub(crate) fn tokenize<'a>(db: &dyn TokenDb, input: &str) -> Vec<Token> {
     let raw_token_iter = RawTokenIter::new(db, TextCharIter::new(input));
     let mut tokenizer = Tokenizer::new(db);

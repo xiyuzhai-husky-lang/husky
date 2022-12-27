@@ -18,9 +18,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `core::basic`,
-                        ),
+                        `core::basic`,
                     ),
                     ident: `basic`,
                     is_generic: false,
@@ -45,9 +43,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `core::logic`,
-                        ),
+                        `core::logic`,
                     ),
                     ident: `logic`,
                     is_generic: false,
@@ -72,9 +68,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `core::num`,
-                        ),
+                        `core::num`,
                     ),
                     ident: `num`,
                     is_generic: false,
@@ -99,9 +93,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `core::ops`,
-                        ),
+                        `core::ops`,
                     ),
                     ident: `ops`,
                     is_generic: false,
@@ -126,9 +118,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `core::prelude`,
-                        ),
+                        `core::prelude`,
                     ),
                     ident: `prelude`,
                     is_generic: false,

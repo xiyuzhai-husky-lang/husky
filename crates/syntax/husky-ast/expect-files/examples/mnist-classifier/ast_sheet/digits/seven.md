@@ -484,20 +484,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::seven`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 228,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::seven::simple_seven_match`,
                     ),
                     ident: `simple_seven_match`,
                     is_generic: false,
@@ -525,20 +512,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::seven`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 229,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::seven::simple_leftdown_pattern`,
                     ),
                     ident: `simple_leftdown_pattern`,
                     is_generic: false,
@@ -566,20 +540,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::seven`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 230,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::seven::special_seven_match`,
                     ),
                     ident: `special_seven_match`,
                     is_generic: false,
@@ -607,20 +568,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::seven`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 231,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::seven::leftupcc_pattern`,
                     ),
                     ident: `leftupcc_pattern`,
                     is_generic: false,
@@ -648,20 +596,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::seven`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 232,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::seven::leftdowncc_pattern`,
                     ),
                     ident: `leftdowncc_pattern`,
                     is_generic: false,
@@ -689,20 +624,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::seven`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 94,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::seven::is_seven`,
                     ),
                     ident: `is_seven`,
                     is_generic: false,

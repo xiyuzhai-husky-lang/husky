@@ -13,6 +13,8 @@ pub enum ExprError {
     },
     #[error("no matching bracket")]
     NoMatchingBra { ket: Bracket, ket_token: TokenIdx },
+    #[error("expect identifier after dot")]
+    ExpectIdentifierAfterDot,
 }
 
 pub type ExprResult<T> = Result<T, ExprError>;

@@ -851,20 +851,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::connected_component`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 104,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::connected_component::ConnectedComponentDistribution`,
                     ),
                     ident: `ConnectedComponentDistribution`,
                     is_generic: false,
@@ -894,20 +881,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::connected_component`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 109,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::connected_component::EffHoles`,
                     ),
                     ident: `EffHoles`,
                     is_generic: false,
@@ -935,20 +909,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::connected_component`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 112,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::connected_component::hole_tmpl`,
                     ),
                     ident: `hole_tmpl`,
                     is_generic: false,
@@ -978,20 +939,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::connected_component`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 116,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::connected_component::ConnectedComponent`,
                     ),
                     ident: `ConnectedComponent`,
                     is_generic: false,
@@ -1019,20 +967,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::connected_component`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 145,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::connected_component::horizontal_extend`,
                     ),
                     ident: `horizontal_extend`,
                     is_generic: false,
@@ -1060,20 +995,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::connected_component`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 151,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::connected_component::find_connected_components`,
                     ),
                     ident: `find_connected_components`,
                     is_generic: false,

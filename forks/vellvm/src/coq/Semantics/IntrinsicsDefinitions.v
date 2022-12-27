@@ -206,7 +206,7 @@ Module Make(A:MemoryAddress.ADDRESS)(LLVMIO: LLVM_INTERACTIONS(A)).
   Definition llvm_fabs_f32 : semantic_function :=
     fun args =>
       match args with
-      | [DVALUE_Float d] => ret (DVALUE_Float (b32_abs d))
+      | [DVALUE_Float d] => ret (DVALUE_Float (r32_abs d))
       | _ => failwith "llvm_fabs_f64 got incorrect / ill-typed intputs"
       end.
 

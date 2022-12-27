@@ -1,12 +1,15 @@
 mod accept;
+mod iter;
 mod opr;
 mod resolve;
 mod stack;
 mod synthesize;
+mod utils;
 
 use crate::*;
 use husky_check_utils::should;
 use husky_entity_tree::EntityTreeDb;
+use husky_print_utils::p;
 use husky_symbol::SymbolContext;
 use husky_token::TokenIter;
 use husky_token::{Token, TokenKind};
@@ -44,7 +47,10 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             let (token_idx, token) = self.token_iter.next_indexed().unwrap();
             match self.accept_token(self.resolve_token(token_idx, token)) {
                 Ok(()) => (),
-                Err(_) => todo!(),
+                Err(e) => {
+                    p!(self.report_position());
+                    todo!("error = {e}")
+                }
             }
         }
         self.synthesize_all_above(Precedence::None).expect("todo");

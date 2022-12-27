@@ -614,20 +614,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::one`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 210,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::one::one_fermi_match`,
                     ),
                     ident: `one_fermi_match`,
                     is_generic: false,
@@ -655,20 +642,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::one`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 91,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::one::is_one`,
                     ),
                     ident: `is_one`,
                     is_generic: false,
@@ -696,20 +670,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::one`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 211,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::one::upmost`,
                     ),
                     ident: `upmost`,
                     is_generic: false,
@@ -737,20 +698,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::one`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 205,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::one::downmost`,
                     ),
                     ident: `downmost`,
                     is_generic: false,
@@ -778,20 +726,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::digits::one`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 212,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::one::hat`,
                     ),
                     ident: `hat`,
                     is_generic: false,

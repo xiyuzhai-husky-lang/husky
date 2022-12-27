@@ -1772,20 +1772,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::raw_contour`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 111,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::raw_contour::RawContour`,
                     ),
                     ident: `RawContour`,
                     is_generic: false,
@@ -1823,20 +1810,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::raw_contour`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 397,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::raw_contour::Direction`,
                     ),
                     ident: `Direction`,
                     is_generic: false,
@@ -1896,20 +1870,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::raw_contour`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 402,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::raw_contour::get_pixel_pair`,
                     ),
                     ident: `get_pixel_pair`,
                     is_generic: false,
@@ -1937,20 +1898,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::raw_contour`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 404,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::raw_contour::get_pixel_to_the_left`,
                     ),
                     ident: `get_pixel_to_the_left`,
                     is_generic: false,
@@ -1978,20 +1926,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::raw_contour`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 405,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::raw_contour::get_pixel_to_the_right`,
                     ),
                     ident: `get_pixel_to_the_right`,
                     is_generic: false,
@@ -2019,20 +1954,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::raw_contour`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 406,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::raw_contour::get_inward_direction`,
                     ),
                     ident: `get_inward_direction`,
                     is_generic: false,
@@ -2060,20 +1982,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::raw_contour`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 414,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::raw_contour::get_angle_change`,
                     ),
                     ident: `get_angle_change`,
                     is_generic: false,
@@ -2101,20 +2010,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::raw_contour`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 419,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::raw_contour::get_outward_direction`,
                     ),
                     ident: `get_outward_direction`,
                     is_generic: false,
@@ -2144,20 +2040,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::raw_contour`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 421,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::raw_contour::StreakCache`,
                     ),
                     ident: `StreakCache`,
                     is_generic: false,
@@ -2185,20 +2068,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::raw_contour`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 424,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::raw_contour::get_concave_middle_point`,
                     ),
                     ident: `get_concave_middle_point`,
                     is_generic: false,
@@ -2226,20 +2096,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::raw_contour`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 84,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::raw_contour::find_raw_contours`,
                     ),
                     ident: `find_raw_contours`,
                     is_generic: false,

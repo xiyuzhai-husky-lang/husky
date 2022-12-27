@@ -8,18 +8,7 @@ Ok(
                     `mnist_classifier::digits::eight`,
                 ),
                 ast_idx: 32,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::eight`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 166,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::eight::upper_mouth_match`,
             },
             ModuleItem {
                 ident: `is_eight`,
@@ -27,18 +16,7 @@ Ok(
                     `mnist_classifier::digits::eight`,
                 ),
                 ast_idx: 33,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::eight`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 95,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::eight::is_eight`,
             },
             ModuleItem {
                 ident: `big_mouth`,
@@ -46,18 +24,7 @@ Ok(
                     `mnist_classifier::digits::eight`,
                 ),
                 ast_idx: 34,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::digits::eight`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 169,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::digits::eight::big_mouth`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

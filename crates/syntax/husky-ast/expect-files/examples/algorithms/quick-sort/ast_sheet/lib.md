@@ -255,20 +255,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `quick_sort`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 35,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `quick_sort::quick_sort`,
                     ),
                     ident: `quick_sort`,
                     is_generic: true,
@@ -296,20 +283,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `quick_sort`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 40,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `quick_sort::quick_sort_aux`,
                     ),
                     ident: `quick_sort_aux`,
                     is_generic: true,
@@ -337,20 +311,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `quick_sort`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 45,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `quick_sort::partition`,
                     ),
                     ident: `partition`,
                     is_generic: true,
@@ -386,20 +347,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `quick_sort`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 53,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `quick_sort::quick_sort_works_for_integers`,
                     ),
                     ident: `quick_sort_works_for_integers`,
                     is_generic: false,
@@ -435,20 +383,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `quick_sort`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 55,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `quick_sort::quick_sort_works_for_strs`,
                     ),
                     ident: `quick_sort_works_for_strs`,
                     is_generic: false,

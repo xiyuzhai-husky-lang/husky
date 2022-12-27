@@ -8,18 +8,7 @@ Ok(
                     `natural_number_game`,
                 ),
                 ast_idx: 3,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `natural_number_game`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 442,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `natural_number_game::Nat`,
             },
             ModuleItem {
                 ident: `OddNat`,
@@ -27,18 +16,7 @@ Ok(
                     `natural_number_game`,
                 ),
                 ast_idx: 9,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `natural_number_game`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 446,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `natural_number_game::OddNat`,
             },
             ModuleItem {
                 ident: `EvenNat`,
@@ -46,18 +24,7 @@ Ok(
                     `natural_number_game`,
                 ),
                 ast_idx: 10,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `natural_number_game`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 449,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `natural_number_game::EvenNat`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

@@ -556,20 +556,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 174,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`,
                     ),
                     ident: `ConcaveComponent`,
                     is_generic: false,
@@ -597,20 +584,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 336,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::line_segment_sketch::concave_component::find_concave_components`,
                     ),
                     ident: `find_concave_components`,
                     is_generic: false,

@@ -263,7 +263,7 @@ Ok(
                 range: [3:25, 3:26),
                 kind: Literal(
                     Integer(
-                        0,
+                        Unspecified,
                     ),
                 ),
             },
@@ -307,7 +307,7 @@ Ok(
                 range: [3:35, 3:36),
                 kind: Literal(
                     Integer(
-                        1,
+                        Unspecified,
                     ),
                 ),
             },
@@ -787,7 +787,7 @@ Ok(
                 range: [8:38, 8:39),
                 kind: Literal(
                     Integer(
-                        1,
+                        Unspecified,
                     ),
                 ),
             },
@@ -863,7 +863,7 @@ Ok(
                 range: [9:33, 9:34),
                 kind: Literal(
                     Integer(
-                        1,
+                        Unspecified,
                     ),
                 ),
             },
@@ -1247,7 +1247,7 @@ Ok(
                 range: [13:33, 13:34),
                 kind: Literal(
                     Integer(
-                        1,
+                        Unspecified,
                     ),
                 ),
             },
@@ -1355,7 +1355,7 @@ Ok(
                 range: [17:24, 17:25),
                 kind: Literal(
                     Integer(
-                        1,
+                        Unspecified,
                     ),
                 ),
             },
@@ -1505,7 +1505,7 @@ Ok(
                 range: [19:28, 19:29),
                 kind: Literal(
                     Integer(
-                        1,
+                        Unspecified,
                     ),
                 ),
             },
@@ -1537,7 +1537,7 @@ Ok(
                 range: [20:23, 20:24),
                 kind: Literal(
                     Integer(
-                        1,
+                        Unspecified,
                     ),
                 ),
             },
@@ -1575,7 +1575,7 @@ Ok(
                 range: [21:29, 21:30),
                 kind: Literal(
                     Integer(
-                        0,
+                        Unspecified,
                     ),
                 ),
             },
@@ -1727,7 +1727,7 @@ Ok(
                 range: [22:27, 22:28),
                 kind: Literal(
                     Integer(
-                        1,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2131,7 +2131,7 @@ Ok(
                 range: [32:18, 32:19),
                 kind: Literal(
                     Integer(
-                        4,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2145,7 +2145,7 @@ Ok(
                 range: [32:21, 32:23),
                 kind: Literal(
                     Integer(
-                        65,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2159,7 +2159,7 @@ Ok(
                 range: [32:25, 32:26),
                 kind: Literal(
                     Integer(
-                        2,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2170,10 +2170,16 @@ Ok(
                 ),
             },
             Token {
+                range: [32:28, 32:29),
+                kind: Special(
+                    Minus,
+                ),
+            },
+            Token {
                 range: [32:29, 32:31),
                 kind: Literal(
                     Integer(
-                        -31,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2187,7 +2193,7 @@ Ok(
                 range: [32:33, 32:34),
                 kind: Literal(
                     Integer(
-                        0,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2201,7 +2207,7 @@ Ok(
                 range: [32:36, 32:38),
                 kind: Literal(
                     Integer(
-                        99,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2215,7 +2221,7 @@ Ok(
                 range: [32:40, 32:41),
                 kind: Literal(
                     Integer(
-                        2,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2229,7 +2235,7 @@ Ok(
                 range: [32:43, 32:45),
                 kind: Literal(
                     Integer(
-                        83,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2243,7 +2249,7 @@ Ok(
                 range: [32:47, 32:50),
                 kind: Literal(
                     Integer(
-                        782,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2257,7 +2263,7 @@ Ok(
                 range: [32:52, 32:53),
                 kind: Literal(
                     Integer(
-                        1,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2348,10 +2354,16 @@ Ok(
                 ),
             },
             Token {
+                range: [34:18, 34:19),
+                kind: Special(
+                    Minus,
+                ),
+            },
+            Token {
                 range: [34:19, 34:21),
                 kind: Literal(
                     Integer(
-                        -31,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2365,7 +2377,7 @@ Ok(
                 range: [34:23, 34:24),
                 kind: Literal(
                     Integer(
-                        0,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2379,7 +2391,7 @@ Ok(
                 range: [34:26, 34:27),
                 kind: Literal(
                     Integer(
-                        1,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2393,7 +2405,7 @@ Ok(
                 range: [34:29, 34:30),
                 kind: Literal(
                     Integer(
-                        2,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2407,7 +2419,7 @@ Ok(
                 range: [34:32, 34:33),
                 kind: Literal(
                     Integer(
-                        2,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2421,7 +2433,7 @@ Ok(
                 range: [34:35, 34:36),
                 kind: Literal(
                     Integer(
-                        4,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2435,7 +2447,7 @@ Ok(
                 range: [34:38, 34:40),
                 kind: Literal(
                     Integer(
-                        65,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2449,7 +2461,7 @@ Ok(
                 range: [34:42, 34:44),
                 kind: Literal(
                     Integer(
-                        83,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2463,7 +2475,7 @@ Ok(
                 range: [34:46, 34:48),
                 kind: Literal(
                     Integer(
-                        99,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2477,7 +2489,7 @@ Ok(
                 range: [34:50, 34:53),
                 kind: Literal(
                     Integer(
-                        782,
+                        Unspecified,
                     ),
                 ),
             },
@@ -2883,13 +2895,13 @@ Ok(
             221,
             223,
             226,
-            251,
-            255,
-            279,
+            252,
+            256,
             281,
-            284,
-            301,
-            305,
+            283,
+            286,
+            303,
+            307,
         ],
     },
 )

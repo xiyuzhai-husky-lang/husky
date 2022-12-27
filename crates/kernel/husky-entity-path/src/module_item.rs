@@ -24,29 +24,9 @@ impl From<ConnectedModuleItemPath> for ModuleItemPath {
     }
 }
 
-impl salsa::DebugWithDb<dyn EntityPathDb + '_> for ModuleItemPath {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EntityPathDb,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        match self {
-            ModuleItemPath::Connected(connected_module_item_path) => f
-                .debug_tuple("Connected")
-                .field(&connected_module_item_path.debug_with(db, include_all_fields))
-                .finish(),
-            ModuleItemPath::Disconnected(disconnected_module_item_path) => f
-                .debug_tuple("Connected")
-                .field(&disconnected_module_item_path.debug_with(db, include_all_fields))
-                .finish(),
-        }
-    }
-}
-
 impl<Db> salsa::DebugWithDb<Db> for ModuleItemPath
 where
-    Db: EntityPathDb,
+    Db: EntityPathDb + ?Sized,
 {
     fn fmt(
         &self,
@@ -54,6 +34,27 @@ where
         db: &Db,
         include_all_fields: bool,
     ) -> std::fmt::Result {
-        self.fmt(f, db as &dyn EntityPathDb, include_all_fields)
+        let db = <Db as DbWithJar<EntityPathJar>>::as_jar_db(db);
+        if include_all_fields {
+            match self {
+                ModuleItemPath::Connected(connected_module_item_path) => f
+                    .debug_tuple("Connected")
+                    .field(&connected_module_item_path.debug_with(db, include_all_fields))
+                    .finish(),
+                ModuleItemPath::Disconnected(disconnected_module_item_path) => f
+                    .debug_tuple("Connected")
+                    .field(&disconnected_module_item_path.debug_with(db, include_all_fields))
+                    .finish(),
+            }
+        } else {
+            match self {
+                ModuleItemPath::Connected(connected_module_item_path) => {
+                    connected_module_item_path.fmt(f, db, false)
+                }
+                ModuleItemPath::Disconnected(disconnected_module_item_path) => {
+                    disconnected_module_item_path.fmt(f, db, false)
+                }
+            }
+        }
     }
 }

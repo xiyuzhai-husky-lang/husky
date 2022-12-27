@@ -31,7 +31,7 @@ use tests::*;
 use tokenize::*;
 
 #[salsa::jar(db = TokenDb)]
-pub struct TokenJar(token_sheet, reserved_words, StringLiteral);
+pub struct TokenJar(token_sheet, reserved_words);
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct Token {

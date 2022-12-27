@@ -114,9 +114,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `mnist_classifier::connected_component`,
-                        ),
+                        `mnist_classifier::connected_component`,
                     ),
                     ident: `connected_component`,
                     is_generic: false,
@@ -141,9 +139,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `mnist_classifier::raw_contour`,
-                        ),
+                        `mnist_classifier::raw_contour`,
                     ),
                     ident: `raw_contour`,
                     is_generic: false,
@@ -168,9 +164,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `mnist_classifier::geom2d`,
-                        ),
+                        `mnist_classifier::geom2d`,
                     ),
                     ident: `geom2d`,
                     is_generic: false,
@@ -195,9 +189,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `mnist_classifier::line_segment_sketch`,
-                        ),
+                        `mnist_classifier::line_segment_sketch`,
                     ),
                     ident: `line_segment_sketch`,
                     is_generic: false,
@@ -222,9 +214,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `mnist_classifier::fermi`,
-                        ),
+                        `mnist_classifier::fermi`,
                     ),
                     ident: `fermi`,
                     is_generic: false,
@@ -249,9 +239,7 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            `mnist_classifier::major`,
-                        ),
+                        `mnist_classifier::major`,
                     ),
                     ident: `major`,
                     is_generic: false,

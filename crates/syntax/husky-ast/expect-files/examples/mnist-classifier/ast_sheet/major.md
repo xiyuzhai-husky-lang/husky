@@ -220,20 +220,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::major`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 284,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::major::connected_components`,
                     ),
                     ident: `connected_components`,
                     is_generic: false,
@@ -261,20 +248,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::major`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 163,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::major::major_connected_component`,
                     ),
                     ident: `major_connected_component`,
                     is_generic: false,
@@ -302,20 +276,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::major`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 214,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::major::ignored_connected_components_row_span_sum_sum`,
                     ),
                     ident: `ignored_connected_components_row_span_sum_sum`,
                     is_generic: false,
@@ -343,20 +304,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::major`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 391,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::major::major_raw_contours`,
                     ),
                     ident: `major_raw_contours`,
                     is_generic: false,
@@ -389,20 +337,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::major`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 392,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::major::major_raw_contour`,
                     ),
                     ident: `major_raw_contour`,
                     is_generic: false,
@@ -430,20 +365,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::major`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 251,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::major::major_line_segment_sketch`,
                     ),
                     ident: `major_line_segment_sketch`,
                     is_generic: false,
@@ -471,20 +393,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                         ModuleItem(
-                            Connected(
-                                ConnectedModuleItemPath {
-                                    module_path: `mnist_classifier::major`,
-                                    ident: Identifier(
-                                        Word(
-                                            Id {
-                                                value: 162,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::major::major_concave_components`,
                     ),
                     ident: `major_concave_components`,
                     is_generic: false,

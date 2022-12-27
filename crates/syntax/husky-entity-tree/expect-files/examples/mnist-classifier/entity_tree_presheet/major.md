@@ -8,18 +8,7 @@ Ok(
                     `mnist_classifier::major`,
                 ),
                 ast_idx: 22,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::major`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 284,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::major::connected_components`,
             },
             ModuleItem {
                 ident: `major_connected_component`,
@@ -27,18 +16,7 @@ Ok(
                     `mnist_classifier::major`,
                 ),
                 ast_idx: 23,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::major`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 163,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::major::major_connected_component`,
             },
             ModuleItem {
                 ident: `ignored_connected_components_row_span_sum_sum`,
@@ -46,18 +24,7 @@ Ok(
                     `mnist_classifier::major`,
                 ),
                 ast_idx: 24,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::major`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 214,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::major::ignored_connected_components_row_span_sum_sum`,
             },
             ModuleItem {
                 ident: `major_raw_contours`,
@@ -65,18 +32,7 @@ Ok(
                     `mnist_classifier::major`,
                 ),
                 ast_idx: 25,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::major`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 391,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::major::major_raw_contours`,
             },
             ModuleItem {
                 ident: `major_raw_contour`,
@@ -84,18 +40,7 @@ Ok(
                     `mnist_classifier::major`,
                 ),
                 ast_idx: 27,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::major`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 392,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::major::major_raw_contour`,
             },
             ModuleItem {
                 ident: `major_line_segment_sketch`,
@@ -103,18 +48,7 @@ Ok(
                     `mnist_classifier::major`,
                 ),
                 ast_idx: 28,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::major`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 251,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::major::major_line_segment_sketch`,
             },
             ModuleItem {
                 ident: `major_concave_components`,
@@ -122,18 +56,7 @@ Ok(
                     `mnist_classifier::major`,
                 ),
                 ast_idx: 29,
-                path: Connected(
-                    ConnectedModuleItemPath {
-                        module_path: `mnist_classifier::major`,
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 162,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                path: `mnist_classifier::major::major_concave_components`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(
