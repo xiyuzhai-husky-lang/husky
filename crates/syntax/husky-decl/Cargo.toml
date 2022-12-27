@@ -14,6 +14,7 @@ parsec = { path = "../../abstraction/parsec" }
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-word = { path = "../../kernel/husky-word" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # syntax
@@ -29,4 +30,4 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 [dev-dependencies]
 # infer
 husky-manifest = { path = "../../infer/husky-manifest" }
-husky-word = { path = "../../kernel/husky-word" }
+
