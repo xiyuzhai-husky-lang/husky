@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Default)]
+#[derive(Default, Debug)]
 pub(crate) struct AutomataStack {
     oprs: Vec<(StackOpr, Precedence)>,
     exprs: Vec<Expr>,

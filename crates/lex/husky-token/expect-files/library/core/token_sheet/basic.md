@@ -28,37 +28,9 @@ Ok(
                 ),
             },
             Token {
-                range: [1:15, 1:16),
+                range: [1:14, 1:15),
                 kind: Special(
-                    Bra(
-                        Curl,
-                    ),
-                ),
-            },
-            Token {
-                range: [1:16, 1:17),
-                kind: Special(
-                    Dot,
-                ),
-            },
-            Token {
-                range: [1:17, 1:18),
-                kind: Special(
-                    Dot,
-                ),
-            },
-            Token {
-                range: [1:18, 1:19),
-                kind: Special(
-                    Dot,
-                ),
-            },
-            Token {
-                range: [1:19, 1:20),
-                kind: Special(
-                    Ket(
-                        Curl,
-                    ),
+                    Semicolon,
                 ),
             },
             Token {
@@ -88,37 +60,9 @@ Ok(
                 ),
             },
             Token {
-                range: [3:21, 3:22),
+                range: [3:20, 3:21),
                 kind: Special(
-                    Bra(
-                        Curl,
-                    ),
-                ),
-            },
-            Token {
-                range: [3:22, 3:23),
-                kind: Special(
-                    Dot,
-                ),
-            },
-            Token {
-                range: [3:23, 3:24),
-                kind: Special(
-                    Dot,
-                ),
-            },
-            Token {
-                range: [3:24, 3:25),
-                kind: Special(
-                    Dot,
-                ),
-            },
-            Token {
-                range: [3:25, 3:26),
-                kind: Special(
-                    Ket(
-                        Curl,
-                    ),
+                    Semicolon,
                 ),
             },
             Token {
@@ -148,44 +92,16 @@ Ok(
                 ),
             },
             Token {
-                range: [5:22, 5:23),
+                range: [5:21, 5:22),
                 kind: Special(
-                    Bra(
-                        Curl,
-                    ),
-                ),
-            },
-            Token {
-                range: [5:23, 5:24),
-                kind: Special(
-                    Dot,
-                ),
-            },
-            Token {
-                range: [5:24, 5:25),
-                kind: Special(
-                    Dot,
-                ),
-            },
-            Token {
-                range: [5:25, 5:26),
-                kind: Special(
-                    Dot,
-                ),
-            },
-            Token {
-                range: [5:26, 5:27),
-                kind: Special(
-                    Ket(
-                        Curl,
-                    ),
+                    Semicolon,
                 ),
             },
         ],
         group_starts: [
             0,
+            4,
             8,
-            16,
         ],
     },
 )

@@ -5,15 +5,19 @@ use husky_term::Term;
 use husky_token::SpecialToken;
 
 impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
-    pub(crate) fn resolve_token(&self, token_idx: TokenIdx, token: &Token) -> ResolvedToken {
-        ResolvedToken {
+    pub(crate) fn resolve_token(
+        &self,
+        token_idx: TokenIdx,
+        token: &Token,
+    ) -> Option<ResolvedToken> {
+        Some(ResolvedToken {
             token_idx,
-            kind: self.resolve_token_kind(token),
-        }
+            kind: self.resolve_token_kind(token)?,
+        })
     }
 
-    fn resolve_token_kind(&self, token: &Token) -> ResolvedTokenKind {
-        match token.kind {
+    fn resolve_token_kind(&self, token: &Token) -> Option<ResolvedTokenKind> {
+        Some(match token.kind {
             TokenKind::Attr(_) => todo!(),
             TokenKind::Keyword(_keyword) => todo!(),
             TokenKind::Identifier(ident) => self.resolve_ident(ident),
@@ -38,7 +42,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 SpecialToken::Ambersand => todo!(),
                 SpecialToken::Vertical => todo!(),
                 SpecialToken::DoubleExclamation => todo!(),
-                SpecialToken::Semicolon => todo!(),
+                SpecialToken::Semicolon => return None,
                 SpecialToken::XmlKet => todo!(),
                 SpecialToken::At => todo!(),
                 SpecialToken::QuestionMark => todo!(),
@@ -48,7 +52,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             TokenKind::Literal(ref literal) => ResolvedTokenKind::Atom(literal.clone().into()),
             TokenKind::Comment => todo!(),
             TokenKind::Err(_) => todo!(),
-        }
+        })
     }
 
     fn resolve_ident(&self, ident: Identifier) -> ResolvedTokenKind {
