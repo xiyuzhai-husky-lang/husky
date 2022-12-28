@@ -1,7 +1,8 @@
 use husky_entity_path::*;
-use husky_entity_taxonomy::{ModuleItemConnection, ModuleItemKind, ModuleTypeItemKind};
+use husky_entity_taxonomy::{FormKind, ModuleItemConnection, ModuleItemKind, TypeKind};
+use husky_opn_syntax::{BinaryOpr, Bracket};
 use husky_print_utils::p;
-use husky_token::TypeKeyword;
+use husky_token::{FormKeyword, TypeKeyword};
 use salsa::DebugWithDb;
 
 use super::*;
@@ -125,15 +126,42 @@ impl<'a> BasicAuxAstParser<'a> {
         let is_generic = self.parse_is_generic();
         let coarse_item_kind: CoarseEntityKind = match entity_kind_keyword {
             Keyword::Config(_) => todo!(),
-            Keyword::Paradigm(_) => ModuleItemKind::Form.into(),
+            Keyword::Paradigm(kw) => {
+                let form_kind = if let Some(token) = self.token_iter().peek() {
+                    match token.kind {
+                        TokenKind::Special(special_token) => match special_token {
+                            SpecialToken::Bra(Bracket::Par) | SpecialToken::LAngle => match kw {
+                                FormKeyword::Def => todo!(),
+                                FormKeyword::Func
+                                | FormKeyword::Proc
+                                | FormKeyword::Fn
+                                | FormKeyword::Function => FormKind::Function,
+                                FormKeyword::Theorem => todo!(),
+                                FormKeyword::Lemma => todo!(),
+                                FormKeyword::Proposition => todo!(),
+                            },
+                            SpecialToken::BinaryOpr(BinaryOpr::Curry) | SpecialToken::Colon => {
+                                FormKind::Feature
+                            }
+                            unexpected_special_token => {
+                                todo!("unexpected_special_token = {unexpected_special_token:?}")
+                            }
+                        },
+                        ref unexpected_token => todo!(),
+                    }
+                } else {
+                    todo!()
+                };
+                ModuleItemKind::Form(form_kind).into()
+            }
             Keyword::Type(kw) => {
                 let type_kind = match kw {
-                    TypeKeyword::Type => ModuleTypeItemKind::Alias,
-                    TypeKeyword::Struct => ModuleTypeItemKind::Struct,
-                    TypeKeyword::Enum => ModuleTypeItemKind::Enum,
-                    TypeKeyword::Record => ModuleTypeItemKind::Record,
-                    TypeKeyword::Structure => ModuleTypeItemKind::Structure,
-                    TypeKeyword::Inductive => ModuleTypeItemKind::Inductive,
+                    TypeKeyword::Type => TypeKind::Alias,
+                    TypeKeyword::Struct => TypeKind::Struct,
+                    TypeKeyword::Enum => TypeKind::Enum,
+                    TypeKeyword::Record => TypeKind::Record,
+                    TypeKeyword::Structure => TypeKind::Structure,
+                    TypeKeyword::Inductive => TypeKind::Inductive,
                 };
                 ModuleItemKind::Type(type_kind).into()
             }
@@ -162,7 +190,7 @@ impl<'a> BasicAuxAstParser<'a> {
                     match item_kind {
                         ModuleItemKind::Type(_) => todo!(),
                         ModuleItemKind::Trait => todo!(),
-                        ModuleItemKind::Form => todo!(),
+                        ModuleItemKind::Form(_) => todo!(),
                     }
                     p!(self.text_start(), self.module_path().debug(self.db()));
                     todo!();
@@ -178,7 +206,7 @@ impl<'a> BasicAuxAstParser<'a> {
                 CoarseEntityKind::Item(item_kind) => match item_kind {
                     ModuleItemKind::Type(_) => todo!(),
                     ModuleItemKind::Trait => todo!(),
-                    ModuleItemKind::Form => EntityKind::AssociatedItem { item_kind },
+                    ModuleItemKind::Form(_) => EntityKind::AssociatedItem { item_kind },
                 },
                 CoarseEntityKind::Variant => todo!(),
             },

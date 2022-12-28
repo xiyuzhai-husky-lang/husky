@@ -1,13 +1,21 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
-pub enum ModuleTypeItemKind {
+pub enum TypeKind {
     Enum,
     Inductive,
     Record,
     Struct,
     Structure,
     Alias,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
+pub enum FormKind {
+    Feature,
+    Function,
+    Value,
+    TypeAlias,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -25,9 +33,9 @@ pub enum EntityKind {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum ModuleItemKind {
-    Type(ModuleTypeItemKind),
+    Type(TypeKind),
+    Form(FormKind),
     Trait,
-    Form,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

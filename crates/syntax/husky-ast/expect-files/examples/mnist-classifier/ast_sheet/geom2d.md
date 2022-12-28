@@ -51,7 +51,9 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `from_i_shift28`,
@@ -76,7 +78,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `vector`,
@@ -101,7 +105,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `to`,
@@ -126,7 +132,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `norm`,
@@ -151,7 +159,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `dist`,
@@ -451,7 +461,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `point`,
@@ -476,7 +488,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `to`,
@@ -501,7 +515,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `norm`,
@@ -526,7 +542,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `dot`,
@@ -551,7 +569,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `cross`,
@@ -576,7 +596,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `angle`,
@@ -606,7 +628,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `rotation_direction_to`,
@@ -631,7 +655,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `angle_to`,
@@ -712,7 +738,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `relative_range`,
@@ -737,7 +765,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `relative_point`,
@@ -778,7 +808,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `relative_bounding_box`,
@@ -803,7 +835,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `relative_point`,
@@ -828,7 +862,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `xmin`,
@@ -853,7 +889,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `xmax`,
@@ -878,7 +916,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `ymin`,
@@ -903,7 +943,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `ymax`,
@@ -960,7 +1002,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `xmin`,
@@ -985,7 +1029,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `xmax`,
@@ -1010,7 +1056,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `ymin`,
@@ -1035,7 +1083,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `ymax`,

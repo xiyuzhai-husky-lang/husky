@@ -1,5 +1,5 @@
 use husky_entity_path::*;
-use husky_entity_taxonomy::{EntityKind, ModuleItemKind, ModuleTypeItemKind};
+use husky_entity_taxonomy::{EntityKind, ModuleItemKind, TypeKind};
 use husky_text::TextRange;
 
 use crate::INDENT_INCR;
@@ -49,18 +49,17 @@ impl AstContextKind {
                         _ => unreachable!(),
                     },
                 },
-                ModuleItemKind::Form => AstContextKind::InsideForm,
+                ModuleItemKind::Form(_) => AstContextKind::InsideForm,
             },
             EntityKind::AssociatedItem { item_kind } => match item_kind {
                 ModuleItemKind::Type(type_kind) => match type_kind {
-                    ModuleTypeItemKind::Enum | ModuleTypeItemKind::Inductive => todo!(),
-                    ModuleTypeItemKind::Record
-                    | ModuleTypeItemKind::Struct
-                    | ModuleTypeItemKind::Structure
-                    | ModuleTypeItemKind::Alias => AstContextKind::InsideNoChild,
+                    TypeKind::Enum | TypeKind::Inductive => todo!(),
+                    TypeKind::Record | TypeKind::Struct | TypeKind::Structure | TypeKind::Alias => {
+                        AstContextKind::InsideNoChild
+                    }
                 },
                 ModuleItemKind::Trait => todo!(),
-                ModuleItemKind::Form => AstContextKind::InsideForm,
+                ModuleItemKind::Form(_) => AstContextKind::InsideForm,
             },
             EntityKind::Variant => todo!(),
         }

@@ -17,7 +17,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Feature,
+                        ),
                     },
                     entity_path: None,
                     ident: `add`,
