@@ -1,7 +1,7 @@
 use husky_ast::AstIdx;
 use husky_entity_path::EntityPathError;
 use husky_manifest::ManifestError;
-use husky_vfs::VfsError;
+use husky_vfs::{ModulePath, VfsError};
 use thiserror::Error;
 
 use crate::EntityTreeDb;
@@ -24,6 +24,8 @@ pub enum EntityTreeError {
     Manifest(#[from] ManifestError),
     #[error("entity symbol already defined, old = {old}, new = {new}")]
     EntitySymbolAlreadyDefined { old: AstIdx, new: AstIdx },
+    #[error("invalid module path")]
+    InvalidModulePath(ModulePath),
 }
 
 impl From<&EntityTreeError> for EntityTreeError {

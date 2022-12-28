@@ -1,0 +1,32 @@
+task:
+    mnist::new_binary_dataset()
+    
+mod connected_component
+mod raw_contour
+mod geom2d
+mod line_segment_sketch
+mod fermi
+mod major
+
+
+use mnist::BinaryImage28
+use mnist::MnistLabel
+use major::*
+use digits::*
+
+
+use raw_contour::find_raw_contours
+use line_segment_sketch::find_line_segments
+use domains::ml::models::naive::naive_i32
+
+main:
+    is_one?
+    is_six?
+    is_zero?
+    is_seven?
+    is_eight?
+    is_three?
+    is_nine?
+    is_five?
+    is_two?
+    MnistLabel::Four

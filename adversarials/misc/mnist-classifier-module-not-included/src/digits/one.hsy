@@ -1,0 +1,122 @@
+use cv::datasets::mnist::MnistLabel
+use domains::ml::models::normalize::normalize_vmax_f32
+use domains::ml::models::boosting::boosting_with_vmax_normalized
+use domains::ml::models::narrow::narrow_down
+use crate::major::*
+use crate::fermi::*
+use crate::line_segment_sketch::concave_component::*
+
+func one_fermi_match -> FermiMatchResult:
+    fermi_match(major_concave_components, [downmost, upmost, hat])
+
+def is_one -> ?MnistLabel:
+    narrow_down(
+        MnistLabel::One,
+        5,
+        major_connected_component.max_hole_ilen,
+        ignored_connected_components_row_span_sum_sum
+    )?
+    simp_one_match = fermi_match(major_concave_components, [])
+    if simp_one_match.norm < 3.0:
+        narrow_down(
+            MnistLabel::One,
+            5,
+            major_connected_component.max_row_span
+        )?
+        if major_connected_component.max_row_span > 6.5:
+            require major_connected_component.max_hole_ilen == 0.0
+        MnistLabel::One
+    else:
+        require major_connected_component.max_hole_ilen == 0.0
+        require ignored_connected_components_row_span_sum_sum == 0.0
+        downmost = one_fermi_match.matches[0]
+        upmost = one_fermi_match.matches[1]
+        hat = one_fermi_match.matches[2]
+        if downmost be none:
+            require simp_one_match.norm < 4.2
+            narrow_down(
+                MnistLabel::One,
+                2,
+                simp_one_match.angle_change_norm.abs()
+            )?
+            require 2.0 * major_connected_component.lower_mass - major_connected_component.upper_mass < 52.0
+            MnistLabel::One
+        downmost_number_of_strokes = downmost.strokes.end - downmost.strokes.start
+        require one_fermi_match.norm < 1.0
+        narrow_down(
+            MnistLabel::One,
+            12,
+            major_connected_component.top_k_row_span_sum(3),
+            one_fermi_match.norm,
+            one_fermi_match.rel_norm,
+            one_fermi_match.angle_change_norm,
+        )?
+        narrow_down(
+            MnistLabel::One,
+            2,
+            one_fermi_match.matches[0].rel_norm,
+            one_fermi_match.matches[0].angle_change.abs(),
+        )?
+        if upmost be some:
+            // ad hoc; improve syntax
+            require upmost.strokes.end - upmost.strokes.start == 2
+            long_vertical = upmost.strokes[upmost.strokes.start + 1]
+            long_vertical_dp = long_vertical.displacement()
+            require long_vertical_dp.y > 0.0
+            narrow_down(
+                MnistLabel::One,
+                2,
+                upmost.norm,
+                upmost.rel_norm,
+                upmost.angle_change.abs()
+            )?
+            narrow_down(
+                MnistLabel::One,
+                2,
+                long_vertical_dp.norm(),
+                long_vertical_dp.x / long_vertical_dp.y
+            )?
+        if hat be some:
+            narrow_down(
+                MnistLabel::One,
+                2,
+                one_fermi_match.matches[2].norm,
+                one_fermi_match.matches[2].rel_norm,
+                one_fermi_match.matches[2].angle_change.abs(),
+            )?
+        // ad hoc
+        require downmost_number_of_strokes == 3
+        downmost_hat = downmost.strokes[downmost.strokes.start]
+        downmost_hat_dp = downmost_hat.displacement()
+        downmost_feet = downmost.strokes[downmost.strokes.start + 2]
+        downmost_feet_dp = downmost_feet.displacement()
+        narrow_down(
+            MnistLabel::One,
+            10,
+            downmost_hat_dp.y,
+            downmost_feet_dp.y
+        )?
+        require downmost_number_of_strokes == 3
+        a = major_connected_component.lower_mass
+        b = major_connected_component.upper_mass
+        c = a - b
+        d = c + a
+        require c >= -10.0
+        require c <= 20.0
+        MnistLabel::One
+
+func upmost(cc: &ConcaveComponent) -> ?f32:
+    dp = cc.displacement()
+    require dp.y > 0.0
+    dp.y
+
+func downmost(cc: &ConcaveComponent) -> ?f32:
+    dp = cc.displacement()
+    require dp.y <= 0.0
+    -cc.end().y
+
+func hat(cc: &ConcaveComponent) -> ?f32:
+    dp = cc.displacement()
+    require dp.y < 0.0
+    require dp.x < 0.0
+    -dp.y-dp.x

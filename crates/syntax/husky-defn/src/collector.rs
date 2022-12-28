@@ -1,5 +1,6 @@
 use crate::*;
 use husky_ast::AstSheet;
+use husky_entity_tree::EntityTreeResult;
 use husky_token::TokenSheet;
 use vec_like::VecPairMap;
 
@@ -11,12 +12,12 @@ pub(crate) struct DefnCollector<'a> {
 }
 
 impl<'a> DefnCollector<'a> {
-    pub(crate) fn new(db: &'a dyn DefnDb, module_path: ModulePath) -> VfsResult<Self> {
+    pub(crate) fn new(db: &'a dyn DefnDb, module_path: ModulePath) -> EntityTreeResult<Self> {
         Ok(Self {
             db,
             token_sheet: db.token_sheet(module_path)?,
-            ast_sheet: db.ast_sheet(module_path).unwrap(),
-            decl_sheet: db.decl_sheet(module_path).unwrap(),
+            ast_sheet: db.ast_sheet(module_path)?,
+            decl_sheet: db.decl_sheet(module_path)?,
         })
     }
 
@@ -42,7 +43,7 @@ impl<'a> DefnCollector<'a> {
 
     fn parse_ty_defn(&self, decl: TypeDecl) -> TypeDefn {
         match decl {
-            TypeDecl::Enum(_) => todo!(),
+            TypeDecl::Enum(decl) => self.parse_enum_ty_defn(decl).into(),
             TypeDecl::Struct(decl) => self.parse_struct_ty_defn(decl).into(),
             TypeDecl::Record(_) => todo!(),
             TypeDecl::Inductive(decl) => self.parse_inductive_ty_defn(decl).into(),
@@ -54,6 +55,11 @@ impl<'a> DefnCollector<'a> {
     fn parse_trai_defn(&self, decl: TraitDecl) -> TraitDefn {
         let mut expr_sheet = ExprSheet::default();
         TraitDefn::new(self.db, decl.module_item_path(self.db), decl, expr_sheet)
+    }
+
+    fn parse_enum_ty_defn(&self, decl: EnumTypeDecl) -> EnumTypeDefn {
+        let mut expr_sheet = ExprSheet::default();
+        EnumTypeDefn::new(self.db, decl.module_item_path(self.db), decl, expr_sheet)
     }
 
     fn parse_struct_ty_defn(&self, decl: StructTypeDecl) -> StructTypeDefn {

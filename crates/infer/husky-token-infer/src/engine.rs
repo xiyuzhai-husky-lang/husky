@@ -9,13 +9,12 @@ pub(crate) struct TokenInferEngine<'a> {
 }
 
 impl<'a> TokenInferEngine<'a> {
-    pub(crate) fn new(db: &'a dyn TokenInferDb, module_path: ModulePath) -> VfsResult<Self> {
+    pub(crate) fn new(db: &'a dyn TokenInferDb, module_path: ModulePath) -> EntityTreeResult<Self> {
         let token_sheet = &db.token_sheet(module_path)?;
         Ok(Self {
             db,
             token_sheet,
-            // if token sheet is ok, expr sheet must be ok
-            defn_sheet: db.defn_sheet(module_path).unwrap(),
+            defn_sheet: db.defn_sheet(module_path)?,
             sheet: TokenInferSheet::new(token_sheet),
         })
     }

@@ -10,6 +10,7 @@ mod tests;
 pub use db::*;
 pub use decl::*;
 pub use error::*;
+use husky_entity_tree::EntityTreeResult;
 pub use sheet::*;
 
 use collector::*;
@@ -48,6 +49,6 @@ pub struct DeclJar(
 );
 
 #[salsa::tracked(jar = DeclJar, return_ref)]
-fn decl_sheet(db: &dyn DeclDb, module_path: ModulePath) -> DeclResult<DeclSheet> {
+fn decl_sheet(db: &dyn DeclDb, module_path: ModulePath) -> EntityTreeResult<DeclSheet> {
     Ok(DeclCollector::new(db, module_path)?.collect_all())
 }

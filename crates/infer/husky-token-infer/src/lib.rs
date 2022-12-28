@@ -20,6 +20,9 @@ use tests::*;
 pub struct TokenInferJar(token_infer_sheet);
 
 #[salsa::tracked(jar = TokenInferJar, return_ref)]
-fn token_infer_sheet(db: &dyn TokenInferDb, module_path: ModulePath) -> VfsResult<TokenInferSheet> {
+fn token_infer_sheet(
+    db: &dyn TokenInferDb,
+    module_path: ModulePath,
+) -> EntityTreeResult<TokenInferSheet> {
     Ok(TokenInferEngine::new(db, module_path)?.infer_all())
 }

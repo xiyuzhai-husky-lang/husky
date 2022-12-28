@@ -1,0 +1,20 @@
+use crate::geom2d::*
+
+struct LineSegment:
+    start: Point2d
+    end: Point2d
+
+    func displacement() -> Vector2d:
+        start.to(end)
+    
+    func dist_to_point(pt: Point2d) -> f32:
+        ab = this.displacement()
+        ap = start.to(pt)
+        if ab.dot(ap) < 0.0:
+            ap.norm()
+        else:
+            bp = end.to(pt)
+            if ab.dot(bp) > 0.0:
+                bp.norm()
+            else:
+                ab.cross(ap).abs()/ab.norm()

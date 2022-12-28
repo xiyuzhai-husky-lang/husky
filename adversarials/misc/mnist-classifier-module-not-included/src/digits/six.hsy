@@ -1,0 +1,83 @@
+use cv::datasets::mnist::MnistLabel
+use domains::ml::models::normalize::normalize_vmax_f32
+use domains::ml::models::boosting::boosting_with_vmax_normalized
+use domains::ml::models::narrow::narrow_down
+use crate::major::*
+use crate::fermi::*
+use crate::line_segment_sketch::concave_component::*
+use crate::one::is_one
+
+func six_match -> FermiMatchResult:
+    fermi_match(major_concave_components, [upmost])
+
+func six_match_refined1 -> FermiMatchResult:
+    fermi_match(major_concave_components, [upmost, bottom1])
+
+def is_six -> ?MnistLabel:
+    require is_one be none
+    upmost_match = six_match.matches[0]
+    require upmost_match be some
+    eff_holes = major_connected_component.eff_holes
+    lower_excess = major_connected_component.lower_mass - major_connected_component.upper_mass
+    if eff_holes.matches[0] be none:
+        narrow_down(
+            MnistLabel::Six,
+            5,
+            six_match.norm,
+            six_match_refined1.rel_norm
+        )?
+        bottom1_match = six_match_refined1.matches[1]
+        bottom1_match_dp = bottom1_match.displacement()
+        bottom1_match_dp_y = bottom1_match_dp.y
+        upmost_match_dp_y = upmost_match.displacement().y
+        others = six_match_refined1.others
+        require six_match_refined1.norm < 1.8
+        if bottom1_match be some:
+            require bottom1_match_dp_y > -2.5
+            // ad hoc
+            require ignored_connected_components_row_span_sum_sum < 30.0
+            narrow_down(
+                MnistLabel::Six,
+                15,
+                upmost_match_dp_y
+            )?
+            MnistLabel::Six
+        rel_upmost_match_end = major_line_segment_sketch.bounding_box.relative_point(upmost_match.end())
+        narrow_down(
+            MnistLabel::Six,
+            15,
+            upmost_match_dp_y,
+            ignored_connected_components_row_span_sum_sum,
+            lower_excess,
+            major_connected_component.top_k_row_span_sum(6),
+        )?
+        if rel_upmost_match_end.x < 0.7:
+            MnistLabel::Six
+        MnistLabel::Six
+    // narrow_down: filter the data that satisfy the given features. 
+    narrow_down(
+        MnistLabel::Six,
+        5,
+        six_match.norm
+    )?
+    if six_match.norm > 1.8:
+        require six_match.norm < 1.8
+    require eff_holes.matches[0].relative_bounding_box.ymax() < 0.75
+    if eff_holes.matches[1] be some:
+        require eff_holes.matches[1].relative_bounding_box.ymax() < 0.75
+    require lower_excess > 15.0
+    MnistLabel::Six
+
+func upmost(cc: &ConcaveComponent) -> ?f32:
+    dp = cc.displacement()
+    require dp.y > 0.0
+    dp.y
+
+func bottom1(cc: &ConcaveComponent) -> ?f32:
+    dp = cc.displacement()
+    if dp.y < -3.0:
+        require (dp.x / dp.y).abs() > 1.4
+    require cc.relative_bounding_box.ymax() < 0.6
+    relative_end = cc.line_segment_sketch.bounding_box.relative_point(cc.end())
+    require relative_end.x > 0.5
+    -cc.end().y
