@@ -1116,16 +1116,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `mnist_classifier::geom2d`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 294,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`mnist_classifier::geom2d::Point2d, Struct`),
                     ),
                     ident: `Point2d`,
                     is_generic: false,
@@ -1163,16 +1154,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `mnist_classifier::geom2d`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 300,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`mnist_classifier::geom2d::RelativePoint2d, Struct`),
                     ),
                     ident: `RelativePoint2d`,
                     is_generic: false,
@@ -1202,16 +1184,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `mnist_classifier::geom2d`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 297,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`mnist_classifier::geom2d::Vector2d, Struct`),
                     ),
                     ident: `Vector2d`,
                     is_generic: false,
@@ -1249,16 +1222,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `mnist_classifier::geom2d`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 314,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`mnist_classifier::geom2d::ClosedRange, Struct`),
                     ),
                     ident: `ClosedRange`,
                     is_generic: false,
@@ -1296,16 +1260,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `mnist_classifier::geom2d`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 319,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`mnist_classifier::geom2d::BoundingBox, Struct`),
                     ),
                     ident: `BoundingBox`,
                     is_generic: false,
@@ -1343,16 +1298,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `mnist_classifier::geom2d`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 322,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox, Struct`),
                     ),
                     ident: `RelativeBoundingBox`,
                     is_generic: false,

@@ -1,3 +1,5 @@
+use husky_entity_taxonomy::ModuleItemConnection;
+
 use crate::*;
 
 #[salsa::tracked(jar = EntityPathJar, return_ref)]
@@ -59,40 +61,174 @@ impl EntityPathMenu {
         let path_menu = db.dev_path_menu()?;
         let core_ops = path_menu.core_ops();
         let core_num = path_menu.core_num();
-        let core_ops_add = TraitPath::new(db, core_ops, db.it_ident_borrowed("Add").unwrap());
-        let core_ops_add_assign =
-            TraitPath::new(db, core_ops, db.it_ident_borrowed("AddAssign").unwrap());
-        let core_ops_bit_and =
-            TraitPath::new(db, core_ops, db.it_ident_borrowed("BitAnd").unwrap());
-        let core_ops_bit_and_assign =
-            TraitPath::new(db, core_ops, db.it_ident_borrowed("BitAndAssign").unwrap());
-        let core_ops_bit_or = TraitPath::new(db, core_ops, db.it_ident_borrowed("BitOr").unwrap());
-        let core_ops_bit_or_assign =
-            TraitPath::new(db, core_ops, db.it_ident_borrowed("BitOrAssign").unwrap());
-        let core_ops_bit_xor =
-            TraitPath::new(db, core_ops, db.it_ident_borrowed("BitXor").unwrap());
-        let core_ops_bit_xor_assign =
-            TraitPath::new(db, core_ops, db.it_ident_borrowed("BitXorAssign").unwrap());
-        let core_ops_div = TraitPath::new(db, core_ops, db.it_ident_borrowed("Div").unwrap());
-        let core_ops_div_assign =
-            TraitPath::new(db, core_ops, db.it_ident_borrowed("DivAssign").unwrap());
-        let core_ops_mul = TraitPath::new(db, core_ops, db.it_ident_borrowed("Mul").unwrap());
-        let core_ops_mul_assign =
-            TraitPath::new(db, core_ops, db.it_ident_borrowed("MulAssign").unwrap());
-        let core_ops_neg = TraitPath::new(db, core_ops, db.it_ident_borrowed("Neg").unwrap());
-        let core_ops_not = TraitPath::new(db, core_ops, db.it_ident_borrowed("Not").unwrap());
-        let i32 = TypePath::new(db, core_num, word_menu.i32());
-        let i64 = TypePath::new(db, core_num, word_menu.i64());
-        let unit = TypePath::new(db, core_num, word_menu.unit());
-        let bool = TypePath::new(db, core_num, word_menu.bool());
-        let f32 = TypePath::new(db, core_num, word_menu.f32());
-        let f64 = TypePath::new(db, core_num, word_menu.f64());
-        let r32 = TypePath::new(db, core_num, word_menu.r32());
-        let b64 = TypePath::new(db, core_num, word_menu.b64());
-        let u32 = TypePath::new(db, core_num, word_menu.u32());
-        let u64 = TypePath::new(db, core_num, word_menu.u64());
-        let trai = TypePath::new(db, core_num, word_menu.trai());
-        let module = TypePath::new(db, core_num, word_menu.module());
+        let core_ops_add = TraitPath::new(
+            db,
+            core_ops,
+            db.it_ident_borrowed("Add").unwrap(),
+            ModuleItemConnection::Connected,
+        );
+        let core_ops_add_assign = TraitPath::new(
+            db,
+            core_ops,
+            db.it_ident_borrowed("AddAssign").unwrap(),
+            ModuleItemConnection::Connected,
+        );
+        let core_ops_bit_and = TraitPath::new(
+            db,
+            core_ops,
+            db.it_ident_borrowed("BitAnd").unwrap(),
+            ModuleItemConnection::Connected,
+        );
+        let core_ops_bit_and_assign = TraitPath::new(
+            db,
+            core_ops,
+            db.it_ident_borrowed("BitAndAssign").unwrap(),
+            ModuleItemConnection::Connected,
+        );
+        let core_ops_bit_or = TraitPath::new(
+            db,
+            core_ops,
+            db.it_ident_borrowed("BitOr").unwrap(),
+            ModuleItemConnection::Connected,
+        );
+        let core_ops_bit_or_assign = TraitPath::new(
+            db,
+            core_ops,
+            db.it_ident_borrowed("BitOrAssign").unwrap(),
+            ModuleItemConnection::Connected,
+        );
+        let core_ops_bit_xor = TraitPath::new(
+            db,
+            core_ops,
+            db.it_ident_borrowed("BitXor").unwrap(),
+            ModuleItemConnection::Connected,
+        );
+        let core_ops_bit_xor_assign = TraitPath::new(
+            db,
+            core_ops,
+            db.it_ident_borrowed("BitXorAssign").unwrap(),
+            ModuleItemConnection::Connected,
+        );
+        let core_ops_div = TraitPath::new(
+            db,
+            core_ops,
+            db.it_ident_borrowed("Div").unwrap(),
+            ModuleItemConnection::Connected,
+        );
+        let core_ops_div_assign = TraitPath::new(
+            db,
+            core_ops,
+            db.it_ident_borrowed("DivAssign").unwrap(),
+            ModuleItemConnection::Connected,
+        );
+        let core_ops_mul = TraitPath::new(
+            db,
+            core_ops,
+            db.it_ident_borrowed("Mul").unwrap(),
+            ModuleItemConnection::Connected,
+        );
+        let core_ops_mul_assign = TraitPath::new(
+            db,
+            core_ops,
+            db.it_ident_borrowed("MulAssign").unwrap(),
+            ModuleItemConnection::Connected,
+        );
+        let core_ops_neg = TraitPath::new(
+            db,
+            core_ops,
+            db.it_ident_borrowed("Neg").unwrap(),
+            ModuleItemConnection::Connected,
+        );
+        let core_ops_not = TraitPath::new(
+            db,
+            core_ops,
+            db.it_ident_borrowed("Not").unwrap(),
+            ModuleItemConnection::Connected,
+        );
+        let i32 = TypePath::new(
+            db,
+            core_num,
+            word_menu.i32(),
+            ModuleItemConnection::Connected,
+            TypeKind::Foreign,
+        );
+        let i64 = TypePath::new(
+            db,
+            core_num,
+            word_menu.i64(),
+            ModuleItemConnection::Connected,
+            TypeKind::Foreign,
+        );
+        let unit = TypePath::new(
+            db,
+            core_num,
+            word_menu.unit(),
+            ModuleItemConnection::Connected,
+            TypeKind::Foreign,
+        );
+        let bool = TypePath::new(
+            db,
+            core_num,
+            word_menu.bool(),
+            ModuleItemConnection::Connected,
+            TypeKind::Foreign,
+        );
+        let f32 = TypePath::new(
+            db,
+            core_num,
+            word_menu.f32(),
+            ModuleItemConnection::Connected,
+            TypeKind::Foreign,
+        );
+        let f64 = TypePath::new(
+            db,
+            core_num,
+            word_menu.f64(),
+            ModuleItemConnection::Connected,
+            TypeKind::Foreign,
+        );
+        let r32 = TypePath::new(
+            db,
+            core_num,
+            word_menu.r32(),
+            ModuleItemConnection::Connected,
+            TypeKind::Foreign,
+        );
+        let b64 = TypePath::new(
+            db,
+            core_num,
+            word_menu.b64(),
+            ModuleItemConnection::Connected,
+            TypeKind::Foreign,
+        );
+        let u32 = TypePath::new(
+            db,
+            core_num,
+            word_menu.u32(),
+            ModuleItemConnection::Connected,
+            TypeKind::Foreign,
+        );
+        let u64 = TypePath::new(
+            db,
+            core_num,
+            word_menu.u64(),
+            ModuleItemConnection::Connected,
+            TypeKind::Foreign,
+        );
+        let trai = TypePath::new(
+            db,
+            core_num,
+            word_menu.trai(),
+            ModuleItemConnection::Connected,
+            TypeKind::Foreign,
+        );
+        let module = TypePath::new(
+            db,
+            core_num,
+            word_menu.module(),
+            ModuleItemConnection::Connected,
+            TypeKind::Foreign,
+        );
         Ok(Self {
             core_ops_add,
             core_ops_add_assign,

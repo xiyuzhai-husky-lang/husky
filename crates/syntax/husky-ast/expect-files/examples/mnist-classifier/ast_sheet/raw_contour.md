@@ -1782,16 +1782,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `mnist_classifier::raw_contour`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 111,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`mnist_classifier::raw_contour::RawContour, Struct`),
                     ),
                     ident: `RawContour`,
                     is_generic: false,
@@ -1829,16 +1820,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `mnist_classifier::raw_contour`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 397,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`mnist_classifier::raw_contour::Direction, Enum`),
                     ),
                     ident: `Direction`,
                     is_generic: false,
@@ -1900,16 +1882,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::raw_contour`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 402,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::raw_contour::get_pixel_pair, Function`),
                     ),
                     ident: `get_pixel_pair`,
                     is_generic: false,
@@ -1939,16 +1912,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::raw_contour`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 404,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left, Function`),
                     ),
                     ident: `get_pixel_to_the_left`,
                     is_generic: false,
@@ -1978,16 +1942,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::raw_contour`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 405,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right, Function`),
                     ),
                     ident: `get_pixel_to_the_right`,
                     is_generic: false,
@@ -2017,16 +1972,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::raw_contour`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 406,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::raw_contour::get_inward_direction, Function`),
                     ),
                     ident: `get_inward_direction`,
                     is_generic: false,
@@ -2056,16 +2002,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::raw_contour`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 414,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::raw_contour::get_angle_change, Function`),
                     ),
                     ident: `get_angle_change`,
                     is_generic: false,
@@ -2095,16 +2032,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::raw_contour`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 419,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::raw_contour::get_outward_direction, Function`),
                     ),
                     ident: `get_outward_direction`,
                     is_generic: false,
@@ -2134,16 +2062,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `mnist_classifier::raw_contour`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 421,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`mnist_classifier::raw_contour::StreakCache, Struct`),
                     ),
                     ident: `StreakCache`,
                     is_generic: false,
@@ -2173,16 +2092,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::raw_contour`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 424,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::raw_contour::get_concave_middle_point, Function`),
                     ),
                     ident: `get_concave_middle_point`,
                     is_generic: false,
@@ -2212,16 +2122,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::raw_contour`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 84,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::raw_contour::find_raw_contours, Function`),
                     ),
                     ident: `find_raw_contours`,
                     is_generic: false,

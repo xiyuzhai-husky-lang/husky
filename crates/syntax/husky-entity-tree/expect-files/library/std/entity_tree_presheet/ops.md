@@ -8,16 +8,7 @@ Ok(
                     `std::ops`,
                 ),
                 ast_idx: 3,
-                path: TraitPath {
-                    module: `std::ops`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 22,
-                            },
-                        ),
-                    ),
-                },
+                path: TraitPath(`std::ops::Add`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

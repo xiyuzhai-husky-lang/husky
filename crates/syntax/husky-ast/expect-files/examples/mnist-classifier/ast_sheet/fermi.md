@@ -272,16 +272,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `mnist_classifier::fermi`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 167,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`mnist_classifier::fermi::FermiMatchResult, Struct`),
                     ),
                     ident: `FermiMatchResult`,
                     is_generic: false,
@@ -319,16 +310,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::fermi`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 168,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::fermi::fermi_match, Function`),
                     ),
                     ident: `fermi_match`,
                     is_generic: false,

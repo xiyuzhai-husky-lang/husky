@@ -531,16 +531,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::six`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 240,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::six::six_match, Feature`),
                     ),
                     ident: `six_match`,
                     is_generic: false,
@@ -570,16 +561,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::six`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 241,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::six::six_match_refined1, Feature`),
                     ),
                     ident: `six_match_refined1`,
                     is_generic: false,
@@ -609,16 +591,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::six`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 92,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::six::is_six, Feature`),
                     ),
                     ident: `is_six`,
                     is_generic: false,
@@ -648,16 +621,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::six`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 211,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::six::upmost, Function`),
                     ),
                     ident: `upmost`,
                     is_generic: false,
@@ -687,16 +651,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::six`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 242,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::six::bottom1, Function`),
                     ),
                     ident: `bottom1`,
                     is_generic: false,

@@ -8,16 +8,7 @@ Ok(
                     `mnist_classifier::digits::four`,
                 ),
                 ast_idx: 75,
-                path: FormPath {
-                    module: `mnist_classifier::digits::four`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 185,
-                            },
-                        ),
-                    ),
-                },
+                path: FormPath(`mnist_classifier::digits::four::left_components, Feature`),
             },
             ModuleItem {
                 ident: `left_coordinate_max`,
@@ -25,16 +16,7 @@ Ok(
                     `mnist_classifier::digits::four`,
                 ),
                 ast_idx: 76,
-                path: FormPath {
-                    module: `mnist_classifier::digits::four`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 186,
-                            },
-                        ),
-                    ),
-                },
+                path: FormPath(`mnist_classifier::digits::four::left_coordinate_max, Function`),
             },
             ModuleItem {
                 ident: `components_max_downwards`,
@@ -42,16 +24,7 @@ Ok(
                     `mnist_classifier::digits::four`,
                 ),
                 ast_idx: 77,
-                path: FormPath {
-                    module: `mnist_classifier::digits::four`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 188,
-                            },
-                        ),
-                    ),
-                },
+                path: FormPath(`mnist_classifier::digits::four::components_max_downwards, Feature`),
             },
             ModuleItem {
                 ident: `components_max_heights`,
@@ -59,16 +32,7 @@ Ok(
                     `mnist_classifier::digits::four`,
                 ),
                 ast_idx: 78,
-                path: FormPath {
-                    module: `mnist_classifier::digits::four`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 190,
-                            },
-                        ),
-                    ),
-                },
+                path: FormPath(`mnist_classifier::digits::four::components_max_heights, Feature`),
             },
             ModuleItem {
                 ident: `is_four`,
@@ -76,16 +40,7 @@ Ok(
                     `mnist_classifier::digits::four`,
                 ),
                 ast_idx: 79,
-                path: FormPath {
-                    module: `mnist_classifier::digits::four`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 192,
-                            },
-                        ),
-                    ),
-                },
+                path: FormPath(`mnist_classifier::digits::four::is_four, Feature`),
             },
             ModuleItem {
                 ident: `displacement_downwards`,
@@ -93,16 +48,7 @@ Ok(
                     `mnist_classifier::digits::four`,
                 ),
                 ast_idx: 80,
-                path: FormPath {
-                    module: `mnist_classifier::digits::four`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 189,
-                            },
-                        ),
-                    ),
-                },
+                path: FormPath(`mnist_classifier::digits::four::displacement_downwards, Function`),
             },
             ModuleItem {
                 ident: `cc_box_heights`,
@@ -110,16 +56,7 @@ Ok(
                     `mnist_classifier::digits::four`,
                 ),
                 ast_idx: 81,
-                path: FormPath {
-                    module: `mnist_classifier::digits::four`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 191,
-                            },
-                        ),
-                    ),
-                },
+                path: FormPath(`mnist_classifier::digits::four::cc_box_heights, Function`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

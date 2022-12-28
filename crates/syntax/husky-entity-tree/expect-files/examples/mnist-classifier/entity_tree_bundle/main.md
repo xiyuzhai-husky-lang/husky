@@ -63,16 +63,7 @@ Ok(
                             `mnist_classifier::connected_component`,
                         ),
                         ast_idx: 121,
-                        path: TypePath {
-                            module: `mnist_classifier::connected_component`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 95,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution, Struct`),
                     },
                     ModuleItem {
                         ident: `EffHoles`,
@@ -80,16 +71,7 @@ Ok(
                             `mnist_classifier::connected_component`,
                         ),
                         ast_idx: 122,
-                        path: TypePath {
-                            module: `mnist_classifier::connected_component`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 100,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: TypePath(`mnist_classifier::connected_component::EffHoles, Struct`),
                     },
                     ModuleItem {
                         ident: `hole_tmpl`,
@@ -97,16 +79,7 @@ Ok(
                             `mnist_classifier::connected_component`,
                         ),
                         ast_idx: 123,
-                        path: FormPath {
-                            module: `mnist_classifier::connected_component`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 103,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::connected_component::hole_tmpl, Function`),
                     },
                     ModuleItem {
                         ident: `ConnectedComponent`,
@@ -114,16 +87,7 @@ Ok(
                             `mnist_classifier::connected_component`,
                         ),
                         ast_idx: 124,
-                        path: TypePath {
-                            module: `mnist_classifier::connected_component`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 106,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: TypePath(`mnist_classifier::connected_component::ConnectedComponent, Struct`),
                     },
                     ModuleItem {
                         ident: `horizontal_extend`,
@@ -131,16 +95,7 @@ Ok(
                             `mnist_classifier::connected_component`,
                         ),
                         ast_idx: 125,
-                        path: FormPath {
-                            module: `mnist_classifier::connected_component`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 135,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::connected_component::horizontal_extend, Function`),
                     },
                     ModuleItem {
                         ident: `find_connected_components`,
@@ -148,16 +103,7 @@ Ok(
                             `mnist_classifier::connected_component`,
                         ),
                         ast_idx: 126,
-                        path: FormPath {
-                            module: `mnist_classifier::connected_component`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 140,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::connected_component::find_connected_components, Function`),
                     },
                 ],
             },
@@ -170,16 +116,7 @@ Ok(
                             `mnist_classifier::raw_contour`,
                         ),
                         ast_idx: 217,
-                        path: TypePath {
-                            module: `mnist_classifier::raw_contour`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 102,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: TypePath(`mnist_classifier::raw_contour::RawContour, Struct`),
                     },
                     ModuleItem {
                         ident: `Direction`,
@@ -187,16 +124,7 @@ Ok(
                             `mnist_classifier::raw_contour`,
                         ),
                         ast_idx: 219,
-                        path: TypePath {
-                            module: `mnist_classifier::raw_contour`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 178,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: TypePath(`mnist_classifier::raw_contour::Direction, Enum`),
                     },
                     ModuleItem {
                         ident: `get_pixel_pair`,
@@ -204,16 +132,7 @@ Ok(
                             `mnist_classifier::raw_contour`,
                         ),
                         ast_idx: 224,
-                        path: FormPath {
-                            module: `mnist_classifier::raw_contour`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 183,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair, Function`),
                     },
                     ModuleItem {
                         ident: `get_pixel_to_the_left`,
@@ -221,16 +140,7 @@ Ok(
                             `mnist_classifier::raw_contour`,
                         ),
                         ast_idx: 225,
-                        path: FormPath {
-                            module: `mnist_classifier::raw_contour`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 185,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left, Function`),
                     },
                     ModuleItem {
                         ident: `get_pixel_to_the_right`,
@@ -238,16 +148,7 @@ Ok(
                             `mnist_classifier::raw_contour`,
                         ),
                         ast_idx: 226,
-                        path: FormPath {
-                            module: `mnist_classifier::raw_contour`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 186,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right, Function`),
                     },
                     ModuleItem {
                         ident: `get_inward_direction`,
@@ -255,16 +156,7 @@ Ok(
                             `mnist_classifier::raw_contour`,
                         ),
                         ast_idx: 227,
-                        path: FormPath {
-                            module: `mnist_classifier::raw_contour`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 187,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::raw_contour::get_inward_direction, Function`),
                     },
                     ModuleItem {
                         ident: `get_angle_change`,
@@ -272,16 +164,7 @@ Ok(
                             `mnist_classifier::raw_contour`,
                         ),
                         ast_idx: 228,
-                        path: FormPath {
-                            module: `mnist_classifier::raw_contour`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 195,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::raw_contour::get_angle_change, Function`),
                     },
                     ModuleItem {
                         ident: `get_outward_direction`,
@@ -289,16 +172,7 @@ Ok(
                             `mnist_classifier::raw_contour`,
                         ),
                         ast_idx: 229,
-                        path: FormPath {
-                            module: `mnist_classifier::raw_contour`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 200,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::raw_contour::get_outward_direction, Function`),
                     },
                     ModuleItem {
                         ident: `StreakCache`,
@@ -306,16 +180,7 @@ Ok(
                             `mnist_classifier::raw_contour`,
                         ),
                         ast_idx: 230,
-                        path: TypePath {
-                            module: `mnist_classifier::raw_contour`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 202,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: TypePath(`mnist_classifier::raw_contour::StreakCache, Struct`),
                     },
                     ModuleItem {
                         ident: `get_concave_middle_point`,
@@ -323,16 +188,7 @@ Ok(
                             `mnist_classifier::raw_contour`,
                         ),
                         ast_idx: 231,
-                        path: FormPath {
-                            module: `mnist_classifier::raw_contour`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 205,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::raw_contour::get_concave_middle_point, Function`),
                     },
                     ModuleItem {
                         ident: `find_raw_contours`,
@@ -340,16 +196,7 @@ Ok(
                             `mnist_classifier::raw_contour`,
                         ),
                         ast_idx: 232,
-                        path: FormPath {
-                            module: `mnist_classifier::raw_contour`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 76,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::raw_contour::find_raw_contours, Function`),
                     },
                 ],
             },
@@ -362,16 +209,7 @@ Ok(
                             `mnist_classifier::geom2d`,
                         ),
                         ast_idx: 79,
-                        path: TypePath {
-                            module: `mnist_classifier::geom2d`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 153,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: TypePath(`mnist_classifier::geom2d::Point2d, Struct`),
                     },
                     ModuleItem {
                         ident: `RelativePoint2d`,
@@ -379,16 +217,7 @@ Ok(
                             `mnist_classifier::geom2d`,
                         ),
                         ast_idx: 81,
-                        path: TypePath {
-                            module: `mnist_classifier::geom2d`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 233,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: TypePath(`mnist_classifier::geom2d::RelativePoint2d, Struct`),
                     },
                     ModuleItem {
                         ident: `Vector2d`,
@@ -396,16 +225,7 @@ Ok(
                             `mnist_classifier::geom2d`,
                         ),
                         ast_idx: 82,
-                        path: TypePath {
-                            module: `mnist_classifier::geom2d`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 172,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: TypePath(`mnist_classifier::geom2d::Vector2d, Struct`),
                     },
                     ModuleItem {
                         ident: `ClosedRange`,
@@ -413,16 +233,7 @@ Ok(
                             `mnist_classifier::geom2d`,
                         ),
                         ast_idx: 84,
-                        path: TypePath {
-                            module: `mnist_classifier::geom2d`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 165,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: TypePath(`mnist_classifier::geom2d::ClosedRange, Struct`),
                     },
                     ModuleItem {
                         ident: `BoundingBox`,
@@ -430,16 +241,7 @@ Ok(
                             `mnist_classifier::geom2d`,
                         ),
                         ast_idx: 86,
-                        path: TypePath {
-                            module: `mnist_classifier::geom2d`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 157,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: TypePath(`mnist_classifier::geom2d::BoundingBox, Struct`),
                     },
                     ModuleItem {
                         ident: `RelativeBoundingBox`,
@@ -447,16 +249,7 @@ Ok(
                             `mnist_classifier::geom2d`,
                         ),
                         ast_idx: 88,
-                        path: TypePath {
-                            module: `mnist_classifier::geom2d`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 167,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox, Struct`),
                     },
                 ],
             },
@@ -501,16 +294,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         ast_idx: 169,
-                        path: TypePath {
-                            module: `mnist_classifier::line_segment_sketch`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 257,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke, Struct`),
                     },
                     ModuleItem {
                         ident: `LineSegmentSketch`,
@@ -518,16 +302,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         ast_idx: 171,
-                        path: TypePath {
-                            module: `mnist_classifier::line_segment_sketch`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 154,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch, Struct`),
                     },
                     ModuleItem {
                         ident: `go_right`,
@@ -535,16 +310,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         ast_idx: 173,
-                        path: FormPath {
-                            module: `mnist_classifier::line_segment_sketch`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 267,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::line_segment_sketch::go_right, Function`),
                     },
                     ModuleItem {
                         ident: `go_left`,
@@ -552,16 +318,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         ast_idx: 174,
-                        path: FormPath {
-                            module: `mnist_classifier::line_segment_sketch`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 273,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::line_segment_sketch::go_left, Function`),
                     },
                     ModuleItem {
                         ident: `extend_end`,
@@ -569,16 +326,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         ast_idx: 175,
-                        path: FormPath {
-                            module: `mnist_classifier::line_segment_sketch`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 274,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::line_segment_sketch::extend_end, Function`),
                     },
                     ModuleItem {
                         ident: `extend_start`,
@@ -586,16 +334,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         ast_idx: 176,
-                        path: FormPath {
-                            module: `mnist_classifier::line_segment_sketch`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 283,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::line_segment_sketch::extend_start, Function`),
                     },
                     ModuleItem {
                         ident: `find_line_segments`,
@@ -603,16 +342,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         ast_idx: 177,
-                        path: FormPath {
-                            module: `mnist_classifier::line_segment_sketch`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 77,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments, Function`),
                     },
                 ],
             },
@@ -625,16 +355,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         ast_idx: 77,
-                        path: TypePath {
-                            module: `mnist_classifier::line_segment_sketch::concave_component`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 264,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, Struct`),
                     },
                     ModuleItem {
                         ident: `find_concave_components`,
@@ -642,16 +363,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         ast_idx: 78,
-                        path: FormPath {
-                            module: `mnist_classifier::line_segment_sketch::concave_component`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 265,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components, Function`),
                     },
                 ],
             },
@@ -664,16 +376,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         ast_idx: 5,
-                        path: TypePath {
-                            module: `mnist_classifier::line_segment_sketch::convex_component`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 308,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent, Struct`),
                     },
                 ],
             },
@@ -686,16 +389,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         ast_idx: 23,
-                        path: FormPath {
-                            module: `mnist_classifier::line_segment_sketch::convexity`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 306,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex, Function`),
                     },
                 ],
             },
@@ -708,16 +402,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch::line_segment`,
                         ),
                         ast_idx: 16,
-                        path: TypePath {
-                            module: `mnist_classifier::line_segment_sketch::line_segment`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 261,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment, Struct`),
                     },
                 ],
             },
@@ -730,16 +415,7 @@ Ok(
                             `mnist_classifier::fermi`,
                         ),
                         ast_idx: 24,
-                        path: TypePath {
-                            module: `mnist_classifier::fermi`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 321,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: TypePath(`mnist_classifier::fermi::FermiMatchResult, Struct`),
                     },
                     ModuleItem {
                         ident: `fermi_match`,
@@ -747,16 +423,7 @@ Ok(
                             `mnist_classifier::fermi`,
                         ),
                         ast_idx: 26,
-                        path: FormPath {
-                            module: `mnist_classifier::fermi`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 324,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::fermi::fermi_match, Function`),
                     },
                 ],
             },
@@ -769,16 +436,7 @@ Ok(
                             `mnist_classifier::major`,
                         ),
                         ast_idx: 22,
-                        path: FormPath {
-                            module: `mnist_classifier::major`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 328,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::major::connected_components, Feature`),
                     },
                     ModuleItem {
                         ident: `major_connected_component`,
@@ -786,16 +444,7 @@ Ok(
                             `mnist_classifier::major`,
                         ),
                         ast_idx: 23,
-                        path: FormPath {
-                            module: `mnist_classifier::major`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 330,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::major::major_connected_component, Feature`),
                     },
                     ModuleItem {
                         ident: `ignored_connected_components_row_span_sum_sum`,
@@ -803,16 +452,7 @@ Ok(
                             `mnist_classifier::major`,
                         ),
                         ast_idx: 24,
-                        path: FormPath {
-                            module: `mnist_classifier::major`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 332,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum, Feature`),
                     },
                     ModuleItem {
                         ident: `major_raw_contours`,
@@ -820,16 +460,7 @@ Ok(
                             `mnist_classifier::major`,
                         ),
                         ast_idx: 25,
-                        path: FormPath {
-                            module: `mnist_classifier::major`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 334,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::major::major_raw_contours, Feature`),
                     },
                     ModuleItem {
                         ident: `major_raw_contour`,
@@ -837,16 +468,7 @@ Ok(
                             `mnist_classifier::major`,
                         ),
                         ast_idx: 27,
-                        path: FormPath {
-                            module: `mnist_classifier::major`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 335,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::major::major_raw_contour, Feature`),
                     },
                     ModuleItem {
                         ident: `major_line_segment_sketch`,
@@ -854,16 +476,7 @@ Ok(
                             `mnist_classifier::major`,
                         ),
                         ast_idx: 28,
-                        path: FormPath {
-                            module: `mnist_classifier::major`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 336,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::major::major_line_segment_sketch, Feature`),
                     },
                     ModuleItem {
                         ident: `major_concave_components`,
@@ -871,16 +484,7 @@ Ok(
                             `mnist_classifier::major`,
                         ),
                         ast_idx: 29,
-                        path: FormPath {
-                            module: `mnist_classifier::major`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 337,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: FormPath(`mnist_classifier::major::major_concave_components, Feature`),
                     },
                 ],
             },

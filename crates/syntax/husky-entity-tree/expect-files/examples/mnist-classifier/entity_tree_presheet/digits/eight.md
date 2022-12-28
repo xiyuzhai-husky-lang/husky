@@ -8,16 +8,7 @@ Ok(
                     `mnist_classifier::digits::eight`,
                 ),
                 ast_idx: 32,
-                path: FormPath {
-                    module: `mnist_classifier::digits::eight`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 166,
-                            },
-                        ),
-                    ),
-                },
+                path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match, Feature`),
             },
             ModuleItem {
                 ident: `is_eight`,
@@ -25,16 +16,7 @@ Ok(
                     `mnist_classifier::digits::eight`,
                 ),
                 ast_idx: 33,
-                path: FormPath {
-                    module: `mnist_classifier::digits::eight`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 95,
-                            },
-                        ),
-                    ),
-                },
+                path: FormPath(`mnist_classifier::digits::eight::is_eight, Feature`),
             },
             ModuleItem {
                 ident: `big_mouth`,
@@ -42,16 +24,7 @@ Ok(
                     `mnist_classifier::digits::eight`,
                 ),
                 ast_idx: 34,
-                path: FormPath {
-                    module: `mnist_classifier::digits::eight`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 169,
-                            },
-                        ),
-                    ),
-                },
+                path: FormPath(`mnist_classifier::digits::eight::big_mouth, Function`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

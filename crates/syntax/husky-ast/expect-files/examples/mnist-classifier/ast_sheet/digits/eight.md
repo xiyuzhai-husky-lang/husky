@@ -330,16 +330,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::eight`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 166,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::eight::upper_mouth_match, Feature`),
                     ),
                     ident: `upper_mouth_match`,
                     is_generic: false,
@@ -369,16 +360,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::eight`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 95,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::eight::is_eight, Feature`),
                     ),
                     ident: `is_eight`,
                     is_generic: false,
@@ -408,16 +390,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::eight`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 169,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::eight::big_mouth, Function`),
                     ),
                     ident: `big_mouth`,
                     is_generic: false,

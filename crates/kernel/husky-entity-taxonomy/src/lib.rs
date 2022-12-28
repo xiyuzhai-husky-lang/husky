@@ -7,7 +7,7 @@ pub enum TypeKind {
     Record,
     Struct,
     Structure,
-    Alias,
+    Foreign,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]

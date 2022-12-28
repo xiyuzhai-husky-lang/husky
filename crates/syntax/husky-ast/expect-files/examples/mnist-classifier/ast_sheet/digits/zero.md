@@ -344,16 +344,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::zero`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 281,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::zero::open_one_match, Feature`),
                     ),
                     ident: `open_one_match`,
                     is_generic: false,
@@ -383,16 +374,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::zero`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 282,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::zero::almost_closed, Function`),
                     ),
                     ident: `almost_closed`,
                     is_generic: false,
@@ -422,16 +404,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::zero`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 93,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::zero::is_zero, Feature`),
                     ),
                     ident: `is_zero`,
                     is_generic: false,

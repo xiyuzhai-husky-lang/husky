@@ -66,16 +66,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `natural_number_game`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 442,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`natural_number_game::Nat, Inductive`),
                     ),
                     ident: `Nat`,
                     is_generic: false,
@@ -145,16 +136,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `natural_number_game`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 446,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`natural_number_game::OddNat, Structure`),
                     ),
                     ident: `OddNat`,
                     is_generic: false,
@@ -184,16 +166,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `natural_number_game`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 449,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`natural_number_game::EvenNat, Structure`),
                     ),
                     ident: `EvenNat`,
                     is_generic: false,

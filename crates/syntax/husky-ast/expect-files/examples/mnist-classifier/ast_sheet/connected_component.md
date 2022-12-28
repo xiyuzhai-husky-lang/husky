@@ -851,16 +851,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `mnist_classifier::connected_component`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 104,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution, Struct`),
                     ),
                     ident: `ConnectedComponentDistribution`,
                     is_generic: false,
@@ -890,16 +881,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `mnist_classifier::connected_component`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 109,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`mnist_classifier::connected_component::EffHoles, Struct`),
                     ),
                     ident: `EffHoles`,
                     is_generic: false,
@@ -929,16 +911,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::connected_component`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 112,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::connected_component::hole_tmpl, Function`),
                     ),
                     ident: `hole_tmpl`,
                     is_generic: false,
@@ -968,16 +941,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `mnist_classifier::connected_component`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 116,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`mnist_classifier::connected_component::ConnectedComponent, Struct`),
                     ),
                     ident: `ConnectedComponent`,
                     is_generic: false,
@@ -1007,16 +971,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::connected_component`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 145,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::connected_component::horizontal_extend, Function`),
                     ),
                     ident: `horizontal_extend`,
                     is_generic: false,
@@ -1046,16 +1001,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::connected_component`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 151,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::connected_component::find_connected_components, Function`),
                     ),
                     ident: `find_connected_components`,
                     is_generic: false,

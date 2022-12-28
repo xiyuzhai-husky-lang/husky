@@ -17,16 +17,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `core::logic`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 10,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`core::logic::LogicAnd, Structure`),
                     ),
                     ident: `LogicAnd`,
                     is_generic: true,
@@ -50,16 +41,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `core::logic`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 16,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`core::logic::LogicOr, Inductive`),
                     ),
                     ident: `LogicOr`,
                     is_generic: true,

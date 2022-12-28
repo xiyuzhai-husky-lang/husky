@@ -21,6 +21,7 @@ pub use generic_parameter::*;
 pub use menu::*;
 pub use module_item::*;
 
+use husky_entity_taxonomy::*;
 use husky_vfs::*;
 use husky_word::Identifier;
 use salsa::DbWithJar;

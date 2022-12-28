@@ -556,16 +556,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `mnist_classifier::line_segment_sketch::concave_component`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 174,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, Struct`),
                     ),
                     ident: `ConcaveComponent`,
                     is_generic: false,
@@ -595,16 +586,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::line_segment_sketch::concave_component`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 336,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components, Function`),
                     ),
                     ident: `find_concave_components`,
                     is_generic: false,

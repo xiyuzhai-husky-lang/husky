@@ -257,16 +257,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `quick_sort`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 35,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`quick_sort::quick_sort, Function`),
                     ),
                     ident: `quick_sort`,
                     is_generic: true,
@@ -296,16 +287,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `quick_sort`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 40,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`quick_sort::quick_sort_aux, Function`),
                     ),
                     ident: `quick_sort_aux`,
                     is_generic: true,
@@ -335,16 +317,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `quick_sort`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 45,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`quick_sort::partition, Function`),
                     ),
                     ident: `partition`,
                     is_generic: true,
@@ -382,16 +355,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `quick_sort`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 53,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`quick_sort::quick_sort_works_for_integers, Feature`),
                     ),
                     ident: `quick_sort_works_for_integers`,
                     is_generic: false,
@@ -429,16 +393,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `quick_sort`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 55,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`quick_sort::quick_sort_works_for_strs, Feature`),
                     ),
                     ident: `quick_sort_works_for_strs`,
                     is_generic: false,

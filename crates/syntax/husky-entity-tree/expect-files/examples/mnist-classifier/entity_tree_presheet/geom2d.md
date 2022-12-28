@@ -8,16 +8,7 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 79,
-                path: TypePath {
-                    module: `mnist_classifier::geom2d`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 294,
-                            },
-                        ),
-                    ),
-                },
+                path: TypePath(`mnist_classifier::geom2d::Point2d, Struct`),
             },
             ModuleItem {
                 ident: `RelativePoint2d`,
@@ -25,16 +16,7 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 81,
-                path: TypePath {
-                    module: `mnist_classifier::geom2d`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 300,
-                            },
-                        ),
-                    ),
-                },
+                path: TypePath(`mnist_classifier::geom2d::RelativePoint2d, Struct`),
             },
             ModuleItem {
                 ident: `Vector2d`,
@@ -42,16 +24,7 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 82,
-                path: TypePath {
-                    module: `mnist_classifier::geom2d`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 297,
-                            },
-                        ),
-                    ),
-                },
+                path: TypePath(`mnist_classifier::geom2d::Vector2d, Struct`),
             },
             ModuleItem {
                 ident: `ClosedRange`,
@@ -59,16 +32,7 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 84,
-                path: TypePath {
-                    module: `mnist_classifier::geom2d`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 314,
-                            },
-                        ),
-                    ),
-                },
+                path: TypePath(`mnist_classifier::geom2d::ClosedRange, Struct`),
             },
             ModuleItem {
                 ident: `BoundingBox`,
@@ -76,16 +40,7 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 86,
-                path: TypePath {
-                    module: `mnist_classifier::geom2d`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 319,
-                            },
-                        ),
-                    ),
-                },
+                path: TypePath(`mnist_classifier::geom2d::BoundingBox, Struct`),
             },
             ModuleItem {
                 ident: `RelativeBoundingBox`,
@@ -93,16 +48,7 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 88,
-                path: TypePath {
-                    module: `mnist_classifier::geom2d`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 322,
-                            },
-                        ),
-                    ),
-                },
+                path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox, Struct`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(
