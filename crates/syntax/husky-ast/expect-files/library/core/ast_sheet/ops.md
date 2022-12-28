@@ -18,7 +18,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         item_kind: Type(
-                            Form,
+                            Alias,
                         ),
                     },
                     entity_path: Some(

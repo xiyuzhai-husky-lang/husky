@@ -14,6 +14,7 @@ pub use sheet::*;
 use collector::*;
 use husky_decl::*;
 use husky_entity_path::*;
+use husky_expr::*;
 use husky_expr::{ExprArena, ExprIdx};
 use husky_vfs::{ModulePath, VfsResult};
 use parser::*;
@@ -28,15 +29,25 @@ pub struct DefnJar(
     RecordTypeDefn,
     InductiveTypeDefn,
     StructureTypeDefn,
-    TypeAliasDefn,
+    AliasTypeDefn,
     // form
-    ConstantDefn,
+    ValueDefn,
     FeatureDefn,
     FunctionDefn,
-    MethodDefn,
     MorphismDefn,
     // trait
     TraitDefn,
+    // type item
+    TypeAssociatedFunctionDefn,
+    TypeMethodDefn,
+    TypeAssociatedTypeDefn,
+    TypeAssociatedValueDefn,
+    TypeMemoDefn,
+    // trait item
+    TraitAssociatedFunctionDefn,
+    TraitMethodDefn,
+    TraitAssociatedTypeDefn,
+    TraitAssociatedValueDefn,
 );
 
 #[salsa::tracked(jar = DefnJar, return_ref)]

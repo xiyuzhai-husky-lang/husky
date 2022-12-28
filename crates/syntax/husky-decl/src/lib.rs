@@ -14,6 +14,7 @@ pub use sheet::*;
 
 use collector::*;
 use husky_entity_path::*;
+use husky_expr::*;
 use husky_vfs::{ModulePath, VfsResult};
 
 #[salsa::jar(db = DeclDb)]
@@ -25,7 +26,7 @@ pub struct DeclJar(
     RecordTypeDecl,
     InductiveTypeDecl,
     StructureTypeDecl,
-    TypeAliasDecl,
+    AliasTypeDecl,
     // form
     ConstantDecl,
     FeatureDecl,
@@ -34,6 +35,17 @@ pub struct DeclJar(
     MorphismDecl,
     // trait
     TraitDecl,
+    // type item
+    TypeAssociatedFunctionDecl,
+    TypeMethodDecl,
+    TypeAssociatedTypeDecl,
+    TypeAssociatedValueDecl,
+    TypeMemoDecl,
+    // trait item
+    TraitAssociatedFunctionDecl,
+    TraitMethodDecl,
+    TraitAssociatedTypeDecl,
+    TraitAssociatedValueDecl,
 );
 
 #[salsa::tracked(jar = DeclJar, return_ref)]

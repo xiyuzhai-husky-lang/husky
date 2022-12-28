@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_taxonomy::{ItemKind, TypeKind};
+use husky_entity_taxonomy::{ModuleItemKind, ModuleTypeItemKind};
 use husky_opn_syntax::Bracket;
 use husky_token::*;
 use std::iter::Peekable;

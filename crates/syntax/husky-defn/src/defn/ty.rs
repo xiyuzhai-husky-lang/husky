@@ -19,16 +19,18 @@ pub enum TypeDefn {
     Record(RecordTypeDefn),
     Struct(StructTypeDefn),
     Structure(StructureTypeDefn),
+    Alias(AliasTypeDefn),
 }
 
 impl TypeDefn {
-    pub fn module_item_path(self, db: &dyn DefnDb) -> ConnectedModuleItemPath {
+    pub fn module_item_path(self, db: &dyn DefnDb) -> ModuleItemPath {
         match self {
             TypeDefn::Enum(defn) => defn.module_item_path(db),
             TypeDefn::Inductive(defn) => defn.module_item_path(db),
             TypeDefn::Record(defn) => defn.module_item_path(db),
             TypeDefn::Struct(defn) => defn.module_item_path(db),
             TypeDefn::Structure(defn) => defn.module_item_path(db),
+            TypeDefn::Alias(defn) => defn.module_item_path(db),
         }
     }
 }

@@ -1,31 +1,31 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
-pub enum TypeKind {
+pub enum ModuleTypeItemKind {
     Enum,
     Inductive,
     Record,
     Struct,
     Structure,
-    Form,
+    Alias,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum EntityKind {
     Module,
     ModuleItem {
-        item_kind: ItemKind,
+        item_kind: ModuleItemKind,
         connection: ModuleItemConnection,
     },
     AssociatedItem {
-        item_kind: ItemKind,
+        item_kind: ModuleItemKind,
     },
     Variant,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum ItemKind {
-    Type(TypeKind),
+pub enum ModuleItemKind {
+    Type(ModuleTypeItemKind),
     Trait,
     Form,
 }

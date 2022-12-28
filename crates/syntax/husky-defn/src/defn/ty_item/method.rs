@@ -1,10 +1,10 @@
 use crate::*;
 
 #[salsa::tracked(jar = DefnJar)]
-pub struct MethodDefn {
+pub struct TypeMethodDefn {
     #[id]
     pub entity_path: EntityPath,
     #[return_ref]
-    pub expr_arena: ExprArena,
-    pub decl: MethodDecl,
+    pub expr_sheet: ExprSheet,
+    pub decl: TypeMethodDecl,
 }

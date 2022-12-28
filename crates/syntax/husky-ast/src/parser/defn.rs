@@ -1,5 +1,5 @@
 use husky_entity_path::*;
-use husky_entity_taxonomy::{ItemKind, ModuleItemConnection, TypeKind};
+use husky_entity_taxonomy::{ModuleItemConnection, ModuleItemKind, ModuleTypeItemKind};
 use husky_print_utils::p;
 use husky_token::TypeKeyword;
 use salsa::DebugWithDb;
@@ -125,17 +125,17 @@ impl<'a> BasicAuxAstParser<'a> {
         let is_generic = self.parse_is_generic();
         let coarse_item_kind: CoarseEntityKind = match entity_kind_keyword {
             Keyword::Config(_) => todo!(),
-            Keyword::Paradigm(_) => ItemKind::Form.into(),
+            Keyword::Paradigm(_) => ModuleItemKind::Form.into(),
             Keyword::Type(kw) => {
                 let type_kind = match kw {
-                    TypeKeyword::Type => TypeKind::Form,
-                    TypeKeyword::Struct => TypeKind::Struct,
-                    TypeKeyword::Enum => TypeKind::Enum,
-                    TypeKeyword::Record => TypeKind::Record,
-                    TypeKeyword::Structure => TypeKind::Structure,
-                    TypeKeyword::Inductive => TypeKind::Inductive,
+                    TypeKeyword::Type => ModuleTypeItemKind::Alias,
+                    TypeKeyword::Struct => ModuleTypeItemKind::Struct,
+                    TypeKeyword::Enum => ModuleTypeItemKind::Enum,
+                    TypeKeyword::Record => ModuleTypeItemKind::Record,
+                    TypeKeyword::Structure => ModuleTypeItemKind::Structure,
+                    TypeKeyword::Inductive => ModuleTypeItemKind::Inductive,
                 };
-                ItemKind::Type(type_kind).into()
+                ModuleItemKind::Type(type_kind).into()
             }
             Keyword::Stmt(_) => todo!(),
             Keyword::Liason(_) => todo!(),
@@ -144,7 +144,7 @@ impl<'a> BasicAuxAstParser<'a> {
             Keyword::Mod => CoarseEntityKind::Module,
             Keyword::Visual => todo!(),
             Keyword::Impl => todo!(),
-            Keyword::Trait => ItemKind::Trait.into(),
+            Keyword::Trait => ModuleItemKind::Trait.into(),
             Keyword::End(_) => todo!(),
         };
         let entity_kind = match self.ast_context_kind() {
@@ -160,9 +160,9 @@ impl<'a> BasicAuxAstParser<'a> {
                 CoarseEntityKind::Module => todo!(),
                 CoarseEntityKind::Item(item_kind) => {
                     match item_kind {
-                        ItemKind::Type(_) => todo!(),
-                        ItemKind::Trait => todo!(),
-                        ItemKind::Form => todo!(),
+                        ModuleItemKind::Type(_) => todo!(),
+                        ModuleItemKind::Trait => todo!(),
+                        ModuleItemKind::Form => todo!(),
                     }
                     p!(self.text_start(), self.module_path().debug(self.db()));
                     todo!();
@@ -176,9 +176,9 @@ impl<'a> BasicAuxAstParser<'a> {
             AstContextKind::InsideImpl => match coarse_item_kind {
                 CoarseEntityKind::Module => todo!(),
                 CoarseEntityKind::Item(item_kind) => match item_kind {
-                    ItemKind::Type(_) => todo!(),
-                    ItemKind::Trait => todo!(),
-                    ItemKind::Form => EntityKind::AssociatedItem { item_kind },
+                    ModuleItemKind::Type(_) => todo!(),
+                    ModuleItemKind::Trait => todo!(),
+                    ModuleItemKind::Form => EntityKind::AssociatedItem { item_kind },
                 },
                 CoarseEntityKind::Variant => todo!(),
             },
@@ -206,12 +206,12 @@ impl<'a> BasicAuxAstParser<'a> {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 enum CoarseEntityKind {
     Module,
-    Item(ItemKind),
+    Item(ModuleItemKind),
     Variant,
 }
 
-impl From<ItemKind> for CoarseEntityKind {
-    fn from(v: ItemKind) -> Self {
+impl From<ModuleItemKind> for CoarseEntityKind {
+    fn from(v: ModuleItemKind) -> Self {
         Self::Item(v)
     }
 }

@@ -63,6 +63,13 @@ impl EntityPath {
             EntityPath::GenericParameter(_) => todo!(),
         }
     }
+
+    pub fn module_item_path(self) -> Option<ModuleItemPath> {
+        match self {
+            EntityPath::ModuleItem(module_item_path) => Some(module_item_path),
+            _ => None,
+        }
+    }
 }
 
 impl<Db> salsa::DebugWithDb<Db> for EntityPath
