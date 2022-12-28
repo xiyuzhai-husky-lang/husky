@@ -1,4 +1,4 @@
-use husky_vfs::VfsJar;
+use husky_vfs::{VfsJar, VfsTestSupport};
 use husky_word::WordJar;
 use salsa::{Database, Storage};
 
