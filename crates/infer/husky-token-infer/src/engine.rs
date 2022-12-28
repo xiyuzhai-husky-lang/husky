@@ -39,7 +39,7 @@ impl<'a> TokenInferEngine<'a> {
             TypeDefn::Record(defn) => self.infer_record_ty(defn),
             TypeDefn::Struct(defn) => self.infer_struct_ty(defn),
             TypeDefn::Structure(defn) => self.infer_structure_ty(defn),
-            TypeDefn::Alias(defn) => self.infer_alias_ty(defn),
+            TypeDefn::Foreign(defn) => self.infer_alias_ty(defn),
         }
     }
 
@@ -63,7 +63,7 @@ impl<'a> TokenInferEngine<'a> {
         // todo!()
     }
 
-    fn infer_alias_ty(&mut self, defn: AliasTypeDefn) {
+    fn infer_alias_ty(&mut self, defn: AlienTypeDefn) {
         // todo!()
     }
 

@@ -12,6 +12,6 @@ pub use method::*;
 pub enum TraitItemDefn {
     Function(TraitAssociatedFunctionDefn),
     Method(TraitMethodDefn),
-    AliasType(TraitAssociatedTypeDefn),
+    AlienType(TraitAssociatedTypeDefn),
     Value(TraitAssociatedValueDefn),
 }

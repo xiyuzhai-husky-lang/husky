@@ -1,16 +1,18 @@
-mod alias_ty;
+mod alien_ty;
 mod enum_ty;
 mod inductive_ty;
 mod record_ty;
 mod struct_ty;
 mod structure_ty;
+mod union_ty;
 
-pub use alias_ty::*;
+pub use alien_ty::*;
 pub use enum_ty::*;
 pub use inductive_ty::*;
 pub use record_ty::*;
 pub use struct_ty::*;
 pub use structure_ty::*;
+pub use union_ty::*;
 
 use crate::*;
 
@@ -21,7 +23,8 @@ pub enum TypeDecl {
     Record(RecordTypeDecl),
     Inductive(InductiveTypeDecl),
     Structure(StructureTypeDecl),
-    Alias(AliasTypeDecl),
+    Alien(AlienTypeDecl),
+    Union(UnionTypeDecl),
 }
 
 impl From<EnumTypeDecl> for TypeDecl {
@@ -54,25 +57,26 @@ impl From<StructureTypeDecl> for TypeDecl {
     }
 }
 
-impl From<AliasTypeDecl> for TypeDecl {
-    fn from(v: AliasTypeDecl) -> Self {
-        Self::Alias(v)
+impl From<AlienTypeDecl> for TypeDecl {
+    fn from(v: AlienTypeDecl) -> Self {
+        Self::Alien(v)
     }
 }
 
 impl TypeDecl {
-    fn module_item_path(self, db: &dyn DeclDb) -> ModuleItemPath {
+    fn path(self, db: &dyn DeclDb) -> TypePath {
         match self {
-            TypeDecl::Enum(decl) => decl.module_item_path(db),
-            TypeDecl::Inductive(decl) => decl.module_item_path(db),
-            TypeDecl::Record(decl) => decl.module_item_path(db),
-            TypeDecl::Struct(decl) => decl.module_item_path(db),
-            TypeDecl::Structure(decl) => decl.module_item_path(db),
-            TypeDecl::Alias(decl) => decl.module_item_path(db),
+            TypeDecl::Enum(decl) => decl.path(db),
+            TypeDecl::Inductive(decl) => decl.path(db),
+            TypeDecl::Record(decl) => decl.path(db),
+            TypeDecl::Struct(decl) => decl.path(db),
+            TypeDecl::Structure(decl) => decl.path(db),
+            TypeDecl::Alien(decl) => decl.path(db),
+            TypeDecl::Union(decl) => decl.path(db),
         }
     }
 
     pub fn entity_path(self, db: &dyn DeclDb) -> EntityPath {
-        self.module_item_path(db).into()
+        self.path(db).into()
     }
 }

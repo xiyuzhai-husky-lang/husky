@@ -1,6 +1,6 @@
-use crate::*;
+use super::*;
 
 #[salsa::tracked(jar = DeclJar)]
 pub struct EnumTypeDecl {
-    pub module_item_path: ModuleItemPath,
+    pub path: TypePath,
 }

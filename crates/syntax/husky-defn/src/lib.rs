@@ -30,12 +30,14 @@ pub struct DefnJar(
     RecordTypeDefn,
     InductiveTypeDefn,
     StructureTypeDefn,
-    AliasTypeDefn,
+    AlienTypeDefn,
+    UnionTypeDefn,
     // form
     ValueDefn,
     FeatureDefn,
     FunctionDefn,
     MorphismDefn,
+    TypeAliasDefn,
     // trait
     TraitDefn,
     // type item

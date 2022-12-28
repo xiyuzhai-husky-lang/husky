@@ -48,38 +48,39 @@ impl<'a> DefnCollector<'a> {
             TypeDecl::Record(_) => todo!(),
             TypeDecl::Inductive(decl) => self.parse_inductive_ty_defn(decl).into(),
             TypeDecl::Structure(decl) => self.parse_structure_ty_defn(decl).into(),
-            TypeDecl::Alias(decl) => self.parse_alias_ty_defn(decl).into(),
+            TypeDecl::Alien(decl) => self.parse_alien_ty_defn(decl).into(),
+            TypeDecl::Union(_) => todo!(),
         }
     }
 
     fn parse_trai_defn(&self, decl: TraitDecl) -> TraitDefn {
         let mut expr_sheet = ExprSheet::default();
-        TraitDefn::new(self.db, decl.module_item_path(self.db), decl, expr_sheet)
+        TraitDefn::new(self.db, decl.path(self.db), decl, expr_sheet)
     }
 
     fn parse_enum_ty_defn(&self, decl: EnumTypeDecl) -> EnumTypeDefn {
         let mut expr_sheet = ExprSheet::default();
-        EnumTypeDefn::new(self.db, decl.module_item_path(self.db), decl, expr_sheet)
+        EnumTypeDefn::new(self.db, decl.path(self.db), decl, expr_sheet)
     }
 
     fn parse_struct_ty_defn(&self, decl: StructTypeDecl) -> StructTypeDefn {
         let mut expr_sheet = ExprSheet::default();
-        StructTypeDefn::new(self.db, decl.module_item_path(self.db), decl, expr_sheet)
+        StructTypeDefn::new(self.db, decl.path(self.db), decl, expr_sheet)
     }
 
     fn parse_inductive_ty_defn(&self, decl: InductiveTypeDecl) -> InductiveTypeDefn {
         let mut expr_sheet = ExprSheet::default();
-        InductiveTypeDefn::new(self.db, decl.module_item_path(self.db), decl, expr_sheet)
+        InductiveTypeDefn::new(self.db, decl.path(self.db), decl, expr_sheet)
     }
 
     fn parse_structure_ty_defn(&self, decl: StructureTypeDecl) -> StructureTypeDefn {
         let mut expr_sheet = ExprSheet::default();
-        StructureTypeDefn::new(self.db, decl.module_item_path(self.db), decl, expr_sheet)
+        StructureTypeDefn::new(self.db, decl.path(self.db), decl, expr_sheet)
     }
 
-    fn parse_alias_ty_defn(&self, decl: AliasTypeDecl) -> AliasTypeDefn {
+    fn parse_alien_ty_defn(&self, decl: AlienTypeDecl) -> AlienTypeDefn {
         let mut expr_sheet = ExprSheet::default();
-        AliasTypeDefn::new(self.db, decl.module_item_path(self.db), decl, expr_sheet)
+        AlienTypeDefn::new(self.db, decl.path(self.db), decl, expr_sheet)
     }
 
     fn parse_form_defn(&self, decl: FormDecl) -> FormDefn {
@@ -93,11 +94,11 @@ impl<'a> DefnCollector<'a> {
 
     fn parse_function_defn(&self, decl: FunctionDecl) -> FunctionDefn {
         let mut expr_sheet = ExprSheet::default();
-        FunctionDefn::new(self.db, decl.module_item_path(self.db), decl, expr_sheet)
+        FunctionDefn::new(self.db, decl.path(self.db), decl, expr_sheet)
     }
 
     fn parse_feature_defn(&self, decl: FeatureDecl) -> FeatureDefn {
         let mut expr_sheet = ExprSheet::default();
-        FeatureDefn::new(self.db, decl.module_item_path(self.db), decl, expr_sheet)
+        FeatureDefn::new(self.db, decl.path(self.db), decl, expr_sheet)
     }
 }

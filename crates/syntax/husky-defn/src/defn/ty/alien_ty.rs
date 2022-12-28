@@ -1,10 +1,10 @@
-use crate::*;
+use super::*;
 
 #[salsa::tracked(jar = DefnJar)]
-pub struct FeatureDefn {
+pub struct AlienTypeDefn {
     #[id]
-    pub path: FormPath,
-    pub decl: FeatureDecl,
+    pub path: TypePath,
+    pub decl: AlienTypeDecl,
     #[return_ref]
     pub expr_sheet: ExprSheet,
 }

@@ -1,11 +1,10 @@
+use super::*;
 use husky_expr::ExprIdx;
 use husky_word::Identifier;
 
-use crate::*;
-
 #[salsa::tracked(jar = DeclJar)]
 pub struct StructTypeDecl {
-    pub module_item_path: ModuleItemPath,
+    pub path: TypePath,
     #[return_ref]
     pub fields: Vec<FieldDecl>,
 }
