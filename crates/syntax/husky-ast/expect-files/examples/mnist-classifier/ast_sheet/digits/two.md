@@ -620,16 +620,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::two`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 265,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::two::two_match, Feature`),
                     ),
                     ident: `two_match`,
                     is_generic: false,
@@ -659,16 +650,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::two`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 266,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::two::left_cc_pattern, Function`),
                     ),
                     ident: `left_cc_pattern`,
                     is_generic: false,
@@ -698,16 +680,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::two`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 267,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::two::right_cc_pattern, Function`),
                     ),
                     ident: `right_cc_pattern`,
                     is_generic: false,
@@ -737,16 +710,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::two`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 268,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::two::down_cc_pattern, Function`),
                     ),
                     ident: `down_cc_pattern`,
                     is_generic: false,
@@ -776,16 +740,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::two`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 99,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::two::is_two, Feature`),
                     ),
                     ident: `is_two`,
                     is_generic: false,

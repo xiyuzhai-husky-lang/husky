@@ -10,16 +10,7 @@ Ok(
                             `natural_number_game`,
                         ),
                         ast_idx: 3,
-                        path: TypePath {
-                            module: `natural_number_game`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 339,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: TypePath(`natural_number_game::Nat, Inductive`),
                     },
                     ModuleItem {
                         ident: `OddNat`,
@@ -27,16 +18,7 @@ Ok(
                             `natural_number_game`,
                         ),
                         ast_idx: 9,
-                        path: TypePath {
-                            module: `natural_number_game`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 344,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: TypePath(`natural_number_game::OddNat, Structure`),
                     },
                     ModuleItem {
                         ident: `EvenNat`,
@@ -44,16 +26,7 @@ Ok(
                             `natural_number_game`,
                         ),
                         ast_idx: 10,
-                        path: TypePath {
-                            module: `natural_number_game`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 347,
-                                    },
-                                ),
-                            ),
-                        },
+                        path: TypePath(`natural_number_game::EvenNat, Structure`),
                     },
                 ],
             },

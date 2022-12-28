@@ -6,46 +6,19 @@ Ok(
                 ident: `bool`,
                 accessibility: Public,
                 ast_idx: 0,
-                path: TypePath {
-                    module: `core::basic`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 7,
-                            },
-                        ),
-                    ),
-                },
+                path: TypePath(`core::basic::bool, Foreign`),
             },
             ModuleItem {
                 ident: `Trait`,
                 accessibility: Public,
                 ast_idx: 1,
-                path: TypePath {
-                    module: `core::basic`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 8,
-                            },
-                        ),
-                    ),
-                },
+                path: TypePath(`core::basic::Trait, Structure`),
             },
             ModuleItem {
                 ident: `Module`,
                 accessibility: Public,
                 ast_idx: 2,
-                path: TypePath {
-                    module: `core::basic`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 9,
-                            },
-                        ),
-                    ),
-                },
+                path: TypePath(`core::basic::Module, Structure`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

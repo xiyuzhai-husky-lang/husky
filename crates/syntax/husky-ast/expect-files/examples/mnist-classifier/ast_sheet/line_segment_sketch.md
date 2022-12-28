@@ -1532,16 +1532,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `mnist_classifier::line_segment_sketch`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 325,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke, Struct`),
                     ),
                     ident: `LineSegmentStroke`,
                     is_generic: false,
@@ -1579,16 +1570,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `mnist_classifier::line_segment_sketch`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 324,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch, Struct`),
                     ),
                     ident: `LineSegmentSketch`,
                     is_generic: false,
@@ -1626,16 +1608,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::line_segment_sketch`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 359,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::line_segment_sketch::go_right, Function`),
                     ),
                     ident: `go_right`,
                     is_generic: false,
@@ -1665,16 +1638,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::line_segment_sketch`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 364,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::line_segment_sketch::go_left, Function`),
                     ),
                     ident: `go_left`,
                     is_generic: false,
@@ -1704,16 +1668,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::line_segment_sketch`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 365,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::line_segment_sketch::extend_end, Function`),
                     ),
                     ident: `extend_end`,
                     is_generic: false,
@@ -1743,16 +1698,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::line_segment_sketch`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 373,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::line_segment_sketch::extend_start, Function`),
                     ),
                     ident: `extend_start`,
                     is_generic: false,
@@ -1782,16 +1728,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::line_segment_sketch`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 85,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::line_segment_sketch::find_line_segments, Function`),
                     ),
                     ident: `find_line_segments`,
                     is_generic: false,

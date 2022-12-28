@@ -222,16 +222,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::major`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 284,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::major::connected_components, Feature`),
                     ),
                     ident: `connected_components`,
                     is_generic: false,
@@ -261,16 +252,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::major`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 163,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::major::major_connected_component, Feature`),
                     ),
                     ident: `major_connected_component`,
                     is_generic: false,
@@ -300,16 +282,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::major`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 214,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum, Feature`),
                     ),
                     ident: `ignored_connected_components_row_span_sum_sum`,
                     is_generic: false,
@@ -339,16 +312,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::major`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 391,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::major::major_raw_contours, Feature`),
                     ),
                     ident: `major_raw_contours`,
                     is_generic: false,
@@ -383,16 +347,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::major`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 392,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::major::major_raw_contour, Feature`),
                     ),
                     ident: `major_raw_contour`,
                     is_generic: false,
@@ -422,16 +377,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::major`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 251,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::major::major_line_segment_sketch, Feature`),
                     ),
                     ident: `major_line_segment_sketch`,
                     is_generic: false,
@@ -461,16 +407,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::major`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 162,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::major::major_concave_components, Feature`),
                     ),
                     ident: `major_concave_components`,
                     is_generic: false,

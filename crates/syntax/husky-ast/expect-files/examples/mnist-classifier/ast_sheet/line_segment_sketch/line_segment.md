@@ -131,16 +131,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `mnist_classifier::line_segment_sketch::line_segment`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 334,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment, Struct`),
                     ),
                     ident: `LineSegment`,
                     is_generic: false,

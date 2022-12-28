@@ -616,16 +616,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::one`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 210,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::one::one_fermi_match, Feature`),
                     ),
                     ident: `one_fermi_match`,
                     is_generic: false,
@@ -655,16 +646,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::one`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 91,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::one::is_one, Feature`),
                     ),
                     ident: `is_one`,
                     is_generic: false,
@@ -694,16 +676,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::one`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 211,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::one::upmost, Function`),
                     ),
                     ident: `upmost`,
                     is_generic: false,
@@ -733,16 +706,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::one`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 205,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::one::downmost, Function`),
                     ),
                     ident: `downmost`,
                     is_generic: false,
@@ -772,16 +736,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::one`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 212,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::one::hat, Function`),
                     ),
                     ident: `hat`,
                     is_generic: false,

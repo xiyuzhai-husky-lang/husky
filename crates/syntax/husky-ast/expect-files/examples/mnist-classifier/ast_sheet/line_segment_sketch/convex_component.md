@@ -69,16 +69,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `mnist_classifier::line_segment_sketch::convex_component`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 341,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent, Struct`),
                     ),
                     ident: `ConvexCompoent`,
                     is_generic: false,

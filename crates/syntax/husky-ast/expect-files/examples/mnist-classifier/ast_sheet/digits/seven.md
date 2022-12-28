@@ -486,16 +486,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::seven`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 228,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::seven::simple_seven_match, Feature`),
                     ),
                     ident: `simple_seven_match`,
                     is_generic: false,
@@ -525,16 +516,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::seven`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 229,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern, Function`),
                     ),
                     ident: `simple_leftdown_pattern`,
                     is_generic: false,
@@ -564,16 +546,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::seven`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 230,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::seven::special_seven_match, Feature`),
                     ),
                     ident: `special_seven_match`,
                     is_generic: false,
@@ -603,16 +576,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::seven`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 231,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::seven::leftupcc_pattern, Function`),
                     ),
                     ident: `leftupcc_pattern`,
                     is_generic: false,
@@ -642,16 +606,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::seven`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 232,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern, Function`),
                     ),
                     ident: `leftdowncc_pattern`,
                     is_generic: false,
@@ -681,16 +636,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::seven`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 94,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::seven::is_seven, Feature`),
                     ),
                     ident: `is_seven`,
                     is_generic: false,

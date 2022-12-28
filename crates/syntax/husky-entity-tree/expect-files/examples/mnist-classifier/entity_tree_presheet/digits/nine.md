@@ -8,16 +8,7 @@ Ok(
                     `mnist_classifier::digits::nine`,
                 ),
                 ast_idx: 54,
-                path: FormPath {
-                    module: `mnist_classifier::digits::nine`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 204,
-                            },
-                        ),
-                    ),
-                },
+                path: FormPath(`mnist_classifier::digits::nine::nine_match, Feature`),
             },
             ModuleItem {
                 ident: `nine_match_refine`,
@@ -25,16 +16,7 @@ Ok(
                     `mnist_classifier::digits::nine`,
                 ),
                 ast_idx: 55,
-                path: FormPath {
-                    module: `mnist_classifier::digits::nine`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 206,
-                            },
-                        ),
-                    ),
-                },
+                path: FormPath(`mnist_classifier::digits::nine::nine_match_refine, Feature`),
             },
             ModuleItem {
                 ident: `is_nine`,
@@ -42,16 +24,7 @@ Ok(
                     `mnist_classifier::digits::nine`,
                 ),
                 ast_idx: 56,
-                path: FormPath {
-                    module: `mnist_classifier::digits::nine`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 97,
-                            },
-                        ),
-                    ),
-                },
+                path: FormPath(`mnist_classifier::digits::nine::is_nine, Feature`),
             },
             ModuleItem {
                 ident: `downmost`,
@@ -59,16 +32,7 @@ Ok(
                     `mnist_classifier::digits::nine`,
                 ),
                 ast_idx: 57,
-                path: FormPath {
-                    module: `mnist_classifier::digits::nine`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 205,
-                            },
-                        ),
-                    ),
-                },
+                path: FormPath(`mnist_classifier::digits::nine::downmost, Function`),
             },
             ModuleItem {
                 ident: `big_cc`,
@@ -76,16 +40,7 @@ Ok(
                     `mnist_classifier::digits::nine`,
                 ),
                 ast_idx: 58,
-                path: FormPath {
-                    module: `mnist_classifier::digits::nine`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 207,
-                            },
-                        ),
-                    ),
-                },
+                path: FormPath(`mnist_classifier::digits::nine::big_cc, Function`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

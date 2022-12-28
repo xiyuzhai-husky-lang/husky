@@ -571,16 +571,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::four`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 185,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::four::left_components, Feature`),
                     ),
                     ident: `left_components`,
                     is_generic: false,
@@ -610,16 +601,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::four`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 186,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::four::left_coordinate_max, Function`),
                     ),
                     ident: `left_coordinate_max`,
                     is_generic: false,
@@ -649,16 +631,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::four`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 188,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::four::components_max_downwards, Feature`),
                     ),
                     ident: `components_max_downwards`,
                     is_generic: false,
@@ -688,16 +661,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::four`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 190,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::four::components_max_heights, Feature`),
                     ),
                     ident: `components_max_heights`,
                     is_generic: false,
@@ -727,16 +691,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::four`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 192,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::four::is_four, Feature`),
                     ),
                     ident: `is_four`,
                     is_generic: false,
@@ -766,16 +721,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::four`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 189,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::four::displacement_downwards, Function`),
                     ),
                     ident: `displacement_downwards`,
                     is_generic: false,
@@ -805,16 +751,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::four`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 191,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::four::cc_box_heights, Function`),
                     ),
                     ident: `cc_box_heights`,
                     is_generic: false,

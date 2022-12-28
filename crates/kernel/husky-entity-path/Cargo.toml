@@ -17,6 +17,7 @@ salsa = { path = "../../abstraction/salsa" }
 husky-vfs = { path = "../../fs/husky-vfs" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
+husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 
 [dev-dependencies]
 expect-test = "1.4.0"

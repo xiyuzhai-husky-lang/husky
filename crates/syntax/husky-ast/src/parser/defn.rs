@@ -34,9 +34,15 @@ impl<'a> AstParser<'a> {
                 module_item_kind,
                 connection,
             } => Some(match module_item_kind {
-                ModuleItemKind::Type(_) => TypePath::new(self.db, self.module_path, ident).into(),
-                ModuleItemKind::Form(_) => FormPath::new(self.db, self.module_path, ident).into(),
-                ModuleItemKind::Trait => TraitPath::new(self.db, self.module_path, ident).into(),
+                ModuleItemKind::Type(ty_kind) => {
+                    TypePath::new(self.db, self.module_path, ident, connection, ty_kind).into()
+                }
+                ModuleItemKind::Form(form_kind) => {
+                    FormPath::new(self.db, self.module_path, ident, connection, form_kind).into()
+                }
+                ModuleItemKind::Trait => {
+                    TraitPath::new(self.db, self.module_path, ident, connection).into()
+                }
             }),
             EntityKind::AssociatedItem { .. } => {
                 ctx.kind().module_item_path().map(|module_item_path| {
@@ -155,7 +161,7 @@ impl<'a> BasicAuxAstParser<'a> {
             }
             Keyword::Type(kw) => {
                 let type_kind = match kw {
-                    TypeKeyword::Type => TypeKind::Alias,
+                    TypeKeyword::Type => TypeKind::Foreign,
                     TypeKeyword::Struct => TypeKind::Struct,
                     TypeKeyword::Enum => TypeKind::Enum,
                     TypeKeyword::Record => TypeKind::Record,

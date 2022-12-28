@@ -53,9 +53,10 @@ impl AstContextKind {
             EntityKind::AssociatedItem { item_kind } => match item_kind {
                 ModuleItemKind::Type(type_kind) => match type_kind {
                     TypeKind::Enum | TypeKind::Inductive => todo!(),
-                    TypeKind::Record | TypeKind::Struct | TypeKind::Structure | TypeKind::Alias => {
-                        AstContextKind::InsideNoChild
-                    }
+                    TypeKind::Record
+                    | TypeKind::Struct
+                    | TypeKind::Structure
+                    | TypeKind::Foreign => AstContextKind::InsideNoChild,
                 },
                 ModuleItemKind::Trait => todo!(),
                 ModuleItemKind::Form(_) => AstContextKind::InsideForm,

@@ -120,7 +120,7 @@ impl<'a> DeclCollector<'a> {
             TypeKind::Record => todo!(),
             TypeKind::Struct => self.parse_struct_type_decl(module_item_path),
             TypeKind::Structure => self.parse_structure_type_decl(module_item_path),
-            TypeKind::Alias => self.parse_alias_type_decl(
+            TypeKind::Foreign => self.parse_foreign_type_decl(
                 entity_kind,
                 module_item_path,
                 token_group_idx,
@@ -159,7 +159,7 @@ impl<'a> DeclCollector<'a> {
     }
 
     // get declaration from tokens
-    fn parse_alias_type_decl(
+    fn parse_foreign_type_decl(
         &self,
         entity_kind: EntityKind,
         module_item_path: ModuleItemPath,

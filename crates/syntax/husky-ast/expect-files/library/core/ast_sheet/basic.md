@@ -12,21 +12,12 @@ Ok(
                     accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Alias,
+                            Foreign,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `core::basic`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 7,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`core::basic::bool, Foreign`),
                     ),
                     ident: `bool`,
                     is_generic: false,
@@ -50,16 +41,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `core::basic`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`core::basic::Trait, Structure`),
                     ),
                     ident: `Trait`,
                     is_generic: false,
@@ -83,16 +65,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath {
-                            module: `core::basic`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 9,
-                                    },
-                                ),
-                            ),
-                        },
+                        TypePath(`core::basic::Module, Structure`),
                     ),
                     ident: `Module`,
                     is_generic: false,

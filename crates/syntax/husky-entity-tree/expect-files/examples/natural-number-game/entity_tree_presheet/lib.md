@@ -8,16 +8,7 @@ Ok(
                     `natural_number_game`,
                 ),
                 ast_idx: 3,
-                path: TypePath {
-                    module: `natural_number_game`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 442,
-                            },
-                        ),
-                    ),
-                },
+                path: TypePath(`natural_number_game::Nat, Inductive`),
             },
             ModuleItem {
                 ident: `OddNat`,
@@ -25,16 +16,7 @@ Ok(
                     `natural_number_game`,
                 ),
                 ast_idx: 9,
-                path: TypePath {
-                    module: `natural_number_game`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 446,
-                            },
-                        ),
-                    ),
-                },
+                path: TypePath(`natural_number_game::OddNat, Structure`),
             },
             ModuleItem {
                 ident: `EvenNat`,
@@ -42,16 +24,7 @@ Ok(
                     `natural_number_game`,
                 ),
                 ast_idx: 10,
-                path: TypePath {
-                    module: `natural_number_game`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 449,
-                            },
-                        ),
-                    ),
-                },
+                path: TypePath(`natural_number_game::EvenNat, Structure`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

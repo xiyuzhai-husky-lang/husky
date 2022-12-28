@@ -18,21 +18,12 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         item_kind: Type(
-                            Alias,
+                            Foreign,
                         ),
                     },
                     entity_path: Some(
                         AssociatedItemPath {
-                            parent_path: TraitPath {
-                                module: `core::ops`,
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 22,
-                                        },
-                                    ),
-                                ),
-                            },
+                            parent_path: TraitPath(`core::ops::Add`),
                             ident: Identifier(
                                 Word(
                                     Id {
@@ -70,16 +61,7 @@ Ok(
                     },
                     entity_path: Some(
                         AssociatedItemPath {
-                            parent_path: TraitPath {
-                                module: `core::ops`,
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 22,
-                                        },
-                                    ),
-                                ),
-                            },
+                            parent_path: TraitPath(`core::ops::Add`),
                             ident: Identifier(
                                 Word(
                                     Id {
@@ -114,16 +96,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TraitPath {
-                            module: `core::ops`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 22,
-                                    },
-                                ),
-                            ),
-                        },
+                        TraitPath(`core::ops::Add`),
                     ),
                     ident: `Add`,
                     is_generic: true,

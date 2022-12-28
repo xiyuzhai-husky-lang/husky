@@ -6,16 +6,7 @@ Ok(
                 ident: `Add`,
                 accessibility: Public,
                 ast_idx: 3,
-                path: TraitPath {
-                    module: `core::ops`,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 22,
-                            },
-                        ),
-                    ),
-                },
+                path: TraitPath(`core::ops::Add`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

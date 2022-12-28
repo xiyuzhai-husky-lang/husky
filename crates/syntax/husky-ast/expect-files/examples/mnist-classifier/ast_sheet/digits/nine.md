@@ -478,16 +478,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::nine`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 204,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::nine::nine_match, Feature`),
                     ),
                     ident: `nine_match`,
                     is_generic: false,
@@ -517,16 +508,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::nine`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 206,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::nine::nine_match_refine, Feature`),
                     ),
                     ident: `nine_match_refine`,
                     is_generic: false,
@@ -556,16 +538,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::nine`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 97,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::nine::is_nine, Feature`),
                     ),
                     ident: `is_nine`,
                     is_generic: false,
@@ -595,16 +568,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::nine`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 205,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::nine::downmost, Function`),
                     ),
                     ident: `downmost`,
                     is_generic: false,
@@ -634,16 +598,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::nine`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 207,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::nine::big_cc, Function`),
                     ),
                     ident: `big_cc`,
                     is_generic: false,

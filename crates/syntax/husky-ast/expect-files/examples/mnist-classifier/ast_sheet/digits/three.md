@@ -387,16 +387,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::three`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 255,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::three::three_fermi_match, Feature`),
                     ),
                     ident: `three_fermi_match`,
                     is_generic: false,
@@ -426,16 +417,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::three`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 96,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::three::is_three, Feature`),
                     ),
                     ident: `is_three`,
                     is_generic: false,
@@ -465,16 +447,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::three`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 257,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::three::uparc, Function`),
                     ),
                     ident: `uparc`,
                     is_generic: false,
@@ -504,16 +477,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::three`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 256,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::three::downarc, Function`),
                     ),
                     ident: `downarc`,
                     is_generic: false,
@@ -543,16 +507,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath {
-                            module: `mnist_classifier::digits::three`,
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 258,
-                                    },
-                                ),
-                            ),
-                        },
+                        FormPath(`mnist_classifier::digits::three::back, Function`),
                     ),
                     ident: `back`,
                     is_generic: false,
