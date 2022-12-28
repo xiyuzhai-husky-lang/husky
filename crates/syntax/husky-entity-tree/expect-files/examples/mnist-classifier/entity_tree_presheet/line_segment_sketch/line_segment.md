@@ -8,7 +8,16 @@ Ok(
                     `mnist_classifier::line_segment_sketch::line_segment`,
                 ),
                 ast_idx: 16,
-                path: `mnist_classifier::line_segment_sketch::line_segment::LineSegment`,
+                path: TypePath {
+                    module: `mnist_classifier::line_segment_sketch::line_segment`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 334,
+                            },
+                        ),
+                    ),
+                },
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

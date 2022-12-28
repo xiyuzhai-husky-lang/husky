@@ -610,13 +610,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::one::one_fermi_match`,
+                        FormPath {
+                            module: `mnist_classifier::digits::one`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 210,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `one_fermi_match`,
                     is_generic: false,
@@ -640,13 +649,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::one::is_one`,
+                        FormPath {
+                            module: `mnist_classifier::digits::one`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 91,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `is_one`,
                     is_generic: false,
@@ -670,13 +688,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::one::upmost`,
+                        FormPath {
+                            module: `mnist_classifier::digits::one`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 211,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `upmost`,
                     is_generic: false,
@@ -700,13 +727,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::one::downmost`,
+                        FormPath {
+                            module: `mnist_classifier::digits::one`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 205,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `downmost`,
                     is_generic: false,
@@ -730,13 +766,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::one::hat`,
+                        FormPath {
+                            module: `mnist_classifier::digits::one`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 212,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `hat`,
                     is_generic: false,

@@ -125,13 +125,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Type(
+                        module_item_kind: Type(
                             Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::line_segment_sketch::line_segment::LineSegment`,
+                        TypePath {
+                            module: `mnist_classifier::line_segment_sketch::line_segment`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 334,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `LineSegment`,
                     is_generic: false,

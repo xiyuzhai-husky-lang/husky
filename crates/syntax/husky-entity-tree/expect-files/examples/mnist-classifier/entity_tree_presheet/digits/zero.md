@@ -8,7 +8,16 @@ Ok(
                     `mnist_classifier::digits::zero`,
                 ),
                 ast_idx: 35,
-                path: `mnist_classifier::digits::zero::open_one_match`,
+                path: FormPath {
+                    module: `mnist_classifier::digits::zero`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 281,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `almost_closed`,
@@ -16,7 +25,16 @@ Ok(
                     `mnist_classifier::digits::zero`,
                 ),
                 ast_idx: 36,
-                path: `mnist_classifier::digits::zero::almost_closed`,
+                path: FormPath {
+                    module: `mnist_classifier::digits::zero`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 282,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `is_zero`,
@@ -24,7 +42,16 @@ Ok(
                     `mnist_classifier::digits::zero`,
                 ),
                 ast_idx: 37,
-                path: `mnist_classifier::digits::zero::is_zero`,
+                path: FormPath {
+                    module: `mnist_classifier::digits::zero`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 93,
+                            },
+                        ),
+                    ),
+                },
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

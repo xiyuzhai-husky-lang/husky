@@ -550,13 +550,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Type(
+                        module_item_kind: Type(
                             Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`,
+                        TypePath {
+                            module: `mnist_classifier::line_segment_sketch::concave_component`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 174,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `ConcaveComponent`,
                     is_generic: false,
@@ -580,13 +589,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::line_segment_sketch::concave_component::find_concave_components`,
+                        FormPath {
+                            module: `mnist_classifier::line_segment_sketch::concave_component`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 336,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `find_concave_components`,
                     is_generic: false,

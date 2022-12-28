@@ -31,14 +31,13 @@ impl<'a> AstParser<'a> {
                 Some(ModulePath::new_child(self.db, self.module_path, ident).into())
             }
             EntityKind::ModuleItem {
-                item_kind: module_item_kind,
+                module_item_kind,
                 connection,
-            } => match connection {
-                ModuleItemConnection::Connected => {
-                    Some(ConnectedModuleItemPath::new(self.db, self.module_path, ident).into())
-                }
-                ModuleItemConnection::Disconnected => todo!(),
-            },
+            } => Some(match module_item_kind {
+                ModuleItemKind::Type(_) => TypePath::new(self.db, self.module_path, ident).into(),
+                ModuleItemKind::Form(_) => FormPath::new(self.db, self.module_path, ident).into(),
+                ModuleItemKind::Trait => TraitPath::new(self.db, self.module_path, ident).into(),
+            }),
             EntityKind::AssociatedItem { .. } => {
                 ctx.kind().module_item_path().map(|module_item_path| {
                     AssociatedItemPath::new(self.db, module_item_path, ident).into()
@@ -195,7 +194,7 @@ impl<'a> BasicAuxAstParser<'a> {
                     p!(self.text_start(), self.module_path().debug(self.db()));
                     todo!();
                     EntityKind::ModuleItem {
-                        item_kind,
+                        module_item_kind: item_kind,
                         connection: ModuleItemConnection::Disconnected,
                     }
                 }
@@ -213,7 +212,7 @@ impl<'a> BasicAuxAstParser<'a> {
             AstContextKind::InsideModule => match coarse_item_kind {
                 CoarseEntityKind::Module => EntityKind::Module,
                 CoarseEntityKind::Item(item_kind) => EntityKind::ModuleItem {
-                    item_kind,
+                    module_item_kind: item_kind,
                     connection: ModuleItemConnection::Connected,
                 },
                 CoarseEntityKind::Variant => todo!(),

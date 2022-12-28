@@ -217,13 +217,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::line_segment_sketch::convexity::is_convex`,
+                        FormPath {
+                            module: `mnist_classifier::line_segment_sketch::convexity`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 338,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `is_convex`,
                     is_generic: false,

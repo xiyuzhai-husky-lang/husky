@@ -29,8 +29,9 @@ use tests::*;
 
 #[salsa::jar(db = EntityPathDb)]
 pub struct EntityPathJar(
-    ConnectedModuleItemPath,
-    DisconnectedModuleItemPath,
+    TypePath,
+    TraitPath,
+    FormPath,
     GenericParameterPath,
     AssociatedItemPath,
     ModuleItemVariantPath,
@@ -44,6 +45,12 @@ pub enum EntityPath {
     GenericParameter(GenericParameterPath),
     AssociatedItem(AssociatedItemPath),
     EnumVariant(ModuleItemVariantPath),
+}
+
+impl From<ModulePath> for EntityPath {
+    fn from(v: ModulePath) -> Self {
+        Self::Module(v)
+    }
 }
 
 impl From<ModuleItemPath> for EntityPath {
@@ -134,14 +141,20 @@ impl From<AssociatedItemPath> for EntityPath {
     }
 }
 
-impl From<ConnectedModuleItemPath> for EntityPath {
-    fn from(v: ConnectedModuleItemPath) -> Self {
+impl From<FormPath> for EntityPath {
+    fn from(v: FormPath) -> Self {
         Self::ModuleItem(v.into())
     }
 }
 
-impl From<ModulePath> for EntityPath {
-    fn from(v: ModulePath) -> Self {
-        Self::Module(v)
+impl From<TypePath> for EntityPath {
+    fn from(v: TypePath) -> Self {
+        Self::ModuleItem(v.into())
+    }
+}
+
+impl From<TraitPath> for EntityPath {
+    fn from(v: TraitPath) -> Self {
+        Self::ModuleItem(v.into())
     }
 }

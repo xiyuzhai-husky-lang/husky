@@ -60,13 +60,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Type(
+                        module_item_kind: Type(
                             Inductive,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `natural_number_game::Nat`,
+                        TypePath {
+                            module: `natural_number_game`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 442,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `Nat`,
                     is_generic: false,
@@ -130,13 +139,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Type(
+                        module_item_kind: Type(
                             Structure,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `natural_number_game::OddNat`,
+                        TypePath {
+                            module: `natural_number_game`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 446,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `OddNat`,
                     is_generic: false,
@@ -160,13 +178,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Type(
+                        module_item_kind: Type(
                             Structure,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `natural_number_game::EvenNat`,
+                        TypePath {
+                            module: `natural_number_game`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 449,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `EvenNat`,
                     is_generic: false,

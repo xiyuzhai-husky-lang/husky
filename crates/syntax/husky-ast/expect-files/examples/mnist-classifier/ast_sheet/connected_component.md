@@ -845,13 +845,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Type(
+                        module_item_kind: Type(
                             Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::connected_component::ConnectedComponentDistribution`,
+                        TypePath {
+                            module: `mnist_classifier::connected_component`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 104,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `ConnectedComponentDistribution`,
                     is_generic: false,
@@ -875,13 +884,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Type(
+                        module_item_kind: Type(
                             Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::connected_component::EffHoles`,
+                        TypePath {
+                            module: `mnist_classifier::connected_component`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 109,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `EffHoles`,
                     is_generic: false,
@@ -905,13 +923,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::connected_component::hole_tmpl`,
+                        FormPath {
+                            module: `mnist_classifier::connected_component`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 112,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `hole_tmpl`,
                     is_generic: false,
@@ -935,13 +962,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Type(
+                        module_item_kind: Type(
                             Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::connected_component::ConnectedComponent`,
+                        TypePath {
+                            module: `mnist_classifier::connected_component`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 116,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `ConnectedComponent`,
                     is_generic: false,
@@ -965,13 +1001,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::connected_component::horizontal_extend`,
+                        FormPath {
+                            module: `mnist_classifier::connected_component`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 145,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `horizontal_extend`,
                     is_generic: false,
@@ -995,13 +1040,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::connected_component::find_connected_components`,
+                        FormPath {
+                            module: `mnist_classifier::connected_component`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 151,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `find_connected_components`,
                     is_generic: false,

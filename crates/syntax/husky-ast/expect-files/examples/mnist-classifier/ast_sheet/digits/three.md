@@ -381,13 +381,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::three::three_fermi_match`,
+                        FormPath {
+                            module: `mnist_classifier::digits::three`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 255,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `three_fermi_match`,
                     is_generic: false,
@@ -411,13 +420,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::three::is_three`,
+                        FormPath {
+                            module: `mnist_classifier::digits::three`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 96,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `is_three`,
                     is_generic: false,
@@ -441,13 +459,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::three::uparc`,
+                        FormPath {
+                            module: `mnist_classifier::digits::three`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 257,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `uparc`,
                     is_generic: false,
@@ -471,13 +498,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::three::downarc`,
+                        FormPath {
+                            module: `mnist_classifier::digits::three`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 256,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `downarc`,
                     is_generic: false,
@@ -501,13 +537,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::three::back`,
+                        FormPath {
+                            module: `mnist_classifier::digits::three`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 258,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `back`,
                     is_generic: false,

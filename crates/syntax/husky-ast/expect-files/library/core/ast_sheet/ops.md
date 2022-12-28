@@ -23,7 +23,16 @@ Ok(
                     },
                     entity_path: Some(
                         AssociatedItemPath {
-                            parent_path: `core::ops::Add`,
+                            parent_path: TraitPath {
+                                module: `core::ops`,
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 22,
+                                        },
+                                    ),
+                                ),
+                            },
                             ident: Identifier(
                                 Word(
                                     Id {
@@ -61,7 +70,16 @@ Ok(
                     },
                     entity_path: Some(
                         AssociatedItemPath {
-                            parent_path: `core::ops::Add`,
+                            parent_path: TraitPath {
+                                module: `core::ops`,
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 22,
+                                        },
+                                    ),
+                                ),
+                            },
                             ident: Identifier(
                                 Word(
                                     Id {
@@ -92,11 +110,20 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: ModuleItem {
-                        item_kind: Trait,
+                        module_item_kind: Trait,
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `core::ops::Add`,
+                        TraitPath {
+                            module: `core::ops`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 22,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `Add`,
                     is_generic: true,

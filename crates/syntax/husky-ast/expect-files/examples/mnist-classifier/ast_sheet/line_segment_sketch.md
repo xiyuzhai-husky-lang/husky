@@ -1526,13 +1526,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Type(
+                        module_item_kind: Type(
                             Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::line_segment_sketch::LineSegmentStroke`,
+                        TypePath {
+                            module: `mnist_classifier::line_segment_sketch`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 325,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `LineSegmentStroke`,
                     is_generic: false,
@@ -1564,13 +1573,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Type(
+                        module_item_kind: Type(
                             Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::line_segment_sketch::LineSegmentSketch`,
+                        TypePath {
+                            module: `mnist_classifier::line_segment_sketch`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 324,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `LineSegmentSketch`,
                     is_generic: false,
@@ -1602,13 +1620,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::line_segment_sketch::go_right`,
+                        FormPath {
+                            module: `mnist_classifier::line_segment_sketch`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 359,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `go_right`,
                     is_generic: false,
@@ -1632,13 +1659,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::line_segment_sketch::go_left`,
+                        FormPath {
+                            module: `mnist_classifier::line_segment_sketch`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 364,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `go_left`,
                     is_generic: false,
@@ -1662,13 +1698,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::line_segment_sketch::extend_end`,
+                        FormPath {
+                            module: `mnist_classifier::line_segment_sketch`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 365,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `extend_end`,
                     is_generic: false,
@@ -1692,13 +1737,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::line_segment_sketch::extend_start`,
+                        FormPath {
+                            module: `mnist_classifier::line_segment_sketch`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 373,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `extend_start`,
                     is_generic: false,
@@ -1722,13 +1776,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::line_segment_sketch::find_line_segments`,
+                        FormPath {
+                            module: `mnist_classifier::line_segment_sketch`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 85,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `find_line_segments`,
                     is_generic: false,

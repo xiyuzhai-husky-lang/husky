@@ -11,13 +11,22 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: ModuleItem {
-                        item_kind: Type(
+                        module_item_kind: Type(
                             Structure,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `core::logic::LogicAnd`,
+                        TypePath {
+                            module: `core::logic`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 10,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `LogicAnd`,
                     is_generic: true,
@@ -35,13 +44,22 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: ModuleItem {
-                        item_kind: Type(
+                        module_item_kind: Type(
                             Inductive,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `core::logic::LogicOr`,
+                        TypePath {
+                            module: `core::logic`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 16,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `LogicOr`,
                     is_generic: true,

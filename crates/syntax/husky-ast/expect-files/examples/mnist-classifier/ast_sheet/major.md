@@ -216,13 +216,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::major::connected_components`,
+                        FormPath {
+                            module: `mnist_classifier::major`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 284,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `connected_components`,
                     is_generic: false,
@@ -246,13 +255,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::major::major_connected_component`,
+                        FormPath {
+                            module: `mnist_classifier::major`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 163,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `major_connected_component`,
                     is_generic: false,
@@ -276,13 +294,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::major::ignored_connected_components_row_span_sum_sum`,
+                        FormPath {
+                            module: `mnist_classifier::major`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 214,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `ignored_connected_components_row_span_sum_sum`,
                     is_generic: false,
@@ -306,13 +333,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::major::major_raw_contours`,
+                        FormPath {
+                            module: `mnist_classifier::major`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 391,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `major_raw_contours`,
                     is_generic: false,
@@ -341,13 +377,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::major::major_raw_contour`,
+                        FormPath {
+                            module: `mnist_classifier::major`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 392,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `major_raw_contour`,
                     is_generic: false,
@@ -371,13 +416,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::major::major_line_segment_sketch`,
+                        FormPath {
+                            module: `mnist_classifier::major`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 251,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `major_line_segment_sketch`,
                     is_generic: false,
@@ -401,13 +455,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::major::major_concave_components`,
+                        FormPath {
+                            module: `mnist_classifier::major`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 162,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `major_concave_components`,
                     is_generic: false,

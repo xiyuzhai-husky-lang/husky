@@ -472,13 +472,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::nine::nine_match`,
+                        FormPath {
+                            module: `mnist_classifier::digits::nine`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 204,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `nine_match`,
                     is_generic: false,
@@ -502,13 +511,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::nine::nine_match_refine`,
+                        FormPath {
+                            module: `mnist_classifier::digits::nine`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 206,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `nine_match_refine`,
                     is_generic: false,
@@ -532,13 +550,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::nine::is_nine`,
+                        FormPath {
+                            module: `mnist_classifier::digits::nine`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 97,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `is_nine`,
                     is_generic: false,
@@ -562,13 +589,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::nine::downmost`,
+                        FormPath {
+                            module: `mnist_classifier::digits::nine`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 205,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `downmost`,
                     is_generic: false,
@@ -592,13 +628,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::nine::big_cc`,
+                        FormPath {
+                            module: `mnist_classifier::digits::nine`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 207,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `big_cc`,
                     is_generic: false,

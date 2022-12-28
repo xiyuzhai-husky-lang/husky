@@ -11,46 +11,46 @@ pub(crate) fn entity_path_menu(
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityPathMenu {
     // core::ops::Add	The addition operator +.
-    core_ops_add: ConnectedModuleItemPath,
+    core_ops_add: TraitPath,
     // core::ops::AddAssign	The addition assignment operator +=.
-    core_ops_add_assign: ConnectedModuleItemPath,
+    core_ops_add_assign: TraitPath,
     // core::ops::BitAnd	The bitwise AND operator &.
-    core_ops_bit_and: ConnectedModuleItemPath,
+    core_ops_bit_and: TraitPath,
     // core::ops::BitAndAssign	The bitwise AND assignment operator &=.
-    core_ops_bit_and_assign: ConnectedModuleItemPath,
+    core_ops_bit_and_assign: TraitPath,
     // core::ops::BitOr	The bitwise OR operator |.
-    core_ops_bit_or: ConnectedModuleItemPath,
+    core_ops_bit_or: TraitPath,
     // core::ops::BitOrAssign	The bitwise OR assignment operator |=.
-    core_ops_bit_or_assign: ConnectedModuleItemPath,
+    core_ops_bit_or_assign: TraitPath,
     // core::ops::BitXor	The bitwise XOR operator ^.
-    core_ops_bit_xor: ConnectedModuleItemPath,
+    core_ops_bit_xor: TraitPath,
     // core::ops::BitXorAssign	The bitwise XOR assignment operator ^=.
-    core_ops_bit_xor_assign: ConnectedModuleItemPath,
+    core_ops_bit_xor_assign: TraitPath,
     // core::ops::Div	The division operator /.
-    core_ops_div: ConnectedModuleItemPath,
+    core_ops_div: TraitPath,
     // core::ops::DivAssign	The division assignment operator /=.
-    core_ops_div_assign: ConnectedModuleItemPath,
+    core_ops_div_assign: TraitPath,
     // core::ops::Mul	The multiplication operator *.
-    core_ops_mul: ConnectedModuleItemPath,
+    core_ops_mul: TraitPath,
     // core::ops::MulAssign	The multiplication assignment operator *=.
-    core_ops_mul_assign: ConnectedModuleItemPath,
+    core_ops_mul_assign: TraitPath,
     // core::ops::Neg	The unary negation operator -.
-    core_ops_neg: ConnectedModuleItemPath,
+    core_ops_neg: TraitPath,
     // Not	The unary logical negation operator !.
-    core_ops_not: ConnectedModuleItemPath,
+    core_ops_not: TraitPath,
     // prelude
-    unit: ConnectedModuleItemPath,
-    bool: ConnectedModuleItemPath,
-    i32: ConnectedModuleItemPath,
-    i64: ConnectedModuleItemPath,
-    f32: ConnectedModuleItemPath,
-    f64: ConnectedModuleItemPath,
-    r32: ConnectedModuleItemPath,
-    b64: ConnectedModuleItemPath,
-    u32: ConnectedModuleItemPath,
-    u64: ConnectedModuleItemPath,
-    trai: ConnectedModuleItemPath,
-    module: ConnectedModuleItemPath,
+    unit: TypePath,
+    bool: TypePath,
+    i32: TypePath,
+    i64: TypePath,
+    f32: TypePath,
+    f64: TypePath,
+    r32: TypePath,
+    b64: TypePath,
+    u32: TypePath,
+    u64: TypePath,
+    trai: TypePath,
+    module: TypePath,
 }
 
 impl EntityPathMenu {
@@ -59,55 +59,40 @@ impl EntityPathMenu {
         let path_menu = db.dev_path_menu()?;
         let core_ops = path_menu.core_ops();
         let core_num = path_menu.core_num();
-        let core_ops_add =
-            ConnectedModuleItemPath::new(db, core_ops, db.it_ident_borrowed("Add").unwrap());
+        let core_ops_add = TraitPath::new(db, core_ops, db.it_ident_borrowed("Add").unwrap());
         let core_ops_add_assign =
-            ConnectedModuleItemPath::new(db, core_ops, db.it_ident_borrowed("AddAssign").unwrap());
+            TraitPath::new(db, core_ops, db.it_ident_borrowed("AddAssign").unwrap());
         let core_ops_bit_and =
-            ConnectedModuleItemPath::new(db, core_ops, db.it_ident_borrowed("BitAnd").unwrap());
-        let core_ops_bit_and_assign = ConnectedModuleItemPath::new(
-            db,
-            core_ops,
-            db.it_ident_borrowed("BitAndAssign").unwrap(),
-        );
-        let core_ops_bit_or =
-            ConnectedModuleItemPath::new(db, core_ops, db.it_ident_borrowed("BitOr").unwrap());
-        let core_ops_bit_or_assign = ConnectedModuleItemPath::new(
-            db,
-            core_ops,
-            db.it_ident_borrowed("BitOrAssign").unwrap(),
-        );
+            TraitPath::new(db, core_ops, db.it_ident_borrowed("BitAnd").unwrap());
+        let core_ops_bit_and_assign =
+            TraitPath::new(db, core_ops, db.it_ident_borrowed("BitAndAssign").unwrap());
+        let core_ops_bit_or = TraitPath::new(db, core_ops, db.it_ident_borrowed("BitOr").unwrap());
+        let core_ops_bit_or_assign =
+            TraitPath::new(db, core_ops, db.it_ident_borrowed("BitOrAssign").unwrap());
         let core_ops_bit_xor =
-            ConnectedModuleItemPath::new(db, core_ops, db.it_ident_borrowed("BitXor").unwrap());
-        let core_ops_bit_xor_assign = ConnectedModuleItemPath::new(
-            db,
-            core_ops,
-            db.it_ident_borrowed("BitXorAssign").unwrap(),
-        );
-        let core_ops_div =
-            ConnectedModuleItemPath::new(db, core_ops, db.it_ident_borrowed("Div").unwrap());
+            TraitPath::new(db, core_ops, db.it_ident_borrowed("BitXor").unwrap());
+        let core_ops_bit_xor_assign =
+            TraitPath::new(db, core_ops, db.it_ident_borrowed("BitXorAssign").unwrap());
+        let core_ops_div = TraitPath::new(db, core_ops, db.it_ident_borrowed("Div").unwrap());
         let core_ops_div_assign =
-            ConnectedModuleItemPath::new(db, core_ops, db.it_ident_borrowed("DivAssign").unwrap());
-        let core_ops_mul =
-            ConnectedModuleItemPath::new(db, core_ops, db.it_ident_borrowed("Mul").unwrap());
+            TraitPath::new(db, core_ops, db.it_ident_borrowed("DivAssign").unwrap());
+        let core_ops_mul = TraitPath::new(db, core_ops, db.it_ident_borrowed("Mul").unwrap());
         let core_ops_mul_assign =
-            ConnectedModuleItemPath::new(db, core_ops, db.it_ident_borrowed("MulAssign").unwrap());
-        let core_ops_neg =
-            ConnectedModuleItemPath::new(db, core_ops, db.it_ident_borrowed("Neg").unwrap());
-        let core_ops_not =
-            ConnectedModuleItemPath::new(db, core_ops, db.it_ident_borrowed("Not").unwrap());
-        let i32 = ConnectedModuleItemPath::new(db, core_num, word_menu.i32());
-        let i64 = ConnectedModuleItemPath::new(db, core_num, word_menu.i64());
-        let unit = ConnectedModuleItemPath::new(db, core_num, word_menu.unit());
-        let bool = ConnectedModuleItemPath::new(db, core_num, word_menu.bool());
-        let f32 = ConnectedModuleItemPath::new(db, core_num, word_menu.f32());
-        let f64 = ConnectedModuleItemPath::new(db, core_num, word_menu.f64());
-        let r32 = ConnectedModuleItemPath::new(db, core_num, word_menu.r32());
-        let b64 = ConnectedModuleItemPath::new(db, core_num, word_menu.b64());
-        let u32 = ConnectedModuleItemPath::new(db, core_num, word_menu.u32());
-        let u64 = ConnectedModuleItemPath::new(db, core_num, word_menu.u64());
-        let trai = ConnectedModuleItemPath::new(db, core_num, word_menu.trai());
-        let module = ConnectedModuleItemPath::new(db, core_num, word_menu.module());
+            TraitPath::new(db, core_ops, db.it_ident_borrowed("MulAssign").unwrap());
+        let core_ops_neg = TraitPath::new(db, core_ops, db.it_ident_borrowed("Neg").unwrap());
+        let core_ops_not = TraitPath::new(db, core_ops, db.it_ident_borrowed("Not").unwrap());
+        let i32 = TypePath::new(db, core_num, word_menu.i32());
+        let i64 = TypePath::new(db, core_num, word_menu.i64());
+        let unit = TypePath::new(db, core_num, word_menu.unit());
+        let bool = TypePath::new(db, core_num, word_menu.bool());
+        let f32 = TypePath::new(db, core_num, word_menu.f32());
+        let f64 = TypePath::new(db, core_num, word_menu.f64());
+        let r32 = TypePath::new(db, core_num, word_menu.r32());
+        let b64 = TypePath::new(db, core_num, word_menu.b64());
+        let u32 = TypePath::new(db, core_num, word_menu.u32());
+        let u64 = TypePath::new(db, core_num, word_menu.u64());
+        let trai = TypePath::new(db, core_num, word_menu.trai());
+        let module = TypePath::new(db, core_num, word_menu.module());
         Ok(Self {
             core_ops_add,
             core_ops_add_assign,
@@ -138,107 +123,107 @@ impl EntityPathMenu {
         })
     }
 
-    pub fn i32(&self) -> ConnectedModuleItemPath {
+    pub fn i32(&self) -> TypePath {
         self.i32
     }
 
-    pub fn i64(&self) -> ConnectedModuleItemPath {
+    pub fn i64(&self) -> TypePath {
         self.i64
     }
 
-    pub fn f32(&self) -> ConnectedModuleItemPath {
+    pub fn f32(&self) -> TypePath {
         self.f32
     }
 
-    pub fn f64(&self) -> ConnectedModuleItemPath {
+    pub fn f64(&self) -> TypePath {
         self.f64
     }
 
-    pub fn r32(&self) -> ConnectedModuleItemPath {
+    pub fn r32(&self) -> TypePath {
         self.r32
     }
 
-    pub fn b64(&self) -> ConnectedModuleItemPath {
+    pub fn b64(&self) -> TypePath {
         self.b64
     }
 
-    pub fn u32(&self) -> ConnectedModuleItemPath {
+    pub fn u32(&self) -> TypePath {
         self.u32
     }
 
-    pub fn u64(&self) -> ConnectedModuleItemPath {
+    pub fn u64(&self) -> TypePath {
         self.u64
     }
 
-    pub fn core_ops_add(&self) -> ConnectedModuleItemPath {
+    pub fn core_ops_add(&self) -> TraitPath {
         self.core_ops_add
     }
 
-    pub fn core_ops_add_assign(&self) -> ConnectedModuleItemPath {
+    pub fn core_ops_add_assign(&self) -> TraitPath {
         self.core_ops_add_assign
     }
 
-    pub fn core_ops_bit_and(&self) -> ConnectedModuleItemPath {
+    pub fn core_ops_bit_and(&self) -> TraitPath {
         self.core_ops_bit_and
     }
 
-    pub fn core_ops_bit_and_assign(&self) -> ConnectedModuleItemPath {
+    pub fn core_ops_bit_and_assign(&self) -> TraitPath {
         self.core_ops_bit_and_assign
     }
 
-    pub fn core_ops_bit_or(&self) -> ConnectedModuleItemPath {
+    pub fn core_ops_bit_or(&self) -> TraitPath {
         self.core_ops_bit_or
     }
 
-    pub fn core_ops_bit_or_assign(&self) -> ConnectedModuleItemPath {
+    pub fn core_ops_bit_or_assign(&self) -> TraitPath {
         self.core_ops_bit_or_assign
     }
 
-    pub fn core_ops_bit_xor(&self) -> ConnectedModuleItemPath {
+    pub fn core_ops_bit_xor(&self) -> TraitPath {
         self.core_ops_bit_xor
     }
 
-    pub fn core_ops_bit_xor_assign(&self) -> ConnectedModuleItemPath {
+    pub fn core_ops_bit_xor_assign(&self) -> TraitPath {
         self.core_ops_bit_xor_assign
     }
 
-    pub fn core_ops_div(&self) -> ConnectedModuleItemPath {
+    pub fn core_ops_div(&self) -> TraitPath {
         self.core_ops_div
     }
 
-    pub fn core_ops_div_assign(&self) -> ConnectedModuleItemPath {
+    pub fn core_ops_div_assign(&self) -> TraitPath {
         self.core_ops_div_assign
     }
 
-    pub fn core_ops_mul(&self) -> ConnectedModuleItemPath {
+    pub fn core_ops_mul(&self) -> TraitPath {
         self.core_ops_mul
     }
 
-    pub fn core_ops_mul_assign(&self) -> ConnectedModuleItemPath {
+    pub fn core_ops_mul_assign(&self) -> TraitPath {
         self.core_ops_mul_assign
     }
 
-    pub fn core_ops_neg(&self) -> ConnectedModuleItemPath {
+    pub fn core_ops_neg(&self) -> TraitPath {
         self.core_ops_neg
     }
 
-    pub fn core_ops_not(&self) -> ConnectedModuleItemPath {
+    pub fn core_ops_not(&self) -> TraitPath {
         self.core_ops_not
     }
 
-    pub fn trai(&self) -> ConnectedModuleItemPath {
+    pub fn trai(&self) -> TypePath {
         self.trai
     }
 
-    pub fn module(&self) -> ConnectedModuleItemPath {
+    pub fn module(&self) -> TypePath {
         self.module
     }
 
-    pub fn unit(&self) -> ConnectedModuleItemPath {
+    pub fn unit(&self) -> TypePath {
         self.unit
     }
 
-    pub fn bool(&self) -> ConnectedModuleItemPath {
+    pub fn bool(&self) -> TypePath {
         self.bool
     }
 }

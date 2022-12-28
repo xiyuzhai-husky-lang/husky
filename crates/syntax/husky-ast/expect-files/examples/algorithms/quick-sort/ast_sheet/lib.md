@@ -251,13 +251,22 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `quick_sort::quick_sort`,
+                        FormPath {
+                            module: `quick_sort`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 35,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `quick_sort`,
                     is_generic: true,
@@ -281,13 +290,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `quick_sort::quick_sort_aux`,
+                        FormPath {
+                            module: `quick_sort`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 40,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `quick_sort_aux`,
                     is_generic: true,
@@ -311,13 +329,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `quick_sort::partition`,
+                        FormPath {
+                            module: `quick_sort`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 45,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `partition`,
                     is_generic: true,
@@ -349,13 +376,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `quick_sort::quick_sort_works_for_integers`,
+                        FormPath {
+                            module: `quick_sort`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 53,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `quick_sort_works_for_integers`,
                     is_generic: false,
@@ -387,13 +423,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `quick_sort::quick_sort_works_for_strs`,
+                        FormPath {
+                            module: `quick_sort`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 55,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `quick_sort_works_for_strs`,
                     is_generic: false,

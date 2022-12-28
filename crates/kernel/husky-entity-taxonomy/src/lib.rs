@@ -22,7 +22,7 @@ pub enum FormKind {
 pub enum EntityKind {
     Module,
     ModuleItem {
-        item_kind: ModuleItemKind,
+        module_item_kind: ModuleItemKind,
         connection: ModuleItemConnection,
     },
     AssociatedItem {

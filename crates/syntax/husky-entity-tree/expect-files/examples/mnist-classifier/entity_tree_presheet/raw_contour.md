@@ -8,7 +8,16 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 217,
-                path: `mnist_classifier::raw_contour::RawContour`,
+                path: TypePath {
+                    module: `mnist_classifier::raw_contour`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 111,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `Direction`,
@@ -16,7 +25,16 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 219,
-                path: `mnist_classifier::raw_contour::Direction`,
+                path: TypePath {
+                    module: `mnist_classifier::raw_contour`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 397,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `get_pixel_pair`,
@@ -24,7 +42,16 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 224,
-                path: `mnist_classifier::raw_contour::get_pixel_pair`,
+                path: FormPath {
+                    module: `mnist_classifier::raw_contour`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 402,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `get_pixel_to_the_left`,
@@ -32,7 +59,16 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 225,
-                path: `mnist_classifier::raw_contour::get_pixel_to_the_left`,
+                path: FormPath {
+                    module: `mnist_classifier::raw_contour`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 404,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `get_pixel_to_the_right`,
@@ -40,7 +76,16 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 226,
-                path: `mnist_classifier::raw_contour::get_pixel_to_the_right`,
+                path: FormPath {
+                    module: `mnist_classifier::raw_contour`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 405,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `get_inward_direction`,
@@ -48,7 +93,16 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 227,
-                path: `mnist_classifier::raw_contour::get_inward_direction`,
+                path: FormPath {
+                    module: `mnist_classifier::raw_contour`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 406,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `get_angle_change`,
@@ -56,7 +110,16 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 228,
-                path: `mnist_classifier::raw_contour::get_angle_change`,
+                path: FormPath {
+                    module: `mnist_classifier::raw_contour`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 414,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `get_outward_direction`,
@@ -64,7 +127,16 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 229,
-                path: `mnist_classifier::raw_contour::get_outward_direction`,
+                path: FormPath {
+                    module: `mnist_classifier::raw_contour`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 419,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `StreakCache`,
@@ -72,7 +144,16 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 230,
-                path: `mnist_classifier::raw_contour::StreakCache`,
+                path: TypePath {
+                    module: `mnist_classifier::raw_contour`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 421,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `get_concave_middle_point`,
@@ -80,7 +161,16 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 231,
-                path: `mnist_classifier::raw_contour::get_concave_middle_point`,
+                path: FormPath {
+                    module: `mnist_classifier::raw_contour`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 424,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `find_raw_contours`,
@@ -88,7 +178,16 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 232,
-                path: `mnist_classifier::raw_contour::find_raw_contours`,
+                path: FormPath {
+                    module: `mnist_classifier::raw_contour`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 84,
+                            },
+                        ),
+                    ),
+                },
             },
         ],
         entity_use_roots: EntityUseExprTrackers(
