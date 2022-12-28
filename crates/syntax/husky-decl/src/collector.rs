@@ -20,14 +20,14 @@ pub(crate) struct DeclCollector<'a> {
 }
 
 impl<'a> DeclCollector<'a> {
-    pub(crate) fn new(db: &'a dyn DeclDb, module_path: ModulePath) -> DeclResult<Self> {
+    pub(crate) fn new(db: &'a dyn DeclDb, module_path: ModulePath) -> EntityTreeResult<Self> {
         let crate_prelude = db.crate_prelude(module_path.crate_path(db))?;
         Ok(Self {
             db,
             crate_prelude,
             token_sheet: db.token_sheet(module_path)?,
-            ast_sheet: db.ast_sheet(module_path).unwrap(),
-            entity_tree_sheet: db.entity_tree_sheet(module_path).unwrap(),
+            ast_sheet: db.ast_sheet(module_path)?,
+            entity_tree_sheet: db.entity_tree_sheet(module_path)?,
         })
     }
 
@@ -70,7 +70,7 @@ impl<'a> DeclCollector<'a> {
                 } => match module_item_kind {
                     ModuleItemKind::Type(type_kind) => self.parse_ty_decl(
                         type_kind,
-                        entity_path,
+                        entity_path.module_item_path().unwrap(),
                         entity_kind,
                         token_group_idx,
                         body,
@@ -109,27 +109,21 @@ impl<'a> DeclCollector<'a> {
     fn parse_ty_decl(
         &mut self,
         type_kind: TypeKind,
-        entity_path: EntityPath,
+        module_item_path: ModuleItemPath,
         entity_kind: EntityKind,
         token_group_idx: TokenGroupIdx,
         body: &AstIdxRange,
         saved_stream_state: TokenIterState,
     ) -> Result<Decl, DeclError> {
         match type_kind {
-            TypeKind::Enum => todo!(),
-            TypeKind::Inductive => {
-                self.parse_inductive_type_decl(entity_path.module_item_path().unwrap())
-            }
+            TypeKind::Enum => self.parse_enum_type_decl(module_item_path),
+            TypeKind::Inductive => self.parse_inductive_type_decl(module_item_path),
             TypeKind::Record => todo!(),
-            TypeKind::Struct => {
-                self.parse_struct_type_decl(entity_path.module_item_path().unwrap())
-            }
-            TypeKind::Structure => {
-                self.parse_structure_type_decl(entity_path.module_item_path().unwrap())
-            }
+            TypeKind::Struct => self.parse_struct_type_decl(module_item_path),
+            TypeKind::Structure => self.parse_structure_type_decl(module_item_path),
             TypeKind::Alias => self.parse_alias_type_decl(
                 entity_kind,
-                entity_path.module_item_path().unwrap(),
+                module_item_path,
                 token_group_idx,
                 body,
                 saved_stream_state,

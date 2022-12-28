@@ -3,7 +3,7 @@ use husky_token::{TokenError, TokenIdx};
 use husky_vfs::VfsError;
 use thiserror::Error;
 
-#[derive(Debug, Error, PartialEq, Eq)]
+#[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum DeclError {
     #[error("token error")]
     Token(#[from] TokenError),
@@ -14,9 +14,3 @@ pub enum DeclError {
 }
 
 pub type DeclResult<T> = Result<T, DeclError>;
-
-impl From<&DeclError> for DeclError {
-    fn from(value: &DeclError) -> Self {
-        todo!()
-    }
-}

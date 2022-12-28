@@ -9,6 +9,7 @@ mod tests;
 
 pub use db::*;
 pub use defn::*;
+use husky_entity_tree::EntityTreeResult;
 pub use sheet::*;
 
 use collector::*;
@@ -51,6 +52,6 @@ pub struct DefnJar(
 );
 
 #[salsa::tracked(jar = DefnJar, return_ref)]
-fn defn_sheet(db: &dyn DefnDb, module_path: ModulePath) -> VfsResult<DefnSheet> {
+fn defn_sheet(db: &dyn DefnDb, module_path: ModulePath) -> EntityTreeResult<DefnSheet> {
     Ok(DefnCollector::new(db, module_path)?.collect_all())
 }

@@ -1,0 +1,151 @@
+struct Point2d {
+    x: f32,
+    y: f32,
+}
+
+impl Point2d:
+    static func from_i_shift28(i: i32, shift: i32) -> Point2d:
+        Point2d((29 - shift) as f32, (29 - i) as f32)
+
+    func vector() -> Vector2d:
+        Vector2d(this.x, this.y)
+
+    func to(other: Point2d) -> Vector2d:
+        Vector2d(other.x - this.x, other.y - this.y)
+
+    func norm() -> f32:
+        (this.x * this.x + this.y * this.y).sqrt()
+
+    func dist(other: Point2d) -> f32:
+        this.to(other).norm()
+
+struct RelativePoint2d {
+    x: f32,
+    y: f32,
+}
+
+struct Vector2d {
+    x: f32,
+    y: f32,
+}
+
+impl Vector2d:
+    func point() -> Point2d:
+        Point2d(this.x, this.y)
+
+    func to(other: Vector2d) -> Vector2d:
+        Vector2d(other.x - this.x, other.y - this.y)
+
+    func norm() -> f32:
+        (this.x * this.x + this.y * this.y).sqrt()
+
+    func dot(other: Vector2d) -> f32:
+        this.x * other.x + this.y * other.y
+
+    func cross(other: Vector2d) -> f32:
+        this.x * other.y - this.y * other.x
+
+    func angle(is_branch_cut_positive: bool) -> f32:
+        cos_value = (this.x/this.norm()).min(1.)
+        if cos_value + 1.0 < 0.001:
+            if is_branch_cut_positive:
+                180.0
+            else:
+                -180.0
+        else:
+            (this.y.sgnx() as f32) * cos_value.acos() * 180.0 / 3.1415926
+
+    // rotation direction from this to other with minimal angle
+    func rotation_direction_to(other: Vector2d) -> i32:
+        // +1: counterclockwise
+        // -1: clockwise
+        // 0: no moving or 180 degree turn
+        cross = this.cross(other)
+        cross.sgnx()
+
+    func angle_to(other: Vector2d, is_branch_cut_positive: bool) -> f32:
+        this_norm = this.norm()
+        assert this_norm > 0.0
+        other_norm = other.norm()
+        assert other_norm > 0.0
+        cos_value = (this.dot(other) / (this_norm * other_norm)).min(1.)
+        if cos_value + 1.0 < 0.001:
+            if is_branch_cut_positive:
+                180.0
+            else:
+                -180.0
+        else:
+            arc_angle = (this.rotation_direction_to(other) as f32) * cos_value.acos()
+            arc_angle * 180.0 / 3.1415926
+
+struct ClosedRange {
+    min: f32,
+    max: f32,
+}
+
+impl CloseRange:
+    func relative_range(other: ClosedRange) -> ClosedRange:
+        assert max > min
+        span = max - min
+        rel_min = (other.min - min) / span
+        rel_max = (other.max - min) / span
+        ClosedRange(
+            rel_min,
+            rel_max,
+        )
+    
+    func relative_point(v: f32) -> f32:
+        span = max - min
+        (v - min) / span
+
+struct BoundingBox {
+    xrange: ClosedRange,
+    yrange: ClosedRange,
+}
+
+impl BoundingBox:
+    func relative_bounding_box(other: BoundingBox) -> RelativeBoundingBox:
+        RelativeBoundingBox(
+            xrange.relative_range(other.xrange),
+            yrange.relative_range(other.yrange),
+        )
+    
+    func relative_point(point: Point2d) -> RelativePoint2d {
+        RelativePoint2d(
+            xrange.relative_point(point.x),
+            yrange.relative_point(point.x),
+        )
+    }
+    
+    func xmin() -> f32 {
+        xrange.min
+    }
+    
+    func xmax() -> f32 {
+        xrange.max
+    }
+    
+    func ymin() -> f32:
+        yrange.min
+    
+    func ymax() -> f32 {
+        yrange.max
+    }
+
+struct RelativeBoundingBox {
+    xrange: ClosedRange,
+    yrange: ClosedRange,
+}
+
+impl RelativeBoundingBox:
+    func xmin() -> f32:
+        xrange.min
+    
+    func xmax() -> f32:
+        xrange.max
+    
+    func ymin() -> f32:
+        yrange.min
+    
+    func ymax() -> f32:
+        yrange.max

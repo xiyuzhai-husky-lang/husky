@@ -1,0 +1,42 @@
+use domains::ml::datasets::cv::mnist::MnistLabel
+use crate::major::major_concave_components
+use crate::major::major_connected_component
+use domains::ml::models::narrow::narrow_down
+use crate::one::is_one
+use crate::six::is_six
+use crate::zero::is_zero
+use crate::seven::is_seven
+use crate::line_segment_sketch::concave_component::*
+use crate::fermi::*
+use crate::raw_contour::*
+
+func upper_mouth_match -> FermiMatchResult:
+    fermi_match(major_concave_components, [big_mouth])
+
+def is_eight -> ?MnistLabel:
+    require is_one be none
+    require is_six be none
+    require is_zero be none
+    require is_seven be none
+
+    // require major_connected_component.max_hole_ilen >= 1.
+ 
+    upper_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
+         
+    // require upper_excess>-5.0 and upper_excess<37.0
+
+    // if major_connected_component.max_hole_ilen == 2.0:
+    //     MnistLabel::Eight
+
+    if major_connected_component.eff_holes.matches[1] be none:
+        if major_connected_component.eff_holes.matches[0] be none:
+            require false
+        require false
+    MnistLabel::Eight
+
+func big_mouth(cc: &ConcaveComponent)->?f32:
+    if cc.relative_bounding_box.ymax()>0.5:
+        require cc.strokes.firstx().start.x > cc.strokes.firstx().end.x
+    cc.relative_bounding_box.ymax()
+    
+

@@ -64,24 +64,11 @@ fn module_ancestry_works() {
     expect_test::expect![[r#"
         ModuleAncestry {
             crate_path: CratePath {
-                package_path: PackagePath {
-                    toolchain: Toolchain {
-                        data: Local {
-                            library_path: DiffPath {
-                                data: DiffPathBuf(
-                                    "../../../library",
-                                ),
-                            },
-                        },
+                package_path: PackagePath(
+                    Id {
+                        value: 1,
                     },
-                    data: Local {
-                        path: DiffPath {
-                            data: DiffPathBuf(
-                                "../../../library/core",
-                            ),
-                        },
-                    },
-                },
+                ),
                 crate_kind: Library,
             },
             modules: [
@@ -93,24 +80,11 @@ fn module_ancestry_works() {
     expect_test::expect![[r#"
         ModuleAncestry {
             crate_path: CratePath {
-                package_path: PackagePath {
-                    toolchain: Toolchain {
-                        data: Local {
-                            library_path: DiffPath {
-                                data: DiffPathBuf(
-                                    "../../../library",
-                                ),
-                            },
-                        },
+                package_path: PackagePath(
+                    Id {
+                        value: 1,
                     },
-                    data: Local {
-                        path: DiffPath {
-                            data: DiffPathBuf(
-                                "../../../library/core",
-                            ),
-                        },
-                    },
-                },
+                ),
                 crate_kind: Library,
             },
             modules: [
