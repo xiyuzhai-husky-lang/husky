@@ -12,7 +12,7 @@ pub use morphism::*;
 
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum FormDecl {
     Function(FunctionDecl),
     Method(MethodDecl),

@@ -1,0 +1,18 @@
+Ok(
+    TokenInferSheet {
+        token_infos: [
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+        ],
+    },
+)

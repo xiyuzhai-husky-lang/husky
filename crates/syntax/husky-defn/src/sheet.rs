@@ -12,7 +12,7 @@ impl DefnSheet {
         Self { defns }
     }
 
-    pub fn defns(&self) -> &VecPairMap<EntityPath, Defn> {
-        &self.defns
+    pub fn defns<'a>(&'a self) -> impl Iterator<Item = Defn> + 'a {
+        self.defns.iter().map(|(_, defn)| *defn)
     }
 }

@@ -1,5 +1,5 @@
 use crate::*;
-use husky_defn::DefnSheet;
+use husky_defn::*;
 
 pub(crate) struct TokenInferEngine<'a> {
     db: &'a dyn TokenInferDb,
@@ -21,9 +21,34 @@ impl<'a> TokenInferEngine<'a> {
     }
 
     pub(crate) fn infer_all(mut self) -> TokenInferSheet {
-        for defn in self.defn_sheet.defns().iter() {
-            todo!()
+        for defn in self.defn_sheet.defns() {
+            match defn {
+                Defn::Type(defn) => self.infer_ty(defn),
+                Defn::Trait(_) => todo!(),
+                Defn::Form(_) => todo!(),
+                Defn::TypeItem(_) => todo!(),
+                Defn::TraitItem(_) => todo!(),
+            }
         }
         self.sheet
+    }
+
+    fn infer_ty(&mut self, defn: TypeDefn) {
+        match defn {
+            TypeDefn::Enum(_) => todo!(),
+            TypeDefn::Inductive(_) => todo!(),
+            TypeDefn::Record(_) => todo!(),
+            TypeDefn::Struct(_) => todo!(),
+            TypeDefn::Structure(defn) => self.infer_structure_ty(defn),
+            TypeDefn::Alias(defn) => self.infer_alias_ty(defn),
+        }
+    }
+
+    fn infer_structure_ty(&mut self, defn: StructureTypeDefn) {
+        // todo!()
+    }
+
+    fn infer_alias_ty(&mut self, defn: AliasTypeDefn) {
+        // todo!()
     }
 }
