@@ -338,7 +338,9 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Feature,
+                        ),
                         connection: Connected,
                     },
                     entity_path: Some(
@@ -366,7 +368,9 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                         connection: Connected,
                     },
                     entity_path: Some(
@@ -394,7 +398,9 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Feature,
+                        ),
                         connection: Connected,
                     },
                     entity_path: Some(

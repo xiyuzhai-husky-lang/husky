@@ -3,7 +3,7 @@ use crate::*;
 #[salsa::tracked(jar = DefnJar)]
 pub struct MorphismDefn {
     #[id]
-    pub entity_path: EntityPath,
+    pub module_item_path: ModuleItemPath,
     #[return_ref]
     pub expr_arena: ExprArena,
     pub decl: MorphismDecl,

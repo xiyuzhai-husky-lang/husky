@@ -35,7 +35,9 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `new`,
@@ -60,7 +62,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `displacement`,
@@ -213,7 +217,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Feature,
+                        ),
                     },
                     entity_path: None,
                     ident: `concave_components`,
@@ -238,7 +244,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Feature,
+                        ),
                     },
                     entity_path: None,
                     ident: `bounding_box`,
@@ -257,7 +265,9 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `new`,
@@ -1592,7 +1602,9 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                         connection: Connected,
                     },
                     entity_path: Some(
@@ -1620,7 +1632,9 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                         connection: Connected,
                     },
                     entity_path: Some(
@@ -1648,7 +1662,9 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                         connection: Connected,
                     },
                     entity_path: Some(
@@ -1676,7 +1692,9 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                         connection: Connected,
                     },
                     entity_path: Some(
@@ -1704,7 +1722,9 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                         connection: Connected,
                     },
                     entity_path: Some(

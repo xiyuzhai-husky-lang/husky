@@ -55,7 +55,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: Some(
                         AssociatedItemPath {

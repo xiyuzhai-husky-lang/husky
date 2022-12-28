@@ -1,7 +1,7 @@
 use crate::*;
 use husky_ast::{Ast, AstIdx, AstIdxRange, AstSheet};
 use husky_entity_path::EntityPath;
-use husky_entity_taxonomy::{EntityKind, ModuleItemKind, ModuleTypeItemKind};
+use husky_entity_taxonomy::{EntityKind, FormKind, ModuleItemKind, TypeKind};
 use husky_entity_tree::{CratePrelude, EntitySymbol, EntityTreeSheet};
 use husky_expr::{parse_expr, ExprArena, ExprParsingStopReason};
 use husky_opn_syntax::BinaryOpr;
@@ -67,30 +67,27 @@ impl<'a> DeclCollector<'a> {
                 EntityKind::ModuleItem {
                     item_kind: module_item_kind,
                     ..
-                } => {
-                    match module_item_kind {
-                        ModuleItemKind::Type(type_kind) => match type_kind {
-                            ModuleTypeItemKind::Enum => todo!(),
-                            ModuleTypeItemKind::Inductive => self
-                                .parse_inductive_type_decl(entity_path.module_item_path().unwrap()),
-                            ModuleTypeItemKind::Record => todo!(),
-                            ModuleTypeItemKind::Struct => todo!(),
-                            ModuleTypeItemKind::Structure => self
-                                .parse_structure_type_decl(entity_path.module_item_path().unwrap()),
-                            ModuleTypeItemKind::Alias => self.parse_alias_type_decl(
-                                entity_kind,
-                                entity_path.module_item_path().unwrap(),
-                                token_group_idx,
-                                body,
-                                saved_stream_state,
-                            ),
-                        },
-                        ModuleItemKind::Trait => {
-                            self.parse_trai_decl(entity_path.module_item_path().unwrap())
-                        }
-                        ModuleItemKind::Form => todo!(),
+                } => match module_item_kind {
+                    ModuleItemKind::Type(type_kind) => self.parse_ty_decl(
+                        type_kind,
+                        entity_path,
+                        entity_kind,
+                        token_group_idx,
+                        body,
+                        saved_stream_state,
+                    ),
+                    ModuleItemKind::Form(form_kind) => self.parse_form_decl(
+                        form_kind,
+                        entity_path.module_item_path().unwrap(),
+                        entity_kind,
+                        token_group_idx,
+                        body,
+                        saved_stream_state,
+                    ),
+                    ModuleItemKind::Trait => {
+                        self.parse_trai_decl(entity_path.module_item_path().unwrap())
                     }
-                }
+                },
                 EntityKind::Module | EntityKind::AssociatedItem { .. } | EntityKind::Variant => {
                     unreachable!()
                 }
@@ -109,6 +106,37 @@ impl<'a> DeclCollector<'a> {
         }
     }
 
+    fn parse_ty_decl(
+        &mut self,
+        type_kind: TypeKind,
+        entity_path: EntityPath,
+        entity_kind: EntityKind,
+        token_group_idx: TokenGroupIdx,
+        body: &AstIdxRange,
+        saved_stream_state: TokenIterState,
+    ) -> Result<Decl, DeclError> {
+        match type_kind {
+            TypeKind::Enum => todo!(),
+            TypeKind::Inductive => {
+                self.parse_inductive_type_decl(entity_path.module_item_path().unwrap())
+            }
+            TypeKind::Record => todo!(),
+            TypeKind::Struct => {
+                self.parse_struct_type_decl(entity_path.module_item_path().unwrap())
+            }
+            TypeKind::Structure => {
+                self.parse_structure_type_decl(entity_path.module_item_path().unwrap())
+            }
+            TypeKind::Alias => self.parse_alias_type_decl(
+                entity_kind,
+                entity_path.module_item_path().unwrap(),
+                token_group_idx,
+                body,
+                saved_stream_state,
+            ),
+        }
+    }
+
     fn parse_enum_type_decl(&self, module_item_path: ModuleItemPath) -> DeclResult<Decl> {
         Ok(Decl::Type(
             EnumTypeDecl::new(self.db, module_item_path).into(),
@@ -122,6 +150,12 @@ impl<'a> DeclCollector<'a> {
     fn parse_inductive_type_decl(&self, module_item_path: ModuleItemPath) -> DeclResult<Decl> {
         Ok(Decl::Type(
             InductiveTypeDecl::new(self.db, module_item_path).into(),
+        ))
+    }
+
+    fn parse_struct_type_decl(&self, module_item_path: ModuleItemPath) -> DeclResult<Decl> {
+        Ok(Decl::Type(
+            StructTypeDecl::new(self.db, module_item_path, /* ad hoc */ vec![]).into(),
         ))
     }
 
@@ -160,6 +194,35 @@ impl<'a> DeclCollector<'a> {
         // }
         Ok(Decl::Type(
             AliasTypeDecl::new(self.db, module_item_path).into(),
+        ))
+    }
+
+    fn parse_form_decl(
+        &mut self,
+        form_kind: FormKind,
+        module_item_path: ModuleItemPath,
+        entity_kind: EntityKind,
+        token_group_idx: TokenGroupIdx,
+        body: &AstIdxRange,
+        saved_stream_state: TokenIterState,
+    ) -> Result<Decl, DeclError> {
+        match form_kind {
+            FormKind::Feature => self.parse_feature_decl(module_item_path),
+            FormKind::Function => self.parse_function_decl(module_item_path),
+            FormKind::Value => todo!(),
+            FormKind::TypeAlias => todo!(),
+        }
+    }
+
+    fn parse_feature_decl(&self, module_item_path: ModuleItemPath) -> Result<Decl, DeclError> {
+        Ok(Decl::Form(
+            FeatureDecl::new(self.db, module_item_path).into(),
+        ))
+    }
+
+    fn parse_function_decl(&self, module_item_path: ModuleItemPath) -> Result<Decl, DeclError> {
+        Ok(Decl::Form(
+            FunctionDecl::new(self.db, module_item_path).into(),
         ))
     }
 

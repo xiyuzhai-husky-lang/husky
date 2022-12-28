@@ -35,7 +35,7 @@ impl<'a> DefnCollector<'a> {
     fn parse_defn(&self, decl: Decl) -> Defn {
         match decl {
             Decl::Type(decl) => self.parse_ty_defn(decl).into(),
-            Decl::Form(_) => todo!(),
+            Decl::Form(decl) => self.parse_form_defn(decl).into(),
             Decl::Trait(decl) => self.parse_trai_defn(decl).into(),
         }
     }
@@ -43,7 +43,7 @@ impl<'a> DefnCollector<'a> {
     fn parse_ty_defn(&self, decl: TypeDecl) -> TypeDefn {
         match decl {
             TypeDecl::Enum(_) => todo!(),
-            TypeDecl::Struct(_) => todo!(),
+            TypeDecl::Struct(decl) => self.parse_struct_ty_defn(decl).into(),
             TypeDecl::Record(_) => todo!(),
             TypeDecl::Inductive(decl) => self.parse_inductive_ty_defn(decl).into(),
             TypeDecl::Structure(decl) => self.parse_structure_ty_defn(decl).into(),
@@ -54,6 +54,11 @@ impl<'a> DefnCollector<'a> {
     fn parse_trai_defn(&self, decl: TraitDecl) -> TraitDefn {
         let mut expr_sheet = ExprSheet::default();
         TraitDefn::new(self.db, decl.module_item_path(self.db), decl, expr_sheet)
+    }
+
+    fn parse_struct_ty_defn(&self, decl: StructTypeDecl) -> StructTypeDefn {
+        let mut expr_sheet = ExprSheet::default();
+        StructTypeDefn::new(self.db, decl.module_item_path(self.db), decl, expr_sheet)
     }
 
     fn parse_inductive_ty_defn(&self, decl: InductiveTypeDecl) -> InductiveTypeDefn {
@@ -69,5 +74,24 @@ impl<'a> DefnCollector<'a> {
     fn parse_alias_ty_defn(&self, decl: AliasTypeDecl) -> AliasTypeDefn {
         let mut expr_sheet = ExprSheet::default();
         AliasTypeDefn::new(self.db, decl.module_item_path(self.db), decl, expr_sheet)
+    }
+
+    fn parse_form_defn(&self, decl: FormDecl) -> FormDefn {
+        match decl {
+            FormDecl::Function(decl) => self.parse_function_defn(decl).into(),
+            FormDecl::Feature(decl) => self.parse_feature_defn(decl).into(),
+            FormDecl::Morphism(_) => todo!(),
+            FormDecl::Const(_) => todo!(),
+        }
+    }
+
+    fn parse_function_defn(&self, decl: FunctionDecl) -> FunctionDefn {
+        let mut expr_sheet = ExprSheet::default();
+        FunctionDefn::new(self.db, decl.module_item_path(self.db), decl, expr_sheet)
+    }
+
+    fn parse_feature_defn(&self, decl: FeatureDecl) -> FeatureDefn {
+        let mut expr_sheet = ExprSheet::default();
+        FeatureDefn::new(self.db, decl.module_item_path(self.db), decl, expr_sheet)
     }
 }

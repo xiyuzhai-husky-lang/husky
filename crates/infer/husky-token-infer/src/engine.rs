@@ -25,7 +25,7 @@ impl<'a> TokenInferEngine<'a> {
             match defn {
                 Defn::Type(defn) => self.infer_ty(defn),
                 Defn::Trait(defn) => self.infer_trai(defn),
-                Defn::Form(_) => todo!(),
+                Defn::Form(defn) => self.infer_form(defn),
                 Defn::TypeItem(_) => todo!(),
                 Defn::TraitItem(_) => todo!(),
             }
@@ -70,5 +70,9 @@ impl<'a> TokenInferEngine<'a> {
 
     fn infer_trai(&mut self, defn: TraitDefn) {
         //todo!()
+    }
+
+    fn infer_form(&mut self, defn: FormDefn) {
+        // todo!()
     }
 }

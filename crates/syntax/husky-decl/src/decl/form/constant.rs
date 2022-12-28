@@ -2,5 +2,5 @@ use crate::*;
 
 #[salsa::tracked(jar = DeclJar)]
 pub struct ConstantDecl {
-    pub entity_path: EntityPath,
+    pub module_item_path: ModuleItemPath,
 }

@@ -118,7 +118,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Feature,
+                        ),
                     },
                     entity_path: None,
                     ident: `norm`,
@@ -143,7 +145,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Feature,
+                        ),
                     },
                     entity_path: None,
                     ident: `rel_norm`,
@@ -168,7 +172,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Feature,
+                        ),
                     },
                     entity_path: None,
                     ident: `angle_change_norm`,
@@ -298,7 +304,9 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                         connection: Connected,
                     },
                     entity_path: Some(

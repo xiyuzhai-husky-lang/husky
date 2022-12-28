@@ -11,7 +11,9 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `abs`,
@@ -30,7 +32,9 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `add`,
@@ -49,7 +53,9 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `abs`,
@@ -68,7 +74,9 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `add`,
@@ -87,7 +95,9 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `abs`,
@@ -112,7 +122,9 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `add`,
@@ -131,7 +143,9 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `abs`,
@@ -150,7 +164,9 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: AssociatedItem {
-                        item_kind: Form,
+                        item_kind: Form(
+                            Function,
+                        ),
                     },
                     entity_path: None,
                     ident: `add`,
