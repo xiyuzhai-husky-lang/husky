@@ -614,13 +614,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::two::two_match`,
+                        FormPath {
+                            module: `mnist_classifier::digits::two`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 265,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `two_match`,
                     is_generic: false,
@@ -644,13 +653,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::two::left_cc_pattern`,
+                        FormPath {
+                            module: `mnist_classifier::digits::two`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 266,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `left_cc_pattern`,
                     is_generic: false,
@@ -674,13 +692,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::two::right_cc_pattern`,
+                        FormPath {
+                            module: `mnist_classifier::digits::two`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 267,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `right_cc_pattern`,
                     is_generic: false,
@@ -704,13 +731,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::two::down_cc_pattern`,
+                        FormPath {
+                            module: `mnist_classifier::digits::two`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 268,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `down_cc_pattern`,
                     is_generic: false,
@@ -734,13 +770,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::two::is_two`,
+                        FormPath {
+                            module: `mnist_classifier::digits::two`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 99,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `is_two`,
                     is_generic: false,

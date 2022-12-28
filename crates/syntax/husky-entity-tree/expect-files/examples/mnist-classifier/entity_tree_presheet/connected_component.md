@@ -8,7 +8,16 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 121,
-                path: `mnist_classifier::connected_component::ConnectedComponentDistribution`,
+                path: TypePath {
+                    module: `mnist_classifier::connected_component`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 104,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `EffHoles`,
@@ -16,7 +25,16 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 122,
-                path: `mnist_classifier::connected_component::EffHoles`,
+                path: TypePath {
+                    module: `mnist_classifier::connected_component`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 109,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `hole_tmpl`,
@@ -24,7 +42,16 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 123,
-                path: `mnist_classifier::connected_component::hole_tmpl`,
+                path: FormPath {
+                    module: `mnist_classifier::connected_component`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 112,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `ConnectedComponent`,
@@ -32,7 +59,16 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 124,
-                path: `mnist_classifier::connected_component::ConnectedComponent`,
+                path: TypePath {
+                    module: `mnist_classifier::connected_component`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 116,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `horizontal_extend`,
@@ -40,7 +76,16 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 125,
-                path: `mnist_classifier::connected_component::horizontal_extend`,
+                path: FormPath {
+                    module: `mnist_classifier::connected_component`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 145,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `find_connected_components`,
@@ -48,7 +93,16 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 126,
-                path: `mnist_classifier::connected_component::find_connected_components`,
+                path: FormPath {
+                    module: `mnist_classifier::connected_component`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 151,
+                            },
+                        ),
+                    ),
+                },
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

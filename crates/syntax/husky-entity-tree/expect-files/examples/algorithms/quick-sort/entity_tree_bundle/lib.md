@@ -8,7 +8,16 @@ Ok(
                         ident: `quick_sort`,
                         accessibility: Public,
                         ast_idx: 30,
-                        path: `quick_sort::quick_sort`,
+                        path: FormPath {
+                            module: `quick_sort`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 40,
+                                    },
+                                ),
+                            ),
+                        },
                     },
                     ModuleItem {
                         ident: `quick_sort_aux`,
@@ -16,7 +25,16 @@ Ok(
                             `quick_sort`,
                         ),
                         ast_idx: 31,
-                        path: `quick_sort::quick_sort_aux`,
+                        path: FormPath {
+                            module: `quick_sort`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 45,
+                                    },
+                                ),
+                            ),
+                        },
                     },
                     ModuleItem {
                         ident: `partition`,
@@ -24,7 +42,16 @@ Ok(
                             `quick_sort`,
                         ),
                         ast_idx: 32,
-                        path: `quick_sort::partition`,
+                        path: FormPath {
+                            module: `quick_sort`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 50,
+                                    },
+                                ),
+                            ),
+                        },
                     },
                     ModuleItem {
                         ident: `quick_sort_works_for_integers`,
@@ -32,7 +59,16 @@ Ok(
                             `quick_sort`,
                         ),
                         ast_idx: 34,
-                        path: `quick_sort::quick_sort_works_for_integers`,
+                        path: FormPath {
+                            module: `quick_sort`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 58,
+                                    },
+                                ),
+                            ),
+                        },
                     },
                     ModuleItem {
                         ident: `quick_sort_works_for_strs`,
@@ -40,7 +76,16 @@ Ok(
                             `quick_sort`,
                         ),
                         ast_idx: 36,
-                        path: `quick_sort::quick_sort_works_for_strs`,
+                        path: FormPath {
+                            module: `quick_sort`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 60,
+                                    },
+                                ),
+                            ),
+                        },
                     },
                 ],
             },

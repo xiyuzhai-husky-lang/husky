@@ -11,13 +11,22 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: ModuleItem {
-                        item_kind: Type(
+                        module_item_kind: Type(
                             Alias,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `core::basic::bool`,
+                        TypePath {
+                            module: `core::basic`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 7,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `bool`,
                     is_generic: false,
@@ -35,13 +44,22 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: ModuleItem {
-                        item_kind: Type(
+                        module_item_kind: Type(
                             Structure,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `core::basic::Trait`,
+                        TypePath {
+                            module: `core::basic`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 8,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `Trait`,
                     is_generic: false,
@@ -59,13 +77,22 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: ModuleItem {
-                        item_kind: Type(
+                        module_item_kind: Type(
                             Structure,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `core::basic::Module`,
+                        TypePath {
+                            module: `core::basic`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 9,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `Module`,
                     is_generic: false,

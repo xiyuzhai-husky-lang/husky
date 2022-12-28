@@ -565,13 +565,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::four::left_components`,
+                        FormPath {
+                            module: `mnist_classifier::digits::four`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 185,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `left_components`,
                     is_generic: false,
@@ -595,13 +604,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::four::left_coordinate_max`,
+                        FormPath {
+                            module: `mnist_classifier::digits::four`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 186,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `left_coordinate_max`,
                     is_generic: false,
@@ -625,13 +643,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::four::components_max_downwards`,
+                        FormPath {
+                            module: `mnist_classifier::digits::four`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 188,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `components_max_downwards`,
                     is_generic: false,
@@ -655,13 +682,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::four::components_max_heights`,
+                        FormPath {
+                            module: `mnist_classifier::digits::four`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 190,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `components_max_heights`,
                     is_generic: false,
@@ -685,13 +721,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::four::is_four`,
+                        FormPath {
+                            module: `mnist_classifier::digits::four`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 192,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `is_four`,
                     is_generic: false,
@@ -715,13 +760,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::four::displacement_downwards`,
+                        FormPath {
+                            module: `mnist_classifier::digits::four`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 189,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `displacement_downwards`,
                     is_generic: false,
@@ -745,13 +799,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::four::cc_box_heights`,
+                        FormPath {
+                            module: `mnist_classifier::digits::four`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 191,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `cc_box_heights`,
                     is_generic: false,

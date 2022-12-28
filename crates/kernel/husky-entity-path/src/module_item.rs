@@ -1,26 +1,35 @@
-mod connected;
-mod disconnected;
+mod form;
+mod trai;
+mod ty;
 
-pub use connected::*;
-pub use disconnected::*;
+pub use form::*;
+pub use trai::*;
+pub use ty::*;
 
 use crate::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum ModuleItemPath {
-    Connected(ConnectedModuleItemPath),
-    Disconnected(DisconnectedModuleItemPath),
+    Type(TypePath),
+    Trait(TraitPath),
+    Form(FormPath),
 }
 
-impl From<DisconnectedModuleItemPath> for ModuleItemPath {
-    fn from(v: DisconnectedModuleItemPath) -> Self {
-        Self::Disconnected(v)
+impl From<FormPath> for ModuleItemPath {
+    fn from(v: FormPath) -> Self {
+        Self::Form(v)
     }
 }
 
-impl From<ConnectedModuleItemPath> for ModuleItemPath {
-    fn from(v: ConnectedModuleItemPath) -> Self {
-        Self::Connected(v)
+impl From<TraitPath> for ModuleItemPath {
+    fn from(v: TraitPath) -> Self {
+        Self::Trait(v)
+    }
+}
+
+impl From<TypePath> for ModuleItemPath {
+    fn from(v: TypePath) -> Self {
+        Self::Type(v)
     }
 }
 
@@ -37,23 +46,24 @@ where
         let db = <Db as DbWithJar<EntityPathJar>>::as_jar_db(db);
         if include_all_fields {
             match self {
-                ModuleItemPath::Connected(connected_module_item_path) => f
-                    .debug_tuple("Connected")
-                    .field(&connected_module_item_path.debug_with(db, include_all_fields))
+                ModuleItemPath::Form(path) => f
+                    .debug_tuple("Form")
+                    .field(&path.debug_with(db, include_all_fields))
                     .finish(),
-                ModuleItemPath::Disconnected(disconnected_module_item_path) => f
-                    .debug_tuple("Connected")
-                    .field(&disconnected_module_item_path.debug_with(db, include_all_fields))
+                ModuleItemPath::Trait(path) => f
+                    .debug_tuple("Trait")
+                    .field(&path.debug_with(db, include_all_fields))
+                    .finish(),
+                ModuleItemPath::Type(path) => f
+                    .debug_tuple("Type")
+                    .field(&path.debug_with(db, include_all_fields))
                     .finish(),
             }
         } else {
             match self {
-                ModuleItemPath::Connected(connected_module_item_path) => {
-                    connected_module_item_path.fmt(f, db, false)
-                }
-                ModuleItemPath::Disconnected(disconnected_module_item_path) => {
-                    disconnected_module_item_path.fmt(f, db, false)
-                }
+                ModuleItemPath::Form(path) => path.fmt(f, db, false),
+                ModuleItemPath::Type(path) => path.fmt(f, db, false),
+                ModuleItemPath::Trait(path) => path.fmt(f, db, false),
             }
         }
     }

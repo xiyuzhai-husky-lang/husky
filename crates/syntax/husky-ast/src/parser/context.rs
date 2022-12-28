@@ -39,8 +39,7 @@ impl AstContextKind {
         match entity_kind {
             EntityKind::Module => AstContextKind::InsideNoChild,
             EntityKind::ModuleItem {
-                item_kind: module_item_kind,
-                ..
+                module_item_kind, ..
             } => match module_item_kind {
                 ModuleItemKind::Type(_) => AstContextKind::InsideNoChild,
                 ModuleItemKind::Trait => AstContextKind::InsideTrait {

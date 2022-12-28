@@ -190,13 +190,22 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: ModuleItem {
-                        item_kind: Type(
+                        module_item_kind: Type(
                             Alias,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `core::num::i8`,
+                        TypePath {
+                            module: `core::num`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 20,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `i8`,
                     is_generic: false,
@@ -235,13 +244,22 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: ModuleItem {
-                        item_kind: Type(
+                        module_item_kind: Type(
                             Alias,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `core::num::i16`,
+                        TypePath {
+                            module: `core::num`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 26,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `i16`,
                     is_generic: false,
@@ -280,13 +298,22 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: ModuleItem {
-                        item_kind: Type(
+                        module_item_kind: Type(
                             Alias,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `core::num::i32`,
+                        TypePath {
+                            module: `core::num`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 27,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `i32`,
                     is_generic: false,
@@ -331,13 +358,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Type(
+                        module_item_kind: Type(
                             Alias,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `core::num::i64`,
+                        TypePath {
+                            module: `core::num`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 28,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `i64`,
                     is_generic: false,

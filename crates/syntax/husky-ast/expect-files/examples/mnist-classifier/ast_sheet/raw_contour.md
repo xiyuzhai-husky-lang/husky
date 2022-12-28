@@ -1776,13 +1776,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Type(
+                        module_item_kind: Type(
                             Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::raw_contour::RawContour`,
+                        TypePath {
+                            module: `mnist_classifier::raw_contour`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 111,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `RawContour`,
                     is_generic: false,
@@ -1814,13 +1823,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Type(
+                        module_item_kind: Type(
                             Enum,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::raw_contour::Direction`,
+                        TypePath {
+                            module: `mnist_classifier::raw_contour`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 397,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `Direction`,
                     is_generic: false,
@@ -1876,13 +1894,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::raw_contour::get_pixel_pair`,
+                        FormPath {
+                            module: `mnist_classifier::raw_contour`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 402,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `get_pixel_pair`,
                     is_generic: false,
@@ -1906,13 +1933,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::raw_contour::get_pixel_to_the_left`,
+                        FormPath {
+                            module: `mnist_classifier::raw_contour`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 404,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `get_pixel_to_the_left`,
                     is_generic: false,
@@ -1936,13 +1972,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::raw_contour::get_pixel_to_the_right`,
+                        FormPath {
+                            module: `mnist_classifier::raw_contour`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 405,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `get_pixel_to_the_right`,
                     is_generic: false,
@@ -1966,13 +2011,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::raw_contour::get_inward_direction`,
+                        FormPath {
+                            module: `mnist_classifier::raw_contour`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 406,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `get_inward_direction`,
                     is_generic: false,
@@ -1996,13 +2050,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::raw_contour::get_angle_change`,
+                        FormPath {
+                            module: `mnist_classifier::raw_contour`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 414,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `get_angle_change`,
                     is_generic: false,
@@ -2026,13 +2089,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::raw_contour::get_outward_direction`,
+                        FormPath {
+                            module: `mnist_classifier::raw_contour`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 419,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `get_outward_direction`,
                     is_generic: false,
@@ -2056,13 +2128,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Type(
+                        module_item_kind: Type(
                             Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::raw_contour::StreakCache`,
+                        TypePath {
+                            module: `mnist_classifier::raw_contour`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 421,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `StreakCache`,
                     is_generic: false,
@@ -2086,13 +2167,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::raw_contour::get_concave_middle_point`,
+                        FormPath {
+                            module: `mnist_classifier::raw_contour`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 424,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `get_concave_middle_point`,
                     is_generic: false,
@@ -2116,13 +2206,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::raw_contour::find_raw_contours`,
+                        FormPath {
+                            module: `mnist_classifier::raw_contour`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 84,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `find_raw_contours`,
                     is_generic: false,

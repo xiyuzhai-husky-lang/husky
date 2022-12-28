@@ -480,13 +480,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::seven::simple_seven_match`,
+                        FormPath {
+                            module: `mnist_classifier::digits::seven`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 228,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `simple_seven_match`,
                     is_generic: false,
@@ -510,13 +519,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::seven::simple_leftdown_pattern`,
+                        FormPath {
+                            module: `mnist_classifier::digits::seven`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 229,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `simple_leftdown_pattern`,
                     is_generic: false,
@@ -540,13 +558,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::seven::special_seven_match`,
+                        FormPath {
+                            module: `mnist_classifier::digits::seven`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 230,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `special_seven_match`,
                     is_generic: false,
@@ -570,13 +597,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::seven::leftupcc_pattern`,
+                        FormPath {
+                            module: `mnist_classifier::digits::seven`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 231,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `leftupcc_pattern`,
                     is_generic: false,
@@ -600,13 +636,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::seven::leftdowncc_pattern`,
+                        FormPath {
+                            module: `mnist_classifier::digits::seven`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 232,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `leftdowncc_pattern`,
                     is_generic: false,
@@ -630,13 +675,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::seven::is_seven`,
+                        FormPath {
+                            module: `mnist_classifier::digits::seven`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 94,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `is_seven`,
                     is_generic: false,

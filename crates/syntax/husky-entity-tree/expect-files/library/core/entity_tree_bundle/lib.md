@@ -53,19 +53,46 @@ Ok(
                         ident: `bool`,
                         accessibility: Public,
                         ast_idx: 0,
-                        path: `core::basic::bool`,
+                        path: TypePath {
+                            module: `core::basic`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 6,
+                                    },
+                                ),
+                            ),
+                        },
                     },
                     ModuleItem {
                         ident: `Trait`,
                         accessibility: Public,
                         ast_idx: 1,
-                        path: `core::basic::Trait`,
+                        path: TypePath {
+                            module: `core::basic`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 7,
+                                    },
+                                ),
+                            ),
+                        },
                     },
                     ModuleItem {
                         ident: `Module`,
                         accessibility: Public,
                         ast_idx: 2,
-                        path: `core::basic::Module`,
+                        path: TypePath {
+                            module: `core::basic`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 8,
+                                    },
+                                ),
+                            ),
+                        },
                     },
                 ],
             },
@@ -76,13 +103,31 @@ Ok(
                         ident: `LogicAnd`,
                         accessibility: Public,
                         ast_idx: 0,
-                        path: `core::logic::LogicAnd`,
+                        path: TypePath {
+                            module: `core::logic`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 9,
+                                    },
+                                ),
+                            ),
+                        },
                     },
                     ModuleItem {
                         ident: `LogicOr`,
                         accessibility: Public,
                         ast_idx: 1,
-                        path: `core::logic::LogicOr`,
+                        path: TypePath {
+                            module: `core::logic`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                            ),
+                        },
                     },
                 ],
             },
@@ -93,19 +138,46 @@ Ok(
                         ident: `i8`,
                         accessibility: Public,
                         ast_idx: 9,
-                        path: `core::num::i8`,
+                        path: TypePath {
+                            module: `core::num`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 19,
+                                    },
+                                ),
+                            ),
+                        },
                     },
                     ModuleItem {
                         ident: `i16`,
                         accessibility: Public,
                         ast_idx: 13,
-                        path: `core::num::i16`,
+                        path: TypePath {
+                            module: `core::num`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 26,
+                                    },
+                                ),
+                            ),
+                        },
                     },
                     ModuleItem {
                         ident: `i32`,
                         accessibility: Public,
                         ast_idx: 17,
-                        path: `core::num::i32`,
+                        path: TypePath {
+                            module: `core::num`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 27,
+                                    },
+                                ),
+                            ),
+                        },
                     },
                     ModuleItem {
                         ident: `i64`,
@@ -113,7 +185,16 @@ Ok(
                             `core::num`,
                         ),
                         ast_idx: 21,
-                        path: `core::num::i64`,
+                        path: TypePath {
+                            module: `core::num`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 28,
+                                    },
+                                ),
+                            ),
+                        },
                     },
                 ],
             },
@@ -124,7 +205,16 @@ Ok(
                         ident: `Add`,
                         accessibility: Public,
                         ast_idx: 3,
-                        path: `core::ops::Add`,
+                        path: TraitPath {
+                            module: `core::ops`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 22,
+                                    },
+                                ),
+                            ),
+                        },
                     },
                 ],
             },

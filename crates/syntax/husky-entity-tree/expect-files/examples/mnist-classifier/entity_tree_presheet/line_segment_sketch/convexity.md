@@ -8,7 +8,16 @@ Ok(
                     `mnist_classifier::line_segment_sketch::convexity`,
                 ),
                 ast_idx: 23,
-                path: `mnist_classifier::line_segment_sketch::convexity::is_convex`,
+                path: FormPath {
+                    module: `mnist_classifier::line_segment_sketch::convexity`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 338,
+                            },
+                        ),
+                    ),
+                },
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

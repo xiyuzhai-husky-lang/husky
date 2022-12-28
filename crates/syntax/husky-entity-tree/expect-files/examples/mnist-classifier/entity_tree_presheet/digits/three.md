@@ -8,7 +8,16 @@ Ok(
                     `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 44,
-                path: `mnist_classifier::digits::three::three_fermi_match`,
+                path: FormPath {
+                    module: `mnist_classifier::digits::three`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 255,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `is_three`,
@@ -16,7 +25,16 @@ Ok(
                     `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 45,
-                path: `mnist_classifier::digits::three::is_three`,
+                path: FormPath {
+                    module: `mnist_classifier::digits::three`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 96,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `uparc`,
@@ -24,7 +42,16 @@ Ok(
                     `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 46,
-                path: `mnist_classifier::digits::three::uparc`,
+                path: FormPath {
+                    module: `mnist_classifier::digits::three`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 257,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `downarc`,
@@ -32,7 +59,16 @@ Ok(
                     `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 47,
-                path: `mnist_classifier::digits::three::downarc`,
+                path: FormPath {
+                    module: `mnist_classifier::digits::three`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 256,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `back`,
@@ -40,7 +76,16 @@ Ok(
                     `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 48,
-                path: `mnist_classifier::digits::three::back`,
+                path: FormPath {
+                    module: `mnist_classifier::digits::three`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 258,
+                            },
+                        ),
+                    ),
+                },
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

@@ -338,13 +338,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::zero::open_one_match`,
+                        FormPath {
+                            module: `mnist_classifier::digits::zero`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 281,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `open_one_match`,
                     is_generic: false,
@@ -368,13 +377,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::zero::almost_closed`,
+                        FormPath {
+                            module: `mnist_classifier::digits::zero`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 282,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `almost_closed`,
                     is_generic: false,
@@ -398,13 +416,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::zero::is_zero`,
+                        FormPath {
+                            module: `mnist_classifier::digits::zero`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 93,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `is_zero`,
                     is_generic: false,

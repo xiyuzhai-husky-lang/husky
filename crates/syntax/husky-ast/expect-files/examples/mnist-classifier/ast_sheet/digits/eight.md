@@ -324,13 +324,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::eight::upper_mouth_match`,
+                        FormPath {
+                            module: `mnist_classifier::digits::eight`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 166,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `upper_mouth_match`,
                     is_generic: false,
@@ -354,13 +363,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Feature,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::eight::is_eight`,
+                        FormPath {
+                            module: `mnist_classifier::digits::eight`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 95,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `is_eight`,
                     is_generic: false,
@@ -384,13 +402,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::digits::eight::big_mouth`,
+                        FormPath {
+                            module: `mnist_classifier::digits::eight`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 169,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `big_mouth`,
                     is_generic: false,

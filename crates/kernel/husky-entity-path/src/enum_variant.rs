@@ -2,7 +2,7 @@ use crate::*;
 
 #[salsa::interned(jar = EntityPathJar)]
 pub struct ModuleItemVariantPath {
-    pub module_item: ConnectedModuleItemPath,
+    pub module_item: ModuleItemPath,
     pub ident: Identifier,
 }
 

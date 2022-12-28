@@ -65,8 +65,7 @@ impl<'a> DeclCollector<'a> {
                 saved_stream_state,
             } => match entity_kind {
                 EntityKind::ModuleItem {
-                    item_kind: module_item_kind,
-                    ..
+                    module_item_kind, ..
                 } => match module_item_kind {
                     ModuleItemKind::Type(type_kind) => self.parse_ty_decl(
                         type_kind,

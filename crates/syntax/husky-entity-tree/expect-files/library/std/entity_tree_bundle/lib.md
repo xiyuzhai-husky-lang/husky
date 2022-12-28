@@ -47,7 +47,16 @@ Ok(
                             `std::ops`,
                         ),
                         ast_idx: 3,
-                        path: `std::ops::Add`,
+                        path: TraitPath {
+                            module: `std::ops`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 22,
+                                    },
+                                ),
+                            ),
+                        },
                     },
                 ],
             },

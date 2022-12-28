@@ -8,7 +8,16 @@ Ok(
                     `mnist_classifier::digits::six`,
                 ),
                 ast_idx: 59,
-                path: `mnist_classifier::digits::six::six_match`,
+                path: FormPath {
+                    module: `mnist_classifier::digits::six`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 240,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `six_match_refined1`,
@@ -16,7 +25,16 @@ Ok(
                     `mnist_classifier::digits::six`,
                 ),
                 ast_idx: 60,
-                path: `mnist_classifier::digits::six::six_match_refined1`,
+                path: FormPath {
+                    module: `mnist_classifier::digits::six`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 241,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `is_six`,
@@ -24,7 +42,16 @@ Ok(
                     `mnist_classifier::digits::six`,
                 ),
                 ast_idx: 61,
-                path: `mnist_classifier::digits::six::is_six`,
+                path: FormPath {
+                    module: `mnist_classifier::digits::six`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 92,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `upmost`,
@@ -32,7 +59,16 @@ Ok(
                     `mnist_classifier::digits::six`,
                 ),
                 ast_idx: 62,
-                path: `mnist_classifier::digits::six::upmost`,
+                path: FormPath {
+                    module: `mnist_classifier::digits::six`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 211,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `bottom1`,
@@ -40,7 +76,16 @@ Ok(
                     `mnist_classifier::digits::six`,
                 ),
                 ast_idx: 63,
-                path: `mnist_classifier::digits::six::bottom1`,
+                path: FormPath {
+                    module: `mnist_classifier::digits::six`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 242,
+                            },
+                        ),
+                    ),
+                },
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

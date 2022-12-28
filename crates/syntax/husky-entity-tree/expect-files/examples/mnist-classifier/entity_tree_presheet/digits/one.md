@@ -8,7 +8,16 @@ Ok(
                     `mnist_classifier::digits::one`,
                 ),
                 ast_idx: 70,
-                path: `mnist_classifier::digits::one::one_fermi_match`,
+                path: FormPath {
+                    module: `mnist_classifier::digits::one`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 210,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `is_one`,
@@ -16,7 +25,16 @@ Ok(
                     `mnist_classifier::digits::one`,
                 ),
                 ast_idx: 71,
-                path: `mnist_classifier::digits::one::is_one`,
+                path: FormPath {
+                    module: `mnist_classifier::digits::one`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 91,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `upmost`,
@@ -24,7 +42,16 @@ Ok(
                     `mnist_classifier::digits::one`,
                 ),
                 ast_idx: 72,
-                path: `mnist_classifier::digits::one::upmost`,
+                path: FormPath {
+                    module: `mnist_classifier::digits::one`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 211,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `downmost`,
@@ -32,7 +59,16 @@ Ok(
                     `mnist_classifier::digits::one`,
                 ),
                 ast_idx: 73,
-                path: `mnist_classifier::digits::one::downmost`,
+                path: FormPath {
+                    module: `mnist_classifier::digits::one`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 205,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: `hat`,
@@ -40,7 +76,16 @@ Ok(
                     `mnist_classifier::digits::one`,
                 ),
                 ast_idx: 74,
-                path: `mnist_classifier::digits::one::hat`,
+                path: FormPath {
+                    module: `mnist_classifier::digits::one`,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 212,
+                            },
+                        ),
+                    ),
+                },
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

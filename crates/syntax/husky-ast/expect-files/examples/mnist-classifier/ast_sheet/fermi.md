@@ -266,13 +266,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Type(
+                        module_item_kind: Type(
                             Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::fermi::FermiMatchResult`,
+                        TypePath {
+                            module: `mnist_classifier::fermi`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 167,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `FermiMatchResult`,
                     is_generic: false,
@@ -304,13 +313,22 @@ Ok(
                         ),
                     ),
                     entity_kind: ModuleItem {
-                        item_kind: Form(
+                        module_item_kind: Form(
                             Function,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        `mnist_classifier::fermi::fermi_match`,
+                        FormPath {
+                            module: `mnist_classifier::fermi`,
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 168,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ident: `fermi_match`,
                     is_generic: false,
