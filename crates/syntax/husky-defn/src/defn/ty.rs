@@ -1,14 +1,18 @@
+mod alien_ty;
 mod enum_ty;
 mod inductive_ty;
 mod record_ty;
 mod struct_ty;
 mod structure_ty;
+mod union_ty;
 
+pub use alien_ty::*;
 pub use enum_ty::*;
 pub use inductive_ty::*;
 pub use record_ty::*;
 pub use struct_ty::*;
 pub use structure_ty::*;
+pub use union_ty::*;
 
 use crate::*;
 
@@ -19,7 +23,7 @@ pub enum TypeDefn {
     Record(RecordTypeDefn),
     Struct(StructTypeDefn),
     Structure(StructureTypeDefn),
-    Alias(AliasTypeDefn),
+    Foreign(AlienTypeDefn),
 }
 
 impl From<EnumTypeDefn> for TypeDefn {
@@ -52,21 +56,21 @@ impl From<StructureTypeDefn> for TypeDefn {
     }
 }
 
-impl From<AliasTypeDefn> for TypeDefn {
-    fn from(v: AliasTypeDefn) -> Self {
-        Self::Alias(v)
+impl From<AlienTypeDefn> for TypeDefn {
+    fn from(v: AlienTypeDefn) -> Self {
+        Self::Foreign(v)
     }
 }
 
 impl TypeDefn {
-    pub fn module_item_path(self, db: &dyn DefnDb) -> ModuleItemPath {
+    pub fn path(self, db: &dyn DefnDb) -> TypePath {
         match self {
-            TypeDefn::Enum(defn) => defn.module_item_path(db),
-            TypeDefn::Inductive(defn) => defn.module_item_path(db),
-            TypeDefn::Record(defn) => defn.module_item_path(db),
-            TypeDefn::Struct(defn) => defn.module_item_path(db),
-            TypeDefn::Structure(defn) => defn.module_item_path(db),
-            TypeDefn::Alias(defn) => defn.module_item_path(db),
+            TypeDefn::Enum(defn) => defn.path(db),
+            TypeDefn::Inductive(defn) => defn.path(db),
+            TypeDefn::Record(defn) => defn.path(db),
+            TypeDefn::Struct(defn) => defn.path(db),
+            TypeDefn::Structure(defn) => defn.path(db),
+            TypeDefn::Foreign(defn) => defn.path(db),
         }
     }
 }

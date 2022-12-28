@@ -14,7 +14,7 @@ pub use method::*;
 pub enum TypeItemDefn {
     Function(TypeAssociatedFunctionDefn),
     Method(TypeMethodDefn),
-    AliasType(TypeAssociatedTypeDefn),
+    AlienType(TypeAssociatedTypeDefn),
     Value(TypeAssociatedValueDefn),
     Memo(TypeMemoDefn),
 }

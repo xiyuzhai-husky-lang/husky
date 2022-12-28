@@ -1,6 +1,6 @@
 use super::*;
 
 #[salsa::tracked(jar = DeclJar)]
-pub struct InductiveTypeDecl {
+pub struct AlienTypeDecl {
     pub path: TypePath,
 }

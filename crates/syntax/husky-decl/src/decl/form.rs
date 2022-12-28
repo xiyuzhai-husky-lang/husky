@@ -2,11 +2,13 @@ mod constant;
 mod feature;
 mod function;
 mod morphism;
+mod type_alias;
 
 pub use constant::*;
 pub use feature::*;
 pub use function::*;
 pub use morphism::*;
+pub use type_alias::*;
 
 use crate::*;
 

@@ -45,12 +45,12 @@ impl From<FunctionDefn> for FormDefn {
 }
 
 impl FormDefn {
-    pub fn module_item_path(self, db: &dyn DefnDb) -> ModuleItemPath {
+    pub fn path(self, db: &dyn DefnDb) -> FormPath {
         match self {
-            FormDefn::Function(defn) => defn.module_item_path(db),
-            FormDefn::Feature(defn) => defn.module_item_path(db),
-            FormDefn::Morphism(defn) => defn.module_item_path(db),
-            FormDefn::Value(defn) => defn.module_item_path(db),
+            FormDefn::Function(defn) => defn.path(db),
+            FormDefn::Feature(defn) => defn.path(db),
+            FormDefn::Morphism(defn) => defn.path(db),
+            FormDefn::Value(defn) => defn.path(db),
         }
     }
 }

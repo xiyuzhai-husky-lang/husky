@@ -1,10 +1,10 @@
 use crate::*;
 
 #[salsa::tracked(jar = DefnJar)]
-pub struct AliasTypeDefn {
+pub struct TypeAliasDefn {
     #[id]
-    pub module_item_path: ModuleItemPath,
-    pub decl: AliasTypeDecl,
+    pub path: FormPath,
+    pub decl: TypeAliasDecl,
     #[return_ref]
     pub expr_sheet: ExprSheet,
 }

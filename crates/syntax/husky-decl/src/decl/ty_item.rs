@@ -13,7 +13,7 @@ pub use method::*;
 pub enum TypeItemDecl {
     Function(TypeAssociatedFunctionDecl),
     Method(TypeMethodDecl),
-    AliasType(TypeAssociatedTypeDecl),
+    AlienType(TypeAssociatedTypeDecl),
     Value(TypeAssociatedValueDecl),
     Memo(TypeMemoDecl),
 }

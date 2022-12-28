@@ -27,12 +27,14 @@ pub struct DeclJar(
     RecordTypeDecl,
     InductiveTypeDecl,
     StructureTypeDecl,
-    AliasTypeDecl,
+    AlienTypeDecl,
+    UnionTypeDecl,
     // form
     ConstantDecl,
     FeatureDecl,
     FunctionDecl,
     MorphismDecl,
+    TypeAliasDecl,
     // trait
     TraitDecl,
     // type item
