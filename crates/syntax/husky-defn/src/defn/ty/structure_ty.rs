@@ -4,7 +4,7 @@ use crate::*;
 pub struct StructureTypeDefn {
     #[id]
     pub module_item_path: ModuleItemPath,
-    #[return_ref]
-    pub expr_arena: ExprArena,
     pub decl: StructureTypeDecl,
+    #[return_ref]
+    pub expr_sheet: ExprSheet,
 }

@@ -22,6 +22,42 @@ pub enum TypeDefn {
     Alias(AliasTypeDefn),
 }
 
+impl From<EnumTypeDefn> for TypeDefn {
+    fn from(v: EnumTypeDefn) -> Self {
+        Self::Enum(v)
+    }
+}
+
+impl From<InductiveTypeDefn> for TypeDefn {
+    fn from(v: InductiveTypeDefn) -> Self {
+        Self::Inductive(v)
+    }
+}
+
+impl From<RecordTypeDefn> for TypeDefn {
+    fn from(v: RecordTypeDefn) -> Self {
+        Self::Record(v)
+    }
+}
+
+impl From<StructTypeDefn> for TypeDefn {
+    fn from(v: StructTypeDefn) -> Self {
+        Self::Struct(v)
+    }
+}
+
+impl From<StructureTypeDefn> for TypeDefn {
+    fn from(v: StructureTypeDefn) -> Self {
+        Self::Structure(v)
+    }
+}
+
+impl From<AliasTypeDefn> for TypeDefn {
+    fn from(v: AliasTypeDefn) -> Self {
+        Self::Alias(v)
+    }
+}
+
 impl TypeDefn {
     pub fn module_item_path(self, db: &dyn DefnDb) -> ModuleItemPath {
         match self {

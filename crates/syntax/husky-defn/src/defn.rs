@@ -21,6 +21,36 @@ pub enum Defn {
     TraitItem(TraitItemDefn),
 }
 
+impl From<TraitItemDefn> for Defn {
+    fn from(v: TraitItemDefn) -> Self {
+        Self::TraitItem(v)
+    }
+}
+
+impl From<TypeItemDefn> for Defn {
+    fn from(v: TypeItemDefn) -> Self {
+        Self::TypeItem(v)
+    }
+}
+
+impl From<FormDefn> for Defn {
+    fn from(v: FormDefn) -> Self {
+        Self::Form(v)
+    }
+}
+
+impl From<TraitDefn> for Defn {
+    fn from(v: TraitDefn) -> Self {
+        Self::Trait(v)
+    }
+}
+
+impl From<TypeDefn> for Defn {
+    fn from(v: TypeDefn) -> Self {
+        Self::Type(v)
+    }
+}
+
 impl Defn {
     pub fn entity_path(self, db: &dyn DefnDb) -> EntityPath {
         match self {

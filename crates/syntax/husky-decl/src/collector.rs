@@ -67,26 +67,28 @@ impl<'a> DeclCollector<'a> {
                 EntityKind::ModuleItem {
                     item_kind: module_item_kind,
                     ..
-                } => match module_item_kind {
-                    ModuleItemKind::Type(type_kind) => match type_kind {
-                        ModuleTypeItemKind::Enum => todo!(),
-                        ModuleTypeItemKind::Inductive => todo!(),
-                        ModuleTypeItemKind::Record => todo!(),
-                        ModuleTypeItemKind::Struct => todo!(),
-                        ModuleTypeItemKind::Structure => {
-                            self.parse_structure_type_decl(entity_path.module_item_path().unwrap())
-                        }
-                        ModuleTypeItemKind::Alias => self.parse_alias_type_decl(
-                            entity_kind,
-                            entity_path.module_item_path().unwrap(),
-                            token_group_idx,
-                            body,
-                            saved_stream_state,
-                        ),
-                    },
-                    ModuleItemKind::Trait => todo!(),
-                    ModuleItemKind::Form => todo!(),
-                },
+                } => {
+                    match module_item_kind {
+                        ModuleItemKind::Type(type_kind) => match type_kind {
+                            ModuleTypeItemKind::Enum => todo!(),
+                            ModuleTypeItemKind::Inductive => self
+                                .parse_inductive_type_decl(entity_path.module_item_path().unwrap()),
+                            ModuleTypeItemKind::Record => todo!(),
+                            ModuleTypeItemKind::Struct => todo!(),
+                            ModuleTypeItemKind::Structure => self
+                                .parse_structure_type_decl(entity_path.module_item_path().unwrap()),
+                            ModuleTypeItemKind::Alias => self.parse_alias_type_decl(
+                                entity_kind,
+                                entity_path.module_item_path().unwrap(),
+                                token_group_idx,
+                                body,
+                                saved_stream_state,
+                            ),
+                        },
+                        ModuleItemKind::Trait => todo!(),
+                        ModuleItemKind::Form => todo!(),
+                    }
+                }
                 EntityKind::Module | EntityKind::AssociatedItem { .. } | EntityKind::Variant => {
                     unreachable!()
                 }
@@ -103,6 +105,18 @@ impl<'a> DeclCollector<'a> {
             | Ast::Main { .. }
             | Ast::Config { .. } => unreachable!(),
         }
+    }
+
+    fn parse_enum_type_decl(&self, module_item_path: ModuleItemPath) -> DeclResult<Decl> {
+        Ok(Decl::Type(
+            EnumTypeDecl::new(self.db, module_item_path).into(),
+        ))
+    }
+
+    fn parse_inductive_type_decl(&self, module_item_path: ModuleItemPath) -> DeclResult<Decl> {
+        Ok(Decl::Type(
+            InductiveTypeDecl::new(self.db, module_item_path).into(),
+        ))
     }
 
     fn parse_structure_type_decl(&self, module_item_path: ModuleItemPath) -> DeclResult<Decl> {

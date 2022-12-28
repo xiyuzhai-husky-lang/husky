@@ -12,7 +12,7 @@ pub use trai_item::*;
 pub use ty::*;
 pub use ty_item::*;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum Decl {
     Type(TypeDecl),
     Form(FormDecl),
