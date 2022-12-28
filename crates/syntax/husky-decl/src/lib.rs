@@ -31,7 +31,6 @@ pub struct DeclJar(
     ConstantDecl,
     FeatureDecl,
     FunctionDecl,
-    MethodDecl,
     MorphismDecl,
     // trait
     TraitDecl,
