@@ -5,6 +5,7 @@ type HuskyComptimeSnapshot = salsa::Snapshot<AnalyzerDB>;
 use husky_folding_range::FoldingRangeDb;
 use husky_hover::HoverResult;
 
+use husky_semantic_token::SemanticTokenDb;
 use husky_vfs::VfsDb;
 use lsp_types::{
     CallHierarchyIncomingCall, CallHierarchyIncomingCallsParams, CallHierarchyItem,
@@ -279,23 +280,18 @@ pub(crate) fn handle_call_hierarchy_outgoing(
 }
 
 pub(crate) fn handle_semantic_tokens_full(
-    _snapshot: HuskyComptimeSnapshot,
-    _params: SemanticTokensParams,
+    snapshot: HuskyComptimeSnapshot,
+    params: SemanticTokensParams,
 ) -> Result<Option<SemanticTokensResult>> {
-    eprintln!("todo: handle_semantic_tokens_full");
-    Ok(None)
-    // let file = snapshot.intern_path(convert::from_lsp_types::path_from_url(
-    //     &params.text_document.uri,
-    // )?);
-    // let ast_text = match snapshot.ast_text(file) {
-    //     Ok(ast_text) => ast_text,
-    //     Err(_) => return Ok(None),
-    // };
-    // let data = AbsSemanticToken::to_semantic_tokens(&ast_text.semantic_tokens);
-    // Ok(Some(SemanticTokensResult::Tokens(SemanticTokens {
-    //     result_id: None,
-    //     data,
-    // })))
+    let path = from_lsp_types::path_from_url(&params.text_document.uri)?;
+    let module_path = snapshot.resolve_module_path(snapshot.current_toolchain()?, &path)?;
+    let semantic_tokens_ext = snapshot.semantic_tokens_ext(module_path)?;
+    Ok(Some(SemanticTokensResult::Tokens(
+        lsp_types::SemanticTokens {
+            result_id: None,
+            data: semantic_tokens_ext.to_vec(),
+        },
+    )))
 }
 
 pub(crate) fn handle_semantic_tokens_full_delta(
