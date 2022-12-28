@@ -36,7 +36,7 @@ impl<'a> DefnCollector<'a> {
         match decl {
             Decl::Type(decl) => self.parse_ty_defn(decl).into(),
             Decl::Form(_) => todo!(),
-            Decl::Trait(_) => todo!(),
+            Decl::Trait(decl) => self.parse_trai_defn(decl).into(),
         }
     }
 
@@ -49,6 +49,11 @@ impl<'a> DefnCollector<'a> {
             TypeDecl::Structure(decl) => self.parse_structure_ty_defn(decl).into(),
             TypeDecl::Alias(decl) => self.parse_alias_ty_defn(decl).into(),
         }
+    }
+
+    fn parse_trai_defn(&self, decl: TraitDecl) -> TraitDefn {
+        let mut expr_sheet = ExprSheet::default();
+        TraitDefn::new(self.db, decl.module_item_path(self.db), decl, expr_sheet)
     }
 
     fn parse_inductive_ty_defn(&self, decl: InductiveTypeDecl) -> InductiveTypeDefn {

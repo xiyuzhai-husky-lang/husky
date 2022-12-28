@@ -24,7 +24,7 @@ impl<'a> TokenInferEngine<'a> {
         for defn in self.defn_sheet.defns() {
             match defn {
                 Defn::Type(defn) => self.infer_ty(defn),
-                Defn::Trait(_) => todo!(),
+                Defn::Trait(defn) => self.infer_trai(defn),
                 Defn::Form(_) => todo!(),
                 Defn::TypeItem(_) => todo!(),
                 Defn::TraitItem(_) => todo!(),
@@ -35,13 +35,29 @@ impl<'a> TokenInferEngine<'a> {
 
     fn infer_ty(&mut self, defn: TypeDefn) {
         match defn {
-            TypeDefn::Enum(_) => todo!(),
-            TypeDefn::Inductive(_) => todo!(),
-            TypeDefn::Record(_) => todo!(),
-            TypeDefn::Struct(_) => todo!(),
+            TypeDefn::Enum(defn) => self.infer_enum_ty(defn),
+            TypeDefn::Inductive(defn) => self.infer_inductive_ty(defn),
+            TypeDefn::Record(defn) => self.infer_record_ty(defn),
+            TypeDefn::Struct(defn) => self.infer_struct_ty(defn),
             TypeDefn::Structure(defn) => self.infer_structure_ty(defn),
             TypeDefn::Alias(defn) => self.infer_alias_ty(defn),
         }
+    }
+
+    fn infer_enum_ty(&mut self, defn: EnumTypeDefn) {
+        // todo!()
+    }
+
+    fn infer_inductive_ty(&mut self, defn: InductiveTypeDefn) {
+        // todo!()
+    }
+
+    fn infer_record_ty(&mut self, defn: RecordTypeDefn) {
+        // todo!()
+    }
+
+    fn infer_struct_ty(&mut self, defn: StructTypeDefn) {
+        // todo!()
     }
 
     fn infer_structure_ty(&mut self, defn: StructureTypeDefn) {
@@ -50,5 +66,9 @@ impl<'a> TokenInferEngine<'a> {
 
     fn infer_alias_ty(&mut self, defn: AliasTypeDefn) {
         // todo!()
+    }
+
+    fn infer_trai(&mut self, defn: TraitDefn) {
+        //todo!()
     }
 }

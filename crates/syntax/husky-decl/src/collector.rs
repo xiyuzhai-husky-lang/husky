@@ -85,7 +85,9 @@ impl<'a> DeclCollector<'a> {
                                 saved_stream_state,
                             ),
                         },
-                        ModuleItemKind::Trait => todo!(),
+                        ModuleItemKind::Trait => {
+                            self.parse_trai_decl(entity_path.module_item_path().unwrap())
+                        }
                         ModuleItemKind::Form => todo!(),
                     }
                 }
@@ -111,6 +113,10 @@ impl<'a> DeclCollector<'a> {
         Ok(Decl::Type(
             EnumTypeDecl::new(self.db, module_item_path).into(),
         ))
+    }
+
+    fn parse_trai_decl(&self, module_item_path: ModuleItemPath) -> DeclResult<Decl> {
+        Ok(Decl::Trait(TraitDecl::new(self.db, module_item_path)))
     }
 
     fn parse_inductive_type_decl(&self, module_item_path: ModuleItemPath) -> DeclResult<Decl> {
