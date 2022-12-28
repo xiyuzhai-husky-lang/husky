@@ -88,13 +88,14 @@ pub(crate) fn entity_tree_sheet(
     })
 }
 
-impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntityTreeSheet {
+impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreeSheet {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EntityTreeDb,
+        db: &Db,
         include_all_fields: bool,
     ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
         f.debug_struct("EntityTreeSheet")
             .field(
                 "module_path",
