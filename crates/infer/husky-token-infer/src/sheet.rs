@@ -14,4 +14,12 @@ impl TokenInferSheet {
                 .collect(),
         }
     }
+
+    pub fn informative_tokens<'a>(
+        &'a self,
+        token_sheet: &'a TokenSheet,
+    ) -> impl Iterator<Item = (&'a TokenInfo, &'a Token)> + 'a {
+        assert_eq!(self.token_infos.len(), token_sheet.tokens().len());
+        std::iter::zip(self.token_infos.iter(), token_sheet.tokens().iter())
+    }
 }

@@ -1,54 +1,26 @@
+use crate::*;
 use husky_entity_taxonomy::EntityKind;
 use husky_text::TextRange;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct AbsSemanticToken {
-    pub kind: SemanticTokenKind,
+pub struct RangedSemanticToken {
+    pub semantic_token: SemanticToken,
     pub range: TextRange,
-    pub token_type: u32,
-    pub token_modifiers_bitset: u32,
 }
 
-impl AbsSemanticToken {
-    pub fn new(kind: SemanticTokenKind, range: TextRange) -> Self {
+impl RangedSemanticToken {
+    pub fn new(token: SemanticToken, range: TextRange) -> Self {
         Self {
-            kind,
+            semantic_token: token,
             range,
-            token_type: kind.token_type(),
-            token_modifiers_bitset: kind.token_modifiers_bitset(),
         }
-    }
-
-    pub fn to_semantic_tokens(abs_semantic_tokens: &[AbsSemanticToken]) -> Vec<SemanticToken> {
-        let mut semantic_tokens = vec![];
-        let mut last_line = 0;
-        let mut last_start = 0;
-        for abs_semantic_token in abs_semantic_tokens {
-            let new_line = abs_semantic_token.range.start.i();
-            let new_start = abs_semantic_token.range.start.j();
-            let length = abs_semantic_token.range.end.j() - new_start;
-            let delta_line = new_line - last_line;
-            let delta_start = if new_line > last_line {
-                new_start
-            } else {
-                new_start - last_start
-            };
-            semantic_tokens.push(SemanticToken {
-                delta_line,
-                delta_start,
-                length,
-                token_type: abs_semantic_token.token_type,
-                token_modifiers_bitset: abs_semantic_token.token_modifiers_bitset,
-            });
-            last_line = new_line;
-            last_start = new_start
-        }
-        semantic_tokens
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum SemanticTokenKind {
+pub enum SemanticToken {
+    Attribute,
+    Comment,
     Keyword(Keyword),
     Field,
     Special,
@@ -63,50 +35,60 @@ pub enum SemanticTokenKind {
     Literal,
     XmlTagKind,
     WordPattern,
+    WordOpr,
 }
 
-impl SemanticTokenKind {
+impl SemanticToken {
     pub fn token_type(self) -> u32 {
-        todo!()
-        // get_type_index(match self {
-        //     SemanticTokenKind::Keyword(_) => SemanticTokenType::KEYWORD,
-        //     SemanticTokenKind::Field => SemanticTokenType::PROPERTY,
-        //     SemanticTokenKind::Special => SemanticTokenType::OPERATOR,
-        //     SemanticTokenKind::Variable => SemanticTokenType::VARIABLE,
-        //     SemanticTokenKind::ThisValue => SemanticTokenType::VARIABLE,
-        //     SemanticTokenKind::FrameVariable => SemanticTokenType::VARIABLE,
-        //     SemanticTokenKind::Entity(husky_entity_taxonomy) => match husky_entity_taxonomy {
-        //         EntityKind::Module => SemanticTokenType::NAMESPACE,
-        //         EntityKind::Type(_) => SemanticTokenType::TYPE,
-        //         EntityKind::Trait => SemanticTokenType::TYPE,
-        //         EntityKind::Member(member_kind) => match member_kind {
-        //             MemberKind::Method { .. } => SemanticTokenType::METHOD,
-        //             MemberKind::Call => todo!(),
-        //             MemberKind::TraitAssociatedType => todo!(),
-        //             MemberKind::TraitAssociatedConstSize => todo!(),
-        //             MemberKind::Field => todo!(),
-        //             MemberKind::TraitAssociatedAny => panic!(),
-        //         },
-        //         EntityKind::Function { .. } => SemanticTokenType::FUNCTION,
-        //         EntityKind::Feature => SemanticTokenType::VARIABLE,
-        //         EntityKind::EnumVariant => SemanticTokenType::VARIABLE,
-        //         EntityKind::Main => panic!(),
-        //         EntityKind::Crate(_) => todo!(),
-        //     },
-        //     SemanticTokenKind::GenericPlaceholder => SemanticTokenType::TYPE_PARAMETER,
-        //     SemanticTokenKind::Parameter => SemanticTokenType::PARAMETER,
-        //     SemanticTokenKind::EnumVariant => SemanticTokenType::ENUM_MEMBER,
-        //     SemanticTokenKind::Method => SemanticTokenType::METHOD,
-        //     SemanticTokenKind::Literal => SemanticTokenType::NUMBER,
-        //     SemanticTokenKind::XmlTagKind => SemanticTokenType::FUNCTION,
-        //     SemanticTokenKind::WordPattern => SemanticTokenType::ENUM_MEMBER,
-        // })
+        get_type_index(match self {
+            SemanticToken::Keyword(_) => ext::SemanticTokenType::KEYWORD,
+            SemanticToken::Comment => ext::SemanticTokenType::COMMENT,
+            SemanticToken::Field => ext::SemanticTokenType::PROPERTY,
+            SemanticToken::Special => ext::SemanticTokenType::OPERATOR,
+            SemanticToken::Variable => ext::SemanticTokenType::VARIABLE,
+            SemanticToken::ThisValue => ext::SemanticTokenType::VARIABLE,
+            SemanticToken::FrameVariable => ext::SemanticTokenType::VARIABLE,
+            SemanticToken::Entity(entity_kind) => match entity_kind {
+                EntityKind::Module => todo!(),
+                EntityKind::ModuleItem {
+                    module_item_kind,
+                    connection,
+                } => todo!(),
+                EntityKind::AssociatedItem { item_kind } => todo!(),
+                EntityKind::Variant => todo!(),
+                // EntityKind::Module => ext::SemanticTokenType::NAMESPACE,
+                // EntityKind::Type(_) => ext::SemanticTokenType::TYPE,
+                // EntityKind::Trait => ext::SemanticTokenType::TYPE,
+                // EntityKind::Member(member_kind) => match member_kind {
+                //     MemberKind::Method { .. } => ext::SemanticTokenType::METHOD,
+                //     MemberKind::Call => todo!(),
+                //     MemberKind::TraitAssociatedType => todo!(),
+                //     MemberKind::TraitAssociatedConstSize => todo!(),
+                //     MemberKind::Field => todo!(),
+                //     MemberKind::TraitAssociatedAny => panic!(),
+                // },
+                // EntityKind::Function { .. } => ext::SemanticTokenType::FUNCTION,
+                // EntityKind::Feature => ext::SemanticTokenType::VARIABLE,
+                // EntityKind::EnumVariant => ext::SemanticTokenType::VARIABLE,
+                // EntityKind::Main => panic!(),
+                // EntityKind::Crate(_) => todo!(),
+            },
+            SemanticToken::GenericPlaceholder => ext::SemanticTokenType::TYPE_PARAMETER,
+            SemanticToken::Parameter => ext::SemanticTokenType::PARAMETER,
+            SemanticToken::EnumVariant => ext::SemanticTokenType::ENUM_MEMBER,
+            SemanticToken::Method => ext::SemanticTokenType::METHOD,
+            SemanticToken::Literal => ext::SemanticTokenType::NUMBER,
+            SemanticToken::XmlTagKind => ext::SemanticTokenType::FUNCTION,
+            SemanticToken::WordPattern => ext::SemanticTokenType::ENUM_MEMBER,
+            SemanticToken::Attribute => ext::SemanticTokenType::DECORATOR,
+            SemanticToken::WordOpr => ext::SemanticTokenType::OPERATOR,
+        })
     }
 
     pub fn token_modifiers_bitset(self) -> u32 {
         let mut result = ModifierSet(0);
         match self {
-            SemanticTokenKind::Keyword(keyword) => match keyword {
+            SemanticToken::Keyword(keyword) => match keyword {
                 Keyword::Stmt(stmt_keyword) => match stmt_keyword {
                     StmtKeyword::If
                     | StmtKeyword::Elif
@@ -129,13 +111,11 @@ impl SemanticTokenKind {
     }
 }
 
-use crate::*;
-
 #[derive(Default)]
 pub(crate) struct ModifierSet(pub(crate) u32);
 
-impl std::ops::BitOrAssign<SemanticTokenModifier> for ModifierSet {
-    fn bitor_assign(&mut self, rhs: SemanticTokenModifier) {
+impl std::ops::BitOrAssign<ext::SemanticTokenModifier> for ModifierSet {
+    fn bitor_assign(&mut self, rhs: ext::SemanticTokenModifier) {
         let idx = SUPPORTED_MODIFIERS
             .iter()
             .position(|it| it == &rhs)
@@ -165,7 +145,7 @@ impl SemanticTokensBuilder {
     }
 
     /// Push a new token onto the builder
-    pub fn push(&mut self, range: Range, token_index: u32, modifier_bitset: u32) {
+    pub fn push(&mut self, range: ext::Range, token_index: u32, modifier_bitset: u32) {
         let mut push_line = range.start.line as u32;
         let mut push_char = range.start.character as u32;
 
@@ -193,8 +173,8 @@ impl SemanticTokensBuilder {
         self.prev_char = range.start.character as u32;
     }
 
-    pub fn build(self) -> SemanticTokens {
-        SemanticTokens {
+    pub fn build(self) -> ext::SemanticTokens {
+        ext::SemanticTokens {
             result_id: Some(self.id),
             data: self.data,
         }
@@ -204,7 +184,7 @@ impl SemanticTokensBuilder {
 pub fn diff_tokens(
     old: &[lsp_types::SemanticToken],
     new: &[lsp_types::SemanticToken],
-) -> Vec<SemanticTokensEdit> {
+) -> Vec<ext::SemanticTokensEdit> {
     let offset = new
         .iter()
         .zip(old.iter())
@@ -230,7 +210,7 @@ pub fn diff_tokens(
         // The lsp data field is actually a byte-diff but we
         // travel in tokens so `start` and `delete_count` are in multiples of the
         // serialized size of `SemanticToken`.
-        vec![SemanticTokensEdit {
+        vec![ext::SemanticTokensEdit {
             start: 5 * offset as u32,
             delete_count: 5 * old.len() as u32,
             data: Some(new.into()),
@@ -238,7 +218,7 @@ pub fn diff_tokens(
     }
 }
 
-pub(crate) fn get_type_index(ty: SemanticTokenType) -> u32 {
+pub(crate) fn get_type_index(ty: ext::SemanticTokenType) -> u32 {
     SUPPORTED_TYPES.iter().position(|it| *it == ty).unwrap() as u32
 }
 
@@ -268,7 +248,7 @@ mod tests {
         let edits = diff_tokens(&before, &after);
         assert_eq!(
             edits[0],
-            SemanticTokensEdit {
+            ext::SemanticTokensEdit {
                 start: 10,
                 delete_count: 0,
                 data: Some(vec![from((11, 12, 13, 14, 15))])
@@ -288,7 +268,7 @@ mod tests {
         let edits = diff_tokens(&before, &after);
         assert_eq!(
             edits[0],
-            SemanticTokensEdit {
+            ext::SemanticTokensEdit {
                 start: 0,
                 delete_count: 0,
                 data: Some(vec![from((11, 12, 13, 14, 15))])
@@ -309,7 +289,7 @@ mod tests {
         let edits = diff_tokens(&before, &after);
         assert_eq!(
             edits[0],
-            SemanticTokensEdit {
+            ext::SemanticTokensEdit {
                 start: 5,
                 delete_count: 0,
                 data: Some(vec![
@@ -332,7 +312,7 @@ mod tests {
         let edits = diff_tokens(&before, &after);
         assert_eq!(
             edits[0],
-            SemanticTokensEdit {
+            ext::SemanticTokensEdit {
                 start: 10,
                 delete_count: 5,
                 data: Some(vec![])
@@ -352,7 +332,7 @@ mod tests {
         let edits = diff_tokens(&before, &after);
         assert_eq!(
             edits[0],
-            SemanticTokensEdit {
+            ext::SemanticTokensEdit {
                 start: 0,
                 delete_count: 5,
                 data: Some(vec![])
@@ -373,7 +353,7 @@ mod tests {
         let edits = diff_tokens(&before, &after);
         assert_eq!(
             edits[0],
-            SemanticTokensEdit {
+            ext::SemanticTokensEdit {
                 start: 5,
                 delete_count: 10,
                 data: Some(vec![])

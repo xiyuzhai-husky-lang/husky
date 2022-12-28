@@ -2,29 +2,30 @@ use crate::*;
 
 macro_rules! define_semantic_token_types {
     ($(($ident:ident, $string:literal)),*$(,)?) => {
-        $(pub  const $ident: SemanticTokenType = SemanticTokenType::new($string);)*
+        $(pub  const $ident: ext::SemanticTokenType = ext::SemanticTokenType::new($string);)*
 
-        pub const SUPPORTED_TYPES: &[SemanticTokenType] = &[
-            SemanticTokenType::COMMENT,
-            SemanticTokenType::KEYWORD,
-            SemanticTokenType::STRING,
-            SemanticTokenType::NUMBER,
-            SemanticTokenType::REGEXP,
-            SemanticTokenType::OPERATOR,
-            SemanticTokenType::NAMESPACE,
-            SemanticTokenType::TYPE,
-            SemanticTokenType::STRUCT,
-            SemanticTokenType::CLASS,
-            SemanticTokenType::INTERFACE,
-            SemanticTokenType::ENUM,
-            SemanticTokenType::ENUM_MEMBER,
-            SemanticTokenType::TYPE_PARAMETER,
-            SemanticTokenType::FUNCTION,
-            SemanticTokenType::METHOD,
-            SemanticTokenType::PROPERTY,
-            SemanticTokenType::MACRO,
-            SemanticTokenType::VARIABLE,
-            SemanticTokenType::PARAMETER,
+        pub const SUPPORTED_TYPES: &[ext::SemanticTokenType] = &[
+            ext::SemanticTokenType::COMMENT,
+            ext::SemanticTokenType::DECORATOR,
+            ext::SemanticTokenType::KEYWORD,
+            ext::SemanticTokenType::STRING,
+            ext::SemanticTokenType::NUMBER,
+            ext::SemanticTokenType::REGEXP,
+            ext::SemanticTokenType::OPERATOR,
+            ext::SemanticTokenType::NAMESPACE,
+            ext::SemanticTokenType::TYPE,
+            ext::SemanticTokenType::STRUCT,
+            ext::SemanticTokenType::CLASS,
+            ext::SemanticTokenType::INTERFACE,
+            ext::SemanticTokenType::ENUM,
+            ext::SemanticTokenType::ENUM_MEMBER,
+            ext::SemanticTokenType::TYPE_PARAMETER,
+            ext::SemanticTokenType::FUNCTION,
+            ext::SemanticTokenType::METHOD,
+            ext::SemanticTokenType::PROPERTY,
+            ext::SemanticTokenType::MACRO,
+            ext::SemanticTokenType::VARIABLE,
+            ext::SemanticTokenType::PARAMETER,
             $($ident),*
         ];
     };
@@ -64,17 +65,17 @@ define_semantic_token_types![
 
 macro_rules! define_semantic_token_modifiers {
     ($(($ident:ident, $string:literal)),*$(,)?) => {
-        $(pub const $ident: SemanticTokenModifier = SemanticTokenModifier::new($string);)*
+        $(pub const $ident: ext::SemanticTokenModifier = ext::SemanticTokenModifier::new($string);)*
 
-        pub const SUPPORTED_MODIFIERS: &[SemanticTokenModifier] = &[
-            SemanticTokenModifier::DOCUMENTATION,
-            SemanticTokenModifier::DECLARATION,
-            SemanticTokenModifier::DEFINITION,
-            SemanticTokenModifier::STATIC,
-            SemanticTokenModifier::ABSTRACT,
-            SemanticTokenModifier::DEPRECATED,
-            SemanticTokenModifier::READONLY,
-            SemanticTokenModifier::DEFAULT_LIBRARY,
+        pub const SUPPORTED_MODIFIERS: &[ext::SemanticTokenModifier] = &[
+            ext::SemanticTokenModifier::DOCUMENTATION,
+            ext::SemanticTokenModifier::DECLARATION,
+            ext::SemanticTokenModifier::DEFINITION,
+            ext::SemanticTokenModifier::STATIC,
+            ext::SemanticTokenModifier::ABSTRACT,
+            ext::SemanticTokenModifier::DEPRECATED,
+            ext::SemanticTokenModifier::READONLY,
+            ext::SemanticTokenModifier::DEFAULT_LIBRARY,
             $($ident),*
         ];
     };

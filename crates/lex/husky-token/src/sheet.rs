@@ -41,6 +41,10 @@ impl TokenSheet {
     pub fn len(&self) -> usize {
         self.tokens.len()
     }
+
+    pub fn tokens(&self) -> &[Token] {
+        self.tokens.as_ref()
+    }
 }
 
 #[salsa::tracked(jar = TokenJar, return_ref)]
