@@ -1,9 +1,7 @@
 import type * as vscode from "vscode";
 import type * as lc from "vscode-languageclient/node";
-import type * as lsp_ext from "./lsp_ext";
-import { Config, server_executable } from "./config";
+import { Config } from "./config";
 import { Context } from "./context";
-import { log } from "./util";
 
 let ctx: Context | undefined;
 

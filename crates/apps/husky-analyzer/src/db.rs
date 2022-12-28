@@ -1,4 +1,6 @@
 use husky_ast::AstJar;
+use husky_decl::DeclJar;
+use husky_defn::DefnJar;
 use husky_diagnostics::DiagnosticsJar;
 use husky_entity_path::EntityPathJar;
 use husky_entity_tree::EntityTreeJar;
@@ -6,9 +8,11 @@ use husky_folding_range::FoldingRangeJar;
 use husky_layout::LayoutJar;
 use husky_manifest::ManifestJar;
 use husky_rust_code_gen::RustTranspileJar;
+use husky_semantic_token::SemanticTokenJar;
 use husky_syntax_fmt::SyntaxFormatJar;
 use husky_term::TermJar;
 use husky_token::TokenJar;
+use husky_token_infer::TokenInferJar;
 use husky_vfs::*;
 use husky_word::WordJar;
 
@@ -25,8 +29,14 @@ use husky_word::WordJar;
     RustTranspileJar,
     LayoutJar,
     ManifestJar,
+    // syntax
+    DeclJar,
+    DefnJar,
+    // infer
+    TokenInferJar,
     // ide
     FoldingRangeJar,
+    SemanticTokenJar,
 )]
 #[derive(Default)]
 pub struct AnalyzerDB {
