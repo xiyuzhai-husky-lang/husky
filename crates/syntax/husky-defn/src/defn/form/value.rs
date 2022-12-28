@@ -1,10 +1,10 @@
 use crate::*;
 
 #[salsa::tracked(jar = DefnJar)]
-pub struct InductiveTypeDefn {
+pub struct ValueDefn {
     #[id]
-    pub module_item_path: ModuleItemPath,
+    pub entity_path: EntityPath,
     #[return_ref]
     pub expr_arena: ExprArena,
-    pub decl: InductiveTypeDecl,
+    pub decl: ConstantDecl,
 }

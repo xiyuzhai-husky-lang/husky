@@ -1,7 +1,7 @@
 use crate::*;
 use husky_ast::{Ast, AstIdx, AstIdxRange, AstSheet};
 use husky_entity_path::EntityPath;
-use husky_entity_taxonomy::{EntityKind, ItemKind, TypeKind};
+use husky_entity_taxonomy::{EntityKind, ModuleItemKind, ModuleTypeItemKind};
 use husky_entity_tree::{CratePrelude, EntitySymbol, EntityTreeSheet};
 use husky_expr::{parse_expr, ExprArena, ExprParsingStopReason};
 use husky_opn_syntax::BinaryOpr;
@@ -68,22 +68,24 @@ impl<'a> DeclCollector<'a> {
                     item_kind: module_item_kind,
                     ..
                 } => match module_item_kind {
-                    ItemKind::Type(type_kind) => match type_kind {
-                        TypeKind::Enum => todo!(),
-                        TypeKind::Inductive => todo!(),
-                        TypeKind::Record => todo!(),
-                        TypeKind::Struct => todo!(),
-                        TypeKind::Structure => todo!(),
-                        TypeKind::Form => self.parse_form_decl(
+                    ModuleItemKind::Type(type_kind) => match type_kind {
+                        ModuleTypeItemKind::Enum => todo!(),
+                        ModuleTypeItemKind::Inductive => todo!(),
+                        ModuleTypeItemKind::Record => todo!(),
+                        ModuleTypeItemKind::Struct => todo!(),
+                        ModuleTypeItemKind::Structure => {
+                            self.parse_structure_type_decl(entity_path.module_item_path().unwrap())
+                        }
+                        ModuleTypeItemKind::Alias => self.parse_alias_type_decl(
                             entity_kind,
-                            entity_path,
+                            entity_path.module_item_path().unwrap(),
                             token_group_idx,
                             body,
                             saved_stream_state,
                         ),
                     },
-                    ItemKind::Trait => todo!(),
-                    ItemKind::Form => todo!(),
+                    ModuleItemKind::Trait => todo!(),
+                    ModuleItemKind::Form => todo!(),
                 },
                 EntityKind::Module | EntityKind::AssociatedItem { .. } | EntityKind::Variant => {
                     unreachable!()
@@ -103,11 +105,17 @@ impl<'a> DeclCollector<'a> {
         }
     }
 
+    fn parse_structure_type_decl(&self, module_item_path: ModuleItemPath) -> DeclResult<Decl> {
+        Ok(Decl::Type(
+            StructureTypeDecl::new(self.db, module_item_path).into(),
+        ))
+    }
+
     // get declaration from tokens
-    fn parse_form_decl(
+    fn parse_alias_type_decl(
         &self,
         entity_kind: EntityKind,
-        entity_path: EntityPath,
+        module_item_path: ModuleItemPath,
         token_group_idx: TokenGroupIdx,
         body: &AstIdxRange,
         saved_stream_state: TokenIterState,
@@ -117,24 +125,22 @@ impl<'a> DeclCollector<'a> {
             .token_group_token_iter(token_group_idx, Some(saved_stream_state));
         let mut expr_arena = ExprArena::default();
         let local_symbol_sheet = LocalSymbolSheet::default();
-        if let Some(_) = token_iter.try_eat_special(BinaryOpr::Assign(None).into(), true) {
-            let (expr, stop_reason) = parse_expr(
-                self.ctx(entity_path, &local_symbol_sheet),
-                &mut token_iter,
-                &mut expr_arena,
-            );
-            todo!()
-        } else {
-            match token_iter.try_eat_special(SpecialToken::Semicolon, true) {
-                Some(_) => {
-                    if !token_iter.is_empty() {
-                        todo!()
-                    }
-                    todo!()
-                }
-                None => todo!(),
-            }
-        }
+        // if let Some(_) = token_iter.try_eat_special(BinaryOpr::Assign(None).into(), true) {
+        //     todo!()
+        // } else {
+        //     match token_iter.try_eat_special(SpecialToken::Semicolon, true) {
+        //         Some(_) => {
+        //             if !token_iter.is_empty() {
+        //                 todo!()
+        //             }
+        //             todo!()
+        //         }
+        //         None => todo!(),
+        //     }
+        // }
+        Ok(Decl::Type(
+            AliasTypeDecl::new(self.db, module_item_path).into(),
+        ))
     }
 
     fn ctx<'b>(

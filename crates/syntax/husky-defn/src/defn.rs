@@ -1,10 +1,14 @@
 mod form;
 mod trai;
+mod trai_item;
 mod ty;
+mod ty_item;
 
 pub use form::*;
 pub use trai::*;
+pub use trai_item::*;
 pub use ty::*;
+pub use ty_item::*;
 
 use crate::*;
 
@@ -13,6 +17,8 @@ pub enum Defn {
     Type(TypeDefn),
     Trait(TraitDefn),
     Form(FormDefn),
+    TypeItem(TypeItemDefn),
+    TraitItem(TraitItemDefn),
 }
 
 impl Defn {
@@ -21,6 +27,8 @@ impl Defn {
             Defn::Type(defn) => todo!(),
             Defn::Trait(_) => todo!(),
             Defn::Form(_) => todo!(),
+            Defn::TypeItem(_) => todo!(),
+            Defn::TraitItem(_) => todo!(),
         }
     }
 }

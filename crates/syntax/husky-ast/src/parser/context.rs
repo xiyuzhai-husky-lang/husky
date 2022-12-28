@@ -1,5 +1,5 @@
 use husky_entity_path::*;
-use husky_entity_taxonomy::{EntityKind, ItemKind, TypeKind};
+use husky_entity_taxonomy::{EntityKind, ModuleItemKind, ModuleTypeItemKind};
 use husky_text::TextRange;
 
 use crate::INDENT_INCR;
@@ -42,24 +42,25 @@ impl AstContextKind {
                 item_kind: module_item_kind,
                 ..
             } => match module_item_kind {
-                ItemKind::Type(_) => AstContextKind::InsideNoChild,
-                ItemKind::Trait => AstContextKind::InsideTrait {
+                ModuleItemKind::Type(_) => AstContextKind::InsideNoChild,
+                ModuleItemKind::Trait => AstContextKind::InsideTrait {
                     module_item_path: match entity_path {
                         Some(EntityPath::ModuleItem(module_item_path)) => module_item_path,
                         _ => unreachable!(),
                     },
                 },
-                ItemKind::Form => AstContextKind::InsideForm,
+                ModuleItemKind::Form => AstContextKind::InsideForm,
             },
             EntityKind::AssociatedItem { item_kind } => match item_kind {
-                ItemKind::Type(type_kind) => match type_kind {
-                    TypeKind::Enum | TypeKind::Inductive => todo!(),
-                    TypeKind::Record | TypeKind::Struct | TypeKind::Structure | TypeKind::Form => {
-                        AstContextKind::InsideNoChild
-                    }
+                ModuleItemKind::Type(type_kind) => match type_kind {
+                    ModuleTypeItemKind::Enum | ModuleTypeItemKind::Inductive => todo!(),
+                    ModuleTypeItemKind::Record
+                    | ModuleTypeItemKind::Struct
+                    | ModuleTypeItemKind::Structure
+                    | ModuleTypeItemKind::Alias => AstContextKind::InsideNoChild,
                 },
-                ItemKind::Trait => todo!(),
-                ItemKind::Form => AstContextKind::InsideForm,
+                ModuleItemKind::Trait => todo!(),
+                ModuleItemKind::Form => AstContextKind::InsideForm,
             },
             EntityKind::Variant => todo!(),
         }

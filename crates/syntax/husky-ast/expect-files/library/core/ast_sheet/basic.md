@@ -12,7 +12,7 @@ Ok(
                     accessibility: Public,
                     entity_kind: ModuleItem {
                         item_kind: Type(
-                            Form,
+                            Alias,
                         ),
                         connection: Connected,
                     },

@@ -5,12 +5,15 @@ mod opn;
 mod parser;
 mod pattern;
 mod precedence;
+mod sheet;
 mod stmt;
 mod variable;
 
 pub use atom::*;
 pub use error::*;
 pub use parser::*;
+pub use pattern::*;
+pub use sheet::*;
 pub use variable::*;
 
 use husky_entity_path::EntityPath;
