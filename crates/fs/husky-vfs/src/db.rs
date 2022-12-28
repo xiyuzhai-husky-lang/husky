@@ -6,10 +6,7 @@ use husky_text::TextChange;
 pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {
     fn path_menu(&self, toolchain: Toolchain) -> VfsResult<&PathMenu>;
     fn current_toolchain(&self) -> VfsResult<Toolchain>;
-    fn dev_path_menu(&self) -> VfsResult<&PathMenu> {
-        let toolchain = self.dev_toolchain()?;
-        self.path_menu(toolchain)
-    }
+
     fn package_manifest_content(&self, package_path: PackagePath) -> VfsResult<&str>;
     fn module_content(&self, module_path: ModulePath) -> VfsResult<&str>;
     fn package_dir(&self, package_path: PackagePath) -> &VfsResult<DiffPath>;
@@ -27,8 +24,6 @@ pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {
     fn set_live_file(&mut self, path: &Path, text: String) -> VfsResult<()>;
     fn apply_live_file_changes(&mut self, path: &Path, changes: Vec<TextChange>) -> VfsResult<()>;
     fn resolve_module_path(&self, toolchain: Toolchain, path: &Path) -> VfsResult<ModulePath>;
-    // toolchain
-    fn dev_toolchain(&self) -> VfsResult<Toolchain>;
     fn toolchain_library_path(&self, toolchain: Toolchain) -> &Path;
     fn published_toolchain_library_path(&self, toolchain: PublishedToolchain) -> &Path;
 }
@@ -304,16 +299,6 @@ where
         resolve_module_path(self, toolchain, path)
     }
 
-    // toolchain
-    fn dev_toolchain(&self) -> VfsResult<Toolchain> {
-        let library_path = derive_library_path_from_cargo_manifest_dir()?;
-        Ok(Toolchain::new(
-            self,
-            ToolchainData::Local {
-                library_path: DiffPath::try_new(self, &library_path).unwrap(),
-            },
-        ))
-    }
     fn toolchain_library_path(&self, toolchain: Toolchain) -> &Path {
         match toolchain.data(self) {
             ToolchainData::Published(_) => todo!(),

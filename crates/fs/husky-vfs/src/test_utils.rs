@@ -4,6 +4,12 @@ use salsa::DebugWithDb;
 use std::path::PathBuf;
 
 pub trait VfsTestSupport: VfsDb {
+    // toolchain
+    fn dev_toolchain(&self) -> VfsResult<Toolchain>;
+    fn dev_path_menu(&self) -> VfsResult<&PathMenu> {
+        let toolchain = self.dev_toolchain()?;
+        self.path_menu(toolchain)
+    }
     fn test_crates(f: impl Fn(&Self, CratePath))
     where
         Self: Default;
@@ -111,7 +117,7 @@ const EXPECT_FILE_EXTENSION: &'static str = "md";
 
 impl<Db> VfsTestSupport for Db
 where
-    Db: VfsDb,
+    Db: VfsDb + ?Sized,
 {
     fn test_crates(f: impl Fn(&Self, CratePath))
     where
@@ -232,6 +238,17 @@ where
                 |_db, r| format!("{:#?}", r),
             );
         }
+    }
+
+    fn dev_toolchain(&self) -> VfsResult<Toolchain> {
+        let library_path = derive_library_path_from_cargo_manifest_dir()?;
+        let db = <Self as salsa::DbWithJar<VfsJar>>::as_jar_db(&self);
+        Ok(Toolchain::new(
+            db,
+            ToolchainData::Local {
+                library_path: DiffPath::try_new(db, &library_path).unwrap(),
+            },
+        ))
     }
 }
 

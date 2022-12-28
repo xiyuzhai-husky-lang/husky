@@ -7,7 +7,7 @@ pub(crate) fn crate_prelude<'a>(
     crate_path: CratePath,
 ) -> EntityTreeResult<CratePrelude<'a>> {
     let toolchain = crate_path.toolchain(db);
-    let path_menu = db.dev_path_menu()?;
+    let path_menu = db.path_menu(toolchain)?;
     let core_prelude_module = path_menu.core_prelude();
     Ok(CratePrelude::new(
         entity_tree_sheet(db, core_prelude_module)?.module_symbols(),
