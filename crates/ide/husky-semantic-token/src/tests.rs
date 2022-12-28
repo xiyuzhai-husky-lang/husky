@@ -20,8 +20,14 @@ use husky_word::WordJar;
     DeclJar,
     DefnJar
 )]
+#[derive(Default)]
 pub(crate) struct DB {
     storage: salsa::Storage<Self>,
 }
 
 impl salsa::Database for DB {}
+
+#[test]
+fn semantic_tokens_works() {
+    DB::expect_test_probable_modules_debug("semantic_tokens", SemanticTokenDb::semantic_tokens_ext)
+}

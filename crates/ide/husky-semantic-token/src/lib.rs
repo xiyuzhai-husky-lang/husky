@@ -1,21 +1,41 @@
+mod collect;
+mod convert;
 mod db;
-mod old;
 mod specs;
 #[cfg(test)]
 mod tests;
+mod token;
 
 pub use db::*;
 pub use specs::*;
 
+use collect::*;
+use convert::*;
+use husky_entity_tree::EntityTreeResult;
 use husky_token::*;
 use husky_token_infer::*;
 use husky_vfs::*;
+use token::*;
 
 use husky_token::{Keyword, StmtKeyword};
-use lsp_types::{
-    Range, SemanticToken, SemanticTokenModifier, SemanticTokenType, SemanticTokens,
-    SemanticTokensEdit,
-};
+mod ext;
 
 #[salsa::jar(db = SemanticTokenDb)]
-pub struct SemanticTokenJar();
+pub struct SemanticTokenJar(semantic_tokens, semantic_tokens_ext);
+
+#[salsa::tracked(jar = SemanticTokenJar, return_ref)]
+fn semantic_tokens(
+    db: &dyn SemanticTokenDb,
+    module_path: ModulePath,
+) -> EntityTreeResult<Vec<RangedSemanticToken>> {
+    collect_semantic_tokens(db, module_path)
+}
+
+#[salsa::tracked(jar = SemanticTokenJar, return_ref)]
+fn semantic_tokens_ext(
+    db: &dyn SemanticTokenDb,
+    module_path: ModulePath,
+) -> EntityTreeResult<Vec<ext::SemanticToken>> {
+    let tokens = semantic_tokens(db, module_path).as_ref()?;
+    Ok(to_semantic_tokens(tokens))
+}
