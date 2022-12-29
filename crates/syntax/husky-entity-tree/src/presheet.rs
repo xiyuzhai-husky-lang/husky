@@ -21,7 +21,7 @@ pub(crate) fn entity_tree_presheet(
 
 #[test]
 fn entity_tree_presheet_works() {
-    DB::expect_test_probable_modules_debug_with_db("entity_tree_presheet", |db, module_path| {
+    DB::expect_test_probable_modules_debug_ref_with_db("entity_tree_presheet", |db, module_path| {
         entity_tree_presheet(db, module_path)
     })
 }

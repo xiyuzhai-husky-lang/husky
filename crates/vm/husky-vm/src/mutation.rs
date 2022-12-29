@@ -1,12 +1,12 @@
 use husky_term::Term;
-use husky_text::FileRange;
+use husky_text::ModuleRange;
 use husky_word::Identifier;
 
 use crate::*;
 
 #[derive(Debug)]
 pub struct MutationData<'eval> {
-    pub range: FileRange,
+    pub range: ModuleRange,
     pub kind: MutationDataVariant,
     pub ty: Term,
     pub before: Option<__Register<'eval>>,

@@ -3,9 +3,10 @@ use crate::{convert::from_lsp_types, *};
 type AnalyzerDBSnapshot = salsa::Snapshot<AnalyzerDB>;
 
 use husky_folding_range::FoldingRangeDb;
-use husky_hover::HoverResult;
+use husky_hover::{HoverDb, HoverResult};
 
 use husky_semantic_token::SemanticTokenDb;
+use husky_text::{TextPosition, TextRange};
 use husky_vfs::VfsDb;
 use lsp_types::{
     CallHierarchyIncomingCall, CallHierarchyIncomingCallsParams, CallHierarchyItem,
@@ -146,18 +147,19 @@ pub(crate) fn handle_decl_help(
 }
 
 pub(crate) fn handle_hover(
-    _comptime: AnalyzerDBSnapshot,
-    _params: lsp_ext::HoverParams,
+    snapshot: AnalyzerDBSnapshot,
+    params: lsp_ext::HoverParams,
 ) -> Result<Option<HoverResult>> {
-    msg_once!("todo handle hover!");
-    Ok(None)
-    // let file = comptime.it_url(&params.text_document.uri).expect("todo");
-    // let range = match params.position {
-    //     PositionOrRange::Position(position) => lsp_types::Range::new(position, position),
-    //     PositionOrRange::Range(range) => range,
-    // };
-    // let range: TextRange = range.into();
-    // Ok(comptime.opt_hover_result(FileRange::new(file, range)))
+    let path = from_lsp_types::path_from_url(&params.text_document.uri)?;
+    let module_path = snapshot.resolve_module_path(snapshot.current_toolchain()?, &path)?;
+    let position = match params.position {
+        lsp_ext::PositionOrRange::Position(position) => position,
+        lsp_ext::PositionOrRange::Range(range) => range.start,
+    };
+    let position: TextPosition = position.into();
+    snapshot
+        .hover_result(module_path, position)
+        .map_err(|e| e.into())
 }
 
 pub(crate) fn handle_prepare_rename(

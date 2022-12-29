@@ -5,6 +5,14 @@ pub struct TokenInfoSheet {
     token_infos: Vec<TokenInfo>,
 }
 
+impl std::ops::Index<TokenIdx> for TokenInfoSheet {
+    type Output = TokenInfo;
+
+    fn index(&self, index: TokenIdx) -> &Self::Output {
+        &self.token_infos[index.raw()]
+    }
+}
+
 impl TokenInfoSheet {
     pub(crate) fn new(token_sheet: &TokenSheet) -> Self {
         TokenInfoSheet {

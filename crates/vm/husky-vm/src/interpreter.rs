@@ -3,7 +3,7 @@ mod query;
 
 use husky_print_utils::ps;
 use husky_term::Term;
-use husky_text::FileRange;
+use husky_text::ModuleRange;
 use husky_word::Identifier;
 use indexmap::IndexMap;
 pub use query::InterpreterQueryGroup;
@@ -17,7 +17,7 @@ pub struct Interpreter<'a, 'eval: 'a> {
     pub(crate) history: History<'eval>,
     opt_snapshot_saved: Option<StackSnapshot<'eval>>,
     pub(crate) frames: Vec<LoopFrameData<'eval>>,
-    variable_mutations: IndexMap<VMStackIdx, (Identifier, FileRange, Term)>,
+    variable_mutations: IndexMap<VMStackIdx, (Identifier, ModuleRange, Term)>,
     vm_config: &'a VMConfig,
 }
 
@@ -111,7 +111,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         &mut self,
         stack_idx: VMStackIdx,
         varname: Identifier,
-        range: FileRange,
+        range: ModuleRange,
         ty: Term,
     ) {
         self.variable_mutations

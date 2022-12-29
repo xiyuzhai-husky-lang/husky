@@ -5,6 +5,7 @@ use husky_diagnostics::DiagnosticsJar;
 use husky_entity_path::EntityPathJar;
 use husky_entity_tree::EntityTreeJar;
 use husky_folding_range::FoldingRangeJar;
+use husky_hover::HoverJar;
 use husky_layout::LayoutJar;
 use husky_manifest::ManifestJar;
 use husky_rust_code_gen::RustTranspileJar;
@@ -37,6 +38,7 @@ use husky_word::WordJar;
     // ide
     FoldingRangeJar,
     SemanticTokenJar,
+    HoverJar,
 )]
 #[derive(Default)]
 pub struct AnalyzerDB {

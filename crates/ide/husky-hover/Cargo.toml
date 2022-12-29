@@ -8,16 +8,33 @@ edition = "2021"
 lsp-types = { version = "0.93", features = ["proposed"] }
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
-# utils
-husky-print-utils = { path = "../../utils/husky-print-utils" }
+# abstraction
+salsa = { path = "../../abstraction/salsa" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
+# ide
+husky-documentation = { path = "../../ide/husky-documentation" }
+# infer
+husky-term-infer = { path = "../../infer/husky-term-infer" }
+husky-token-info = { path = "../../infer/husky-token-info" }
+# lex
+husky-token = { path = "../../lex/husky-token" }
+husky-text = { path = "../../lex/husky-text" }
 # kernel
 husky-term = { path = "../../kernel/husky-term" }
-husky-text = { path = "../../lex/husky-text" }
-husky-vfs = { path = "../../fs/husky-vfs" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-expr = { path = "../../syntax/husky-expr" }
+husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+# utils
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+
+[dev-dependencies]
+# kernel
+husky-word = { path = "../../kernel/husky-word" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
+# syntax
+husky-decl = { path = "../../syntax/husky-decl" }
+husky-defn = { path = "../../syntax/husky-defn" }
 # infer
-husky-term-infer = { path = "../../infer/husky-term-infer" }
-# ide
-husky-documentation = { path = "../../ide/husky-documentation" }
+husky-manifest = { path = "../../infer/husky-manifest" }

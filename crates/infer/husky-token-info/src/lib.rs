@@ -17,12 +17,12 @@ use husky_vfs::*;
 #[cfg(test)]
 use tests::*;
 
-#[salsa::jar(db =  TokenInferDb)]
+#[salsa::jar(db =  TokenInfoDb)]
 pub struct TokenInfoJar(token_info_sheet);
 
 #[salsa::tracked(jar = TokenInfoJar, return_ref)]
 fn token_info_sheet(
-    db: &dyn TokenInferDb,
+    db: &dyn TokenInfoDb,
     module_path: ModulePath,
 ) -> EntityTreeResult<TokenInfoSheet> {
     Ok(TokenInferEngine::new(db, module_path)?.infer_all())

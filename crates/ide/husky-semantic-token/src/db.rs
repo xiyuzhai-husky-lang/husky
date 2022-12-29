@@ -1,7 +1,7 @@
 use crate::*;
 use salsa::DbWithJar;
 
-pub trait SemanticTokenDb: DbWithJar<SemanticTokenJar> + TokenInferDb {
+pub trait SemanticTokenDb: DbWithJar<SemanticTokenJar> + TokenInfoDb {
     fn semantic_tokens_ext(
         &self,
         module_path: ModulePath,
@@ -10,7 +10,7 @@ pub trait SemanticTokenDb: DbWithJar<SemanticTokenJar> + TokenInferDb {
 
 impl<Db> SemanticTokenDb for Db
 where
-    Db: DbWithJar<SemanticTokenJar> + TokenInferDb,
+    Db: DbWithJar<SemanticTokenJar> + TokenInfoDb,
 {
     fn semantic_tokens_ext(
         &self,

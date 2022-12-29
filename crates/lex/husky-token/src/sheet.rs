@@ -1,3 +1,5 @@
+use husky_text::TextPosition;
+
 use crate::*;
 
 #[derive(Debug, Hash, PartialOrd, Ord, PartialEq, Eq, Clone, Copy)]
@@ -50,6 +52,24 @@ impl TokenSheet {
 
     pub fn tokens(&self) -> &[Token] {
         self.tokens.as_ref()
+    }
+
+    pub fn token_index_iter<'a>(&'a self) -> impl Iterator<Item = TokenIdx> + 'a {
+        (0..self.tokens.len()).into_iter().map(|i| TokenIdx(i))
+    }
+
+    // todo: test this
+    pub fn search_token_by_position(&self, pos: TextPosition) -> Option<TokenIdx> {
+        let index = match self
+            .tokens
+            .binary_search_by(|pos1| pos1.range.start.cmp(&pos))
+        {
+            Ok(i) => i,
+            Err(e) => (e > 0).then(|| e - 1)?,
+        };
+        assert!(self.tokens[index].range.start <= pos);
+        assert!(self.tokens[index + 1].range.start > pos);
+        (self.tokens[index].range.end > pos).then(|| TokenIdx(index))
     }
 }
 
