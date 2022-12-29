@@ -208,7 +208,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::geom2d`,
                         ),
-                        ast_idx: 79,
+                        ast_idx: 85,
                         path: TypePath(`mnist_classifier::geom2d::Point2d, Struct`),
                     },
                     ModuleItem {
@@ -216,7 +216,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::geom2d`,
                         ),
-                        ast_idx: 81,
+                        ast_idx: 87,
                         path: TypePath(`mnist_classifier::geom2d::RelativePoint2d, Struct`),
                     },
                     ModuleItem {
@@ -224,7 +224,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::geom2d`,
                         ),
-                        ast_idx: 82,
+                        ast_idx: 88,
                         path: TypePath(`mnist_classifier::geom2d::Vector2d, Struct`),
                     },
                     ModuleItem {
@@ -232,15 +232,13 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::geom2d`,
                         ),
-                        ast_idx: 84,
+                        ast_idx: 90,
                         path: TypePath(`mnist_classifier::geom2d::ClosedRange, Struct`),
                     },
                     ModuleItem {
                         ident: `BoundingBox`,
-                        accessibility: PubicUnder(
-                            `mnist_classifier::geom2d`,
-                        ),
-                        ast_idx: 86,
+                        accessibility: Public,
+                        ast_idx: 92,
                         path: TypePath(`mnist_classifier::geom2d::BoundingBox, Struct`),
                     },
                     ModuleItem {
@@ -248,7 +246,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::geom2d`,
                         ),
-                        ast_idx: 88,
+                        ast_idx: 95,
                         path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox, Struct`),
                     },
                 ],

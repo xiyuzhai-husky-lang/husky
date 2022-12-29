@@ -852,12 +852,24 @@ Ok(
                         next_relative: 2,
                     },
                 },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        67,
+                    ),
+                    error: ExpectDecoratorOrEntityKeyword,
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        68,
+                    ),
+                    error: ExpectDecoratorOrEntityKeyword,
+                },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
-                        69,
+                        72,
                     ),
                     body: ArenaIdxRange(
-                        63..63,
+                        65..65,
                     ),
                 },
                 Stmt {
@@ -865,15 +877,47 @@ Ok(
                         74,
                     ),
                     body: ArenaIdxRange(
-                        64..64,
+                        66..66,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        76,
+                    ),
+                    body: ArenaIdxRange(
+                        67..67,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        78,
+                    ),
+                    body: ArenaIdxRange(
+                        68..68,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        80,
+                    ),
+                    body: ArenaIdxRange(
+                        69..69,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        82,
+                    ),
+                    body: ArenaIdxRange(
+                        70..70,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        68,
+                        71,
                     ),
                     body: ArenaIdxRange(
-                        63..64,
+                        65..66,
                     ),
                     accessibility: PublicUnder(
                         ModulePath(
@@ -891,7 +935,7 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `relative_bounding_box`,
                         token_idx: TokenIdx(
-                            582,
+                            585,
                         ),
                     },
                     is_generic: false,
@@ -902,10 +946,10 @@ Ok(
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        70,
+                        73,
                     ),
                     body: ArenaIdxRange(
-                        0..0,
+                        66..67,
                     ),
                     accessibility: PublicUnder(
                         ModulePath(
@@ -923,21 +967,21 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `relative_point`,
                         token_idx: TokenIdx(
-                            613,
+                            616,
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
+                    body_kind: Block,
                     saved_stream_state: TokenIterState {
                         next_relative: 2,
                     },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        71,
+                        75,
                     ),
                     body: ArenaIdxRange(
-                        0..0,
+                        67..68,
                     ),
                     accessibility: PublicUnder(
                         ModulePath(
@@ -955,21 +999,21 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `xmin`,
                         token_idx: TokenIdx(
-                            645,
+                            647,
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
+                    body_kind: Block,
                     saved_stream_state: TokenIterState {
                         next_relative: 2,
                     },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        72,
+                        77,
                     ),
                     body: ArenaIdxRange(
-                        0..0,
+                        68..69,
                     ),
                     accessibility: PublicUnder(
                         ModulePath(
@@ -987,21 +1031,21 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `xmax`,
                         token_idx: TokenIdx(
-                            656,
+                            657,
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
+                    body_kind: Block,
                     saved_stream_state: TokenIterState {
                         next_relative: 2,
                     },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        73,
+                        79,
                     ),
                     body: ArenaIdxRange(
-                        64..65,
+                        69..70,
                     ),
                     accessibility: PublicUnder(
                         ModulePath(
@@ -1030,10 +1074,10 @@ Ok(
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        75,
+                        81,
                     ),
                     body: ArenaIdxRange(
-                        0..0,
+                        70..71,
                     ),
                     accessibility: PublicUnder(
                         ModulePath(
@@ -1055,49 +1099,49 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
+                    body_kind: Block,
                     saved_stream_state: TokenIterState {
                         next_relative: 2,
                     },
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
-                        79,
+                        86,
                     ),
                     body: ArenaIdxRange(
-                        71..71,
+                        77..77,
                     ),
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
-                        81,
+                        88,
                     ),
                     body: ArenaIdxRange(
-                        72..72,
+                        78..78,
                     ),
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
-                        83,
+                        90,
                     ),
                     body: ArenaIdxRange(
-                        73..73,
+                        79..79,
                     ),
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
-                        85,
+                        92,
                     ),
                     body: ArenaIdxRange(
-                        74..74,
+                        80..80,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        78,
+                        85,
                     ),
                     body: ArenaIdxRange(
-                        71..72,
+                        77..78,
                     ),
                     accessibility: PublicUnder(
                         ModulePath(
@@ -1115,7 +1159,7 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `xmin`,
                         token_idx: TokenIdx(
-                            703,
+                            702,
                         ),
                     },
                     is_generic: false,
@@ -1126,10 +1170,10 @@ Ok(
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        80,
+                        87,
                     ),
                     body: ArenaIdxRange(
-                        72..73,
+                        78..79,
                     ),
                     accessibility: PublicUnder(
                         ModulePath(
@@ -1147,7 +1191,7 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `xmax`,
                         token_idx: TokenIdx(
-                            713,
+                            712,
                         ),
                     },
                     is_generic: false,
@@ -1158,10 +1202,10 @@ Ok(
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        82,
+                        89,
                     ),
                     body: ArenaIdxRange(
-                        73..74,
+                        79..80,
                     ),
                     accessibility: PublicUnder(
                         ModulePath(
@@ -1179,7 +1223,7 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `ymin`,
                         token_idx: TokenIdx(
-                            723,
+                            722,
                         ),
                     },
                     is_generic: false,
@@ -1190,10 +1234,10 @@ Ok(
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        84,
+                        91,
                     ),
                     body: ArenaIdxRange(
-                        74..75,
+                        80..81,
                     ),
                     accessibility: PublicUnder(
                         ModulePath(
@@ -1211,7 +1255,7 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `ymax`,
                         token_idx: TokenIdx(
-                            733,
+                            732,
                         ),
                     },
                     is_generic: false,
@@ -1389,15 +1433,9 @@ Ok(
                         66,
                     ),
                     body: ArenaIdxRange(
-                        0..0,
+                        63..65,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 26,
-                            },
-                        ),
-                    ),
+                    accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1410,26 +1448,34 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `BoundingBox`,
                         token_idx: TokenIdx(
-                            567,
+                            568,
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
+                    body_kind: Block,
                     saved_stream_state: TokenIterState {
-                        next_relative: 2,
+                        next_relative: 3,
                     },
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        69,
+                    ),
+                    body: ArenaIdxRange(
+                        65..65,
+                    ),
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
-                        67,
+                        70,
                     ),
                     body: ArenaIdxRange(
-                        65..71,
+                        71..77,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        76,
+                        83,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -1453,7 +1499,7 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `RelativeBoundingBox`,
                         token_idx: TokenIdx(
-                            688,
+                            687,
                         ),
                     },
                     is_generic: false,
@@ -1464,16 +1510,16 @@ Ok(
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
-                        77,
+                        84,
                     ),
                     body: ArenaIdxRange(
-                        75..79,
+                        81..85,
                     ),
                 },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            79..90,
+            85..97,
         ),
         use_expr_arena: Arena {
             data: [],

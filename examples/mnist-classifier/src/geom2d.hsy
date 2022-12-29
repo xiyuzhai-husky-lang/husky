@@ -98,9 +98,9 @@ impl CloseRange:
         span = max - min
         (v - min) / span
 
-struct BoundingBox {
-    xrange: ClosedRange,
-    yrange: ClosedRange,
+pub struct BoundingBox {
+    pub xrange: ClosedRange,
+    pub yrange: ClosedRange,
 }
 
 impl BoundingBox:
@@ -110,27 +110,23 @@ impl BoundingBox:
             yrange.relative_range(other.yrange),
         )
     
-    func relative_point(point: Point2d) -> RelativePoint2d {
+    func relative_point(point: Point2d) -> RelativePoint2d:
         RelativePoint2d(
             xrange.relative_point(point.x),
             yrange.relative_point(point.x),
         )
-    }
     
-    func xmin() -> f32 {
+    func xmin() -> f32:
         xrange.min
-    }
     
-    func xmax() -> f32 {
+    func xmax() -> f32:
         xrange.max
-    }
     
     func ymin() -> f32:
         yrange.min
     
-    func ymax() -> f32 {
+    func ymax() -> f32:
         yrange.max
-    }
 
 struct RelativeBoundingBox {
     xrange: ClosedRange,
