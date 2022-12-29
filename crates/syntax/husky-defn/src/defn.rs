@@ -5,6 +5,7 @@ mod ty;
 mod ty_item;
 
 pub use form::*;
+use husky_ast::AstIdx;
 pub use trai::*;
 pub use trai_item::*;
 pub use ty::*;
@@ -30,6 +31,10 @@ impl Defn {
             Defn::TypeItem(defn) => defn.decl(db).into(),
             Defn::TraitItem(defn) => defn.decl(db).into(),
         }
+    }
+
+    pub fn ast_idx(self, db: &dyn DefnDb) -> AstIdx {
+        self.decl(db).ast_idx(db)
     }
 }
 

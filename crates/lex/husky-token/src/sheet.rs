@@ -3,6 +3,12 @@ use crate::*;
 #[derive(Debug, Hash, PartialOrd, Ord, PartialEq, Eq, Clone, Copy)]
 pub struct TokenIdx(pub(crate) usize);
 
+impl TokenIdx {
+    pub fn raw(self) -> usize {
+        self.0
+    }
+}
+
 impl std::ops::Index<TokenIdx> for TokenSheet {
     type Output = Token;
 

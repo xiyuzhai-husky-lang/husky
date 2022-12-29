@@ -1,3 +1,4 @@
+#![feature(trait_upcasting)]
 mod db;
 mod engine;
 mod info;
@@ -17,12 +18,12 @@ use husky_vfs::*;
 use tests::*;
 
 #[salsa::jar(db =  TokenInferDb)]
-pub struct TokenInferJar(token_infer_sheet);
+pub struct TokenInfoJar(token_info_sheet);
 
-#[salsa::tracked(jar = TokenInferJar, return_ref)]
-fn token_infer_sheet(
+#[salsa::tracked(jar = TokenInfoJar, return_ref)]
+fn token_info_sheet(
     db: &dyn TokenInferDb,
     module_path: ModulePath,
-) -> EntityTreeResult<TokenInferSheet> {
+) -> EntityTreeResult<TokenInfoSheet> {
     Ok(TokenInferEngine::new(db, module_path)?.infer_all())
 }

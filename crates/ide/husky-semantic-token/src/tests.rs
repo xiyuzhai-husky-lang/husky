@@ -11,7 +11,7 @@ use husky_word::WordJar;
     VfsJar,
     WordJar,
     TokenJar,
-    TokenInferJar,
+    TokenInfoJar,
     EntityPathJar,
     ManifestJar,
     AstJar,

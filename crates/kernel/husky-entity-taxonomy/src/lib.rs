@@ -26,7 +26,7 @@ pub enum EntityKind {
         connection: ModuleItemConnection,
     },
     AssociatedItem {
-        item_kind: ModuleItemKind,
+        associated_item_kind: ModuleItemKind,
     },
     Variant,
 }

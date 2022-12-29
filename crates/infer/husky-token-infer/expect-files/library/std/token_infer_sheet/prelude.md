@@ -1,5 +1,5 @@
 Ok(
-    TokenInferSheet {
+    TokenInfoSheet {
         token_infos: [],
     },
 )
