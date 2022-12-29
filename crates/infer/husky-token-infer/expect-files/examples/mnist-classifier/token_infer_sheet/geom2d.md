@@ -596,6 +596,7 @@ Ok(
             None,
             None,
             None,
+            None,
             Entity(
                 ModuleItem {
                     module_item_kind: Type(
@@ -604,8 +605,6 @@ Ok(
                     connection: Connected,
                 },
             ),
-            None,
-            None,
             None,
             None,
             None,
