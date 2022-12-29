@@ -56,7 +56,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `from_i_shift28`,
+                    ident_token: IdentifierToken {
+                        ident: `from_i_shift28`,
+                        token_idx: TokenIdx(
+                            17,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -83,7 +88,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `vector`,
+                    ident_token: IdentifierToken {
+                        ident: `vector`,
+                        token_idx: TokenIdx(
+                            49,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -110,7 +120,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `to`,
+                    ident_token: IdentifierToken {
+                        ident: `to`,
+                        token_idx: TokenIdx(
+                            66,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -137,7 +152,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `norm`,
+                    ident_token: IdentifierToken {
+                        ident: `norm`,
+                        token_idx: TokenIdx(
+                            94,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -164,7 +184,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `dist`,
+                    ident_token: IdentifierToken {
+                        ident: `dist`,
+                        token_idx: TokenIdx(
+                            122,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -466,7 +491,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `point`,
+                    ident_token: IdentifierToken {
+                        ident: `point`,
+                        token_idx: TokenIdx(
+                            169,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -493,7 +523,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `to`,
+                    ident_token: IdentifierToken {
+                        ident: `to`,
+                        token_idx: TokenIdx(
+                            186,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -520,7 +555,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `norm`,
+                    ident_token: IdentifierToken {
+                        ident: `norm`,
+                        token_idx: TokenIdx(
+                            214,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -547,7 +587,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `dot`,
+                    ident_token: IdentifierToken {
+                        ident: `dot`,
+                        token_idx: TokenIdx(
+                            242,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -574,7 +619,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `cross`,
+                    ident_token: IdentifierToken {
+                        ident: `cross`,
+                        token_idx: TokenIdx(
+                            267,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -601,7 +651,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `angle`,
+                    ident_token: IdentifierToken {
+                        ident: `angle`,
+                        token_idx: TokenIdx(
+                            292,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -633,7 +688,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `rotation_direction_to`,
+                    ident_token: IdentifierToken {
+                        ident: `rotation_direction_to`,
+                        token_idx: TokenIdx(
+                            359,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -660,7 +720,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `angle_to`,
+                    ident_token: IdentifierToken {
+                        ident: `angle_to`,
+                        token_idx: TokenIdx(
+                            385,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -743,7 +808,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `relative_range`,
+                    ident_token: IdentifierToken {
+                        ident: `relative_range`,
+                        token_idx: TokenIdx(
+                            497,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -770,7 +840,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `relative_point`,
+                    ident_token: IdentifierToken {
+                        ident: `relative_point`,
+                        token_idx: TokenIdx(
+                            545,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -813,7 +888,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `relative_bounding_box`,
+                    ident_token: IdentifierToken {
+                        ident: `relative_bounding_box`,
+                        token_idx: TokenIdx(
+                            582,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -840,7 +920,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `relative_point`,
+                    ident_token: IdentifierToken {
+                        ident: `relative_point`,
+                        token_idx: TokenIdx(
+                            613,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -867,7 +952,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `xmin`,
+                    ident_token: IdentifierToken {
+                        ident: `xmin`,
+                        token_idx: TokenIdx(
+                            645,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -894,7 +984,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `xmax`,
+                    ident_token: IdentifierToken {
+                        ident: `xmax`,
+                        token_idx: TokenIdx(
+                            656,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -921,7 +1016,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `ymin`,
+                    ident_token: IdentifierToken {
+                        ident: `ymin`,
+                        token_idx: TokenIdx(
+                            667,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -948,7 +1048,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `ymax`,
+                    ident_token: IdentifierToken {
+                        ident: `ymax`,
+                        token_idx: TokenIdx(
+                            677,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -1007,7 +1112,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `xmin`,
+                    ident_token: IdentifierToken {
+                        ident: `xmin`,
+                        token_idx: TokenIdx(
+                            703,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -1034,7 +1144,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `xmax`,
+                    ident_token: IdentifierToken {
+                        ident: `xmax`,
+                        token_idx: TokenIdx(
+                            713,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -1061,7 +1176,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `ymin`,
+                    ident_token: IdentifierToken {
+                        ident: `ymin`,
+                        token_idx: TokenIdx(
+                            723,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -1088,7 +1208,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `ymax`,
+                    ident_token: IdentifierToken {
+                        ident: `ymax`,
+                        token_idx: TokenIdx(
+                            733,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -1118,7 +1243,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`mnist_classifier::geom2d::Point2d, Struct`),
                     ),
-                    ident: `Point2d`,
+                    ident_token: IdentifierToken {
+                        ident: `Point2d`,
+                        token_idx: TokenIdx(
+                            1,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -1156,7 +1286,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`mnist_classifier::geom2d::RelativePoint2d, Struct`),
                     ),
-                    ident: `RelativePoint2d`,
+                    ident_token: IdentifierToken {
+                        ident: `RelativePoint2d`,
+                        token_idx: TokenIdx(
+                            142,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -1186,7 +1321,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`mnist_classifier::geom2d::Vector2d, Struct`),
                     ),
-                    ident: `Vector2d`,
+                    ident_token: IdentifierToken {
+                        ident: `Vector2d`,
+                        token_idx: TokenIdx(
+                            154,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -1224,7 +1364,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`mnist_classifier::geom2d::ClosedRange, Struct`),
                     ),
-                    ident: `ClosedRange`,
+                    ident_token: IdentifierToken {
+                        ident: `ClosedRange`,
+                        token_idx: TokenIdx(
+                            482,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -1262,7 +1407,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`mnist_classifier::geom2d::BoundingBox, Struct`),
                     ),
-                    ident: `BoundingBox`,
+                    ident_token: IdentifierToken {
+                        ident: `BoundingBox`,
+                        token_idx: TokenIdx(
+                            567,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -1300,7 +1450,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox, Struct`),
                     ),
-                    ident: `RelativeBoundingBox`,
+                    ident_token: IdentifierToken {
+                        ident: `RelativeBoundingBox`,
+                        token_idx: TokenIdx(
+                            688,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {

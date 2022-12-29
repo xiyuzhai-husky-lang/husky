@@ -14,6 +14,7 @@ use husky_entity_tree::EntityTreeResult;
 pub use sheet::*;
 
 use collector::*;
+use husky_ast::AstIdx;
 use husky_entity_path::*;
 use husky_expr::*;
 use husky_vfs::{ModulePath, VfsResult};

@@ -340,11 +340,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         60,
                     ),
-                    error: ExpectIdentifier(
-                        Some(
-                            [81:11, 81:12),
-                        ),
-                    ),
+                    error: ExpectIdentifier,
                 },
                 Err {
                     token_group_idx: TokenGroupIdx(
@@ -558,7 +554,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, Struct`),
                     ),
-                    ident: `ConcaveComponent`,
+                    ident_token: IdentifierToken {
+                        ident: `ConcaveComponent`,
+                        token_idx: TokenIdx(
+                            29,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -588,7 +589,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components, Function`),
                     ),
-                    ident: `find_concave_components`,
+                    ident_token: IdentifierToken {
+                        ident: `find_concave_components`,
+                        token_idx: TokenIdx(
+                            473,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {

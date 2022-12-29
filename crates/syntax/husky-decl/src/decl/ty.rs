@@ -27,6 +27,20 @@ pub enum TypeDecl {
     Union(UnionTypeDecl),
 }
 
+impl TypeDecl {
+    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
+        match self {
+            TypeDecl::Enum(decl) => decl.ast_idx(db),
+            TypeDecl::Struct(decl) => decl.ast_idx(db),
+            TypeDecl::Record(decl) => decl.ast_idx(db),
+            TypeDecl::Inductive(decl) => decl.ast_idx(db),
+            TypeDecl::Structure(decl) => decl.ast_idx(db),
+            TypeDecl::Alien(decl) => decl.ast_idx(db),
+            TypeDecl::Union(decl) => decl.ast_idx(db),
+        }
+    }
+}
+
 impl From<EnumTypeDecl> for TypeDecl {
     fn from(v: EnumTypeDecl) -> Self {
         Self::Enum(v)

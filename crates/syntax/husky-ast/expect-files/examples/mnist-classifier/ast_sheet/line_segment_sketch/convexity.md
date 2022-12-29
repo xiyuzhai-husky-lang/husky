@@ -225,7 +225,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex, Function`),
                     ),
-                    ident: `is_convex`,
+                    ident_token: IdentifierToken {
+                        ident: `is_convex`,
+                        token_idx: TokenIdx(
+                            19,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {

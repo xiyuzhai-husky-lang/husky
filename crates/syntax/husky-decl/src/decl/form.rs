@@ -20,6 +20,17 @@ pub enum FormDecl {
     Const(ConstantDecl),
 }
 
+impl FormDecl {
+    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
+        match self {
+            FormDecl::Function(decl) => decl.ast_idx(db),
+            FormDecl::Feature(decl) => decl.ast_idx(db),
+            FormDecl::Morphism(decl) => decl.ast_idx(db),
+            FormDecl::Const(decl) => decl.ast_idx(db),
+        }
+    }
+}
+
 impl From<ConstantDecl> for FormDecl {
     fn from(v: ConstantDecl) -> Self {
         Self::Const(v)

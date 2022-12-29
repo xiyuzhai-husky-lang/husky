@@ -224,7 +224,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::major::connected_components, Feature`),
                     ),
-                    ident: `connected_components`,
+                    ident_token: IdentifierToken {
+                        ident: `connected_components`,
+                        token_idx: TokenIdx(
+                            27,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -254,7 +259,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::major::major_connected_component, Feature`),
                     ),
-                    ident: `major_connected_component`,
+                    ident_token: IdentifierToken {
+                        ident: `major_connected_component`,
+                        token_idx: TokenIdx(
+                            38,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -284,7 +294,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum, Feature`),
                     ),
-                    ident: `ignored_connected_components_row_span_sum_sum`,
+                    ident_token: IdentifierToken {
+                        ident: `ignored_connected_components_row_span_sum_sum`,
+                        token_idx: TokenIdx(
+                            87,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -314,7 +329,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::major::major_raw_contours, Feature`),
                     ),
-                    ident: `major_raw_contours`,
+                    ident_token: IdentifierToken {
+                        ident: `major_raw_contours`,
+                        token_idx: TokenIdx(
+                            120,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -349,7 +369,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::major::major_raw_contour, Feature`),
                     ),
-                    ident: `major_raw_contour`,
+                    ident_token: IdentifierToken {
+                        ident: `major_raw_contour`,
+                        token_idx: TokenIdx(
+                            131,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -379,7 +404,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::major::major_line_segment_sketch, Feature`),
                     ),
-                    ident: `major_line_segment_sketch`,
+                    ident_token: IdentifierToken {
+                        ident: `major_line_segment_sketch`,
+                        token_idx: TokenIdx(
+                            142,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -409,7 +439,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::major::major_concave_components, Feature`),
                     ),
-                    ident: `major_concave_components`,
+                    ident_token: IdentifierToken {
+                        ident: `major_concave_components`,
+                        token_idx: TokenIdx(
+                            150,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {

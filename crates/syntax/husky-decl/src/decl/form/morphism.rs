@@ -4,4 +4,5 @@ use crate::*;
 pub struct MorphismDecl {
     #[id]
     pub path: FormPath,
+    pub ast_idx: AstIdx,
 }

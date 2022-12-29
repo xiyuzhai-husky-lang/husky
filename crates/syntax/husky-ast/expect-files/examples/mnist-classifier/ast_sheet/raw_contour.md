@@ -238,7 +238,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `line_segment_sketch`,
+                    ident_token: IdentifierToken {
+                        ident: `line_segment_sketch`,
+                        token_idx: TokenIdx(
+                            45,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -265,7 +270,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `bounding_box`,
+                    ident_token: IdentifierToken {
+                        ident: `bounding_box`,
+                        token_idx: TokenIdx(
+                            58,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -292,7 +302,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `relative_bounding_box`,
+                    ident_token: IdentifierToken {
+                        ident: `relative_bounding_box`,
+                        token_idx: TokenIdx(
+                            172,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -319,7 +334,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `contour_len`,
+                    ident_token: IdentifierToken {
+                        ident: `contour_len`,
+                        token_idx: TokenIdx(
+                            192,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -346,7 +366,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `displacement`,
+                    ident_token: IdentifierToken {
+                        ident: `displacement`,
+                        token_idx: TokenIdx(
+                            309,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -357,11 +382,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         38,
                     ),
-                    error: ExpectIdentifier(
-                        Some(
-                            [52:11, 52:12),
-                        ),
-                    ),
+                    error: ExpectIdentifier,
                 },
                 Err {
                     token_group_idx: TokenGroupIdx(
@@ -1784,7 +1805,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`mnist_classifier::raw_contour::RawContour, Struct`),
                     ),
-                    ident: `RawContour`,
+                    ident_token: IdentifierToken {
+                        ident: `RawContour`,
+                        token_idx: TokenIdx(
+                            27,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -1822,7 +1848,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`mnist_classifier::raw_contour::Direction, Enum`),
                     ),
-                    ident: `Direction`,
+                    ident_token: IdentifierToken {
+                        ident: `Direction`,
+                        token_idx: TokenIdx(
+                            370,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: EnumVariants,
                     saved_stream_state: TokenIterState {
@@ -1884,7 +1915,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::raw_contour::get_pixel_pair, Function`),
                     ),
-                    ident: `get_pixel_pair`,
+                    ident_token: IdentifierToken {
+                        ident: `get_pixel_pair`,
+                        token_idx: TokenIdx(
+                            380,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -1914,7 +1950,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left, Function`),
                     ),
-                    ident: `get_pixel_to_the_left`,
+                    ident_token: IdentifierToken {
+                        ident: `get_pixel_to_the_left`,
+                        token_idx: TokenIdx(
+                            406,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -1944,7 +1985,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right, Function`),
                     ),
-                    ident: `get_pixel_to_the_right`,
+                    ident_token: IdentifierToken {
+                        ident: `get_pixel_to_the_right`,
+                        token_idx: TokenIdx(
+                            428,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -1974,7 +2020,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::raw_contour::get_inward_direction, Function`),
                     ),
-                    ident: `get_inward_direction`,
+                    ident_token: IdentifierToken {
+                        ident: `get_inward_direction`,
+                        token_idx: TokenIdx(
+                            454,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -2004,7 +2055,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::raw_contour::get_angle_change, Function`),
                     ),
-                    ident: `get_angle_change`,
+                    ident_token: IdentifierToken {
+                        ident: `get_angle_change`,
+                        token_idx: TokenIdx(
+                            598,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -2034,7 +2090,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::raw_contour::get_outward_direction, Function`),
                     ),
-                    ident: `get_outward_direction`,
+                    ident_token: IdentifierToken {
+                        ident: `get_outward_direction`,
+                        token_idx: TokenIdx(
+                            661,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -2064,7 +2125,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`mnist_classifier::raw_contour::StreakCache, Struct`),
                     ),
-                    ident: `StreakCache`,
+                    ident_token: IdentifierToken {
+                        ident: `StreakCache`,
+                        token_idx: TokenIdx(
+                            886,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -2094,7 +2160,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::raw_contour::get_concave_middle_point, Function`),
                     ),
-                    ident: `get_concave_middle_point`,
+                    ident_token: IdentifierToken {
+                        ident: `get_concave_middle_point`,
+                        token_idx: TokenIdx(
+                            895,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -2124,7 +2195,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::raw_contour::find_raw_contours, Function`),
                     ),
-                    ident: `find_raw_contours`,
+                    ident_token: IdentifierToken {
+                        ident: `find_raw_contours`,
+                        token_idx: TokenIdx(
+                            957,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {

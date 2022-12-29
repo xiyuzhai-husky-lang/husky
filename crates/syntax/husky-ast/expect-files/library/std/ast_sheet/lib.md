@@ -20,7 +20,12 @@ Ok(
                     entity_path: Some(
                         `std::prelude`,
                     ),
-                    ident: `prelude`,
+                    ident_token: IdentifierToken {
+                        ident: `prelude`,
+                        token_idx: TokenIdx(
+                            1,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -45,7 +50,12 @@ Ok(
                     entity_path: Some(
                         `std::logic`,
                     ),
-                    ident: `logic`,
+                    ident_token: IdentifierToken {
+                        ident: `logic`,
+                        token_idx: TokenIdx(
+                            3,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -70,7 +80,12 @@ Ok(
                     entity_path: Some(
                         `std::ops`,
                     ),
-                    ident: `ops`,
+                    ident_token: IdentifierToken {
+                        ident: `ops`,
+                        token_idx: TokenIdx(
+                            5,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {

@@ -346,7 +346,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::zero::open_one_match, Feature`),
                     ),
-                    ident: `open_one_match`,
+                    ident_token: IdentifierToken {
+                        ident: `open_one_match`,
+                        token_idx: TokenIdx(
+                            65,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -376,7 +381,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::zero::almost_closed, Function`),
                     ),
-                    ident: `almost_closed`,
+                    ident_token: IdentifierToken {
+                        ident: `almost_closed`,
+                        token_idx: TokenIdx(
+                            78,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -406,7 +416,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::zero::is_zero, Feature`),
                     ),
-                    ident: `is_zero`,
+                    ident_token: IdentifierToken {
+                        ident: `is_zero`,
+                        token_idx: TokenIdx(
+                            105,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {

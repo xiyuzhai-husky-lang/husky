@@ -133,7 +133,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment, Struct`),
                     ),
-                    ident: `LineSegment`,
+                    ident_token: IdentifierToken {
+                        ident: `LineSegment`,
+                        token_idx: TokenIdx(
+                            7,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {

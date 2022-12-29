@@ -20,7 +20,12 @@ Ok(
                     entity_path: Some(
                         `core::basic`,
                     ),
-                    ident: `basic`,
+                    ident_token: IdentifierToken {
+                        ident: `basic`,
+                        token_idx: TokenIdx(
+                            1,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -45,7 +50,12 @@ Ok(
                     entity_path: Some(
                         `core::logic`,
                     ),
-                    ident: `logic`,
+                    ident_token: IdentifierToken {
+                        ident: `logic`,
+                        token_idx: TokenIdx(
+                            3,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -70,7 +80,12 @@ Ok(
                     entity_path: Some(
                         `core::num`,
                     ),
-                    ident: `num`,
+                    ident_token: IdentifierToken {
+                        ident: `num`,
+                        token_idx: TokenIdx(
+                            5,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -95,7 +110,12 @@ Ok(
                     entity_path: Some(
                         `core::ops`,
                     ),
-                    ident: `ops`,
+                    ident_token: IdentifierToken {
+                        ident: `ops`,
+                        token_idx: TokenIdx(
+                            7,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -120,7 +140,12 @@ Ok(
                     entity_path: Some(
                         `core::prelude`,
                     ),
-                    ident: `prelude`,
+                    ident_token: IdentifierToken {
+                        ident: `prelude`,
+                        token_idx: TokenIdx(
+                            9,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {

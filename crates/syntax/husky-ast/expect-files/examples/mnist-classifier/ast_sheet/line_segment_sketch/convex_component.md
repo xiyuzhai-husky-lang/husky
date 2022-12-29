@@ -22,11 +22,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
-                    error: ExpectIdentifier(
-                        Some(
-                            [7:11, 7:12),
-                        ),
-                    ),
+                    error: ExpectIdentifier,
                 },
                 Err {
                     token_group_idx: TokenGroupIdx(
@@ -71,7 +67,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent, Struct`),
                     ),
-                    ident: `ConvexCompoent`,
+                    ident_token: IdentifierToken {
+                        ident: `ConvexCompoent`,
+                        token_idx: TokenIdx(
+                            7,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {

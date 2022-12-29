@@ -1,4 +1,5 @@
 use husky_text::TextRange;
+use husky_token::TokenError;
 use thiserror::Error;
 
 use crate::{AstDb, AstIdx};
@@ -16,11 +17,13 @@ pub enum AstError {
     #[error("expect decorator or entity keyword")]
     ExpectDecoratorOrEntityKeyword,
     #[error("expect identifier")]
-    ExpectIdentifier(Option<TextRange>),
+    ExpectIdentifier,
     #[error("expect `(` or decorator or identifier")]
     ExpectParBraOrDecoratorOrIdentifier(Option<TextRange>),
     #[error("expect nothing")]
     ExpectNothing,
+    #[error("token error")]
+    Token(#[from] TokenError),
 }
 
 impl salsa::DebugWithDb<dyn AstDb + '_> for AstError {
@@ -49,12 +52,6 @@ impl From<&AstError> for AstError {
     fn from(value: &AstError) -> Self {
         todo!()
     }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub enum AstErrorVariant {
-    Original { message: String, range: TextRange },
-    Derived,
 }
 
 pub type AstResult<T> = Result<T, AstError>;

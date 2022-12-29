@@ -259,7 +259,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`quick_sort::quick_sort, Function`),
                     ),
-                    ident: `quick_sort`,
+                    ident_token: IdentifierToken {
+                        ident: `quick_sort`,
+                        token_idx: TokenIdx(
+                            2,
+                        ),
+                    },
                     is_generic: true,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -289,7 +294,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`quick_sort::quick_sort_aux, Function`),
                     ),
-                    ident: `quick_sort_aux`,
+                    ident_token: IdentifierToken {
+                        ident: `quick_sort_aux`,
+                        token_idx: TokenIdx(
+                            40,
+                        ),
+                    },
                     is_generic: true,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -319,7 +329,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`quick_sort::partition, Function`),
                     ),
-                    ident: `partition`,
+                    ident_token: IdentifierToken {
+                        ident: `partition`,
+                        token_idx: TokenIdx(
+                            100,
+                        ),
+                    },
                     is_generic: true,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -357,7 +372,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`quick_sort::quick_sort_works_for_integers, Feature`),
                     ),
-                    ident: `quick_sort_works_for_integers`,
+                    ident_token: IdentifierToken {
+                        ident: `quick_sort_works_for_integers`,
+                        token_idx: TokenIdx(
+                            224,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -395,7 +415,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`quick_sort::quick_sort_works_for_strs, Feature`),
                     ),
-                    ident: `quick_sort_works_for_strs`,
+                    ident_token: IdentifierToken {
+                        ident: `quick_sort_works_for_strs`,
+                        token_idx: TokenIdx(
+                            284,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {

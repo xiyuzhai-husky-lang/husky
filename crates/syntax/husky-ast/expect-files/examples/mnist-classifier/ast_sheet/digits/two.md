@@ -622,7 +622,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::two::two_match, Feature`),
                     ),
-                    ident: `two_match`,
+                    ident_token: IdentifierToken {
+                        ident: `two_match`,
+                        token_idx: TokenIdx(
+                            99,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -652,7 +657,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::two::left_cc_pattern, Function`),
                     ),
-                    ident: `left_cc_pattern`,
+                    ident_token: IdentifierToken {
+                        ident: `left_cc_pattern`,
+                        token_idx: TokenIdx(
+                            116,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -682,7 +692,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::two::right_cc_pattern, Function`),
                     ),
-                    ident: `right_cc_pattern`,
+                    ident_token: IdentifierToken {
+                        ident: `right_cc_pattern`,
+                        token_idx: TokenIdx(
+                            144,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -712,7 +727,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::two::down_cc_pattern, Function`),
                     ),
-                    ident: `down_cc_pattern`,
+                    ident_token: IdentifierToken {
+                        ident: `down_cc_pattern`,
+                        token_idx: TokenIdx(
+                            172,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -742,7 +762,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::two::is_two, Feature`),
                     ),
-                    ident: `is_two`,
+                    ident_token: IdentifierToken {
+                        ident: `is_two`,
+                        token_idx: TokenIdx(
+                            201,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {

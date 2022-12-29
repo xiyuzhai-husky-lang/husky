@@ -7,7 +7,7 @@ use husky_expr::{parse_expr, ExprArena, ExprParsingStopReason};
 use husky_opn_syntax::BinaryOpr;
 use husky_print_utils::p;
 use husky_symbol::{LocalSymbolSheet, SymbolContext};
-use husky_token::{SpecialToken, TokenGroupIdx, TokenIdentifier, TokenIterState, TokenSheet};
+use husky_token::{IdentifierToken, SpecialToken, TokenGroupIdx, TokenIterState, TokenSheet};
 use parsec::ParseFrom;
 use vec_like::VecPairMap;
 
@@ -42,7 +42,7 @@ impl<'a> DeclCollector<'a> {
                     accessibility,
                     path,
                     ast_idx,
-                } => decls.insert(((*path).into(), self.parse_decl((*path).into(), *ast_idx))),
+                } => decls.insert(((*path).into(), self.parse_decl(*ast_idx, (*path).into()))),
             }
         }
         for associated_item in self.entity_tree_sheet.associated_items().iter() {
@@ -51,7 +51,7 @@ impl<'a> DeclCollector<'a> {
         DeclSheet::new(decls)
     }
 
-    fn parse_decl(&mut self, entity_path: EntityPath, ast_idx: AstIdx) -> DeclResult<Decl> {
+    fn parse_decl(&mut self, ast_idx: AstIdx, entity_path: EntityPath) -> DeclResult<Decl> {
         match self.ast_sheet[ast_idx] {
             Ast::Defn {
                 token_group_idx,
@@ -59,14 +59,15 @@ impl<'a> DeclCollector<'a> {
                 accessibility,
                 entity_kind,
                 entity_path: _,
-                ident,
                 is_generic,
                 body_kind,
                 saved_stream_state,
+                ..
             } => match entity_path {
                 EntityPath::Module(_) => todo!(),
                 EntityPath::ModuleItem(path) => match path {
                     ModuleItemPath::Type(path) => self.parse_ty_decl(
+                        ast_idx,
                         path.type_kind(self.db),
                         path,
                         entity_kind,
@@ -74,8 +75,9 @@ impl<'a> DeclCollector<'a> {
                         body,
                         saved_stream_state,
                     ),
-                    ModuleItemPath::Trait(path) => self.parse_trai_decl(path),
+                    ModuleItemPath::Trait(path) => self.parse_trai_decl(ast_idx, path),
                     ModuleItemPath::Form(path) => self.parse_form_decl(
+                        ast_idx,
                         path,
                         entity_kind,
                         token_group_idx,
@@ -103,6 +105,7 @@ impl<'a> DeclCollector<'a> {
 
     fn parse_ty_decl(
         &mut self,
+        ast_idx: AstIdx,
         type_kind: TypeKind,
         path: TypePath,
         entity_kind: EntityKind,
@@ -111,42 +114,51 @@ impl<'a> DeclCollector<'a> {
         saved_stream_state: TokenIterState,
     ) -> Result<Decl, DeclError> {
         match type_kind {
-            TypeKind::Enum => self.parse_enum_type_decl(path),
-            TypeKind::Inductive => self.parse_inductive_type_decl(path),
+            TypeKind::Enum => self.parse_enum_type_decl(ast_idx, path),
+            TypeKind::Inductive => self.parse_inductive_type_decl(ast_idx, path),
             TypeKind::Record => todo!(),
-            TypeKind::Struct => self.parse_struct_type_decl(path),
-            TypeKind::Structure => self.parse_structure_type_decl(path),
-            TypeKind::Foreign => {
-                self.parse_foreign_type_decl(path, token_group_idx, body, saved_stream_state)
-            }
+            TypeKind::Struct => self.parse_struct_type_decl(ast_idx, path),
+            TypeKind::Structure => self.parse_structure_type_decl(ast_idx, path),
+            TypeKind::Foreign => self.parse_foreign_type_decl(
+                ast_idx,
+                path,
+                token_group_idx,
+                body,
+                saved_stream_state,
+            ),
         }
     }
 
-    fn parse_enum_type_decl(&self, path: TypePath) -> DeclResult<Decl> {
-        Ok(Decl::Type(EnumTypeDecl::new(self.db, path).into()))
+    fn parse_enum_type_decl(&self, ast_idx: AstIdx, path: TypePath) -> DeclResult<Decl> {
+        Ok(Decl::Type(EnumTypeDecl::new(self.db, path, ast_idx).into()))
     }
 
-    fn parse_trai_decl(&self, path: TraitPath) -> DeclResult<Decl> {
-        Ok(Decl::Trait(TraitDecl::new(self.db, path)))
+    fn parse_trai_decl(&self, ast_idx: AstIdx, path: TraitPath) -> DeclResult<Decl> {
+        Ok(Decl::Trait(TraitDecl::new(self.db, path, ast_idx)))
     }
 
-    fn parse_inductive_type_decl(&self, path: TypePath) -> DeclResult<Decl> {
-        Ok(Decl::Type(InductiveTypeDecl::new(self.db, path).into()))
-    }
-
-    fn parse_struct_type_decl(&self, path: TypePath) -> DeclResult<Decl> {
+    fn parse_inductive_type_decl(&self, ast_idx: AstIdx, path: TypePath) -> DeclResult<Decl> {
         Ok(Decl::Type(
-            StructTypeDecl::new(self.db, path, /* ad hoc */ vec![]).into(),
+            InductiveTypeDecl::new(self.db, path, ast_idx).into(),
         ))
     }
 
-    fn parse_structure_type_decl(&self, path: TypePath) -> DeclResult<Decl> {
-        Ok(Decl::Type(StructureTypeDecl::new(self.db, path).into()))
+    fn parse_struct_type_decl(&self, ast_idx: AstIdx, path: TypePath) -> DeclResult<Decl> {
+        Ok(Decl::Type(
+            StructTypeDecl::new(self.db, path, ast_idx, /* ad hoc */ vec![]).into(),
+        ))
+    }
+
+    fn parse_structure_type_decl(&self, ast_idx: AstIdx, path: TypePath) -> DeclResult<Decl> {
+        Ok(Decl::Type(
+            StructureTypeDecl::new(self.db, path, ast_idx).into(),
+        ))
     }
 
     // get declaration from tokens
     fn parse_foreign_type_decl(
         &self,
+        ast_idx: AstIdx,
         path: TypePath,
         token_group_idx: TokenGroupIdx,
         body: &AstIdxRange,
@@ -170,11 +182,14 @@ impl<'a> DeclCollector<'a> {
         //         None => todo!(),
         //     }
         // }
-        Ok(Decl::Type(AlienTypeDecl::new(self.db, path).into()))
+        Ok(Decl::Type(
+            AlienTypeDecl::new(self.db, path, ast_idx).into(),
+        ))
     }
 
     fn parse_form_decl(
         &mut self,
+        ast_idx: AstIdx,
         path: FormPath,
         entity_kind: EntityKind,
         token_group_idx: TokenGroupIdx,
@@ -182,19 +197,19 @@ impl<'a> DeclCollector<'a> {
         saved_stream_state: TokenIterState,
     ) -> Result<Decl, DeclError> {
         match path.form_kind(self.db) {
-            FormKind::Feature => self.parse_feature_decl(path),
-            FormKind::Function => self.parse_function_decl(path),
+            FormKind::Feature => self.parse_feature_decl(ast_idx, path),
+            FormKind::Function => self.parse_function_decl(ast_idx, path),
             FormKind::Value => todo!(),
             FormKind::TypeAlias => todo!(),
         }
     }
 
-    fn parse_feature_decl(&self, path: FormPath) -> Result<Decl, DeclError> {
-        Ok(Decl::Form(FeatureDecl::new(self.db, path).into()))
+    fn parse_feature_decl(&self, ast_idx: AstIdx, path: FormPath) -> Result<Decl, DeclError> {
+        Ok(Decl::Form(FeatureDecl::new(self.db, path, ast_idx).into()))
     }
 
-    fn parse_function_decl(&self, path: FormPath) -> Result<Decl, DeclError> {
-        Ok(Decl::Form(FunctionDecl::new(self.db, path).into()))
+    fn parse_function_decl(&self, ast_idx: AstIdx, path: FormPath) -> Result<Decl, DeclError> {
+        Ok(Decl::Form(FunctionDecl::new(self.db, path, ast_idx).into()))
     }
 
     fn ctx<'b>(

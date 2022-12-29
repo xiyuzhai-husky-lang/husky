@@ -10,6 +10,9 @@ pub use function::*;
 pub use memo::*;
 pub use method::*;
 
+use crate::*;
+use husky_entity_path::AssociatedItemPath;
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TypeItemDefn {
     Function(TypeAssociatedFunctionDefn),
@@ -17,4 +20,14 @@ pub enum TypeItemDefn {
     AlienType(TypeAssociatedTypeDefn),
     Value(TypeAssociatedValueDefn),
     Memo(TypeMemoDefn),
+}
+
+impl TypeItemDefn {
+    pub fn decl(self, db: &dyn DefnDb) -> TypeItemDecl {
+        todo!()
+    }
+
+    pub fn path(self, db: &dyn DefnDb) -> AssociatedItemPath {
+        todo!()
+    }
 }

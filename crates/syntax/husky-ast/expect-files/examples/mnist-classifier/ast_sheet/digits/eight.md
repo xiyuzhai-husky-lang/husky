@@ -332,7 +332,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::eight::upper_mouth_match, Feature`),
                     ),
-                    ident: `upper_mouth_match`,
+                    ident_token: IdentifierToken {
+                        ident: `upper_mouth_match`,
+                        token_idx: TokenIdx(
+                            79,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -362,7 +367,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::eight::is_eight, Feature`),
                     ),
-                    ident: `is_eight`,
+                    ident_token: IdentifierToken {
+                        ident: `is_eight`,
+                        token_idx: TokenIdx(
+                            92,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -392,7 +402,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::eight::big_mouth, Function`),
                     ),
-                    ident: `big_mouth`,
+                    ident_token: IdentifierToken {
+                        ident: `big_mouth`,
+                        token_idx: TokenIdx(
+                            158,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {

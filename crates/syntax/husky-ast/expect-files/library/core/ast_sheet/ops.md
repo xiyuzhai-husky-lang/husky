@@ -33,7 +33,12 @@ Ok(
                             ),
                         },
                     ),
-                    ident: `Output`,
+                    ident_token: IdentifierToken {
+                        ident: `Output`,
+                        token_idx: TokenIdx(
+                            15,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -71,7 +76,12 @@ Ok(
                             ),
                         },
                     ),
-                    ident: `add`,
+                    ident_token: IdentifierToken {
+                        ident: `add`,
+                        token_idx: TokenIdx(
+                            17,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -98,7 +108,12 @@ Ok(
                     entity_path: Some(
                         TraitPath(`core::ops::Add`),
                     ),
-                    ident: `Add`,
+                    ident_token: IdentifierToken {
+                        ident: `Add`,
+                        token_idx: TokenIdx(
+                            9,
+                        ),
+                    },
                     is_generic: true,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {

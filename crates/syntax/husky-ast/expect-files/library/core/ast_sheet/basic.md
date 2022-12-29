@@ -19,7 +19,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`core::basic::bool, Foreign`),
                     ),
-                    ident: `bool`,
+                    ident_token: IdentifierToken {
+                        ident: `bool`,
+                        token_idx: TokenIdx(
+                            2,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -43,7 +48,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`core::basic::Trait, Structure`),
                     ),
-                    ident: `Trait`,
+                    ident_token: IdentifierToken {
+                        ident: `Trait`,
+                        token_idx: TokenIdx(
+                            6,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -67,7 +77,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`core::basic::Module, Structure`),
                     ),
-                    ident: `Module`,
+                    ident_token: IdentifierToken {
+                        ident: `Module`,
+                        token_idx: TokenIdx(
+                            10,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {

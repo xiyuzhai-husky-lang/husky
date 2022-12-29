@@ -618,7 +618,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::one::one_fermi_match, Feature`),
                     ),
-                    ident: `one_fermi_match`,
+                    ident_token: IdentifierToken {
+                        ident: `one_fermi_match`,
+                        token_idx: TokenIdx(
+                            59,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -648,7 +653,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::one::is_one, Feature`),
                     ),
-                    ident: `is_one`,
+                    ident_token: IdentifierToken {
+                        ident: `is_one`,
+                        token_idx: TokenIdx(
+                            76,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -678,7 +688,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::one::upmost, Function`),
                     ),
-                    ident: `upmost`,
+                    ident_token: IdentifierToken {
+                        ident: `upmost`,
+                        token_idx: TokenIdx(
+                            540,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -708,7 +723,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::one::downmost, Function`),
                     ),
-                    ident: `downmost`,
+                    ident_token: IdentifierToken {
+                        ident: `downmost`,
+                        token_idx: TokenIdx(
+                            568,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -738,7 +758,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::one::hat, Function`),
                     ),
-                    ident: `hat`,
+                    ident_token: IdentifierToken {
+                        ident: `hat`,
+                        token_idx: TokenIdx(
+                            601,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {

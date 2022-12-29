@@ -4,6 +4,7 @@ use crate::*;
 pub struct TraitMethodDecl {
     #[id]
     pub entity_path: EntityPath,
+    pub ast_idx: AstIdx,
     #[return_ref]
     pub expr_arena: ExprArena,
 }
