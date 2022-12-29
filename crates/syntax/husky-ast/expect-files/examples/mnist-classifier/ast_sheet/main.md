@@ -116,7 +116,12 @@ Ok(
                     entity_path: Some(
                         `mnist_classifier::connected_component`,
                     ),
-                    ident: `connected_component`,
+                    ident_token: IdentifierToken {
+                        ident: `connected_component`,
+                        token_idx: TokenIdx(
+                            8,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -141,7 +146,12 @@ Ok(
                     entity_path: Some(
                         `mnist_classifier::raw_contour`,
                     ),
-                    ident: `raw_contour`,
+                    ident_token: IdentifierToken {
+                        ident: `raw_contour`,
+                        token_idx: TokenIdx(
+                            10,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -166,7 +176,12 @@ Ok(
                     entity_path: Some(
                         `mnist_classifier::geom2d`,
                     ),
-                    ident: `geom2d`,
+                    ident_token: IdentifierToken {
+                        ident: `geom2d`,
+                        token_idx: TokenIdx(
+                            12,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -191,7 +206,12 @@ Ok(
                     entity_path: Some(
                         `mnist_classifier::line_segment_sketch`,
                     ),
-                    ident: `line_segment_sketch`,
+                    ident_token: IdentifierToken {
+                        ident: `line_segment_sketch`,
+                        token_idx: TokenIdx(
+                            14,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -216,7 +236,12 @@ Ok(
                     entity_path: Some(
                         `mnist_classifier::fermi`,
                     ),
-                    ident: `fermi`,
+                    ident_token: IdentifierToken {
+                        ident: `fermi`,
+                        token_idx: TokenIdx(
+                            16,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -241,7 +266,12 @@ Ok(
                     entity_path: Some(
                         `mnist_classifier::major`,
                     ),
-                    ident: `major`,
+                    ident_token: IdentifierToken {
+                        ident: `major`,
+                        token_idx: TokenIdx(
+                            18,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {

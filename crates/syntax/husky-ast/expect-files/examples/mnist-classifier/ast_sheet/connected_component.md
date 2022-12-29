@@ -481,11 +481,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         84,
                     ),
-                    error: ExpectIdentifier(
-                        Some(
-                            [112:11, 112:12),
-                        ),
-                    ),
+                    error: ExpectIdentifier,
                 },
                 Err {
                     token_group_idx: TokenGroupIdx(
@@ -853,7 +849,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution, Struct`),
                     ),
-                    ident: `ConnectedComponentDistribution`,
+                    ident_token: IdentifierToken {
+                        ident: `ConnectedComponentDistribution`,
+                        token_idx: TokenIdx(
+                            15,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -883,7 +884,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`mnist_classifier::connected_component::EffHoles, Struct`),
                     ),
-                    ident: `EffHoles`,
+                    ident_token: IdentifierToken {
+                        ident: `EffHoles`,
+                        token_idx: TokenIdx(
+                            35,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -913,7 +919,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::connected_component::hole_tmpl, Function`),
                     ),
-                    ident: `hole_tmpl`,
+                    ident_token: IdentifierToken {
+                        ident: `hole_tmpl`,
+                        token_idx: TokenIdx(
+                            47,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -943,7 +954,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`mnist_classifier::connected_component::ConnectedComponent, Struct`),
                     ),
-                    ident: `ConnectedComponent`,
+                    ident_token: IdentifierToken {
+                        ident: `ConnectedComponent`,
+                        token_idx: TokenIdx(
+                            72,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -973,7 +989,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::connected_component::horizontal_extend, Function`),
                     ),
-                    ident: `horizontal_extend`,
+                    ident_token: IdentifierToken {
+                        ident: `horizontal_extend`,
+                        token_idx: TokenIdx(
+                            532,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -1003,7 +1024,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::connected_component::find_connected_components, Function`),
                     ),
-                    ident: `find_connected_components`,
+                    ident_token: IdentifierToken {
+                        ident: `find_connected_components`,
+                        token_idx: TokenIdx(
+                            620,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {

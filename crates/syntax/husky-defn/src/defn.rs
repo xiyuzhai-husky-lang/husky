@@ -21,6 +21,18 @@ pub enum Defn {
     TraitItem(TraitItemDefn),
 }
 
+impl Defn {
+    pub fn decl(self, db: &dyn DefnDb) -> Decl {
+        match self {
+            Defn::Type(defn) => defn.decl(db).into(),
+            Defn::Trait(defn) => defn.decl(db).into(),
+            Defn::Form(defn) => defn.decl(db).into(),
+            Defn::TypeItem(defn) => defn.decl(db).into(),
+            Defn::TraitItem(defn) => defn.decl(db).into(),
+        }
+    }
+}
+
 impl From<TraitItemDefn> for Defn {
     fn from(v: TraitItemDefn) -> Self {
         Self::TraitItem(v)
@@ -52,13 +64,13 @@ impl From<TypeDefn> for Defn {
 }
 
 impl Defn {
-    pub fn entity_path(self, db: &dyn DefnDb) -> EntityPath {
+    pub fn path(self, db: &dyn DefnDb) -> EntityPath {
         match self {
-            Defn::Type(defn) => todo!(),
-            Defn::Trait(_) => todo!(),
-            Defn::Form(_) => todo!(),
-            Defn::TypeItem(_) => todo!(),
-            Defn::TraitItem(_) => todo!(),
+            Defn::Type(defn) => defn.path(db).into(),
+            Defn::Trait(defn) => defn.path(db).into(),
+            Defn::Form(defn) => defn.path(db).into(),
+            Defn::TypeItem(defn) => defn.path(db).into(),
+            Defn::TraitItem(defn) => defn.path(db).into(),
         }
     }
 }

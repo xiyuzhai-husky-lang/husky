@@ -40,7 +40,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `new`,
+                    ident_token: IdentifierToken {
+                        ident: `new`,
+                        token_idx: TokenIdx(
+                            76,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -67,7 +72,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `displacement`,
+                    ident_token: IdentifierToken {
+                        ident: `displacement`,
+                        token_idx: TokenIdx(
+                            114,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -78,11 +88,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         16,
                     ),
-                    error: ExpectIdentifier(
-                        Some(
-                            [26:11, 26:12),
-                        ),
-                    ),
+                    error: ExpectIdentifier,
                 },
                 Err {
                     token_group_idx: TokenGroupIdx(
@@ -222,7 +228,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `concave_components`,
+                    ident_token: IdentifierToken {
+                        ident: `concave_components`,
+                        token_idx: TokenIdx(
+                            164,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -249,7 +260,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `bounding_box`,
+                    ident_token: IdentifierToken {
+                        ident: `bounding_box`,
+                        token_idx: TokenIdx(
+                            175,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -270,7 +286,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `new`,
+                    ident_token: IdentifierToken {
+                        ident: `new`,
+                        token_idx: TokenIdx(
+                            294,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -281,11 +302,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         37,
                     ),
-                    error: ExpectIdentifier(
-                        Some(
-                            [58:11, 58:12),
-                        ),
-                    ),
+                    error: ExpectIdentifier,
                 },
                 Err {
                     token_group_idx: TokenGroupIdx(
@@ -1359,7 +1376,12 @@ Ok(
                     entity_path: Some(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
-                    ident: `concave_component`,
+                    ident_token: IdentifierToken {
+                        ident: `concave_component`,
+                        token_idx: TokenIdx(
+                            1,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -1384,7 +1406,12 @@ Ok(
                     entity_path: Some(
                         `mnist_classifier::line_segment_sketch::convex_component`,
                     ),
-                    ident: `convex_component`,
+                    ident_token: IdentifierToken {
+                        ident: `convex_component`,
+                        token_idx: TokenIdx(
+                            3,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -1409,7 +1436,12 @@ Ok(
                     entity_path: Some(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
-                    ident: `convexity`,
+                    ident_token: IdentifierToken {
+                        ident: `convexity`,
+                        token_idx: TokenIdx(
+                            5,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -1434,7 +1466,12 @@ Ok(
                     entity_path: Some(
                         `mnist_classifier::line_segment_sketch::line_segment`,
                     ),
-                    ident: `line_segment`,
+                    ident_token: IdentifierToken {
+                        ident: `line_segment`,
+                        token_idx: TokenIdx(
+                            7,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -1534,7 +1571,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke, Struct`),
                     ),
-                    ident: `LineSegmentStroke`,
+                    ident_token: IdentifierToken {
+                        ident: `LineSegmentStroke`,
+                        token_idx: TokenIdx(
+                            33,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -1572,7 +1614,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch, Struct`),
                     ),
-                    ident: `LineSegmentSketch`,
+                    ident_token: IdentifierToken {
+                        ident: `LineSegmentSketch`,
+                        token_idx: TokenIdx(
+                            146,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -1610,7 +1657,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::line_segment_sketch::go_right, Function`),
                     ),
-                    ident: `go_right`,
+                    ident_token: IdentifierToken {
+                        ident: `go_right`,
+                        token_idx: TokenIdx(
+                            325,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -1640,7 +1692,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::line_segment_sketch::go_left, Function`),
                     ),
-                    ident: `go_left`,
+                    ident_token: IdentifierToken {
+                        ident: `go_left`,
+                        token_idx: TokenIdx(
+                            418,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -1670,7 +1727,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::line_segment_sketch::extend_end, Function`),
                     ),
-                    ident: `extend_end`,
+                    ident_token: IdentifierToken {
+                        ident: `extend_end`,
+                        token_idx: TokenIdx(
+                            511,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -1700,7 +1762,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::line_segment_sketch::extend_start, Function`),
                     ),
-                    ident: `extend_start`,
+                    ident_token: IdentifierToken {
+                        ident: `extend_start`,
+                        token_idx: TokenIdx(
+                            744,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -1730,7 +1797,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::line_segment_sketch::find_line_segments, Function`),
                     ),
-                    ident: `find_line_segments`,
+                    ident_token: IdentifierToken {
+                        ident: `find_line_segments`,
+                        token_idx: TokenIdx(
+                            1011,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {

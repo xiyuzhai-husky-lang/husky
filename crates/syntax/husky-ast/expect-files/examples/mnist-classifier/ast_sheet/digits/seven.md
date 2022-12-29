@@ -488,7 +488,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::seven::simple_seven_match, Feature`),
                     ),
-                    ident: `simple_seven_match`,
+                    ident_token: IdentifierToken {
+                        ident: `simple_seven_match`,
+                        token_idx: TokenIdx(
+                            79,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -518,7 +523,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern, Function`),
                     ),
-                    ident: `simple_leftdown_pattern`,
+                    ident_token: IdentifierToken {
+                        ident: `simple_leftdown_pattern`,
+                        token_idx: TokenIdx(
+                            92,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -548,7 +558,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::seven::special_seven_match, Feature`),
                     ),
-                    ident: `special_seven_match`,
+                    ident_token: IdentifierToken {
+                        ident: `special_seven_match`,
+                        token_idx: TokenIdx(
+                            121,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -578,7 +593,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::seven::leftupcc_pattern, Function`),
                     ),
-                    ident: `leftupcc_pattern`,
+                    ident_token: IdentifierToken {
+                        ident: `leftupcc_pattern`,
+                        token_idx: TokenIdx(
+                            136,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -608,7 +628,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern, Function`),
                     ),
-                    ident: `leftdowncc_pattern`,
+                    ident_token: IdentifierToken {
+                        ident: `leftdowncc_pattern`,
+                        token_idx: TokenIdx(
+                            178,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -638,7 +663,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::seven::is_seven, Feature`),
                     ),
-                    ident: `is_seven`,
+                    ident_token: IdentifierToken {
+                        ident: `is_seven`,
+                        token_idx: TokenIdx(
+                            230,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {

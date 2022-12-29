@@ -123,7 +123,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `norm`,
+                    ident_token: IdentifierToken {
+                        ident: `norm`,
+                        token_idx: TokenIdx(
+                            28,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -150,7 +155,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `rel_norm`,
+                    ident_token: IdentifierToken {
+                        ident: `rel_norm`,
+                        token_idx: TokenIdx(
+                            62,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -177,7 +187,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `angle_change_norm`,
+                    ident_token: IdentifierToken {
+                        ident: `angle_change_norm`,
+                        token_idx: TokenIdx(
+                            96,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -274,7 +289,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`mnist_classifier::fermi::FermiMatchResult, Struct`),
                     ),
-                    ident: `FermiMatchResult`,
+                    ident_token: IdentifierToken {
+                        ident: `FermiMatchResult`,
+                        token_idx: TokenIdx(
+                            5,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -312,7 +332,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::fermi::fermi_match, Function`),
                     ),
-                    ident: `fermi_match`,
+                    ident_token: IdentifierToken {
+                        ident: `fermi_match`,
+                        token_idx: TokenIdx(
+                            134,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {

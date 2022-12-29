@@ -22,7 +22,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `add`,
+                    ident_token: IdentifierToken {
+                        ident: `add`,
+                        token_idx: TokenIdx(
+                            13,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: EnumVariants,
                     saved_stream_state: TokenIterState {
@@ -68,7 +73,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`natural_number_game::Nat, Inductive`),
                     ),
-                    ident: `Nat`,
+                    ident_token: IdentifierToken {
+                        ident: `Nat`,
+                        token_idx: TokenIdx(
+                            1,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: EnumVariants,
                     saved_stream_state: TokenIterState {
@@ -103,11 +113,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         7,
                     ),
-                    error: ExpectIdentifier(
-                        Some(
-                            [10:8, 10:9),
-                        ),
-                    ),
+                    error: ExpectIdentifier,
                 },
                 Err {
                     token_group_idx: TokenGroupIdx(
@@ -138,7 +144,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`natural_number_game::OddNat, Structure`),
                     ),
-                    ident: `OddNat`,
+                    ident_token: IdentifierToken {
+                        ident: `OddNat`,
+                        token_idx: TokenIdx(
+                            85,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -168,7 +179,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`natural_number_game::EvenNat, Structure`),
                     ),
-                    ident: `EvenNat`,
+                    ident_token: IdentifierToken {
+                        ident: `EvenNat`,
+                        token_idx: TokenIdx(
+                            114,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {

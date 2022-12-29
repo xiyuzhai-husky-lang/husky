@@ -1,6 +1,5 @@
 #![feature(trait_upcasting)]
 mod db;
-mod debug;
 mod error;
 mod parser;
 mod range;
@@ -9,7 +8,7 @@ mod specs;
 mod tests;
 mod use_expr;
 
-pub use crate::error::{AstError, AstErrorVariant, AstResult};
+pub use crate::error::{AstError, AstResult};
 pub use db::AstDb;
 use husky_accessibility::Accessibility;
 pub use range::*;
@@ -19,7 +18,7 @@ pub use use_expr::*;
 use husky_entity_path::{EntityPath, ModuleItemVariantPath};
 use husky_entity_taxonomy::EntityKind;
 use husky_text::*;
-use husky_token::{TokenGroupIdx, TokenIterState};
+use husky_token::{IdentifierToken, TokenGroupIdx, TokenIterState};
 use husky_vfs::*;
 
 use husky_word::*;
@@ -69,7 +68,7 @@ pub enum Ast {
         entity_kind: EntityKind,
         /// None only when this is under impl block
         entity_path: Option<EntityPath>,
-        ident: Identifier,
+        ident_token: IdentifierToken,
         is_generic: bool,
         body_kind: DefnBodyKind,
         saved_stream_state: TokenIterState,
@@ -235,7 +234,7 @@ impl<Db: AstDb> salsa::DebugWithDb<Db> for Ast {
                 accessibility,
                 entity_kind,
                 entity_path,
-                ident,
+                ident_token,
                 is_generic,
                 body_kind,
                 saved_stream_state,
@@ -249,7 +248,10 @@ impl<Db: AstDb> salsa::DebugWithDb<Db> for Ast {
                     "entity_path",
                     &entity_path.debug_with(db, include_all_fields),
                 )
-                .field("ident", &ident.debug_with(db, include_all_fields))
+                .field(
+                    "ident_token",
+                    &ident_token.debug_with(db, include_all_fields),
+                )
                 .field("is_generic", is_generic)
                 .field("body_kind", body_kind)
                 .field("saved_stream_state", saved_stream_state)

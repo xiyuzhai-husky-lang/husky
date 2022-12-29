@@ -80,14 +80,9 @@ pub(super) trait ParseTokenInto<'a> {
         })
     }
 
-    fn parse_ident(&mut self) -> AstResult<Identifier> {
-        let token = self
-            .token_iter_mut()
-            .next()
-            .ok_or(AstError::ExpectIdentifier(None))?;
-        token
-            .identify()
-            .ok_or(AstError::ExpectIdentifier(Some(token.range)))
+    fn parse_ident(&mut self) -> AstResult<IdentifierToken> {
+        use parsec::ParseFrom;
+        IdentifierToken::parse_from(self.token_iter_mut())?.ok_or(AstError::ExpectIdentifier)
     }
 
     fn parse_is_generic(&self) -> bool {

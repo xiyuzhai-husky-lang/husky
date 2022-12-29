@@ -24,8 +24,9 @@ impl<'a> AstParser<'a> {
             self.token_sheet
                 .token_group_token_iter(token_group_idx, None),
         );
-        let (accessibility, entity_kind, ident, is_generic, saved_stream_state) =
+        let (accessibility, entity_kind, ident_token, is_generic, saved_stream_state) =
             aux_parser.parse_head()?;
+        let ident = ident_token.ident();
         let entity_path: Option<husky_entity_path::EntityPath> = match entity_kind {
             EntityKind::Module => {
                 Some(ModulePath::new_child(self.db, self.module_path, ident).into())
@@ -71,7 +72,7 @@ impl<'a> AstParser<'a> {
         Ok(Ast::Defn {
             // order matters!
             accessibility,
-            ident,
+            ident_token,
             is_generic,
             token_group_idx,
             body,
@@ -124,7 +125,16 @@ impl<'a> AstParser<'a> {
 impl<'a> BasicAuxAstParser<'a> {
     fn parse_head(
         mut self,
-    ) -> Result<(Accessibility, EntityKind, Identifier, bool, TokenIterState), AstError> {
+    ) -> Result<
+        (
+            Accessibility,
+            EntityKind,
+            IdentifierToken,
+            bool,
+            TokenIterState,
+        ),
+        AstError,
+    > {
         let accessibility = self.parse_accessibility()?;
         let entity_kind_keyword = self.take_entity_kind_keyword()?;
         let ident = self.parse_ident()?;

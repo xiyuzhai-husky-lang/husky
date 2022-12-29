@@ -20,7 +20,12 @@ Ok(
                     entity_path: Some(
                         `mnist_classifier::digits::zero`,
                     ),
-                    ident: `zero`,
+                    ident_token: IdentifierToken {
+                        ident: `zero`,
+                        token_idx: TokenIdx(
+                            1,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -45,7 +50,12 @@ Ok(
                     entity_path: Some(
                         `mnist_classifier::digits::one`,
                     ),
-                    ident: `one`,
+                    ident_token: IdentifierToken {
+                        ident: `one`,
+                        token_idx: TokenIdx(
+                            3,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -70,7 +80,12 @@ Ok(
                     entity_path: Some(
                         `mnist_classifier::digits::six`,
                     ),
-                    ident: `six`,
+                    ident_token: IdentifierToken {
+                        ident: `six`,
+                        token_idx: TokenIdx(
+                            5,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -95,7 +110,12 @@ Ok(
                     entity_path: Some(
                         `mnist_classifier::digits::three`,
                     ),
-                    ident: `three`,
+                    ident_token: IdentifierToken {
+                        ident: `three`,
+                        token_idx: TokenIdx(
+                            7,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -120,7 +140,12 @@ Ok(
                     entity_path: Some(
                         `mnist_classifier::digits::four`,
                     ),
-                    ident: `four`,
+                    ident_token: IdentifierToken {
+                        ident: `four`,
+                        token_idx: TokenIdx(
+                            9,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -145,7 +170,12 @@ Ok(
                     entity_path: Some(
                         `mnist_classifier::digits::five`,
                     ),
-                    ident: `five`,
+                    ident_token: IdentifierToken {
+                        ident: `five`,
+                        token_idx: TokenIdx(
+                            11,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -170,7 +200,12 @@ Ok(
                     entity_path: Some(
                         `mnist_classifier::digits::six`,
                     ),
-                    ident: `six`,
+                    ident_token: IdentifierToken {
+                        ident: `six`,
+                        token_idx: TokenIdx(
+                            13,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -195,7 +230,12 @@ Ok(
                     entity_path: Some(
                         `mnist_classifier::digits::seven`,
                     ),
-                    ident: `seven`,
+                    ident_token: IdentifierToken {
+                        ident: `seven`,
+                        token_idx: TokenIdx(
+                            15,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -220,7 +260,12 @@ Ok(
                     entity_path: Some(
                         `mnist_classifier::digits::eight`,
                     ),
-                    ident: `eight`,
+                    ident_token: IdentifierToken {
+                        ident: `eight`,
+                        token_idx: TokenIdx(
+                            17,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -245,7 +290,12 @@ Ok(
                     entity_path: Some(
                         `mnist_classifier::digits::nine`,
                     ),
-                    ident: `nine`,
+                    ident_token: IdentifierToken {
+                        ident: `nine`,
+                        token_idx: TokenIdx(
+                            19,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {

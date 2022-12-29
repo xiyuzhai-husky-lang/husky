@@ -17,6 +17,7 @@ salsa = { path = "../../abstraction/salsa" }
 vec-like = { path = "../../abstraction/vec-like" }
 upcast = { path = "../../abstraction/upcast" }
 idx-arena = { path = "../../abstraction/idx-arena" }
+parsec = { path = "../../abstraction/parsec" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # lex

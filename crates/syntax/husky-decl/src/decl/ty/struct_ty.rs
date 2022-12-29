@@ -4,7 +4,9 @@ use husky_word::Identifier;
 
 #[salsa::tracked(jar = DeclJar)]
 pub struct StructTypeDecl {
+    #[id]
     pub path: TypePath,
+    pub ast_idx: AstIdx,
     #[return_ref]
     pub fields: Vec<FieldDecl>,
 }

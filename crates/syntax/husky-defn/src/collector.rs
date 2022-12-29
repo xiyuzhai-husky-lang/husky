@@ -38,6 +38,8 @@ impl<'a> DefnCollector<'a> {
             Decl::Type(decl) => self.parse_ty_defn(decl).into(),
             Decl::Form(decl) => self.parse_form_defn(decl).into(),
             Decl::Trait(decl) => self.parse_trai_defn(decl).into(),
+            Decl::TypeItem(_) => todo!(),
+            Decl::TraitItem(_) => todo!(),
         }
     }
 

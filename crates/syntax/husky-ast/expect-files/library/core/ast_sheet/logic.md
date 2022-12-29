@@ -19,7 +19,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`core::logic::LogicAnd, Structure`),
                     ),
-                    ident: `LogicAnd`,
+                    ident_token: IdentifierToken {
+                        ident: `LogicAnd`,
+                        token_idx: TokenIdx(
+                            2,
+                        ),
+                    },
                     is_generic: true,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -43,7 +48,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`core::logic::LogicOr, Inductive`),
                     ),
-                    ident: `LogicOr`,
+                    ident_token: IdentifierToken {
+                        ident: `LogicOr`,
+                        token_idx: TokenIdx(
+                            24,
+                        ),
+                    },
                     is_generic: true,
                     body_kind: EnumVariants,
                     saved_stream_state: TokenIterState {

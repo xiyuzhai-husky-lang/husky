@@ -4,4 +4,5 @@ use crate::*;
 pub struct TraitDecl {
     #[id]
     pub path: TraitPath,
+    pub ast_idx: AstIdx,
 }

@@ -573,7 +573,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::four::left_components, Feature`),
                     ),
-                    ident: `left_components`,
+                    ident_token: IdentifierToken {
+                        ident: `left_components`,
+                        token_idx: TokenIdx(
+                            63,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -603,7 +608,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::four::left_coordinate_max, Function`),
                     ),
-                    ident: `left_coordinate_max`,
+                    ident_token: IdentifierToken {
+                        ident: `left_coordinate_max`,
+                        token_idx: TokenIdx(
+                            78,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -633,7 +643,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::four::components_max_downwards, Feature`),
                     ),
-                    ident: `components_max_downwards`,
+                    ident_token: IdentifierToken {
+                        ident: `components_max_downwards`,
+                        token_idx: TokenIdx(
+                            97,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -663,7 +678,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::four::components_max_heights, Feature`),
                     ),
-                    ident: `components_max_heights`,
+                    ident_token: IdentifierToken {
+                        ident: `components_max_heights`,
+                        token_idx: TokenIdx(
+                            110,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -693,7 +713,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::four::is_four, Feature`),
                     ),
-                    ident: `is_four`,
+                    ident_token: IdentifierToken {
+                        ident: `is_four`,
+                        token_idx: TokenIdx(
+                            123,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -723,7 +748,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::four::displacement_downwards, Function`),
                     ),
-                    ident: `displacement_downwards`,
+                    ident_token: IdentifierToken {
+                        ident: `displacement_downwards`,
+                        token_idx: TokenIdx(
+                            327,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -753,7 +783,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::four::cc_box_heights, Function`),
                     ),
-                    ident: `cc_box_heights`,
+                    ident_token: IdentifierToken {
+                        ident: `cc_box_heights`,
+                        token_idx: TokenIdx(
+                            355,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {

@@ -117,21 +117,22 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
                 accessibility,
                 entity_kind,
                 entity_path,
-                ident,
                 is_generic,
                 body_kind,
                 saved_stream_state,
+                ident_token,
             } => {
+                let ident = ident_token.ident();
                 if let Some(entity_path) = entity_path {
                     let new_node = match entity_path {
                         EntityPath::Module(module_path) => EntitySymbol::Submodule {
-                            ident: *ident,
+                            ident,
                             accessibility: *accessibility,
                             module_path: *module_path,
                             ast_idx,
                         },
                         EntityPath::ModuleItem(module_item_path) => EntitySymbol::ModuleItem {
-                            ident: *ident,
+                            ident,
                             accessibility: *accessibility,
                             ast_idx,
                             path: *module_item_path,

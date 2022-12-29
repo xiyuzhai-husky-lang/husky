@@ -16,7 +16,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `abs`,
+                    ident_token: IdentifierToken {
+                        ident: `abs`,
+                        token_idx: TokenIdx(
+                            16,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -37,7 +42,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `add`,
+                    ident_token: IdentifierToken {
+                        ident: `add`,
+                        token_idx: TokenIdx(
+                            36,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -58,7 +68,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `abs`,
+                    ident_token: IdentifierToken {
+                        ident: `abs`,
+                        token_idx: TokenIdx(
+                            61,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -79,7 +94,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `add`,
+                    ident_token: IdentifierToken {
+                        ident: `add`,
+                        token_idx: TokenIdx(
+                            81,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -100,7 +120,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `abs`,
+                    ident_token: IdentifierToken {
+                        ident: `abs`,
+                        token_idx: TokenIdx(
+                            106,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -127,7 +152,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `add`,
+                    ident_token: IdentifierToken {
+                        ident: `add`,
+                        token_idx: TokenIdx(
+                            125,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -148,7 +178,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `abs`,
+                    ident_token: IdentifierToken {
+                        ident: `abs`,
+                        token_idx: TokenIdx(
+                            149,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -169,7 +204,12 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident: `add`,
+                    ident_token: IdentifierToken {
+                        ident: `add`,
+                        token_idx: TokenIdx(
+                            169,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -198,7 +238,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`core::num::i8, Foreign`),
                     ),
-                    ident: `i8`,
+                    ident_token: IdentifierToken {
+                        ident: `i8`,
+                        token_idx: TokenIdx(
+                            9,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -243,7 +288,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`core::num::i16, Foreign`),
                     ),
-                    ident: `i16`,
+                    ident_token: IdentifierToken {
+                        ident: `i16`,
+                        token_idx: TokenIdx(
+                            54,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -288,7 +338,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`core::num::i32, Foreign`),
                     ),
-                    ident: `i32`,
+                    ident_token: IdentifierToken {
+                        ident: `i32`,
+                        token_idx: TokenIdx(
+                            99,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {
@@ -339,7 +394,12 @@ Ok(
                     entity_path: Some(
                         TypePath(`core::num::i64, Foreign`),
                     ),
-                    ident: `i64`,
+                    ident_token: IdentifierToken {
+                        ident: `i64`,
+                        token_idx: TokenIdx(
+                            142,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIterState {

@@ -389,7 +389,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::three::three_fermi_match, Feature`),
                     ),
-                    ident: `three_fermi_match`,
+                    ident_token: IdentifierToken {
+                        ident: `three_fermi_match`,
+                        token_idx: TokenIdx(
+                            63,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -419,7 +424,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::three::is_three, Feature`),
                     ),
-                    ident: `is_three`,
+                    ident_token: IdentifierToken {
+                        ident: `is_three`,
+                        token_idx: TokenIdx(
+                            89,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -449,7 +459,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::three::uparc, Function`),
                     ),
-                    ident: `uparc`,
+                    ident_token: IdentifierToken {
+                        ident: `uparc`,
+                        token_idx: TokenIdx(
+                            213,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -479,7 +494,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::three::downarc, Function`),
                     ),
-                    ident: `downarc`,
+                    ident_token: IdentifierToken {
+                        ident: `downarc`,
+                        token_idx: TokenIdx(
+                            246,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
@@ -509,7 +529,12 @@ Ok(
                     entity_path: Some(
                         FormPath(`mnist_classifier::digits::three::back, Function`),
                     ),
-                    ident: `back`,
+                    ident_token: IdentifierToken {
+                        ident: `back`,
+                        token_idx: TokenIdx(
+                            279,
+                        ),
+                    },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIterState {
