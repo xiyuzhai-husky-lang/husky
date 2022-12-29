@@ -12,7 +12,7 @@ use husky_semantic_token::SemanticTokenJar;
 use husky_syntax_fmt::SyntaxFormatJar;
 use husky_term::TermJar;
 use husky_token::TokenJar;
-use husky_token_infer::TokenInfoJar;
+use husky_token_info::TokenInfoJar;
 use husky_vfs::*;
 use husky_word::WordJar;
 

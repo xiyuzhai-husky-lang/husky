@@ -13,7 +13,7 @@ use collect::*;
 use convert::*;
 use husky_entity_tree::EntityTreeResult;
 use husky_token::*;
-use husky_token_infer::*;
+use husky_token_info::*;
 use husky_vfs::*;
 use token::*;
 
