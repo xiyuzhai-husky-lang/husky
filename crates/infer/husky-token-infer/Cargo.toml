@@ -8,9 +8,12 @@ edition = "2021"
 salsa = { path = "../../abstraction/salsa" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
+# kernel
+husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # syntax
+husky-ast = { path = "../../syntax/husky-ast" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-expr = { path = "../../syntax/husky-expr" }
 husky-decl = { path = "../../syntax/husky-decl" }
@@ -20,7 +23,5 @@ husky-defn = { path = "../../syntax/husky-defn" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
-# syntax
-husky-ast = { path = "../../syntax/husky-ast" }
 # infer
 husky-manifest = { path = "../../infer/husky-manifest" }

@@ -34,8 +34,8 @@ impl IdentifierToken {
         self.ident
     }
 
-    pub fn token_idx(&self) -> &TokenIdx {
-        &self.token_idx
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
     }
 }
 

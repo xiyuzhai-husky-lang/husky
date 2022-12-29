@@ -1,7 +1,15 @@
 Ok(
-    TokenInferSheet {
+    TokenInfoSheet {
         token_infos: [
             None,
+            Entity(
+                ModuleItem {
+                    module_item_kind: Type(
+                        Inductive,
+                    ),
+                    connection: Connected,
+                },
+            ),
             None,
             None,
             None,
@@ -85,6 +93,14 @@ Ok(
             None,
             None,
             None,
+            Entity(
+                ModuleItem {
+                    module_item_kind: Type(
+                        Structure,
+                    ),
+                    connection: Connected,
+                },
+            ),
             None,
             None,
             None,
@@ -113,9 +129,14 @@ Ok(
             None,
             None,
             None,
-            None,
-            None,
-            None,
+            Entity(
+                ModuleItem {
+                    module_item_kind: Type(
+                        Structure,
+                    ),
+                    connection: Connected,
+                },
+            ),
             None,
             None,
             None,

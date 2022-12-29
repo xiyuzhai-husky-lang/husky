@@ -35,7 +35,7 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: AssociatedItem {
-                        item_kind: Form(
+                        associated_item_kind: Form(
                             Function,
                         ),
                     },
@@ -67,7 +67,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form(
+                        associated_item_kind: Form(
                             Function,
                         ),
                     },
@@ -223,7 +223,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form(
+                        associated_item_kind: Form(
                             Feature,
                         ),
                     },
@@ -255,7 +255,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        item_kind: Form(
+                        associated_item_kind: Form(
                             Feature,
                         ),
                     },
@@ -281,7 +281,7 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: AssociatedItem {
-                        item_kind: Form(
+                        associated_item_kind: Form(
                             Function,
                         ),
                     },

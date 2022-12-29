@@ -1,11 +1,13 @@
 use crate::*;
+use husky_ast::{Ast, AstSheet};
 use husky_defn::*;
 
 pub(crate) struct TokenInferEngine<'a> {
     db: &'a dyn TokenInferDb,
     token_sheet: &'a TokenSheet,
+    ast_sheet: &'a AstSheet,
     defn_sheet: &'a DefnSheet,
-    sheet: TokenInferSheet,
+    sheet: TokenInfoSheet,
 }
 
 impl<'a> TokenInferEngine<'a> {
@@ -15,12 +17,30 @@ impl<'a> TokenInferEngine<'a> {
             db,
             token_sheet,
             defn_sheet: db.defn_sheet(module_path)?,
-            sheet: TokenInferSheet::new(token_sheet),
+            ast_sheet: db.ast_sheet(module_path)?,
+            sheet: TokenInfoSheet::new(token_sheet),
         })
     }
 
-    pub(crate) fn infer_all(mut self) -> TokenInferSheet {
+    pub(crate) fn infer_all(mut self) -> TokenInfoSheet {
         for defn in self.defn_sheet.defns() {
+            let ast_idx = defn.ast_idx(self.db);
+            match self.ast_sheet[ast_idx] {
+                Ast::Defn {
+                    token_group_idx,
+                    ref body,
+                    accessibility,
+                    entity_kind,
+                    entity_path,
+                    ident_token,
+                    is_generic,
+                    body_kind,
+                    saved_stream_state,
+                } => self
+                    .sheet
+                    .add(ident_token.token_idx(), TokenInfo::Entity(entity_kind)),
+                _ => unreachable!(),
+            }
             match defn {
                 Defn::Type(defn) => self.infer_ty(defn),
                 Defn::Trait(defn) => self.infer_trai(defn),

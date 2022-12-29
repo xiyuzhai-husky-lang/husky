@@ -5,7 +5,7 @@ pub(crate) fn collect_semantic_tokens(
     module_path: ModulePath,
 ) -> EntityTreeResult<Vec<RangedSemanticToken>> {
     let token_sheet = db.token_sheet(module_path)?;
-    let token_infer_sheet = db.token_infer_sheet(module_path)?;
+    let token_infer_sheet = db.token_info_sheet(module_path)?;
     Ok(token_infer_sheet
         .informative_tokens(token_sheet)
         .filter_map(|(info, token)| {
@@ -20,6 +20,7 @@ pub(crate) fn collect_semantic_tokens(
                     TokenKind::Comment => SemanticToken::Comment,
                     TokenKind::Err(_) => return None,
                 },
+                TokenInfo::Entity(entity_kind) => SemanticToken::Entity(*entity_kind),
             };
             Some(RangedSemanticToken {
                 semantic_token,

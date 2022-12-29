@@ -1,5 +1,5 @@
 Ok(
-    TokenInferSheet {
+    TokenInfoSheet {
         token_infos: [
             None,
             None,
@@ -10,7 +10,12 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                ModuleItem {
+                    module_item_kind: Trait,
+                    connection: Connected,
+                },
+            ),
             None,
             None,
             None,

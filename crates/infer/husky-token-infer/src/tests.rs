@@ -10,7 +10,7 @@ use husky_word::WordJar;
     VfsJar,
     WordJar,
     TokenJar,
-    TokenInferJar,
+    TokenInfoJar,
     EntityPathJar,
     ManifestJar,
     AstJar,
@@ -27,5 +27,5 @@ impl salsa::Database for DB {}
 
 #[test]
 fn token_infer_sheet_works() {
-    DB::expect_test_probable_modules_debug("token_infer_sheet", TokenInferDb::token_infer_sheet)
+    DB::expect_test_probable_modules_debug("token_infer_sheet", TokenInferDb::token_info_sheet)
 }

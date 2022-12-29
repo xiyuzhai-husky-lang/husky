@@ -194,7 +194,7 @@ impl<'a> BasicAuxAstParser<'a> {
             AstContextKind::InsideTrait { module_item_path } => match coarse_item_kind {
                 CoarseEntityKind::Module => todo!(),
                 CoarseEntityKind::Item(item_kind) => EntityKind::AssociatedItem {
-                    item_kind: item_kind,
+                    associated_item_kind: item_kind,
                 },
                 CoarseEntityKind::Variant => todo!(),
             },
@@ -221,7 +221,9 @@ impl<'a> BasicAuxAstParser<'a> {
                 CoarseEntityKind::Item(item_kind) => match item_kind {
                     ModuleItemKind::Type(_) => todo!(),
                     ModuleItemKind::Trait => todo!(),
-                    ModuleItemKind::Form(_) => EntityKind::AssociatedItem { item_kind },
+                    ModuleItemKind::Form(_) => EntityKind::AssociatedItem {
+                        associated_item_kind: item_kind,
+                    },
                 },
                 CoarseEntityKind::Variant => todo!(),
             },

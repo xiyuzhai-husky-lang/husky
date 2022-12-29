@@ -1,8 +1,16 @@
 Ok(
-    TokenInferSheet {
+    TokenInfoSheet {
         token_infos: [
             None,
             None,
+            Entity(
+                ModuleItem {
+                    module_item_kind: Form(
+                        Function,
+                    ),
+                    connection: Connected,
+                },
+            ),
             None,
             None,
             None,
@@ -40,6 +48,14 @@ Ok(
             None,
             None,
             None,
+            Entity(
+                ModuleItem {
+                    module_item_kind: Form(
+                        Function,
+                    ),
+                    connection: Connected,
+                },
+            ),
             None,
             None,
             None,
@@ -99,6 +115,14 @@ Ok(
             None,
             None,
             None,
+            Entity(
+                ModuleItem {
+                    module_item_kind: Form(
+                        Function,
+                    ),
+                    connection: Connected,
+                },
+            ),
             None,
             None,
             None,
@@ -222,6 +246,14 @@ Ok(
             None,
             None,
             None,
+            Entity(
+                ModuleItem {
+                    module_item_kind: Form(
+                        Feature,
+                    ),
+                    connection: Connected,
+                },
+            ),
             None,
             None,
             None,
@@ -281,11 +313,14 @@ Ok(
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Entity(
+                ModuleItem {
+                    module_item_kind: Form(
+                        Feature,
+                    ),
+                    connection: Connected,
+                },
+            ),
             None,
             None,
             None,

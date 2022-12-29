@@ -1,7 +1,15 @@
 Ok(
-    TokenInferSheet {
+    TokenInfoSheet {
         token_infos: [
             None,
+            Entity(
+                ModuleItem {
+                    module_item_kind: Type(
+                        Struct,
+                    ),
+                    connection: Connected,
+                },
+            ),
             None,
             None,
             None,
@@ -142,6 +150,14 @@ Ok(
             None,
             None,
             None,
+            Entity(
+                ModuleItem {
+                    module_item_kind: Type(
+                        Struct,
+                    ),
+                    connection: Connected,
+                },
+            ),
             None,
             None,
             None,
@@ -153,6 +169,14 @@ Ok(
             None,
             None,
             None,
+            Entity(
+                ModuleItem {
+                    module_item_kind: Type(
+                        Struct,
+                    ),
+                    connection: Connected,
+                },
+            ),
             None,
             None,
             None,
@@ -480,6 +504,14 @@ Ok(
             None,
             None,
             None,
+            Entity(
+                ModuleItem {
+                    module_item_kind: Type(
+                        Struct,
+                    ),
+                    connection: Connected,
+                },
+            ),
             None,
             None,
             None,
@@ -564,6 +596,14 @@ Ok(
             None,
             None,
             None,
+            Entity(
+                ModuleItem {
+                    module_item_kind: Type(
+                        Struct,
+                    ),
+                    connection: Connected,
+                },
+            ),
             None,
             None,
             None,
@@ -684,12 +724,14 @@ Ok(
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Entity(
+                ModuleItem {
+                    module_item_kind: Type(
+                        Struct,
+                    ),
+                    connection: Connected,
+                },
+            ),
             None,
             None,
             None,
