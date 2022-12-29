@@ -1,8 +1,6 @@
+use super::*;
 use husky_term::Term;
-
 use husky_text::FilePosition;
-
-use crate::*;
 
 #[derive(Debug, Clone)]
 pub enum HoverActionIR {
@@ -13,7 +11,7 @@ pub enum HoverActionIR {
 }
 
 impl HoverActionIR {
-    fn goto_type_from_targets(_db: &dyn HoverDb, targets: Vec<Term>) -> Self {
+    fn new_goto_type_from_targets(_db: &dyn HoverDb, targets: Vec<Term>) -> Self {
         let targets = targets
             .into_iter()
             .filter_map(|_target| {

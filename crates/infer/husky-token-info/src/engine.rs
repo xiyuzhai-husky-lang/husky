@@ -3,7 +3,7 @@ use husky_ast::{Ast, AstSheet};
 use husky_defn::*;
 
 pub(crate) struct TokenInferEngine<'a> {
-    db: &'a dyn TokenInferDb,
+    db: &'a dyn TokenInfoDb,
     token_sheet: &'a TokenSheet,
     ast_sheet: &'a AstSheet,
     defn_sheet: &'a DefnSheet,
@@ -11,7 +11,7 @@ pub(crate) struct TokenInferEngine<'a> {
 }
 
 impl<'a> TokenInferEngine<'a> {
-    pub(crate) fn new(db: &'a dyn TokenInferDb, module_path: ModulePath) -> EntityTreeResult<Self> {
+    pub(crate) fn new(db: &'a dyn TokenInfoDb, module_path: ModulePath) -> EntityTreeResult<Self> {
         let token_sheet = &db.token_sheet(module_path)?;
         Ok(Self {
             db,

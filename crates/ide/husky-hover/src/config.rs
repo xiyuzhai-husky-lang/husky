@@ -1,3 +1,6 @@
+use crate::*;
+
+#[salsa::input(jar = HoverJar)]
 pub struct HoverConfig {}
 
 impl HoverConfig {

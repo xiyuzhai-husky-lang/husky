@@ -36,36 +36,37 @@ impl TextRange {
     }
 }
 
-#[derive(Debug)]
-pub struct FileRange {
-    file: PathBuf,
-    range: TextRange,
-}
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct ModuleRange {}
 
-impl FileRange {
+impl ModuleRange {
     pub fn file(&self) -> &Path {
-        &self.file
+        todo!()
+        // &self.file
     }
 
     pub fn range(&self) -> TextRange {
-        self.range
+        todo!()
+        // self.range
     }
 }
 
-impl HasTextRange for FileRange {
+impl HasTextRange for ModuleRange {
     fn text_range(&self) -> TextRange {
-        self.range
+        todo!()
+        // self.range
     }
 }
 
 pub trait HasSourceRange: HasTextRange {
     fn source(&self) -> &Path;
 
-    fn source_range(&self) -> FileRange {
-        FileRange {
-            file: self.source().to_owned(),
-            range: self.text_range(),
-        }
+    fn source_range(&self) -> ModuleRange {
+        todo!()
+        // ModuleRange {
+        //     file: self.source().to_owned(),
+        //     range: self.text_range(),
+        // }
     }
 }
 
@@ -81,9 +82,10 @@ impl<S: Deref<Target = T>, T: HasSourceRange + 'static> HasSourceRange for S {
     }
 }
 
-impl FileRange {
+impl ModuleRange {
     pub fn new(file: PathBuf, range: TextRange) -> Self {
-        Self { file, range }
+        todo!()
+        // Self { file, range }
     }
 }
 

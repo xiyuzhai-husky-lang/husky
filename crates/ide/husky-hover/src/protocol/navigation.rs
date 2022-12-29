@@ -1,6 +1,7 @@
-use crate::*;
+use super::*;
 use husky_documentation::Documentation;
 use husky_text::TextRange;
+use std::path::PathBuf;
 
 /// `NavigationTarget` represents an element in the editor's UI which you can
 /// click on to navigate to a particular piece of code.
@@ -9,7 +10,7 @@ use husky_text::TextRange;
 /// code, like a function or a struct, but this is not strictly required.
 #[derive(Clone, PartialEq, Eq, Hash)]
 pub struct NavigationTarget {
-    pub file: DiffPath,
+    pub file: PathBuf,
     /// Range which encompasses the whole element.
     ///
     /// Should include body, doc comments, attributes, etc.

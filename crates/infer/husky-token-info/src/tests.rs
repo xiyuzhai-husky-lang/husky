@@ -27,5 +27,8 @@ impl salsa::Database for DB {}
 
 #[test]
 fn token_infer_sheet_works() {
-    DB::expect_test_probable_modules_debug("token_infer_sheet", TokenInferDb::token_info_sheet)
+    DB::expect_test_probable_modules_debug_ref_result(
+        "token_infer_sheet",
+        TokenInfoDb::token_info_sheet,
+    )
 }
