@@ -1,3 +1,3 @@
-mod query;
+mod db;
 
-pub use query::*;
+pub use db::*;
