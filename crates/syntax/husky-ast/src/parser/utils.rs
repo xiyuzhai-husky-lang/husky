@@ -78,9 +78,12 @@ pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
         })
     }
 
-    fn parse_ident(&mut self) -> AstResult<IdentifierToken> {
+    fn parse_ident(&mut self) -> AstResult<IdentifierToken>
+    where
+        Self: Sized,
+    {
         use parsec::ParseFrom;
-        IdentifierToken::parse_from(self.token_iter_mut())?.ok_or(AstError::ExpectIdentifier)
+        IdentifierToken::parse_from(self)?.ok_or(AstError::ExpectIdentifier)
     }
 
     fn parse_is_generic(&self) -> bool {
