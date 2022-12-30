@@ -1,5 +1,8 @@
 use husky_entity_path::*;
-use husky_entity_taxonomy::{FormKind, ModuleItemConnection, ModuleItemKind, TypeKind};
+use husky_entity_taxonomy::{
+    AssociatedItemKind, FormKind, ModuleItemConnection, ModuleItemKind, TraitItemKind,
+    TypeItemKind, TypeKind,
+};
 use husky_opn_syntax::{BinaryOpr, Bracket};
 use husky_print_utils::p;
 use husky_token::{FormKeyword, TokenParseContext, TypeKeyword};
@@ -46,11 +49,7 @@ impl<'a> AstParser<'a> {
                     TraitPath::new(self.db, self.module_path, ident, connection).into()
                 }
             }),
-            EntityKind::AssociatedItem { .. } => {
-                ctx.kind().module_item_path().map(|module_item_path| {
-                    AssociatedItemPath::new(self.db, module_item_path, ident).into()
-                })
-            }
+            EntityKind::AssociatedItem { .. } => None,
             EntityKind::Variant => todo!(),
         };
         let ast_ctx_kind = AstContextKind::inside_defn(entity_kind, entity_path);
@@ -128,10 +127,11 @@ impl<'a> BasicAuxAstParser<'a> {
         mut self,
     ) -> Result<(Accessibility, EntityKind, IdentifierToken, bool, TokenIdx), AstError> {
         let accessibility = self.parse_accessibility()?;
-        let entity_kind_keyword = self.take_entity_kind_keyword()?;
+        let kw = self.take_entity_kind_keyword()?;
         let ident = self.parse_expected::<IdentifierToken, _>(AstError::ExpectIdentifier)?;
         let is_generic = self.parse_is_generic();
-        let coarse_item_kind: CoarseEntityKind = match entity_kind_keyword {
+        /*
+        let coarse_item_kind: CoarseEntityKind = match kw {
             Keyword::Config(_) => todo!(),
             Keyword::Paradigm(kw) => {
                 let form_kind = if let Some(token) = self.token_iter().peek() {
@@ -182,50 +182,277 @@ impl<'a> BasicAuxAstParser<'a> {
             Keyword::Trait => ModuleItemKind::Trait.into(),
             Keyword::End(_) => todo!(),
         };
+        */
         let entity_kind = match self.ast_context_kind() {
-            AstContextKind::InsideTrait { module_item_path } => match coarse_item_kind {
-                CoarseEntityKind::Module => todo!(),
-                CoarseEntityKind::Item(item_kind) => EntityKind::AssociatedItem {
-                    associated_item_kind: item_kind,
-                },
-                CoarseEntityKind::Variant => todo!(),
-            },
-            AstContextKind::InsideEnumLikeType { module_item_path } => todo!(),
-            AstContextKind::InsideForm => match coarse_item_kind {
-                CoarseEntityKind::Module => todo!(),
-                CoarseEntityKind::Item(item_kind) => {
-                    match item_kind {
-                        ModuleItemKind::Type(_) => todo!(),
-                        ModuleItemKind::Trait => todo!(),
-                        ModuleItemKind::Form(_) => todo!(),
-                    }
-                    p!(self.text_start(), self.module_path().debug(self.db()));
-                    todo!();
-                    EntityKind::ModuleItem {
-                        module_item_kind: item_kind,
-                        connection: ModuleItemConnection::Disconnected,
+            AstContextKind::InsideTrait { module_item_path } => match kw {
+                Keyword::Config(_) => todo!(),
+                Keyword::Paradigm(kw) => {
+                    let trai_item_kind: TraitItemKind = if let Some(token) =
+                        self.token_iter().peek()
+                    {
+                        match token.kind {
+                            TokenKind::Special(special_token) => match special_token {
+                                SpecialToken::Bra(Bracket::Par) | SpecialToken::LAngle => {
+                                    match kw {
+                                        FormKeyword::Def => todo!(),
+                                        FormKeyword::Func
+                                        | FormKeyword::Proc
+                                        | FormKeyword::Fn
+                                        | FormKeyword::Function => TraitItemKind::Method,
+                                        FormKeyword::Theorem => todo!(),
+                                        FormKeyword::Lemma => todo!(),
+                                        FormKeyword::Proposition => todo!(),
+                                    }
+                                }
+                                SpecialToken::BinaryOpr(BinaryOpr::Curry) | SpecialToken::Colon => {
+                                    todo!()
+                                }
+                                unexpected_special_token => {
+                                    todo!("unexpected_special_token = {unexpected_special_token:?}")
+                                }
+                            },
+                            ref unexpected_token => todo!(),
+                        }
+                    } else {
+                        todo!()
+                    };
+                    EntityKind::AssociatedItem {
+                        associated_item_kind: AssociatedItemKind::TraitItem(trai_item_kind),
                     }
                 }
-                CoarseEntityKind::Variant => todo!(),
+                Keyword::Type(kw) => {
+                    let trai_item_kind: TraitItemKind = match kw {
+                        TypeKeyword::Type => TraitItemKind::AssociatedType,
+                        TypeKeyword::Struct => todo!(),
+                        TypeKeyword::Enum => todo!(),
+                        TypeKeyword::Record => todo!(),
+                        TypeKeyword::Structure => todo!(),
+                        TypeKeyword::Inductive => todo!(),
+                    };
+                    EntityKind::AssociatedItem {
+                        associated_item_kind: AssociatedItemKind::TraitItem(trai_item_kind),
+                    }
+                }
+                Keyword::Stmt(_) => todo!(),
+                Keyword::Liason(_) => todo!(),
+                Keyword::Main => todo!(),
+                Keyword::Use => todo!(),
+                Keyword::Mod => todo!(),
+                Keyword::Visual => todo!(),
+                Keyword::Impl => todo!(),
+                Keyword::Trait => todo!(),
+                Keyword::End(_) => todo!(),
+                Keyword::Connection(_) => todo!(),
             },
-            AstContextKind::InsideImpl => match coarse_item_kind {
-                CoarseEntityKind::Module => todo!(),
-                CoarseEntityKind::Item(item_kind) => match item_kind {
-                    ModuleItemKind::Type(_) => todo!(),
-                    ModuleItemKind::Trait => todo!(),
-                    ModuleItemKind::Form(_) => EntityKind::AssociatedItem {
-                        associated_item_kind: item_kind,
-                    },
-                },
-                CoarseEntityKind::Variant => todo!(),
+            // match coarse_item_kind {
+            //     CoarseEntityKind::Module => todo!(),
+            //     CoarseEntityKind::ModuleItem(mod_item_kind) => todo!(),
+            //     CoarseEntityKind::AssociatedItem(associated_item_kind) => {
+            //         EntityKind::AssociatedItem {
+            //             associated_item_kind,
+            //         }
+            //     }
+            //     CoarseEntityKind::Variant => todo!(),
+            // },
+            AstContextKind::InsideEnumLikeType { module_item_path } => todo!(),
+            AstContextKind::InsideForm => match kw {
+                Keyword::Config(_) => todo!(),
+                Keyword::Paradigm(_) => todo!(),
+                Keyword::Type(_) => todo!(),
+                Keyword::Stmt(_) => todo!(),
+                Keyword::Liason(_) => todo!(),
+                Keyword::Main => todo!(),
+                Keyword::Use => todo!(),
+                Keyword::Mod => todo!(),
+                Keyword::Visual => todo!(),
+                Keyword::Impl => todo!(),
+                Keyword::Trait => todo!(),
+                Keyword::End(_) => todo!(),
+                Keyword::Connection(_) => todo!(),
             },
-            AstContextKind::InsideModule => match coarse_item_kind {
-                CoarseEntityKind::Module => EntityKind::Module,
-                CoarseEntityKind::Item(item_kind) => EntityKind::ModuleItem {
-                    module_item_kind: item_kind,
+            // match coarse_item_kind {
+            //     CoarseEntityKind::Module => todo!(),
+            //     CoarseEntityKind::Item(item_kind) => {
+            //         match item_kind {
+            //             ModuleItemKind::Type(_) => todo!(),
+            //             ModuleItemKind::Trait => todo!(),
+            //             ModuleItemKind::Form(_) => todo!(),
+            //         }
+            //         p!(self.text_start(), self.module_path().debug(self.db()));
+            //         todo!();
+            //         EntityKind::ModuleItem {
+            //             module_item_kind: item_kind,
+            //             connection: ModuleItemConnection::Disconnected,
+            //         }
+            //     }
+            //     CoarseEntityKind::Variant => todo!(),
+            // },
+            AstContextKind::InsideTypeImpl => match kw {
+                Keyword::Config(_) => todo!(),
+                Keyword::Paradigm(kw) => {
+                    let type_item_kind: TypeItemKind = if let Some(token) = self.token_iter().peek()
+                    {
+                        match token.kind {
+                            TokenKind::Special(special_token) => match special_token {
+                                SpecialToken::Bra(Bracket::Par) | SpecialToken::LAngle => {
+                                    match kw {
+                                        FormKeyword::Def => todo!(),
+                                        FormKeyword::Func
+                                        | FormKeyword::Proc
+                                        | FormKeyword::Fn
+                                        | FormKeyword::Function => TypeItemKind::Method,
+                                        FormKeyword::Theorem => todo!(),
+                                        FormKeyword::Lemma => todo!(),
+                                        FormKeyword::Proposition => todo!(),
+                                    }
+                                }
+                                SpecialToken::BinaryOpr(BinaryOpr::Curry) | SpecialToken::Colon => {
+                                    TypeItemKind::Memo
+                                }
+                                unexpected_special_token => {
+                                    todo!("unexpected_special_token = {unexpected_special_token:?}")
+                                }
+                            },
+                            ref unexpected_token => todo!(),
+                        }
+                    } else {
+                        todo!()
+                    };
+                    EntityKind::AssociatedItem {
+                        associated_item_kind: AssociatedItemKind::TypeItem(type_item_kind),
+                    }
+                }
+                Keyword::Type(_) => todo!(),
+                Keyword::Stmt(_) => todo!(),
+                Keyword::Liason(_) => todo!(),
+                Keyword::Main => todo!(),
+                Keyword::Use => todo!(),
+                Keyword::Mod => todo!(),
+                Keyword::Visual => todo!(),
+                Keyword::Impl => todo!(),
+                Keyword::Trait => todo!(),
+                Keyword::End(_) => todo!(),
+                Keyword::Connection(_) => todo!(),
+            },
+            AstContextKind::InsideTraitImpl => match kw {
+                Keyword::Config(_) => todo!(),
+                Keyword::Paradigm(kw) => {
+                    let form_kind = if let Some(token) = self.token_iter().peek() {
+                        match token.kind {
+                            TokenKind::Special(special_token) => match special_token {
+                                SpecialToken::Bra(Bracket::Par) | SpecialToken::LAngle => {
+                                    match kw {
+                                        FormKeyword::Def => todo!(),
+                                        FormKeyword::Func
+                                        | FormKeyword::Proc
+                                        | FormKeyword::Fn
+                                        | FormKeyword::Function => FormKind::Function,
+                                        FormKeyword::Theorem => todo!(),
+                                        FormKeyword::Lemma => todo!(),
+                                        FormKeyword::Proposition => todo!(),
+                                    }
+                                }
+                                SpecialToken::BinaryOpr(BinaryOpr::Curry) | SpecialToken::Colon => {
+                                    FormKind::Feature
+                                }
+                                unexpected_special_token => {
+                                    todo!("unexpected_special_token = {unexpected_special_token:?}")
+                                }
+                            },
+                            ref unexpected_token => todo!(),
+                        }
+                    } else {
+                        todo!()
+                    };
+                    EntityKind::AssociatedItem {
+                        associated_item_kind: AssociatedItemKind::TraitItem(todo!()),
+                    }
+                }
+                Keyword::Type(_) => todo!(),
+                Keyword::Stmt(_) => todo!(),
+                Keyword::Liason(_) => todo!(),
+                Keyword::Main => todo!(),
+                Keyword::Use => todo!(),
+                Keyword::Mod => todo!(),
+                Keyword::Visual => todo!(),
+                Keyword::Impl => todo!(),
+                Keyword::Trait => todo!(),
+                Keyword::End(_) => todo!(),
+                Keyword::Connection(_) => todo!(),
+            },
+            // match coarse_item_kind {
+            //     CoarseEntityKind::Module => todo!(),
+            //     CoarseEntityKind::Item(item_kind) => match item_kind {
+            //         ModuleItemKind::Type(_) => todo!(),
+            //         ModuleItemKind::Trait => todo!(),
+            //         ModuleItemKind::Form(_) => EntityKind::AssociatedItem {
+            //             associated_item_kind: item_kind,
+            //         },
+            //     },
+            //     CoarseEntityKind::Variant => todo!(),
+            // },
+            AstContextKind::InsideModule => match kw {
+                Keyword::Config(_) => todo!(),
+                Keyword::Paradigm(kw) => {
+                    let form_kind = if let Some(token) = self.token_iter().peek() {
+                        match token.kind {
+                            TokenKind::Special(special_token) => match special_token {
+                                SpecialToken::Bra(Bracket::Par) | SpecialToken::LAngle => {
+                                    match kw {
+                                        FormKeyword::Def => todo!(),
+                                        FormKeyword::Func
+                                        | FormKeyword::Proc
+                                        | FormKeyword::Fn
+                                        | FormKeyword::Function => FormKind::Function,
+                                        FormKeyword::Theorem => todo!(),
+                                        FormKeyword::Lemma => todo!(),
+                                        FormKeyword::Proposition => todo!(),
+                                    }
+                                }
+                                SpecialToken::BinaryOpr(BinaryOpr::Curry) | SpecialToken::Colon => {
+                                    FormKind::Feature
+                                }
+                                unexpected_special_token => {
+                                    todo!("unexpected_special_token = {unexpected_special_token:?}")
+                                }
+                            },
+                            ref unexpected_token => todo!(),
+                        }
+                    } else {
+                        todo!()
+                    };
+                    EntityKind::ModuleItem {
+                        module_item_kind: ModuleItemKind::Form(form_kind).into(),
+                        connection: ModuleItemConnection::Connected,
+                    }
+                }
+                Keyword::Type(kw) => {
+                    let type_kind = match kw {
+                        TypeKeyword::Type => TypeKind::Foreign,
+                        TypeKeyword::Struct => TypeKind::Struct,
+                        TypeKeyword::Enum => TypeKind::Enum,
+                        TypeKeyword::Record => TypeKind::Record,
+                        TypeKeyword::Structure => TypeKind::Structure,
+                        TypeKeyword::Inductive => TypeKind::Inductive,
+                    };
+                    EntityKind::ModuleItem {
+                        module_item_kind: ModuleItemKind::Type(type_kind).into(),
+                        connection: ModuleItemConnection::Connected,
+                    }
+                }
+                Keyword::Stmt(_) => todo!(),
+                Keyword::Liason(_) => todo!(),
+                Keyword::Main => todo!(),
+                Keyword::Use => todo!(),
+                Keyword::Mod => EntityKind::Module,
+                Keyword::Visual => todo!(),
+                Keyword::Impl => todo!(),
+                Keyword::Trait => EntityKind::ModuleItem {
+                    module_item_kind: ModuleItemKind::Trait.into(),
                     connection: ModuleItemConnection::Connected,
                 },
-                CoarseEntityKind::Variant => todo!(),
+                Keyword::End(_) => todo!(),
+                Keyword::Connection(_) => todo!(),
             },
             AstContextKind::InsideMatchStmt => todo!(),
             AstContextKind::InsideNoChild => return Err(AstError::ExpectNothing),
@@ -237,18 +464,5 @@ impl<'a> BasicAuxAstParser<'a> {
             is_generic,
             self.finish_with_saved_stream_state(),
         ))
-    }
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-enum CoarseEntityKind {
-    Module,
-    Item(ModuleItemKind),
-    Variant,
-}
-
-impl From<ModuleItemKind> for CoarseEntityKind {
-    fn from(v: ModuleItemKind) -> Self {
-        Self::Item(v)
     }
 }

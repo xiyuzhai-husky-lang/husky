@@ -1,5 +1,7 @@
 use husky_entity_path::*;
-use husky_entity_taxonomy::{EntityKind, ModuleItemKind, TypeKind};
+use husky_entity_taxonomy::{
+    AssociatedItemKind, EntityKind, ModuleItemKind, TraitItemKind, TypeItemKind, TypeKind,
+};
 use husky_text::TextRange;
 
 use crate::INDENT_INCR;
@@ -14,7 +16,8 @@ pub(super) enum AstContextKind {
     },
     /// inside function, method or inline block or main or config
     InsideForm,
-    InsideImpl,
+    InsideTypeImpl,
+    InsideTraitImpl,
     /// module level
     InsideModule,
     /// ```python
@@ -53,15 +56,28 @@ impl AstContextKind {
             EntityKind::AssociatedItem {
                 associated_item_kind: item_kind,
             } => match item_kind {
-                ModuleItemKind::Type(type_kind) => match type_kind {
-                    TypeKind::Enum | TypeKind::Inductive => todo!(),
-                    TypeKind::Record
-                    | TypeKind::Struct
-                    | TypeKind::Structure
-                    | TypeKind::Foreign => AstContextKind::InsideNoChild,
+                AssociatedItemKind::TypeItem(ty_item_kind) => match ty_item_kind {
+                    TypeItemKind::Method
+                    | TypeItemKind::AssociatedFunction
+                    | TypeItemKind::Memo => AstContextKind::InsideForm,
                 },
-                ModuleItemKind::Trait => todo!(),
-                ModuleItemKind::Form(_) => AstContextKind::InsideForm,
+                // ModuleItemKind::Type(type_kind) => match type_kind {
+                //     TypeKind::Enum | TypeKind::Inductive => todo!(),
+                //     TypeKind::Record
+                //     | TypeKind::Struct
+                //     | TypeKind::Structure
+                //     | TypeKind::Foreign => AstContextKind::InsideNoChild,
+                // },
+                // ModuleItemKind::Trait => todo!(),
+                // ModuleItemKind::Form(_) => AstContextKind::InsideForm,,
+                AssociatedItemKind::TraitItem(trai_item_kind) => match trai_item_kind {
+                    TraitItemKind::Method => {
+                        // ad hoc
+                        // todo: should check whether ends with ';' or ':'
+                        AstContextKind::InsideForm
+                    }
+                    TraitItemKind::AssociatedType => AstContextKind::InsideNoChild,
+                },
             },
             EntityKind::Variant => todo!(),
         }
