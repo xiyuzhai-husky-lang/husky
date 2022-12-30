@@ -73,11 +73,9 @@ impl<'a, Context> parsec::ParseFrom<Context> for IdentifierToken
 where
     Context: TokenParseContext<'a>,
 {
-    type Output = Self;
-
     type Error = TokenError;
 
-    fn parse_from(ctx: &mut Context) -> Result<Option<Self::Output>, Self::Error> {
+    fn parse_from(ctx: &mut Context) -> Result<Option<Self>, Self::Error> {
         while let Some((token_idx, token)) = ctx.token_iter_mut().next_indexed() {
             match token.kind {
                 TokenKind::Identifier(ident) => {

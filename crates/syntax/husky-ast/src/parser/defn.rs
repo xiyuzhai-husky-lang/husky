@@ -128,7 +128,7 @@ impl<'a> BasicAuxAstParser<'a> {
     ) -> Result<(Accessibility, EntityKind, IdentifierToken, bool, TokenIdx), AstError> {
         let accessibility = self.parse_accessibility()?;
         let kw = self.take_entity_kind_keyword()?;
-        let ident = self.parse_expected::<IdentifierToken, _>(AstError::ExpectIdentifier)?;
+        let ident: IdentifierToken = self.parse_expected(AstError::ExpectIdentifier)?;
         let is_generic = self.parse_is_generic();
         /*
         let coarse_item_kind: CoarseEntityKind = match kw {

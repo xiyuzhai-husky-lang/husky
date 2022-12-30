@@ -4,9 +4,7 @@ pub trait ParseFromWithRollback<Stream>: ParseFrom<Stream>
 where
     Stream: ParseContext + ?Sized,
 {
-    fn parse_from_with_rollback<'a>(
-        stream: &mut Stream,
-    ) -> Result<Option<Self::Output>, Self::Error>;
+    fn parse_from_with_rollback<'a>(stream: &mut Stream) -> Result<Option<Self>, Self::Error>;
 }
 
 impl<Stream, P> ParseFromWithRollback<Stream> for P
@@ -14,9 +12,7 @@ where
     Stream: ParseContext + ?Sized,
     P: ParseFrom<Stream>,
 {
-    fn parse_from_with_rollback<'a>(
-        stream: &mut Stream,
-    ) -> Result<Option<Self::Output>, Self::Error> {
+    fn parse_from_with_rollback<'a>(stream: &mut Stream) -> Result<Option<Self>, Self::Error> {
         let state = stream.save_state();
         let result = Self::parse_from(stream);
         match result {
