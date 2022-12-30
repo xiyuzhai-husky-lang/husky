@@ -2,7 +2,7 @@ use crate::*;
 
 pub fn parse_separated_list<Stream, Element, Separator, Error>(
     stream: &mut Stream,
-) -> Result<Vec<Element::Output>, Error>
+) -> Result<Vec<Element>, Error>
 where
     Stream: ParseContext,
     Element: ParseFrom<Stream>,

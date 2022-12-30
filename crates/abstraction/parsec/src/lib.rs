@@ -29,18 +29,18 @@ where
 }
 
 pub trait ParseContext: HasParseState {
-    fn parse<P: ParseFrom<Self>>(&mut self) -> Result<Option<P::Output>, P::Error>;
+    fn parse<P: ParseFrom<Self>>(&mut self) -> Result<Option<P>, P::Error>;
     fn parse_expected<P: ParseFrom<Self>, Error>(
         &mut self,
         err: impl FnOnce(Self::State) -> Error,
-    ) -> Result<P::Output, Error>
+    ) -> Result<P, Error>
     where
         Error: From<P::Error>;
 
     /// returns an optional and the rest of the stream,
     ///
     /// guarantees that stream state is not changed if result is Ok(None)
-    fn parse_into<P: ParseFrom<Self>>(self) -> Result<(Option<P::Output>, Self), P::Error>
+    fn parse_into<P: ParseFrom<Self>>(self) -> Result<(Option<P>, Self), P::Error>
     where
         Self: Sized;
 }
@@ -49,14 +49,14 @@ impl<T> ParseContext for T
 where
     T: HasParseState,
 {
-    fn parse<P: ParseFrom<Self>>(&mut self) -> Result<Option<P::Output>, P::Error> {
+    fn parse<P: ParseFrom<Self>>(&mut self) -> Result<Option<P>, P::Error> {
         P::parse_from(self)
     }
 
     fn parse_expected<P: ParseFrom<Self>, Error>(
         &mut self,
         err: impl FnOnce(Self::State) -> Error,
-    ) -> Result<P::Output, Error>
+    ) -> Result<P, Error>
     where
         Error: From<P::Error>,
     {
@@ -67,7 +67,7 @@ where
         }
     }
 
-    fn parse_into<P: ParseFrom<Self>>(mut self) -> Result<(Option<P::Output>, Self), P::Error> {
+    fn parse_into<P: ParseFrom<Self>>(mut self) -> Result<(Option<P>, Self), P::Error> {
         let optional = P::parse_from_with_rollback(&mut self)?;
         Ok((optional, self))
     }
@@ -77,8 +77,7 @@ pub trait ParseFrom<Context>: Sized
 where
     Context: ParseContext + ?Sized,
 {
-    type Output;
     type Error;
     /// no guarantee on stream state other than Ok(Some(_))
-    fn parse_from<'a>(ctx: &mut Context) -> Result<Option<Self::Output>, Self::Error>;
+    fn parse_from<'a>(ctx: &mut Context) -> Result<Option<Self>, Self::Error>;
 }
