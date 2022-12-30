@@ -7,7 +7,7 @@ use husky_expr::{parse_expr, ExprArena, ExprParsingStopReason};
 use husky_opn_syntax::BinaryOpr;
 use husky_print_utils::p;
 use husky_symbol::{LocalSymbolSheet, SymbolContext};
-use husky_token::{IdentifierToken, SpecialToken, TokenGroupIdx, TokenIterState, TokenSheet};
+use husky_token::{IdentifierToken, SpecialToken, TokenGroupIdx, TokenIdx, TokenSheet};
 use parsec::ParseFrom;
 use vec_like::VecPairMap;
 
@@ -111,7 +111,7 @@ impl<'a> DeclCollector<'a> {
         entity_kind: EntityKind,
         token_group_idx: TokenGroupIdx,
         body: &AstIdxRange,
-        saved_stream_state: TokenIterState,
+        saved_stream_state: TokenIdx,
     ) -> Result<Decl, DeclError> {
         match type_kind {
             TypeKind::Enum => self.parse_enum_type_decl(ast_idx, path),
@@ -162,7 +162,7 @@ impl<'a> DeclCollector<'a> {
         path: TypePath,
         token_group_idx: TokenGroupIdx,
         body: &AstIdxRange,
-        saved_stream_state: TokenIterState,
+        saved_stream_state: TokenIdx,
     ) -> DeclResult<Decl> {
         let mut token_iter = self
             .token_sheet
@@ -194,7 +194,7 @@ impl<'a> DeclCollector<'a> {
         entity_kind: EntityKind,
         token_group_idx: TokenGroupIdx,
         body: &AstIdxRange,
-        saved_stream_state: TokenIterState,
+        saved_stream_state: TokenIdx,
     ) -> Result<Decl, DeclError> {
         match path.form_kind(self.db) {
             FormKind::Feature => self.parse_feature_decl(ast_idx, path),

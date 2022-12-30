@@ -28,7 +28,15 @@ where
     }
 }
 
-pub trait ParseInto: HasParseState {
+pub trait ParseContext: HasParseState {
+    fn parse<P: ParseFrom<Self>>(&mut self) -> Result<Option<P::Output>, P::Error>;
+    fn parse_expected<P: ParseFrom<Self>, Error>(
+        &mut self,
+        err: impl FnOnce(Self::State) -> Error,
+    ) -> Result<P::Output, Error>
+    where
+        Error: From<P::Error>;
+
     /// returns an optional and the rest of the stream,
     ///
     /// guarantees that stream state is not changed if result is Ok(None)
@@ -37,22 +45,40 @@ pub trait ParseInto: HasParseState {
         Self: Sized;
 }
 
-impl<T> ParseInto for T
+impl<T> ParseContext for T
 where
     T: HasParseState,
 {
+    fn parse<P: ParseFrom<Self>>(&mut self) -> Result<Option<P::Output>, P::Error> {
+        P::parse_from(self)
+    }
+
+    fn parse_expected<P: ParseFrom<Self>, Error>(
+        &mut self,
+        err: impl FnOnce(Self::State) -> Error,
+    ) -> Result<P::Output, Error>
+    where
+        Error: From<P::Error>,
+    {
+        let saved_state = self.save_state();
+        match P::parse_from(self)? {
+            Some(output) => Ok(output),
+            None => Err(err(saved_state)),
+        }
+    }
+
     fn parse_into<P: ParseFrom<Self>>(mut self) -> Result<(Option<P::Output>, Self), P::Error> {
         let optional = P::parse_from_with_rollback(&mut self)?;
         Ok((optional, self))
     }
 }
 
-pub trait ParseFrom<ParseContext>: Sized
+pub trait ParseFrom<Context>: Sized
 where
-    ParseContext: ParseInto + ?Sized,
+    Context: ParseContext + ?Sized,
 {
     type Output;
     type Error;
     /// no guarantee on stream state other than Ok(Some(_))
-    fn parse_from<'a>(ctx: &mut ParseContext) -> Result<Option<Self::Output>, Self::Error>;
+    fn parse_from<'a>(ctx: &mut Context) -> Result<Option<Self::Output>, Self::Error>;
 }

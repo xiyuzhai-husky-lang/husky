@@ -1,5 +1,5 @@
 use husky_text::TextRange;
-use husky_token::TokenError;
+use husky_token::{TokenError, TokenIdx};
 use thiserror::Error;
 
 use crate::{AstDb, AstIdx};
@@ -17,7 +17,7 @@ pub enum AstError {
     #[error("expect decorator or entity keyword")]
     ExpectDecoratorOrEntityKeyword,
     #[error("expect identifier")]
-    ExpectIdentifier,
+    ExpectIdentifier(TokenIdx),
     #[error("expect `(` or decorator or identifier")]
     ExpectParBraOrDecoratorOrIdentifier(Option<TextRange>),
     #[error("expect nothing")]

@@ -78,14 +78,6 @@ pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
         })
     }
 
-    fn parse_ident(&mut self) -> AstResult<IdentifierToken>
-    where
-        Self: Sized,
-    {
-        use parsec::ParseFrom;
-        IdentifierToken::parse_from(self)?.ok_or(AstError::ExpectIdentifier)
-    }
-
     fn parse_is_generic(&self) -> bool {
         let Some (token) = &self
             .token_iter()
@@ -143,7 +135,7 @@ impl<'a> BasicAuxAstParser<'a> {
         }
     }
 
-    pub(super) fn finish_with_saved_stream_state(self) -> TokenIterState {
+    pub(super) fn finish_with_saved_stream_state(self) -> TokenIdx {
         self.token_iter.save_state()
     }
 

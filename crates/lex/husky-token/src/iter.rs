@@ -13,22 +13,18 @@ impl TokenSheet {
     pub fn token_group_token_iter<'a>(
         &'a self,
         token_group_idx: TokenGroupIdx,
-        state: Option<TokenIterState>,
+        state: Option<TokenIdx>,
     ) -> TokenIter<'a> {
-        let next_relative = state.map(|state| state.next_relative).unwrap_or_default();
+        let base = self.group_start(token_group_idx);
+        let next_relative = state.map(|state| state.raw() - base).unwrap_or_default();
         let tokens = &self[token_group_idx];
         assert!(tokens.len() > 0);
         TokenIter {
-            base: self.group_start(token_group_idx),
+            base,
             tokens,
             next_relative,
         }
     }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct TokenIterState {
-    next_relative: usize,
 }
 
 impl<'a> TokenIter<'a> {
@@ -56,10 +52,8 @@ impl<'a> TokenIter<'a> {
         (text_start..self.text_end()).into()
     }
 
-    pub fn save_state(&self) -> TokenIterState {
-        TokenIterState {
-            next_relative: self.next_relative,
-        }
+    pub fn save_state(&self) -> TokenIdx {
+        TokenIdx(self.base + self.next_relative)
     }
 
     pub fn try_get_one_token_with_indexed<S>(
@@ -119,8 +113,8 @@ impl<'a> TokenIter<'a> {
         self.next_relative -= 1;
     }
 
-    pub fn rollback(&mut self, state: TokenIterState) {
-        self.next_relative = state.next_relative;
+    pub fn rollback(&mut self, state: TokenIdx) {
+        self.next_relative = state.raw() - self.base;
     }
 
     pub fn next(&mut self) -> Option<&'a Token> {
@@ -201,13 +195,13 @@ fn next_indexed_works() {
 
 impl<'a> parsec::HasParseState for TokenIter<'a> {
     // next_relative
-    type State = usize;
+    type State = TokenIdx;
 
     fn save_state(&self) -> Self::State {
-        self.next_relative
+        TokenIdx(self.base + self.next_relative)
     }
 
     fn rollback(&mut self, state: Self::State) {
-        self.next_relative = state
+        self.next_relative = state.raw() - self.base
     }
 }

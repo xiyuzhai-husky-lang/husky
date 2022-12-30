@@ -2,7 +2,7 @@ use crate::*;
 
 pub trait ParseFromWithRollback<Stream>: ParseFrom<Stream>
 where
-    Stream: ParseInto + ?Sized,
+    Stream: ParseContext + ?Sized,
 {
     fn parse_from_with_rollback<'a>(
         stream: &mut Stream,
@@ -11,7 +11,7 @@ where
 
 impl<Stream, P> ParseFromWithRollback<Stream> for P
 where
-    Stream: ParseInto + ?Sized,
+    Stream: ParseContext + ?Sized,
     P: ParseFrom<Stream>,
 {
     fn parse_from_with_rollback<'a>(

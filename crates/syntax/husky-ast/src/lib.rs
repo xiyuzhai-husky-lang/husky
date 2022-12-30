@@ -18,7 +18,7 @@ pub use use_expr::*;
 use husky_entity_path::{EntityPath, ModuleItemVariantPath};
 use husky_entity_taxonomy::EntityKind;
 use husky_text::*;
-use husky_token::{IdentifierToken, TokenGroupIdx, TokenIterState};
+use husky_token::{IdentifierToken, TokenGroupIdx, TokenIdx};
 use husky_vfs::*;
 
 use husky_word::*;
@@ -71,7 +71,7 @@ pub enum Ast {
         ident_token: IdentifierToken,
         is_generic: bool,
         body_kind: DefnBodyKind,
-        saved_stream_state: TokenIterState,
+        saved_stream_state: TokenIdx,
     },
     ModuleItemVariant {
         token_group_idx: TokenGroupIdx,

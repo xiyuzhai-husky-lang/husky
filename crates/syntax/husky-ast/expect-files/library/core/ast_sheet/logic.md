@@ -27,9 +27,9 @@ Ok(
                     },
                     is_generic: true,
                     body_kind: None,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 3,
-                    },
+                    saved_stream_state: TokenIdx(
+                        3,
+                    ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -56,9 +56,9 @@ Ok(
                     },
                     is_generic: true,
                     body_kind: EnumVariants,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 3,
-                    },
+                    saved_stream_state: TokenIdx(
+                        25,
+                    ),
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(

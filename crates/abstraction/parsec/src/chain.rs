@@ -4,7 +4,7 @@ pub fn parse_seq2_from<'a, Stream, A, B, Error>(
     stream: &mut Stream,
 ) -> Result<Option<(A::Output, B::Output)>, Error>
 where
-    Stream: ParseInto,
+    Stream: ParseContext,
     A: ParseFrom<Stream>,
     B: ParseFrom<Stream>,
     Error: From<A::Error> + From<B::Error>,
@@ -24,7 +24,7 @@ pub fn parse_seq3_from<'a, Stream, A, B, C, Error>(
     stream: &mut Stream,
 ) -> Result<Option<(A::Output, B::Output, C::Output)>, Error>
 where
-    Stream: ParseInto,
+    Stream: ParseContext,
     A: ParseFrom<Stream>,
     B: ParseFrom<Stream>,
     C: ParseFrom<Stream>,
