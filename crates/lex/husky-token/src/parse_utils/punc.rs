@@ -17,7 +17,9 @@ where
 {
     type Error = TokenError;
 
-    fn parse_from(ctx: &mut Context) -> Result<Option<Self>, Self::Error> {
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, Self::Error> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed(IgnoreComment::True) {
             match token.kind {
                 TokenKind::Punctuation(punc) => Ok(Some(PunctuationToken { punc, token_idx })),
@@ -86,7 +88,9 @@ where
 {
     type Error = TokenError;
 
-    fn parse_from(ctx: &mut Context) -> Result<Option<Self>, Self::Error> {
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, Self::Error> {
         Ok(parse_specific_punctuation_from(ctx, Punctuation::Comma)?
             .map(|token_idx| CommaToken { token_idx }))
     }
@@ -117,7 +121,9 @@ where
 {
     type Error = TokenError;
 
-    fn parse_from(ctx: &mut Context) -> Result<Option<Self>, Self::Error> {
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, Self::Error> {
         Ok(
             parse_specific_punctuation_from(ctx, BinaryOpr::Assign(None).into())?
                 .map(|token_idx| AssignToken { token_idx }),
@@ -150,7 +156,9 @@ where
 {
     type Error = TokenError;
 
-    fn parse_from(ctx: &mut Context) -> Result<Option<Self>, Self::Error> {
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, Self::Error> {
         Ok(
             parse_specific_punctuation_from(ctx, Punctuation::Bra(Bracket::Par))?
                 .map(|token_idx| LeftParenthesisToken { token_idx }),
@@ -183,7 +191,9 @@ where
 {
     type Error = TokenError;
 
-    fn parse_from(ctx: &mut Context) -> Result<Option<Self>, Self::Error> {
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, Self::Error> {
         Ok(
             parse_specific_punctuation_from(ctx, Punctuation::Ket(Bracket::Par))?
                 .map(|token_idx| RightParenthesisToken { token_idx }),
@@ -216,7 +226,9 @@ where
 {
     type Error = TokenError;
 
-    fn parse_from(ctx: &mut Context) -> Result<Option<Self>, Self::Error> {
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, Self::Error> {
         Ok(
             parse_specific_punctuation_from(ctx, Punctuation::Bra(Bracket::Curl))?
                 .map(|token_idx| LeftCurlyBraceToken { token_idx }),
@@ -249,7 +261,9 @@ where
 {
     type Error = TokenError;
 
-    fn parse_from(ctx: &mut Context) -> Result<Option<Self>, Self::Error> {
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, Self::Error> {
         Ok(
             parse_specific_punctuation_from(ctx, Punctuation::Ket(Bracket::Curl))?
                 .map(|token_idx| RightCurlyBraceToken { token_idx }),
@@ -282,7 +296,9 @@ where
 {
     type Error = TokenError;
 
-    fn parse_from(ctx: &mut Context) -> Result<Option<Self>, Self::Error> {
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, Self::Error> {
         Ok(parse_specific_punctuation_from(ctx, Punctuation::Vertical)?
             .map(|token_idx| VerticalToken { token_idx }))
     }

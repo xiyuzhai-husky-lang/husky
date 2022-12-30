@@ -44,7 +44,9 @@ where
 {
     type Error = TokenError;
 
-    fn parse_from(ctx: &mut Context) -> Result<Option<Self>, Self::Error> {
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, Self::Error> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed(IgnoreComment::True) {
             match token.kind {
                 TokenKind::Identifier(ident) => Ok(Some(IdentifierToken { ident, token_idx })),

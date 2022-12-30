@@ -4,9 +4,12 @@ mod separated_list;
 #[cfg(test)]
 mod tests;
 
-use std::ops::DerefMut;
-
 pub use rollback::*;
+pub use separated_list::*;
+
+use std::ops::DerefMut;
+#[cfg(test)]
+use tests::*;
 
 pub trait ParseStream {
     type State;
@@ -58,7 +61,7 @@ where
     T: ParseStream,
 {
     fn parse<P: ParseFrom<Self>>(&mut self) -> Result<Option<P>, P::Error> {
-        P::parse_from(self)
+        P::parse_from_with_rollback(self)
     }
 
     fn parse_expected<P: ParseFrom<Self>, Error>(
@@ -69,7 +72,7 @@ where
         Error: From<P::Error>,
     {
         let saved_state = self.save_state();
-        match P::parse_from(self)? {
+        match P::parse_from_with_rollback(self)? {
             Some(output) => Ok(output),
             None => Err(err(saved_state)),
         }
@@ -87,5 +90,7 @@ where
 {
     type Error;
     /// no guarantee on stream state other than Ok(Some(_))
-    fn parse_from<'a>(ctx: &mut Context) -> Result<Option<Self>, Self::Error>;
+    fn parse_from_without_guaranteed_rollback<'a>(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, Self::Error>;
 }
