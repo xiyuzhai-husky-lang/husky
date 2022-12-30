@@ -83,7 +83,7 @@ where
                 }
                 TokenKind::Comment => todo!(),
                 TokenKind::Err(ref e) => return Err(e.clone()),
-                TokenKind::Special(_)
+                TokenKind::Punctuation(_)
                 | TokenKind::WordOpr(_)
                 | TokenKind::Literal(_)
                 | TokenKind::Attr(_)

@@ -81,7 +81,7 @@ impl<'b> EntityUseExprParser<'b> {
                 TokenKind::Attr(_) => todo!(),
                 TokenKind::Keyword(_) => todo!(),
                 TokenKind::Identifier(ident) => ident,
-                TokenKind::Special(_) => todo!(),
+                TokenKind::Punctuation(_) => todo!(),
                 TokenKind::WordOpr(_) => todo!(),
                 TokenKind::Literal(_) => todo!(),
                 TokenKind::Comment => todo!(),
@@ -113,9 +113,9 @@ impl<'b> EntityUseExprParser<'b> {
                     return Some(UseExpr::One { ident })
                 };
                 match next_token.kind {
-                    TokenKind::Special(SpecialToken::BinaryOpr(BinaryOpr::ScopeResolution)) => {}
-                    TokenKind::Special(SpecialToken::Comma)
-                    | TokenKind::Special(SpecialToken::Ket(Bracket::Curl)) => {
+                    TokenKind::Punctuation(Punctuation::BinaryOpr(BinaryOpr::ScopeResolution)) => {}
+                    TokenKind::Punctuation(Punctuation::Comma)
+                    | TokenKind::Punctuation(Punctuation::Ket(Bracket::Curl)) => {
                         self.token_iter.step_back();
                         return Some(UseExpr::One { ident });
                     }
@@ -131,9 +131,9 @@ impl<'b> EntityUseExprParser<'b> {
                     child,
                 }
             }
-            TokenKind::Special(SpecialToken::Bra(Bracket::Curl)) => self.parse_multiple(),
+            TokenKind::Punctuation(Punctuation::Bra(Bracket::Curl)) => self.parse_multiple(),
             // ad hoc; todo: change this to SpecialToken::Star
-            TokenKind::Special(SpecialToken::BinaryOpr(BinaryOpr::PureClosed(
+            TokenKind::Punctuation(Punctuation::BinaryOpr(BinaryOpr::PureClosed(
                 BinaryPureClosedOpr::Mul,
             ))) => UseExpr::All {},
             _ => UseExpr::Err(EntityUseExprError::ExpectSomething),
@@ -149,8 +149,8 @@ impl<'b> EntityUseExprParser<'b> {
             }
             match self.token_iter.next() {
                 Some(token) => match token.kind {
-                    TokenKind::Special(SpecialToken::Comma) => continue,
-                    TokenKind::Special(SpecialToken::Ket(Bracket::Curl)) => break,
+                    TokenKind::Punctuation(Punctuation::Comma) => continue,
+                    TokenKind::Punctuation(Punctuation::Ket(Bracket::Curl)) => break,
                     _ => todo!(),
                 },
                 None => exprs.push(todo!()),

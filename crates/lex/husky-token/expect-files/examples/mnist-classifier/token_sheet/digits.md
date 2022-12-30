@@ -201,7 +201,7 @@ Ok(
             },
             Token {
                 range: [12:8, 12:10),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         ScopeResolution,
                     ),
@@ -239,7 +239,7 @@ Ok(
             },
             Token {
                 range: [13:8, 13:10),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         ScopeResolution,
                     ),
@@ -277,7 +277,7 @@ Ok(
             },
             Token {
                 range: [14:9, 14:11),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         ScopeResolution,
                     ),
@@ -315,7 +315,7 @@ Ok(
             },
             Token {
                 range: [15:8, 15:10),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         ScopeResolution,
                     ),
@@ -353,7 +353,7 @@ Ok(
             },
             Token {
                 range: [16:10, 16:12),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         ScopeResolution,
                     ),
@@ -391,7 +391,7 @@ Ok(
             },
             Token {
                 range: [17:9, 17:11),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         ScopeResolution,
                     ),
@@ -429,7 +429,7 @@ Ok(
             },
             Token {
                 range: [18:8, 18:10),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         ScopeResolution,
                     ),
@@ -467,7 +467,7 @@ Ok(
             },
             Token {
                 range: [19:10, 19:12),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         ScopeResolution,
                     ),
@@ -505,7 +505,7 @@ Ok(
             },
             Token {
                 range: [20:10, 20:12),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         ScopeResolution,
                     ),
@@ -543,7 +543,7 @@ Ok(
             },
             Token {
                 range: [21:9, 21:11),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         ScopeResolution,
                     ),

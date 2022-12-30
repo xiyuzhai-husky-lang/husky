@@ -14,7 +14,7 @@ pub(crate) fn collect_semantic_tokens(
                     TokenKind::Attr(_) => SemanticToken::Attribute,
                     TokenKind::Keyword(kw) => SemanticToken::Keyword(kw),
                     TokenKind::Identifier(_) => return None,
-                    TokenKind::Special(_) => SemanticToken::Special,
+                    TokenKind::Punctuation(_) => SemanticToken::Special,
                     TokenKind::WordOpr(_) => SemanticToken::WordOpr,
                     TokenKind::Literal(_) => SemanticToken::Literal,
                     TokenKind::Comment => SemanticToken::Comment,

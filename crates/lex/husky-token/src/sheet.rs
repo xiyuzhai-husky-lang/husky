@@ -191,7 +191,7 @@ pub(crate) fn produce_group_starts(tokens: &[Token]) -> Vec<usize> {
                     // detect an indentation
                     match tokens[line_start1 - 1].kind {
                         TokenKind::Keyword(Keyword::End(_))
-                        | TokenKind::Special(SpecialToken::Colon) => Break,
+                        | TokenKind::Punctuation(Punctuation::Colon) => Break,
                         _ => match line_start_token.kind {
                             TokenKind::Attr(_) => Break,
                             TokenKind::Keyword(kw) => match kw {
@@ -204,7 +204,7 @@ pub(crate) fn produce_group_starts(tokens: &[Token]) -> Vec<usize> {
                 } else {
                     if line_indent1 == line_indent0 {
                         match line_start_token.kind {
-                            TokenKind::Special(SpecialToken::Ket(_)) => Continue,
+                            TokenKind::Punctuation(Punctuation::Ket(_)) => Continue,
                             _ => Break,
                         }
                     } else {

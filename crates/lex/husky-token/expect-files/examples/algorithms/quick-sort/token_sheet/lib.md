@@ -29,7 +29,7 @@ Ok(
             },
             Token {
                 range: [1:20, 1:21),
-                kind: Special(
+                kind: Punctuation(
                     LAngle,
                 ),
             },
@@ -47,7 +47,7 @@ Ok(
             },
             Token {
                 range: [1:22, 1:23),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },
@@ -65,13 +65,13 @@ Ok(
             },
             Token {
                 range: [1:27, 1:28),
-                kind: Special(
+                kind: Punctuation(
                     RAngle,
                 ),
             },
             Token {
                 range: [1:28, 1:29),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Par,
                     ),
@@ -99,13 +99,13 @@ Ok(
             },
             Token {
                 range: [1:36, 1:37),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },
             Token {
                 range: [1:38, 1:39),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Box,
                     ),
@@ -125,7 +125,7 @@ Ok(
             },
             Token {
                 range: [1:40, 1:41),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Box,
                     ),
@@ -133,7 +133,7 @@ Ok(
             },
             Token {
                 range: [1:41, 1:42),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Par,
                     ),
@@ -141,7 +141,7 @@ Ok(
             },
             Token {
                 range: [1:42, 1:43),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },
@@ -167,7 +167,7 @@ Ok(
             },
             Token {
                 range: [2:13, 2:14),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         Assign(
                             None,
@@ -189,7 +189,7 @@ Ok(
             },
             Token {
                 range: [2:18, 2:19),
-                kind: Special(
+                kind: Punctuation(
                     Dot,
                 ),
             },
@@ -207,7 +207,7 @@ Ok(
             },
             Token {
                 range: [2:22, 2:23),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Par,
                     ),
@@ -215,7 +215,7 @@ Ok(
             },
             Token {
                 range: [2:23, 2:24),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Par,
                     ),
@@ -235,7 +235,7 @@ Ok(
             },
             Token {
                 range: [3:19, 3:20),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Par,
                     ),
@@ -255,7 +255,7 @@ Ok(
             },
             Token {
                 range: [3:23, 3:24),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -269,13 +269,13 @@ Ok(
             },
             Token {
                 range: [3:26, 3:27),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
             Token {
                 range: [3:28, 3:29),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Par,
                     ),
@@ -295,7 +295,7 @@ Ok(
             },
             Token {
                 range: [3:33, 3:34),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         PureClosed(
                             Sub,
@@ -313,7 +313,7 @@ Ok(
             },
             Token {
                 range: [3:36, 3:37),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Par,
                     ),
@@ -339,7 +339,7 @@ Ok(
             },
             Token {
                 range: [3:46, 3:47),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Par,
                     ),
@@ -367,7 +367,7 @@ Ok(
             },
             Token {
                 range: [5:20, 5:21),
-                kind: Special(
+                kind: Punctuation(
                     LAngle,
                 ),
             },
@@ -385,7 +385,7 @@ Ok(
             },
             Token {
                 range: [5:22, 5:23),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },
@@ -403,13 +403,13 @@ Ok(
             },
             Token {
                 range: [5:27, 5:28),
-                kind: Special(
+                kind: Punctuation(
                     RAngle,
                 ),
             },
             Token {
                 range: [5:28, 5:29),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Par,
                     ),
@@ -437,13 +437,13 @@ Ok(
             },
             Token {
                 range: [5:36, 5:37),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },
             Token {
                 range: [5:38, 5:39),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Box,
                     ),
@@ -463,7 +463,7 @@ Ok(
             },
             Token {
                 range: [5:40, 5:41),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Box,
                     ),
@@ -471,7 +471,7 @@ Ok(
             },
             Token {
                 range: [5:41, 5:42),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -489,7 +489,7 @@ Ok(
             },
             Token {
                 range: [5:46, 5:47),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },
@@ -507,7 +507,7 @@ Ok(
             },
             Token {
                 range: [5:53, 5:54),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -525,7 +525,7 @@ Ok(
             },
             Token {
                 range: [5:59, 5:60),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },
@@ -543,7 +543,7 @@ Ok(
             },
             Token {
                 range: [5:66, 5:67),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Par,
                     ),
@@ -551,7 +551,7 @@ Ok(
             },
             Token {
                 range: [5:67, 5:68),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },
@@ -577,7 +577,7 @@ Ok(
             },
             Token {
                 range: [6:12, 6:13),
-                kind: Special(
+                kind: Punctuation(
                     LAngle,
                 ),
             },
@@ -595,7 +595,7 @@ Ok(
             },
             Token {
                 range: [6:18, 6:19),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },
@@ -621,7 +621,7 @@ Ok(
             },
             Token {
                 range: [7:15, 7:16),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         Assign(
                             None,
@@ -643,7 +643,7 @@ Ok(
             },
             Token {
                 range: [7:26, 7:27),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Par,
                     ),
@@ -663,7 +663,7 @@ Ok(
             },
             Token {
                 range: [7:30, 7:31),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -681,7 +681,7 @@ Ok(
             },
             Token {
                 range: [7:35, 7:36),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -699,7 +699,7 @@ Ok(
             },
             Token {
                 range: [7:41, 7:42),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Par,
                     ),
@@ -719,7 +719,7 @@ Ok(
             },
             Token {
                 range: [8:23, 8:24),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Par,
                     ),
@@ -739,7 +739,7 @@ Ok(
             },
             Token {
                 range: [8:27, 8:28),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -757,7 +757,7 @@ Ok(
             },
             Token {
                 range: [8:32, 8:33),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -775,7 +775,7 @@ Ok(
             },
             Token {
                 range: [8:36, 8:37),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         PureClosed(
                             Sub,
@@ -793,7 +793,7 @@ Ok(
             },
             Token {
                 range: [8:39, 8:40),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Par,
                     ),
@@ -813,7 +813,7 @@ Ok(
             },
             Token {
                 range: [9:23, 9:24),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Par,
                     ),
@@ -833,7 +833,7 @@ Ok(
             },
             Token {
                 range: [9:27, 9:28),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -851,7 +851,7 @@ Ok(
             },
             Token {
                 range: [9:31, 9:32),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         PureClosed(
                             Add,
@@ -869,7 +869,7 @@ Ok(
             },
             Token {
                 range: [9:34, 9:35),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -887,7 +887,7 @@ Ok(
             },
             Token {
                 range: [9:40, 9:41),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Par,
                     ),
@@ -915,7 +915,7 @@ Ok(
             },
             Token {
                 range: [11:15, 11:16),
-                kind: Special(
+                kind: Punctuation(
                     LAngle,
                 ),
             },
@@ -933,7 +933,7 @@ Ok(
             },
             Token {
                 range: [11:17, 11:18),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },
@@ -951,13 +951,13 @@ Ok(
             },
             Token {
                 range: [11:22, 11:23),
-                kind: Special(
+                kind: Punctuation(
                     RAngle,
                 ),
             },
             Token {
                 range: [11:23, 11:24),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Par,
                     ),
@@ -985,13 +985,13 @@ Ok(
             },
             Token {
                 range: [11:31, 11:32),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },
             Token {
                 range: [11:33, 11:34),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Box,
                     ),
@@ -1011,7 +1011,7 @@ Ok(
             },
             Token {
                 range: [11:35, 11:36),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Box,
                     ),
@@ -1019,7 +1019,7 @@ Ok(
             },
             Token {
                 range: [11:36, 11:37),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -1037,7 +1037,7 @@ Ok(
             },
             Token {
                 range: [11:41, 11:42),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },
@@ -1055,7 +1055,7 @@ Ok(
             },
             Token {
                 range: [11:48, 11:49),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -1073,7 +1073,7 @@ Ok(
             },
             Token {
                 range: [11:54, 11:55),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },
@@ -1091,7 +1091,7 @@ Ok(
             },
             Token {
                 range: [11:61, 11:62),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Par,
                     ),
@@ -1099,7 +1099,7 @@ Ok(
             },
             Token {
                 range: [11:63, 11:65),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         Curry,
                     ),
@@ -1119,7 +1119,7 @@ Ok(
             },
             Token {
                 range: [11:71, 11:72),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },
@@ -1145,7 +1145,7 @@ Ok(
             },
             Token {
                 range: [12:15, 12:16),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         Assign(
                             None,
@@ -1213,7 +1213,7 @@ Ok(
             },
             Token {
                 range: [13:25, 13:26),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         Assign(
                             None,
@@ -1235,7 +1235,7 @@ Ok(
             },
             Token {
                 range: [13:31, 13:32),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         PureClosed(
                             Sub,
@@ -1281,7 +1281,7 @@ Ok(
             },
             Token {
                 range: [14:24, 14:25),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         Assign(
                             None,
@@ -1323,7 +1323,7 @@ Ok(
             },
             Token {
                 range: [16:15, 16:16),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },
@@ -1341,7 +1341,7 @@ Ok(
             },
             Token {
                 range: [17:21, 17:23),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         Assign(
                             Some(
@@ -1381,7 +1381,7 @@ Ok(
             },
             Token {
                 range: [18:18, 18:19),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Box,
                     ),
@@ -1419,7 +1419,7 @@ Ok(
             },
             Token {
                 range: [18:39, 18:40),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Box,
                     ),
@@ -1427,7 +1427,7 @@ Ok(
             },
             Token {
                 range: [18:41, 18:42),
-                kind: Special(
+                kind: Punctuation(
                     LAngle,
                 ),
             },
@@ -1445,7 +1445,7 @@ Ok(
             },
             Token {
                 range: [18:46, 18:47),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Box,
                     ),
@@ -1465,7 +1465,7 @@ Ok(
             },
             Token {
                 range: [18:52, 18:53),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Box,
                     ),
@@ -1473,7 +1473,7 @@ Ok(
             },
             Token {
                 range: [18:53, 18:54),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },
@@ -1491,7 +1491,7 @@ Ok(
             },
             Token {
                 range: [19:25, 19:27),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         Assign(
                             Some(
@@ -1523,7 +1523,7 @@ Ok(
             },
             Token {
                 range: [20:20, 20:22),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         Assign(
                             Some(
@@ -1563,7 +1563,7 @@ Ok(
             },
             Token {
                 range: [21:26, 21:28),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         Comparison(
                             Geq,
@@ -1581,7 +1581,7 @@ Ok(
             },
             Token {
                 range: [21:31, 21:33),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         ShortcuitLogic(
                             And,
@@ -1603,7 +1603,7 @@ Ok(
             },
             Token {
                 range: [21:37, 21:38),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Box,
                     ),
@@ -1641,7 +1641,7 @@ Ok(
             },
             Token {
                 range: [21:57, 21:58),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Box,
                     ),
@@ -1649,7 +1649,7 @@ Ok(
             },
             Token {
                 range: [21:59, 21:60),
-                kind: Special(
+                kind: Punctuation(
                     RAngle,
                 ),
             },
@@ -1667,7 +1667,7 @@ Ok(
             },
             Token {
                 range: [21:64, 21:65),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Box,
                     ),
@@ -1687,7 +1687,7 @@ Ok(
             },
             Token {
                 range: [21:70, 21:71),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Box,
                     ),
@@ -1695,7 +1695,7 @@ Ok(
             },
             Token {
                 range: [21:71, 21:72),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },
@@ -1713,7 +1713,7 @@ Ok(
             },
             Token {
                 range: [22:24, 22:26),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         Assign(
                             Some(
@@ -1753,7 +1753,7 @@ Ok(
             },
             Token {
                 range: [23:24, 23:26),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         Comparison(
                             Geq,
@@ -1775,7 +1775,7 @@ Ok(
             },
             Token {
                 range: [23:37, 23:38),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },
@@ -1797,7 +1797,7 @@ Ok(
             },
             Token {
                 range: [25:13, 25:14),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },
@@ -1815,7 +1815,7 @@ Ok(
             },
             Token {
                 range: [26:16, 26:17),
-                kind: Special(
+                kind: Punctuation(
                     Dot,
                 ),
             },
@@ -1833,7 +1833,7 @@ Ok(
             },
             Token {
                 range: [26:21, 26:22),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Par,
                     ),
@@ -1871,7 +1871,7 @@ Ok(
             },
             Token {
                 range: [26:42, 26:43),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -1907,7 +1907,7 @@ Ok(
             },
             Token {
                 range: [26:63, 26:64),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Par,
                     ),
@@ -1927,7 +1927,7 @@ Ok(
             },
             Token {
                 range: [27:8, 27:9),
-                kind: Special(
+                kind: Punctuation(
                     Dot,
                 ),
             },
@@ -1945,7 +1945,7 @@ Ok(
             },
             Token {
                 range: [27:13, 27:14),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Par,
                     ),
@@ -1983,7 +1983,7 @@ Ok(
             },
             Token {
                 range: [27:34, 27:35),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2019,7 +2019,7 @@ Ok(
             },
             Token {
                 range: [27:50, 27:51),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Par,
                     ),
@@ -2039,7 +2039,7 @@ Ok(
             },
             Token {
                 range: [30:1, 30:2),
-                kind: Special(
+                kind: Punctuation(
                     At,
                 ),
             },
@@ -2077,7 +2077,7 @@ Ok(
             },
             Token {
                 range: [31:35, 31:36),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },
@@ -2111,7 +2111,7 @@ Ok(
             },
             Token {
                 range: [32:15, 32:16),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         Assign(
                             None,
@@ -2121,7 +2121,7 @@ Ok(
             },
             Token {
                 range: [32:17, 32:18),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Box,
                     ),
@@ -2137,7 +2137,7 @@ Ok(
             },
             Token {
                 range: [32:19, 32:20),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2151,7 +2151,7 @@ Ok(
             },
             Token {
                 range: [32:23, 32:24),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2165,13 +2165,13 @@ Ok(
             },
             Token {
                 range: [32:26, 32:27),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
             Token {
                 range: [32:28, 32:29),
-                kind: Special(
+                kind: Punctuation(
                     Minus,
                 ),
             },
@@ -2185,7 +2185,7 @@ Ok(
             },
             Token {
                 range: [32:31, 32:32),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2199,7 +2199,7 @@ Ok(
             },
             Token {
                 range: [32:34, 32:35),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2213,7 +2213,7 @@ Ok(
             },
             Token {
                 range: [32:38, 32:39),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2227,7 +2227,7 @@ Ok(
             },
             Token {
                 range: [32:41, 32:42),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2241,7 +2241,7 @@ Ok(
             },
             Token {
                 range: [32:45, 32:46),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2255,7 +2255,7 @@ Ok(
             },
             Token {
                 range: [32:50, 32:51),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2269,7 +2269,7 @@ Ok(
             },
             Token {
                 range: [32:53, 32:54),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Box,
                     ),
@@ -2289,7 +2289,7 @@ Ok(
             },
             Token {
                 range: [33:15, 33:16),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Par,
                     ),
@@ -2309,7 +2309,7 @@ Ok(
             },
             Token {
                 range: [33:17, 33:18),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Par,
                     ),
@@ -2337,7 +2337,7 @@ Ok(
             },
             Token {
                 range: [34:14, 34:16),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         Comparison(
                             Eq,
@@ -2347,7 +2347,7 @@ Ok(
             },
             Token {
                 range: [34:17, 34:18),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Box,
                     ),
@@ -2355,7 +2355,7 @@ Ok(
             },
             Token {
                 range: [34:18, 34:19),
-                kind: Special(
+                kind: Punctuation(
                     Minus,
                 ),
             },
@@ -2369,7 +2369,7 @@ Ok(
             },
             Token {
                 range: [34:21, 34:22),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2383,7 +2383,7 @@ Ok(
             },
             Token {
                 range: [34:24, 34:25),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2397,7 +2397,7 @@ Ok(
             },
             Token {
                 range: [34:27, 34:28),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2411,7 +2411,7 @@ Ok(
             },
             Token {
                 range: [34:30, 34:31),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2425,7 +2425,7 @@ Ok(
             },
             Token {
                 range: [34:33, 34:34),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2439,7 +2439,7 @@ Ok(
             },
             Token {
                 range: [34:36, 34:37),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2453,7 +2453,7 @@ Ok(
             },
             Token {
                 range: [34:40, 34:41),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2467,7 +2467,7 @@ Ok(
             },
             Token {
                 range: [34:44, 34:45),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2481,7 +2481,7 @@ Ok(
             },
             Token {
                 range: [34:48, 34:49),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2495,7 +2495,7 @@ Ok(
             },
             Token {
                 range: [34:53, 34:54),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Box,
                     ),
@@ -2503,7 +2503,7 @@ Ok(
             },
             Token {
                 range: [36:1, 36:2),
-                kind: Special(
+                kind: Punctuation(
                     At,
                 ),
             },
@@ -2541,7 +2541,7 @@ Ok(
             },
             Token {
                 range: [37:31, 37:32),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },
@@ -2575,7 +2575,7 @@ Ok(
             },
             Token {
                 range: [38:18, 38:19),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         Assign(
                             None,
@@ -2585,7 +2585,7 @@ Ok(
             },
             Token {
                 range: [38:20, 38:21),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Box,
                     ),
@@ -2603,7 +2603,7 @@ Ok(
             },
             Token {
                 range: [38:28, 38:29),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2619,7 +2619,7 @@ Ok(
             },
             Token {
                 range: [38:37, 38:38),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2635,7 +2635,7 @@ Ok(
             },
             Token {
                 range: [38:49, 38:50),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2651,7 +2651,7 @@ Ok(
             },
             Token {
                 range: [38:56, 38:57),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2667,7 +2667,7 @@ Ok(
             },
             Token {
                 range: [38:65, 38:66),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2683,7 +2683,7 @@ Ok(
             },
             Token {
                 range: [38:72, 38:73),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Box,
                     ),
@@ -2703,7 +2703,7 @@ Ok(
             },
             Token {
                 range: [39:15, 39:16),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Par,
                     ),
@@ -2723,7 +2723,7 @@ Ok(
             },
             Token {
                 range: [39:20, 39:21),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Par,
                     ),
@@ -2751,7 +2751,7 @@ Ok(
             },
             Token {
                 range: [40:17, 40:19),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         Comparison(
                             Eq,
@@ -2761,7 +2761,7 @@ Ok(
             },
             Token {
                 range: [40:20, 40:21),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Box,
                     ),
@@ -2779,7 +2779,7 @@ Ok(
             },
             Token {
                 range: [40:31, 40:32),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2795,7 +2795,7 @@ Ok(
             },
             Token {
                 range: [40:38, 40:39),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2811,7 +2811,7 @@ Ok(
             },
             Token {
                 range: [40:47, 40:48),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2827,7 +2827,7 @@ Ok(
             },
             Token {
                 range: [40:54, 40:55),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2843,7 +2843,7 @@ Ok(
             },
             Token {
                 range: [40:63, 40:64),
-                kind: Special(
+                kind: Punctuation(
                     Comma,
                 ),
             },
@@ -2859,7 +2859,7 @@ Ok(
             },
             Token {
                 range: [40:72, 40:73),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Box,
                     ),

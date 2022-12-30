@@ -3,7 +3,7 @@ use husky_opn_syntax::{BinaryOpr, Bracket};
 use crate::TokenKind;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum SpecialToken {
+pub enum Punctuation {
     BinaryOpr(BinaryOpr),
     Bra(Bracket),
     Ket(Bracket),
@@ -29,51 +29,51 @@ pub enum SpecialToken {
     PoundSign,         // #
 }
 
-impl From<BinaryOpr> for SpecialToken {
+impl From<BinaryOpr> for Punctuation {
     fn from(v: BinaryOpr) -> Self {
         Self::BinaryOpr(v)
     }
 }
 
-impl std::fmt::Display for SpecialToken {
+impl std::fmt::Display for Punctuation {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         self.code().fmt(f)
     }
 }
 
-impl SpecialToken {
+impl Punctuation {
     pub fn code(&self) -> &'static str {
         match self {
-            SpecialToken::BinaryOpr(opr) => opr.code(),
-            SpecialToken::Bra(bra) => bra.bra_code(),
-            SpecialToken::Ket(ket) => ket.ket_code(),
-            SpecialToken::LAngle => "<",
-            SpecialToken::RAngle => ">",
-            SpecialToken::DeriveAssign => "?=",
-            SpecialToken::Minus => "-",
-            SpecialToken::DoubleVertical => "||",
-            SpecialToken::BitNot => "~",
-            SpecialToken::Dot => ".",
-            SpecialToken::Colon => ":",
-            SpecialToken::Comma => ",",
-            SpecialToken::Ambersand => "&",
-            SpecialToken::Incr => "++",
-            SpecialToken::Decr => "--",
-            SpecialToken::Vertical => "|",
-            SpecialToken::Exclamation => "!",
-            SpecialToken::DoubleExclamation => "!!",
-            SpecialToken::Semicolon => ";",
-            SpecialToken::XmlKet => "/>",
-            SpecialToken::At => "@",
-            SpecialToken::QuestionMark => "?",
-            SpecialToken::PoundSign => "#",
+            Punctuation::BinaryOpr(opr) => opr.code(),
+            Punctuation::Bra(bra) => bra.bra_code(),
+            Punctuation::Ket(ket) => ket.ket_code(),
+            Punctuation::LAngle => "<",
+            Punctuation::RAngle => ">",
+            Punctuation::DeriveAssign => "?=",
+            Punctuation::Minus => "-",
+            Punctuation::DoubleVertical => "||",
+            Punctuation::BitNot => "~",
+            Punctuation::Dot => ".",
+            Punctuation::Colon => ":",
+            Punctuation::Comma => ",",
+            Punctuation::Ambersand => "&",
+            Punctuation::Incr => "++",
+            Punctuation::Decr => "--",
+            Punctuation::Vertical => "|",
+            Punctuation::Exclamation => "!",
+            Punctuation::DoubleExclamation => "!!",
+            Punctuation::Semicolon => ";",
+            Punctuation::XmlKet => "/>",
+            Punctuation::At => "@",
+            Punctuation::QuestionMark => "?",
+            Punctuation::PoundSign => "#",
         }
     }
 
     pub fn opt_bra(self) -> Option<Bracket> {
         match self {
-            SpecialToken::LAngle => Some(Bracket::Angle),
-            SpecialToken::Bra(bracket) => Some(bracket),
+            Punctuation::LAngle => Some(Bracket::Angle),
+            Punctuation::Bra(bracket) => Some(bracket),
             _ => None,
         }
     }
@@ -228,8 +228,8 @@ macro_rules! is_special {
     }};
 }
 
-impl const From<SpecialToken> for TokenKind {
-    fn from(special: SpecialToken) -> Self {
-        TokenKind::Special(special)
+impl const From<Punctuation> for TokenKind {
+    fn from(special: Punctuation) -> Self {
+        TokenKind::Punctuation(special)
     }
 }

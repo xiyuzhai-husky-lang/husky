@@ -102,11 +102,11 @@ impl<'a> TokenIter<'a> {
 
     pub fn try_eat_special(
         &mut self,
-        special_token: SpecialToken,
+        punc: Punctuation,
         ignore_comment: bool,
     ) -> Option<&'a Token> {
         self.try_eat_with(
-            |token_kind| token_kind == &TokenKind::Special(special_token),
+            |token_kind| token_kind == &TokenKind::Punctuation(punc),
             ignore_comment,
         )
     }
@@ -166,7 +166,7 @@ impl<'a> TokenIter<'a> {
     pub fn peek_next_bra(&mut self) -> Option<Bracket> {
         if self.next_relative < self.tokens.len() {
             match self.tokens[self.next_relative].kind {
-                TokenKind::Special(special) => special.opt_bra(),
+                TokenKind::Punctuation(special) => special.opt_bra(),
                 _ => None,
             }
         } else {

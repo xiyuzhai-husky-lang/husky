@@ -21,7 +21,7 @@ Ok(
             },
             Token {
                 range: [1:10, 1:12),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         ScopeResolution,
                     ),
@@ -41,7 +41,7 @@ Ok(
             },
             Token {
                 range: [1:31, 1:33),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         ScopeResolution,
                     ),
@@ -49,7 +49,7 @@ Ok(
             },
             Token {
                 range: [1:33, 1:34),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         PureClosed(
                             Mul,
@@ -79,7 +79,7 @@ Ok(
             },
             Token {
                 range: [3:22, 3:23),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },
@@ -97,13 +97,13 @@ Ok(
             },
             Token {
                 range: [4:24, 4:25),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },
             Token {
                 range: [4:26, 4:27),
-                kind: Special(
+                kind: Punctuation(
                     Ambersand,
                 ),
             },
@@ -133,13 +133,13 @@ Ok(
             },
             Token {
                 range: [5:18, 5:19),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },
             Token {
                 range: [5:20, 5:21),
-                kind: Special(
+                kind: Punctuation(
                     Bra(
                         Box,
                     ),
@@ -147,7 +147,7 @@ Ok(
             },
             Token {
                 range: [5:21, 5:22),
-                kind: Special(
+                kind: Punctuation(
                     BinaryOpr(
                         PureClosed(
                             RemEuclid,
@@ -157,7 +157,7 @@ Ok(
             },
             Token {
                 range: [5:22, 5:23),
-                kind: Special(
+                kind: Punctuation(
                     Ket(
                         Box,
                     ),
@@ -183,7 +183,7 @@ Ok(
             },
             Token {
                 range: [7:11, 7:12),
-                kind: Special(
+                kind: Punctuation(
                     Colon,
                 ),
             },

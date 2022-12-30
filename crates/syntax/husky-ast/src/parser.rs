@@ -6,7 +6,7 @@ mod utils;
 use crate::*;
 use context::*;
 use husky_token::{
-    ConnectionKeyword, Keyword, SpecialToken, StmtKeyword, TokenGroupIter, TokenKind, TokenSheet,
+    ConnectionKeyword, Keyword, Punctuation, StmtKeyword, TokenGroupIter, TokenKind, TokenSheet,
 };
 use utils::*;
 
@@ -117,8 +117,8 @@ impl<'a> AstParser<'a> {
                 Keyword::End(_) => unreachable!(),
                 Keyword::Connection(_) => todo!(),
             },
-            TokenKind::Special(SpecialToken::PoundSign) => Ast::Decor { token_group_idx },
-            TokenKind::Special(_)
+            TokenKind::Punctuation(Punctuation::PoundSign) => Ast::Decor { token_group_idx },
+            TokenKind::Punctuation(_)
             | TokenKind::Identifier(_)
             | TokenKind::WordOpr(_)
             | TokenKind::Literal(_) => self.parse_stmt(token_group_idx, &context),
@@ -197,7 +197,7 @@ impl<'a> AstParser<'a> {
             self.token_groups.peek_with_exact_indent(context.indent())
         {
             match token_group.first().kind {
-                TokenKind::Special(SpecialToken::Vertical) => {
+                TokenKind::Punctuation(Punctuation::Vertical) => {
                     self.token_groups.next();
                     verticals.push(self.parse_stmt(idx, &context))
                 }
@@ -216,7 +216,7 @@ impl<'a> AstParser<'a> {
                 }
                 TokenKind::Keyword(_) => return self.parse_defn(context, token_group_idx),
                 TokenKind::Identifier(_)
-                | TokenKind::Special(_)
+                | TokenKind::Punctuation(_)
                 | TokenKind::WordOpr(_)
                 | TokenKind::Literal(_) => {
                     return Ast::Err {
