@@ -3,23 +3,23 @@ use husky_opn_syntax::Bracket;
 use husky_text::{TextPosition, TextRange};
 
 #[derive(Debug, Clone)]
-pub struct TokenIter<'a> {
+pub struct TokenStream<'a> {
     base: usize,
     tokens: &'a [Token],
     next_relative: usize,
 }
 
 impl TokenSheet {
-    pub fn token_group_token_iter<'a>(
+    pub fn token_group_token_stream<'a>(
         &'a self,
         token_group_idx: TokenGroupIdx,
         state: Option<TokenIdx>,
-    ) -> TokenIter<'a> {
+    ) -> TokenStream<'a> {
         let base = self.group_start(token_group_idx);
         let next_relative = state.map(|state| state.raw() - base).unwrap_or_default();
         let tokens = &self[token_group_idx];
         assert!(tokens.len() > 0);
-        TokenIter {
+        TokenStream {
             base,
             tokens,
             next_relative,
@@ -27,7 +27,7 @@ impl TokenSheet {
     }
 }
 
-impl<'a> Iterator for TokenIter<'a> {
+impl<'a> Iterator for TokenStream<'a> {
     type Item = &'a Token;
 
     fn next(&mut self) -> Option<&'a Token> {
@@ -46,7 +46,7 @@ pub enum IgnoreComment {
     False,
 }
 
-impl<'a> TokenIter<'a> {
+impl<'a> TokenStream<'a> {
     pub fn is_empty(&self) -> bool {
         self.next_relative >= self.tokens.len()
     }
@@ -212,13 +212,13 @@ fn next_indexed_works() {
     let tokens = db.tokenize("What does a rusty can of spray-on rust remover smell like?\n Irony.");
     let token_sheet = TokenSheet::new(tokens);
     let (token_group_idx, _) = token_sheet.token_group_iter().next().unwrap();
-    let mut token_iter = token_sheet.token_group_token_iter(token_group_idx, None);
+    let mut token_iter = token_sheet.token_group_token_stream(token_group_idx, None);
     while let Some((token_idx, token)) = token_iter.next_indexed(IgnoreComment::False) {
         assert_eq!(&token_sheet[token_idx], token)
     }
 }
 
-impl<'a> parsec::HasParseState for TokenIter<'a> {
+impl<'a> parsec::HasParseState for TokenStream<'a> {
     // next_relative
     type State = TokenIdx;
 

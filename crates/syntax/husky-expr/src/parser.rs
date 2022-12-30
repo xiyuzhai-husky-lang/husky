@@ -13,7 +13,7 @@ use husky_check_utils::should;
 use husky_entity_tree::EntityTreeDb;
 use husky_print_utils::p;
 use husky_symbol::SymbolContext;
-use husky_token::TokenIter;
+use husky_token::TokenStream;
 use husky_token::{Token, TokenKind};
 use opr::*;
 use resolve::*;
@@ -22,19 +22,19 @@ use std::ops::ControlFlow;
 
 pub(crate) struct ExprParser<'a, 'b, 'c> {
     ctx: SymbolContext<'c>,
-    token_iter: &'a mut TokenIter<'b>,
+    token_iter: &'a mut TokenStream<'b>,
     sheet: &'a mut ExprSheet,
     stack: AutomataStack,
 }
 
 impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
-    pub(crate) fn tokens(&self) -> &TokenIter<'a> {
+    pub(crate) fn tokens(&self) -> &TokenStream<'a> {
         &self.token_iter
     }
 
     fn new(
         ctx: SymbolContext<'c>,
-        token_iter: &'a mut TokenIter<'b>,
+        token_iter: &'a mut TokenStream<'b>,
         sheet: &'a mut ExprSheet,
     ) -> Self {
         Self {
@@ -71,7 +71,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
 
 pub fn parse_expr<'a>(
     ctx: SymbolContext,
-    token_iter: &mut TokenIter<'a>,
+    token_iter: &mut TokenStream<'a>,
     sheet: &mut ExprSheet,
 ) -> (ExprIdxRange, ExprParsingStopReason) {
     ExprParser::new(ctx, token_iter, sheet).parse_all()

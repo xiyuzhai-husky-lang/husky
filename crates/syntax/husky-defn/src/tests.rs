@@ -3,7 +3,7 @@ use husky_ast::AstJar;
 use husky_entity_path::EntityPathJar;
 use husky_entity_tree::EntityTreeJar;
 use husky_manifest::ManifestJar;
-use husky_token::{TokenIter, TokenJar};
+use husky_token::{TokenJar, TokenStream};
 use husky_vfs::*;
 use husky_word::WordJar;
 use salsa::Database;

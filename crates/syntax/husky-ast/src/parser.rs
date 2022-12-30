@@ -131,7 +131,7 @@ impl<'a> AstParser<'a> {
         // ad hoc
         // todo: improve this
         self.token_sheet
-            .token_group_token_iter(token_group_idx, None)
+            .token_group_token_stream(token_group_idx, None)
             .find(|token| token.kind == Keyword::Connection(ConnectionKeyword::For).into())
             .is_some()
     }

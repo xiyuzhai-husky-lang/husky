@@ -26,7 +26,7 @@ impl<'a> AstParser<'a> {
             ctx,
             self.module_path,
             self.token_sheet
-                .token_group_token_iter(token_group_idx, None),
+                .token_group_token_stream(token_group_idx, None),
         );
         let (accessibility, entity_kind, ident_token, is_generic, saved_stream_state) =
             aux_parser.parse_head()?;

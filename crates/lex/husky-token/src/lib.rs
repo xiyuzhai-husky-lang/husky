@@ -3,11 +3,11 @@
 #![feature(const_convert)]
 mod db;
 mod error;
-mod iter;
 mod kind;
 mod literal;
 mod parse_utils;
 mod sheet;
+mod stream;
 #[cfg(test)]
 mod tests;
 mod token_accessibility;
@@ -16,11 +16,11 @@ mod utils;
 
 pub use db::*;
 pub use error::*;
-pub use iter::*;
 pub use kind::*;
 pub use literal::*;
 pub use parse_utils::*;
 pub use sheet::*;
+pub use stream::*;
 pub use token_accessibility::*;
 
 use husky_text::{HasTextRange, RangedIdentifier, TextRange};

@@ -36,4 +36,7 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
 indicatif = "0.17.2"
+# fs
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
+# utils
 husky-adversarial-utils = { path = "../../utils/husky-adversarial-utils" }
