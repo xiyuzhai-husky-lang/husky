@@ -1,5 +1,5 @@
 use husky_opn_syntax::{BinaryOpr, BinaryPureClosedOpr, Bracket};
-use husky_token::TokenIter;
+use husky_token::{TokenIter, TokenParseContext};
 
 use super::*;
 
@@ -39,21 +39,27 @@ pub struct EntityUseExprParser<'b> {
     arena: &'b mut UseExprArena,
 }
 
-impl<'aux> ParseTokenInto<'aux> for EntityUseExprParser<'aux> {
-    fn token_iter_mut(&mut self) -> &mut TokenIter<'aux> {
+impl<'a> std::ops::Deref for EntityUseExprParser<'a> {
+    type Target = TokenIter<'a>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.token_iter
+    }
+}
+
+impl<'a> std::ops::DerefMut for EntityUseExprParser<'a> {
+    fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.token_iter
     }
+}
 
+impl<'a> AstTokenParseContext<'a> for EntityUseExprParser<'a> {
     fn ast_context_kind(&self) -> AstContextKind {
         self.parent
     }
 
     fn module_path(&self) -> ModulePath {
         self.module_path
-    }
-
-    fn token_iter(&self) -> &TokenIter<'aux> {
-        &self.token_iter
     }
 }
 

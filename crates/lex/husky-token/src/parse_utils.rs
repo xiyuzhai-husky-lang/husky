@@ -1,3 +1,5 @@
+use parsec::HasParseState;
+
 use crate::*;
 use std::convert::Infallible;
 
@@ -5,6 +7,34 @@ use std::convert::Infallible;
 pub struct IdentifierToken {
     ident: Identifier,
     token_idx: TokenIdx,
+}
+
+pub trait TokenParseContext<'a>: HasParseState {
+    fn token_iter(&self) -> &TokenIter<'a>;
+    fn token_iter_mut(&mut self) -> &mut TokenIter<'a>;
+}
+
+impl<'a> TokenParseContext<'a> for TokenIter<'a> {
+    fn token_iter(&self) -> &TokenIter<'a> {
+        self
+    }
+
+    fn token_iter_mut(&mut self) -> &mut TokenIter<'a> {
+        self
+    }
+}
+
+impl<'a, T> TokenParseContext<'a> for T
+where
+    T: std::ops::DerefMut<Target = TokenIter<'a>>,
+{
+    fn token_iter(&self) -> &TokenIter<'a> {
+        self.deref()
+    }
+
+    fn token_iter_mut(&mut self) -> &mut TokenIter<'a> {
+        self.deref_mut()
+    }
 }
 
 impl<Db> salsa::DebugWithDb<Db> for IdentifierToken
@@ -39,13 +69,16 @@ impl IdentifierToken {
     }
 }
 
-impl<'a> parsec::ParseFrom<TokenIter<'a>> for IdentifierToken {
+impl<'a, Context> parsec::ParseFrom<Context> for IdentifierToken
+where
+    Context: TokenParseContext<'a>,
+{
     type Output = Self;
 
     type Error = TokenError;
 
-    fn parse_from(token_iter: &mut TokenIter<'a>) -> Result<Option<Self::Output>, Self::Error> {
-        while let Some((token_idx, token)) = token_iter.next_indexed() {
+    fn parse_from(ctx: &mut Context) -> Result<Option<Self::Output>, Self::Error> {
+        while let Some((token_idx, token)) = ctx.token_iter_mut().next_indexed() {
             match token.kind {
                 TokenKind::Identifier(ident) => {
                     return Ok(Some(IdentifierToken { ident, token_idx }))

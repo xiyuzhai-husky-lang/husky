@@ -4,9 +4,7 @@ use husky_opn_syntax::Bracket;
 use husky_token::*;
 use std::iter::Peekable;
 
-pub(super) trait ParseTokenInto<'a> {
-    fn token_iter(&self) -> &TokenIter<'a>;
-    fn token_iter_mut(&mut self) -> &mut TokenIter<'a>;
+pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
     fn ast_context_kind(&self) -> AstContextKind;
     fn module_path(&self) -> ModulePath;
 
@@ -96,21 +94,27 @@ pub(super) trait ParseTokenInto<'a> {
     }
 }
 
-impl<'a> ParseTokenInto<'a> for BasicAuxAstParser<'a> {
-    fn token_iter_mut(&mut self) -> &mut TokenIter<'a> {
+impl<'a> std::ops::Deref for BasicAuxAstParser<'a> {
+    type Target = TokenIter<'a>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.token_iter
+    }
+}
+
+impl<'a> std::ops::DerefMut for BasicAuxAstParser<'a> {
+    fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.token_iter
     }
+}
 
+impl<'a> AstTokenParseContext<'a> for BasicAuxAstParser<'a> {
     fn ast_context_kind(&self) -> AstContextKind {
         self.ast_parent
     }
 
     fn module_path(&self) -> ModulePath {
         self.module_path
-    }
-
-    fn token_iter(&self) -> &TokenIter<'a> {
-        &self.token_iter
     }
 }
 

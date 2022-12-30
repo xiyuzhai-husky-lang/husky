@@ -12,6 +12,22 @@ pub trait HasParseState {
     fn rollback(&mut self, state: Self::State);
 }
 
+impl<Wrapper> HasParseState for Wrapper
+where
+    Wrapper: std::ops::DerefMut,
+    Wrapper::Target: HasParseState,
+{
+    type State = <<Wrapper as std::ops::Deref>::Target as HasParseState>::State;
+
+    fn save_state(&self) -> Self::State {
+        self.deref().save_state()
+    }
+
+    fn rollback(&mut self, state: Self::State) {
+        self.deref_mut().rollback(state)
+    }
+}
+
 pub trait ParseInto: HasParseState {
     /// returns an optional and the rest of the stream,
     ///
@@ -31,12 +47,12 @@ where
     }
 }
 
-pub trait ParseFrom<Stream>: Sized
+pub trait ParseFrom<ParseContext>: Sized
 where
-    Stream: ParseInto + ?Sized,
+    ParseContext: ParseInto + ?Sized,
 {
     type Output;
     type Error;
     /// no guarantee on stream state other than Ok(Some(_))
-    fn parse_from<'a>(stream: &mut Stream) -> Result<Option<Self::Output>, Self::Error>;
+    fn parse_from<'a>(ctx: &mut ParseContext) -> Result<Option<Self::Output>, Self::Error>;
 }
