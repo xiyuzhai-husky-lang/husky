@@ -47,6 +47,7 @@ impl<'a> TokenInferEngine<'a> {
                 Defn::Form(defn) => self.infer_form(defn),
                 Defn::TypeItem(_) => todo!(),
                 Defn::TraitItem(_) => todo!(),
+                Defn::Variant(_) => todo!(),
             }
         }
         self.sheet
@@ -57,7 +58,9 @@ impl<'a> TokenInferEngine<'a> {
             TypeDefn::Enum(defn) => self.infer_enum_ty(defn),
             TypeDefn::Inductive(defn) => self.infer_inductive_ty(defn),
             TypeDefn::Record(defn) => self.infer_record_ty(defn),
-            TypeDefn::Struct(defn) => self.infer_struct_ty(defn),
+            TypeDefn::UnitStruct(defn) => self.infer_unit_struct_ty(defn),
+            TypeDefn::TupleStruct(defn) => self.infer_tuple_struct_ty(defn),
+            TypeDefn::PropsStruct(defn) => self.infer_props_struct_ty(defn),
             TypeDefn::Structure(defn) => self.infer_structure_ty(defn),
             TypeDefn::Foreign(defn) => self.infer_alias_ty(defn),
         }
@@ -75,7 +78,15 @@ impl<'a> TokenInferEngine<'a> {
         // todo!()
     }
 
-    fn infer_struct_ty(&mut self, defn: StructTypeDefn) {
+    fn infer_unit_struct_ty(&mut self, defn: UnitStructTypeDefn) {
+        // todo!()
+    }
+
+    fn infer_tuple_struct_ty(&mut self, defn: TupleStructTypeDefn) {
+        // todo!()
+    }
+
+    fn infer_props_struct_ty(&mut self, defn: PropsStructTypeDefn) {
         // todo!()
     }
 

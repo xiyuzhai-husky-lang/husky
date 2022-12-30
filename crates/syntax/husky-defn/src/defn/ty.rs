@@ -1,18 +1,22 @@
 mod alien_ty;
 mod enum_ty;
 mod inductive_ty;
+mod props_struct_ty;
 mod record_ty;
-mod struct_ty;
 mod structure_ty;
+mod tuple_struct_ty;
 mod union_ty;
+mod unit_struct_ty;
 
 pub use alien_ty::*;
 pub use enum_ty::*;
 pub use inductive_ty::*;
+pub use props_struct_ty::*;
 pub use record_ty::*;
-pub use struct_ty::*;
 pub use structure_ty::*;
+pub use tuple_struct_ty::*;
 pub use union_ty::*;
+pub use unit_struct_ty::*;
 
 use crate::*;
 
@@ -21,9 +25,29 @@ pub enum TypeDefn {
     Enum(EnumTypeDefn),
     Inductive(InductiveTypeDefn),
     Record(RecordTypeDefn),
-    Struct(StructTypeDefn),
+    PropsStruct(PropsStructTypeDefn),
+    TupleStruct(TupleStructTypeDefn),
+    UnitStruct(UnitStructTypeDefn),
     Structure(StructureTypeDefn),
     Foreign(AlienTypeDefn),
+}
+
+impl From<UnitStructTypeDefn> for TypeDefn {
+    fn from(v: UnitStructTypeDefn) -> Self {
+        Self::UnitStruct(v)
+    }
+}
+
+impl From<TupleStructTypeDefn> for TypeDefn {
+    fn from(v: TupleStructTypeDefn) -> Self {
+        Self::TupleStruct(v)
+    }
+}
+
+impl From<PropsStructTypeDefn> for TypeDefn {
+    fn from(v: PropsStructTypeDefn) -> Self {
+        Self::PropsStruct(v)
+    }
 }
 
 impl TypeDefn {
@@ -32,7 +56,9 @@ impl TypeDefn {
             TypeDefn::Enum(defn) => defn.decl(db).into(),
             TypeDefn::Inductive(defn) => defn.decl(db).into(),
             TypeDefn::Record(defn) => defn.decl(db).into(),
-            TypeDefn::Struct(defn) => defn.decl(db).into(),
+            TypeDefn::UnitStruct(defn) => defn.decl(db).into(),
+            TypeDefn::TupleStruct(defn) => defn.decl(db).into(),
+            TypeDefn::PropsStruct(defn) => defn.decl(db).into(),
             TypeDefn::Structure(defn) => defn.decl(db).into(),
             TypeDefn::Foreign(defn) => defn.decl(db).into(),
         }
@@ -43,7 +69,9 @@ impl TypeDefn {
             TypeDefn::Enum(defn) => defn.path(db),
             TypeDefn::Inductive(defn) => defn.path(db),
             TypeDefn::Record(defn) => defn.path(db),
-            TypeDefn::Struct(defn) => defn.path(db),
+            TypeDefn::UnitStruct(defn) => defn.path(db),
+            TypeDefn::TupleStruct(defn) => defn.path(db),
+            TypeDefn::PropsStruct(defn) => defn.path(db),
             TypeDefn::Structure(defn) => defn.path(db),
             TypeDefn::Foreign(defn) => defn.path(db),
         }
@@ -65,12 +93,6 @@ impl From<InductiveTypeDefn> for TypeDefn {
 impl From<RecordTypeDefn> for TypeDefn {
     fn from(v: RecordTypeDefn) -> Self {
         Self::Record(v)
-    }
-}
-
-impl From<StructTypeDefn> for TypeDefn {
-    fn from(v: StructTypeDefn) -> Self {
-        Self::Struct(v)
     }
 }
 

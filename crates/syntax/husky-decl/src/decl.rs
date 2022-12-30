@@ -3,6 +3,7 @@ mod trai;
 mod trai_item;
 mod ty;
 mod ty_item;
+mod variant;
 
 use crate::*;
 
@@ -11,6 +12,7 @@ pub use trai::*;
 pub use trai_item::*;
 pub use ty::*;
 pub use ty_item::*;
+pub use variant::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum Decl {
@@ -19,6 +21,7 @@ pub enum Decl {
     Trait(TraitDecl),
     TypeItem(TypeItemDecl),
     TraitItem(TraitItemDecl),
+    Variant(VariantDecl),
 }
 
 impl Decl {
@@ -29,6 +32,7 @@ impl Decl {
             Decl::Trait(decl) => decl.ast_idx(db),
             Decl::TypeItem(decl) => decl.ast_idx(db),
             Decl::TraitItem(decl) => decl.ast_idx(db),
+            Decl::Variant(_) => todo!(),
         }
     }
 }

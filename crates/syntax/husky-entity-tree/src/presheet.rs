@@ -137,7 +137,7 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
                             ast_idx,
                             path: *module_item_path,
                         },
-                        EntityPath::AssociatedItem(_) | EntityPath::EnumVariant(_) => return,
+                        EntityPath::AssociatedItem(_) | EntityPath::Variant(_) => return,
                         EntityPath::GenericParameter(_) => todo!(),
                     };
                     match self.nodes.insert_new(new_node) {

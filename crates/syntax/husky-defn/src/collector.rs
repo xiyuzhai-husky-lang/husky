@@ -40,13 +40,16 @@ impl<'a> DefnCollector<'a> {
             Decl::Trait(decl) => self.parse_trai_defn(decl).into(),
             Decl::TypeItem(_) => todo!(),
             Decl::TraitItem(_) => todo!(),
+            Decl::Variant(_) => todo!(),
         }
     }
 
     fn parse_ty_defn(&self, decl: TypeDecl) -> TypeDefn {
         match decl {
             TypeDecl::Enum(decl) => self.parse_enum_ty_defn(decl).into(),
-            TypeDecl::Struct(decl) => self.parse_struct_ty_defn(decl).into(),
+            TypeDecl::PropsStruct(decl) => self.parse_props_struct_ty_defn(decl).into(),
+            TypeDecl::TupleStruct(decl) => self.parse_tuple_struct_ty_defn(decl).into(),
+            TypeDecl::UnitStruct(decl) => self.parse_unit_struct_ty_defn(decl).into(),
             TypeDecl::Record(_) => todo!(),
             TypeDecl::Inductive(decl) => self.parse_inductive_ty_defn(decl).into(),
             TypeDecl::Structure(decl) => self.parse_structure_ty_defn(decl).into(),
@@ -65,9 +68,19 @@ impl<'a> DefnCollector<'a> {
         EnumTypeDefn::new(self.db, decl.path(self.db), decl, expr_sheet)
     }
 
-    fn parse_struct_ty_defn(&self, decl: StructTypeDecl) -> StructTypeDefn {
+    fn parse_props_struct_ty_defn(&self, decl: PropsStructTypeDecl) -> PropsStructTypeDefn {
         let mut expr_sheet = ExprSheet::default();
-        StructTypeDefn::new(self.db, decl.path(self.db), decl, expr_sheet)
+        PropsStructTypeDefn::new(self.db, decl.path(self.db), decl, expr_sheet)
+    }
+
+    fn parse_tuple_struct_ty_defn(&self, decl: TupleStructTypeDecl) -> TupleStructTypeDefn {
+        let mut expr_sheet = ExprSheet::default();
+        TupleStructTypeDefn::new(self.db, decl.path(self.db), decl, expr_sheet)
+    }
+
+    fn parse_unit_struct_ty_defn(&self, decl: UnitStructTypeDecl) -> UnitStructTypeDefn {
+        let mut expr_sheet = ExprSheet::default();
+        UnitStructTypeDefn::new(self.db, decl.path(self.db), decl, expr_sheet)
     }
 
     fn parse_inductive_ty_defn(&self, decl: InductiveTypeDecl) -> InductiveTypeDefn {
