@@ -2,7 +2,7 @@ use super::*;
 use husky_ast::AstJar;
 use husky_entity_path::{EntityPath, EntityPathDb, EntityPathJar, EntityPathMenu};
 use husky_entity_tree::EntityTreeJar;
-use husky_expr::ExprIdx;
+use husky_expr::{ExprIdx, ExprSheet};
 use husky_manifest::ManifestJar;
 use husky_symbol::{Symbol, SymbolContext};
 use husky_term::{
@@ -52,7 +52,7 @@ impl TermInferTestsDb {
         }
     }
 
-    pub(super) fn parse_expr_from_text(&self, text: &str) -> (ExprArena, ExprIdx) {
+    pub(super) fn parse_expr_from_text(&self, text: &str) -> (ExprSheet, ExprIdx) {
         todo!()
         // use husky_tokenize::TokenizeDb;
         // let tokens = self.tokenize_line(text);

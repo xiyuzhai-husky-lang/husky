@@ -31,6 +31,6 @@ pub enum PatternOpn {
     Struct { name: Option<EntityPath> },
 }
 
-pub type PatternExprArena = Arena<PatternExpr>;
+pub(crate) type PatternExprArena = Arena<PatternExpr>;
 pub type PatternExprIdx = ArenaIdx<PatternExpr>;
 pub type PatternExprIdxRange = ArenaIdxRange<PatternExpr>;

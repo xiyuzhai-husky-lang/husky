@@ -6,5 +6,5 @@ pub struct TraitMethodDecl {
     pub entity_path: EntityPath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    pub expr_arena: ExprArena,
+    pub expr_sheet: ExprSheet,
 }

@@ -3,7 +3,7 @@ use husky_ast::{Ast, AstIdx, AstIdxRange, AstSheet};
 use husky_entity_path::EntityPath;
 use husky_entity_taxonomy::{EntityKind, FormKind, ModuleItemKind, TypeKind};
 use husky_entity_tree::{CratePrelude, EntitySymbol, EntityTreeSheet};
-use husky_expr::{parse_expr, ExprArena, ExprParsingStopReason};
+use husky_expr::{parse_expr, ExprParsingStopReason, ExprSheet};
 use husky_opn_syntax::BinaryOpr;
 use husky_print_utils::p;
 use husky_symbol::{LocalSymbolSheet, SymbolContext};
@@ -167,7 +167,7 @@ impl<'a> DeclCollector<'a> {
         let mut token_iter = self
             .token_sheet
             .token_group_token_iter(token_group_idx, Some(saved_stream_state));
-        let mut expr_arena = ExprArena::default();
+        let mut expr_arena = ExprSheet::default();
         let local_symbol_sheet = LocalSymbolSheet::default();
         // if let Some(_) = token_iter.try_eat_special(BinaryOpr::Assign(None).into(), true) {
         //     todo!()
