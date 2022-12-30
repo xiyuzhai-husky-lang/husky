@@ -2,10 +2,13 @@ use super::*;
 use husky_entity_taxonomy::{ModuleItemKind, TypeKind};
 use husky_opn_syntax::Bracket;
 use husky_token::*;
-use parsec::StreamWrapper;
+use parsec::{HasParseError, StreamWrapper};
 use std::iter::Peekable;
 
-pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
+pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a>
+where
+    <Self as HasParseError>::Error: From<TokenError>,
+{
     fn ast_context_kind(&self) -> AstContextKind;
     fn module_path(&self) -> ModulePath;
 
@@ -133,6 +136,10 @@ pub(crate) struct BasicAuxAstParser<'a> {
     ast_parent: AstContextKind,
     module_path: ModulePath,
     token_iter: TokenStream<'a>,
+}
+
+impl<'a> HasParseError for BasicAuxAstParser<'a> {
+    type Error = AstError;
 }
 
 impl<'a> BasicAuxAstParser<'a> {

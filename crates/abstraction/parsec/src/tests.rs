@@ -5,6 +5,10 @@ pub(crate) struct CharStream<'a> {
     iter: Chars<'a>,
 }
 
+impl<'a> HasParseError for CharStream<'a> {
+    type Error = ();
+}
+
 impl<'a> CharStream<'a> {
     pub(crate) fn new(input: &'a str) -> Self {
         Self {
@@ -27,7 +31,7 @@ impl<'a> std::ops::DerefMut for CharStream<'a> {
     }
 }
 
-impl<'a> ParseStream for CharStream<'a> {
+impl<'a> HasParseState for CharStream<'a> {
     type State = Chars<'a>;
 
     fn save_state(&self) -> Self::State {
@@ -43,11 +47,9 @@ impl<'a> ParseStream for CharStream<'a> {
 pub(crate) struct A {}
 
 impl<'a> ParseFrom<CharStream<'a>> for A {
-    type Error = ();
-
     fn parse_from_without_guaranteed_rollback<'b>(
         ctx: &mut CharStream<'b>,
-    ) -> Result<Option<Self>, Self::Error> {
+    ) -> Result<Option<Self>, <CharStream<'a> as HasParseError>::Error> {
         if let Some(c) = ctx.next() {
             Ok((c == 'a').then_some(A {}))
         } else {
@@ -60,11 +62,9 @@ impl<'a> ParseFrom<CharStream<'a>> for A {
 pub(crate) struct B {}
 
 impl<'a> ParseFrom<CharStream<'a>> for B {
-    type Error = ();
-
     fn parse_from_without_guaranteed_rollback<'b>(
         ctx: &mut CharStream<'b>,
-    ) -> Result<Option<Self>, Self::Error> {
+    ) -> Result<Option<Self>, <CharStream<'a> as HasParseError>::Error> {
         if let Some(c) = ctx.next() {
             Ok((c == 'b').then_some(B {}))
         } else {
@@ -77,11 +77,9 @@ impl<'a> ParseFrom<CharStream<'a>> for B {
 pub(crate) struct Comma {}
 
 impl<'a> ParseFrom<CharStream<'a>> for Comma {
-    type Error = ();
-
     fn parse_from_without_guaranteed_rollback<'b>(
         ctx: &mut CharStream<'b>,
-    ) -> Result<Option<Self>, Self::Error> {
+    ) -> Result<Option<Self>, <CharStream<'a> as HasParseError>::Error> {
         if let Some(c) = ctx.next() {
             Ok((c == ',').then_some(Comma {}))
         } else {

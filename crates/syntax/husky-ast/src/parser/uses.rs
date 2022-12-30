@@ -1,6 +1,6 @@
 use husky_opn_syntax::{BinaryOpr, BinaryPureClosedOpr, Bracket};
 use husky_token::{TokenParseContext, TokenStream};
-use parsec::StreamWrapper;
+use parsec::{HasParseError, StreamWrapper};
 
 use super::*;
 
@@ -33,11 +33,15 @@ impl<'a> AstParser<'a> {
     }
 }
 
-pub struct EntityUseExprParser<'b> {
-    token_iter: TokenStream<'b>,
+pub struct EntityUseExprParser<'a> {
+    token_iter: TokenStream<'a>,
     parent: AstContextKind,
     module_path: ModulePath,
-    arena: &'b mut UseExprArena,
+    arena: &'a mut UseExprArena,
+}
+
+impl<'a> HasParseError for EntityUseExprParser<'a> {
+    type Error = AstError;
 }
 
 impl<'a> std::ops::Deref for EntityUseExprParser<'a> {

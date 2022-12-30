@@ -1,7 +1,7 @@
 use super::*;
 use husky_opn_syntax::{BinaryOpr, Bracket};
 use husky_print_utils::p;
-use parsec::{ParseContext, ParseFrom};
+use parsec::{HasParseError, ParseContext, ParseFrom};
 
 // punctuation in general
 
@@ -14,17 +14,16 @@ pub struct PunctuationToken {
 impl<'a, Context> parsec::ParseFrom<Context> for PunctuationToken
 where
     Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
 {
-    type Error = TokenError;
-
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> Result<Option<Self>, Self::Error> {
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed(IgnoreComment::True) {
             match token.kind {
                 TokenKind::Punctuation(punc) => Ok(Some(PunctuationToken { punc, token_idx })),
                 TokenKind::Comment => unreachable!(),
-                TokenKind::Err(ref e) => Err(e.clone()),
+                TokenKind::Err(ref e) => Err(e.clone().into()),
                 TokenKind::Identifier(_)
                 | TokenKind::WordOpr(_)
                 | TokenKind::Literal(_)
@@ -45,6 +44,7 @@ fn parse_specific_punctuation_from<'a, Context>(
 ) -> Result<Option<TokenIdx>, TokenError>
 where
     Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
 {
     if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed(IgnoreComment::True) {
         match token.kind {
@@ -66,7 +66,7 @@ where
 #[cfg(test)]
 fn quick_parse<T>(db: &DB, input: &str) -> TokenResult<Option<T>>
 where
-    T: for<'a> ParseFrom<TokenStream<'a>, Error = TokenError>,
+    T: for<'a> ParseFrom<TokenStream<'a>>,
 {
     let tokens = db.tokenize(input);
     let token_sheet = TokenSheet::new(tokens);
@@ -85,12 +85,11 @@ pub struct CommaToken {
 impl<'a, Context> parsec::ParseFrom<Context> for CommaToken
 where
     Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
 {
-    type Error = TokenError;
-
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> Result<Option<Self>, Self::Error> {
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
         Ok(parse_specific_punctuation_from(ctx, Punctuation::Comma)?
             .map(|token_idx| CommaToken { token_idx }))
     }
@@ -118,12 +117,11 @@ pub struct AssignToken {
 impl<'a, Context> parsec::ParseFrom<Context> for AssignToken
 where
     Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
 {
-    type Error = TokenError;
-
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> Result<Option<Self>, Self::Error> {
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
         Ok(
             parse_specific_punctuation_from(ctx, BinaryOpr::Assign(None).into())?
                 .map(|token_idx| AssignToken { token_idx }),
@@ -153,12 +151,11 @@ pub struct LeftParenthesisToken {
 impl<'a, Context> parsec::ParseFrom<Context> for LeftParenthesisToken
 where
     Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
 {
-    type Error = TokenError;
-
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> Result<Option<Self>, Self::Error> {
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
         Ok(
             parse_specific_punctuation_from(ctx, Punctuation::Bra(Bracket::Par))?
                 .map(|token_idx| LeftParenthesisToken { token_idx }),
@@ -188,12 +185,11 @@ pub struct RightParenthesisToken {
 impl<'a, Context> parsec::ParseFrom<Context> for RightParenthesisToken
 where
     Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
 {
-    type Error = TokenError;
-
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> Result<Option<Self>, Self::Error> {
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
         Ok(
             parse_specific_punctuation_from(ctx, Punctuation::Ket(Bracket::Par))?
                 .map(|token_idx| RightParenthesisToken { token_idx }),
@@ -223,12 +219,11 @@ pub struct LeftCurlyBraceToken {
 impl<'a, Context> parsec::ParseFrom<Context> for LeftCurlyBraceToken
 where
     Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
 {
-    type Error = TokenError;
-
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> Result<Option<Self>, Self::Error> {
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
         Ok(
             parse_specific_punctuation_from(ctx, Punctuation::Bra(Bracket::Curl))?
                 .map(|token_idx| LeftCurlyBraceToken { token_idx }),
@@ -258,12 +253,11 @@ pub struct RightCurlyBraceToken {
 impl<'a, Context> parsec::ParseFrom<Context> for RightCurlyBraceToken
 where
     Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
 {
-    type Error = TokenError;
-
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> Result<Option<Self>, Self::Error> {
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
         Ok(
             parse_specific_punctuation_from(ctx, Punctuation::Ket(Bracket::Curl))?
                 .map(|token_idx| RightCurlyBraceToken { token_idx }),
@@ -293,12 +287,11 @@ pub struct VerticalToken {
 impl<'a, Context> parsec::ParseFrom<Context> for VerticalToken
 where
     Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
 {
-    type Error = TokenError;
-
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> Result<Option<Self>, Self::Error> {
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
         Ok(parse_specific_punctuation_from(ctx, Punctuation::Vertical)?
             .map(|token_idx| VerticalToken { token_idx }))
     }

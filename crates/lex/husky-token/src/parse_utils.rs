@@ -6,7 +6,7 @@ pub use context::*;
 pub use ident::*;
 pub use punc::*;
 
-use parsec::ParseStream;
+use parsec::HasParseState;
 
 use crate::*;
 use std::convert::Infallible;
