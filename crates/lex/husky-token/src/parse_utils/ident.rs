@@ -1,3 +1,5 @@
+use parsec::HasParseError;
+
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -41,17 +43,16 @@ impl IdentifierToken {
 impl<'a, Context> parsec::ParseFrom<Context> for IdentifierToken
 where
     Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
 {
-    type Error = TokenError;
-
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut Context,
-    ) -> Result<Option<Self>, Self::Error> {
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed(IgnoreComment::True) {
             match token.kind {
                 TokenKind::Identifier(ident) => Ok(Some(IdentifierToken { ident, token_idx })),
                 TokenKind::Comment => unreachable!(),
-                TokenKind::Err(ref e) => Err(e.clone()),
+                TokenKind::Err(ref e) => Err(e.clone().into()),
                 TokenKind::Punctuation(_)
                 | TokenKind::WordOpr(_)
                 | TokenKind::Literal(_)

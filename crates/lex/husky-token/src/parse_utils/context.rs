@@ -1,6 +1,12 @@
+use parsec::{HasParseError, ParseContext};
+
 use super::*;
 
-pub trait TokenParseContext<'a>: ParseStream + core::borrow::BorrowMut<TokenStream<'a>> {
+pub trait TokenParseContext<'a>:
+    HasParseState<State = TokenIdx> + ParseContext + core::borrow::BorrowMut<TokenStream<'a>>
+where
+    <Self as HasParseError>::Error: From<TokenError>,
+{
     fn token_iter(&self) -> &TokenStream<'a> {
         self.borrow()
     }
@@ -12,7 +18,9 @@ pub trait TokenParseContext<'a>: ParseStream + core::borrow::BorrowMut<TokenStre
 
 // impl<'a> TokenParseContext<'a> for TokenIter<'a> {}
 
-impl<'a, T> TokenParseContext<'a> for T where
-    T: ParseStream + core::borrow::BorrowMut<TokenStream<'a>>
+impl<'a, T> TokenParseContext<'a> for T
+where
+    T: HasParseState<State = TokenIdx> + ParseContext + core::borrow::BorrowMut<TokenStream<'a>>,
+    <Self as HasParseError>::Error: From<TokenError>,
 {
 }

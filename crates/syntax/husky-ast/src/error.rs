@@ -1,5 +1,6 @@
 use husky_text::TextRange;
-use husky_token::{TokenError, TokenIdx};
+use husky_token::{IdentifierToken, TokenError, TokenIdx, TokenParseContext};
+use parsec::{FromAbsent, HasParseError};
 use thiserror::Error;
 
 use crate::{AstDb, AstIdx};
@@ -24,6 +25,16 @@ pub enum AstError {
     ExpectNothing,
     #[error("token error")]
     Token(#[from] TokenError),
+}
+
+impl<'a, Context> FromAbsent<IdentifierToken, Context> for AstError
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
+        AstError::ExpectIdentifier(state)
+    }
 }
 
 impl salsa::DebugWithDb<dyn AstDb + '_> for AstError {

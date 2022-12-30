@@ -1,18 +1,18 @@
 use crate::*;
 
-pub trait ParseFromWithRollback<Stream>: ParseFrom<Stream>
+pub trait ParseFromWithRollback<Context>: ParseFrom<Context>
 where
-    Stream: ParseContext + ?Sized,
+    Context: ParseContext + ?Sized,
 {
-    fn parse_from_with_rollback<'a>(stream: &mut Stream) -> Result<Option<Self>, Self::Error>;
+    fn parse_from_with_rollback<'a>(stream: &mut Context) -> Result<Option<Self>, Context::Error>;
 }
 
-impl<Stream, P> ParseFromWithRollback<Stream> for P
+impl<Context, P> ParseFromWithRollback<Context> for P
 where
-    Stream: ParseContext + ?Sized,
-    P: ParseFrom<Stream>,
+    Context: ParseContext + ?Sized,
+    P: ParseFrom<Context>,
 {
-    fn parse_from_with_rollback<'a>(stream: &mut Stream) -> Result<Option<Self>, Self::Error> {
+    fn parse_from_with_rollback<'a>(stream: &mut Context) -> Result<Option<Self>, Context::Error> {
         let state = stream.save_state();
         let result = Self::parse_from_without_guaranteed_rollback(stream);
         match result {
