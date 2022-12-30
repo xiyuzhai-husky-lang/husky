@@ -20,7 +20,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     }
 
     pub(super) fn finish(mut self) -> ExprIdxRange {
-        self.arena.alloc_batch(self.stack.exprs)
+        self.sheet.alloc_expr_batch(self.stack.exprs)
     }
 
     pub(super) fn topk_exprs(&self, k: usize) -> &[Expr] {

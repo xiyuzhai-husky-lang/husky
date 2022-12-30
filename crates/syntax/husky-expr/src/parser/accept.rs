@@ -7,7 +7,9 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
 
     pub(crate) fn accept_token(&mut self, token: ResolvedToken) -> ExprResult<()> {
         match token.kind() {
-            ResolvedTokenKind::Atom(_atom) => Ok(self.accept_atom(token.to_expr(self.arena))),
+            ResolvedTokenKind::Atom(_atom) => {
+                Ok(self.accept_atom(token.to_expr(self.sheet.expr_arena())))
+            }
             ResolvedTokenKind::BinaryOpr(opr) => self.accept_binary_opr(*opr, token.token_idx()),
             ResolvedTokenKind::Prefix(opr) => Ok(self.accept_prefix_opr(*opr, token.token_idx())),
             ResolvedTokenKind::Suffix(opr) => Ok(self.accept_suffix_opr(*opr, token.token_idx())),
@@ -133,7 +135,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         };
         let list_len = original_number_of_oprs - self.number_of_oprs() - 1;
         let opds = self.drain_exprs(list_len);
-        let opds = self.arena.alloc_batch(opds);
+        let opds = self.sheet.alloc_expr_batch(opds);
         self.push_expr(new_list_expr(ket, start_attr, attr, opds)?);
         Ok(())
     }

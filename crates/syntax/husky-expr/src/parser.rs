@@ -24,7 +24,7 @@ use std::ops::ControlFlow;
 pub(crate) struct ExprParser<'a, 'b, 'c> {
     ctx: SymbolContext<'c>,
     token_iter: &'a mut TokenIter<'b>,
-    arena: &'a mut ExprArena,
+    sheet: &'a mut ExprSheet,
     stack: AutomataStack,
 }
 
@@ -36,12 +36,12 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     fn new(
         ctx: SymbolContext<'c>,
         token_iter: &'a mut TokenIter<'b>,
-        arena: &'a mut ExprArena,
+        sheet: &'a mut ExprSheet,
     ) -> Self {
         Self {
             ctx,
             token_iter,
-            arena,
+            sheet,
             stack: Default::default(),
         }
     }
@@ -73,7 +73,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
 pub fn parse_expr<'a>(
     ctx: SymbolContext,
     token_iter: &mut TokenIter<'a>,
-    arena: &mut ExprArena,
+    sheet: &mut ExprSheet,
 ) -> (ExprIdxRange, ExprParsingStopReason) {
-    ExprParser::new(ctx, token_iter, arena).parse_all()
+    ExprParser::new(ctx, token_iter, sheet).parse_all()
 }
