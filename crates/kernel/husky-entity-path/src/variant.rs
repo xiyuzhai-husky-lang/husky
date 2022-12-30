@@ -1,12 +1,12 @@
 use crate::*;
 
 #[salsa::interned(jar = EntityPathJar)]
-pub struct ModuleItemVariantPath {
-    pub module_item: ModuleItemPath,
+pub struct VariantPath {
+    pub path: TypePath,
     pub ident: Identifier,
 }
 
-impl<Db: EntityPathDb> salsa::DebugWithDb<Db> for ModuleItemVariantPath {
+impl<Db: EntityPathDb> salsa::DebugWithDb<Db> for VariantPath {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,

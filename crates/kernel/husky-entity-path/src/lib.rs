@@ -3,7 +3,6 @@
 mod ancestry;
 mod associated_item;
 mod db;
-mod enum_variant;
 mod error;
 mod generic_parameter;
 mod menu;
@@ -11,15 +10,16 @@ mod module_item;
 #[cfg(test)]
 mod tests;
 mod utils;
+mod variant;
 
 pub use ancestry::*;
 pub use associated_item::*;
 pub use db::*;
-pub use enum_variant::*;
 pub use error::*;
 pub use generic_parameter::*;
 pub use menu::*;
 pub use module_item::*;
+pub use variant::*;
 
 use husky_entity_taxonomy::*;
 use husky_vfs::*;
@@ -35,7 +35,7 @@ pub struct EntityPathJar(
     FormPath,
     GenericParameterPath,
     AssociatedItemPath,
-    ModuleItemVariantPath,
+    VariantPath,
     entity_path_menu,
 );
 
@@ -45,7 +45,7 @@ pub enum EntityPath {
     ModuleItem(ModuleItemPath),
     GenericParameter(GenericParameterPath),
     AssociatedItem(AssociatedItemPath),
-    EnumVariant(ModuleItemVariantPath),
+    Variant(VariantPath),
 }
 
 impl From<ModulePath> for EntityPath {
@@ -67,7 +67,7 @@ impl EntityPath {
             EntityPath::Module(_) => todo!(),
             EntityPath::ModuleItem(_) => todo!(),
             EntityPath::AssociatedItem(_) => todo!(),
-            EntityPath::EnumVariant(_) => todo!(),
+            EntityPath::Variant(_) => todo!(),
             EntityPath::GenericParameter(_) => todo!(),
         }
     }
@@ -109,7 +109,7 @@ where
                     .debug_tuple("AssociatedItem")
                     .field(&associated_item_path.debug_with(db, include_all_fields))
                     .finish(),
-                EntityPath::EnumVariant(enum_variant_path) => f
+                EntityPath::Variant(enum_variant_path) => f
                     .debug_tuple("EnumVariant")
                     .field(&enum_variant_path.debug_with(db, include_all_fields))
                     .finish(),
@@ -124,15 +124,15 @@ where
                 EntityPath::AssociatedItem(associated_item_path) => {
                     associated_item_path.fmt(f, db, false)
                 }
-                EntityPath::EnumVariant(enum_variant_path) => enum_variant_path.fmt(f, db, false),
+                EntityPath::Variant(enum_variant_path) => enum_variant_path.fmt(f, db, false),
             }
         }
     }
 }
 
-impl From<ModuleItemVariantPath> for EntityPath {
-    fn from(v: ModuleItemVariantPath) -> Self {
-        Self::EnumVariant(v)
+impl From<VariantPath> for EntityPath {
+    fn from(v: VariantPath) -> Self {
+        Self::Variant(v)
     }
 }
 

@@ -24,7 +24,9 @@ pub struct DefnJar(
     defn_sheet,
     // type
     EnumTypeDefn,
-    StructTypeDefn,
+    UnitStructTypeDefn,
+    TupleStructTypeDefn,
+    PropsStructTypeDefn,
     RecordTypeDefn,
     InductiveTypeDefn,
     StructureTypeDefn,
@@ -38,6 +40,10 @@ pub struct DefnJar(
     TypeAliasDefn,
     // trait
     TraitDefn,
+    // enum variant,
+    UnitVariantDefn,
+    TupleVariantDefn,
+    PropsVariantDefn,
     // type item
     TypeAssociatedFunctionDefn,
     TypeMethodDefn,

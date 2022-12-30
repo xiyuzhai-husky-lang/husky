@@ -24,7 +24,9 @@ pub struct DeclJar(
     decl_sheet,
     // type
     EnumTypeDecl,
-    StructTypeDecl,
+    UnitStructTypeDecl,
+    TupleStructTypeDecl,
+    PropsStructTypeDecl,
     RecordTypeDecl,
     InductiveTypeDecl,
     StructureTypeDecl,
@@ -49,6 +51,10 @@ pub struct DeclJar(
     TraitMethodDecl,
     TraitAssociatedTypeDecl,
     TraitAssociatedValueDecl,
+    // variant
+    UnitVariantDecl,
+    PropsVariantDecl,
+    TupleVariantDecl,
 );
 
 #[salsa::tracked(jar = DeclJar, return_ref)]

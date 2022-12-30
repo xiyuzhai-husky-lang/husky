@@ -87,7 +87,7 @@ impl<'a> DeclCollector<'a> {
                 },
                 EntityPath::GenericParameter(_) => todo!(),
                 EntityPath::AssociatedItem(_) => todo!(),
-                EntityPath::EnumVariant(_) => todo!(),
+                EntityPath::Variant(_) => todo!(),
             },
             Ast::Impl { .. }
             | Ast::Err { .. }
@@ -144,8 +144,9 @@ impl<'a> DeclCollector<'a> {
     }
 
     fn parse_struct_type_decl(&self, ast_idx: AstIdx, path: TypePath) -> DeclResult<Decl> {
+        // ad hoc
         Ok(Decl::Type(
-            StructTypeDecl::new(self.db, path, ast_idx, /* ad hoc */ vec![]).into(),
+            PropsStructTypeDecl::new(self.db, path, ast_idx, /* ad hoc */ vec![]).into(),
         ))
     }
 

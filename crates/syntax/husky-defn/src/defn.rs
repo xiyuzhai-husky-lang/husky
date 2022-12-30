@@ -3,21 +3,24 @@ mod trai;
 mod trai_item;
 mod ty;
 mod ty_item;
+mod variant;
 
 pub use form::*;
-use husky_ast::AstIdx;
 pub use trai::*;
 pub use trai_item::*;
 pub use ty::*;
 pub use ty_item::*;
+pub use variant::*;
 
 use crate::*;
+use husky_ast::AstIdx;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Defn {
     Type(TypeDefn),
     Trait(TraitDefn),
     Form(FormDefn),
+    Variant(VariantDefn),
     TypeItem(TypeItemDefn),
     TraitItem(TraitItemDefn),
 }
@@ -30,6 +33,7 @@ impl Defn {
             Defn::Form(defn) => defn.decl(db).into(),
             Defn::TypeItem(defn) => defn.decl(db).into(),
             Defn::TraitItem(defn) => defn.decl(db).into(),
+            Defn::Variant(defn) => defn.decl(db).into(),
         }
     }
 
@@ -76,6 +80,7 @@ impl Defn {
             Defn::Form(defn) => defn.path(db).into(),
             Defn::TypeItem(defn) => defn.path(db).into(),
             Defn::TraitItem(defn) => defn.path(db).into(),
+            Defn::Variant(defn) => defn.path(db).into(),
         }
     }
 }

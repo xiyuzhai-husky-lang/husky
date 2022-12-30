@@ -1,10 +1,10 @@
 use crate::*;
 
 #[salsa::tracked(jar = DefnJar)]
-pub struct StructTypeDefn {
+pub struct UnitVariantDefn {
     #[id]
-    pub path: TypePath,
-    pub decl: StructTypeDecl,
+    pub path: VariantPath,
+    pub decl: UnitVariantDecl,
     #[return_ref]
     pub expr_sheet: ExprSheet,
 }

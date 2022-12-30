@@ -1,25 +1,31 @@
 mod alien_ty;
 mod enum_ty;
 mod inductive_ty;
+mod props_struct_ty;
 mod record_ty;
-mod struct_ty;
 mod structure_ty;
+mod tuple_struct_ty;
 mod union_ty;
+mod unit_struct_ty;
 
 pub use alien_ty::*;
 pub use enum_ty::*;
 pub use inductive_ty::*;
+pub use props_struct_ty::*;
 pub use record_ty::*;
-pub use struct_ty::*;
 pub use structure_ty::*;
+pub use tuple_struct_ty::*;
 pub use union_ty::*;
+pub use unit_struct_ty::*;
 
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TypeDecl {
     Enum(EnumTypeDecl),
-    Struct(StructTypeDecl),
+    PropsStruct(PropsStructTypeDecl),
+    UnitStruct(UnitStructTypeDecl),
+    TupleStruct(TupleStructTypeDecl),
     Record(RecordTypeDecl),
     Inductive(InductiveTypeDecl),
     Structure(StructureTypeDecl),
@@ -31,7 +37,9 @@ impl TypeDecl {
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
             TypeDecl::Enum(decl) => decl.ast_idx(db),
-            TypeDecl::Struct(decl) => decl.ast_idx(db),
+            TypeDecl::UnitStruct(decl) => decl.ast_idx(db),
+            TypeDecl::TupleStruct(decl) => decl.ast_idx(db),
+            TypeDecl::PropsStruct(decl) => decl.ast_idx(db),
             TypeDecl::Record(decl) => decl.ast_idx(db),
             TypeDecl::Inductive(decl) => decl.ast_idx(db),
             TypeDecl::Structure(decl) => decl.ast_idx(db),
@@ -47,9 +55,21 @@ impl From<EnumTypeDecl> for TypeDecl {
     }
 }
 
-impl From<StructTypeDecl> for TypeDecl {
-    fn from(v: StructTypeDecl) -> Self {
-        Self::Struct(v)
+impl From<TupleStructTypeDecl> for TypeDecl {
+    fn from(v: TupleStructTypeDecl) -> Self {
+        Self::TupleStruct(v)
+    }
+}
+
+impl From<UnitStructTypeDecl> for TypeDecl {
+    fn from(v: UnitStructTypeDecl) -> Self {
+        Self::UnitStruct(v)
+    }
+}
+
+impl From<PropsStructTypeDecl> for TypeDecl {
+    fn from(v: PropsStructTypeDecl) -> Self {
+        Self::PropsStruct(v)
     }
 }
 
@@ -83,7 +103,9 @@ impl TypeDecl {
             TypeDecl::Enum(decl) => decl.path(db),
             TypeDecl::Inductive(decl) => decl.path(db),
             TypeDecl::Record(decl) => decl.path(db),
-            TypeDecl::Struct(decl) => decl.path(db),
+            TypeDecl::UnitStruct(decl) => decl.path(db),
+            TypeDecl::PropsStruct(decl) => decl.path(db),
+            TypeDecl::TupleStruct(decl) => decl.path(db),
             TypeDecl::Structure(decl) => decl.path(db),
             TypeDecl::Alien(decl) => decl.path(db),
             TypeDecl::Union(decl) => decl.path(db),
