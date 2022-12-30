@@ -11,7 +11,7 @@ Ok(
             Entity(
                 ModuleItem {
                     module_item_kind: Type(
-                        Struct,
+                        PropsStruct,
                     ),
                     connection: Connected,
                 },

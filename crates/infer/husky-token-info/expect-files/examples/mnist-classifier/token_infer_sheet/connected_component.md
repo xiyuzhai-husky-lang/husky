@@ -19,7 +19,7 @@ Ok(
             Entity(
                 ModuleItem {
                     module_item_kind: Type(
-                        Struct,
+                        PropsStruct,
                     ),
                     connection: Connected,
                 },
@@ -46,7 +46,7 @@ Ok(
             Entity(
                 ModuleItem {
                     module_item_kind: Type(
-                        Struct,
+                        PropsStruct,
                     ),
                     connection: Connected,
                 },
@@ -97,7 +97,7 @@ Ok(
             Entity(
                 ModuleItem {
                     module_item_kind: Type(
-                        Struct,
+                        PropsStruct,
                     ),
                     connection: Connected,
                 },

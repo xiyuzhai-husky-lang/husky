@@ -8,7 +8,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 121,
-                path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution, Struct`),
+                path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution, PropsStruct`),
             },
             ModuleItem {
                 ident: `EffHoles`,
@@ -16,7 +16,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 122,
-                path: TypePath(`mnist_classifier::connected_component::EffHoles, Struct`),
+                path: TypePath(`mnist_classifier::connected_component::EffHoles, PropsStruct`),
             },
             ModuleItem {
                 ident: `hole_tmpl`,
@@ -32,7 +32,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 124,
-                path: TypePath(`mnist_classifier::connected_component::ConnectedComponent, Struct`),
+                path: TypePath(`mnist_classifier::connected_component::ConnectedComponent, PropsStruct`),
             },
             ModuleItem {
                 ident: `horizontal_extend`,

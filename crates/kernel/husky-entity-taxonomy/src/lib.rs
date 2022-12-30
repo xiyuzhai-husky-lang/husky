@@ -5,7 +5,9 @@ pub enum TypeKind {
     Enum,
     Inductive,
     Record,
-    Struct,
+    UnitStruct,
+    TupleStruct,
+    PropsStruct,
     Structure,
     Foreign,
 }

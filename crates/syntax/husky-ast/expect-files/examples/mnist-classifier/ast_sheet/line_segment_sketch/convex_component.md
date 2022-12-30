@@ -64,12 +64,12 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Struct,
+                            PropsStruct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent, Struct`),
+                        TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent, PropsStruct`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `ConvexCompoent`,

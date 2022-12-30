@@ -7,6 +7,8 @@ pub struct TupleStructTypeDecl {
     #[id]
     pub path: TypePath,
     pub ast_idx: AstIdx,
+    #[return_ref]
+    pub fields: Vec<TupleStructFieldDecl>,
 }
 
 #[derive(Debug, PartialEq, Eq)]

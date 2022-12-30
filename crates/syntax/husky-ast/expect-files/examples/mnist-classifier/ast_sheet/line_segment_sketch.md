@@ -1572,12 +1572,12 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Struct,
+                            PropsStruct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke, Struct`),
+                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke, PropsStruct`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `LineSegmentStroke`,
@@ -1615,12 +1615,12 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Struct,
+                            PropsStruct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch, Struct`),
+                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch, PropsStruct`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `LineSegmentSketch`,
