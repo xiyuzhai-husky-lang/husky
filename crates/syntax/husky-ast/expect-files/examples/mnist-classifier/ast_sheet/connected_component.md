@@ -846,12 +846,12 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Struct,
+                            PropsStruct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution, Struct`),
+                        TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution, PropsStruct`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `ConnectedComponentDistribution`,
@@ -881,12 +881,12 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Struct,
+                            PropsStruct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::connected_component::EffHoles, Struct`),
+                        TypePath(`mnist_classifier::connected_component::EffHoles, PropsStruct`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `EffHoles`,
@@ -951,12 +951,12 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Struct,
+                            PropsStruct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::connected_component::ConnectedComponent, Struct`),
+                        TypePath(`mnist_classifier::connected_component::ConnectedComponent, PropsStruct`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `ConnectedComponent`,

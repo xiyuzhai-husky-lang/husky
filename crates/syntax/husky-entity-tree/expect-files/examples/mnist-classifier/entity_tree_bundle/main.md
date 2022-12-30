@@ -63,7 +63,7 @@ Ok(
                             `mnist_classifier::connected_component`,
                         ),
                         ast_idx: 121,
-                        path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution, Struct`),
+                        path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution, PropsStruct`),
                     },
                     ModuleItem {
                         ident: `EffHoles`,
@@ -71,7 +71,7 @@ Ok(
                             `mnist_classifier::connected_component`,
                         ),
                         ast_idx: 122,
-                        path: TypePath(`mnist_classifier::connected_component::EffHoles, Struct`),
+                        path: TypePath(`mnist_classifier::connected_component::EffHoles, PropsStruct`),
                     },
                     ModuleItem {
                         ident: `hole_tmpl`,
@@ -87,7 +87,7 @@ Ok(
                             `mnist_classifier::connected_component`,
                         ),
                         ast_idx: 124,
-                        path: TypePath(`mnist_classifier::connected_component::ConnectedComponent, Struct`),
+                        path: TypePath(`mnist_classifier::connected_component::ConnectedComponent, PropsStruct`),
                     },
                     ModuleItem {
                         ident: `horizontal_extend`,
@@ -116,7 +116,7 @@ Ok(
                             `mnist_classifier::raw_contour`,
                         ),
                         ast_idx: 217,
-                        path: TypePath(`mnist_classifier::raw_contour::RawContour, Struct`),
+                        path: TypePath(`mnist_classifier::raw_contour::RawContour, PropsStruct`),
                     },
                     ModuleItem {
                         ident: `Direction`,
@@ -180,7 +180,7 @@ Ok(
                             `mnist_classifier::raw_contour`,
                         ),
                         ast_idx: 230,
-                        path: TypePath(`mnist_classifier::raw_contour::StreakCache, Struct`),
+                        path: TypePath(`mnist_classifier::raw_contour::StreakCache, PropsStruct`),
                     },
                     ModuleItem {
                         ident: `get_concave_middle_point`,
@@ -209,7 +209,7 @@ Ok(
                             `mnist_classifier::geom2d`,
                         ),
                         ast_idx: 85,
-                        path: TypePath(`mnist_classifier::geom2d::Point2d, Struct`),
+                        path: TypePath(`mnist_classifier::geom2d::Point2d, PropsStruct`),
                     },
                     ModuleItem {
                         ident: `RelativePoint2d`,
@@ -217,7 +217,7 @@ Ok(
                             `mnist_classifier::geom2d`,
                         ),
                         ast_idx: 87,
-                        path: TypePath(`mnist_classifier::geom2d::RelativePoint2d, Struct`),
+                        path: TypePath(`mnist_classifier::geom2d::RelativePoint2d, PropsStruct`),
                     },
                     ModuleItem {
                         ident: `Vector2d`,
@@ -225,7 +225,7 @@ Ok(
                             `mnist_classifier::geom2d`,
                         ),
                         ast_idx: 88,
-                        path: TypePath(`mnist_classifier::geom2d::Vector2d, Struct`),
+                        path: TypePath(`mnist_classifier::geom2d::Vector2d, PropsStruct`),
                     },
                     ModuleItem {
                         ident: `ClosedRange`,
@@ -233,13 +233,13 @@ Ok(
                             `mnist_classifier::geom2d`,
                         ),
                         ast_idx: 90,
-                        path: TypePath(`mnist_classifier::geom2d::ClosedRange, Struct`),
+                        path: TypePath(`mnist_classifier::geom2d::ClosedRange, PropsStruct`),
                     },
                     ModuleItem {
                         ident: `BoundingBox`,
                         accessibility: Public,
                         ast_idx: 92,
-                        path: TypePath(`mnist_classifier::geom2d::BoundingBox, Struct`),
+                        path: TypePath(`mnist_classifier::geom2d::BoundingBox, PropsStruct`),
                     },
                     ModuleItem {
                         ident: `RelativeBoundingBox`,
@@ -247,7 +247,7 @@ Ok(
                             `mnist_classifier::geom2d`,
                         ),
                         ast_idx: 95,
-                        path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox, Struct`),
+                        path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox, PropsStruct`),
                     },
                 ],
             },
@@ -292,7 +292,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         ast_idx: 169,
-                        path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke, Struct`),
+                        path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke, PropsStruct`),
                     },
                     ModuleItem {
                         ident: `LineSegmentSketch`,
@@ -300,7 +300,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         ast_idx: 171,
-                        path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch, Struct`),
+                        path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch, PropsStruct`),
                     },
                     ModuleItem {
                         ident: `go_right`,
@@ -353,7 +353,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         ast_idx: 77,
-                        path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, Struct`),
+                        path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, PropsStruct`),
                     },
                     ModuleItem {
                         ident: `find_concave_components`,
@@ -374,7 +374,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                         ast_idx: 5,
-                        path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent, Struct`),
+                        path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent, PropsStruct`),
                     },
                 ],
             },
@@ -400,7 +400,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch::line_segment`,
                         ),
                         ast_idx: 16,
-                        path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment, Struct`),
+                        path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment, PropsStruct`),
                     },
                 ],
             },
@@ -413,7 +413,7 @@ Ok(
                             `mnist_classifier::fermi`,
                         ),
                         ast_idx: 24,
-                        path: TypePath(`mnist_classifier::fermi::FermiMatchResult, Struct`),
+                        path: TypePath(`mnist_classifier::fermi::FermiMatchResult, PropsStruct`),
                     },
                     ModuleItem {
                         ident: `fermi_match`,

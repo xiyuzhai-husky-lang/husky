@@ -8,7 +8,7 @@ Ok(
                     `mnist_classifier::fermi`,
                 ),
                 ast_idx: 24,
-                path: TypePath(`mnist_classifier::fermi::FermiMatchResult, Struct`),
+                path: TypePath(`mnist_classifier::fermi::FermiMatchResult, PropsStruct`),
             },
             ModuleItem {
                 ident: `fermi_match`,

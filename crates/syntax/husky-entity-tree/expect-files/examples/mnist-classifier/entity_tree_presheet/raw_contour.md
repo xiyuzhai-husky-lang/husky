@@ -8,7 +8,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 217,
-                path: TypePath(`mnist_classifier::raw_contour::RawContour, Struct`),
+                path: TypePath(`mnist_classifier::raw_contour::RawContour, PropsStruct`),
             },
             ModuleItem {
                 ident: `Direction`,
@@ -72,7 +72,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 230,
-                path: TypePath(`mnist_classifier::raw_contour::StreakCache, Struct`),
+                path: TypePath(`mnist_classifier::raw_contour::StreakCache, PropsStruct`),
             },
             ModuleItem {
                 ident: `get_concave_middle_point`,

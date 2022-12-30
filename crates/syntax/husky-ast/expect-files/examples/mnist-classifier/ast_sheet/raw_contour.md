@@ -1802,12 +1802,12 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Struct,
+                            PropsStruct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::raw_contour::RawContour, Struct`),
+                        TypePath(`mnist_classifier::raw_contour::RawContour, PropsStruct`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `RawContour`,
@@ -2122,12 +2122,12 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Struct,
+                            PropsStruct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::raw_contour::StreakCache, Struct`),
+                        TypePath(`mnist_classifier::raw_contour::StreakCache, PropsStruct`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `StreakCache`,

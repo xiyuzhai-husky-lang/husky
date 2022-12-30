@@ -40,7 +40,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 ast_idx: 169,
-                path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke, Struct`),
+                path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke, PropsStruct`),
             },
             ModuleItem {
                 ident: `LineSegmentSketch`,
@@ -48,7 +48,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 ast_idx: 171,
-                path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch, Struct`),
+                path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch, PropsStruct`),
             },
             ModuleItem {
                 ident: `go_right`,

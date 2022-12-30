@@ -8,7 +8,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
                 ast_idx: 77,
-                path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, Struct`),
+                path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, PropsStruct`),
             },
             ModuleItem {
                 ident: `find_concave_components`,
