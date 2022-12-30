@@ -35,12 +35,12 @@ pub struct ExprTermPatternInferRawResults {
 impl TermPatternInferSheet {
     #[cfg(test)]
     pub(crate) fn new_test(
-        arena: &ExprArena,
+        sheet: &ExprSheet,
         fake_var_results: HashMap<(Identifier, TextRange), VarTermPatternInferResults>,
     ) -> Self {
         Self {
             term_patt_itr: Default::default(),
-            expr_results: ExprMap::new(arena),
+            expr_results: ExprMap::new(sheet.expr_arena()),
             var_results: fake_var_results,
         }
     }

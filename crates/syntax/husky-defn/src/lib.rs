@@ -16,7 +16,7 @@ use collector::*;
 use husky_decl::*;
 use husky_entity_path::*;
 use husky_expr::*;
-use husky_expr::{ExprArena, ExprIdx};
+use husky_expr::{ExprIdx, ExprSheet};
 use husky_vfs::{ModulePath, VfsResult};
 use parser::*;
 use salsa::DbWithJar;

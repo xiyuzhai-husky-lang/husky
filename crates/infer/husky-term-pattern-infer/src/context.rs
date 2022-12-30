@@ -1,13 +1,13 @@
 use crate::*;
 use husky_entity_path::EntityPath;
-use husky_expr::{Expr, ExprArena, ExprIdx};
+use husky_expr::{Expr, ExprIdx, ExprSheet};
 use husky_term::{Term, TermContext, TermMenu};
 use husky_term_pattern::TermPatternItd;
 use husky_word::WordDb;
 
 pub(crate) struct TermPatternInferContext<'a> {
     db: &'a dyn TermPatternInferDb,
-    expr_arena: &'a ExprArena,
+    expr_sheet: &'a ExprSheet,
     expr_idx: ExprIdx,
     term_menu: &'a TermMenu,
 }
@@ -15,13 +15,13 @@ pub(crate) struct TermPatternInferContext<'a> {
 impl<'a> TermPatternInferContext<'a> {
     pub(crate) fn new(
         db: &'a dyn TermPatternInferDb,
-        expr_arena: &'a ExprArena,
+        expr_arena: &'a ExprSheet,
         expr_idx: ExprIdx,
         term_menu: &'a TermMenu,
     ) -> Self {
         Self {
             db,
-            expr_arena,
+            expr_sheet: expr_arena,
             expr_idx,
             term_menu,
         }
@@ -182,7 +182,7 @@ impl<'a> TermPatternInferContext<'a> {
     fn subexpr_context(&self, subexpr: ExprIdx) -> Self {
         Self {
             db: self.db,
-            expr_arena: self.expr_arena,
+            expr_sheet: self.expr_sheet,
             expr_idx: subexpr,
             term_menu: self.term_menu,
         }
@@ -201,7 +201,7 @@ impl<'a> TermPatternInferContext<'a> {
     }
 
     pub(crate) fn expr(&self) -> &'a Expr {
-        &self.expr_arena[self.expr_idx]
+        &self.expr_sheet[self.expr_idx]
     }
 
     pub(crate) fn term_menu(&self) -> &'a TermMenu {

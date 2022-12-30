@@ -1,5 +1,6 @@
 #![feature(trait_upcasting)]
 mod atom;
+mod entity_path;
 mod error;
 mod opn;
 mod parser;
@@ -10,6 +11,7 @@ mod stmt;
 mod variable;
 
 pub use atom::*;
+pub use entity_path::*;
 pub use error::*;
 pub use parser::*;
 pub use pattern::*;
@@ -69,7 +71,7 @@ impl From<AtomExpr> for Expr {
 
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 
-pub type ExprArena = Arena<Expr>;
+pub(crate) type ExprArena = Arena<Expr>;
 pub type ExprIdx = ArenaIdx<Expr>;
 pub type ExprIdxRange = ArenaIdxRange<Expr>;
 pub type ExprMap<V> = ArenaMap<Expr, V>;

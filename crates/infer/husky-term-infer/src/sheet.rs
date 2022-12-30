@@ -1,6 +1,6 @@
 use crate::*;
 use husky_ast::AstSheet;
-use husky_expr::{ExprArena, ExprIdx, ExprMap};
+use husky_expr::{ExprIdx, ExprMap, ExprSheet};
 use husky_term::Term;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -10,10 +10,10 @@ pub struct TermSheet {
 }
 
 impl TermSheet {
-    pub(crate) fn new(arena: &ExprArena) -> Self {
+    pub(crate) fn new(sheet: &ExprSheet) -> Self {
         Self {
-            ty_results: ExprMap::new(arena),
-            term_results: ExprMap::new(arena),
+            ty_results: ExprMap::new(sheet.expr_arena()),
+            term_results: ExprMap::new(sheet.expr_arena()),
         }
     }
 

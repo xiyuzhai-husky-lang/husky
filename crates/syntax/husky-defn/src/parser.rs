@@ -6,7 +6,7 @@ pub(crate) struct DefnParser<'a> {
     db: &'a dyn DefnDb,
     token_sheet: &'a TokenSheet,
     ast_sheet: &'a AstSheet,
-    arena: ExprArena,
+    expr_sheet: ExprSheet,
 }
 
 impl<'a> DefnParser<'a> {
@@ -21,7 +21,7 @@ impl<'a> DefnParser<'a> {
             db,
             token_sheet,
             ast_sheet,
-            arena: Default::default(),
+            expr_sheet: Default::default(),
         })
     }
 

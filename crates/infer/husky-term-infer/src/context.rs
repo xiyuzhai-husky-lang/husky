@@ -1,13 +1,13 @@
 use crate::*;
 use husky_entity_path::EntityPath;
-use husky_expr::{Expr, ExprArena, ExprIdx};
+use husky_expr::{Expr, ExprIdx, ExprSheet};
 use husky_term::{Term, TermAtom, TermContext, TermData, TermMenu};
 use husky_word::WordDb;
 
 pub(crate) struct InferContext<'a> {
     pub(crate) db: &'a dyn TermInferDb,
     sheet: &'a mut TermSheet,
-    expr_arena: &'a ExprArena,
+    expr_sheet: &'a ExprSheet,
     expr: ExprIdx,
     term_menu: &'a TermMenu,
 }
@@ -16,14 +16,14 @@ impl<'a> InferContext<'a> {
     pub(crate) fn new(
         db: &'a dyn TermInferDb,
         sheet: &'a mut TermSheet,
-        expr_arena: &'a ExprArena,
+        expr_arena: &'a ExprSheet,
         expr: ExprIdx,
         term_menu: &'a TermMenu,
     ) -> Self {
         Self {
             db,
             sheet,
-            expr_arena,
+            expr_sheet: expr_arena,
             expr,
             term_menu,
         }
@@ -36,7 +36,7 @@ impl<'a> InferContext<'a> {
         Self {
             db: self.db,
             sheet: unsafe { &mut *(self.sheet as *mut _) },
-            expr_arena: self.expr_arena,
+            expr_sheet: self.expr_sheet,
             expr: subexpr,
             term_menu: self.term_menu,
         }
@@ -48,7 +48,7 @@ impl<'a> InferContext<'a> {
     }
 
     pub(crate) fn expr(&self) -> &'a Expr {
-        &self.expr_arena[self.expr]
+        &self.expr_sheet[self.expr]
     }
 
     pub(crate) fn term_menu(&self) -> &'a TermMenu {

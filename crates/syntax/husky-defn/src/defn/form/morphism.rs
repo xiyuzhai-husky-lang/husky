@@ -5,6 +5,6 @@ pub struct MorphismDefn {
     #[id]
     pub path: FormPath,
     #[return_ref]
-    pub expr_arena: ExprArena,
+    pub expr_sheet: ExprSheet,
     pub decl: MorphismDecl,
 }
