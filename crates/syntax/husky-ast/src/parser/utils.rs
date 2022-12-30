@@ -35,7 +35,7 @@ pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
     fn take_entity_kind_keyword(&mut self) -> AstResult<Keyword> {
         let (idx, token) = self
             .token_iter_mut()
-            .next_indexed()
+            .next_indexed(IgnoreComment::True)
             .ok_or(AstError::ExpectEntityKeyword)?;
         Ok(match token.kind {
             TokenKind::Attr(_) => self.take_entity_kind_keyword()?,
