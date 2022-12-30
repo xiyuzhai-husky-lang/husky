@@ -56,20 +56,11 @@ impl AstContextKind {
             EntityKind::AssociatedItem {
                 associated_item_kind: item_kind,
             } => match item_kind {
-                AssociatedItemKind::TypeItem(ty_item_kind) => match ty_item_kind {
+                AssociatedItemKind::TypeImplItem(ty_item_kind) => match ty_item_kind {
                     TypeItemKind::Method
                     | TypeItemKind::AssociatedFunction
                     | TypeItemKind::Memo => AstContextKind::InsideForm,
                 },
-                // ModuleItemKind::Type(type_kind) => match type_kind {
-                //     TypeKind::Enum | TypeKind::Inductive => todo!(),
-                //     TypeKind::Record
-                //     | TypeKind::Struct
-                //     | TypeKind::Structure
-                //     | TypeKind::Foreign => AstContextKind::InsideNoChild,
-                // },
-                // ModuleItemKind::Trait => todo!(),
-                // ModuleItemKind::Form(_) => AstContextKind::InsideForm,,
                 AssociatedItemKind::TraitItem(trai_item_kind) => match trai_item_kind {
                     TraitItemKind::Method => {
                         // ad hoc
@@ -78,6 +69,7 @@ impl AstContextKind {
                     }
                     TraitItemKind::AssociatedType => AstContextKind::InsideNoChild,
                 },
+                AssociatedItemKind::TraitImplItem(_) => todo!(),
             },
             EntityKind::Variant => todo!(),
         }

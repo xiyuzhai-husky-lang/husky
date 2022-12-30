@@ -35,7 +35,7 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeItem(
+                        associated_item_kind: TypeImplItem(
                             Method,
                         ),
                     },
@@ -67,7 +67,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeItem(
+                        associated_item_kind: TypeImplItem(
                             Method,
                         ),
                     },
@@ -227,7 +227,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeItem(
+                        associated_item_kind: TypeImplItem(
                             Memo,
                         ),
                     },
@@ -259,7 +259,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeItem(
+                        associated_item_kind: TypeImplItem(
                             Memo,
                         ),
                     },
@@ -285,7 +285,7 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeItem(
+                        associated_item_kind: TypeImplItem(
                             Method,
                         ),
                     },
