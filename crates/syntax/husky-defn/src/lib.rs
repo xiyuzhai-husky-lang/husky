@@ -2,7 +2,6 @@
 mod collector;
 mod db;
 mod defn;
-mod parser;
 mod sheet;
 #[cfg(test)]
 mod tests;
@@ -18,7 +17,6 @@ use husky_entity_path::*;
 use husky_expr::*;
 use husky_expr::{ExprIdx, ExprSheet};
 use husky_vfs::{ModulePath, VfsResult};
-use parser::*;
 use salsa::DbWithJar;
 
 #[salsa::jar(db = DefnDb)]

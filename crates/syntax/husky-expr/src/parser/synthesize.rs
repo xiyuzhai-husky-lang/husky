@@ -96,7 +96,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
 
     fn take_opds(&mut self, nopds: usize) -> ExprIdxRange {
         let drained_exprs = self.drain_exprs(nopds);
-        self.arena.alloc_batch(drained_exprs)
+        self.sheet.alloc_expr_batch(drained_exprs)
     }
 
     fn synthesize_lambda(

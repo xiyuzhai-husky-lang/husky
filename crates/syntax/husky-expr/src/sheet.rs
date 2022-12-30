@@ -19,6 +19,10 @@ impl ExprSheet {
     pub fn pattern_expr_arena(&self) -> &PatternExprArena {
         &self.pattern_expr_arena
     }
+
+    pub(crate) fn alloc_expr_batch(&mut self, opds: Vec<Expr>) -> ArenaIdxRange<Expr> {
+        self.expr_arena.alloc_batch(opds)
+    }
 }
 
 impl std::ops::Index<ExprIdx> for ExprSheet {
