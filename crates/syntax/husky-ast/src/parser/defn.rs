@@ -3,6 +3,7 @@ use husky_entity_taxonomy::{FormKind, ModuleItemConnection, ModuleItemKind, Type
 use husky_opn_syntax::{BinaryOpr, Bracket};
 use husky_print_utils::p;
 use husky_token::{FormKeyword, TokenParseContext, TypeKeyword};
+use parsec::{ParseContext, ParseFrom};
 use salsa::DebugWithDb;
 
 use super::*;
@@ -125,19 +126,10 @@ impl<'a> AstParser<'a> {
 impl<'a> BasicAuxAstParser<'a> {
     fn parse_head(
         mut self,
-    ) -> Result<
-        (
-            Accessibility,
-            EntityKind,
-            IdentifierToken,
-            bool,
-            TokenIterState,
-        ),
-        AstError,
-    > {
+    ) -> Result<(Accessibility, EntityKind, IdentifierToken, bool, TokenIdx), AstError> {
         let accessibility = self.parse_accessibility()?;
         let entity_kind_keyword = self.take_entity_kind_keyword()?;
-        let ident = self.parse_ident()?;
+        let ident = self.parse_expected::<IdentifierToken, _>(AstError::ExpectIdentifier)?;
         let is_generic = self.parse_is_generic();
         let coarse_item_kind: CoarseEntityKind = match entity_kind_keyword {
             Keyword::Config(_) => todo!(),

@@ -24,9 +24,9 @@ Ok(
                     },
                     is_generic: false,
                     body_kind: None,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 3,
-                    },
+                    saved_stream_state: TokenIdx(
+                        17,
+                    ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -50,9 +50,9 @@ Ok(
                     },
                     is_generic: false,
                     body_kind: None,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 3,
-                    },
+                    saved_stream_state: TokenIdx(
+                        37,
+                    ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -76,9 +76,9 @@ Ok(
                     },
                     is_generic: false,
                     body_kind: None,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 3,
-                    },
+                    saved_stream_state: TokenIdx(
+                        62,
+                    ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -102,9 +102,9 @@ Ok(
                     },
                     is_generic: false,
                     body_kind: None,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 3,
-                    },
+                    saved_stream_state: TokenIdx(
+                        82,
+                    ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -128,9 +128,9 @@ Ok(
                     },
                     is_generic: false,
                     body_kind: None,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 3,
-                    },
+                    saved_stream_state: TokenIdx(
+                        107,
+                    ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -160,9 +160,9 @@ Ok(
                     },
                     is_generic: false,
                     body_kind: None,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 2,
-                    },
+                    saved_stream_state: TokenIdx(
+                        126,
+                    ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -186,9 +186,9 @@ Ok(
                     },
                     is_generic: false,
                     body_kind: None,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 3,
-                    },
+                    saved_stream_state: TokenIdx(
+                        150,
+                    ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -212,9 +212,9 @@ Ok(
                     },
                     is_generic: false,
                     body_kind: None,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 3,
-                    },
+                    saved_stream_state: TokenIdx(
+                        170,
+                    ),
                 },
                 Decor {
                     token_group_idx: TokenGroupIdx(
@@ -246,9 +246,9 @@ Ok(
                     },
                     is_generic: false,
                     body_kind: None,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 3,
-                    },
+                    saved_stream_state: TokenIdx(
+                        10,
+                    ),
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
@@ -296,9 +296,9 @@ Ok(
                     },
                     is_generic: false,
                     body_kind: None,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 3,
-                    },
+                    saved_stream_state: TokenIdx(
+                        55,
+                    ),
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
@@ -346,9 +346,9 @@ Ok(
                     },
                     is_generic: false,
                     body_kind: None,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 3,
-                    },
+                    saved_stream_state: TokenIdx(
+                        100,
+                    ),
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
@@ -402,9 +402,9 @@ Ok(
                     },
                     is_generic: false,
                     body_kind: None,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 2,
-                    },
+                    saved_stream_state: TokenIdx(
+                        143,
+                    ),
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(

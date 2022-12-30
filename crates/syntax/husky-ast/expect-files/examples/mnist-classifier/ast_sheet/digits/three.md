@@ -397,9 +397,9 @@ Ok(
                     },
                     is_generic: false,
                     body_kind: Block,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 2,
-                    },
+                    saved_stream_state: TokenIdx(
+                        64,
+                    ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -432,9 +432,9 @@ Ok(
                     },
                     is_generic: false,
                     body_kind: Block,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 2,
-                    },
+                    saved_stream_state: TokenIdx(
+                        90,
+                    ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -467,9 +467,9 @@ Ok(
                     },
                     is_generic: false,
                     body_kind: Block,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 2,
-                    },
+                    saved_stream_state: TokenIdx(
+                        214,
+                    ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -502,9 +502,9 @@ Ok(
                     },
                     is_generic: false,
                     body_kind: Block,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 2,
-                    },
+                    saved_stream_state: TokenIdx(
+                        247,
+                    ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -537,9 +537,9 @@ Ok(
                     },
                     is_generic: false,
                     body_kind: Block,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 2,
-                    },
+                    saved_stream_state: TokenIdx(
+                        280,
+                    ),
                 },
             ],
         },

@@ -354,9 +354,9 @@ Ok(
                     },
                     is_generic: false,
                     body_kind: Block,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 2,
-                    },
+                    saved_stream_state: TokenIdx(
+                        66,
+                    ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -389,9 +389,9 @@ Ok(
                     },
                     is_generic: false,
                     body_kind: Block,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 2,
-                    },
+                    saved_stream_state: TokenIdx(
+                        79,
+                    ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -424,9 +424,9 @@ Ok(
                     },
                     is_generic: false,
                     body_kind: Block,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 2,
-                    },
+                    saved_stream_state: TokenIdx(
+                        106,
+                    ),
                 },
             ],
         },

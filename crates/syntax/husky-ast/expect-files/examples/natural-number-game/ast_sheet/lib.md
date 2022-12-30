@@ -30,9 +30,9 @@ Ok(
                     },
                     is_generic: false,
                     body_kind: EnumVariants,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 2,
-                    },
+                    saved_stream_state: TokenIdx(
+                        14,
+                    ),
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -81,9 +81,9 @@ Ok(
                     },
                     is_generic: false,
                     body_kind: EnumVariants,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 2,
-                    },
+                    saved_stream_state: TokenIdx(
+                        2,
+                    ),
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -113,7 +113,11 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         7,
                     ),
-                    error: ExpectIdentifier,
+                    error: ExpectIdentifier(
+                        TokenIdx(
+                            46,
+                        ),
+                    ),
                 },
                 Err {
                     token_group_idx: TokenGroupIdx(
@@ -152,9 +156,9 @@ Ok(
                     },
                     is_generic: false,
                     body_kind: None,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 2,
-                    },
+                    saved_stream_state: TokenIdx(
+                        86,
+                    ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -187,9 +191,9 @@ Ok(
                     },
                     is_generic: false,
                     body_kind: None,
-                    saved_stream_state: TokenIterState {
-                        next_relative: 2,
-                    },
+                    saved_stream_state: TokenIdx(
+                        115,
+                    ),
                 },
             ],
         },
