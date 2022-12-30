@@ -45,7 +45,7 @@ where
     type Error = TokenError;
 
     fn parse_from(ctx: &mut Context) -> Result<Option<Self>, Self::Error> {
-        if let Some((token_idx, token)) = ctx.token_iter_mut().next_indexed(IgnoreComment::True) {
+        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed(IgnoreComment::True) {
             match token.kind {
                 TokenKind::Identifier(ident) => Ok(Some(IdentifierToken { ident, token_idx })),
                 TokenKind::Comment => unreachable!(),

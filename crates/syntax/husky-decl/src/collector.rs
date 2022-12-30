@@ -183,7 +183,7 @@ impl<'a> DeclCollector<'a> {
     ) -> DeclResult<Decl> {
         let mut token_iter = self
             .token_sheet
-            .token_group_token_iter(token_group_idx, Some(saved_stream_state));
+            .token_group_token_stream(token_group_idx, Some(saved_stream_state));
         let mut expr_arena = ExprSheet::default();
         let local_symbol_sheet = LocalSymbolSheet::default();
         // if let Some(_) = token_iter.try_eat_special(BinaryOpr::Assign(None).into(), true) {

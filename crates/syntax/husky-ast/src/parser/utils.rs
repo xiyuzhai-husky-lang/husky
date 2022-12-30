@@ -9,12 +9,12 @@ pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
     fn module_path(&self) -> ModulePath;
 
     fn parse_accessibility(&mut self) -> AstResult<Accessibility> {
-        Ok(match self.token_iter_mut().peek().unwrap().kind {
+        Ok(match self.borrow_mut().peek().unwrap().kind {
             TokenKind::Attr(decor) => match decor {
                 AttrKeyword::Pub => {
-                    self.token_iter_mut().next();
+                    self.borrow_mut().next();
                     match self
-                        .token_iter_mut()
+                        .borrow_mut()
                         .peek()
                         .ok_or(AstError::ExpectParBraOrDecoratorOrIdentifier(None))?
                         .kind
@@ -34,7 +34,7 @@ pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
 
     fn take_entity_kind_keyword(&mut self) -> AstResult<Keyword> {
         let (idx, token) = self
-            .token_iter_mut()
+            .borrow_mut()
             .next_indexed(IgnoreComment::True)
             .ok_or(AstError::ExpectEntityKeyword)?;
         Ok(match token.kind {
@@ -90,10 +90,22 @@ pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
 }
 
 impl<'a> std::ops::Deref for BasicAuxAstParser<'a> {
-    type Target = TokenIter<'a>;
+    type Target = TokenStream<'a>;
 
     fn deref(&self) -> &Self::Target {
         &self.token_iter
+    }
+}
+
+impl<'a> core::borrow::Borrow<TokenStream<'a>> for BasicAuxAstParser<'a> {
+    fn borrow(&self) -> &TokenStream<'a> {
+        &self.token_iter
+    }
+}
+
+impl<'a> core::borrow::BorrowMut<TokenStream<'a>> for BasicAuxAstParser<'a> {
+    fn borrow_mut(&mut self) -> &mut TokenStream<'a> {
+        &mut self.token_iter
     }
 }
 
@@ -117,7 +129,7 @@ pub(crate) struct BasicAuxAstParser<'a> {
     db: &'a dyn AstDb,
     ast_parent: AstContextKind,
     module_path: ModulePath,
-    token_iter: TokenIter<'a>,
+    token_iter: TokenStream<'a>,
 }
 
 impl<'a> BasicAuxAstParser<'a> {
@@ -125,7 +137,7 @@ impl<'a> BasicAuxAstParser<'a> {
         db: &'a dyn AstDb,
         ctx: &Context,
         module_path: ModulePath,
-        token_iter: TokenIter<'a>,
+        token_iter: TokenStream<'a>,
     ) -> Self {
         Self {
             db,

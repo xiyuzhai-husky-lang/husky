@@ -1,29 +1,18 @@
 use super::*;
 
-pub trait TokenParseContext<'a>: HasParseState {
-    fn token_iter(&self) -> &TokenIter<'a>;
-    fn token_iter_mut(&mut self) -> &mut TokenIter<'a>;
-}
-
-impl<'a> TokenParseContext<'a> for TokenIter<'a> {
-    fn token_iter(&self) -> &TokenIter<'a> {
-        self
+pub trait TokenParseContext<'a>: HasParseState + core::borrow::BorrowMut<TokenStream<'a>> {
+    fn token_iter(&self) -> &TokenStream<'a> {
+        self.borrow()
     }
 
-    fn token_iter_mut(&mut self) -> &mut TokenIter<'a> {
-        self
+    fn token_iter_mut(&mut self) -> &mut TokenStream<'a> {
+        self.borrow_mut()
     }
 }
 
-impl<'a, T> TokenParseContext<'a> for T
-where
-    T: std::ops::DerefMut<Target = TokenIter<'a>>,
+// impl<'a> TokenParseContext<'a> for TokenIter<'a> {}
+
+impl<'a, T> TokenParseContext<'a> for T where
+    T: HasParseState + core::borrow::BorrowMut<TokenStream<'a>>
 {
-    fn token_iter(&self) -> &TokenIter<'a> {
-        self.deref()
-    }
-
-    fn token_iter_mut(&mut self) -> &mut TokenIter<'a> {
-        self.deref_mut()
-    }
 }

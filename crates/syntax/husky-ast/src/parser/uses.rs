@@ -1,5 +1,5 @@
 use husky_opn_syntax::{BinaryOpr, BinaryPureClosedOpr, Bracket};
-use husky_token::{TokenIter, TokenParseContext};
+use husky_token::{TokenParseContext, TokenStream};
 
 use super::*;
 
@@ -7,7 +7,7 @@ impl<'a> AstParser<'a> {
     pub(super) fn parse_uses(&mut self, token_group_idx: TokenGroupIdx, ctx: &Context) -> Ast {
         let token_iter = self
             .token_sheet
-            .token_group_token_iter(token_group_idx, None);
+            .token_group_token_stream(token_group_idx, None);
         let (ident, mut aux_parser) =
             EntityUseExprParser::new(ctx, token_iter, self.module_path, &mut self.use_expr_arena);
         let accessibility = match aux_parser.parse_accessibility() {
@@ -33,14 +33,14 @@ impl<'a> AstParser<'a> {
 }
 
 pub struct EntityUseExprParser<'b> {
-    token_iter: TokenIter<'b>,
+    token_iter: TokenStream<'b>,
     parent: AstContextKind,
     module_path: ModulePath,
     arena: &'b mut UseExprArena,
 }
 
 impl<'a> std::ops::Deref for EntityUseExprParser<'a> {
-    type Target = TokenIter<'a>;
+    type Target = TokenStream<'a>;
 
     fn deref(&self) -> &Self::Target {
         &self.token_iter
@@ -49,6 +49,18 @@ impl<'a> std::ops::Deref for EntityUseExprParser<'a> {
 
 impl<'a> std::ops::DerefMut for EntityUseExprParser<'a> {
     fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.token_iter
+    }
+}
+
+impl<'a> core::borrow::Borrow<TokenStream<'a>> for EntityUseExprParser<'a> {
+    fn borrow(&self) -> &TokenStream<'a> {
+        &self.token_iter
+    }
+}
+
+impl<'a> core::borrow::BorrowMut<TokenStream<'a>> for EntityUseExprParser<'a> {
+    fn borrow_mut(&mut self) -> &mut TokenStream<'a> {
         &mut self.token_iter
     }
 }
@@ -66,7 +78,7 @@ impl<'a> AstTokenParseContext<'a> for EntityUseExprParser<'a> {
 impl<'b> EntityUseExprParser<'b> {
     fn new(
         ctx: &Context,
-        mut token_iter: TokenIter<'b>,
+        mut token_iter: TokenStream<'b>,
         module_path: ModulePath,
         arena: &'b mut UseExprArena,
     ) -> (Identifier, Self) {
