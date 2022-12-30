@@ -1,10 +1,16 @@
 use crate::*;
 use std::str::Chars;
 
-pub struct A {}
-
-struct CharStream<'a> {
+pub(crate) struct CharStream<'a> {
     iter: Chars<'a>,
+}
+
+impl<'a> CharStream<'a> {
+    pub(crate) fn new(input: &'a str) -> Self {
+        Self {
+            iter: input.chars(),
+        }
+    }
 }
 
 impl<'a> std::ops::Deref for CharStream<'a> {
@@ -33,10 +39,53 @@ impl<'a> ParseStream for CharStream<'a> {
     }
 }
 
+#[derive(Debug, PartialEq, Eq)]
+pub(crate) struct A {}
+
 impl<'a> ParseFrom<CharStream<'a>> for A {
     type Error = ();
 
-    fn parse_from<'b>(ctx: &mut CharStream<'b>) -> Result<Option<Self>, Self::Error> {
-        todo!()
+    fn parse_from_without_guaranteed_rollback<'b>(
+        ctx: &mut CharStream<'b>,
+    ) -> Result<Option<Self>, Self::Error> {
+        if let Some(c) = ctx.next() {
+            Ok((c == 'a').then_some(A {}))
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub(crate) struct B {}
+
+impl<'a> ParseFrom<CharStream<'a>> for B {
+    type Error = ();
+
+    fn parse_from_without_guaranteed_rollback<'b>(
+        ctx: &mut CharStream<'b>,
+    ) -> Result<Option<Self>, Self::Error> {
+        if let Some(c) = ctx.next() {
+            Ok((c == 'b').then_some(B {}))
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub(crate) struct Comma {}
+
+impl<'a> ParseFrom<CharStream<'a>> for Comma {
+    type Error = ();
+
+    fn parse_from_without_guaranteed_rollback<'b>(
+        ctx: &mut CharStream<'b>,
+    ) -> Result<Option<Self>, Self::Error> {
+        if let Some(c) = ctx.next() {
+            Ok((c == ',').then_some(Comma {}))
+        } else {
+            Ok(None)
+        }
     }
 }

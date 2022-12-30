@@ -9,11 +9,11 @@ where
     B: ParseFrom<Stream>,
     Error: From<A::Error> + From<B::Error>,
 {
-    let a = match A::parse_from(stream)? {
+    let a = match A::parse_from_without_guaranteed_rollback(stream)? {
         Some(a) => a,
         None => return Ok(None),
     };
-    let b = match B::parse_from(stream)? {
+    let b = match B::parse_from_without_guaranteed_rollback(stream)? {
         Some(b) => b,
         None => return Ok(None),
     };
@@ -30,15 +30,15 @@ where
     C: ParseFrom<Stream>,
     Error: From<A::Error> + From<B::Error> + From<C::Error>,
 {
-    let a = match A::parse_from(stream)? {
+    let a = match A::parse_from_without_guaranteed_rollback(stream)? {
         Some(a) => a,
         None => return Ok(None),
     };
-    let b = match B::parse_from(stream)? {
+    let b = match B::parse_from_without_guaranteed_rollback(stream)? {
         Some(b) => b,
         None => return Ok(None),
     };
-    let c = match C::parse_from(stream)? {
+    let c = match C::parse_from_without_guaranteed_rollback(stream)? {
         Some(c) => c,
         None => return Ok(None),
     };
