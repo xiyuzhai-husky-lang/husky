@@ -5,7 +5,9 @@ mod utils;
 
 use crate::*;
 use context::*;
-use husky_token::{Keyword, SpecialToken, StmtKeyword, TokenGroupIter, TokenKind, TokenSheet};
+use husky_token::{
+    ConnectionKeyword, Keyword, SpecialToken, StmtKeyword, TokenGroupIter, TokenKind, TokenSheet,
+};
 use utils::*;
 
 pub(crate) struct AstParser<'a> {
@@ -104,9 +106,16 @@ impl<'a> AstParser<'a> {
                 | Keyword::Type(_) => self.parse_defn(context, token_group_idx),
                 Keyword::Impl => Ast::Impl {
                     token_group_idx,
-                    body: self.parse_asts(context.subcontext(AstContextKind::InsideImpl)),
+                    body: self.parse_asts(context.subcontext(
+                        if self.is_trai_impl(token_group_idx) {
+                            AstContextKind::InsideTraitImpl
+                        } else {
+                            AstContextKind::InsideTypeImpl
+                        },
+                    )),
                 },
                 Keyword::End(_) => unreachable!(),
+                Keyword::Connection(_) => todo!(),
             },
             TokenKind::Special(SpecialToken::PoundSign) => Ast::Decor { token_group_idx },
             TokenKind::Special(_)
@@ -116,6 +125,15 @@ impl<'a> AstParser<'a> {
             TokenKind::Comment => Ast::Comment { token_group_idx },
             TokenKind::Err(_) => todo!(),
         })
+    }
+
+    fn is_trai_impl(&self, token_group_idx: TokenGroupIdx) -> bool {
+        // ad hoc
+        // todo: improve this
+        self.token_sheet
+            .token_group_token_iter(token_group_idx, None)
+            .find(|token| token.kind == Keyword::Connection(ConnectionKeyword::For).into())
+            .is_some()
     }
 
     fn parse_if_else_stmts(&mut self, idx: TokenGroupIdx, context: &Context) -> Ast {

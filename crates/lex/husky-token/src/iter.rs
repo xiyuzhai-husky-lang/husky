@@ -27,6 +27,20 @@ impl TokenSheet {
     }
 }
 
+impl<'a> Iterator for TokenIter<'a> {
+    type Item = &'a Token;
+
+    fn next(&mut self) -> Option<&'a Token> {
+        if self.next_relative < self.tokens.len() {
+            let next = self.next_relative;
+            self.next_relative += 1;
+            Some(&self.tokens[next])
+        } else {
+            None
+        }
+    }
+}
+
 impl<'a> TokenIter<'a> {
     pub fn is_empty(&self) -> bool {
         self.next_relative >= self.tokens.len()
@@ -115,16 +129,6 @@ impl<'a> TokenIter<'a> {
 
     pub fn rollback(&mut self, state: TokenIdx) {
         self.next_relative = state.raw() - self.base;
-    }
-
-    pub fn next(&mut self) -> Option<&'a Token> {
-        if self.next_relative < self.tokens.len() {
-            let next = self.next_relative;
-            self.next_relative += 1;
-            Some(&self.tokens[next])
-        } else {
-            None
-        }
     }
 
     pub fn next_indexed(&mut self) -> Option<(TokenIdx, &'a Token)> {

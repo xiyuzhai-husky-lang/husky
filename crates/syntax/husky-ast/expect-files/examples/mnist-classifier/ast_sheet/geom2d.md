@@ -51,8 +51,8 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,
@@ -83,8 +83,8 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,
@@ -115,8 +115,8 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,
@@ -147,8 +147,8 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,
@@ -179,8 +179,8 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,
@@ -486,8 +486,8 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,
@@ -518,8 +518,8 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,
@@ -550,8 +550,8 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,
@@ -582,8 +582,8 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,
@@ -614,8 +614,8 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,
@@ -646,8 +646,8 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,
@@ -683,8 +683,8 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,
@@ -715,8 +715,8 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,
@@ -803,8 +803,8 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,
@@ -835,8 +835,8 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,
@@ -927,8 +927,8 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,
@@ -959,8 +959,8 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,
@@ -991,8 +991,8 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,
@@ -1023,8 +1023,8 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,
@@ -1055,8 +1055,8 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,
@@ -1087,8 +1087,8 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,
@@ -1151,8 +1151,8 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,
@@ -1183,8 +1183,8 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,
@@ -1215,8 +1215,8 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,
@@ -1247,8 +1247,8 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TypeItem(
+                            Method,
                         ),
                     },
                     entity_path: None,

@@ -34,7 +34,8 @@ pub struct EntityPathJar(
     TraitPath,
     FormPath,
     GenericParameterPath,
-    AssociatedItemPath,
+    TypeItemPath,
+    TraitItemPath,
     VariantPath,
     entity_path_menu,
 );
@@ -93,25 +94,25 @@ where
         let db = <Db as DbWithJar<EntityPathJar>>::as_jar_db(db);
         if include_all_fields {
             match self {
-                EntityPath::Module(module_path) => f
+                EntityPath::Module(path) => f
                     .debug_tuple("Module")
-                    .field(&module_path.debug_with(db, include_all_fields))
+                    .field(&path.debug_with(db, include_all_fields))
                     .finish(),
-                EntityPath::ModuleItem(module_item_path) => f
+                EntityPath::ModuleItem(path) => f
                     .debug_tuple(" ModuleItem")
-                    .field(&module_item_path.debug_with(db, include_all_fields))
+                    .field(&path.debug_with(db, include_all_fields))
                     .finish(),
-                EntityPath::GenericParameter(generic_parameter_path) => f
+                EntityPath::GenericParameter(path) => f
                     .debug_tuple("GenericParameter")
-                    .field(&generic_parameter_path.debug_with(db, include_all_fields))
+                    .field(&path.debug_with(db, include_all_fields))
                     .finish(),
-                EntityPath::AssociatedItem(associated_item_path) => f
+                EntityPath::AssociatedItem(path) => f
                     .debug_tuple("AssociatedItem")
-                    .field(&associated_item_path.debug_with(db, include_all_fields))
+                    .field(&path.debug_with(db, include_all_fields))
                     .finish(),
-                EntityPath::Variant(enum_variant_path) => f
+                EntityPath::Variant(path) => f
                     .debug_tuple("EnumVariant")
-                    .field(&enum_variant_path.debug_with(db, include_all_fields))
+                    .field(&path.debug_with(db, include_all_fields))
                     .finish(),
             }
         } else {

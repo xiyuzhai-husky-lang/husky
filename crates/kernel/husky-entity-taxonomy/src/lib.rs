@@ -26,7 +26,7 @@ pub enum EntityKind {
         connection: ModuleItemConnection,
     },
     AssociatedItem {
-        associated_item_kind: ModuleItemKind,
+        associated_item_kind: AssociatedItemKind,
     },
     Variant,
 }
@@ -36,6 +36,25 @@ pub enum ModuleItemKind {
     Type(TypeKind),
     Form(FormKind),
     Trait,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum AssociatedItemKind {
+    TypeItem(TypeItemKind),
+    TraitItem(TraitItemKind),
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum TypeItemKind {
+    Method,
+    AssociatedFunction,
+    Memo,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum TraitItemKind {
+    Method,
+    AssociatedType,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

@@ -17,22 +17,11 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Type(
-                            Foreign,
+                        associated_item_kind: TraitItem(
+                            AssociatedType,
                         ),
                     },
-                    entity_path: Some(
-                        AssociatedItemPath {
-                            parent_path: TraitPath(`core::ops::Add`),
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 30,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    entity_path: None,
                     ident_token: IdentifierToken {
                         ident: `Output`,
                         token_idx: TokenIdx(
@@ -60,22 +49,11 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: Form(
-                            Function,
+                        associated_item_kind: TraitItem(
+                            Method,
                         ),
                     },
-                    entity_path: Some(
-                        AssociatedItemPath {
-                            parent_path: TraitPath(`core::ops::Add`),
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 24,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    entity_path: None,
                     ident_token: IdentifierToken {
                         ident: `add`,
                         token_idx: TokenIdx(

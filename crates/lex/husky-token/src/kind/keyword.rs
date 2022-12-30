@@ -40,7 +40,13 @@ pub enum Keyword {
     Visual,
     Impl,
     Trait,
+    Connection(ConnectionKeyword),
     End(EndKeyword),
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub enum ConnectionKeyword {
+    For,
 }
 
 impl std::fmt::Display for Keyword {
@@ -64,6 +70,7 @@ impl Keyword {
             Keyword::Trait => "trait",
             Keyword::Impl => "impl",
             Keyword::End(_) => todo!(),
+            Keyword::Connection(_) => todo!(),
         }
     }
 }
