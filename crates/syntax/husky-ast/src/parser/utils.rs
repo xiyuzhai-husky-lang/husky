@@ -2,6 +2,7 @@ use super::*;
 use husky_entity_taxonomy::{ModuleItemKind, TypeKind};
 use husky_opn_syntax::Bracket;
 use husky_token::*;
+use parsec::StreamWrapper;
 use std::iter::Peekable;
 
 pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
@@ -114,6 +115,8 @@ impl<'a> std::ops::DerefMut for BasicAuxAstParser<'a> {
         &mut self.token_iter
     }
 }
+
+impl<'a> StreamWrapper for BasicAuxAstParser<'a> {}
 
 impl<'a> AstTokenParseContext<'a> for BasicAuxAstParser<'a> {
     fn ast_context_kind(&self) -> AstContextKind {
