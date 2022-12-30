@@ -1,6 +1,6 @@
 use super::*;
 
-pub trait TokenParseContext<'a>: HasParseState + core::borrow::BorrowMut<TokenStream<'a>> {
+pub trait TokenParseContext<'a>: ParseStream + core::borrow::BorrowMut<TokenStream<'a>> {
     fn token_iter(&self) -> &TokenStream<'a> {
         self.borrow()
     }
@@ -13,6 +13,6 @@ pub trait TokenParseContext<'a>: HasParseState + core::borrow::BorrowMut<TokenSt
 // impl<'a> TokenParseContext<'a> for TokenIter<'a> {}
 
 impl<'a, T> TokenParseContext<'a> for T where
-    T: HasParseState + core::borrow::BorrowMut<TokenStream<'a>>
+    T: ParseStream + core::borrow::BorrowMut<TokenStream<'a>>
 {
 }

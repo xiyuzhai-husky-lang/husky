@@ -4,20 +4,28 @@ mod separated_list;
 #[cfg(test)]
 mod tests;
 
+use std::ops::DerefMut;
+
 pub use rollback::*;
 
-pub trait HasParseState {
+pub trait ParseStream {
     type State;
     fn save_state(&self) -> Self::State;
     fn rollback(&mut self, state: Self::State);
 }
 
-impl<Wrapper> HasParseState for Wrapper
+pub trait StreamWrapper: std::ops::DerefMut
 where
-    Wrapper: std::ops::DerefMut,
-    Wrapper::Target: HasParseState,
+    Self::Target: ParseStream,
 {
-    type State = <<Wrapper as std::ops::Deref>::Target as HasParseState>::State;
+}
+
+impl<Wrapper> ParseStream for Wrapper
+where
+    Wrapper: StreamWrapper,
+    Wrapper::Target: ParseStream,
+{
+    type State = <<Wrapper as std::ops::Deref>::Target as ParseStream>::State;
 
     fn save_state(&self) -> Self::State {
         self.deref().save_state()
@@ -28,7 +36,7 @@ where
     }
 }
 
-pub trait ParseContext: HasParseState {
+pub trait ParseContext: ParseStream {
     fn parse<P: ParseFrom<Self>>(&mut self) -> Result<Option<P>, P::Error>;
     fn parse_expected<P: ParseFrom<Self>, Error>(
         &mut self,
@@ -47,7 +55,7 @@ pub trait ParseContext: HasParseState {
 
 impl<T> ParseContext for T
 where
-    T: HasParseState,
+    T: ParseStream,
 {
     fn parse<P: ParseFrom<Self>>(&mut self) -> Result<Option<P>, P::Error> {
         P::parse_from(self)

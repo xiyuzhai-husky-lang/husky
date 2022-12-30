@@ -1,5 +1,6 @@
 use husky_opn_syntax::{BinaryOpr, BinaryPureClosedOpr, Bracket};
 use husky_token::{TokenParseContext, TokenStream};
+use parsec::StreamWrapper;
 
 use super::*;
 
@@ -52,6 +53,8 @@ impl<'a> std::ops::DerefMut for EntityUseExprParser<'a> {
         &mut self.token_iter
     }
 }
+
+impl<'a> StreamWrapper for EntityUseExprParser<'a> {}
 
 impl<'a> core::borrow::Borrow<TokenStream<'a>> for EntityUseExprParser<'a> {
     fn borrow(&self) -> &TokenStream<'a> {
