@@ -130,59 +130,6 @@ impl<'a> BasicAuxAstParser<'a> {
         let kw = self.take_entity_kind_keyword()?;
         let ident: IdentifierToken = self.parse_expected()?;
         let is_generic = self.parse_is_generic();
-        /*
-        let coarse_item_kind: CoarseEntityKind = match kw {
-            Keyword::Config(_) => todo!(),
-            Keyword::Paradigm(kw) => {
-                let form_kind = if let Some(token) = self.token_iter().peek() {
-                    match token.kind {
-                        TokenKind::Special(special_token) => match special_token {
-                            SpecialToken::Bra(Bracket::Par) | SpecialToken::LAngle => match kw {
-                                FormKeyword::Def => todo!(),
-                                FormKeyword::Func
-                                | FormKeyword::Proc
-                                | FormKeyword::Fn
-                                | FormKeyword::Function => FormKind::Function,
-                                FormKeyword::Theorem => todo!(),
-                                FormKeyword::Lemma => todo!(),
-                                FormKeyword::Proposition => todo!(),
-                            },
-                            SpecialToken::BinaryOpr(BinaryOpr::Curry) | SpecialToken::Colon => {
-                                FormKind::Feature
-                            }
-                            unexpected_special_token => {
-                                todo!("unexpected_special_token = {unexpected_special_token:?}")
-                            }
-                        },
-                        ref unexpected_token => todo!(),
-                    }
-                } else {
-                    todo!()
-                };
-                ModuleItemKind::Form(form_kind).into()
-            }
-            Keyword::Type(kw) => {
-                let type_kind = match kw {
-                    TypeKeyword::Type => TypeKind::Foreign,
-                    TypeKeyword::Struct => TypeKind::Struct,
-                    TypeKeyword::Enum => TypeKind::Enum,
-                    TypeKeyword::Record => TypeKind::Record,
-                    TypeKeyword::Structure => TypeKind::Structure,
-                    TypeKeyword::Inductive => TypeKind::Inductive,
-                };
-                ModuleItemKind::Type(type_kind).into()
-            }
-            Keyword::Stmt(_) => todo!(),
-            Keyword::Liason(_) => todo!(),
-            Keyword::Main => todo!(),
-            Keyword::Use => todo!(),
-            Keyword::Mod => CoarseEntityKind::Module,
-            Keyword::Visual => todo!(),
-            Keyword::Impl => todo!(),
-            Keyword::Trait => ModuleItemKind::Trait.into(),
-            Keyword::End(_) => todo!(),
-        };
-        */
         let entity_kind = match self.ast_context_kind() {
             AstContextKind::InsideTrait { module_item_path } => match kw {
                 Keyword::Config(_) => todo!(),
@@ -242,16 +189,6 @@ impl<'a> BasicAuxAstParser<'a> {
                 Keyword::End(_) => todo!(),
                 Keyword::Connection(_) => todo!(),
             },
-            // match coarse_item_kind {
-            //     CoarseEntityKind::Module => todo!(),
-            //     CoarseEntityKind::ModuleItem(mod_item_kind) => todo!(),
-            //     CoarseEntityKind::AssociatedItem(associated_item_kind) => {
-            //         EntityKind::AssociatedItem {
-            //             associated_item_kind,
-            //         }
-            //     }
-            //     CoarseEntityKind::Variant => todo!(),
-            // },
             AstContextKind::InsideEnumLikeType { module_item_path } => todo!(),
             AstContextKind::InsideForm => match kw {
                 Keyword::Config(_) => todo!(),
@@ -268,23 +205,6 @@ impl<'a> BasicAuxAstParser<'a> {
                 Keyword::End(_) => todo!(),
                 Keyword::Connection(_) => todo!(),
             },
-            // match coarse_item_kind {
-            //     CoarseEntityKind::Module => todo!(),
-            //     CoarseEntityKind::Item(item_kind) => {
-            //         match item_kind {
-            //             ModuleItemKind::Type(_) => todo!(),
-            //             ModuleItemKind::Trait => todo!(),
-            //             ModuleItemKind::Form(_) => todo!(),
-            //         }
-            //         p!(self.text_start(), self.module_path().debug(self.db()));
-            //         todo!();
-            //         EntityKind::ModuleItem {
-            //             module_item_kind: item_kind,
-            //             connection: ModuleItemConnection::Disconnected,
-            //         }
-            //     }
-            //     CoarseEntityKind::Variant => todo!(),
-            // },
             AstContextKind::InsideTypeImpl => match kw {
                 Keyword::Config(_) => todo!(),
                 Keyword::Paradigm(kw) => {
@@ -374,17 +294,6 @@ impl<'a> BasicAuxAstParser<'a> {
                 Keyword::End(_) => todo!(),
                 Keyword::Connection(_) => todo!(),
             },
-            // match coarse_item_kind {
-            //     CoarseEntityKind::Module => todo!(),
-            //     CoarseEntityKind::Item(item_kind) => match item_kind {
-            //         ModuleItemKind::Type(_) => todo!(),
-            //         ModuleItemKind::Trait => todo!(),
-            //         ModuleItemKind::Form(_) => EntityKind::AssociatedItem {
-            //             associated_item_kind: item_kind,
-            //         },
-            //     },
-            //     CoarseEntityKind::Variant => todo!(),
-            // },
             AstContextKind::InsideModule => match kw {
                 Keyword::Config(_) => todo!(),
                 Keyword::Paradigm(kw) => {
