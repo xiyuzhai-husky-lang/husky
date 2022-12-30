@@ -1,6 +1,6 @@
 use crate::*;
 use husky_opn_syntax::{BinaryOpr, BinaryPureClosedOpr, Bracket};
-use husky_token::{Keyword, SpecialToken, TokenIter, TokenKind, TokenSheet};
+use husky_token::{Keyword, Punctuation, TokenIter, TokenKind, TokenSheet};
 use husky_word::Identifier;
 use idx_arena::map::ArenaMap;
 

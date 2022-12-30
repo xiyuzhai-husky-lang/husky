@@ -29,7 +29,7 @@ Ok(
             },
             Token {
                 range: [1:14, 1:15),
-                kind: Special(
+                kind: Punctuation(
                     Semicolon,
                 ),
             },
@@ -61,7 +61,7 @@ Ok(
             },
             Token {
                 range: [3:20, 3:21),
-                kind: Special(
+                kind: Punctuation(
                     Semicolon,
                 ),
             },
@@ -93,7 +93,7 @@ Ok(
             },
             Token {
                 range: [5:21, 5:22),
-                kind: Special(
+                kind: Punctuation(
                     Semicolon,
                 ),
             },

@@ -53,8 +53,8 @@ impl From<TokenKind> for RawTokenVariant {
     }
 }
 
-impl From<SpecialToken> for RawTokenVariant {
-    fn from(value: SpecialToken) -> Self {
+impl From<Punctuation> for RawTokenVariant {
+    fn from(value: Punctuation) -> Self {
         RawTokenVariant::Certain(value.into())
     }
 }
@@ -235,7 +235,7 @@ impl<'a, 'b: 'a> RawTokenIter<'a, 'b> {
         }
     }
 
-    fn pass_two(&mut self, special: SpecialToken) -> SpecialToken {
+    fn pass_two(&mut self, special: Punctuation) -> Punctuation {
         self.char_iter.next();
         special
     }
@@ -280,104 +280,104 @@ impl<'a, 'b: 'a> RawTokenIter<'a, 'b> {
         Some(
             match c_start {
                 '=' => match self.peek_char() {
-                    '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Comparison(
+                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::Comparison(
                         BinaryComparisonOpr::Eq,
                     ))),
-                    _ => SpecialToken::BinaryOpr(BinaryOpr::Assign(None)),
+                    _ => Punctuation::BinaryOpr(BinaryOpr::Assign(None)),
                 },
                 ':' => match self.peek_char() {
-                    '=' => self.pass_two(SpecialToken::DeriveAssign),
-                    ':' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::ScopeResolution)),
-                    _ => SpecialToken::Colon,
+                    '=' => self.pass_two(Punctuation::DeriveAssign),
+                    ':' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::ScopeResolution)),
+                    _ => Punctuation::Colon,
                 },
-                '(' => SpecialToken::Bra(Bracket::Par),
-                '[' => SpecialToken::Bra(Bracket::Box),
-                '{' => SpecialToken::Bra(Bracket::Curl),
-                ')' => SpecialToken::Ket(Bracket::Par),
-                ']' => SpecialToken::Ket(Bracket::Box),
-                '}' => SpecialToken::Ket(Bracket::Curl),
-                ',' => SpecialToken::Comma,
-                '@' => SpecialToken::At,
+                '(' => Punctuation::Bra(Bracket::Par),
+                '[' => Punctuation::Bra(Bracket::Box),
+                '{' => Punctuation::Bra(Bracket::Curl),
+                ')' => Punctuation::Ket(Bracket::Par),
+                ']' => Punctuation::Ket(Bracket::Box),
+                '}' => Punctuation::Ket(Bracket::Curl),
+                ',' => Punctuation::Comma,
+                '@' => Punctuation::At,
                 '&' => match self.peek_char() {
-                    '&' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::ShortcuitLogic(
+                    '&' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::ShortcuitLogic(
                         BinaryShortcuitLogicOpr::And,
                     ))),
-                    '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Assign(Some(
+                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::Assign(Some(
                         BinaryPureClosedOpr::BitAnd,
                     )))),
-                    _ => SpecialToken::Ambersand,
+                    _ => Punctuation::Ambersand,
                 },
                 '|' => match self.peek_char() {
-                    '|' => self.pass_two(SpecialToken::DoubleVertical),
-                    '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Assign(Some(
+                    '|' => self.pass_two(Punctuation::DoubleVertical),
+                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::Assign(Some(
                         BinaryPureClosedOpr::BitOr,
                     )))),
-                    _ => SpecialToken::Vertical,
+                    _ => Punctuation::Vertical,
                 },
-                '~' => SpecialToken::BitNot,
-                '.' => SpecialToken::Dot,
-                ';' => SpecialToken::Semicolon,
+                '~' => Punctuation::BitNot,
+                '.' => Punctuation::Dot,
+                ';' => Punctuation::Semicolon,
                 '%' => {
-                    SpecialToken::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::RemEuclid))
+                    Punctuation::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::RemEuclid))
                 }
 
                 '-' => match self.peek_char() {
-                    '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Assign(Some(
+                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::Assign(Some(
                         BinaryPureClosedOpr::Sub,
                     )))),
-                    '-' => self.pass_two(SpecialToken::Decr),
-                    '>' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Curry)),
+                    '-' => self.pass_two(Punctuation::Decr),
+                    '>' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::Curry)),
                     _ => return Some(RawTokenVariant::SubOrMinus),
                 },
                 '<' => match self.peek_char() {
-                    '<' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::PureClosed(
+                    '<' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::PureClosed(
                         BinaryPureClosedOpr::Shl,
                     ))),
-                    '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Comparison(
+                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::Comparison(
                         BinaryComparisonOpr::Leq,
                     ))),
-                    _ => SpecialToken::LAngle,
+                    _ => Punctuation::LAngle,
                 },
                 '>' => match self.peek_char() {
                     // '>' => self.pass_two(SpecialToken::Shr), // >>
-                    '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Comparison(
+                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::Comparison(
                         BinaryComparisonOpr::Geq,
                     ))),
-                    _ => SpecialToken::RAngle,
+                    _ => Punctuation::RAngle,
                 },
                 '*' => match self.peek_char() {
-                    '*' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::PureClosed(
+                    '*' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::PureClosed(
                         BinaryPureClosedOpr::Power,
                     ))),
-                    '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Assign(Some(
+                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::Assign(Some(
                         BinaryPureClosedOpr::Mul,
                     )))),
-                    _ => SpecialToken::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::Mul)),
+                    _ => Punctuation::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::Mul)),
                 },
                 '/' => match self.peek_char() {
                     '/' => unreachable!(),
-                    '>' => self.pass_two(SpecialToken::XmlKet),
-                    '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Assign(Some(
+                    '>' => self.pass_two(Punctuation::XmlKet),
+                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::Assign(Some(
                         BinaryPureClosedOpr::Div,
                     )))),
-                    _ => SpecialToken::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::Div)),
+                    _ => Punctuation::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::Div)),
                 },
                 '+' => match self.peek_char() {
-                    '+' => self.pass_two(SpecialToken::Incr),
-                    '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Assign(Some(
+                    '+' => self.pass_two(Punctuation::Incr),
+                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::Assign(Some(
                         BinaryPureClosedOpr::Add,
                     )))),
-                    _ => SpecialToken::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::Add)),
+                    _ => Punctuation::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::Add)),
                 },
                 '!' => match self.peek_char() {
-                    '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Comparison(
+                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::Comparison(
                         BinaryComparisonOpr::Neq,
                     ))),
-                    '!' => self.pass_two(SpecialToken::DoubleExclamation),
-                    _ => SpecialToken::Exclamation,
+                    '!' => self.pass_two(Punctuation::DoubleExclamation),
+                    _ => Punctuation::Exclamation,
                 },
-                '?' => SpecialToken::QuestionMark,
-                '#' => SpecialToken::PoundSign,
+                '?' => Punctuation::QuestionMark,
+                '#' => Punctuation::PoundSign,
                 c => return Some(RawTokenVariant::Err(TokenError::UnrecognizedChar(c))),
             }
             .into(),

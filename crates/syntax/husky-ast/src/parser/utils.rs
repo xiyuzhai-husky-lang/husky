@@ -19,7 +19,7 @@ pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
                         .ok_or(AstError::ExpectParBraOrDecoratorOrIdentifier(None))?
                         .kind
                     {
-                        TokenKind::Special(SpecialToken::Bra(Bracket::Par)) => todo!(),
+                        TokenKind::Punctuation(Punctuation::Bra(Bracket::Par)) => todo!(),
                         _ => Accessibility::Public,
                     }
                 }
@@ -83,7 +83,7 @@ pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
             .token_iter()
             .peek() else { return false };
         match token.kind {
-            TokenKind::Special(SpecialToken::LAngle) => true,
+            TokenKind::Punctuation(Punctuation::LAngle) => true,
             _ => false,
         }
     }

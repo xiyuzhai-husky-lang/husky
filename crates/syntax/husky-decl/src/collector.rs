@@ -7,7 +7,7 @@ use husky_expr::{parse_expr, ExprParsingStopReason, ExprSheet};
 use husky_opn_syntax::BinaryOpr;
 use husky_print_utils::p;
 use husky_symbol::{LocalSymbolSheet, SymbolContext};
-use husky_token::{IdentifierToken, SpecialToken, TokenGroupIdx, TokenIdx, TokenSheet};
+use husky_token::{IdentifierToken, Punctuation, TokenGroupIdx, TokenIdx, TokenSheet};
 use parsec::ParseFrom;
 use vec_like::VecPairMap;
 

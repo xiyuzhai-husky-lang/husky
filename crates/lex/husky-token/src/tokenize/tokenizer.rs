@@ -51,10 +51,12 @@ impl<'token> Tokenizer<'token> {
             }
             RawTokenVariant::SubOrMinus => {
                 let kind = match self.right_convexity() {
-                    Convexity::Convex => TokenKind::Special(SpecialToken::BinaryOpr(
+                    Convexity::Convex => TokenKind::Punctuation(Punctuation::BinaryOpr(
                         BinaryOpr::PureClosed(BinaryPureClosedOpr::Sub),
                     )),
-                    Convexity::Concave | Convexity::Any => TokenKind::Special(SpecialToken::Minus),
+                    Convexity::Concave | Convexity::Any => {
+                        TokenKind::Punctuation(Punctuation::Minus)
+                    }
                 };
                 let token = Token {
                     range: token.range,
@@ -63,7 +65,7 @@ impl<'token> Tokenizer<'token> {
                 TokenizerAction::Push(token)
             }
             RawTokenVariant::Literal(lit) => match self.tokens.last().map(|t| &t.kind) {
-                Some(TokenKind::Special(SpecialToken::Minus)) => {
+                Some(TokenKind::Punctuation(Punctuation::Minus)) => {
                     let token = Token {
                         range: token.range,
                         kind: TokenKind::Literal(lit.negative().expect("todo")),

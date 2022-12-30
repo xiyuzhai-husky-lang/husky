@@ -15,7 +15,7 @@ pub enum TokenKind {
     Attr(AttrKeyword),
     Keyword(Keyword),
     Identifier(Identifier),
-    Special(SpecialToken),
+    Punctuation(Punctuation),
     WordOpr(WordOpr),
     Literal(LiteralToken),
     Comment,

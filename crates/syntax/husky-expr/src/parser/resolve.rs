@@ -1,7 +1,7 @@
 use super::*;
 use husky_symbol::Symbol;
 use husky_term::Term;
-use husky_token::SpecialToken;
+use husky_token::Punctuation;
 use std::ops::ControlFlow;
 
 pub type TokenResolveResult<T> = ControlFlow<ExprParsingStopReason, T>;
@@ -23,34 +23,34 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             TokenKind::Attr(_) => todo!(),
             TokenKind::Keyword(_keyword) => todo!(),
             TokenKind::Identifier(ident) => self.resolve_ident(ident),
-            TokenKind::Special(special) => match special {
-                SpecialToken::BinaryOpr(opr) => ResolvedTokenKind::BinaryOpr(opr),
-                SpecialToken::Bra(bra) => ResolvedTokenKind::Bra(bra),
-                SpecialToken::Ket(ket) => ResolvedTokenKind::Ket(ket),
-                SpecialToken::LAngle => todo!(),
-                SpecialToken::RAngle => todo!(),
-                SpecialToken::DeriveAssign => todo!(),
-                SpecialToken::Minus => ResolvedTokenKind::Prefix(PrefixOpr::Minus),
-                SpecialToken::Exclamation => ResolvedTokenKind::Prefix(PrefixOpr::Not),
-                SpecialToken::Incr => ResolvedTokenKind::Suffix(RawSuffixOpr::Incr),
-                SpecialToken::Decr => ResolvedTokenKind::Suffix(RawSuffixOpr::Decr),
-                SpecialToken::DoubleVertical => todo!(),
-                SpecialToken::BitNot => todo!(),
-                SpecialToken::Dot => ResolvedTokenKind::Dot,
-                SpecialToken::BinaryOpr(BinaryOpr::Curry) => todo!(),
-                SpecialToken::BinaryOpr(BinaryOpr::ScopeResolution) => todo!(),
-                SpecialToken::Colon => todo!(),
-                SpecialToken::Comma => todo!(),
-                SpecialToken::Ambersand => todo!(),
-                SpecialToken::Vertical => todo!(),
-                SpecialToken::DoubleExclamation => todo!(),
-                SpecialToken::Semicolon => {
+            TokenKind::Punctuation(special) => match special {
+                Punctuation::BinaryOpr(opr) => ResolvedTokenKind::BinaryOpr(opr),
+                Punctuation::Bra(bra) => ResolvedTokenKind::Bra(bra),
+                Punctuation::Ket(ket) => ResolvedTokenKind::Ket(ket),
+                Punctuation::LAngle => todo!(),
+                Punctuation::RAngle => todo!(),
+                Punctuation::DeriveAssign => todo!(),
+                Punctuation::Minus => ResolvedTokenKind::Prefix(PrefixOpr::Minus),
+                Punctuation::Exclamation => ResolvedTokenKind::Prefix(PrefixOpr::Not),
+                Punctuation::Incr => ResolvedTokenKind::Suffix(RawSuffixOpr::Incr),
+                Punctuation::Decr => ResolvedTokenKind::Suffix(RawSuffixOpr::Decr),
+                Punctuation::DoubleVertical => todo!(),
+                Punctuation::BitNot => todo!(),
+                Punctuation::Dot => ResolvedTokenKind::Dot,
+                Punctuation::BinaryOpr(BinaryOpr::Curry) => todo!(),
+                Punctuation::BinaryOpr(BinaryOpr::ScopeResolution) => todo!(),
+                Punctuation::Colon => todo!(),
+                Punctuation::Comma => todo!(),
+                Punctuation::Ambersand => todo!(),
+                Punctuation::Vertical => todo!(),
+                Punctuation::DoubleExclamation => todo!(),
+                Punctuation::Semicolon => {
                     return TokenResolveResult::Break(ExprParsingStopReason::Semicolon)
                 }
-                SpecialToken::XmlKet => todo!(),
-                SpecialToken::At => todo!(),
-                SpecialToken::QuestionMark => todo!(),
-                SpecialToken::PoundSign => todo!(),
+                Punctuation::XmlKet => todo!(),
+                Punctuation::At => todo!(),
+                Punctuation::QuestionMark => todo!(),
+                Punctuation::PoundSign => todo!(),
             },
             TokenKind::WordOpr(_) => todo!(),
             TokenKind::Literal(ref literal) => ResolvedTokenKind::Atom(literal.clone().into()),

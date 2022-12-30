@@ -59,7 +59,7 @@ impl<'a> AstParser<'a> {
                 Some(_) => (body, DefnBodyKind::Block),
                 None => match self.token_groups.peek_with_exact_indent(ctx.indent()) {
                     Some((_token_group_idx, token_group)) => match token_group.first().kind {
-                        TokenKind::Special(SpecialToken::Vertical) => (
+                        TokenKind::Punctuation(Punctuation::Vertical) => (
                             self.parse_enum_variants(ctx.subcontext(ast_ctx_kind)),
                             DefnBodyKind::EnumVariants,
                         ),
@@ -89,7 +89,7 @@ impl<'a> AstParser<'a> {
             self.token_groups.peek_with_exact_indent(context.indent())
         {
             match token_group.first().kind {
-                TokenKind::Special(SpecialToken::Vertical) => {
+                TokenKind::Punctuation(Punctuation::Vertical) => {
                     self.token_groups.next();
                     verticals.push(self.parse_enum_variant(idx, &context))
                 }
@@ -105,7 +105,7 @@ impl<'a> AstParser<'a> {
                 TokenKind::Attr(_) => todo!(),
                 TokenKind::Keyword(_) => todo!(),
                 TokenKind::Identifier(_) => todo!(),
-                TokenKind::Special(_) => todo!(),
+                TokenKind::Punctuation(_) => todo!(),
                 TokenKind::WordOpr(_) => todo!(),
                 TokenKind::Literal(_) => todo!(),
                 TokenKind::Comment => todo!(),
@@ -191,20 +191,18 @@ impl<'a> BasicAuxAstParser<'a> {
                         self.token_iter().peek()
                     {
                         match token.kind {
-                            TokenKind::Special(special_token) => match special_token {
-                                SpecialToken::Bra(Bracket::Par) | SpecialToken::LAngle => {
-                                    match kw {
-                                        FormKeyword::Def => todo!(),
-                                        FormKeyword::Func
-                                        | FormKeyword::Proc
-                                        | FormKeyword::Fn
-                                        | FormKeyword::Function => TraitItemKind::Method,
-                                        FormKeyword::Theorem => todo!(),
-                                        FormKeyword::Lemma => todo!(),
-                                        FormKeyword::Proposition => todo!(),
-                                    }
-                                }
-                                SpecialToken::BinaryOpr(BinaryOpr::Curry) | SpecialToken::Colon => {
+                            TokenKind::Punctuation(special_token) => match special_token {
+                                Punctuation::Bra(Bracket::Par) | Punctuation::LAngle => match kw {
+                                    FormKeyword::Def => todo!(),
+                                    FormKeyword::Func
+                                    | FormKeyword::Proc
+                                    | FormKeyword::Fn
+                                    | FormKeyword::Function => TraitItemKind::Method,
+                                    FormKeyword::Theorem => todo!(),
+                                    FormKeyword::Lemma => todo!(),
+                                    FormKeyword::Proposition => todo!(),
+                                },
+                                Punctuation::BinaryOpr(BinaryOpr::Curry) | Punctuation::Colon => {
                                     todo!()
                                 }
                                 unexpected_special_token => {
@@ -293,20 +291,18 @@ impl<'a> BasicAuxAstParser<'a> {
                     let type_item_kind: TypeItemKind = if let Some(token) = self.token_iter().peek()
                     {
                         match token.kind {
-                            TokenKind::Special(special_token) => match special_token {
-                                SpecialToken::Bra(Bracket::Par) | SpecialToken::LAngle => {
-                                    match kw {
-                                        FormKeyword::Def => todo!(),
-                                        FormKeyword::Func
-                                        | FormKeyword::Proc
-                                        | FormKeyword::Fn
-                                        | FormKeyword::Function => TypeItemKind::Method,
-                                        FormKeyword::Theorem => todo!(),
-                                        FormKeyword::Lemma => todo!(),
-                                        FormKeyword::Proposition => todo!(),
-                                    }
-                                }
-                                SpecialToken::BinaryOpr(BinaryOpr::Curry) | SpecialToken::Colon => {
+                            TokenKind::Punctuation(special_token) => match special_token {
+                                Punctuation::Bra(Bracket::Par) | Punctuation::LAngle => match kw {
+                                    FormKeyword::Def => todo!(),
+                                    FormKeyword::Func
+                                    | FormKeyword::Proc
+                                    | FormKeyword::Fn
+                                    | FormKeyword::Function => TypeItemKind::Method,
+                                    FormKeyword::Theorem => todo!(),
+                                    FormKeyword::Lemma => todo!(),
+                                    FormKeyword::Proposition => todo!(),
+                                },
+                                Punctuation::BinaryOpr(BinaryOpr::Curry) | Punctuation::Colon => {
                                     TypeItemKind::Memo
                                 }
                                 unexpected_special_token => {
@@ -339,20 +335,18 @@ impl<'a> BasicAuxAstParser<'a> {
                 Keyword::Paradigm(kw) => {
                     let form_kind = if let Some(token) = self.token_iter().peek() {
                         match token.kind {
-                            TokenKind::Special(special_token) => match special_token {
-                                SpecialToken::Bra(Bracket::Par) | SpecialToken::LAngle => {
-                                    match kw {
-                                        FormKeyword::Def => todo!(),
-                                        FormKeyword::Func
-                                        | FormKeyword::Proc
-                                        | FormKeyword::Fn
-                                        | FormKeyword::Function => FormKind::Function,
-                                        FormKeyword::Theorem => todo!(),
-                                        FormKeyword::Lemma => todo!(),
-                                        FormKeyword::Proposition => todo!(),
-                                    }
-                                }
-                                SpecialToken::BinaryOpr(BinaryOpr::Curry) | SpecialToken::Colon => {
+                            TokenKind::Punctuation(special_token) => match special_token {
+                                Punctuation::Bra(Bracket::Par) | Punctuation::LAngle => match kw {
+                                    FormKeyword::Def => todo!(),
+                                    FormKeyword::Func
+                                    | FormKeyword::Proc
+                                    | FormKeyword::Fn
+                                    | FormKeyword::Function => FormKind::Function,
+                                    FormKeyword::Theorem => todo!(),
+                                    FormKeyword::Lemma => todo!(),
+                                    FormKeyword::Proposition => todo!(),
+                                },
+                                Punctuation::BinaryOpr(BinaryOpr::Curry) | Punctuation::Colon => {
                                     FormKind::Feature
                                 }
                                 unexpected_special_token => {
@@ -396,20 +390,18 @@ impl<'a> BasicAuxAstParser<'a> {
                 Keyword::Paradigm(kw) => {
                     let form_kind = if let Some(token) = self.token_iter().peek() {
                         match token.kind {
-                            TokenKind::Special(special_token) => match special_token {
-                                SpecialToken::Bra(Bracket::Par) | SpecialToken::LAngle => {
-                                    match kw {
-                                        FormKeyword::Def => todo!(),
-                                        FormKeyword::Func
-                                        | FormKeyword::Proc
-                                        | FormKeyword::Fn
-                                        | FormKeyword::Function => FormKind::Function,
-                                        FormKeyword::Theorem => todo!(),
-                                        FormKeyword::Lemma => todo!(),
-                                        FormKeyword::Proposition => todo!(),
-                                    }
-                                }
-                                SpecialToken::BinaryOpr(BinaryOpr::Curry) | SpecialToken::Colon => {
+                            TokenKind::Punctuation(special_token) => match special_token {
+                                Punctuation::Bra(Bracket::Par) | Punctuation::LAngle => match kw {
+                                    FormKeyword::Def => todo!(),
+                                    FormKeyword::Func
+                                    | FormKeyword::Proc
+                                    | FormKeyword::Fn
+                                    | FormKeyword::Function => FormKind::Function,
+                                    FormKeyword::Theorem => todo!(),
+                                    FormKeyword::Lemma => todo!(),
+                                    FormKeyword::Proposition => todo!(),
+                                },
+                                Punctuation::BinaryOpr(BinaryOpr::Curry) | Punctuation::Colon => {
                                     FormKind::Feature
                                 }
                                 unexpected_special_token => {
