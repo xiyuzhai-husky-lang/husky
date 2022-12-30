@@ -41,6 +41,11 @@ impl<'a> Iterator for TokenIter<'a> {
     }
 }
 
+pub enum IgnoreComment {
+    True,
+    False,
+}
+
 impl<'a> TokenIter<'a> {
     pub fn is_empty(&self) -> bool {
         self.next_relative >= self.tokens.len()
@@ -73,8 +78,9 @@ impl<'a> TokenIter<'a> {
     pub fn try_get_one_token_with_indexed<S>(
         &mut self,
         f: impl Fn(&TokenKind) -> Option<S>,
+        ignore_comment: IgnoreComment,
     ) -> Option<(TokenIdx, S)> {
-        let (token_idx, token) = self.next_indexed()?;
+        let (token_idx, token) = self.next_indexed(ignore_comment)?;
         if let Some(s) = f(&token.kind) {
             Some((token_idx, s))
         } else {
@@ -131,13 +137,28 @@ impl<'a> TokenIter<'a> {
         self.next_relative = state.raw() - self.base;
     }
 
-    pub fn next_indexed(&mut self) -> Option<(TokenIdx, &'a Token)> {
-        if self.next_relative < self.tokens.len() {
-            let next = self.next_relative;
-            self.next_relative += 1;
-            Some((TokenIdx(self.base + next), &self.tokens[next]))
-        } else {
-            None
+    pub fn next_indexed(&mut self, ignore_comment: IgnoreComment) -> Option<(TokenIdx, &'a Token)> {
+        match ignore_comment {
+            IgnoreComment::True => {
+                while self.next_relative < self.tokens.len() {
+                    let next = self.next_relative;
+                    self.next_relative += 1;
+                    match self.tokens[next].kind {
+                        TokenKind::Comment => continue,
+                        _ => return Some((TokenIdx(self.base + next), &self.tokens[next])),
+                    }
+                }
+                None
+            }
+            IgnoreComment::False => {
+                if self.next_relative < self.tokens.len() {
+                    let next = self.next_relative;
+                    self.next_relative += 1;
+                    Some((TokenIdx(self.base + next), &self.tokens[next]))
+                } else {
+                    None
+                }
+            }
         }
     }
 
@@ -192,7 +213,7 @@ fn next_indexed_works() {
     let token_sheet = TokenSheet::new(tokens);
     let (token_group_idx, _) = token_sheet.token_group_iter().next().unwrap();
     let mut token_iter = token_sheet.token_group_token_iter(token_group_idx, None);
-    while let Some((token_idx, token)) = token_iter.next_indexed() {
+    while let Some((token_idx, token)) = token_iter.next_indexed(IgnoreComment::False) {
         assert_eq!(&token_sheet[token_idx], token)
     }
 }

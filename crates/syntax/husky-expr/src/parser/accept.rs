@@ -39,10 +39,10 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     }
 
     fn accept_dot_opr(&mut self, dot_token_idx: TokenIdx) -> ExprResult<()> {
-        let (ident, ident_token_idx) = self
-            .try_get_identifier()
-            .ok_or(ExprError::ExpectIdentifierAfterDot)?;
-        self.push_opr(StackOpr::Dot { dot_token_idx });
+        // let (ident, ident_token_idx) = self
+        //     .try_get_identifier()
+        //     .ok_or(ExprError::ExpectIdentifierAfterDot)?;
+        // self.push_opr(StackOpr::Dot { dot_token_idx });
         todo!()
     }
 

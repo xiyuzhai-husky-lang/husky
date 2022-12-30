@@ -1,5 +1,4 @@
 mod accept;
-mod iter;
 mod opr;
 mod resolve;
 mod stack;
@@ -48,7 +47,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
 
     fn parse_all(mut self) -> (ExprIdxRange, ExprParsingStopReason) {
         while !self.tokens().is_empty() {
-            let (token_idx, token) = self.token_iter.next_indexed().unwrap();
+            let (token_idx, token) = self.token_iter.next_indexed(IgnoreComment::True).unwrap();
             match self.resolve_token(token_idx, token) {
                 ControlFlow::Continue(resolved_token) => match self.accept_token(resolved_token) {
                     Ok(()) => (),
