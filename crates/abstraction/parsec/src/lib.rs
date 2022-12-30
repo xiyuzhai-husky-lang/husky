@@ -1,6 +1,6 @@
-mod chain;
 mod rollback;
 mod separated_list;
+mod seq;
 #[cfg(test)]
 mod tests;
 
