@@ -8,8 +8,8 @@ use husky_opn_syntax::BinaryOpr;
 use husky_print_utils::p;
 use husky_symbol::{LocalSymbolSheet, SymbolContext};
 use husky_token::{
-    IdentifierToken, LeftAngleBracketToken, LeftCurlyBraceToken, Punctuation, TokenGroupIdx,
-    TokenIdx, TokenSheet,
+    IdentifierToken, LeftAngleBracketToken, LeftBoxBracketToken, LeftCurlyBraceToken, Punctuation,
+    TokenGroupIdx, TokenIdx, TokenSheet,
 };
 use parsec::{ParseContext, ParseFrom};
 use salsa::DebugWithDb;
@@ -176,7 +176,7 @@ impl<'a> DeclCollector<'a> {
             // todo!();
             // ad hoc
             Ok(Decl::Type(
-                TupleStructTypeDecl::new(
+                PropsStructTypeDecl::new(
                     self.db,
                     path,
                     ast_idx,
@@ -185,6 +185,8 @@ impl<'a> DeclCollector<'a> {
                 )
                 .into(),
             ))
+        } else if let Some(lbox) = parser.parse::<LeftBoxBracketToken>()? {
+            todo!()
         } else {
             Err(DeclError::ExpectLCurlOrLParOrSemicolon(parser.save_state()))
         }

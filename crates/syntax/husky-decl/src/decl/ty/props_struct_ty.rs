@@ -8,6 +8,8 @@ pub struct PropsStructTypeDecl {
     pub path: TypePath,
     pub ast_idx: AstIdx,
     #[return_ref]
+    pub generic_parameters: Vec<GenericParameter>,
+    #[return_ref]
     pub fields: Vec<PropsStructFieldDecl>,
 }
 

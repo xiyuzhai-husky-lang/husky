@@ -209,6 +209,74 @@ fn right_parenthesis_token_works() {
     assert!(t(&db, "a").unwrap().is_none());
 }
 
+// left box bracket
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct LeftBoxBracketToken {
+    token_idx: TokenIdx,
+}
+
+impl<'a, Context> parsec::ParseFrom<Context> for LeftBoxBracketToken
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+        Ok(
+            parse_specific_punctuation_from(ctx, Punctuation::Bra(Bracket::Box))?
+                .map(|token_idx| LeftBoxBracketToken { token_idx }),
+        )
+    }
+}
+
+#[test]
+fn left_box_bracket_token_works() {
+    let db = DB::default();
+    fn t(db: &DB, input: &str) -> TokenResult<Option<LeftBoxBracketToken>> {
+        quick_parse(db, input)
+    }
+
+    assert!(t(&db, "[").unwrap().is_some());
+    assert!(t(&db, "]").unwrap().is_none());
+    assert!(t(&db, "a").unwrap().is_none());
+}
+
+// right box bracket
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct RightBoxBracketToken {
+    token_idx: TokenIdx,
+}
+
+impl<'a, Context> parsec::ParseFrom<Context> for RightBoxBracketToken
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+        Ok(
+            parse_specific_punctuation_from(ctx, Punctuation::Ket(Bracket::Box))?
+                .map(|token_idx| RightBoxBracketToken { token_idx }),
+        )
+    }
+}
+
+#[test]
+fn right_box_bracket_token_works() {
+    let db = DB::default();
+    fn t(db: &DB, input: &str) -> TokenResult<Option<RightBoxBracketToken>> {
+        quick_parse(db, input)
+    }
+
+    assert!(t(&db, "]").unwrap().is_some());
+    assert!(t(&db, "[").unwrap().is_none());
+    assert!(t(&db, "a").unwrap().is_none());
+}
+
 // left curly brace
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
