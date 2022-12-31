@@ -16,8 +16,7 @@ pub enum Punctuation {
     Dot,               // .
     Colon,             // :
     Comma,             // ,
-    Ref,               // &
-    BitAnd,            // &
+    Ambersand,         // &
     Incr,              // ++
     Decr,              // --
     Vertical,          // |
@@ -26,8 +25,7 @@ pub enum Punctuation {
     Semicolon,         // ;
     XmlKet,            // />
     At,                // @
-    Unveil,            // ?
-    Option,            // ?
+    QuestionMark,      // ?
     PoundSign,         // #
 }
 
@@ -58,8 +56,7 @@ impl Punctuation {
             Punctuation::Dot => ".",
             Punctuation::Colon => ":",
             Punctuation::Comma => ",",
-            Punctuation::Ref => todo!(),
-            Punctuation::BitAnd => todo!(),
+            Punctuation::Ambersand => todo!(),
             Punctuation::Incr => "++",
             Punctuation::Decr => "--",
             Punctuation::Vertical => "|",
@@ -68,8 +65,7 @@ impl Punctuation {
             Punctuation::Semicolon => ";",
             Punctuation::XmlKet => "/>",
             Punctuation::At => "@",
-            Punctuation::Unveil => "?",
-            Punctuation::Option => "?",
+            Punctuation::QuestionMark => "?",
             Punctuation::PoundSign => "#",
         }
     }
@@ -96,8 +92,7 @@ impl Punctuation {
             Punctuation::Dot => todo!(),
             Punctuation::Colon => todo!(),
             Punctuation::Comma => todo!(),
-            Punctuation::Ref => todo!(),
-            Punctuation::BitAnd => todo!(),
+            Punctuation::Ambersand => todo!(),
             Punctuation::Incr => todo!(),
             Punctuation::Decr => todo!(),
             Punctuation::Vertical => todo!(),
@@ -106,8 +101,7 @@ impl Punctuation {
             Punctuation::Semicolon => todo!(),
             Punctuation::XmlKet => todo!(),
             Punctuation::At => todo!(),
-            Punctuation::Unveil => todo!(),
-            Punctuation::Option => todo!(),
+            Punctuation::QuestionMark => todo!(),
             Punctuation::PoundSign => todo!(),
         }
     }

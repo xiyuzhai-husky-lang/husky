@@ -45,8 +45,6 @@ impl Into<Pretoken> for FloatLiteral {
 pub enum AmbiguousPretoken {
     SubOrMinus,
     For,
-    QuestionMark,
-    Ambersand,
 }
 
 impl From<TokenKind> for Pretoken {
@@ -305,7 +303,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     Some('=') => self.pass_two(Punctuation::BinaryOpr(BinaryPunctuation::Assign(
                         Some(BinaryPureClosedPunctuation::BitAnd),
                     ))),
-                    _ => return Some(Pretoken::Ambiguous(AmbiguousPretoken::Ambersand)),
+                    _ => Punctuation::Ambersand,
                 },
                 '|' => match self.peek_char() {
                     Some('|') => self.pass_two(Punctuation::DoubleVertical),
@@ -382,7 +380,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     Some('!') => self.pass_two(Punctuation::DoubleExclamation),
                     _ => Punctuation::Exclamation,
                 },
-                '?' => return Some(Pretoken::Ambiguous(AmbiguousPretoken::QuestionMark)),
+                '?' => Punctuation::QuestionMark,
                 '#' => Punctuation::PoundSign,
                 c => return Some(Pretoken::Err(TokenError::UnrecognizedChar(c))),
             }
