@@ -9,7 +9,7 @@ Ok(
             Entity(
                 ModuleItem {
                     module_item_kind: Type(
-                        PropsStruct,
+                        Struct,
                     ),
                     connection: Connected,
                 },

@@ -6,6 +6,8 @@ use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum DeclError {
+    #[error("expect `{{` or `(` or `;`")]
+    ExpectLCurlOrLParOrSemicolon(TokenIdx),
     #[error("token error")]
     Token(#[from] TokenError),
     #[error("derived {0}")]
