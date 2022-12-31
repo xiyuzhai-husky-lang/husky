@@ -8,7 +8,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 121,
-                path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution, PropsStruct`),
+                path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
             },
             ModuleItem {
                 ident: `EffHoles`,
@@ -16,7 +16,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 122,
-                path: TypePath(`mnist_classifier::connected_component::EffHoles, PropsStruct`),
+                path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
             },
             ModuleItem {
                 ident: `hole_tmpl`,
@@ -24,7 +24,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 123,
-                path: FormPath(`mnist_classifier::connected_component::hole_tmpl, Function`),
+                path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
             },
             ModuleItem {
                 ident: `ConnectedComponent`,
@@ -32,7 +32,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 124,
-                path: TypePath(`mnist_classifier::connected_component::ConnectedComponent, PropsStruct`),
+                path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
             },
             ModuleItem {
                 ident: `horizontal_extend`,
@@ -40,7 +40,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 125,
-                path: FormPath(`mnist_classifier::connected_component::horizontal_extend, Function`),
+                path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
             },
             ModuleItem {
                 ident: `find_connected_components`,
@@ -48,7 +48,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 126,
-                path: FormPath(`mnist_classifier::connected_component::find_connected_components, Function`),
+                path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

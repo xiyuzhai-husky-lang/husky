@@ -531,7 +531,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::six::six_match, Feature`),
+                        FormPath(`mnist_classifier::digits::six::six_match`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `six_match`,
@@ -566,7 +566,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::six::six_match_refined1, Feature`),
+                        FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `six_match_refined1`,
@@ -601,7 +601,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::six::is_six, Feature`),
+                        FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `is_six`,
@@ -636,7 +636,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::six::upmost, Function`),
+                        FormPath(`mnist_classifier::digits::six::upmost`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `upmost`,
@@ -671,7 +671,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::six::bottom1, Function`),
+                        FormPath(`mnist_classifier::digits::six::bottom1`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `bottom1`,

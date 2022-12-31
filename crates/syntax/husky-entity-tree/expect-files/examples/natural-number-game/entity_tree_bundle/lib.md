@@ -10,7 +10,7 @@ Ok(
                             `natural_number_game`,
                         ),
                         ast_idx: 3,
-                        path: TypePath(`natural_number_game::Nat, Inductive`),
+                        path: TypePath(`natural_number_game::Nat`, `Inductive`),
                     },
                     ModuleItem {
                         ident: `OddNat`,
@@ -18,7 +18,7 @@ Ok(
                             `natural_number_game`,
                         ),
                         ast_idx: 9,
-                        path: TypePath(`natural_number_game::OddNat, Structure`),
+                        path: TypePath(`natural_number_game::OddNat`, `Structure`),
                     },
                     ModuleItem {
                         ident: `EvenNat`,
@@ -26,7 +26,7 @@ Ok(
                             `natural_number_game`,
                         ),
                         ast_idx: 10,
-                        path: TypePath(`natural_number_game::EvenNat, Structure`),
+                        path: TypePath(`natural_number_game::EvenNat`, `Structure`),
                     },
                 ],
             },

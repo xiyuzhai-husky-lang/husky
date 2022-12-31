@@ -8,7 +8,7 @@ Ok(
                     `mnist_classifier::digits::one`,
                 ),
                 ast_idx: 70,
-                path: FormPath(`mnist_classifier::digits::one::one_fermi_match, Feature`),
+                path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Feature`),
             },
             ModuleItem {
                 ident: `is_one`,
@@ -16,7 +16,7 @@ Ok(
                     `mnist_classifier::digits::one`,
                 ),
                 ast_idx: 71,
-                path: FormPath(`mnist_classifier::digits::one::is_one, Feature`),
+                path: FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
             },
             ModuleItem {
                 ident: `upmost`,
@@ -24,7 +24,7 @@ Ok(
                     `mnist_classifier::digits::one`,
                 ),
                 ast_idx: 72,
-                path: FormPath(`mnist_classifier::digits::one::upmost, Function`),
+                path: FormPath(`mnist_classifier::digits::one::upmost`, `Function`),
             },
             ModuleItem {
                 ident: `downmost`,
@@ -32,7 +32,7 @@ Ok(
                     `mnist_classifier::digits::one`,
                 ),
                 ast_idx: 73,
-                path: FormPath(`mnist_classifier::digits::one::downmost, Function`),
+                path: FormPath(`mnist_classifier::digits::one::downmost`, `Function`),
             },
             ModuleItem {
                 ident: `hat`,
@@ -40,7 +40,7 @@ Ok(
                     `mnist_classifier::digits::one`,
                 ),
                 ast_idx: 74,
-                path: FormPath(`mnist_classifier::digits::one::hat, Function`),
+                path: FormPath(`mnist_classifier::digits::one::hat`, `Function`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

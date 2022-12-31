@@ -1,4 +1,5 @@
 use husky_entity_tree::EntityTreeError;
+use husky_expr::ExprError;
 use husky_token::{TokenError, TokenIdx};
 use husky_vfs::VfsError;
 use thiserror::Error;
@@ -11,6 +12,8 @@ pub enum DeclError {
     EntityTree(#[from] EntityTreeError),
     #[error("derived {0}")]
     Vfs(#[from] VfsError),
+    #[error("derived {0}")]
+    Expr(#[from] ExprError),
 }
 
 pub type DeclResult<T> = Result<T, DeclError>;

@@ -571,7 +571,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::four::left_components, Feature`),
+                        FormPath(`mnist_classifier::digits::four::left_components`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `left_components`,
@@ -606,7 +606,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::four::left_coordinate_max, Function`),
+                        FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `left_coordinate_max`,
@@ -641,7 +641,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::four::components_max_downwards, Feature`),
+                        FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `components_max_downwards`,
@@ -676,7 +676,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::four::components_max_heights, Feature`),
+                        FormPath(`mnist_classifier::digits::four::components_max_heights`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `components_max_heights`,
@@ -711,7 +711,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::four::is_four, Feature`),
+                        FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `is_four`,
@@ -746,7 +746,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::four::displacement_downwards, Function`),
+                        FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `displacement_downwards`,
@@ -781,7 +781,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::four::cc_box_heights, Function`),
+                        FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `cc_box_heights`,

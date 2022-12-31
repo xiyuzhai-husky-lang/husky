@@ -8,7 +8,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
                 ast_idx: 5,
-                path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent, PropsStruct`),
+                path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent`, `Struct`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

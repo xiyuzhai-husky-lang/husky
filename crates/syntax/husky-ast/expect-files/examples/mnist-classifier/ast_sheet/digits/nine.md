@@ -478,7 +478,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::nine::nine_match, Feature`),
+                        FormPath(`mnist_classifier::digits::nine::nine_match`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `nine_match`,
@@ -513,7 +513,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::nine::nine_match_refine, Feature`),
+                        FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `nine_match_refine`,
@@ -548,7 +548,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::nine::is_nine, Feature`),
+                        FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `is_nine`,
@@ -583,7 +583,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::nine::downmost, Function`),
+                        FormPath(`mnist_classifier::digits::nine::downmost`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `downmost`,
@@ -618,7 +618,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::nine::big_cc, Function`),
+                        FormPath(`mnist_classifier::digits::nine::big_cc`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `big_cc`,

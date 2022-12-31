@@ -16,7 +16,7 @@ fn entity_path_debug_works() {
     let toolchain = db.dev_toolchain().unwrap();
     let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
     expect_test::expect![[r#"
-        TypePath(`core::num::i32, Foreign`)
+        TypePath(`core::num::i32`, `Foreign`)
     "#]]
     .assert_debug_eq(&entity_path_menu.i32().debug(&db));
 }

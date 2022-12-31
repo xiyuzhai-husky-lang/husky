@@ -17,7 +17,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::logic::LogicAnd, Structure`),
+                        TypePath(`core::logic::LogicAnd`, `Structure`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `LogicAnd`,
@@ -46,7 +46,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::logic::LogicOr, Inductive`),
+                        TypePath(`core::logic::LogicOr`, `Inductive`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `LogicOr`,

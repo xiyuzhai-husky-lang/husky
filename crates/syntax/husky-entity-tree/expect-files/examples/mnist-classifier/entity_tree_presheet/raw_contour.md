@@ -8,7 +8,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 217,
-                path: TypePath(`mnist_classifier::raw_contour::RawContour, PropsStruct`),
+                path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
             },
             ModuleItem {
                 ident: `Direction`,
@@ -16,7 +16,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 219,
-                path: TypePath(`mnist_classifier::raw_contour::Direction, Enum`),
+                path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
             },
             ModuleItem {
                 ident: `get_pixel_pair`,
@@ -24,7 +24,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 224,
-                path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair, Function`),
+                path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
             },
             ModuleItem {
                 ident: `get_pixel_to_the_left`,
@@ -32,7 +32,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 225,
-                path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left, Function`),
+                path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
             },
             ModuleItem {
                 ident: `get_pixel_to_the_right`,
@@ -40,7 +40,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 226,
-                path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right, Function`),
+                path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
             },
             ModuleItem {
                 ident: `get_inward_direction`,
@@ -48,7 +48,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 227,
-                path: FormPath(`mnist_classifier::raw_contour::get_inward_direction, Function`),
+                path: FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
             },
             ModuleItem {
                 ident: `get_angle_change`,
@@ -56,7 +56,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 228,
-                path: FormPath(`mnist_classifier::raw_contour::get_angle_change, Function`),
+                path: FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
             },
             ModuleItem {
                 ident: `get_outward_direction`,
@@ -64,7 +64,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 229,
-                path: FormPath(`mnist_classifier::raw_contour::get_outward_direction, Function`),
+                path: FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
             },
             ModuleItem {
                 ident: `StreakCache`,
@@ -72,7 +72,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 230,
-                path: TypePath(`mnist_classifier::raw_contour::StreakCache, PropsStruct`),
+                path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
             },
             ModuleItem {
                 ident: `get_concave_middle_point`,
@@ -80,7 +80,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 231,
-                path: FormPath(`mnist_classifier::raw_contour::get_concave_middle_point, Function`),
+                path: FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
             },
             ModuleItem {
                 ident: `find_raw_contours`,
@@ -88,7 +88,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 ast_idx: 232,
-                path: FormPath(`mnist_classifier::raw_contour::find_raw_contours, Function`),
+                path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

@@ -486,7 +486,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::seven::simple_seven_match, Feature`),
+                        FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `simple_seven_match`,
@@ -521,7 +521,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern, Function`),
+                        FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `simple_leftdown_pattern`,
@@ -556,7 +556,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::seven::special_seven_match, Feature`),
+                        FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `special_seven_match`,
@@ -591,7 +591,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::seven::leftupcc_pattern, Function`),
+                        FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `leftupcc_pattern`,
@@ -626,7 +626,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern, Function`),
+                        FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `leftdowncc_pattern`,
@@ -661,7 +661,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::seven::is_seven, Feature`),
+                        FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `is_seven`,

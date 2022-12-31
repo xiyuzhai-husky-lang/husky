@@ -551,12 +551,12 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            PropsStruct,
+                            Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, PropsStruct`),
+                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `ConcaveComponent`,
@@ -591,7 +591,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components, Function`),
+                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `find_concave_components`,

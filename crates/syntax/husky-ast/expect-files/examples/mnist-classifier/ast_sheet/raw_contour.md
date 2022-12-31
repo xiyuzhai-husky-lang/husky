@@ -1802,12 +1802,12 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            PropsStruct,
+                            Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::raw_contour::RawContour, PropsStruct`),
+                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `RawContour`,
@@ -1850,7 +1850,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::raw_contour::Direction, Enum`),
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `Direction`,
@@ -1917,7 +1917,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::raw_contour::get_pixel_pair, Function`),
+                        FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `get_pixel_pair`,
@@ -1952,7 +1952,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left, Function`),
+                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `get_pixel_to_the_left`,
@@ -1987,7 +1987,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right, Function`),
+                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `get_pixel_to_the_right`,
@@ -2022,7 +2022,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::raw_contour::get_inward_direction, Function`),
+                        FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `get_inward_direction`,
@@ -2057,7 +2057,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::raw_contour::get_angle_change, Function`),
+                        FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `get_angle_change`,
@@ -2092,7 +2092,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::raw_contour::get_outward_direction, Function`),
+                        FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `get_outward_direction`,
@@ -2122,12 +2122,12 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            PropsStruct,
+                            Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::raw_contour::StreakCache, PropsStruct`),
+                        TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `StreakCache`,
@@ -2162,7 +2162,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::raw_contour::get_concave_middle_point, Function`),
+                        FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `get_concave_middle_point`,
@@ -2197,7 +2197,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::raw_contour::find_raw_contours, Function`),
+                        FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `find_raw_contours`,

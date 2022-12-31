@@ -616,7 +616,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::one::one_fermi_match, Feature`),
+                        FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `one_fermi_match`,
@@ -651,7 +651,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::one::is_one, Feature`),
+                        FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `is_one`,
@@ -686,7 +686,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::one::upmost, Function`),
+                        FormPath(`mnist_classifier::digits::one::upmost`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `upmost`,
@@ -721,7 +721,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::one::downmost, Function`),
+                        FormPath(`mnist_classifier::digits::one::downmost`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `downmost`,
@@ -756,7 +756,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::one::hat, Function`),
+                        FormPath(`mnist_classifier::digits::one::hat`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `hat`,

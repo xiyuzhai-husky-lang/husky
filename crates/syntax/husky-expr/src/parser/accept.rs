@@ -1,7 +1,7 @@
 use super::*;
 
 impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
-    pub(crate) fn next_token(&mut self) -> Option<&'a Token> {
+    pub(crate) fn next_token(&mut self) -> Option<&'b Token> {
         self.token_iter.next()
     }
 

@@ -1,7 +1,11 @@
 use husky_entity_path::EntityPath;
+use husky_symbol::SymbolContext;
+use husky_token::TokenStream;
 use husky_word::Identifier;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use ordered_float::NotNan;
+
+use crate::{ExprResult, ExprSheet};
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum PatternExpr {
@@ -34,3 +38,17 @@ pub enum PatternOpn {
 pub(crate) type PatternExprArena = Arena<PatternExpr>;
 pub type PatternExprIdx = ArenaIdx<PatternExpr>;
 pub type PatternExprIdxRange = ArenaIdxRange<PatternExpr>;
+
+pub fn parse_pattern_expr<'a>(
+    ctx: SymbolContext,
+    token_iter: &mut TokenStream<'a>,
+    sheet: &mut ExprSheet,
+) -> ExprResult<PatternExprIdx> {
+    todo!()
+}
+
+pub(crate) struct PatternExprParser<'a, 'b, 'c> {
+    ctx: SymbolContext<'c>,
+    token_iter: &'a mut TokenStream<'b>,
+    sheet: &'a mut ExprSheet,
+}

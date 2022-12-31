@@ -330,7 +330,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::eight::upper_mouth_match, Feature`),
+                        FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `upper_mouth_match`,
@@ -365,7 +365,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::eight::is_eight, Feature`),
+                        FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `is_eight`,
@@ -400,7 +400,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::eight::big_mouth, Function`),
+                        FormPath(`mnist_classifier::digits::eight::big_mouth`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `big_mouth`,

@@ -8,7 +8,7 @@ Ok(
                     `mnist_classifier::digits::seven`,
                 ),
                 ast_idx: 50,
-                path: FormPath(`mnist_classifier::digits::seven::simple_seven_match, Feature`),
+                path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
             },
             ModuleItem {
                 ident: `simple_leftdown_pattern`,
@@ -16,7 +16,7 @@ Ok(
                     `mnist_classifier::digits::seven`,
                 ),
                 ast_idx: 51,
-                path: FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern, Function`),
+                path: FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
             },
             ModuleItem {
                 ident: `special_seven_match`,
@@ -24,7 +24,7 @@ Ok(
                     `mnist_classifier::digits::seven`,
                 ),
                 ast_idx: 52,
-                path: FormPath(`mnist_classifier::digits::seven::special_seven_match, Feature`),
+                path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Feature`),
             },
             ModuleItem {
                 ident: `leftupcc_pattern`,
@@ -32,7 +32,7 @@ Ok(
                     `mnist_classifier::digits::seven`,
                 ),
                 ast_idx: 53,
-                path: FormPath(`mnist_classifier::digits::seven::leftupcc_pattern, Function`),
+                path: FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
             },
             ModuleItem {
                 ident: `leftdowncc_pattern`,
@@ -40,7 +40,7 @@ Ok(
                     `mnist_classifier::digits::seven`,
                 ),
                 ast_idx: 54,
-                path: FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern, Function`),
+                path: FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
             },
             ModuleItem {
                 ident: `is_seven`,
@@ -48,7 +48,7 @@ Ok(
                     `mnist_classifier::digits::seven`,
                 ),
                 ast_idx: 55,
-                path: FormPath(`mnist_classifier::digits::seven::is_seven, Feature`),
+                path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

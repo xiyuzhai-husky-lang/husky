@@ -8,7 +8,7 @@ Ok(
                     `mnist_classifier::major`,
                 ),
                 ast_idx: 22,
-                path: FormPath(`mnist_classifier::major::connected_components, Feature`),
+                path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
             },
             ModuleItem {
                 ident: `major_connected_component`,
@@ -16,7 +16,7 @@ Ok(
                     `mnist_classifier::major`,
                 ),
                 ast_idx: 23,
-                path: FormPath(`mnist_classifier::major::major_connected_component, Feature`),
+                path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
             },
             ModuleItem {
                 ident: `ignored_connected_components_row_span_sum_sum`,
@@ -24,7 +24,7 @@ Ok(
                     `mnist_classifier::major`,
                 ),
                 ast_idx: 24,
-                path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum, Feature`),
+                path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
             },
             ModuleItem {
                 ident: `major_raw_contours`,
@@ -32,7 +32,7 @@ Ok(
                     `mnist_classifier::major`,
                 ),
                 ast_idx: 25,
-                path: FormPath(`mnist_classifier::major::major_raw_contours, Feature`),
+                path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
             },
             ModuleItem {
                 ident: `major_raw_contour`,
@@ -40,7 +40,7 @@ Ok(
                     `mnist_classifier::major`,
                 ),
                 ast_idx: 27,
-                path: FormPath(`mnist_classifier::major::major_raw_contour, Feature`),
+                path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
             },
             ModuleItem {
                 ident: `major_line_segment_sketch`,
@@ -48,7 +48,7 @@ Ok(
                     `mnist_classifier::major`,
                 ),
                 ast_idx: 28,
-                path: FormPath(`mnist_classifier::major::major_line_segment_sketch, Feature`),
+                path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
             },
             ModuleItem {
                 ident: `major_concave_components`,
@@ -56,7 +56,7 @@ Ok(
                     `mnist_classifier::major`,
                 ),
                 ast_idx: 29,
-                path: FormPath(`mnist_classifier::major::major_concave_components, Feature`),
+                path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

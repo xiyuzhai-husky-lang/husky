@@ -8,7 +8,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch::line_segment`,
                 ),
                 ast_idx: 16,
-                path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment, PropsStruct`),
+                path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

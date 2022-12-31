@@ -8,7 +8,7 @@ Ok(
                     `mnist_classifier::digits::two`,
                 ),
                 ast_idx: 67,
-                path: FormPath(`mnist_classifier::digits::two::two_match, Feature`),
+                path: FormPath(`mnist_classifier::digits::two::two_match`, `Feature`),
             },
             ModuleItem {
                 ident: `left_cc_pattern`,
@@ -16,7 +16,7 @@ Ok(
                     `mnist_classifier::digits::two`,
                 ),
                 ast_idx: 68,
-                path: FormPath(`mnist_classifier::digits::two::left_cc_pattern, Function`),
+                path: FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Function`),
             },
             ModuleItem {
                 ident: `right_cc_pattern`,
@@ -24,7 +24,7 @@ Ok(
                     `mnist_classifier::digits::two`,
                 ),
                 ast_idx: 69,
-                path: FormPath(`mnist_classifier::digits::two::right_cc_pattern, Function`),
+                path: FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Function`),
             },
             ModuleItem {
                 ident: `down_cc_pattern`,
@@ -32,7 +32,7 @@ Ok(
                     `mnist_classifier::digits::two`,
                 ),
                 ast_idx: 70,
-                path: FormPath(`mnist_classifier::digits::two::down_cc_pattern, Function`),
+                path: FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Function`),
             },
             ModuleItem {
                 ident: `is_two`,
@@ -40,7 +40,7 @@ Ok(
                     `mnist_classifier::digits::two`,
                 ),
                 ast_idx: 71,
-                path: FormPath(`mnist_classifier::digits::two::is_two, Feature`),
+                path: FormPath(`mnist_classifier::digits::two::is_two`, `Feature`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

@@ -40,7 +40,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 ast_idx: 169,
-                path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke, PropsStruct`),
+                path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
             },
             ModuleItem {
                 ident: `LineSegmentSketch`,
@@ -48,7 +48,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 ast_idx: 171,
-                path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch, PropsStruct`),
+                path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
             },
             ModuleItem {
                 ident: `go_right`,
@@ -56,7 +56,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 ast_idx: 173,
-                path: FormPath(`mnist_classifier::line_segment_sketch::go_right, Function`),
+                path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
             },
             ModuleItem {
                 ident: `go_left`,
@@ -64,7 +64,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 ast_idx: 174,
-                path: FormPath(`mnist_classifier::line_segment_sketch::go_left, Function`),
+                path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
             },
             ModuleItem {
                 ident: `extend_end`,
@@ -72,7 +72,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 ast_idx: 175,
-                path: FormPath(`mnist_classifier::line_segment_sketch::extend_end, Function`),
+                path: FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
             },
             ModuleItem {
                 ident: `extend_start`,
@@ -80,7 +80,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 ast_idx: 176,
-                path: FormPath(`mnist_classifier::line_segment_sketch::extend_start, Function`),
+                path: FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
             },
             ModuleItem {
                 ident: `find_line_segments`,
@@ -88,7 +88,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 ast_idx: 177,
-                path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments, Function`),
+                path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

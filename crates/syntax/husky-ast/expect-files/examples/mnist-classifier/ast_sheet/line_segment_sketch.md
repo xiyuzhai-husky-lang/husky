@@ -1572,12 +1572,12 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            PropsStruct,
+                            Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke, PropsStruct`),
+                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `LineSegmentStroke`,
@@ -1615,12 +1615,12 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            PropsStruct,
+                            Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch, PropsStruct`),
+                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `LineSegmentSketch`,
@@ -1663,7 +1663,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::line_segment_sketch::go_right, Function`),
+                        FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `go_right`,
@@ -1698,7 +1698,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::line_segment_sketch::go_left, Function`),
+                        FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `go_left`,
@@ -1733,7 +1733,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::line_segment_sketch::extend_end, Function`),
+                        FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `extend_end`,
@@ -1768,7 +1768,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::line_segment_sketch::extend_start, Function`),
+                        FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `extend_start`,
@@ -1803,7 +1803,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::line_segment_sketch::find_line_segments, Function`),
+                        FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `find_line_segments`,

@@ -126,12 +126,12 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            PropsStruct,
+                            Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment, PropsStruct`),
+                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `LineSegment`,

@@ -223,7 +223,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex, Function`),
+                        FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `is_convex`,

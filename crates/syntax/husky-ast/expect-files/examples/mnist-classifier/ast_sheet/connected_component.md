@@ -846,12 +846,12 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            PropsStruct,
+                            Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution, PropsStruct`),
+                        TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `ConnectedComponentDistribution`,
@@ -881,12 +881,12 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            PropsStruct,
+                            Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::connected_component::EffHoles, PropsStruct`),
+                        TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `EffHoles`,
@@ -921,7 +921,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::connected_component::hole_tmpl, Function`),
+                        FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `hole_tmpl`,
@@ -951,12 +951,12 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            PropsStruct,
+                            Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::connected_component::ConnectedComponent, PropsStruct`),
+                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `ConnectedComponent`,
@@ -991,7 +991,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::connected_component::horizontal_extend, Function`),
+                        FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `horizontal_extend`,
@@ -1026,7 +1026,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::connected_component::find_connected_components, Function`),
+                        FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `find_connected_components`,

@@ -31,7 +31,7 @@ impl<Db: EntityPathDb + ?Sized> salsa::DebugWithDb<Db> for TypePath {
         let db = <Db as DbWithJar<EntityPathJar>>::as_jar_db(db);
         f.write_str("TypePath(`")?;
         self.show_aux(f, db)?;
-        f.write_str(", ")?;
+        f.write_str("`, `")?;
         self.type_kind(db).fmt(f)?;
         f.write_str("`)")
     }
