@@ -35,7 +35,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         })
     }
 
-    fn accept_suffix_opr(&mut self, suffix: RawSuffixOpr, suffix_token_idx: TokenIdx) {
+    fn accept_suffix_opr(&mut self, suffix: SuffixPunctuation, suffix_token_idx: TokenIdx) {
         self.synthesize_suffix(suffix, suffix_token_idx)
     }
 

@@ -7,6 +7,42 @@ pub(crate) struct AutomataStack {
     base_entity_paths: Vec<BaseEntityPath>,
 }
 
+impl Expr {
+    fn base_entity_path(&self) -> BaseEntityPath {
+        match self {
+            Expr::Atom(atom) => match atom {
+                AtomExpr::Literal(_) => todo!(),
+                AtomExpr::Symbol(_) => todo!(),
+                AtomExpr::Uncertain(_) => todo!(),
+                AtomExpr::Unrecognized(_) => BaseEntityPath::Uncertain,
+            },
+            Expr::Opn { opn, opds } => match opn {
+                Opn::Binary(_) => todo!(),
+                Opn::Prefix(_) => todo!(),
+                Opn::Suffix(suffix) => match suffix {
+                    SuffixPunctuation::Incr
+                    | SuffixPunctuation::Decr
+                    | SuffixPunctuation::Unveil => BaseEntityPath::None,
+                },
+                Opn::CurlBracketed => todo!(),
+                Opn::List(opr) => match opr {
+                    ListOpr::NewTuple => todo!(),
+                    ListOpr::NewVec => BaseEntityPath::None,
+                    ListOpr::NewDict => todo!(),
+                    ListOpr::FunctionCall => todo!(),
+                    ListOpr::Index => todo!(),
+                    ListOpr::ModuloIndex => todo!(),
+                    ListOpr::StructInit => todo!(),
+                    ListOpr::MethodCall { ranged_ident } => todo!(),
+                },
+                Opn::Field(_) => todo!(),
+                Opn::Abstraction => todo!(),
+            },
+            Expr::Bracketed(_) => todo!(),
+        }
+    }
+}
+
 impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     pub(super) fn number_of_oprs(&self) -> usize {
         self.stack.oprs.len()
@@ -43,6 +79,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     }
 
     pub(super) fn push_expr(&mut self, expr: Expr) {
+        self.stack.base_entity_paths.push(expr.base_entity_path());
         self.stack.exprs.push(expr)
     }
 
