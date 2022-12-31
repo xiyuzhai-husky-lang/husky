@@ -1,21 +1,26 @@
+use core::num::NonZeroUsize;
+
 use super::*;
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
-pub enum PrefixOpr {
-    Minus,  // -
-    Not,    // !$0
-    BitNot, // ~
-    Shared, // &
-    Move,   // !$0 after WithType or Vec or Array
+pub enum PrefixPunctuation {
+    Minus,                       // -
+    Not,                         // !$0
+    BitNot,                      // ~
+    Ref,                         // &
+    Vector,                      // []
+    Slice,                       // [:]
+    CyclicSlice,                 // [%]
+    Array(Option<NonZeroUsize>), // [_] or [<usize>]
 }
 
-impl Into<Opn> for PrefixOpr {
+impl Into<Opn> for PrefixPunctuation {
     fn into(self) -> Opn {
         Opn::Prefix(self)
     }
 }
 
-impl PrefixOpr {
+impl PrefixPunctuation {
     //     pub fn act_on_primitive(&self, opd: PrimitiveValueData) -> PrimitiveValueData {
     //         match self {
     //             PrefixOpr::Minus => match opd {
@@ -47,23 +52,19 @@ impl PrefixOpr {
     //         }
     //     }
 
-    pub fn code(self) -> &'static str {
+    pub fn code(self) -> std::borrow::Cow<'static, str> {
         match self {
-            PrefixOpr::Minus => "-",
-            PrefixOpr::Not => "!",
-            PrefixOpr::BitNot => "~",
-            PrefixOpr::Shared => "&",
-            PrefixOpr::Move => "!!",
-        }
-    }
-
-    pub fn rust_code(self) -> &'static str {
-        match self {
-            PrefixOpr::Minus => "-",
-            PrefixOpr::Not => "!",
-            PrefixOpr::BitNot => "!",
-            PrefixOpr::Shared => "&",
-            PrefixOpr::Move => "!!",
+            PrefixPunctuation::Minus => "-".into(),
+            PrefixPunctuation::Not => "!".into(),
+            PrefixPunctuation::BitNot => "!".into(),
+            PrefixPunctuation::Ref => "&".into(),
+            PrefixPunctuation::Vector => "[]".into(),
+            PrefixPunctuation::Slice => "[:]".into(),
+            PrefixPunctuation::CyclicSlice => "[%]".into(),
+            PrefixPunctuation::Array(size) => match size {
+                Some(size) => format!("[{}]", size).into(),
+                None => "[_]".into(),
+            },
         }
     }
 }

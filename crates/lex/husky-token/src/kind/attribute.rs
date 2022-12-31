@@ -2,7 +2,7 @@ use crate::*;
 use std::ops::Deref;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum AttrKeyword {
+pub enum AttributeKeyword {
     Pub,
     Protected,
     Private,
@@ -10,13 +10,13 @@ pub enum AttrKeyword {
     Static,
 }
 
-impl std::fmt::Display for AttrKeyword {
+impl std::fmt::Display for AttributeKeyword {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         self.as_str().fmt(f)
     }
 }
 
-impl Deref for AttrKeyword {
+impl Deref for AttributeKeyword {
     type Target = str;
 
     fn deref(&self) -> &Self::Target {
@@ -24,19 +24,19 @@ impl Deref for AttrKeyword {
     }
 }
 
-impl AttrKeyword {
+impl AttributeKeyword {
     pub const fn as_str(self) -> &'static str {
         match self {
-            AttrKeyword::Pub => "pub",
-            AttrKeyword::Protected => "protected",
-            AttrKeyword::Private => "private",
-            AttrKeyword::Async => "async",
-            AttrKeyword::Static => "static",
+            AttributeKeyword::Pub => "pub",
+            AttributeKeyword::Protected => "protected",
+            AttributeKeyword::Private => "private",
+            AttributeKeyword::Async => "async",
+            AttributeKeyword::Static => "static",
         }
     }
 }
 
-impl const Into<TokenKind> for AttrKeyword {
+impl const Into<TokenKind> for AttributeKeyword {
     fn into(self) -> TokenKind {
         TokenKind::Attr(self)
     }

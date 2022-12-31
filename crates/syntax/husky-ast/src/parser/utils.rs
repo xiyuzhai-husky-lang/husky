@@ -15,7 +15,7 @@ where
     fn parse_accessibility(&mut self) -> AstResult<Accessibility> {
         Ok(match self.borrow_mut().peek().unwrap().kind {
             TokenKind::Attr(decor) => match decor {
-                AttrKeyword::Pub => {
+                AttributeKeyword::Pub => {
                     self.borrow_mut().next();
                     match self
                         .borrow_mut()
@@ -27,10 +27,10 @@ where
                         _ => Accessibility::Public,
                     }
                 }
-                AttrKeyword::Protected => todo!(),
-                AttrKeyword::Private => todo!(),
-                AttrKeyword::Async => todo!(),
-                AttrKeyword::Static => Accessibility::Public,
+                AttributeKeyword::Protected => todo!(),
+                AttributeKeyword::Private => todo!(),
+                AttributeKeyword::Async => todo!(),
+                AttributeKeyword::Static => Accessibility::Public,
             },
             _ => Accessibility::PublicUnder(self.module_path()),
         })

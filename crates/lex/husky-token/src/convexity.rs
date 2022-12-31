@@ -25,12 +25,12 @@ impl Convexity {
 }
 
 impl Token {
-    pub fn left_convexity(self) -> Option<Convexity> {
+    pub fn left_convexity(&self) -> Option<Convexity> {
         match self.kind {
             TokenKind::Attr(_) => todo!(),
             TokenKind::Keyword(_) => todo!(),
             TokenKind::Identifier(_) => Some(Convexity::Convex),
-            TokenKind::Punctuation(_) => todo!(),
+            TokenKind::Punctuation(punc) => punc.left_convexity(),
             TokenKind::WordOpr(_) => todo!(),
             TokenKind::Literal(_) => Some(Convexity::Convex),
             TokenKind::Comment => todo!(),
@@ -65,7 +65,8 @@ impl Token {
                 Punctuation::Semicolon => todo!(),
                 Punctuation::XmlKet => todo!(),
                 Punctuation::At => todo!(),
-                Punctuation::QuestionMark => todo!(),
+                Punctuation::Unveil => todo!(),
+                Punctuation::Option => todo!(),
                 Punctuation::PoundSign => todo!(),
             },
             TokenKind::WordOpr(_) => todo!(),

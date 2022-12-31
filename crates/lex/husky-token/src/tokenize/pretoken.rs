@@ -5,124 +5,125 @@ use husky_text::{TextCharIter, TextRange};
 use husky_word::WordDb;
 use std::str::FromStr;
 
-pub(crate) struct RawToken {
+pub(crate) struct RangedPretoken {
     pub(crate) range: TextRange,
-    pub(crate) variant: RawTokenVariant,
+    pub(crate) token: Pretoken,
 }
 
-impl RawToken {
-    fn new(i: u32, start: u32, end: u32, variant: RawTokenVariant) -> Self {
-        RawToken {
+impl RangedPretoken {
+    fn new(i: u32, start: u32, end: u32, token: Pretoken) -> Self {
+        RangedPretoken {
             range: husky_text::new_same_line(i, start, end),
-            variant,
+            token,
         }
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub(crate) enum RawTokenVariant {
+pub(crate) enum Pretoken {
     Certain(TokenKind),
     Literal(LiteralToken),
     SubOrMinus,
     NewLine,
-    Special(AmbiguousSpecial),
+    Punctuation(AmbiguousPunctuation),
     Comment,
     Err(TokenError),
 }
 
-impl Into<RawTokenVariant> for IntegerLiteral {
-    fn into(self) -> RawTokenVariant {
-        RawTokenVariant::Certain(TokenKind::Literal(LiteralToken::Integer(self)))
+impl Into<Pretoken> for IntegerLiteral {
+    fn into(self) -> Pretoken {
+        Pretoken::Certain(TokenKind::Literal(LiteralToken::Integer(self)))
     }
 }
 
-impl Into<RawTokenVariant> for FloatLiteral {
-    fn into(self) -> RawTokenVariant {
-        RawTokenVariant::Certain(TokenKind::Literal(LiteralToken::Float(self)))
+impl Into<Pretoken> for FloatLiteral {
+    fn into(self) -> Pretoken {
+        Pretoken::Certain(TokenKind::Literal(LiteralToken::Float(self)))
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum AmbiguousSpecial {
+pub enum AmbiguousPunctuation {
     For,
+    QuestionMark,
 }
 
-impl From<TokenKind> for RawTokenVariant {
+impl From<TokenKind> for Pretoken {
     fn from(kind: TokenKind) -> Self {
-        RawTokenVariant::Certain(kind)
+        Pretoken::Certain(kind)
     }
 }
 
-impl From<Punctuation> for RawTokenVariant {
+impl From<Punctuation> for Pretoken {
     fn from(value: Punctuation) -> Self {
-        RawTokenVariant::Certain(value.into())
+        Pretoken::Certain(value.into())
     }
 }
 
-impl From<Keyword> for RawTokenVariant {
+impl From<Keyword> for Pretoken {
     fn from(kw: Keyword) -> Self {
-        RawTokenVariant::Certain(kw.into())
+        Pretoken::Certain(kw.into())
     }
 }
 
-impl From<StmtKeyword> for RawTokenVariant {
+impl From<StmtKeyword> for Pretoken {
     fn from(kw: StmtKeyword) -> Self {
-        RawTokenVariant::Certain(kw.into())
+        Pretoken::Certain(kw.into())
     }
 }
 
-impl From<TypeKeyword> for RawTokenVariant {
+impl From<TypeKeyword> for Pretoken {
     fn from(kw: TypeKeyword) -> Self {
-        RawTokenVariant::Certain(kw.into())
+        Pretoken::Certain(kw.into())
     }
 }
 
-impl From<LiasonKeyword> for RawTokenVariant {
+impl From<LiasonKeyword> for Pretoken {
     fn from(kw: LiasonKeyword) -> Self {
-        RawTokenVariant::Certain(kw.into())
+        Pretoken::Certain(kw.into())
     }
 }
 
-impl From<ConfigKeyword> for RawTokenVariant {
+impl From<ConfigKeyword> for Pretoken {
     fn from(kw: ConfigKeyword) -> Self {
-        RawTokenVariant::Certain(kw.into())
+        Pretoken::Certain(kw.into())
     }
 }
 
-impl From<AttrKeyword> for RawTokenVariant {
-    fn from(kw: AttrKeyword) -> Self {
-        RawTokenVariant::Certain(kw.into())
+impl From<AttributeKeyword> for Pretoken {
+    fn from(kw: AttributeKeyword) -> Self {
+        Pretoken::Certain(kw.into())
     }
 }
 
-impl From<WordOpr> for RawTokenVariant {
+impl From<WordOpr> for Pretoken {
     fn from(kw: WordOpr) -> Self {
-        RawTokenVariant::Certain(kw.into())
+        Pretoken::Certain(kw.into())
     }
 }
 
-impl Into<RawTokenVariant> for FormKeyword {
-    fn into(self) -> RawTokenVariant {
-        RawTokenVariant::Certain(self.into())
+impl Into<Pretoken> for FormKeyword {
+    fn into(self) -> Pretoken {
+        Pretoken::Certain(self.into())
     }
 }
 
-impl From<Token> for RawToken {
+impl From<Token> for RangedPretoken {
     fn from(value: Token) -> Self {
         Self {
             range: value.range,
-            variant: RawTokenVariant::Certain(value.kind),
+            token: Pretoken::Certain(value.kind),
         }
     }
 }
 
-pub(crate) struct RawTokenIter<'a, 'b> {
+pub(crate) struct PretokenStream<'a, 'b> {
     db: &'a dyn TokenDb,
     buffer: String,
     char_iter: TextCharIter<'b>,
 }
 
-impl<'a, 'b> RawTokenIter<'a, 'b> {
+impl<'a, 'b> PretokenStream<'a, 'b> {
     pub fn new(db: &'a dyn TokenDb, char_iter: TextCharIter<'b>) -> Self {
         let mut buffer = String::new();
         buffer.reserve_exact(100);
@@ -134,14 +135,14 @@ impl<'a, 'b> RawTokenIter<'a, 'b> {
     }
 }
 
-impl<'a, 'b: 'a> RawTokenIter<'a, 'b> {
+impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
     fn skip_whitespaces(&mut self) {
         while let Some(' ') = self.char_iter.peek() {
             self.char_iter.next();
         }
     }
 
-    fn next_word(&mut self) -> RawTokenVariant {
+    fn next_word(&mut self) -> Pretoken {
         while let Some(c) = self.char_iter.peek() {
             if is_word_char(c) {
                 self.eat_char();
@@ -153,7 +154,7 @@ impl<'a, 'b: 'a> RawTokenIter<'a, 'b> {
         self.take_buffer_word()
     }
 
-    fn next_number(&mut self) -> RawTokenVariant {
+    fn next_number(&mut self) -> Pretoken {
         let radix = 10;
         self.eat_chars_with(|c| char::is_digit(c, radix));
         if self.try_eat_char(|c| c == '.').is_some() {
@@ -174,7 +175,7 @@ impl<'a, 'b: 'a> RawTokenIter<'a, 'b> {
             token
         } else {
             let integer_suffix = self.get_str_slice_with(|c| c.is_alphanumeric());
-            let token: RawTokenVariant = match integer_suffix {
+            let token: Pretoken = match integer_suffix {
                 "" => IntegerLiteral::Unspecified.into(),
                 "i8" => todo!(),
                 "i16" => todo!(),
@@ -204,12 +205,12 @@ impl<'a, 'b: 'a> RawTokenIter<'a, 'b> {
         }
     }
 
-    fn take_buffer_word(&mut self) -> RawTokenVariant {
+    fn take_buffer_word(&mut self) -> Pretoken {
         let word = std::mem::take(&mut self.buffer);
         self.new_word(word)
     }
 
-    fn new_word(&self, word: String) -> RawTokenVariant {
+    fn new_word(&self, word: String) -> Pretoken {
         if let Some(token_kind) = new_reserved_word(self.db, &word) {
             // ad hoc
             token_kind
@@ -276,22 +277,32 @@ impl<'a, 'b: 'a> RawTokenIter<'a, 'b> {
         let _c = self.char_iter.next().expect("what");
     }
 
-    fn next_special(&mut self, c_start: char) -> Option<RawTokenVariant> {
+    fn next_punctuation(&mut self, c_start: char) -> Option<Pretoken> {
         Some(
             match c_start {
                 '=' => match self.peek_char() {
-                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::Comparison(
-                        BinaryComparisonOpr::Eq,
+                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryPunctuation::Comparison(
+                        BinaryComparisonPunctuation::Eq,
                     ))),
-                    _ => Punctuation::BinaryOpr(BinaryOpr::Assign(None)),
+                    _ => Punctuation::BinaryOpr(BinaryPunctuation::Assign(None)),
                 },
                 ':' => match self.peek_char() {
                     '=' => self.pass_two(Punctuation::DeriveAssign),
-                    ':' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::ScopeResolution)),
+                    ':' => {
+                        self.pass_two(Punctuation::BinaryOpr(BinaryPunctuation::ScopeResolution))
+                    }
                     _ => Punctuation::Colon,
                 },
                 '(' => Punctuation::Bra(Bracket::Par),
-                '[' => Punctuation::Bra(Bracket::Box),
+                '[' => {
+                    self.skip_whitespaces();
+                    match self.peek_char() {
+                        ']' => {
+                            todo!()
+                        }
+                        _ => Punctuation::Bra(Bracket::Box),
+                    }
+                }
                 '{' => Punctuation::Bra(Bracket::Curl),
                 ')' => Punctuation::Ket(Bracket::Par),
                 ']' => Punctuation::Ket(Bracket::Box),
@@ -299,92 +310,98 @@ impl<'a, 'b: 'a> RawTokenIter<'a, 'b> {
                 ',' => Punctuation::Comma,
                 '@' => Punctuation::At,
                 '&' => match self.peek_char() {
-                    '&' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::ShortcuitLogic(
-                        BinaryShortcuitLogicOpr::And,
-                    ))),
-                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::Assign(Some(
-                        BinaryPureClosedOpr::BitAnd,
+                    '&' => self.pass_two(Punctuation::BinaryOpr(
+                        BinaryPunctuation::ShortcuitLogic(BinaryShortcuitLogicPunctuation::And),
+                    )),
+                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryPunctuation::Assign(Some(
+                        BinaryPureClosedPunctuation::BitAnd,
                     )))),
                     _ => Punctuation::Ambersand,
                 },
                 '|' => match self.peek_char() {
                     '|' => self.pass_two(Punctuation::DoubleVertical),
-                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::Assign(Some(
-                        BinaryPureClosedOpr::BitOr,
+                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryPunctuation::Assign(Some(
+                        BinaryPureClosedPunctuation::BitOr,
                     )))),
                     _ => Punctuation::Vertical,
                 },
                 '~' => Punctuation::BitNot,
                 '.' => Punctuation::Dot,
                 ';' => Punctuation::Semicolon,
-                '%' => {
-                    Punctuation::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::RemEuclid))
-                }
+                '%' => Punctuation::BinaryOpr(BinaryPunctuation::PureClosed(
+                    BinaryPureClosedPunctuation::RemEuclid,
+                )),
 
                 '-' => match self.peek_char() {
-                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::Assign(Some(
-                        BinaryPureClosedOpr::Sub,
+                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryPunctuation::Assign(Some(
+                        BinaryPureClosedPunctuation::Sub,
                     )))),
                     '-' => self.pass_two(Punctuation::Decr),
-                    '>' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::Curry)),
-                    _ => return Some(RawTokenVariant::SubOrMinus),
+                    '>' => self.pass_two(Punctuation::BinaryOpr(BinaryPunctuation::Curry)),
+                    _ => return Some(Pretoken::SubOrMinus),
                 },
                 '<' => match self.peek_char() {
-                    '<' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::PureClosed(
-                        BinaryPureClosedOpr::Shl,
+                    '<' => self.pass_two(Punctuation::BinaryOpr(BinaryPunctuation::PureClosed(
+                        BinaryPureClosedPunctuation::Shl,
                     ))),
-                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::Comparison(
-                        BinaryComparisonOpr::Leq,
+                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryPunctuation::Comparison(
+                        BinaryComparisonPunctuation::Leq,
                     ))),
                     _ => Punctuation::LAngle,
                 },
                 '>' => match self.peek_char() {
                     // '>' => self.pass_two(SpecialToken::Shr), // >>
-                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::Comparison(
-                        BinaryComparisonOpr::Geq,
+                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryPunctuation::Comparison(
+                        BinaryComparisonPunctuation::Geq,
                     ))),
                     _ => Punctuation::RAngle,
                 },
                 '*' => match self.peek_char() {
-                    '*' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::PureClosed(
-                        BinaryPureClosedOpr::Power,
+                    '*' => self.pass_two(Punctuation::BinaryOpr(BinaryPunctuation::PureClosed(
+                        BinaryPureClosedPunctuation::Power,
                     ))),
-                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::Assign(Some(
-                        BinaryPureClosedOpr::Mul,
+                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryPunctuation::Assign(Some(
+                        BinaryPureClosedPunctuation::Mul,
                     )))),
-                    _ => Punctuation::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::Mul)),
+                    _ => Punctuation::BinaryOpr(BinaryPunctuation::PureClosed(
+                        BinaryPureClosedPunctuation::Mul,
+                    )),
                 },
                 '/' => match self.peek_char() {
                     '/' => unreachable!(),
                     '>' => self.pass_two(Punctuation::XmlKet),
-                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::Assign(Some(
-                        BinaryPureClosedOpr::Div,
+                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryPunctuation::Assign(Some(
+                        BinaryPureClosedPunctuation::Div,
                     )))),
-                    _ => Punctuation::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::Div)),
+                    _ => Punctuation::BinaryOpr(BinaryPunctuation::PureClosed(
+                        BinaryPureClosedPunctuation::Div,
+                    )),
                 },
                 '+' => match self.peek_char() {
                     '+' => self.pass_two(Punctuation::Incr),
-                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::Assign(Some(
-                        BinaryPureClosedOpr::Add,
+                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryPunctuation::Assign(Some(
+                        BinaryPureClosedPunctuation::Add,
                     )))),
-                    _ => Punctuation::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::Add)),
+                    _ => Punctuation::BinaryOpr(BinaryPunctuation::PureClosed(
+                        BinaryPureClosedPunctuation::Add,
+                    )),
                 },
                 '!' => match self.peek_char() {
-                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryOpr::Comparison(
-                        BinaryComparisonOpr::Neq,
+                    '=' => self.pass_two(Punctuation::BinaryOpr(BinaryPunctuation::Comparison(
+                        BinaryComparisonPunctuation::Neq,
                     ))),
                     '!' => self.pass_two(Punctuation::DoubleExclamation),
                     _ => Punctuation::Exclamation,
                 },
-                '?' => Punctuation::QuestionMark,
+                '?' => return Some(Pretoken::Punctuation(AmbiguousPunctuation::QuestionMark)),
                 '#' => Punctuation::PoundSign,
-                c => return Some(RawTokenVariant::Err(TokenError::UnrecognizedChar(c))),
+                c => return Some(Pretoken::Err(TokenError::UnrecognizedChar(c))),
             }
             .into(),
         )
     }
 
-    fn next_string_literal(&mut self) -> TokenResult<RawTokenVariant> {
+    fn next_string_literal(&mut self) -> TokenResult<Pretoken> {
         let mut s = String::new();
         while let Some(c) = self.char_iter.next() {
             match c {
@@ -407,15 +424,15 @@ impl<'a, 'b: 'a> RawTokenIter<'a, 'b> {
                 c => s.push(c),
             }
         }
-        Ok(RawTokenVariant::Literal(LiteralToken::String(
-            StringLiteral::new(s),
-        )))
+        Ok(Pretoken::Literal(LiteralToken::String(StringLiteral::new(
+            s,
+        ))))
     }
 
-    fn next_token_variant(&mut self) -> Option<RawTokenVariant> {
+    fn next_token_variant(&mut self) -> Option<Pretoken> {
         let c = self.char_iter.next()?;
         if c == '\n' {
-            Some(RawTokenVariant::NewLine)
+            Some(Pretoken::NewLine)
         } else if c == '"' {
             match self.next_string_literal() {
                 Ok(v) => Some(v),
@@ -426,7 +443,7 @@ impl<'a, 'b: 'a> RawTokenIter<'a, 'b> {
                             break;
                         }
                     }
-                    Some(RawTokenVariant::Err(e))
+                    Some(Pretoken::Err(e))
                 }
             }
         } else if c == ' ' {
@@ -445,15 +462,15 @@ impl<'a, 'b: 'a> RawTokenIter<'a, 'b> {
                     self.char_iter.next();
                 }
             }
-            Some(RawTokenVariant::Comment)
+            Some(Pretoken::Comment)
         } else {
-            self.next_special(c)
+            self.next_punctuation(c)
         }
     }
 }
 
-impl<'token_line, 'lex: 'token_line> Iterator for RawTokenIter<'token_line, 'lex> {
-    type Item = RawToken;
+impl<'token_line, 'lex: 'token_line> Iterator for PretokenStream<'token_line, 'lex> {
+    type Item = RangedPretoken;
 
     fn next(&mut self) -> Option<Self::Item> {
         let c = self.char_iter.peek()?;
@@ -465,9 +482,9 @@ impl<'token_line, 'lex: 'token_line> Iterator for RawTokenIter<'token_line, 'lex
             _ => {
                 let start = self.char_iter.current_position();
                 let variant = self.next_token_variant()?;
-                Some(RawToken {
+                Some(RangedPretoken {
                     range: (start..self.char_iter.current_position()).into(),
-                    variant,
+                    token: variant,
                 })
             }
         }

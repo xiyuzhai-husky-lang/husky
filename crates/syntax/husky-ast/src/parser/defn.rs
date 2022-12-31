@@ -3,7 +3,7 @@ use husky_entity_taxonomy::{
     AssociatedItemKind, FormKind, ModuleItemConnection, ModuleItemKind, TraitItemKind,
     TypeItemKind, TypeKind,
 };
-use husky_opn_syntax::{BinaryOpr, Bracket};
+use husky_opn_syntax::{BinaryPunctuation, Bracket};
 use husky_print_utils::p;
 use husky_token::{FormKeyword, TokenParseContext, TypeKeyword};
 use parsec::{ParseContext, ParseFrom};
@@ -149,7 +149,8 @@ impl<'a> BasicAuxAstParser<'a> {
                                     FormKeyword::Lemma => todo!(),
                                     FormKeyword::Proposition => todo!(),
                                 },
-                                Punctuation::BinaryOpr(BinaryOpr::Curry) | Punctuation::Colon => {
+                                Punctuation::BinaryOpr(BinaryPunctuation::Curry)
+                                | Punctuation::Colon => {
                                     todo!()
                                 }
                                 unexpected_special_token => {
@@ -222,9 +223,8 @@ impl<'a> BasicAuxAstParser<'a> {
                                     FormKeyword::Lemma => todo!(),
                                     FormKeyword::Proposition => todo!(),
                                 },
-                                Punctuation::BinaryOpr(BinaryOpr::Curry) | Punctuation::Colon => {
-                                    TypeItemKind::Memo
-                                }
+                                Punctuation::BinaryOpr(BinaryPunctuation::Curry)
+                                | Punctuation::Colon => TypeItemKind::Memo,
                                 unexpected_special_token => {
                                     todo!("unexpected_special_token = {unexpected_special_token:?}")
                                 }
@@ -266,9 +266,8 @@ impl<'a> BasicAuxAstParser<'a> {
                                     FormKeyword::Lemma => todo!(),
                                     FormKeyword::Proposition => todo!(),
                                 },
-                                Punctuation::BinaryOpr(BinaryOpr::Curry) | Punctuation::Colon => {
-                                    FormKind::Feature
-                                }
+                                Punctuation::BinaryOpr(BinaryPunctuation::Curry)
+                                | Punctuation::Colon => FormKind::Feature,
                                 unexpected_special_token => {
                                     todo!("unexpected_special_token = {unexpected_special_token:?}")
                                 }
@@ -310,9 +309,8 @@ impl<'a> BasicAuxAstParser<'a> {
                                     FormKeyword::Lemma => todo!(),
                                     FormKeyword::Proposition => todo!(),
                                 },
-                                Punctuation::BinaryOpr(BinaryOpr::Curry) | Punctuation::Colon => {
-                                    FormKind::Feature
-                                }
+                                Punctuation::BinaryOpr(BinaryPunctuation::Curry)
+                                | Punctuation::Colon => FormKind::Feature,
                                 unexpected_special_token => {
                                     todo!("unexpected_special_token = {unexpected_special_token:?}")
                                 }

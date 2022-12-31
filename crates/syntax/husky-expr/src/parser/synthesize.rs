@@ -61,7 +61,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         Ok(())
     }
 
-    fn synthesize_binary(&mut self, binary: BinaryOpr) {
+    fn synthesize_binary(&mut self, binary: BinaryPunctuation) {
         todo!()
         // use husky_text::HasTextRange;
         // let _len = self.stack.number_of_exprs();
@@ -69,7 +69,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         // self.synthesize_opn(binary.into(), 2, range)
     }
 
-    fn synthesize_prefix(&mut self, prefix: PrefixOpr, prefix_token_idx: TokenIdx) {
+    fn synthesize_prefix(&mut self, prefix: PrefixPunctuation, prefix_token_idx: TokenIdx) {
         todo!()
         // let range = (start..self.stack.top_expr().unwrap().range.end).into();
         // self.synthesize_opn(prefix.into(), 1, range)

@@ -1,21 +1,21 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum BinaryShortcuitLogicOpr {
+pub enum BinaryShortcuitLogicPunctuation {
     And,
     Or,
 }
 
-impl BinaryShortcuitLogicOpr {
+impl BinaryShortcuitLogicPunctuation {
     pub fn husky_code(self) -> &'static str {
         match self {
-            BinaryShortcuitLogicOpr::And => "&&",
-            BinaryShortcuitLogicOpr::Or => "||",
+            BinaryShortcuitLogicPunctuation::And => "&&",
+            BinaryShortcuitLogicPunctuation::Or => "||",
         }
     }
 
     pub fn spaced_husky_code(self) -> &'static str {
         match self {
-            BinaryShortcuitLogicOpr::And => todo!(),
-            BinaryShortcuitLogicOpr::Or => todo!(),
+            BinaryShortcuitLogicPunctuation::And => todo!(),
+            BinaryShortcuitLogicPunctuation::Or => todo!(),
         }
     }
 }

@@ -1,6 +1,7 @@
 #![feature(trait_upcasting)]
 #![feature(const_trait_impl)]
 #![feature(const_convert)]
+mod convexity;
 mod db;
 mod error;
 mod kind;
@@ -14,6 +15,7 @@ mod token_accessibility;
 mod tokenize;
 mod utils;
 
+pub use convexity::*;
 pub use db::*;
 pub use error::*;
 pub use kind::*;

@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_path::EntityPath;
 use husky_expr::*;
-use husky_opn_syntax::{BinaryOpr, BinaryPureClosedOpr, Opn};
+use husky_opn_syntax::{BinaryPunctuation, BinaryPureClosedPunctuation, Opn};
 use husky_term::Term;
 use husky_word::{Identifier, WordDb};
 
@@ -46,7 +46,7 @@ impl<'a> InferContext<'a> {
         }
     }
 
-    fn resolve_binary_opr(&self, opr: BinaryOpr) -> NormalizedOpnKind {
+    fn resolve_binary_opr(&self, opr: BinaryPunctuation) -> NormalizedOpnKind {
         panic!("deprecated")
     }
 }

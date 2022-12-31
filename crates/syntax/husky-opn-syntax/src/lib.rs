@@ -12,8 +12,8 @@ use husky_text::RangedIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum Opn {
-    Binary(BinaryOpr),
-    Prefix(PrefixOpr),
+    Binary(BinaryPunctuation),
+    Prefix(PrefixPunctuation),
     Suffix(RawSuffixOpr),
     CurlBracketed,
     List(ListOpr),

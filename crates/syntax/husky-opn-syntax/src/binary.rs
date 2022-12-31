@@ -9,75 +9,75 @@ pub use pure_closed::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum BinaryOpr {
-    PureClosed(BinaryPureClosedOpr),
-    Comparison(BinaryComparisonOpr),
-    ShortcuitLogic(BinaryShortcuitLogicOpr),
-    Assign(Option<BinaryPureClosedOpr>),
+pub enum BinaryPunctuation {
+    PureClosed(BinaryPureClosedPunctuation),
+    Comparison(BinaryComparisonPunctuation),
+    ShortcuitLogic(BinaryShortcuitLogicPunctuation),
+    Assign(Option<BinaryPureClosedPunctuation>),
     ScopeResolution, // ::
     Curry,           // ->
     As,              // as
 }
 
-impl Into<Opn> for BinaryOpr {
+impl Into<Opn> for BinaryPunctuation {
     fn into(self) -> Opn {
         Opn::Binary(self)
     }
 }
 
-impl BinaryOpr {
+impl BinaryPunctuation {
     pub fn code(self) -> &'static str {
         match self {
-            BinaryOpr::PureClosed(pure_opr) => pure_opr.husky_code(),
-            BinaryOpr::Assign(None) => "=",
-            BinaryOpr::Assign(Some(pure_opr)) => match pure_opr {
-                BinaryPureClosedOpr::Add => "+=",
-                BinaryPureClosedOpr::BitAnd => "&=",
-                BinaryPureClosedOpr::BitOr => "|=",
-                BinaryPureClosedOpr::BitXor => "^=",
-                BinaryPureClosedOpr::Div => "/=",
-                BinaryPureClosedOpr::Mul => "*=",
-                BinaryPureClosedOpr::RemEuclid => "%=",
-                BinaryPureClosedOpr::Power => "**=",
-                BinaryPureClosedOpr::Shl => "<<=",
-                BinaryPureClosedOpr::Shr => ">>=",
-                BinaryPureClosedOpr::Sub => "-=",
+            BinaryPunctuation::PureClosed(pure_opr) => pure_opr.husky_code(),
+            BinaryPunctuation::Assign(None) => "=",
+            BinaryPunctuation::Assign(Some(pure_opr)) => match pure_opr {
+                BinaryPureClosedPunctuation::Add => "+=",
+                BinaryPureClosedPunctuation::BitAnd => "&=",
+                BinaryPureClosedPunctuation::BitOr => "|=",
+                BinaryPureClosedPunctuation::BitXor => "^=",
+                BinaryPureClosedPunctuation::Div => "/=",
+                BinaryPureClosedPunctuation::Mul => "*=",
+                BinaryPureClosedPunctuation::RemEuclid => "%=",
+                BinaryPureClosedPunctuation::Power => "**=",
+                BinaryPureClosedPunctuation::Shl => "<<=",
+                BinaryPureClosedPunctuation::Shr => ">>=",
+                BinaryPureClosedPunctuation::Sub => "-=",
             },
-            BinaryOpr::Comparison(cmp_opr) => cmp_opr.husky_code(),
-            BinaryOpr::ShortcuitLogic(logic_opr) => logic_opr.husky_code(),
-            BinaryOpr::ScopeResolution => "::",
-            BinaryOpr::Curry => "->",
-            BinaryOpr::As => todo!(),
+            BinaryPunctuation::Comparison(cmp_opr) => cmp_opr.husky_code(),
+            BinaryPunctuation::ShortcuitLogic(logic_opr) => logic_opr.husky_code(),
+            BinaryPunctuation::ScopeResolution => "::",
+            BinaryPunctuation::Curry => "->",
+            BinaryPunctuation::As => todo!(),
         }
     }
 
     pub fn spaced_code(self) -> &'static str {
         match self {
-            BinaryOpr::PureClosed(pure_binary_opr) => pure_binary_opr.spaced_husky_code(),
-            BinaryOpr::Comparison(cmp_opr) => cmp_opr.spaced_husky_code(),
-            BinaryOpr::ShortcuitLogic(logic_opr) => logic_opr.spaced_husky_code(),
-            BinaryOpr::Assign(opt_binary_opr) => {
+            BinaryPunctuation::PureClosed(pure_binary_opr) => pure_binary_opr.spaced_husky_code(),
+            BinaryPunctuation::Comparison(cmp_opr) => cmp_opr.spaced_husky_code(),
+            BinaryPunctuation::ShortcuitLogic(logic_opr) => logic_opr.spaced_husky_code(),
+            BinaryPunctuation::Assign(opt_binary_opr) => {
                 if let Some(binary_opr) = opt_binary_opr {
                     match binary_opr {
-                        BinaryPureClosedOpr::Add => " += ",
-                        BinaryPureClosedOpr::BitAnd => " &= ",
-                        BinaryPureClosedOpr::BitOr => " |= ",
-                        BinaryPureClosedOpr::BitXor => " ^= ",
-                        BinaryPureClosedOpr::Div => " /= ",
-                        BinaryPureClosedOpr::Mul => " *= ",
-                        BinaryPureClosedOpr::RemEuclid => " %= ",
-                        BinaryPureClosedOpr::Power => " **= ",
-                        BinaryPureClosedOpr::Shl => " <<= ",
-                        BinaryPureClosedOpr::Shr => " >>= ",
-                        BinaryPureClosedOpr::Sub => " -= ",
+                        BinaryPureClosedPunctuation::Add => " += ",
+                        BinaryPureClosedPunctuation::BitAnd => " &= ",
+                        BinaryPureClosedPunctuation::BitOr => " |= ",
+                        BinaryPureClosedPunctuation::BitXor => " ^= ",
+                        BinaryPureClosedPunctuation::Div => " /= ",
+                        BinaryPureClosedPunctuation::Mul => " *= ",
+                        BinaryPureClosedPunctuation::RemEuclid => " %= ",
+                        BinaryPureClosedPunctuation::Power => " **= ",
+                        BinaryPureClosedPunctuation::Shl => " <<= ",
+                        BinaryPureClosedPunctuation::Shr => " >>= ",
+                        BinaryPureClosedPunctuation::Sub => " -= ",
                     }
                 } else {
                     " = "
                 }
             }
-            BinaryOpr::ScopeResolution => todo!(),
-            BinaryOpr::Curry => " -> ",
-            BinaryOpr::As => todo!(),
+            BinaryPunctuation::ScopeResolution => todo!(),
+            BinaryPunctuation::Curry => " -> ",
+            BinaryPunctuation::As => todo!(),
         }
     }
 }

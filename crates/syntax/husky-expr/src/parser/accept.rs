@@ -28,7 +28,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         self.push_expr(atom)
     }
 
-    fn accept_prefix_opr(&mut self, prefix: PrefixOpr, prefix_token_idx: TokenIdx) {
+    fn accept_prefix_opr(&mut self, prefix: PrefixPunctuation, prefix_token_idx: TokenIdx) {
         self.push_opr(PartialOpn::Prefix {
             prefix,
             prefix_token_idx,
@@ -56,7 +56,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
 
     pub(crate) fn accept_binary_opr(
         &mut self,
-        binary: BinaryOpr,
+        binary: BinaryPunctuation,
         binary_token_idx: TokenIdx,
     ) -> ExprResult<()> {
         let stack_opr = PartialOpn::Binary {

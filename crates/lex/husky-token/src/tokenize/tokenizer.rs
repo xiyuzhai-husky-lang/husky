@@ -30,7 +30,7 @@ impl<'token> Tokenizer<'token> {
         self.tokens
     }
 
-    pub(crate) fn push_tokens(&mut self, iter: impl Iterator<Item = RawToken>) {
+    pub(crate) fn push_tokens(&mut self, iter: impl Iterator<Item = RangedPretoken>) {
         for token in iter {
             match self.resolve_token(token) {
                 TokenizerAction::Push(token) => self.tokens.push(token),
@@ -40,19 +40,19 @@ impl<'token> Tokenizer<'token> {
         }
     }
 
-    fn resolve_token(&self, token: RawToken) -> TokenizerAction {
-        match token.variant {
-            RawTokenVariant::Certain(kind) => {
+    fn resolve_token(&self, token: RangedPretoken) -> TokenizerAction {
+        match token.token {
+            Pretoken::Certain(kind) => {
                 let token = Token {
                     range: token.range,
                     kind,
                 };
                 TokenizerAction::Push(token)
             }
-            RawTokenVariant::SubOrMinus => {
+            Pretoken::SubOrMinus => {
                 let kind = match self.right_convexity() {
                     Convexity::Convex => TokenKind::Punctuation(Punctuation::BinaryOpr(
-                        BinaryOpr::PureClosed(BinaryPureClosedOpr::Sub),
+                        BinaryPunctuation::PureClosed(BinaryPureClosedPunctuation::Sub),
                     )),
                     Convexity::Concave | Convexity::Any => {
                         TokenKind::Punctuation(Punctuation::Minus)
@@ -64,7 +64,7 @@ impl<'token> Tokenizer<'token> {
                 };
                 TokenizerAction::Push(token)
             }
-            RawTokenVariant::Literal(lit) => match self.tokens.last().map(|t| &t.kind) {
+            Pretoken::Literal(lit) => match self.tokens.last().map(|t| &t.kind) {
                 Some(TokenKind::Punctuation(Punctuation::Minus)) => {
                     let token = Token {
                         range: token.range,
@@ -80,13 +80,13 @@ impl<'token> Tokenizer<'token> {
                     TokenizerAction::Push(token)
                 }
             },
-            RawTokenVariant::NewLine => TokenizerAction::NewLine,
-            RawTokenVariant::Special(_) => todo!(),
-            RawTokenVariant::Comment => TokenizerAction::Push(Token {
+            Pretoken::NewLine => TokenizerAction::NewLine,
+            Pretoken::Punctuation(_) => todo!(),
+            Pretoken::Comment => TokenizerAction::Push(Token {
                 range: token.range,
                 kind: TokenKind::Comment,
             }),
-            RawTokenVariant::Err(e) => TokenizerAction::Push(Token {
+            Pretoken::Err(e) => TokenizerAction::Push(Token {
                 range: token.range,
                 kind: TokenKind::Err(e),
             }),

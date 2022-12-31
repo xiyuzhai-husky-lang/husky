@@ -3,14 +3,14 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(super) enum PartialOpn {
     Binary {
-        binary: BinaryOpr,
+        binary: BinaryPunctuation,
         binary_token_idx: TokenIdx,
     },
     ListItem {
         separator_token_idx: Option<TokenIdx>,
     },
     Prefix {
-        prefix: PrefixOpr,
+        prefix: PrefixPunctuation,
         prefix_token_idx: TokenIdx,
     },
     ListStart {

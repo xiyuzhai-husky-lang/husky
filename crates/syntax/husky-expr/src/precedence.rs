@@ -29,35 +29,41 @@ fn test_precedence_order() {
     should!(Precedence::Power < Precedence::Prefix);
 }
 
-impl From<BinaryOpr> for Precedence {
-    fn from(binary: BinaryOpr) -> Self {
+impl From<BinaryPunctuation> for Precedence {
+    fn from(binary: BinaryPunctuation) -> Self {
         match binary {
-            BinaryOpr::PureClosed(pure_binary) => match pure_binary {
-                BinaryPureClosedOpr::BitAnd => Precedence::BitAnd,
-                BinaryPureClosedOpr::BitOr => Precedence::BitOr,
-                BinaryPureClosedOpr::BitXor => Precedence::BitXor,
-                BinaryPureClosedOpr::Mul
-                | BinaryPureClosedOpr::Div
-                | BinaryPureClosedOpr::RemEuclid => Precedence::Multiplicative,
-                BinaryPureClosedOpr::Add | BinaryPureClosedOpr::Sub => Precedence::Additive,
-                BinaryPureClosedOpr::Shl | BinaryPureClosedOpr::Shr => Precedence::Shift,
-                BinaryPureClosedOpr::Power => Precedence::Power,
+            BinaryPunctuation::PureClosed(pure_binary) => match pure_binary {
+                BinaryPureClosedPunctuation::BitAnd => Precedence::BitAnd,
+                BinaryPureClosedPunctuation::BitOr => Precedence::BitOr,
+                BinaryPureClosedPunctuation::BitXor => Precedence::BitXor,
+                BinaryPureClosedPunctuation::Mul
+                | BinaryPureClosedPunctuation::Div
+                | BinaryPureClosedPunctuation::RemEuclid => Precedence::Multiplicative,
+                BinaryPureClosedPunctuation::Add | BinaryPureClosedPunctuation::Sub => {
+                    Precedence::Additive
+                }
+                BinaryPureClosedPunctuation::Shl | BinaryPureClosedPunctuation::Shr => {
+                    Precedence::Shift
+                }
+                BinaryPureClosedPunctuation::Power => Precedence::Power,
             },
-            BinaryOpr::Comparison(cmp_opr) => match cmp_opr {
-                BinaryComparisonOpr::Eq | BinaryComparisonOpr::Neq => Precedence::EqComparison,
-                BinaryComparisonOpr::Leq
-                | BinaryComparisonOpr::Less
-                | BinaryComparisonOpr::Geq
-                | BinaryComparisonOpr::Greater => Precedence::OrdComparison,
+            BinaryPunctuation::Comparison(cmp_opr) => match cmp_opr {
+                BinaryComparisonPunctuation::Eq | BinaryComparisonPunctuation::Neq => {
+                    Precedence::EqComparison
+                }
+                BinaryComparisonPunctuation::Leq
+                | BinaryComparisonPunctuation::Less
+                | BinaryComparisonPunctuation::Geq
+                | BinaryComparisonPunctuation::Greater => Precedence::OrdComparison,
             },
-            BinaryOpr::ShortcuitLogic(logic_opr) => match logic_opr {
-                BinaryShortcuitLogicOpr::And => Precedence::And,
-                BinaryShortcuitLogicOpr::Or => Precedence::Or,
+            BinaryPunctuation::ShortcuitLogic(logic_opr) => match logic_opr {
+                BinaryShortcuitLogicPunctuation::And => Precedence::And,
+                BinaryShortcuitLogicPunctuation::Or => Precedence::Or,
             },
-            BinaryOpr::Assign(_) => Precedence::None,
-            BinaryOpr::ScopeResolution => Precedence::ScopeResolution,
-            BinaryOpr::Curry => todo!(),
-            BinaryOpr::As => todo!(),
+            BinaryPunctuation::Assign(_) => Precedence::None,
+            BinaryPunctuation::ScopeResolution => Precedence::ScopeResolution,
+            BinaryPunctuation::Curry => todo!(),
+            BinaryPunctuation::As => todo!(),
         }
     }
 }
