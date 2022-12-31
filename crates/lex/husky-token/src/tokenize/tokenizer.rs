@@ -83,18 +83,6 @@ impl<'token> Tokenizer<'token> {
                     TokenizerAction::Push(token)
                 }
                 AmbiguousPretoken::For => todo!(),
-                AmbiguousPretoken::QuestionMark => {
-                    let punc = match self.right_convexity() {
-                        Convexity::Convex => Punctuation::Unveil,
-                        Convexity::Concave => Punctuation::Option,
-                        Convexity::Any => todo!(),
-                    };
-                    TokenizerAction::Push(Token {
-                        range: token.range,
-                        kind: TokenKind::Punctuation(punc),
-                    })
-                }
-                AmbiguousPretoken::Ambersand => todo!(),
             },
             Pretoken::Comment => TokenizerAction::Push(Token {
                 range: token.range,
