@@ -31,14 +31,13 @@ impl<'a> SymbolContext<'a> {
     }
 
     pub fn resolve_ident(&self, ident: Identifier) -> Option<Symbol> {
-        todo!()
-        // if let Some(symbol) = self.locals.resolve_ident(ident) {
-        //     Some(symbol)
-        // } else if let Some(symbol) = self.preludes.iter().find(|symbol| symbol.ident == ident) {
-        //     Some(*symbol)
-        // } else {
-        //     None
-        // }
+        if let Some(symbol) = self.local_symbol_sheet.resolve_ident(ident) {
+            Some(symbol)
+        } else if let Some(symbol) = self.crate_prelude.resolve_ident(ident) {
+            Some(Symbol::Entity(symbol.entity_path()))
+        } else {
+            None
+        }
     }
 
     pub fn entity_path(&self) -> EntityPath {

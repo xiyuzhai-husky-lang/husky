@@ -57,6 +57,6 @@ impl<'a> EntitySymbolContext<'a> {
     pub(crate) fn get(&self, ident: Identifier) -> Option<&EntitySymbol> {
         self.nodes
             .get_entry(ident)
-            .or_else(|| self.crate_prelude.get(ident))
+            .or_else(|| self.crate_prelude.resolve_ident(ident))
     }
 }

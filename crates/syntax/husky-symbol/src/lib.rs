@@ -9,7 +9,7 @@ pub use binding::*;
 pub use context::SymbolContext;
 pub use label::*;
 pub use lifetime::*;
-pub use sheet::LocalSymbolSheet;
+pub use sheet::{LocalSymbolSheet, VariableIdx};
 pub use variable::*;
 
 use husky_entity_path::EntityPath;

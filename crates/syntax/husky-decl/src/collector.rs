@@ -9,9 +9,9 @@ use husky_print_utils::p;
 use husky_symbol::{LocalSymbolSheet, SymbolContext};
 use husky_token::{
     IdentifierToken, LeftAngleBracketToken, LeftBoxBracketToken, LeftCurlyBraceToken, Punctuation,
-    TokenGroupIdx, TokenIdx, TokenSheet,
+    RightCurlyBraceToken, TokenGroupIdx, TokenIdx, TokenSheet,
 };
-use parsec::{ParseContext, ParseFrom};
+use parsec::{parse_separated_list, ParseContext, ParseFrom};
 use salsa::DebugWithDb;
 use vec_like::VecPairMap;
 
@@ -171,17 +171,19 @@ impl<'a> DeclCollector<'a> {
             &mut local_symbol_sheet,
         );
         let generic_parameters = parse_generic_parameters(&mut parser)?;
-        p!(parser.peek());
         if let Some(lcurl) = parser.parse::<LeftCurlyBraceToken>()? {
-            // todo!();
-            // ad hoc
+            let (fields, separators) = parse_separated_list(&mut parser)?;
+            let rcurl: RightCurlyBraceToken = parser.parse_expected()?;
             Ok(Decl::Type(
                 PropsStructTypeDecl::new(
                     self.db,
                     path,
                     ast_idx,
                     generic_parameters,
-                    /* ad hoc */ vec![],
+                    lcurl,
+                    fields,
+                    separators,
+                    rcurl,
                 )
                 .into(),
             ))

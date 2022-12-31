@@ -2,21 +2,23 @@ use super::*;
 
 impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     pub(super) fn synthesize_all_above(&mut self, threshold: Precedence) -> ExprResult<()> {
-        while let Some(stack_opr) = self.top_opr() {
+        while let Some(stack_opr) = self.top_opn() {
             if stack_opr.precedence() >= threshold {
                 let stack_opr = self.pop_opr().unwrap();
                 match stack_opr {
-                    StackOpr::Binary { binary, .. } => self.synthesize_binary(binary),
-                    StackOpr::Prefix {
+                    PartialOpn::Binary { binary, .. } => self.synthesize_binary(binary),
+                    PartialOpn::Prefix {
                         prefix,
                         prefix_token_idx,
                     } => self.synthesize_prefix(prefix, prefix_token_idx),
-                    StackOpr::LambdaHead { inputs, start } => self.synthesize_lambda(inputs, start),
-                    StackOpr::ListItem { .. } => {
+                    PartialOpn::LambdaHead { inputs, start } => {
+                        self.synthesize_lambda(inputs, start)
+                    }
+                    PartialOpn::ListItem { .. } => {
                         let (_bra, bra_token) = loop {
                             if let Some(opr) = self.pop_opr() {
                                 match opr {
-                                    StackOpr::ListStart {
+                                    PartialOpn::ListStart {
                                         bra,
                                         bra_token_idx: bra_token,
                                         ..
@@ -40,7 +42,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                         //     dev_src: dev_src!(),
                         // });
                     }
-                    StackOpr::ListStart { .. } => {
+                    PartialOpn::ListStart { .. } => {
                         todo!()
                         // return Err(AstError {
                         //     variant: AstErrorVariant::Original {
@@ -50,7 +52,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                         //     dev_src: dev_src!(),
                         // })
                     }
-                    StackOpr::Dot { dot_token_idx } => todo!(),
+                    PartialOpn::Dot { dot_token_idx } => todo!(),
                 }
             } else {
                 return Ok(());
@@ -95,8 +97,8 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     }
 
     fn take_opds(&mut self, nopds: usize) -> ExprIdxRange {
-        let drained_exprs = self.drain_exprs(nopds);
-        self.sheet.alloc_expr_batch(drained_exprs)
+        let (drained_exprs, paths) = self.drain_exprs(nopds);
+        self.sheet.alloc_expr_batch(drained_exprs, paths)
     }
 
     fn synthesize_lambda(

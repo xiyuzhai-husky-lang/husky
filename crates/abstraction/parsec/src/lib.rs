@@ -91,7 +91,7 @@ where
     Context: ParseContext + ?Sized,
 {
     /// no guarantee on stream state other than Ok(Some(_))
-    fn parse_from_without_guaranteed_rollback<'a>(
+    fn parse_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> Result<Option<Self>, Context::Error>;
 }

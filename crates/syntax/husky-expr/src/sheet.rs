@@ -3,6 +3,7 @@ use crate::*;
 #[derive(Debug, Default, PartialEq, Eq)]
 pub struct ExprSheet {
     expr_arena: ExprArena,
+    expr_base_entity_paths: Vec<BaseEntityPath>,
     entity_path_expr_arena: EntityPathExprArena,
     pattern_expr_arena: PatternExprArena,
 }
@@ -20,7 +21,12 @@ impl ExprSheet {
         &self.pattern_expr_arena
     }
 
-    pub(crate) fn alloc_expr_batch(&mut self, opds: Vec<Expr>) -> ArenaIdxRange<Expr> {
+    pub(crate) fn alloc_expr_batch(
+        &mut self,
+        opds: Vec<Expr>,
+        base_entity_path_results: Vec<BaseEntityPath>,
+    ) -> ArenaIdxRange<Expr> {
+        self.expr_base_entity_paths.extend(base_entity_path_results);
         self.expr_arena.alloc_batch(opds)
     }
 }

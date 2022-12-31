@@ -2,4 +2,5 @@
 pub enum ExprParsingStopReason {
     Semicolon,
     NoTokens,
+    Comma,
 }

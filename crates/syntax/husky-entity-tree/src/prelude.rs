@@ -53,7 +53,7 @@ impl<'a> CratePrelude<'a> {
         }
     }
 
-    pub fn get(&self, ident: Identifier) -> Option<&'a EntitySymbol> {
+    pub fn resolve_ident(&self, ident: Identifier) -> Option<&'a EntitySymbol> {
         self.universal_prelude
             .get_entry(ident)
             .or_else(|| self.crate_specific_prelude.get_entry(ident))

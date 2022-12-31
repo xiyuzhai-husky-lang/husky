@@ -1,7 +1,7 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub(super) enum StackOpr {
+pub(super) enum PartialOpn {
     Binary {
         binary: BinaryOpr,
         binary_token_idx: TokenIdx,
@@ -27,14 +27,14 @@ pub(super) enum StackOpr {
     },
 }
 
-impl StackOpr {
+impl PartialOpn {
     pub(super) fn precedence(&self) -> Precedence {
         match self {
-            StackOpr::Binary { binary, .. } => (*binary).into(),
-            StackOpr::Prefix { .. } => Precedence::Prefix,
-            StackOpr::ListItem { .. } | StackOpr::ListStart { .. } => Precedence::None,
-            StackOpr::LambdaHead { inputs, start } => Precedence::LambdaHead,
-            StackOpr::Dot { dot_token_idx } => Precedence::Dot,
+            PartialOpn::Binary { binary, .. } => (*binary).into(),
+            PartialOpn::Prefix { .. } => Precedence::Prefix,
+            PartialOpn::ListItem { .. } | PartialOpn::ListStart { .. } => Precedence::None,
+            PartialOpn::LambdaHead { inputs, start } => Precedence::LambdaHead,
+            PartialOpn::Dot { dot_token_idx } => Precedence::Dot,
         }
     }
 }
