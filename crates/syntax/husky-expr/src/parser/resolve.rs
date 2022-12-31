@@ -30,15 +30,15 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 Punctuation::LAngle => todo!(),
                 Punctuation::RAngle => todo!(),
                 Punctuation::DeriveAssign => todo!(),
-                Punctuation::Minus => ResolvedTokenKind::Prefix(PrefixOpr::Minus),
-                Punctuation::Exclamation => ResolvedTokenKind::Prefix(PrefixOpr::Not),
+                Punctuation::Minus => ResolvedTokenKind::Prefix(PrefixPunctuation::Minus),
+                Punctuation::Exclamation => ResolvedTokenKind::Prefix(PrefixPunctuation::Not),
                 Punctuation::Incr => ResolvedTokenKind::Suffix(RawSuffixOpr::Incr),
                 Punctuation::Decr => ResolvedTokenKind::Suffix(RawSuffixOpr::Decr),
                 Punctuation::DoubleVertical => todo!(),
                 Punctuation::BitNot => todo!(),
                 Punctuation::Dot => ResolvedTokenKind::Dot,
-                Punctuation::BinaryOpr(BinaryOpr::Curry) => todo!(),
-                Punctuation::BinaryOpr(BinaryOpr::ScopeResolution) => todo!(),
+                Punctuation::BinaryOpr(BinaryPunctuation::Curry) => todo!(),
+                Punctuation::BinaryOpr(BinaryPunctuation::ScopeResolution) => todo!(),
                 Punctuation::Colon => todo!(),
                 Punctuation::Comma => {
                     match self.top_opn() {
@@ -55,7 +55,8 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 }
                 Punctuation::XmlKet => todo!(),
                 Punctuation::At => todo!(),
-                Punctuation::QuestionMark => todo!(),
+                Punctuation::Unveil => todo!(),
+                Punctuation::Option => todo!(),
                 Punctuation::PoundSign => todo!(),
             },
             TokenKind::WordOpr(_) => todo!(),
@@ -69,7 +70,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         if let Some(opn) = self.top_opn() {
             match opn {
                 PartialOpn::Binary {
-                    binary: BinaryOpr::ScopeResolution,
+                    binary: BinaryPunctuation::ScopeResolution,
                     ..
                 } => {
                     if let Some(previous_expr) = self.top_expr() {
@@ -155,8 +156,8 @@ impl ResolvedToken {
 #[derive(Clone)]
 pub(crate) enum ResolvedTokenKind {
     Atom(AtomExpr),
-    BinaryOpr(BinaryOpr),
-    Prefix(PrefixOpr),
+    BinaryOpr(BinaryPunctuation),
+    Prefix(PrefixPunctuation),
     Suffix(RawSuffixOpr),
     Bra(Bracket),
     Ket(Bracket),

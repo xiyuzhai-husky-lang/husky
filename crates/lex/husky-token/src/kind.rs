@@ -1,18 +1,18 @@
-mod decorator;
+mod attribute;
 mod keyword;
-mod special;
+mod punctuation;
 mod wordopr;
 
-pub use decorator::*;
+pub use attribute::*;
 pub use keyword::*;
-pub use special::*;
+pub use punctuation::*;
 pub use wordopr::*;
 
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum TokenKind {
-    Attr(AttrKeyword),
+    Attr(AttributeKeyword),
     Keyword(Keyword),
     Identifier(Identifier),
     Punctuation(Punctuation),

@@ -109,22 +109,22 @@ impl<'a> TermPatternInferContext<'a> {
 
     fn infer_binary_opn(
         &self,
-        opr: BinaryOpr,
+        opr: BinaryPunctuation,
         opds: &ExprIdxRange,
         sheet: &mut TermPatternInferSheet,
     ) -> ExprTermPatternInferRawResults {
         match opr {
-            BinaryOpr::Assign(_) => todo!(),
-            BinaryOpr::PureClosed(_) => ExprTermPatternInferRawResults {
+            BinaryPunctuation::Assign(_) => todo!(),
+            BinaryPunctuation::PureClosed(_) => ExprTermPatternInferRawResults {
                 // todo: if both operands are constant, make this constexpr?
                 const_expr: Ok(None),
                 ty: self.expr_ty_result(sheet, opds.start()),
             },
-            BinaryOpr::Comparison(_) => todo!(),
-            BinaryOpr::ShortcuitLogic(_) => todo!(),
-            BinaryOpr::ScopeResolution => todo!(),
-            BinaryOpr::Curry => todo!(),
-            BinaryOpr::As => todo!(),
+            BinaryPunctuation::Comparison(_) => todo!(),
+            BinaryPunctuation::ShortcuitLogic(_) => todo!(),
+            BinaryPunctuation::ScopeResolution => todo!(),
+            BinaryPunctuation::Curry => todo!(),
+            BinaryPunctuation::As => todo!(),
         }
     }
 

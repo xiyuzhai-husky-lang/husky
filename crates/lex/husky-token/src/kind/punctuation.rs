@@ -1,10 +1,10 @@
-use husky_opn_syntax::{BinaryOpr, Bracket};
+use husky_opn_syntax::{BinaryPunctuation, Bracket};
 
-use crate::TokenKind;
+use crate::{Convexity, TokenKind};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Punctuation {
-    BinaryOpr(BinaryOpr),
+    BinaryOpr(BinaryPunctuation),
     Bra(Bracket),
     Ket(Bracket),
     LAngle,            // <
@@ -25,12 +25,13 @@ pub enum Punctuation {
     Semicolon,         // ;
     XmlKet,            // />
     At,                // @
-    QuestionMark,      // ?
+    Unveil,            // ?
+    Option,            // ?
     PoundSign,         // #
 }
 
-impl From<BinaryOpr> for Punctuation {
-    fn from(v: BinaryOpr) -> Self {
+impl From<BinaryPunctuation> for Punctuation {
+    fn from(v: BinaryPunctuation) -> Self {
         Self::BinaryOpr(v)
     }
 }
@@ -65,7 +66,8 @@ impl Punctuation {
             Punctuation::Semicolon => ";",
             Punctuation::XmlKet => "/>",
             Punctuation::At => "@",
-            Punctuation::QuestionMark => "?",
+            Punctuation::Unveil => "?",
+            Punctuation::Option => "?",
             Punctuation::PoundSign => "#",
         }
     }
@@ -75,6 +77,35 @@ impl Punctuation {
             Punctuation::LAngle => Some(Bracket::Angle),
             Punctuation::Bra(bracket) => Some(bracket),
             _ => None,
+        }
+    }
+
+    pub fn left_convexity(self) -> Option<Convexity> {
+        match self {
+            Punctuation::BinaryOpr(_) => todo!(),
+            Punctuation::Bra(_) => todo!(),
+            Punctuation::Ket(_) => todo!(),
+            Punctuation::LAngle => todo!(),
+            Punctuation::RAngle => todo!(),
+            Punctuation::DeriveAssign => todo!(),
+            Punctuation::Minus => todo!(),
+            Punctuation::DoubleVertical => todo!(),
+            Punctuation::BitNot => todo!(),
+            Punctuation::Dot => todo!(),
+            Punctuation::Colon => todo!(),
+            Punctuation::Comma => todo!(),
+            Punctuation::Ambersand => None,
+            Punctuation::Incr => todo!(),
+            Punctuation::Decr => todo!(),
+            Punctuation::Vertical => todo!(),
+            Punctuation::Exclamation => todo!(),
+            Punctuation::DoubleExclamation => todo!(),
+            Punctuation::Semicolon => todo!(),
+            Punctuation::XmlKet => todo!(),
+            Punctuation::At => todo!(),
+            Punctuation::Unveil => todo!(),
+            Punctuation::Option => todo!(),
+            Punctuation::PoundSign => todo!(),
         }
     }
 }

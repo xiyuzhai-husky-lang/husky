@@ -1,4 +1,4 @@
-use husky_opn_syntax::{BinaryOpr, BinaryPureClosedOpr, Bracket};
+use husky_opn_syntax::{BinaryPunctuation, BinaryPureClosedPunctuation, Bracket};
 use husky_token::{TokenParseContext, TokenStream};
 use parsec::{HasParseError, StreamWrapper};
 
@@ -132,7 +132,9 @@ impl<'b> EntityUseExprParser<'b> {
                     return Some(UseExpr::One { ident })
                 };
                 match next_token.kind {
-                    TokenKind::Punctuation(Punctuation::BinaryOpr(BinaryOpr::ScopeResolution)) => {}
+                    TokenKind::Punctuation(Punctuation::BinaryOpr(
+                        BinaryPunctuation::ScopeResolution,
+                    )) => {}
                     TokenKind::Punctuation(Punctuation::Comma)
                     | TokenKind::Punctuation(Punctuation::Ket(Bracket::Curl)) => {
                         self.token_iter.step_back();
@@ -152,8 +154,8 @@ impl<'b> EntityUseExprParser<'b> {
             }
             TokenKind::Punctuation(Punctuation::Bra(Bracket::Curl)) => self.parse_multiple(),
             // ad hoc; todo: change this to SpecialToken::Star
-            TokenKind::Punctuation(Punctuation::BinaryOpr(BinaryOpr::PureClosed(
-                BinaryPureClosedOpr::Mul,
+            TokenKind::Punctuation(Punctuation::BinaryOpr(BinaryPunctuation::PureClosed(
+                BinaryPureClosedPunctuation::Mul,
             ))) => UseExpr::All {},
             _ => UseExpr::Err(EntityUseExprError::ExpectSomething),
         })
