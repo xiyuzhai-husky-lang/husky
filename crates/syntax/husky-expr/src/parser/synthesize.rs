@@ -75,9 +75,12 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         // self.synthesize_opn(prefix.into(), 1, range)
     }
 
-    pub(super) fn synthesize_suffix(&mut self, suffix: RawSuffixOpr, suffix_token_idx: TokenIdx) {
-        self.synthesize_opn(suffix.into(), 1);
-        todo!()
+    pub(super) fn synthesize_suffix(
+        &mut self,
+        suffix: SuffixPunctuation,
+        suffix_token_idx: TokenIdx,
+    ) {
+        self.synthesize_opn(suffix.into(), 1)
     }
 
     fn synthesize_field_access(&mut self, _field_ident: RangedIdentifier, _end: TextPosition) {

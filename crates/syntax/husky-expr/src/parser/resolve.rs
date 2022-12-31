@@ -32,8 +32,8 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 Punctuation::DeriveAssign => todo!(),
                 Punctuation::Minus => ResolvedTokenKind::Prefix(PrefixPunctuation::Minus),
                 Punctuation::Exclamation => ResolvedTokenKind::Prefix(PrefixPunctuation::Not),
-                Punctuation::Incr => ResolvedTokenKind::Suffix(RawSuffixOpr::Incr),
-                Punctuation::Decr => ResolvedTokenKind::Suffix(RawSuffixOpr::Decr),
+                Punctuation::Incr => ResolvedTokenKind::Suffix(SuffixPunctuation::Incr),
+                Punctuation::Decr => ResolvedTokenKind::Suffix(SuffixPunctuation::Decr),
                 Punctuation::DoubleVertical => todo!(),
                 Punctuation::BitNot => todo!(),
                 Punctuation::Dot => ResolvedTokenKind::Dot,
@@ -47,7 +47,6 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                     }
                     // ResolvedTokenKind::Comma
                 }
-                Punctuation::Ambersand => todo!(),
                 Punctuation::Vertical => todo!(),
                 Punctuation::DoubleExclamation => todo!(),
                 Punctuation::Semicolon => {
@@ -55,9 +54,11 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 }
                 Punctuation::XmlKet => todo!(),
                 Punctuation::At => todo!(),
-                Punctuation::Unveil => todo!(),
+                Punctuation::Unveil => ResolvedTokenKind::Suffix(SuffixPunctuation::Unveil),
                 Punctuation::Option => todo!(),
                 Punctuation::PoundSign => todo!(),
+                Punctuation::Ref => todo!(),
+                Punctuation::BitAnd => todo!(),
             },
             TokenKind::WordOpr(_) => todo!(),
             TokenKind::Literal(ref literal) => ResolvedTokenKind::Atom(literal.clone().into()),
@@ -158,7 +159,7 @@ pub(crate) enum ResolvedTokenKind {
     Atom(AtomExpr),
     BinaryOpr(BinaryPunctuation),
     Prefix(PrefixPunctuation),
-    Suffix(RawSuffixOpr),
+    Suffix(SuffixPunctuation),
     Bra(Bracket),
     Ket(Bracket),
     Dot,

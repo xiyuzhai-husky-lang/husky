@@ -16,7 +16,8 @@ pub enum Punctuation {
     Dot,               // .
     Colon,             // :
     Comma,             // ,
-    Ambersand,         // &
+    Ref,               // &
+    BitAnd,            // &
     Incr,              // ++
     Decr,              // --
     Vertical,          // |
@@ -57,7 +58,8 @@ impl Punctuation {
             Punctuation::Dot => ".",
             Punctuation::Colon => ":",
             Punctuation::Comma => ",",
-            Punctuation::Ambersand => "&",
+            Punctuation::Ref => todo!(),
+            Punctuation::BitAnd => todo!(),
             Punctuation::Incr => "++",
             Punctuation::Decr => "--",
             Punctuation::Vertical => "|",
@@ -94,7 +96,8 @@ impl Punctuation {
             Punctuation::Dot => todo!(),
             Punctuation::Colon => todo!(),
             Punctuation::Comma => todo!(),
-            Punctuation::Ambersand => None,
+            Punctuation::Ref => todo!(),
+            Punctuation::BitAnd => todo!(),
             Punctuation::Incr => todo!(),
             Punctuation::Decr => todo!(),
             Punctuation::Vertical => todo!(),

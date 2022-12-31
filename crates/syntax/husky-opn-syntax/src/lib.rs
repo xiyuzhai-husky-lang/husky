@@ -14,7 +14,7 @@ use husky_text::RangedIdentifier;
 pub enum Opn {
     Binary(BinaryPunctuation),
     Prefix(PrefixPunctuation),
-    Suffix(RawSuffixOpr),
+    Suffix(SuffixPunctuation),
     CurlBracketed,
     List(ListOpr),
     Field(Option<RangedIdentifier>),

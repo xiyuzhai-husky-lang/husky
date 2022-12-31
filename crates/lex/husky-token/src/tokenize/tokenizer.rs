@@ -49,21 +49,6 @@ impl<'token> Tokenizer<'token> {
                 };
                 TokenizerAction::Push(token)
             }
-            Pretoken::SubOrMinus => {
-                let kind = match self.right_convexity() {
-                    Convexity::Convex => TokenKind::Punctuation(Punctuation::BinaryOpr(
-                        BinaryPunctuation::PureClosed(BinaryPureClosedPunctuation::Sub),
-                    )),
-                    Convexity::Concave | Convexity::Any => {
-                        TokenKind::Punctuation(Punctuation::Minus)
-                    }
-                };
-                let token = Token {
-                    range: token.range,
-                    kind,
-                };
-                TokenizerAction::Push(token)
-            }
             Pretoken::Literal(lit) => match self.tokens.last().map(|t| &t.kind) {
                 Some(TokenKind::Punctuation(Punctuation::Minus)) => {
                     let token = Token {
@@ -81,7 +66,36 @@ impl<'token> Tokenizer<'token> {
                 }
             },
             Pretoken::NewLine => TokenizerAction::NewLine,
-            Pretoken::Punctuation(_) => todo!(),
+            Pretoken::Ambiguous(punc) => match punc {
+                AmbiguousPretoken::SubOrMinus => {
+                    let kind = match self.right_convexity() {
+                        Convexity::Convex => TokenKind::Punctuation(Punctuation::BinaryOpr(
+                            BinaryPunctuation::PureClosed(BinaryPureClosedPunctuation::Sub),
+                        )),
+                        Convexity::Concave | Convexity::Any => {
+                            TokenKind::Punctuation(Punctuation::Minus)
+                        }
+                    };
+                    let token = Token {
+                        range: token.range,
+                        kind,
+                    };
+                    TokenizerAction::Push(token)
+                }
+                AmbiguousPretoken::For => todo!(),
+                AmbiguousPretoken::QuestionMark => {
+                    let punc = match self.right_convexity() {
+                        Convexity::Convex => Punctuation::Unveil,
+                        Convexity::Concave => Punctuation::Option,
+                        Convexity::Any => todo!(),
+                    };
+                    TokenizerAction::Push(Token {
+                        range: token.range,
+                        kind: TokenKind::Punctuation(punc),
+                    })
+                }
+                AmbiguousPretoken::Ambersand => todo!(),
+            },
             Pretoken::Comment => TokenizerAction::Push(Token {
                 range: token.range,
                 kind: TokenKind::Comment,

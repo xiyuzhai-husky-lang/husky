@@ -23,9 +23,8 @@ impl RangedPretoken {
 pub(crate) enum Pretoken {
     Certain(TokenKind),
     Literal(LiteralToken),
-    SubOrMinus,
     NewLine,
-    Punctuation(AmbiguousPunctuation),
+    Ambiguous(AmbiguousPretoken),
     Comment,
     Err(TokenError),
 }
@@ -43,9 +42,11 @@ impl Into<Pretoken> for FloatLiteral {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum AmbiguousPunctuation {
+pub enum AmbiguousPretoken {
+    SubOrMinus,
     For,
     QuestionMark,
+    Ambersand,
 }
 
 impl From<TokenKind> for Pretoken {
@@ -290,15 +291,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     _ => Punctuation::Colon,
                 },
                 '(' => Punctuation::Bra(Bracket::Par),
-                '[' => {
-                    self.skip_whitespaces();
-                    match self.peek_char() {
-                        Some(']') => {
-                            todo!()
-                        }
-                        _ => Punctuation::Bra(Bracket::Box),
-                    }
-                }
+                '[' => Punctuation::Bra(Bracket::Box),
                 '{' => Punctuation::Bra(Bracket::Curl),
                 ')' => Punctuation::Ket(Bracket::Par),
                 ']' => Punctuation::Ket(Bracket::Box),
@@ -312,7 +305,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     Some('=') => self.pass_two(Punctuation::BinaryOpr(BinaryPunctuation::Assign(
                         Some(BinaryPureClosedPunctuation::BitAnd),
                     ))),
-                    _ => Punctuation::Ambersand,
+                    _ => return Some(Pretoken::Ambiguous(AmbiguousPretoken::Ambersand)),
                 },
                 '|' => match self.peek_char() {
                     Some('|') => self.pass_two(Punctuation::DoubleVertical),
@@ -334,7 +327,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     ))),
                     Some('-') => self.pass_two(Punctuation::Decr),
                     Some('>') => self.pass_two(Punctuation::BinaryOpr(BinaryPunctuation::Curry)),
-                    _ => return Some(Pretoken::SubOrMinus),
+                    _ => return Some(Pretoken::Ambiguous(AmbiguousPretoken::SubOrMinus)),
                 },
                 '<' => match self.peek_char() {
                     Some('<') => self.pass_two(Punctuation::BinaryOpr(
@@ -389,7 +382,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     Some('!') => self.pass_two(Punctuation::DoubleExclamation),
                     _ => Punctuation::Exclamation,
                 },
-                '?' => return Some(Pretoken::Punctuation(AmbiguousPunctuation::QuestionMark)),
+                '?' => return Some(Pretoken::Ambiguous(AmbiguousPretoken::QuestionMark)),
                 '#' => Punctuation::PoundSign,
                 c => return Some(Pretoken::Err(TokenError::UnrecognizedChar(c))),
             }
