@@ -58,6 +58,15 @@ impl EntitySymbol {
     ) -> EntityTreeResult<Accessibility> {
         todo!()
     }
+
+    pub fn entity_path(&self) -> EntityPath {
+        match self {
+            EntitySymbol::CrateRoot { module_path, .. }
+            | EntitySymbol::Submodule { module_path, .. } => (*module_path).into(),
+            EntitySymbol::ModuleItem { path, .. } => (*path).into(),
+            EntitySymbol::EntityUse { path, .. } => *path,
+        }
+    }
 }
 
 impl AsVecMapEntry for EntitySymbol {

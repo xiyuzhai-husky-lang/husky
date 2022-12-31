@@ -45,7 +45,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         &self.token_iter
     }
 
-    fn parse_all(&mut self) -> (ExprIdxRange, ExprParsingStopReason) {
+    pub fn parse_exprs(&mut self) -> (ExprIdxRange, ExprParsingStopReason) {
         while !self.tokens().is_empty() {
             let (token_idx, token) = self.token_iter.next_indexed(IgnoreComment::True).unwrap();
             match self.resolve_token(token_idx, token) {
@@ -74,7 +74,7 @@ pub fn parse_expr<'a>(
     token_iter: TokenStream<'a>,
     sheet: &mut ExprSheet,
 ) -> (ExprIdxRange, ExprParsingStopReason) {
-    ExprParser::new(ctx, token_iter, sheet).parse_all()
+    ExprParser::new(ctx, token_iter, sheet).parse_exprs()
 }
 
 impl<'a, 'b, 'c> parsec::HasParseError for ExprParser<'a, 'b, 'c> {

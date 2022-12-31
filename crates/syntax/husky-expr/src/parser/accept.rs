@@ -16,10 +16,11 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             ResolvedTokenKind::Bra(bra) => {
                 Ok(self.accept_list_start(*bra, token.token_idx(), ListStartAttr::None))
             }
-            ResolvedTokenKind::Ket(_) => {
-                todo!()
+            ResolvedTokenKind::Ket(ket) => {
+                self.accept_list_end(*ket, token.token_idx(), ListEndAttr::None)
             }
             ResolvedTokenKind::Dot => self.accept_dot_opr(token.token_idx()),
+            ResolvedTokenKind::Comma => self.accept_comma(token.token_idx()),
         }
     }
 
@@ -28,7 +29,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     }
 
     fn accept_prefix_opr(&mut self, prefix: PrefixOpr, prefix_token_idx: TokenIdx) {
-        self.push_opr(StackOpr::Prefix {
+        self.push_opr(PartialOpn::Prefix {
             prefix,
             prefix_token_idx,
         })
@@ -46,12 +47,19 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         todo!()
     }
 
+    fn accept_comma(&mut self, token_idx: TokenIdx) -> Result<(), ExprError> {
+        match self.top_opn() {
+            Some(_) => todo!(),
+            None => todo!(),
+        }
+    }
+
     pub(crate) fn accept_binary_opr(
         &mut self,
         binary: BinaryOpr,
         binary_token_idx: TokenIdx,
     ) -> ExprResult<()> {
-        let stack_opr = StackOpr::Binary {
+        let stack_opr = PartialOpn::Binary {
             binary,
             binary_token_idx,
         };
@@ -67,13 +75,13 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         attr: ListStartAttr,
     ) {
         let attached = attr.attached();
-        self.push_opr(StackOpr::ListStart {
+        self.push_opr(PartialOpn::ListStart {
             bra,
             bra_token_idx,
             attr,
         });
         if attached {
-            self.push_opr(StackOpr::ListItem {
+            self.push_opr(PartialOpn::ListItem {
                 separator_token_idx: None,
             })
         }
@@ -84,7 +92,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         separator_token_idx: Option<TokenIdx>,
     ) -> ExprResult<()> {
         self.synthesize_all_above(Precedence::ListItem)?;
-        self.push_opr(StackOpr::ListItem {
+        self.push_opr(PartialOpn::ListItem {
             separator_token_idx,
         });
         Ok(())
@@ -101,8 +109,8 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             loop {
                 match self.pop_opr() {
                     Some(opr) => match opr {
-                        StackOpr::ListItem { .. } => (),
-                        StackOpr::ListStart {
+                        PartialOpn::ListItem { .. } => (),
+                        PartialOpn::ListStart {
                             bra,
                             bra_token_idx: bra_token,
                             attr,
@@ -134,8 +142,8 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             }
         };
         let list_len = original_number_of_oprs - self.number_of_oprs() - 1;
-        let opds = self.drain_exprs(list_len);
-        let opds = self.sheet.alloc_expr_batch(opds);
+        let (opds, paths) = self.drain_exprs(list_len);
+        let opds = self.sheet.alloc_expr_batch(opds, paths);
         self.push_expr(new_list_expr(ket, start_attr, attr, opds)?);
         Ok(())
     }

@@ -1,7 +1,7 @@
 use crate::*;
 
 pub fn parse_separated_list<Context, Element, Separator>(
-    stream: &mut Context,
+    ctx: &mut Context,
 ) -> Result<(Vec<Element>, Vec<Separator>), Context::Error>
 where
     Context: ParseContext,
@@ -10,9 +10,9 @@ where
 {
     let mut elements = vec![];
     let mut separators = vec![];
-    while let Some(element) = stream.parse::<Element>()? {
+    while let Some(element) = ctx.parse::<Element>()? {
         elements.push(element);
-        match stream.parse::<Separator>()? {
+        match ctx.parse::<Separator>()? {
             Some(separator) => separators.push(separator),
             None => break,
         }

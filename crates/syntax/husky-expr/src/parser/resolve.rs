@@ -40,7 +40,13 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 Punctuation::BinaryOpr(BinaryOpr::Curry) => todo!(),
                 Punctuation::BinaryOpr(BinaryOpr::ScopeResolution) => todo!(),
                 Punctuation::Colon => todo!(),
-                Punctuation::Comma => todo!(),
+                Punctuation::Comma => {
+                    match self.top_opn() {
+                        Some(_) => todo!(),
+                        None => return TokenResolveResult::Break(ExprParsingStopReason::Comma),
+                    }
+                    // ResolvedTokenKind::Comma
+                }
                 Punctuation::Ambersand => todo!(),
                 Punctuation::Vertical => todo!(),
                 Punctuation::DoubleExclamation => todo!(),
@@ -60,30 +66,32 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     }
 
     fn resolve_ident(&self, ident: Identifier) -> ResolvedTokenKind {
-        todo!()
-        // if let Some(opr) = self.stack.top_opr() {
-        //     match opr.variant {
-        //         OnStackOprVariant::Binary(BinaryOpr::ScopeResolution) => {
-        //             if let Some(previous_expr) = self.stack.top_expr() {
-        //                 match previous_expr.base_scope_result() {
-        //                     BaseScopeResult::None => todo!(),
-        //                     BaseScopeResult::Some(_) => todo!(),
-        //                     BaseScopeResult::Uncertain => {
-        //                         todo!()
-        //                         // return ResolvedTokenKind::Atom(AtomExpr::Uncertain(ident))
-        //                     }
-        //                 }
-        //             } else {
-        //                 todo!()
-        //             }
-        //         }
-        //         _ => (),
-        //     }
-        // }
-        // match self.symbols.resolve_ident(ident) {
-        //     Some(symbol) => symbol.into(),
-        //     None => ResolvedTokenKind::Atom(AtomExpr::Unrecognized(ident)),
-        // }
+        if let Some(opn) = self.top_opn() {
+            match opn {
+                PartialOpn::Binary {
+                    binary: BinaryOpr::ScopeResolution,
+                    ..
+                } => {
+                    if let Some(previous_expr) = self.top_expr() {
+                        match self.top_base_entity_path().unwrap() {
+                            BaseEntityPath::None => todo!(),
+                            BaseEntityPath::Some(_) => todo!(),
+                            BaseEntityPath::Uncertain => {
+                                todo!()
+                                // return ResolvedTokenKind::Atom(AtomExpr::Uncertain(ident))
+                            }
+                        }
+                    } else {
+                        todo!()
+                    }
+                }
+                _ => (),
+            }
+        }
+        match self.ctx.resolve_ident(ident) {
+            Some(symbol) => symbol.into(),
+            None => ResolvedTokenKind::Atom(AtomExpr::Unrecognized(ident)),
+        }
     }
 
     fn resolve_previous_entity(&self) -> Option<Term> {
@@ -127,14 +135,16 @@ impl ResolvedToken {
     }
 
     pub(super) fn to_expr(self, arena: &ExprArena) -> Expr {
-        todo!()
-        // let variant = match self.kind {
-        //     ResolvedTokenKind::Atom(variant) => variant.into(),
-        //     ResolvedTokenKind::BinaryOpr(_) => todo!(),
-        //     ResolvedTokenKind::Prefix(_) => todo!(),
-        //     ResolvedTokenKind::Suffix(_) => todo!(),
-        // };
-        // Expr::new(variant, self.range, arena)
+        match self.kind {
+            ResolvedTokenKind::Atom(variant) => variant.into(),
+            ResolvedTokenKind::BinaryOpr(_) => todo!(),
+            ResolvedTokenKind::Prefix(_) => todo!(),
+            ResolvedTokenKind::Suffix(_) => todo!(),
+            ResolvedTokenKind::Bra(_) => todo!(),
+            ResolvedTokenKind::Ket(_) => todo!(),
+            ResolvedTokenKind::Dot => todo!(),
+            ResolvedTokenKind::Comma => todo!(),
+        }
     }
 
     pub(crate) fn token_idx(&self) -> TokenIdx {
@@ -151,6 +161,7 @@ pub(crate) enum ResolvedTokenKind {
     Bra(Bracket),
     Ket(Bracket),
     Dot,
+    Comma,
 }
 
 impl From<Symbol> for ResolvedTokenKind {

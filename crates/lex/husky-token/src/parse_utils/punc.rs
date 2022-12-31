@@ -75,6 +75,38 @@ where
     stream.parse()
 }
 
+// colon
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct ColonToken {
+    token_idx: TokenIdx,
+}
+
+impl<'a, Context> parsec::ParseFrom<Context> for ColonToken
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+        Ok(parse_specific_punctuation_from(ctx, Punctuation::Colon)?
+            .map(|token_idx| ColonToken { token_idx }))
+    }
+}
+
+#[test]
+fn colon_token_works() {
+    fn t(db: &DB, input: &str) -> TokenResult<Option<ColonToken>> {
+        quick_parse(db, input)
+    }
+
+    let db = DB::default();
+    assert!(t(&db, ":").unwrap().is_some());
+    assert!(t(&db, ",").unwrap().is_none());
+    assert!(t(&db, "a").unwrap().is_none());
+}
+
 // comma
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

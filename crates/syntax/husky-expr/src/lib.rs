@@ -28,7 +28,7 @@ use husky_word::*;
 use precedence::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum BaseScopeResult {
+pub enum BaseEntityPath {
     None,
     Some(EntityPath),
     Uncertain,
