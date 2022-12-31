@@ -8,7 +8,7 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 85,
-                path: TypePath(`mnist_classifier::geom2d::Point2d, PropsStruct`),
+                path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
             },
             ModuleItem {
                 ident: `RelativePoint2d`,
@@ -16,7 +16,7 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 87,
-                path: TypePath(`mnist_classifier::geom2d::RelativePoint2d, PropsStruct`),
+                path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
             },
             ModuleItem {
                 ident: `Vector2d`,
@@ -24,7 +24,7 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 88,
-                path: TypePath(`mnist_classifier::geom2d::Vector2d, PropsStruct`),
+                path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
             },
             ModuleItem {
                 ident: `ClosedRange`,
@@ -32,13 +32,13 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 90,
-                path: TypePath(`mnist_classifier::geom2d::ClosedRange, PropsStruct`),
+                path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
             },
             ModuleItem {
                 ident: `BoundingBox`,
                 accessibility: Public,
                 ast_idx: 92,
-                path: TypePath(`mnist_classifier::geom2d::BoundingBox, PropsStruct`),
+                path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
             },
             ModuleItem {
                 ident: `RelativeBoundingBox`,
@@ -46,7 +46,7 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 95,
-                path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox, PropsStruct`),
+                path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

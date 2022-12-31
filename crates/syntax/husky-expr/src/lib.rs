@@ -13,6 +13,7 @@ mod variable;
 pub use atom::*;
 pub use entity_path::*;
 pub use error::*;
+use husky_symbol::SymbolContext;
 pub use parser::*;
 pub use pattern::*;
 pub use sheet::*;
@@ -40,29 +41,6 @@ pub enum Expr {
     Bracketed(ExprIdx),
 }
 
-// impl Expr {
-//     fn base_scope_result(&self, arena: &ExprArena) -> BaseScopeResult {
-//         todo!()
-//         // match self {
-//         //     ExprVariant::Atom(ref atom) => match atom {
-//         //         AtomExpr::Literal(_) => BaseScopeResult::None,
-//         //         AtomExpr::Symbol(symbol) => match symbol  {
-//         //             Symbol::ModulePath(path) => BaseScopeResult::Some(path),
-//         //             _ => BaseScopeResult::None,
-//         //         },
-//         //         AtomExpr::Unrecognized(_) | AtomExpr::Uncertain(_) => BaseScopeResult::Uncertain,
-//         //     },
-//         //     ExprVariant::Opn { opn_variant, opds } => match opn_variant {
-//         //         RawOpnVariant::Binary(BinaryOpr::ScopeResolution) => {
-//         //             arena[opds.start() + 1].base_scope_result()
-//         //         }
-//         //         RawOpnVariant::Binary(BinaryOpr::As) => todo!(),
-//         //         _ => BaseScopeResult::None,
-//         //     },
-//         // }
-//     }
-// }
-
 impl From<AtomExpr> for Expr {
     fn from(atom: AtomExpr) -> Self {
         Expr::Atom(atom)
@@ -75,17 +53,3 @@ pub(crate) type ExprArena = Arena<Expr>;
 pub type ExprIdx = ArenaIdx<Expr>;
 pub type ExprIdxRange = ArenaIdxRange<Expr>;
 pub type ExprMap<V> = ArenaMap<Expr, V>;
-
-// impl Expr {
-//     fn new(variant: Expr, range: TextRange, arena: &ExprArena) -> Self {
-//         Self {
-//             base_scope_result: variant.base_scope_result(arena),
-//             variant,
-//             range,
-//         }
-//     }
-
-//     pub fn base_scope_result(&self) -> BaseScopeResult {
-//         self.base_scope_result
-//     }
-// }

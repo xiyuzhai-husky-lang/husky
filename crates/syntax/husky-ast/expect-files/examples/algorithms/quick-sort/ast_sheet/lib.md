@@ -257,7 +257,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`quick_sort::quick_sort, Function`),
+                        FormPath(`quick_sort::quick_sort`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `quick_sort`,
@@ -292,7 +292,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`quick_sort::quick_sort_aux, Function`),
+                        FormPath(`quick_sort::quick_sort_aux`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `quick_sort_aux`,
@@ -327,7 +327,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`quick_sort::partition, Function`),
+                        FormPath(`quick_sort::partition`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `partition`,
@@ -370,7 +370,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`quick_sort::quick_sort_works_for_integers, Feature`),
+                        FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `quick_sort_works_for_integers`,
@@ -413,7 +413,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`quick_sort::quick_sort_works_for_strs, Feature`),
+                        FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `quick_sort_works_for_strs`,

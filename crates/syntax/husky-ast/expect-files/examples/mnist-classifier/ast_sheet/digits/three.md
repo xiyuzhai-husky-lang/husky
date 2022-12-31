@@ -387,7 +387,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::three::three_fermi_match, Feature`),
+                        FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `three_fermi_match`,
@@ -422,7 +422,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::three::is_three, Feature`),
+                        FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `is_three`,
@@ -457,7 +457,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::three::uparc, Function`),
+                        FormPath(`mnist_classifier::digits::three::uparc`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `uparc`,
@@ -492,7 +492,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::three::downarc, Function`),
+                        FormPath(`mnist_classifier::digits::three::downarc`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `downarc`,
@@ -527,7 +527,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::three::back, Function`),
+                        FormPath(`mnist_classifier::digits::three::back`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `back`,

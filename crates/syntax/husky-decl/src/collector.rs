@@ -7,8 +7,11 @@ use husky_expr::{parse_expr, ExprParsingStopReason, ExprSheet};
 use husky_opn_syntax::BinaryOpr;
 use husky_print_utils::p;
 use husky_symbol::{LocalSymbolSheet, SymbolContext};
-use husky_token::{IdentifierToken, Punctuation, TokenGroupIdx, TokenIdx, TokenSheet};
-use parsec::ParseFrom;
+use husky_token::{
+    IdentifierToken, LeftCurlyBraceToken, Punctuation, TokenGroupIdx, TokenIdx, TokenSheet,
+};
+use parsec::{ParseContext, ParseFrom};
+use salsa::DebugWithDb;
 use vec_like::VecPairMap;
 
 pub(crate) struct DeclCollector<'a> {
@@ -117,9 +120,13 @@ impl<'a> DeclCollector<'a> {
             TypeKind::Enum => self.parse_enum_type_decl(ast_idx, path),
             TypeKind::Inductive => self.parse_inductive_type_decl(ast_idx, path),
             TypeKind::Record => todo!(),
-            TypeKind::UnitStruct => self.parse_unit_struct_type_decl(ast_idx, path),
-            TypeKind::PropsStruct => self.parse_props_struct_type_decl(ast_idx, path),
-            TypeKind::TupleStruct => self.parse_tuple_struct_type_decl(ast_idx, path),
+            TypeKind::Struct => self.parse_struct_type_decl(
+                ast_idx,
+                path,
+                token_group_idx,
+                body,
+                saved_stream_state,
+            ),
             TypeKind::Structure => self.parse_structure_type_decl(ast_idx, path),
             TypeKind::Foreign => self.parse_foreign_type_decl(
                 ast_idx,
@@ -145,25 +152,53 @@ impl<'a> DeclCollector<'a> {
         ))
     }
 
-    fn parse_unit_struct_type_decl(&self, ast_idx: AstIdx, path: TypePath) -> DeclResult<Decl> {
-        // ad hoc
-        Ok(Decl::Type(
-            UnitStructTypeDecl::new(self.db, path, ast_idx).into(),
-        ))
-    }
-
-    fn parse_tuple_struct_type_decl(&self, ast_idx: AstIdx, path: TypePath) -> DeclResult<Decl> {
+    fn parse_struct_type_decl(
+        &self,
+        ast_idx: AstIdx,
+        path: TypePath,
+        token_group_idx: TokenGroupIdx,
+        body: &AstIdxRange,
+        saved_stream_state: TokenIdx,
+    ) -> DeclResult<Decl> {
+        let mut sheet = ExprSheet::default();
+        let mut local_symbol_sheet = LocalSymbolSheet::default();
+        let mut parser = self.expr_parser(
+            path.into(),
+            token_group_idx,
+            saved_stream_state,
+            &mut sheet,
+            &mut local_symbol_sheet,
+        );
+        if let Some(lcurl) = parser.parse::<LeftCurlyBraceToken>()? {
+            p!(path.debug(self.db));
+            todo!()
+        } else {
+            todo!()
+        }
         // ad hoc
         Ok(Decl::Type(
             TupleStructTypeDecl::new(self.db, path, ast_idx, /* ad hoc */ vec![]).into(),
         ))
     }
 
-    fn parse_props_struct_type_decl(&self, ast_idx: AstIdx, path: TypePath) -> DeclResult<Decl> {
-        // ad hoc
-        Ok(Decl::Type(
-            PropsStructTypeDecl::new(self.db, path, ast_idx, /* ad hoc */ vec![]).into(),
-        ))
+    fn expr_parser<'b, 'c>(
+        &self,
+        entity_path: EntityPath,
+        token_group_idx: TokenGroupIdx,
+        saved_stream_state: TokenIdx,
+        sheet: &'b mut ExprSheet,
+        local_symbol_sheet: &'c mut LocalSymbolSheet,
+    ) -> ExprParser<'b, 'a, 'c>
+    where
+        'a: 'c,
+    {
+        let ctx = SymbolContext::new(self.db, entity_path, self.crate_prelude, local_symbol_sheet);
+        ExprParser::new(
+            ctx,
+            self.token_sheet
+                .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
+            sheet,
+        )
     }
 
     fn parse_structure_type_decl(&self, ast_idx: AstIdx, path: TypePath) -> DeclResult<Decl> {
@@ -227,13 +262,5 @@ impl<'a> DeclCollector<'a> {
 
     fn parse_function_decl(&self, ast_idx: AstIdx, path: FormPath) -> Result<Decl, DeclError> {
         Ok(Decl::Form(FunctionDecl::new(self.db, path, ast_idx).into()))
-    }
-
-    fn ctx<'b>(
-        &'b self,
-        entity_path: EntityPath,
-        local_symbol_sheet: &'a LocalSymbolSheet,
-    ) -> SymbolContext<'b> {
-        SymbolContext::new(self.db, entity_path, self.crate_prelude, local_symbol_sheet)
     }
 }

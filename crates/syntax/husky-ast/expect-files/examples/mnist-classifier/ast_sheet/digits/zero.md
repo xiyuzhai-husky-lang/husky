@@ -344,7 +344,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::zero::open_one_match, Feature`),
+                        FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `open_one_match`,
@@ -379,7 +379,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::zero::almost_closed, Function`),
+                        FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `almost_closed`,
@@ -414,7 +414,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::zero::is_zero, Feature`),
+                        FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `is_zero`,

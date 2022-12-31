@@ -277,6 +277,70 @@ fn right_curly_brace_token_works() {
     assert!(t(&db, "a").unwrap().is_none());
 }
 
+// left angle bracket
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct LeftAngleBracketToken {
+    token_idx: TokenIdx,
+}
+
+impl<'a, Context> parsec::ParseFrom<Context> for LeftAngleBracketToken
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+        Ok(parse_specific_punctuation_from(ctx, Punctuation::LAngle)?
+            .map(|token_idx| LeftAngleBracketToken { token_idx }))
+    }
+}
+
+#[test]
+fn left_angle_bracket_token_works() {
+    let db = DB::default();
+    fn t(db: &DB, input: &str) -> TokenResult<Option<LeftAngleBracketToken>> {
+        quick_parse(db, input)
+    }
+
+    assert!(t(&db, "<").unwrap().is_some());
+    assert!(t(&db, ">").unwrap().is_none());
+    assert!(t(&db, "a").unwrap().is_none());
+}
+
+// right curly brace
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct RightAngleBracketToken {
+    token_idx: TokenIdx,
+}
+
+impl<'a, Context> parsec::ParseFrom<Context> for RightAngleBracketToken
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+        Ok(parse_specific_punctuation_from(ctx, Punctuation::RAngle)?
+            .map(|token_idx| RightAngleBracketToken { token_idx }))
+    }
+}
+
+#[test]
+fn right_angle_bracket_token_works() {
+    let db = DB::default();
+    fn t(db: &DB, input: &str) -> TokenResult<Option<RightAngleBracketToken>> {
+        quick_parse(db, input)
+    }
+
+    assert!(t(&db, ">").unwrap().is_some());
+    assert!(t(&db, "<").unwrap().is_none());
+    assert!(t(&db, "a").unwrap().is_none());
+}
+
 // vertical
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

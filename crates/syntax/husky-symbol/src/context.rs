@@ -3,12 +3,11 @@ use crate::*;
 use husky_entity_tree::{CratePrelude, EntityTreeDb};
 use local_stack::LocalStack;
 
-#[derive(Clone)]
 pub struct SymbolContext<'a> {
     db: &'a dyn EntityTreeDb,
     entity_path: EntityPath,
     crate_prelude: CratePrelude<'a>,
-    local_symbol_sheet: &'a LocalSymbolSheet,
+    local_symbol_sheet: &'a mut LocalSymbolSheet,
 }
 
 impl<'a> SymbolContext<'a> {
@@ -16,7 +15,7 @@ impl<'a> SymbolContext<'a> {
         db: &'a dyn EntityTreeDb,
         entity_path: EntityPath,
         crate_prelude: CratePrelude<'a>,
-        local_symbol_sheet: &'a LocalSymbolSheet,
+        local_symbol_sheet: &'a mut LocalSymbolSheet,
     ) -> Self {
         Self {
             db,

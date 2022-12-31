@@ -8,7 +8,7 @@ Ok(
                     `mnist_classifier::digits::zero`,
                 ),
                 ast_idx: 35,
-                path: FormPath(`mnist_classifier::digits::zero::open_one_match, Feature`),
+                path: FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
             },
             ModuleItem {
                 ident: `almost_closed`,
@@ -16,7 +16,7 @@ Ok(
                     `mnist_classifier::digits::zero`,
                 ),
                 ast_idx: 36,
-                path: FormPath(`mnist_classifier::digits::zero::almost_closed, Function`),
+                path: FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
             },
             ModuleItem {
                 ident: `is_zero`,
@@ -24,7 +24,7 @@ Ok(
                     `mnist_classifier::digits::zero`,
                 ),
                 ast_idx: 37,
-                path: FormPath(`mnist_classifier::digits::zero::is_zero, Feature`),
+                path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

@@ -71,7 +71,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`natural_number_game::Nat, Inductive`),
+                        TypePath(`natural_number_game::Nat`, `Inductive`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `Nat`,
@@ -146,7 +146,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`natural_number_game::OddNat, Structure`),
+                        TypePath(`natural_number_game::OddNat`, `Structure`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `OddNat`,
@@ -181,7 +181,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`natural_number_game::EvenNat, Structure`),
+                        TypePath(`natural_number_game::EvenNat`, `Structure`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `EvenNat`,

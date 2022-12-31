@@ -1280,12 +1280,12 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            PropsStruct,
+                            Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::geom2d::Point2d, PropsStruct`),
+                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `Point2d`,
@@ -1323,12 +1323,12 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            PropsStruct,
+                            Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::geom2d::RelativePoint2d, PropsStruct`),
+                        TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `RelativePoint2d`,
@@ -1358,12 +1358,12 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            PropsStruct,
+                            Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::geom2d::Vector2d, PropsStruct`),
+                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `Vector2d`,
@@ -1401,12 +1401,12 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            PropsStruct,
+                            Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::geom2d::ClosedRange, PropsStruct`),
+                        TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `ClosedRange`,
@@ -1438,12 +1438,12 @@ Ok(
                     accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            PropsStruct,
+                            Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::geom2d::BoundingBox, PropsStruct`),
+                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `BoundingBox`,
@@ -1489,12 +1489,12 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            PropsStruct,
+                            Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox, PropsStruct`),
+                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `RelativeBoundingBox`,

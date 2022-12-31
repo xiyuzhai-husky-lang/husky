@@ -222,7 +222,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::major::connected_components, Feature`),
+                        FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `connected_components`,
@@ -257,7 +257,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::major::major_connected_component, Feature`),
+                        FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `major_connected_component`,
@@ -292,7 +292,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum, Feature`),
+                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `ignored_connected_components_row_span_sum_sum`,
@@ -327,7 +327,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::major::major_raw_contours, Feature`),
+                        FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `major_raw_contours`,
@@ -367,7 +367,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::major::major_raw_contour, Feature`),
+                        FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `major_raw_contour`,
@@ -402,7 +402,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::major::major_line_segment_sketch, Feature`),
+                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `major_line_segment_sketch`,
@@ -437,7 +437,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::major::major_concave_components, Feature`),
+                        FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `major_concave_components`,

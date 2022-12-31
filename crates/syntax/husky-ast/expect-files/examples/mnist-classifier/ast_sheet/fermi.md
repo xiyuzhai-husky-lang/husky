@@ -282,12 +282,12 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            PropsStruct,
+                            Struct,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::fermi::FermiMatchResult, PropsStruct`),
+                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `FermiMatchResult`,
@@ -330,7 +330,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::fermi::fermi_match, Function`),
+                        FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `fermi_match`,

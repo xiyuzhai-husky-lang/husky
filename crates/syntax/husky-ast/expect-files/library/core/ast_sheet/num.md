@@ -236,7 +236,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::num::i8, Foreign`),
+                        TypePath(`core::num::i8`, `Foreign`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `i8`,
@@ -286,7 +286,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::num::i16, Foreign`),
+                        TypePath(`core::num::i16`, `Foreign`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `i16`,
@@ -336,7 +336,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::num::i32, Foreign`),
+                        TypePath(`core::num::i32`, `Foreign`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `i32`,
@@ -392,7 +392,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::num::i64, Foreign`),
+                        TypePath(`core::num::i64`, `Foreign`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `i64`,

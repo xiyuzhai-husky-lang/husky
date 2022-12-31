@@ -8,7 +8,7 @@ Ok(
                     `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 44,
-                path: FormPath(`mnist_classifier::digits::three::three_fermi_match, Feature`),
+                path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Feature`),
             },
             ModuleItem {
                 ident: `is_three`,
@@ -16,7 +16,7 @@ Ok(
                     `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 45,
-                path: FormPath(`mnist_classifier::digits::three::is_three, Feature`),
+                path: FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
             },
             ModuleItem {
                 ident: `uparc`,
@@ -24,7 +24,7 @@ Ok(
                     `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 46,
-                path: FormPath(`mnist_classifier::digits::three::uparc, Function`),
+                path: FormPath(`mnist_classifier::digits::three::uparc`, `Function`),
             },
             ModuleItem {
                 ident: `downarc`,
@@ -32,7 +32,7 @@ Ok(
                     `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 47,
-                path: FormPath(`mnist_classifier::digits::three::downarc, Function`),
+                path: FormPath(`mnist_classifier::digits::three::downarc`, `Function`),
             },
             ModuleItem {
                 ident: `back`,
@@ -40,7 +40,7 @@ Ok(
                     `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 48,
-                path: FormPath(`mnist_classifier::digits::three::back, Function`),
+                path: FormPath(`mnist_classifier::digits::three::back`, `Function`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

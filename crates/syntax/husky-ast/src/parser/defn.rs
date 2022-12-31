@@ -330,11 +330,7 @@ impl<'a> BasicAuxAstParser<'a> {
                 Keyword::Type(kw) => {
                     let type_kind = match kw {
                         TypeKeyword::Type => TypeKind::Foreign,
-                        TypeKeyword::Struct => {
-                            // ad hoc
-                            // todo: check whether this is UnitStruct or TupleStruct
-                            TypeKind::PropsStruct
-                        }
+                        TypeKeyword::Struct => TypeKind::Struct,
                         TypeKeyword::Enum => TypeKind::Enum,
                         TypeKeyword::Record => TypeKind::Record,
                         TypeKeyword::Structure => TypeKind::Structure,

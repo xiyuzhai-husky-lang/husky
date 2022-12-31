@@ -620,7 +620,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::two::two_match, Feature`),
+                        FormPath(`mnist_classifier::digits::two::two_match`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `two_match`,
@@ -655,7 +655,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::two::left_cc_pattern, Function`),
+                        FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `left_cc_pattern`,
@@ -690,7 +690,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::two::right_cc_pattern, Function`),
+                        FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `right_cc_pattern`,
@@ -725,7 +725,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::two::down_cc_pattern, Function`),
+                        FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Function`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `down_cc_pattern`,
@@ -760,7 +760,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::two::is_two, Feature`),
+                        FormPath(`mnist_classifier::digits::two::is_two`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `is_two`,

@@ -17,7 +17,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::basic::bool, Foreign`),
+                        TypePath(`core::basic::bool`, `Foreign`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `bool`,
@@ -46,7 +46,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::basic::Trait, Structure`),
+                        TypePath(`core::basic::Trait`, `Structure`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `Trait`,
@@ -75,7 +75,7 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::basic::Module, Structure`),
+                        TypePath(`core::basic::Module`, `Structure`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `Module`,

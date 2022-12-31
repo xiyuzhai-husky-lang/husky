@@ -6,7 +6,7 @@ Ok(
                 ident: `quick_sort`,
                 accessibility: Public,
                 ast_idx: 30,
-                path: FormPath(`quick_sort::quick_sort, Function`),
+                path: FormPath(`quick_sort::quick_sort`, `Function`),
             },
             ModuleItem {
                 ident: `quick_sort_aux`,
@@ -14,7 +14,7 @@ Ok(
                     `quick_sort`,
                 ),
                 ast_idx: 31,
-                path: FormPath(`quick_sort::quick_sort_aux, Function`),
+                path: FormPath(`quick_sort::quick_sort_aux`, `Function`),
             },
             ModuleItem {
                 ident: `partition`,
@@ -22,7 +22,7 @@ Ok(
                     `quick_sort`,
                 ),
                 ast_idx: 32,
-                path: FormPath(`quick_sort::partition, Function`),
+                path: FormPath(`quick_sort::partition`, `Function`),
             },
             ModuleItem {
                 ident: `quick_sort_works_for_integers`,
@@ -30,7 +30,7 @@ Ok(
                     `quick_sort`,
                 ),
                 ast_idx: 34,
-                path: FormPath(`quick_sort::quick_sort_works_for_integers, Feature`),
+                path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
             },
             ModuleItem {
                 ident: `quick_sort_works_for_strs`,
@@ -38,7 +38,7 @@ Ok(
                     `quick_sort`,
                 ),
                 ast_idx: 36,
-                path: FormPath(`quick_sort::quick_sort_works_for_strs, Feature`),
+                path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(
