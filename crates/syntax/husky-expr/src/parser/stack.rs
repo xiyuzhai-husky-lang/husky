@@ -19,8 +19,9 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         self.stack.exprs.last()
     }
 
-    pub(super) fn finish(mut self) -> ExprIdxRange {
-        self.sheet.alloc_expr_batch(self.stack.exprs)
+    pub(super) fn finish_batch(&mut self) -> ExprIdxRange {
+        self.sheet
+            .alloc_expr_batch(std::mem::take(&mut self.stack.exprs))
     }
 
     pub(super) fn topk_exprs(&self, k: usize) -> &[Expr] {

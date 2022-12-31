@@ -45,7 +45,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         &self.token_iter
     }
 
-    fn parse_all(mut self) -> (ExprIdxRange, ExprParsingStopReason) {
+    fn parse_all(&mut self) -> (ExprIdxRange, ExprParsingStopReason) {
         while !self.tokens().is_empty() {
             let (token_idx, token) = self.token_iter.next_indexed(IgnoreComment::True).unwrap();
             match self.resolve_token(token_idx, token) {
@@ -56,7 +56,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                         todo!("error = {e}")
                     }
                 },
-                ControlFlow::Break(reason) => return (self.finish(), reason),
+                ControlFlow::Break(reason) => return (self.finish_batch(), reason),
             }
         }
         self.synthesize_all_above(Precedence::None).expect("todo");
@@ -65,7 +65,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             todo!()
         }
         should!(self.number_of_exprs() == 1);
-        (self.finish(), ExprParsingStopReason::NoTokens)
+        (self.finish_batch(), ExprParsingStopReason::NoTokens)
     }
 }
 

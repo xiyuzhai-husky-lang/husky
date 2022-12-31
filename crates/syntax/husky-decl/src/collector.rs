@@ -8,7 +8,8 @@ use husky_opn_syntax::BinaryOpr;
 use husky_print_utils::p;
 use husky_symbol::{LocalSymbolSheet, SymbolContext};
 use husky_token::{
-    IdentifierToken, LeftCurlyBraceToken, Punctuation, TokenGroupIdx, TokenIdx, TokenSheet,
+    IdentifierToken, LeftAngleBracketToken, LeftCurlyBraceToken, Punctuation, TokenGroupIdx,
+    TokenIdx, TokenSheet,
 };
 use parsec::{ParseContext, ParseFrom};
 use salsa::DebugWithDb;
@@ -169,16 +170,24 @@ impl<'a> DeclCollector<'a> {
             &mut sheet,
             &mut local_symbol_sheet,
         );
+        let generic_parameters = parse_generic_parameters(&mut parser)?;
+        p!(parser.peek());
         if let Some(lcurl) = parser.parse::<LeftCurlyBraceToken>()? {
-            p!(path.debug(self.db));
-            todo!()
+            // todo!();
+            // ad hoc
+            Ok(Decl::Type(
+                TupleStructTypeDecl::new(
+                    self.db,
+                    path,
+                    ast_idx,
+                    generic_parameters,
+                    /* ad hoc */ vec![],
+                )
+                .into(),
+            ))
         } else {
-            todo!()
+            Err(DeclError::ExpectLCurlOrLParOrSemicolon(parser.save_state()))
         }
-        // ad hoc
-        Ok(Decl::Type(
-            TupleStructTypeDecl::new(self.db, path, ast_idx, /* ad hoc */ vec![]).into(),
-        ))
     }
 
     fn expr_parser<'b, 'c>(
