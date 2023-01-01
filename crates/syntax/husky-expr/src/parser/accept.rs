@@ -24,7 +24,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             }
             ResolvedToken::Ket(token_idx, ket) => self.accept_list_end(ket, token_idx),
             ResolvedToken::Dot(token_idx) => self.accept_dot_opr(token_idx),
-            ResolvedToken::ListItem(token_idx) => self.accept_comma(token_idx),
+            ResolvedToken::ListItem(token_idx) => self.accept_list_item(token_idx),
         }
     }
 
@@ -93,10 +93,23 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         todo!()
     }
 
-    fn accept_comma(&mut self, token_idx: TokenIdx) {
-        match self.last_unfinished_expr() {
-            Some(expr) => todo!(),
-            None => todo!(),
+    fn accept_list_item(&mut self, comma_token_idx: TokenIdx) {
+        let item = self
+            .take_top_expr()
+            .unwrap_or(Expr::Err(ExprError::MissingItemBeforeComma {
+                comma_token_idx,
+            }));
+        match self.last_unfinished_expr_mut() {
+            Some(expr) => match expr {
+                UnfinishedExpr::List {
+                    opr,
+                    bra,
+                    bra_token_idx,
+                    items,
+                } => items.push(item),
+                _ => unreachable!(),
+            },
+            None => unreachable!(),
         }
     }
 
@@ -129,12 +142,5 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             bra_token_idx,
             items: vec![],
         });
-    }
-
-    pub(crate) fn accept_list_item(&mut self, separator_token_idx: Option<TokenIdx>) {
-        self.reduce(Precedence::ListItem);
-        self.push_unfinished_expr(UnfinishedExpr::ListItem {
-            separator_token_idx,
-        })
     }
 }

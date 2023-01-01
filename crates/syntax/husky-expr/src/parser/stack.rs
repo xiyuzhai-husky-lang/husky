@@ -74,6 +74,10 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         self.stack.unfinished_exprs.last().map(|(opr, _)| opr)
     }
 
+    pub(super) fn last_unfinished_expr_mut(&mut self) -> Option<&mut UnfinishedExpr> {
+        self.stack.unfinished_exprs.last_mut().map(|(opr, _)| opr)
+    }
+
     pub(super) fn set_top_expr(&mut self, expr: Expr) {
         assert!(self.stack.top_expr.is_none());
         self.stack.top_expr = Some(expr)

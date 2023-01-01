@@ -343,21 +343,15 @@ fn parse_expr_works() {
             ExprSheet {
                 expr_arena: Arena {
                     data: [
-                        Opn {
-                            opn: List {
-                                opr: NewVec,
-                                bracket: Box,
-                                bra_token_idx: TokenIdx(
-                                    0,
+                        Unrecognized(
+                            Identifier(
+                                Word(
+                                    Id {
+                                        value: 5,
+                                    },
                                 ),
-                                ket_token_idx: TokenIdx(
-                                    1,
-                                ),
-                            },
-                            opds: ArenaIdxRange(
-                                0..0,
                             ),
-                        },
+                        ),
                         Unrecognized(
                             Identifier(
                                 Word(
@@ -368,7 +362,16 @@ fn parse_expr_works() {
                             ),
                         ),
                         Opn {
-                            opn: Application,
+                            opn: List {
+                                opr: NewTuple,
+                                bracket: Par,
+                                bra_token_idx: TokenIdx(
+                                    0,
+                                ),
+                                ket_token_idx: TokenIdx(
+                                    4,
+                                ),
+                            },
                             opds: ArenaIdxRange(
                                 0..2,
                             ),
