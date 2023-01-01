@@ -1,6 +1,7 @@
 use husky_vfs::{VfsJar, VfsTestSupport};
 use husky_word::WordJar;
 use salsa::{Database, Storage};
+use with_db::WithDb;
 
 use crate::*;
 

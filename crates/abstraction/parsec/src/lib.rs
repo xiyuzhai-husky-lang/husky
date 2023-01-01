@@ -8,8 +8,8 @@ mod tests;
 pub use absent::*;
 pub use rollback::*;
 pub use separated_list::*;
+pub use seq::*;
 
-use std::ops::DerefMut;
 #[cfg(test)]
 use tests::*;
 
