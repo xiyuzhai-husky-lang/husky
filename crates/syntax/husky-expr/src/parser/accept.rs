@@ -5,16 +5,22 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         self.token_iter.next()
     }
 
-    pub(crate) fn accept_token(&mut self, token: ResolvedToken) -> ExprResult<()> {
+    pub(crate) fn accept_token(&mut self, token: ResolvedToken) {
         match token.kind() {
             ResolvedTokenKind::Atom(_atom) => {
-                Ok(self.accept_atom(token.to_expr(self.sheet.expr_arena())))
+                self.accept_atom(token.to_expr(self.sheet.expr_arena()))
             }
             ResolvedTokenKind::BinaryOpr(opr) => self.accept_binary_opr(*opr, token.token_idx()),
-            ResolvedTokenKind::Prefix(opr) => Ok(self.accept_prefix_opr(*opr, token.token_idx())),
-            ResolvedTokenKind::Suffix(opr) => Ok(self.accept_suffix_opr(*opr, token.token_idx())),
+            ResolvedTokenKind::Prefix(opr) => self.accept_prefix_opr(*opr, token.token_idx()),
+            ResolvedTokenKind::Suffix(opr) => self.accept_suffix_opr(*opr, token.token_idx()),
             ResolvedTokenKind::Bra(bra) => {
-                Ok(self.accept_list_start(*bra, token.token_idx(), ListStartAttr::None))
+                let opr = match bra {
+                    Bracket::Par => todo!(),
+                    Bracket::Box => ListOpr::NewVec,
+                    Bracket::Angle => todo!(),
+                    Bracket::Curl => todo!(),
+                };
+                self.accept_list_start(*bra, token.token_idx(), opr)
             }
             ResolvedTokenKind::Ket(ket) => {
                 self.accept_list_end(*ket, token.token_idx(), ListEndAttr::None)
@@ -28,18 +34,11 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         self.push_expr(atom)
     }
 
-    fn accept_prefix_opr(&mut self, prefix: PrefixPunctuation, prefix_token_idx: TokenIdx) {
-        self.push_opr(UnfinishedExpr::Prefix {
-            prefix,
-            prefix_token_idx,
-        })
-    }
-
     fn accept_suffix_opr(&mut self, suffix: SuffixPunctuation, suffix_token_idx: TokenIdx) {
         self.synthesize_suffix(suffix, suffix_token_idx)
     }
 
-    fn accept_dot_opr(&mut self, dot_token_idx: TokenIdx) -> ExprResult<()> {
+    fn accept_dot_opr(&mut self, dot_token_idx: TokenIdx) {
         // let (ident, ident_token_idx) = self
         //     .try_get_identifier()
         //     .ok_or(ExprError::ExpectIdentifierAfterDot)?;
@@ -47,8 +46,8 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         todo!()
     }
 
-    fn accept_comma(&mut self, token_idx: TokenIdx) -> Result<(), ExprError> {
-        match self.top_opn() {
+    fn accept_comma(&mut self, token_idx: TokenIdx) {
+        match self.last_unfinished_expr() {
             Some(_) => todo!(),
             None => todo!(),
         }
@@ -58,123 +57,77 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         &mut self,
         binary: BinaryPunctuation,
         binary_token_idx: TokenIdx,
-    ) -> ExprResult<()> {
-        let stack_opr = UnfinishedExpr::Binary {
+    ) {
+        let lopd = self
+            .take_top_expr()
+            .unwrap_or(Expr::Err(ExprError::NoLeftOperandForBinaryOperator));
+        let unfinished_expr = UnfinishedExpr::Binary {
+            lopd,
             binary,
             binary_token_idx,
         };
-        self.synthesize_all_above(stack_opr.precedence())?;
-        self.push_opr(stack_opr);
-        Ok(())
+        self.synthesize_all_above(unfinished_expr.precedence());
+        self.push_unfinished_expr(unfinished_expr)
     }
 
     pub(crate) fn accept_list_start(
         &mut self,
         bra: Bracket,
         bra_token_idx: TokenIdx,
-        attr: ListStartAttr,
+        opr: ListOpr,
     ) {
-        let attached = attr.attached();
-        self.push_opr(UnfinishedExpr::ListStart {
+        self.push_unfinished_expr(UnfinishedExpr::List {
+            opr,
             bra,
             bra_token_idx,
-            attr,
+            items: vec![],
         });
-        if attached {
-            self.push_opr(UnfinishedExpr::ListItem {
-                separator_token_idx: None,
-            })
-        }
     }
 
-    pub(crate) fn accept_list_item(
-        &mut self,
-        separator_token_idx: Option<TokenIdx>,
-    ) -> ExprResult<()> {
-        self.synthesize_all_above(Precedence::ListItem)?;
-        self.push_opr(UnfinishedExpr::ListItem {
+    pub(crate) fn accept_list_item(&mut self, separator_token_idx: Option<TokenIdx>) {
+        self.synthesize_all_above(Precedence::ListItem);
+        self.push_unfinished_expr(UnfinishedExpr::ListItem {
             separator_token_idx,
-        });
-        Ok(())
-    }
-
-    pub(crate) fn accept_list_end(
-        &mut self,
-        ket: Bracket,
-        ket_token_idx: TokenIdx,
-        attr: ListEndAttr,
-    ) -> ExprResult<()> {
-        let original_number_of_oprs = self.number_of_oprs();
-        let (start_attr, bra_token) = {
-            loop {
-                match self.pop_opr() {
-                    Some(opr) => match opr {
-                        UnfinishedExpr::ListItem { .. } => (),
-                        UnfinishedExpr::ListStart {
-                            bra,
-                            bra_token_idx,
-                            attr,
-                        } => {
-                            if ket != bra {
-                                return Err(ExprError::MisMatchingBracket {
-                                    bra,
-                                    bra_token_idx,
-                                    ket,
-                                    ket_token_idx,
-                                });
-                            };
-                            break (attr, bra_token_idx);
-                        }
-                        _ => return Err(ExprError::NoMatchingBra { ket, ket_token_idx }),
-                    },
-                    None => return Err(ExprError::NoMatchingBra { ket, ket_token_idx }),
-                }
-            }
-        };
-        let list_len = original_number_of_oprs - self.number_of_oprs() - 1;
-        let (opds, paths) = self.drain_exprs(list_len);
-        let opds = self.sheet.alloc_expr_batch(opds, paths);
-        self.push_expr(new_list_expr(ket, start_attr, attr, opds)?);
-        Ok(())
+        })
     }
 }
 
-fn new_list_expr(
-    bracket: Bracket,
-    start_attr: ListStartAttr,
-    end_attr: ListEndAttr,
-    opds: ExprIdxRange,
-) -> ExprResult<Expr> {
-    if bracket == Bracket::Par && start_attr == ListStartAttr::None && idx_arena::len(&opds) == 1 {
-        return Ok(Expr::Bracketed(opds.start()));
-    }
-    let opn_variant = Opn::List(match start_attr {
-        ListStartAttr::None => match bracket {
-            Bracket::Par => ListOpr::NewTuple,
-            Bracket::Box => ListOpr::NewVec,
-            Bracket::Curl => ListOpr::NewDict,
-            Bracket::Angle => todo!(),
-        },
-        ListStartAttr::Attach => match bracket {
-            Bracket::Par => ListOpr::FunctionCall,
-            Bracket::Box => match end_attr {
-                ListEndAttr::None => {
-                    if idx_arena::len(&opds) < 2 {
-                        todo!()
-                        // return err!(format!("expect index expr inside `[]`"), range);
-                    }
-                    ListOpr::Index
-                }
-                ListEndAttr::Modulo => ListOpr::ModuloIndex,
-                ListEndAttr::Attach => todo!(),
-            },
-            Bracket::Curl => ListOpr::StructInit,
-            Bracket::Angle => todo!(),
-        },
-        ListStartAttr::MethodAttach { ranged_ident } => ListOpr::MethodCall { ranged_ident },
-    });
-    Ok(Expr::Opn {
-        opn: opn_variant,
-        opds,
-    })
-}
+// fn new_list_expr(
+//     bracket: Bracket,
+//     start_attr: ListStartAttr,
+//     end_attr: ListEndAttr,
+//     opds: ExprIdxRange,
+// ) {
+//     if bracket == Bracket::Par && start_attr == ListStartAttr::None && idx_arena::len(&opds) == 1 {
+//         return Ok(Expr::Bracketed(opds.start()));
+//     }
+//     let opn_variant = Opn::List(match start_attr {
+//         ListStartAttr::None => match bracket {
+//             Bracket::Par => ListOpr::NewTuple,
+//             Bracket::Box => ListOpr::NewVec,
+//             Bracket::Curl => ListOpr::NewDict,
+//             Bracket::Angle => todo!(),
+//         },
+//         ListStartAttr::Attach => match bracket {
+//             Bracket::Par => ListOpr::FunctionCall,
+//             Bracket::Box => match end_attr {
+//                 ListEndAttr::None => {
+//                     if idx_arena::len(&opds) < 2 {
+//                         todo!()
+//                         // return err!(format!("expect index expr inside `[]`"), range);
+//                     }
+//                     ListOpr::Index
+//                 }
+//                 ListEndAttr::Modulo => ListOpr::ModuloIndex,
+//                 ListEndAttr::Attach => todo!(),
+//             },
+//             Bracket::Curl => ListOpr::StructInit,
+//             Bracket::Angle => todo!(),
+//         },
+//         ListStartAttr::MethodAttach { ranged_ident } => ListOpr::MethodCall { ranged_ident },
+//     });
+//     Ok(Expr::Opn {
+//         opn: opn_variant,
+//         opds,
+//     })
+// }

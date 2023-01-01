@@ -48,6 +48,7 @@ impl<'a> InferContext<'a> {
                 ref opds,
             } => todo!(),
             Expr::Bracketed(_) => todo!(),
+            Expr::Err(_) => todo!(),
         }
     }
 }

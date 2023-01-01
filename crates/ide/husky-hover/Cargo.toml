@@ -30,9 +30,13 @@ husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
+# fs
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
+# lex
+husky-text = { path = "../../lex/husky-text", features = ["lsp_support"] }
 # syntax
 husky-decl = { path = "../../syntax/husky-decl" }
 husky-defn = { path = "../../syntax/husky-defn" }

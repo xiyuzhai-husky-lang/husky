@@ -3,6 +3,7 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(super) enum UnfinishedExpr {
     Binary {
+        lopd: Expr,
         binary: BinaryPunctuation,
         binary_token_idx: TokenIdx,
     },
@@ -13,10 +14,11 @@ pub(super) enum UnfinishedExpr {
         prefix: PrefixPunctuation,
         prefix_token_idx: TokenIdx,
     },
-    ListStart {
+    List {
+        opr: ListOpr,
         bra: Bracket,
         bra_token_idx: TokenIdx,
-        attr: ListStartAttr,
+        items: Vec<Expr>,
     },
     LambdaHead {
         inputs: Vec<(RangedIdentifier, Option<ExprIdx>)>,
@@ -32,7 +34,7 @@ impl UnfinishedExpr {
         match self {
             UnfinishedExpr::Binary { binary, .. } => (*binary).into(),
             UnfinishedExpr::Prefix { .. } => Precedence::Prefix,
-            UnfinishedExpr::ListItem { .. } | UnfinishedExpr::ListStart { .. } => Precedence::None,
+            UnfinishedExpr::ListItem { .. } | UnfinishedExpr::List { .. } => Precedence::None,
             UnfinishedExpr::LambdaHead { inputs, start } => Precedence::LambdaHead,
             UnfinishedExpr::Dot { dot_token_idx } => Precedence::Dot,
         }

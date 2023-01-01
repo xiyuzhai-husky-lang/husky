@@ -5,7 +5,7 @@ use husky_word::Identifier;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use ordered_float::NotNan;
 
-use crate::{ExprResult, ExprSheet};
+use crate::ExprSheet;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum PatternExpr {
@@ -43,7 +43,7 @@ pub fn parse_pattern_expr<'a>(
     ctx: SymbolContext,
     token_iter: &mut TokenStream<'a>,
     sheet: &mut ExprSheet,
-) -> ExprResult<PatternExprIdx> {
+) -> PatternExprIdx {
     todo!()
 }
 

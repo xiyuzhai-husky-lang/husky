@@ -40,7 +40,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 Punctuation::BinaryOpr(BinaryPunctuation::Curry) => todo!(),
                 Punctuation::BinaryOpr(BinaryPunctuation::ScopeResolution) => todo!(),
                 Punctuation::Colon => todo!(),
-                Punctuation::Comma => match self.top_opn() {
+                Punctuation::Comma => match self.last_unfinished_expr() {
                     Some(_) => todo!(),
                     None => return TokenResolveResult::Break(()),
                 },
@@ -50,9 +50,17 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 // return TokenResolveResult::Break(()),
                 Punctuation::XmlKet => todo!(),
                 Punctuation::At => todo!(),
-                Punctuation::QuestionMark => todo!(),
+                Punctuation::QuestionMark => match self.top_expr() {
+                    Some(_) => ResolvedTokenKind::Suffix(SuffixPunctuation::Unveil),
+                    None => todo!(),
+                },
                 Punctuation::PoundSign => todo!(),
-                Punctuation::Ambersand => todo!(),
+                Punctuation::Ambersand => match self.top_expr() {
+                    Some(_) => ResolvedTokenKind::BinaryOpr(BinaryPunctuation::PureClosed(
+                        BinaryPureClosedPunctuation::BitOr,
+                    )),
+                    None => todo!(),
+                },
             },
             TokenKind::WordOpr(_) => todo!(),
             TokenKind::Literal(ref literal) => ResolvedTokenKind::Atom(literal.clone().into()),
@@ -62,7 +70,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     }
 
     fn resolve_ident(&self, ident: Identifier) -> ResolvedTokenKind {
-        if let Some(opn) = self.top_opn() {
+        if let Some(opn) = self.last_unfinished_expr() {
             match opn {
                 UnfinishedExpr::Binary {
                     binary: BinaryPunctuation::ScopeResolution,
