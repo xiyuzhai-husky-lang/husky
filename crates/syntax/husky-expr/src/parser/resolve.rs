@@ -14,11 +14,15 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     ) -> TokenResolveResult<ResolvedToken> {
         TokenResolveResult::Continue(ResolvedToken {
             token_idx,
-            kind: self.resolve_token_kind(token)?,
+            kind: self.resolve_token_kind(token_idx, token)?,
         })
     }
 
-    fn resolve_token_kind(&mut self, token: &Token) -> TokenResolveResult<ResolvedTokenKind> {
+    fn resolve_token_kind(
+        &mut self,
+        token_idx: TokenIdx,
+        token: &Token,
+    ) -> TokenResolveResult<ResolvedTokenKind> {
         TokenResolveResult::Continue(match token.kind {
             TokenKind::Attr(_) => todo!(),
             TokenKind::Keyword(_keyword) => todo!(),
@@ -84,7 +88,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 },
             },
             TokenKind::WordOpr(_) => todo!(),
-            TokenKind::Literal(ref literal) => ResolvedTokenKind::Atom(literal.clone().into()),
+            TokenKind::Literal(_) => ResolvedTokenKind::Atom(AtomExpr::Literal(token_idx)),
             TokenKind::Comment => todo!(),
             TokenKind::Err(_) => todo!(),
         })

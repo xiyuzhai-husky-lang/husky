@@ -58,7 +58,7 @@ impl<'a> TermPatternInferContext<'a> {
         sheet: &mut TermPatternInferSheet,
     ) -> ExprTermPatternInferRawResults {
         match atom {
-            AtomExpr::Literal(literal) => self.infer_literal(literal, sheet),
+            AtomExpr::Literal(literal) => self.infer_literal(todo!(), sheet),
             AtomExpr::Symbol(symbol) => match symbol {
                 Symbol::Entity(_) => todo!(),
                 Symbol::Variable(_) => todo!(),
