@@ -388,4 +388,55 @@ fn parse_expr_works() {
         )
     "#]]
     .assert_debug_eq(&t!("(i32, i32)"));
+
+    expect_test::expect![[r#"
+        (
+            ExprSheet {
+                expr_arena: Arena {
+                    data: [
+                        Opn {
+                            opn: List {
+                                opr: NewVec,
+                                bracket: Box,
+                                bra_token_idx: TokenIdx(
+                                    0,
+                                ),
+                                ket_token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                            opds: ArenaIdxRange(
+                                0..0,
+                            ),
+                        },
+                        Unrecognized(
+                            Identifier(
+                                Word(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
+                            ),
+                        ),
+                        Opn {
+                            opn: Application,
+                            opds: ArenaIdxRange(
+                                0..2,
+                            ),
+                        },
+                    ],
+                },
+                entity_path_expr_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_arena: Arena {
+                    data: [],
+                },
+            },
+            Some(
+                2,
+            ),
+        )
+    "#]]
+    .assert_debug_eq(&t!("|x|x"));
 }
