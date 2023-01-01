@@ -1,6 +1,5 @@
 use crate::*;
 
-
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
@@ -15,6 +14,8 @@ pub enum TokenError {
     IllFormedLiteral(Literal),
     #[error("number pseudoliteral")]
     NumberPseudoLiteral(NumberPseudoLiteral),
+    #[error("parse int error")]
+    ParseIntError,
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]

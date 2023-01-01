@@ -237,7 +237,7 @@ fn produce_line_starts(tokens: &[Token]) -> Vec<usize> {
 }
 
 impl TokenSheet {
-    pub(crate) fn new(tokens: Vec<Token>) -> TokenSheet {
+    pub fn new(tokens: Vec<Token>) -> TokenSheet {
         TokenSheet {
             group_starts: produce_group_starts(&tokens),
             tokens,

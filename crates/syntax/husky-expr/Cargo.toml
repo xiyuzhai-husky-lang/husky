@@ -34,8 +34,11 @@ husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-expect-test-snippets-utils = { path = "../../utils/husky-expect-test-snippets-utils" }
 
 [dev-dependencies]
+expect-test = "1.4.0"
 # infer
 husky-manifest = { path = "../../infer/husky-manifest" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-package-path = { path = "../../kernel/husky-package-path" }

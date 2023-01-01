@@ -1,7 +1,7 @@
 [
   {
     "input": "+",
-    "output": "[\n    Token {\n        range: [1:1, 1:2),\n        kind: Punctuation(\n            BinaryOpr(\n                PureClosed(\n                    Add,\n                ),\n            ),\n        ),\n    },\n]"
+    "output": "[\n    Token {\n        range: [1:1, 1:2),\n        kind: Punctuation(\n            Binary(\n                PureClosed(\n                    Add,\n                ),\n            ),\n        ),\n    },\n]"
   },
   {
     "input": "-",
@@ -9,15 +9,15 @@
   },
   {
     "input": "*",
-    "output": "[\n    Token {\n        range: [1:1, 1:2),\n        kind: Punctuation(\n            BinaryOpr(\n                PureClosed(\n                    Mul,\n                ),\n            ),\n        ),\n    },\n]"
+    "output": "[\n    Token {\n        range: [1:1, 1:2),\n        kind: Punctuation(\n            Binary(\n                PureClosed(\n                    Mul,\n                ),\n            ),\n        ),\n    },\n]"
   },
   {
     "input": "/",
-    "output": "[\n    Token {\n        range: [1:1, 1:2),\n        kind: Punctuation(\n            BinaryOpr(\n                PureClosed(\n                    Div,\n                ),\n            ),\n        ),\n    },\n]"
+    "output": "[\n    Token {\n        range: [1:1, 1:2),\n        kind: Punctuation(\n            Binary(\n                PureClosed(\n                    Div,\n                ),\n            ),\n        ),\n    },\n]"
   },
   {
     "input": "**",
-    "output": "[\n    Token {\n        range: [1:1, 1:3),\n        kind: Punctuation(\n            BinaryOpr(\n                PureClosed(\n                    Power,\n                ),\n            ),\n        ),\n    },\n]"
+    "output": "[\n    Token {\n        range: [1:1, 1:3),\n        kind: Punctuation(\n            Binary(\n                PureClosed(\n                    Power,\n                ),\n            ),\n        ),\n    },\n]"
   },
   {
     "input": "|",
@@ -29,15 +29,15 @@
   },
   {
     "input": "&&",
-    "output": "[\n    Token {\n        range: [1:1, 1:3),\n        kind: Punctuation(\n            BinaryOpr(\n                ShortcuitLogic(\n                    And,\n                ),\n            ),\n        ),\n    },\n]"
+    "output": "[\n    Token {\n        range: [1:1, 1:3),\n        kind: Punctuation(\n            Binary(\n                ShortcuitLogic(\n                    And,\n                ),\n            ),\n        ),\n    },\n]"
   },
   {
     "input": "==",
-    "output": "[\n    Token {\n        range: [1:1, 1:3),\n        kind: Punctuation(\n            BinaryOpr(\n                Comparison(\n                    Eq,\n                ),\n            ),\n        ),\n    },\n]"
+    "output": "[\n    Token {\n        range: [1:1, 1:3),\n        kind: Punctuation(\n            Binary(\n                Comparison(\n                    Eq,\n                ),\n            ),\n        ),\n    },\n]"
   },
   {
     "input": "!=",
-    "output": "[\n    Token {\n        range: [1:1, 1:3),\n        kind: Punctuation(\n            BinaryOpr(\n                Comparison(\n                    Neq,\n                ),\n            ),\n        ),\n    },\n]"
+    "output": "[\n    Token {\n        range: [1:1, 1:3),\n        kind: Punctuation(\n            Binary(\n                Comparison(\n                    Neq,\n                ),\n            ),\n        ),\n    },\n]"
   },
   {
     "input": ">",
@@ -45,7 +45,7 @@
   },
   {
     "input": ">=",
-    "output": "[\n    Token {\n        range: [1:1, 1:3),\n        kind: Punctuation(\n            BinaryOpr(\n                Comparison(\n                    Geq,\n                ),\n            ),\n        ),\n    },\n]"
+    "output": "[\n    Token {\n        range: [1:1, 1:3),\n        kind: Punctuation(\n            Binary(\n                Comparison(\n                    Geq,\n                ),\n            ),\n        ),\n    },\n]"
   },
   {
     "input": "<",
@@ -53,6 +53,6 @@
   },
   {
     "input": "<=",
-    "output": "[\n    Token {\n        range: [1:1, 1:3),\n        kind: Punctuation(\n            BinaryOpr(\n                Comparison(\n                    Leq,\n                ),\n            ),\n        ),\n    },\n]"
+    "output": "[\n    Token {\n        range: [1:1, 1:3),\n        kind: Punctuation(\n            Binary(\n                Comparison(\n                    Leq,\n                ),\n            ),\n        ),\n    },\n]"
   }
 ]

@@ -51,10 +51,6 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         self.stack.top_expr.as_ref()
     }
 
-    pub(super) fn finish_batch(&mut self) -> Option<ExprIdx> {
-        core::mem::take(&mut self.stack.top_expr).map(|expr| self.sheet.alloc_expr(expr))
-    }
-
     pub(super) fn push_expr(&mut self, expr: Expr) {
         if let Some(expr) = self.take_top_expr() {
             self.push_unfinished_expr(UnfinishedExpr::Application { function: expr });
@@ -70,6 +66,10 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             .push((unfinished_expr, precedence))
     }
 
+    pub(super) fn take_last_unfinished_expr(&mut self) -> Option<UnfinishedExpr> {
+        self.stack.unfinished_exprs.pop().map(|(expr, _)| expr)
+    }
+
     pub(super) fn last_unfinished_expr(&self) -> Option<&UnfinishedExpr> {
         self.stack.unfinished_exprs.last().map(|(opr, _)| opr)
     }
@@ -81,24 +81,6 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
 
     pub(super) fn take_top_expr(&mut self) -> Option<Expr> {
         std::mem::take(&mut self.stack.top_expr)
-    }
-
-    pub(super) fn accept_prefix_opr(
-        &mut self,
-        prefix: PrefixPunctuation,
-        prefix_token_idx: TokenIdx,
-    ) {
-        match self.take_top_expr() {
-            Some(_) => todo!(),
-            None => self.push_unfinished_expr(UnfinishedExpr::Prefix {
-                prefix,
-                prefix_token_idx,
-            }),
-        }
-    }
-
-    pub(super) fn take_top_unfinished_expr(&mut self) -> Option<UnfinishedExpr> {
-        self.stack.unfinished_exprs.pop().map(|(expr, _)| expr)
     }
 
     pub(super) fn reduce(&mut self, next_precedence: Precedence) {
@@ -170,5 +152,9 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         let top_expr = self.take_top_expr();
         let new_expr = f(top_expr, &mut self.sheet);
         self.stack.top_expr = Some(new_expr)
+    }
+
+    pub(super) fn finish_batch(&mut self) -> Option<ExprIdx> {
+        core::mem::take(&mut self.stack.top_expr).map(|expr| self.sheet.alloc_expr(expr))
     }
 }

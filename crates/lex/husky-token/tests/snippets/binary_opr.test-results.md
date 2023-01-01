@@ -15,7 +15,7 @@ output
     Token {
         range: [1:1, 1:2),
         kind: Punctuation(
-            BinaryOpr(
+            Binary(
                 PureClosed(
                     Add,
                 ),
@@ -61,7 +61,7 @@ output
     Token {
         range: [1:1, 1:2),
         kind: Punctuation(
-            BinaryOpr(
+            Binary(
                 PureClosed(
                     Mul,
                 ),
@@ -86,7 +86,7 @@ output
     Token {
         range: [1:1, 1:2),
         kind: Punctuation(
-            BinaryOpr(
+            Binary(
                 PureClosed(
                     Div,
                 ),
@@ -111,7 +111,7 @@ output
     Token {
         range: [1:1, 1:3),
         kind: Punctuation(
-            BinaryOpr(
+            Binary(
                 PureClosed(
                     Power,
                 ),
@@ -178,7 +178,7 @@ output
     Token {
         range: [1:1, 1:3),
         kind: Punctuation(
-            BinaryOpr(
+            Binary(
                 ShortcuitLogic(
                     And,
                 ),
@@ -203,7 +203,7 @@ output
     Token {
         range: [1:1, 1:3),
         kind: Punctuation(
-            BinaryOpr(
+            Binary(
                 Comparison(
                     Eq,
                 ),
@@ -228,7 +228,7 @@ output
     Token {
         range: [1:1, 1:3),
         kind: Punctuation(
-            BinaryOpr(
+            Binary(
                 Comparison(
                     Neq,
                 ),
@@ -274,7 +274,7 @@ output
     Token {
         range: [1:1, 1:3),
         kind: Punctuation(
-            BinaryOpr(
+            Binary(
                 Comparison(
                     Geq,
                 ),
@@ -320,7 +320,7 @@ output
     Token {
         range: [1:1, 1:3),
         kind: Punctuation(
-            BinaryOpr(
+            Binary(
                 Comparison(
                     Leq,
                 ),

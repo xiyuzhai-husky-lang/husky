@@ -3,6 +3,8 @@ use std::ops::Neg;
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum IntegerLiteral {
     Unspecified,
+    I32(i32),
+    I64(i64),
     R32(u32),
     R64(u32),
 }

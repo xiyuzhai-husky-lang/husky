@@ -205,7 +205,7 @@ impl<'a> DeclCollector<'a> {
     where
         'a: 'c,
     {
-        let ctx = SymbolContext::new(self.db, entity_path, self.crate_prelude, local_symbol_sheet);
+        let ctx = SymbolContext::new(self.db, self.crate_prelude, local_symbol_sheet);
         ExprParser::new(
             ctx,
             self.token_sheet
