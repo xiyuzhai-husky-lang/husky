@@ -1,7 +1,7 @@
 use crate::*;
 
 use husky_vfs::*;
-use husky_word::WordDb;
+
 use salsa::DbWithJar;
 
 pub trait TokenDb: DbWithJar<TokenJar> + VfsDb {
