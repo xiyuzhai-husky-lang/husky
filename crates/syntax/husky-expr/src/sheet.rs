@@ -23,11 +23,16 @@ impl ExprSheet {
 
     pub(crate) fn alloc_expr_batch(
         &mut self,
-        opds: Vec<Expr>,
-        base_entity_path_results: Vec<BaseEntityPath>,
-    ) -> ArenaIdxRange<Expr> {
-        self.expr_base_entity_paths.extend(base_entity_path_results);
-        self.expr_arena.alloc_batch(opds)
+        exprs: Vec<Expr>,
+        base_entity_paths: Vec<BaseEntityPath>,
+    ) -> ExprIdxRange {
+        self.expr_base_entity_paths.extend(base_entity_paths);
+        self.expr_arena.alloc_batch(exprs)
+    }
+
+    pub(crate) fn alloc_expr(&mut self, expr: Expr, base_entity_path: BaseEntityPath) -> ExprIdx {
+        self.expr_base_entity_paths.push(base_entity_path);
+        self.expr_arena.alloc_one(expr)
     }
 }
 

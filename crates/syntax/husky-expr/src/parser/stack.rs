@@ -1,9 +1,9 @@
 use super::*;
 
 #[derive(Default, Debug)]
-pub(crate) struct AutomataStack {
-    oprs: Vec<(PartialOpn, Precedence)>,
-    exprs: Vec<Expr>,
+pub(crate) struct ExprParserStack {
+    unfinished_exprs: Vec<(UnfinishedExpr, Precedence)>,
+    top_expr: Option<(Expr, BaseEntityPath)>,
     base_entity_paths: Vec<BaseEntityPath>,
 }
 
@@ -45,63 +45,54 @@ impl Expr {
 
 impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     pub(super) fn number_of_oprs(&self) -> usize {
-        self.stack.oprs.len()
-    }
-
-    pub(super) fn number_of_exprs(&self) -> usize {
-        self.stack.exprs.len()
+        self.stack.unfinished_exprs.len()
     }
 
     pub(super) fn top_expr(&self) -> Option<&Expr> {
-        self.stack.exprs.last()
+        self.stack.top_expr.as_ref().map(|(expr, _)| expr)
     }
 
     pub(super) fn top_base_entity_path(&self) -> Option<BaseEntityPath> {
         self.stack.base_entity_paths.last().map(|v| *v)
     }
 
-    pub(super) fn finish_batch(&mut self) -> ExprIdxRange {
-        self.sheet.alloc_expr_batch(
-            std::mem::take(&mut self.stack.exprs),
-            core::mem::take(&mut self.stack.base_entity_paths),
-        )
-    }
-
-    pub(super) fn topk_exprs(&self, k: usize) -> &[Expr] {
-        &self.stack.exprs[(self.stack.exprs.len() - k)..]
-    }
-
-    pub(super) fn last_token_in_exprs(&self) -> TokenIdx {
-        todo!()
-    }
-    pub(super) fn expr(&self, idx: usize) -> &Expr {
-        &self.stack.exprs[idx]
+    pub(super) fn finish_batch(&mut self) -> Option<ExprIdx> {
+        core::mem::take(&mut self.stack.top_expr)
+            .map(|(expr, path)| self.sheet.alloc_expr(expr, path))
     }
 
     pub(super) fn push_expr(&mut self, expr: Expr) {
-        self.stack.base_entity_paths.push(expr.base_entity_path());
-        self.stack.exprs.push(expr)
+        if self.stack.top_expr.is_none() {
+            let base_entity_path = expr.base_entity_path();
+            self.stack.top_expr = Some((expr, base_entity_path))
+        } else {
+            todo!()
+        }
+        // self.stack.base_entity_paths.push(expr.base_entity_path());
+        // self.stack.exprs.push(expr)
     }
 
-    pub(super) fn push_opr(&mut self, opr: PartialOpn) {
+    pub(super) fn push_opr(&mut self, opr: UnfinishedExpr) {
+        assert!(self.stack.top_expr.is_none());
         let precedence = opr.precedence();
-        self.stack.oprs.push((opr, precedence))
+        self.stack.unfinished_exprs.push((opr, precedence))
     }
 
-    pub(super) fn top_opn(&self) -> Option<&PartialOpn> {
-        self.stack.oprs.last().map(|(opr, _)| opr)
+    pub(super) fn top_opn(&self) -> Option<&UnfinishedExpr> {
+        self.stack.unfinished_exprs.last().map(|(opr, _)| opr)
     }
 
-    pub(super) fn pop_opr(&mut self) -> Option<PartialOpn> {
-        self.stack.oprs.pop().map(|(opr, _)| opr)
+    pub(super) fn pop_opr(&mut self) -> Option<UnfinishedExpr> {
+        self.stack.unfinished_exprs.pop().map(|(opr, _)| opr)
     }
 
     pub(super) fn drain_exprs(&mut self, k: usize) -> (Vec<Expr>, Vec<BaseEntityPath>) {
-        let len = self.stack.exprs.len();
-        assert_eq!(len, self.stack.base_entity_paths.len());
-        (
-            self.stack.exprs.drain((len - k)..).collect(),
-            self.stack.base_entity_paths.drain((len - k)..).collect(),
-        )
+        todo!()
+        // let len = self.stack.exprs.len();
+        // assert_eq!(len, self.stack.base_entity_paths.len());
+        // (
+        //     self.stack.exprs.drain((len - k)..).collect(),
+        //     self.stack.base_entity_paths.drain((len - k)..).collect(),
+        // )
     }
 }

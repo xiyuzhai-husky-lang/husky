@@ -4,7 +4,7 @@ use husky_term::Term;
 use husky_token::Punctuation;
 use std::ops::ControlFlow;
 
-pub type TokenResolveResult<T> = ControlFlow<ExprParsingStopReason, T>;
+pub type TokenResolveResult<T> = ControlFlow<(), T>;
 
 impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     pub(crate) fn resolve_token(
@@ -42,13 +42,12 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 Punctuation::Colon => todo!(),
                 Punctuation::Comma => match self.top_opn() {
                     Some(_) => todo!(),
-                    None => return TokenResolveResult::Break(ExprParsingStopReason::Comma),
+                    None => return TokenResolveResult::Break(()),
                 },
                 Punctuation::Vertical => todo!(),
                 Punctuation::DoubleExclamation => todo!(),
-                Punctuation::Semicolon => {
-                    return TokenResolveResult::Break(ExprParsingStopReason::Semicolon)
-                }
+                Punctuation::Semicolon => todo!(),
+                // return TokenResolveResult::Break(()),
                 Punctuation::XmlKet => todo!(),
                 Punctuation::At => todo!(),
                 Punctuation::QuestionMark => todo!(),
@@ -65,7 +64,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     fn resolve_ident(&self, ident: Identifier) -> ResolvedTokenKind {
         if let Some(opn) = self.top_opn() {
             match opn {
-                PartialOpn::Binary {
+                UnfinishedExpr::Binary {
                     binary: BinaryPunctuation::ScopeResolution,
                     ..
                 } => {

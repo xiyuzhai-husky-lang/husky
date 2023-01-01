@@ -3,7 +3,7 @@ use husky_ast::{Ast, AstIdx, AstIdxRange, AstSheet};
 use husky_entity_path::EntityPath;
 use husky_entity_taxonomy::{EntityKind, FormKind, ModuleItemKind, TypeKind};
 use husky_entity_tree::{CratePrelude, EntitySymbol, EntityTreeSheet};
-use husky_expr::{parse_expr, ExprParsingStopReason, ExprSheet};
+use husky_expr::{parse_expr, ExprSheet};
 use husky_opn_syntax::BinaryPunctuation;
 use husky_print_utils::p;
 use husky_symbol::{LocalSymbolSheet, SymbolContext};

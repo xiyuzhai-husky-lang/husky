@@ -34,19 +34,11 @@ impl<'a, 'b, 'c> parsec::ParseFrom<ExprParser<'a, 'b, 'c>> for PropsStructFieldD
     ) -> Result<Option<Self>, ExprError> {
         let ident: IdentifierToken = ctx.parse_expected()?;
         let colon: ColonToken = ctx.parse_expected()?;
-        let (exprs, stop_reason) = ctx.parse_exprs();
-        match stop_reason {
-            ExprParsingStopReason::Semicolon => todo!(),
-            ExprParsingStopReason::NoTokens => todo!(),
-            ExprParsingStopReason::Comma => (),
-        }
-        if exprs.end() - exprs.start() != 1 {
-            todo!()
-        }
+        let Some(expr) = ctx.parse_expr() else { todo!() };
         Ok(Some(PropsStructFieldDecl {
             ident,
             colon,
-            ty: exprs.start(),
+            ty: expr,
         }))
     }
 }

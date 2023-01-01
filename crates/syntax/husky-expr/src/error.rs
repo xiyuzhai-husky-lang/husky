@@ -9,9 +9,9 @@ pub enum ExprError {
     #[error("non matching bracket")]
     MisMatchingBracket {
         bra: Bracket,
-        bra_token: TokenIdx,
+        bra_token_idx: TokenIdx,
         ket: Bracket,
-        ket_token: TokenIdx,
+        ket_token_idx: TokenIdx,
     },
     #[error("expect `}}`")]
     ExpectRightCurlyBrace(TokenIdx),
@@ -20,7 +20,10 @@ pub enum ExprError {
     #[error("expect `:`")]
     ExpectColon(TokenIdx),
     #[error("no matching bracket")]
-    NoMatchingBra { ket: Bracket, ket_token: TokenIdx },
+    NoMatchingBra {
+        ket: Bracket,
+        ket_token_idx: TokenIdx,
+    },
     #[error("expect identifier after dot")]
     ExpectIdentifierAfterDot,
     #[error("token error {0}")]
