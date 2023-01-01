@@ -12,10 +12,6 @@ impl ExprParserStack {
             .last()
             .map(|(_, precedence)| *precedence)
     }
-
-    fn take_top_expr(&mut self) -> Option<Expr> {
-        std::mem::take(&mut self.top_expr)
-    }
 }
 
 impl Expr {
@@ -28,12 +24,7 @@ impl Expr {
             Expr::Unrecognized(_) => BaseEntityPath::Uncertain,
             Expr::Opn { opn, opds } => match opn {
                 Opn::Binary(_) => todo!(),
-                Opn::Prefix(_) => todo!(),
-                Opn::Suffix(suffix) => match suffix {
-                    SuffixPunctuation::Incr
-                    | SuffixPunctuation::Decr
-                    | SuffixPunctuation::Unveil => BaseEntityPath::None,
-                },
+                Opn::Prefix(_) | Opn::Suffix { .. } => BaseEntityPath::None,
                 Opn::CurlBracketed => todo!(),
                 Opn::List { opr, .. } => match opr {
                     ListOpr::NewTuple => todo!(),
@@ -56,10 +47,6 @@ impl Expr {
 }
 
 impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
-    pub(super) fn number_of_oprs(&self) -> usize {
-        self.stack.unfinished_exprs.len()
-    }
-
     pub(super) fn top_expr(&self) -> Option<&Expr> {
         self.stack.top_expr.as_ref()
     }
@@ -87,23 +74,8 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         self.stack.unfinished_exprs.last().map(|(opr, _)| opr)
     }
 
-    pub(super) fn pop_opr(&mut self) -> Option<UnfinishedExpr> {
-        self.stack.unfinished_exprs.pop().map(|(opr, _)| opr)
-    }
-
-    // pub(super) fn drain_exprs(&mut self, k: usize) -> (Vec<Expr>, Vec<BaseEntityPath>) {
-    //     todo!()
-    //     // let len = self.stack.exprs.len();
-    //     // assert_eq!(len, self.stack.base_entity_paths.len());
-    //     // (
-    //     //     self.stack.exprs.drain((len - k)..).collect(),
-    //     //     self.stack.base_entity_paths.drain((len - k)..).collect(),
-    //     // )
-    // }
-
     pub(super) fn set_top_expr(&mut self, expr: Expr) {
         assert!(self.stack.top_expr.is_none());
-        let path = expr.base_entity_path();
         self.stack.top_expr = Some(expr)
     }
 
