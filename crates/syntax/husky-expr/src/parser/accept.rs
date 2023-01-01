@@ -65,7 +65,10 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     fn accept_suffix_opr(&mut self, suffix: SuffixPunctuation, suffix_token_idx: TokenIdx) {
         self.replace_top_expr(|top_expr, sheet| match top_expr {
             Some(expr) => Expr::Opn {
-                opn: Opn::Suffix(suffix),
+                opn: Opn::Suffix {
+                    suffix,
+                    suffix_token_idx,
+                },
                 opds: ExprIdxRange::new_single(sheet.alloc_expr(expr)),
             },
             None => todo!(),
