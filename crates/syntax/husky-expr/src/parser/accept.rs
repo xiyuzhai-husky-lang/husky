@@ -15,7 +15,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             }
             ResolvedToken::Bra(token_idx, bra) => {
                 let opr = match bra {
-                    Bracket::Par => todo!(),
+                    Bracket::Par => ListOpr::NewTuple,
                     Bracket::Box => ListOpr::NewVec,
                     Bracket::Angle => todo!(),
                     Bracket::Curl => todo!(),
@@ -95,7 +95,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
 
     fn accept_comma(&mut self, token_idx: TokenIdx) {
         match self.last_unfinished_expr() {
-            Some(_) => todo!(),
+            Some(expr) => todo!(),
             None => todo!(),
         }
     }
