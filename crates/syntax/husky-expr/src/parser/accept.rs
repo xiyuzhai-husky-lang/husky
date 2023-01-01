@@ -1,47 +1,34 @@
 use super::*;
 
 impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
-    pub(crate) fn next_token(&mut self) -> Option<&'b Token> {
-        self.token_iter.next()
-    }
-
     pub(crate) fn accept_token(&mut self, token: ResolvedToken) {
-        match token.kind() {
-            ResolvedTokenKind::Atom(_atom) => {
-                self.accept_atom(token.to_expr(self.sheet.expr_arena()))
+        match token {
+            ResolvedToken::Atom(atom) => self.accept_atom(atom),
+            ResolvedToken::BinaryPunctuation(token_idx, opr) => {
+                self.accept_binary_opr(opr, token_idx)
             }
-            ResolvedTokenKind::BinaryPunctuation(opr) => {
-                self.accept_binary_opr(*opr, token.token_idx())
+            ResolvedToken::PrefixPunctuation(token_idx, opr) => {
+                self.accept_prefix_opr(opr, token_idx)
             }
-            ResolvedTokenKind::PrefixPunctuation(opr) => {
-                self.accept_prefix_opr(*opr, token.token_idx())
+            ResolvedToken::SuffixPunctuation(token_idx, opr) => {
+                self.accept_suffix_opr(opr, token_idx)
             }
-            ResolvedTokenKind::SuffixPunctuation(opr) => {
-                self.accept_suffix_opr(*opr, token.token_idx())
-            }
-            ResolvedTokenKind::Bra(bra) => {
+            ResolvedToken::Bra(token_idx, bra) => {
                 let opr = match bra {
                     Bracket::Par => todo!(),
                     Bracket::Box => ListOpr::NewVec,
                     Bracket::Angle => todo!(),
                     Bracket::Curl => todo!(),
                 };
-                self.accept_list_start(*bra, token.token_idx(), opr)
+                self.accept_list_start(bra, token_idx, opr)
             }
-            ResolvedTokenKind::Ket(ket) => {
-                self.accept_list_end(*ket, token.token_idx(), ListEndAttr::None)
-            }
-            ResolvedTokenKind::Dot => self.accept_dot_opr(token.token_idx()),
-            ResolvedTokenKind::Comma => self.accept_comma(token.token_idx()),
+            ResolvedToken::Ket(token_idx, ket) => self.accept_list_end(ket, token_idx),
+            ResolvedToken::Dot(token_idx) => self.accept_dot_opr(token_idx),
+            ResolvedToken::Comma(token_idx) => self.accept_comma(token_idx),
         }
     }
 
-    pub(crate) fn accept_list_end(
-        &mut self,
-        ket: Bracket,
-        ket_token_idx: TokenIdx,
-        attr: ListEndAttr,
-    ) {
+    pub(crate) fn accept_list_end(&mut self, ket: Bracket, ket_token_idx: TokenIdx) {
         self.reduce(Precedence::ListItem);
         match self.take_top_unfinished_expr().unwrap() {
             UnfinishedExpr::List {
@@ -69,38 +56,6 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             }
             _ => todo!(),
         }
-        // let original_number_of_oprs = self.number_of_oprs();
-        // let (start_attr, bra_token) = {
-        //     loop {
-        //         match self.pop_opr() {
-        //             Some(opr) => match opr {
-        //                 UnfinishedExpr::ListItem { .. } => (),
-        //                 UnfinishedExpr::ListStart {
-        //                     bra,
-        //                     bra_token_idx,
-        //                     attr,
-        //                 } => {
-        //                     if ket != bra {
-        //                         return Err(ExprError::MisMatchingBracket {
-        //                             bra,
-        //                             bra_token_idx,
-        //                             ket,
-        //                             ket_token_idx,
-        //                         });
-        //                     };
-        //                     break (attr, bra_token_idx);
-        //                 }
-        //                 _ => return Err(ExprError::NoMatchingBra { ket, ket_token_idx }),
-        //             },
-        //             None => return Err(ExprError::NoMatchingBra { ket, ket_token_idx }),
-        //         }
-        //     }
-        // };
-        // let list_len = original_number_of_oprs - self.number_of_oprs() - 1;
-        // let (opds, paths) = self.drain_exprs(list_len);
-        // let opds = self.sheet.alloc_expr_batch(opds, paths);
-        // self.push_expr(new_list_expr(ket, start_attr, attr, opds)?);
-        // Ok(())
     }
 
     fn accept_atom(&mut self, atom: Expr) {
@@ -108,17 +63,13 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     }
 
     fn accept_suffix_opr(&mut self, suffix: SuffixPunctuation, suffix_token_idx: TokenIdx) {
-        {
-            let suffix_token_idx = suffix_token_idx;
-            self.replace_top_expr(|top_expr, sheet| match top_expr {
-                Some(expr) => Expr::Opn {
-                    opn: Opn::Suffix(suffix),
-                    opds: ExprIdxRange::new_single(sheet.alloc_expr(expr)),
-                },
-                None => todo!(),
-            })
-            // self.synthesize_opn(suffix.into(), 1)
-        }
+        self.replace_top_expr(|top_expr, sheet| match top_expr {
+            Some(expr) => Expr::Opn {
+                opn: Opn::Suffix(suffix),
+                opds: ExprIdxRange::new_single(sheet.alloc_expr(expr)),
+            },
+            None => todo!(),
+        })
     }
 
     fn accept_dot_opr(&mut self, dot_token_idx: TokenIdx) {

@@ -4,7 +4,6 @@ use super::*;
 pub(crate) struct ExprParserStack {
     unfinished_exprs: Vec<(UnfinishedExpr, Precedence)>,
     top_expr: Option<Expr>,
-    base_entity_paths: Vec<BaseEntityPath>,
 }
 
 impl ExprParserStack {
@@ -63,10 +62,6 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
 
     pub(super) fn top_expr(&self) -> Option<&Expr> {
         self.stack.top_expr.as_ref()
-    }
-
-    pub(super) fn top_base_entity_path(&self) -> Option<BaseEntityPath> {
-        self.stack.base_entity_paths.last().map(|v| *v)
     }
 
     pub(super) fn finish_batch(&mut self) -> Option<ExprIdx> {
