@@ -44,7 +44,8 @@ impl Token {
             TokenKind::Keyword(_) => Convexity::Concave,
             TokenKind::Identifier(_) => Convexity::Convex,
             TokenKind::Punctuation(special) => match special {
-                Punctuation::BinaryOpr(_) => Convexity::Concave,
+                Punctuation::Binary(_) => Convexity::Concave,
+                Punctuation::Suffix(_) => todo!(),
                 Punctuation::Bra(_) => Convexity::Concave,
                 Punctuation::Ket(_) => Convexity::Convex,
                 Punctuation::LAngle => Convexity::Concave,
@@ -56,8 +57,6 @@ impl Token {
                 Punctuation::Dot => Convexity::Concave,
                 Punctuation::Colon => Convexity::Any,
                 Punctuation::Comma => Convexity::Concave,
-                Punctuation::Incr => todo!(),
-                Punctuation::Decr => todo!(),
                 Punctuation::Vertical => todo!(),
                 Punctuation::Exclamation => todo!(),
                 Punctuation::DoubleExclamation => todo!(),
