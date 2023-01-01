@@ -42,42 +42,19 @@ impl<'a> TermPatternInferContext<'a> {
         sheet: &mut TermPatternInferSheet,
     ) -> ExprTermPatternInferRawResults {
         match self.expr() {
-            Expr::Atom(ref atom) => self.infer_atom(atom, sheet),
-            Expr::Opn {
-                opn: ref opn_variant,
-                ref opds,
-            } => self.infer_opn_ty(opn_variant, opds, sheet),
-            Expr::Bracketed(_) => todo!(),
-            Expr::Err(_) => todo!(),
-        }
-    }
-
-    fn infer_atom(
-        &self,
-        atom: &AtomExpr,
-        sheet: &mut TermPatternInferSheet,
-    ) -> ExprTermPatternInferRawResults {
-        match atom {
-            AtomExpr::Literal(literal) => self.infer_literal(todo!(), sheet),
-            AtomExpr::Symbol(symbol) => match symbol {
-                Symbol::Entity(_) => todo!(),
-                Symbol::Variable(_) => todo!(),
-                Symbol::Lifetime(_) => todo!(),
-                Symbol::Label(_) => todo!(),
-            },
-            // Symbol::ModulePath(_) => todo!(),
-            // Symbol::LocalVariable { init_range } => ExprTermPatternInferRawResults {
-            //     const_expr: Ok(None),
-            //     ty: self.var_ty_result(sheet, symbol.ident, init_range),
+            Expr::Literal(literal) => self.infer_literal(todo!(), sheet),
+            Expr::EntityPath(_) => todo!(),
+            Expr::Variable {
+                token_idx,
+                variable_idx,
+            } => todo!(),
+            // Expr::Symbol(symbol) => match symbol {
+            //     Symbol::Entity(_) => todo!(),
+            //     Symbol::Variable(_) => todo!(),
+            //     Symbol::Lifetime(_) => todo!(),
+            //     Symbol::Label(_) => todo!(),
             // },
-            // Symbol::FrameVariable { .. } => ExprTermPatternInferRawResults {
-            //     const_expr: Ok(None),
-            //     ty: Ok(self.term_menu().i32().into()),
-            // },
-            // Symbol::ThisValue => todo!(),
-            // Symbol::ThisMethod => todo!(),
-            // Symbol::ThisField => todo!(),
-            AtomExpr::Unrecognized(ident) => {
+            Expr::Unrecognized(ident) => {
                 let error = self.error_original(OriginalTermPatternInferError::IdentUnrecognized {
                     ident: self.db.dt_ident(*ident).to_owned(),
                 });
@@ -87,7 +64,13 @@ impl<'a> TermPatternInferContext<'a> {
                         .err_derived(DerivedTermPatternInferError::TermPatternInferError(error)),
                 }
             }
-            AtomExpr::Uncertain(_) => todo!(),
+            Expr::Uncertain(_) => todo!(),
+            Expr::Opn {
+                opn: ref opn_variant,
+                ref opds,
+            } => self.infer_opn_ty(opn_variant, opds, sheet),
+            Expr::Bracketed(_) => todo!(),
+            Expr::Err(_) => todo!(),
         }
     }
 
@@ -192,10 +175,17 @@ impl<'a> TermPatternInferContext<'a> {
 
     fn subexprs(&self) -> Option<ExprIdxRange> {
         match self.expr() {
-            Expr::Atom(_) => None,
             Expr::Opn { ref opds, .. } => Some(opds.clone()),
             Expr::Bracketed(_) => todo!(),
             Expr::Err(_) => todo!(),
+            Expr::Literal(_) => todo!(),
+            Expr::EntityPath(_) => todo!(),
+            Expr::Variable {
+                token_idx,
+                variable_idx,
+            } => todo!(),
+            Expr::Uncertain(_) => todo!(),
+            Expr::Unrecognized(_) => todo!(),
         }
     }
 

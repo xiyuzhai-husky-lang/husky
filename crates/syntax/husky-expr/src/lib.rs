@@ -13,7 +13,7 @@ mod variable;
 pub use atom::*;
 pub use entity_path::*;
 pub use error::*;
-use husky_symbol::SymbolContext;
+use husky_symbol::{SymbolContext, VariableIdx};
 pub use parser::*;
 pub use pattern::*;
 pub use sheet::*;
@@ -36,16 +36,20 @@ pub enum BaseEntityPath {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum Expr {
-    Atom(AtomExpr),
-    Opn { opn: Opn, opds: ExprIdxRange },
+    Literal(TokenIdx),
+    EntityPath(EntityPathExprIdx),
+    Variable {
+        token_idx: TokenIdx,
+        variable_idx: VariableIdx,
+    },
+    Uncertain(Identifier),
+    Unrecognized(Identifier),
+    Opn {
+        opn: Opn,
+        opds: ExprIdxRange,
+    },
     Bracketed(ExprIdx),
     Err(ExprError),
-}
-
-impl From<AtomExpr> for Expr {
-    fn from(atom: AtomExpr) -> Self {
-        Expr::Atom(atom)
-    }
 }
 
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};

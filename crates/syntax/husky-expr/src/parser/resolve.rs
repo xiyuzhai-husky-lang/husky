@@ -88,7 +88,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 },
             },
             TokenKind::WordOpr(_) => todo!(),
-            TokenKind::Literal(_) => ResolvedTokenKind::Atom(AtomExpr::Literal(token_idx)),
+            TokenKind::Literal(_) => ResolvedTokenKind::Atom(Expr::Literal(token_idx)),
             TokenKind::Comment => todo!(),
             TokenKind::Err(_) => todo!(),
         })
@@ -119,7 +119,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         }
         match self.ctx.resolve_ident(ident) {
             Some(symbol) => symbol.into(),
-            None => ResolvedTokenKind::Atom(AtomExpr::Unrecognized(ident)),
+            None => ResolvedTokenKind::Atom(Expr::Unrecognized(ident)),
         }
     }
 
@@ -183,7 +183,7 @@ impl ResolvedToken {
 
 #[derive(Clone)]
 pub(crate) enum ResolvedTokenKind {
-    Atom(AtomExpr),
+    Atom(Expr),
     BinaryOpr(BinaryPunctuation),
     Prefix(PrefixPunctuation),
     Suffix(SuffixPunctuation),
@@ -195,6 +195,12 @@ pub(crate) enum ResolvedTokenKind {
 
 impl From<Symbol> for ResolvedTokenKind {
     fn from(symbol: Symbol) -> Self {
-        ResolvedTokenKind::Atom(symbol.into())
+        let expr = match symbol {
+            Symbol::Entity(_) => todo!(),
+            Symbol::Variable(_) => todo!(),
+            Symbol::Lifetime(_) => todo!(),
+            Symbol::Label(_) => todo!(),
+        };
+        ResolvedTokenKind::Atom(expr)
     }
 }

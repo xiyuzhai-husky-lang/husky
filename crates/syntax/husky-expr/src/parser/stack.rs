@@ -22,12 +22,14 @@ impl ExprParserStack {
 impl Expr {
     pub fn base_entity_path(&self) -> BaseEntityPath {
         match self {
-            Expr::Atom(atom) => match atom {
-                AtomExpr::Literal(_) => todo!(),
-                AtomExpr::Symbol(_) => todo!(),
-                AtomExpr::Uncertain(_) => todo!(),
-                AtomExpr::Unrecognized(_) => BaseEntityPath::Uncertain,
-            },
+            Expr::Literal(_) => todo!(),
+            Expr::EntityPath(_) => todo!(),
+            Expr::Variable {
+                token_idx: TokenIdx,
+                variable_idx: VariableIdx,
+            } => todo!(),
+            Expr::Uncertain(_) => todo!(),
+            Expr::Unrecognized(_) => BaseEntityPath::Uncertain,
             Expr::Opn { opn, opds } => match opn {
                 Opn::Binary(_) => todo!(),
                 Opn::Prefix(_) => todo!(),
