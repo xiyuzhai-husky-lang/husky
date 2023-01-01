@@ -8,7 +8,7 @@ pub type TokenResolveResult<T> = ControlFlow<(), T>;
 
 impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     pub(crate) fn resolve_token(
-        &self,
+        &mut self,
         token_idx: TokenIdx,
         token: &Token,
     ) -> TokenResolveResult<ResolvedToken> {
@@ -18,7 +18,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         })
     }
 
-    fn resolve_token_kind(&self, token: &Token) -> TokenResolveResult<ResolvedTokenKind> {
+    fn resolve_token_kind(&mut self, token: &Token) -> TokenResolveResult<ResolvedTokenKind> {
         TokenResolveResult::Continue(match token.kind {
             TokenKind::Attr(_) => todo!(),
             TokenKind::Keyword(_keyword) => todo!(),
@@ -40,10 +40,31 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 Punctuation::BinaryOpr(BinaryPunctuation::Curry) => todo!(),
                 Punctuation::BinaryOpr(BinaryPunctuation::ScopeResolution) => todo!(),
                 Punctuation::Colon => todo!(),
-                Punctuation::Comma => match self.last_unfinished_expr() {
-                    Some(_) => todo!(),
-                    None => return TokenResolveResult::Break(()),
-                },
+                Punctuation::Comma => {
+                    self.reduce(Precedence::ListItem);
+                    match self.last_unfinished_expr() {
+                        Some(expr) => match expr {
+                            UnfinishedExpr::Binary { .. } => return TokenResolveResult::Break(()),
+                            UnfinishedExpr::ListItem {
+                                separator_token_idx,
+                            } => todo!(),
+                            UnfinishedExpr::Prefix {
+                                prefix,
+                                prefix_token_idx,
+                            } => todo!(),
+                            UnfinishedExpr::List {
+                                opr,
+                                bra,
+                                bra_token_idx,
+                                items,
+                            } => todo!(),
+                            UnfinishedExpr::LambdaHead { inputs, start } => todo!(),
+                            UnfinishedExpr::Dot { dot_token_idx } => todo!(),
+                            UnfinishedExpr::Application { function } => todo!(),
+                        },
+                        None => return TokenResolveResult::Break(()),
+                    }
+                }
                 Punctuation::Vertical => todo!(),
                 Punctuation::DoubleExclamation => todo!(),
                 Punctuation::Semicolon => todo!(),
@@ -59,7 +80,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                     Some(_) => ResolvedTokenKind::BinaryOpr(BinaryPunctuation::PureClosed(
                         BinaryPureClosedPunctuation::BitOr,
                     )),
-                    None => todo!(),
+                    None => ResolvedTokenKind::Prefix(PrefixPunctuation::Ref),
                 },
             },
             TokenKind::WordOpr(_) => todo!(),

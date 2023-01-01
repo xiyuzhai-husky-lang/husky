@@ -24,6 +24,9 @@ pub(super) enum UnfinishedExpr {
         inputs: Vec<(RangedIdentifier, Option<ExprIdx>)>,
         start: TextPosition,
     },
+    Application {
+        function: Expr,
+    },
     Dot {
         dot_token_idx: TokenIdx,
     },
@@ -37,6 +40,7 @@ impl UnfinishedExpr {
             UnfinishedExpr::ListItem { .. } | UnfinishedExpr::List { .. } => Precedence::None,
             UnfinishedExpr::LambdaHead { inputs, start } => Precedence::LambdaHead,
             UnfinishedExpr::Dot { dot_token_idx } => Precedence::Dot,
+            UnfinishedExpr::Application { function } => Precedence::Application,
         }
     }
 }

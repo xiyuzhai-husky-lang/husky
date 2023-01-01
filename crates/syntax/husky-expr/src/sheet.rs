@@ -20,7 +20,10 @@ impl ExprSheet {
         &self.pattern_expr_arena
     }
 
-    pub(crate) fn alloc_expr_batch(&mut self, exprs: Vec<Expr>) -> ExprIdxRange {
+    pub(crate) fn alloc_expr_batch(
+        &mut self,
+        exprs: impl IntoIterator<Item = Expr>,
+    ) -> ExprIdxRange {
         self.expr_arena.alloc_batch(exprs)
     }
 
