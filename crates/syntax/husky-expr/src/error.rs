@@ -41,6 +41,8 @@ pub enum ExprError {
         prefix: PrefixPunctuation,
         prefix_token_idx: TokenIdx,
     },
+    #[error("missing item before comma")]
+    MissingItemBeforeComma { comma_token_idx: TokenIdx },
 }
 
 impl<'a, 'b, 'c> FromAbsent<RightCurlyBraceToken, ExprParser<'a, 'b, 'c>> for ExprError {
