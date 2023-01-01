@@ -44,12 +44,20 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 bra_token_idx,
                 mut items,
             } => {
+                if bra != ket {
+                    todo!()
+                }
                 if let Some(expr) = self.take_top_expr() {
                     items.push(expr)
                 }
                 let opds = self.sheet.alloc_expr_batch(items);
                 self.set_top_expr(Expr::Opn {
-                    opn: Opn::List(opr),
+                    opn: Opn::List {
+                        opr,
+                        bracket: bra,
+                        bra_token_idx,
+                        ket_token_idx,
+                    },
                     opds,
                 })
             }

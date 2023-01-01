@@ -13,7 +13,7 @@ mod variable;
 pub use atom::*;
 pub use entity_path::*;
 pub use error::*;
-use husky_symbol::VariableIdx;
+pub use opn::*;
 pub use parser::*;
 pub use pattern::*;
 pub use sheet::*;
@@ -21,9 +21,9 @@ pub use variable::*;
 
 use husky_entity_path::EntityPath;
 use husky_opn_syntax::*;
+use husky_symbol::VariableIdx;
 use husky_text::*;
 use husky_token::*;
-use husky_vfs::{ModulePath, VfsResult};
 use husky_word::*;
 use precedence::*;
 

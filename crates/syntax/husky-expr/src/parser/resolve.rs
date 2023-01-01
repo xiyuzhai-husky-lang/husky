@@ -77,7 +77,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             },
             TokenKind::WordOpr(_) => todo!(),
             TokenKind::Literal(_) => ResolvedTokenKind::Atom(Expr::Literal(token_idx)),
-            TokenKind::Comment => todo!(),
+            TokenKind::Comment => unreachable!(),
             TokenKind::Err(_) => todo!(),
         })
     }

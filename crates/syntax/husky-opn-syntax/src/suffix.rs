@@ -2,12 +2,6 @@ use std::borrow::Cow;
 
 use super::*;
 
-impl From<SuffixPunctuation> for Opn {
-    fn from(suffix: SuffixPunctuation) -> Self {
-        Self::Suffix(suffix)
-    }
-}
-
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SuffixPunctuation {
     Incr, // ++

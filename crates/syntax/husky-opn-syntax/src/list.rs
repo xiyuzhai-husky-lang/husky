@@ -12,12 +12,6 @@ pub enum ListOpr {
     MethodCall { ranged_ident: RangedIdentifier },
 }
 
-impl Into<Opn> for ListOpr {
-    fn into(self) -> Opn {
-        Opn::List(self)
-    }
-}
-
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum ListStartAttr {
     None,

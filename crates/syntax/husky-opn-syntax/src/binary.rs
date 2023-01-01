@@ -6,8 +6,6 @@ pub use comparison::*;
 pub use logic::*;
 pub use pure_closed::*;
 
-use super::*;
-
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum BinaryPunctuation {
     PureClosed(BinaryPureClosedPunctuation),
@@ -17,12 +15,6 @@ pub enum BinaryPunctuation {
     ScopeResolution, // ::
     Curry,           // ->
     As,              // as
-}
-
-impl Into<Opn> for BinaryPunctuation {
-    fn into(self) -> Opn {
-        Opn::Binary(self)
-    }
 }
 
 impl BinaryPunctuation {
