@@ -164,7 +164,7 @@ Ok(
             Token {
                 range: [5:18, 5:20),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Curry,
                     ),
                 ),
@@ -208,7 +208,7 @@ Ok(
             Token {
                 range: [7:10, 7:12),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -228,7 +228,7 @@ Ok(
             Token {
                 range: [7:15, 7:17),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -374,7 +374,7 @@ Ok(
             Token {
                 range: [8:27, 8:29),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Curry,
                     ),
                 ),
@@ -560,7 +560,7 @@ Ok(
             Token {
                 range: [14:18, 14:20),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Curry,
                     ),
                 ),
@@ -604,7 +604,7 @@ Ok(
             Token {
                 range: [16:10, 16:12),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -624,7 +624,7 @@ Ok(
             Token {
                 range: [16:15, 16:17),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -770,7 +770,7 @@ Ok(
             Token {
                 range: [17:28, 17:30),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Curry,
                     ),
                 ),
@@ -956,7 +956,7 @@ Ok(
             Token {
                 range: [23:18, 23:20),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Curry,
                     ),
                 ),
@@ -1000,7 +1000,7 @@ Ok(
             Token {
                 range: [25:10, 25:12),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -1020,7 +1020,7 @@ Ok(
             Token {
                 range: [25:15, 25:17),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -1160,7 +1160,7 @@ Ok(
             Token {
                 range: [26:24, 26:26),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Curry,
                     ),
                 ),
@@ -1340,7 +1340,7 @@ Ok(
             Token {
                 range: [32:18, 32:20),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Curry,
                     ),
                 ),
@@ -1384,7 +1384,7 @@ Ok(
             Token {
                 range: [34:10, 34:12),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -1404,7 +1404,7 @@ Ok(
             Token {
                 range: [34:15, 34:17),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -1550,7 +1550,7 @@ Ok(
             Token {
                 range: [35:28, 35:30),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Curry,
                     ),
                 ),

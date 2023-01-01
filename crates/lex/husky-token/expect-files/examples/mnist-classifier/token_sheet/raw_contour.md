@@ -22,7 +22,7 @@ Ok(
             Token {
                 range: [1:10, 1:12),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -42,7 +42,7 @@ Ok(
             Token {
                 range: [1:18, 1:20),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -50,7 +50,7 @@ Ok(
             Token {
                 range: [1:20, 1:21),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Mul,
                         ),
@@ -78,7 +78,7 @@ Ok(
             Token {
                 range: [2:10, 2:12),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -98,7 +98,7 @@ Ok(
             Token {
                 range: [2:31, 2:33),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -106,7 +106,7 @@ Ok(
             Token {
                 range: [2:33, 2:34),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Mul,
                         ),
@@ -134,7 +134,7 @@ Ok(
             Token {
                 range: [3:10, 3:12),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -154,7 +154,7 @@ Ok(
             Token {
                 range: [3:31, 3:33),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -162,7 +162,7 @@ Ok(
             Token {
                 range: [3:33, 3:34),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Mul,
                         ),
@@ -190,7 +190,7 @@ Ok(
             Token {
                 range: [4:10, 4:12),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -418,7 +418,7 @@ Ok(
             Token {
                 range: [12:30, 12:32),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Curry,
                     ),
                 ),
@@ -456,7 +456,7 @@ Ok(
             Token {
                 range: [13:26, 13:28),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -538,7 +538,7 @@ Ok(
             Token {
                 range: [15:23, 15:25),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Curry,
                     ),
                 ),
@@ -584,7 +584,7 @@ Ok(
             Token {
                 range: [16:25, 16:26),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -658,7 +658,7 @@ Ok(
             Token {
                 range: [17:22, 17:23),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -726,7 +726,7 @@ Ok(
             Token {
                 range: [18:22, 18:23),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -794,7 +794,7 @@ Ok(
             Token {
                 range: [19:22, 19:23),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -862,7 +862,7 @@ Ok(
             Token {
                 range: [20:22, 20:23),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -1004,7 +1004,7 @@ Ok(
             Token {
                 range: [22:23, 22:24),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -1066,7 +1066,7 @@ Ok(
             Token {
                 range: [23:18, 23:19),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -1164,7 +1164,7 @@ Ok(
             Token {
                 range: [24:18, 24:19),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -1262,7 +1262,7 @@ Ok(
             Token {
                 range: [25:18, 25:19),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -1360,7 +1360,7 @@ Ok(
             Token {
                 range: [26:18, 26:19),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -1630,7 +1630,7 @@ Ok(
             Token {
                 range: [32:32, 32:34),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Curry,
                     ),
                 ),
@@ -1812,7 +1812,7 @@ Ok(
             Token {
                 range: [35:22, 35:24),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Curry,
                     ),
                 ),
@@ -1866,7 +1866,7 @@ Ok(
             Token {
                 range: [36:29, 36:30),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -2000,7 +2000,7 @@ Ok(
             Token {
                 range: [38:19, 38:20),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -2042,7 +2042,7 @@ Ok(
             Token {
                 range: [38:29, 38:30),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Sub,
                         ),
@@ -2088,7 +2088,7 @@ Ok(
             Token {
                 range: [39:19, 39:20),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -2150,7 +2150,7 @@ Ok(
             Token {
                 range: [40:25, 40:27),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             Some(
                                 Add,
@@ -2200,7 +2200,7 @@ Ok(
             Token {
                 range: [40:33, 40:34),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Sub,
                         ),
@@ -2282,7 +2282,7 @@ Ok(
             Token {
                 range: [40:46, 40:47),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Add,
                         ),
@@ -2330,7 +2330,7 @@ Ok(
             Token {
                 range: [40:53, 40:54),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Sub,
                         ),
@@ -2432,7 +2432,7 @@ Ok(
             Token {
                 range: [41:15, 41:16),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -2508,7 +2508,7 @@ Ok(
             Token {
                 range: [41:38, 41:39),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Sub,
                         ),
@@ -2554,7 +2554,7 @@ Ok(
             Token {
                 range: [42:15, 42:16),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -2612,7 +2612,7 @@ Ok(
             Token {
                 range: [43:21, 43:23),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             Some(
                                 Add,
@@ -2662,7 +2662,7 @@ Ok(
             Token {
                 range: [43:29, 43:30),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Sub,
                         ),
@@ -2744,7 +2744,7 @@ Ok(
             Token {
                 range: [43:42, 43:43),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Add,
                         ),
@@ -2792,7 +2792,7 @@ Ok(
             Token {
                 range: [43:49, 43:50),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Sub,
                         ),
@@ -2996,7 +2996,7 @@ Ok(
             Token {
                 range: [46:45, 46:47),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Curry,
                     ),
                 ),
@@ -3034,7 +3034,7 @@ Ok(
             Token {
                 range: [47:11, 47:12),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -3120,7 +3120,7 @@ Ok(
             Token {
                 range: [48:18, 48:19),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -3180,7 +3180,7 @@ Ok(
             Token {
                 range: [48:37, 48:38),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             RemEuclid,
                         ),
@@ -3222,7 +3222,7 @@ Ok(
             Token {
                 range: [49:16, 49:17),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -3282,7 +3282,7 @@ Ok(
             Token {
                 range: [49:33, 49:34),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             RemEuclid,
                         ),
@@ -3412,7 +3412,7 @@ Ok(
             Token {
                 range: [53:24, 53:25),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -3668,7 +3668,7 @@ Ok(
             Token {
                 range: [61:39, 61:41),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Curry,
                     ),
                 ),
@@ -3746,7 +3746,7 @@ Ok(
             Token {
                 range: [62:16, 62:17),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Sub,
                         ),
@@ -3898,7 +3898,7 @@ Ok(
             Token {
                 range: [64:46, 64:48),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Curry,
                     ),
                 ),
@@ -4094,7 +4094,7 @@ Ok(
             Token {
                 range: [67:47, 67:49),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Curry,
                     ),
                 ),
@@ -4172,7 +4172,7 @@ Ok(
             Token {
                 range: [68:16, 68:17),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Sub,
                         ),
@@ -4366,7 +4366,7 @@ Ok(
             Token {
                 range: [73:3, 73:5),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Curry,
                     ),
                 ),
@@ -4404,7 +4404,7 @@ Ok(
             Token {
                 range: [74:22, 74:23),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -4484,7 +4484,7 @@ Ok(
             Token {
                 range: [75:22, 75:23),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -4598,7 +4598,7 @@ Ok(
             Token {
                 range: [77:9, 77:10),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -4680,7 +4680,7 @@ Ok(
             Token {
                 range: [80:13, 80:14),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -4708,7 +4708,7 @@ Ok(
             Token {
                 range: [80:25, 80:27),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -4742,7 +4742,7 @@ Ok(
             Token {
                 range: [81:13, 81:14),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -4770,7 +4770,7 @@ Ok(
             Token {
                 range: [81:25, 81:27),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -4808,7 +4808,7 @@ Ok(
             Token {
                 range: [82:13, 82:14),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -4850,7 +4850,7 @@ Ok(
             Token {
                 range: [83:9, 83:10),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -4878,7 +4878,7 @@ Ok(
             Token {
                 range: [83:21, 83:23),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -4912,7 +4912,7 @@ Ok(
             Token {
                 range: [84:9, 84:10),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -4980,7 +4980,7 @@ Ok(
             Token {
                 range: [86:13, 86:14),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -5008,7 +5008,7 @@ Ok(
             Token {
                 range: [86:25, 86:27),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -5056,7 +5056,7 @@ Ok(
             Token {
                 range: [88:13, 88:14),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -5084,7 +5084,7 @@ Ok(
             Token {
                 range: [88:25, 88:27),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -5118,7 +5118,7 @@ Ok(
             Token {
                 range: [89:13, 89:14),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -5146,7 +5146,7 @@ Ok(
             Token {
                 range: [89:24, 89:26),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -5184,7 +5184,7 @@ Ok(
             Token {
                 range: [90:13, 90:14),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -5226,7 +5226,7 @@ Ok(
             Token {
                 range: [91:9, 91:10),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -5308,7 +5308,7 @@ Ok(
             Token {
                 range: [94:13, 94:14),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -5336,7 +5336,7 @@ Ok(
             Token {
                 range: [94:25, 94:27),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -5370,7 +5370,7 @@ Ok(
             Token {
                 range: [95:13, 95:14),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -5398,7 +5398,7 @@ Ok(
             Token {
                 range: [95:25, 95:27),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -5436,7 +5436,7 @@ Ok(
             Token {
                 range: [96:13, 96:14),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -5482,7 +5482,7 @@ Ok(
             Token {
                 range: [97:9, 97:10),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -5612,7 +5612,7 @@ Ok(
             Token {
                 range: [99:62, 99:64),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Curry,
                     ),
                 ),
@@ -5650,7 +5650,7 @@ Ok(
             Token {
                 range: [100:22, 100:23),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -5722,7 +5722,7 @@ Ok(
             Token {
                 range: [100:43, 100:44),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Sub,
                         ),
@@ -5922,7 +5922,7 @@ Ok(
             Token {
                 range: [104:9, 104:10),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -5982,7 +5982,7 @@ Ok(
             Token {
                 range: [105:9, 105:10),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -6030,7 +6030,7 @@ Ok(
             Token {
                 range: [106:9, 106:10),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -6238,7 +6238,7 @@ Ok(
             Token {
                 range: [113:3, 113:5),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Curry,
                     ),
                 ),
@@ -6276,7 +6276,7 @@ Ok(
             Token {
                 range: [114:22, 114:23),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -6356,7 +6356,7 @@ Ok(
             Token {
                 range: [115:22, 115:23),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -6470,7 +6470,7 @@ Ok(
             Token {
                 range: [117:9, 117:10),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -6538,7 +6538,7 @@ Ok(
             Token {
                 range: [119:13, 119:14),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -6566,7 +6566,7 @@ Ok(
             Token {
                 range: [119:25, 119:27),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -6614,7 +6614,7 @@ Ok(
             Token {
                 range: [121:13, 121:14),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -6642,7 +6642,7 @@ Ok(
             Token {
                 range: [121:25, 121:27),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -6680,7 +6680,7 @@ Ok(
             Token {
                 range: [122:13, 122:14),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -6722,7 +6722,7 @@ Ok(
             Token {
                 range: [123:9, 123:10),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -6790,7 +6790,7 @@ Ok(
             Token {
                 range: [125:13, 125:14),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -6818,7 +6818,7 @@ Ok(
             Token {
                 range: [125:25, 125:27),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -6852,7 +6852,7 @@ Ok(
             Token {
                 range: [126:13, 126:14),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -6880,7 +6880,7 @@ Ok(
             Token {
                 range: [126:25, 126:27),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -6914,7 +6914,7 @@ Ok(
             Token {
                 range: [127:13, 127:14),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -6986,7 +6986,7 @@ Ok(
             Token {
                 range: [129:24, 129:26),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -7006,7 +7006,7 @@ Ok(
             Token {
                 range: [129:31, 129:32),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -7034,7 +7034,7 @@ Ok(
             Token {
                 range: [129:43, 129:45),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -7072,7 +7072,7 @@ Ok(
             Token {
                 range: [130:24, 130:26),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -7092,7 +7092,7 @@ Ok(
             Token {
                 range: [130:29, 130:30),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -7120,7 +7120,7 @@ Ok(
             Token {
                 range: [130:41, 130:43),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -7158,7 +7158,7 @@ Ok(
             Token {
                 range: [131:17, 131:18),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -7200,7 +7200,7 @@ Ok(
             Token {
                 range: [132:13, 132:14),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -7228,7 +7228,7 @@ Ok(
             Token {
                 range: [132:25, 132:27),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -7266,7 +7266,7 @@ Ok(
             Token {
                 range: [133:13, 133:14),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -7308,7 +7308,7 @@ Ok(
             Token {
                 range: [134:9, 134:10),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -7404,7 +7404,7 @@ Ok(
             Token {
                 range: [138:13, 138:14),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -7432,7 +7432,7 @@ Ok(
             Token {
                 range: [138:25, 138:27),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -7466,7 +7466,7 @@ Ok(
             Token {
                 range: [139:13, 139:14),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -7538,7 +7538,7 @@ Ok(
             Token {
                 range: [141:24, 141:26),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -7558,7 +7558,7 @@ Ok(
             Token {
                 range: [141:31, 141:32),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -7586,7 +7586,7 @@ Ok(
             Token {
                 range: [141:43, 141:45),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -7624,7 +7624,7 @@ Ok(
             Token {
                 range: [142:24, 142:26),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -7644,7 +7644,7 @@ Ok(
             Token {
                 range: [142:32, 142:33),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -7672,7 +7672,7 @@ Ok(
             Token {
                 range: [142:44, 142:46),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -7710,7 +7710,7 @@ Ok(
             Token {
                 range: [143:17, 143:18),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -7756,7 +7756,7 @@ Ok(
             Token {
                 range: [144:13, 144:14),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -7798,7 +7798,7 @@ Ok(
             Token {
                 range: [145:9, 145:10),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -7880,7 +7880,7 @@ Ok(
             Token {
                 range: [148:13, 148:14),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -7908,7 +7908,7 @@ Ok(
             Token {
                 range: [148:25, 148:27),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -7942,7 +7942,7 @@ Ok(
             Token {
                 range: [149:13, 149:14),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -7970,7 +7970,7 @@ Ok(
             Token {
                 range: [149:25, 149:27),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -8008,7 +8008,7 @@ Ok(
             Token {
                 range: [150:13, 150:14),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -8054,7 +8054,7 @@ Ok(
             Token {
                 range: [151:9, 151:10),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -8250,7 +8250,7 @@ Ok(
             Token {
                 range: [158:50, 158:52),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Curry,
                     ),
                 ),
@@ -8288,7 +8288,7 @@ Ok(
             Token {
                 range: [159:7, 159:8),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -8356,7 +8356,7 @@ Ok(
             Token {
                 range: [160:8, 160:9),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -8398,7 +8398,7 @@ Ok(
             Token {
                 range: [160:18, 160:19),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Sub,
                         ),
@@ -8436,7 +8436,7 @@ Ok(
             Token {
                 range: [161:8, 161:9),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -8478,7 +8478,7 @@ Ok(
             Token {
                 range: [161:18, 161:19),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Sub,
                         ),
@@ -8562,7 +8562,7 @@ Ok(
             Token {
                 range: [163:15, 163:16),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Add,
                         ),
@@ -8610,7 +8610,7 @@ Ok(
             Token {
                 range: [163:23, 163:24),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Div,
                         ),
@@ -8672,7 +8672,7 @@ Ok(
             Token {
                 range: [164:15, 164:16),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Add,
                         ),
@@ -8720,7 +8720,7 @@ Ok(
             Token {
                 range: [164:23, 164:24),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Div,
                         ),
@@ -8824,7 +8824,7 @@ Ok(
             Token {
                 range: [167:49, 167:51),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Curry,
                     ),
                 ),
@@ -8894,7 +8894,7 @@ Ok(
             Token {
                 range: [168:20, 168:21),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -8976,7 +8976,7 @@ Ok(
             Token {
                 range: [169:33, 169:34),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -9034,7 +9034,7 @@ Ok(
             Token {
                 range: [170:11, 170:13),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Comparison(
                             Leq,
                         ),
@@ -9056,7 +9056,7 @@ Ok(
             Token {
                 range: [170:16, 170:18),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Comparison(
                             Leq,
                         ),
@@ -9100,7 +9100,7 @@ Ok(
             Token {
                 range: [171:18, 171:19),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -9160,7 +9160,7 @@ Ok(
             Token {
                 range: [171:29, 171:30),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Sub,
                         ),
@@ -9206,7 +9206,7 @@ Ok(
             Token {
                 range: [172:18, 172:19),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -9294,7 +9294,7 @@ Ok(
             Token {
                 range: [173:18, 173:19),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -9316,7 +9316,7 @@ Ok(
             Token {
                 range: [173:25, 173:27),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Shl,
                         ),
@@ -9354,7 +9354,7 @@ Ok(
             Token {
                 range: [174:18, 174:19),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -9376,7 +9376,7 @@ Ok(
             Token {
                 range: [174:25, 174:27),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Shl,
                         ),
@@ -9434,7 +9434,7 @@ Ok(
             Token {
                 range: [175:32, 175:33),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -9656,7 +9656,7 @@ Ok(
             Token {
                 range: [176:11, 176:13),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Comparison(
                             Leq,
                         ),
@@ -9678,7 +9678,7 @@ Ok(
             Token {
                 range: [176:16, 176:18),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Comparison(
                             Leq,
                         ),
@@ -9784,7 +9784,7 @@ Ok(
             Token {
                 range: [178:29, 178:30),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -9866,7 +9866,7 @@ Ok(
             Token {
                 range: [179:23, 179:24),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -9916,7 +9916,7 @@ Ok(
             Token {
                 range: [180:23, 180:24),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -10032,7 +10032,7 @@ Ok(
             Token {
                 range: [182:31, 182:32),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -10092,7 +10092,7 @@ Ok(
             Token {
                 range: [182:42, 182:43),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Sub,
                         ),
@@ -10146,7 +10146,7 @@ Ok(
             Token {
                 range: [183:31, 183:32),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -10246,7 +10246,7 @@ Ok(
             Token {
                 range: [185:38, 185:39),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -10356,7 +10356,7 @@ Ok(
             Token {
                 range: [187:20, 187:21),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -10398,7 +10398,7 @@ Ok(
             Token {
                 range: [188:20, 188:21),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -10440,7 +10440,7 @@ Ok(
             Token {
                 range: [189:22, 189:23),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -10490,7 +10490,7 @@ Ok(
             Token {
                 range: [190:40, 190:41),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -10536,7 +10536,7 @@ Ok(
             Token {
                 range: [191:40, 191:41),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -10582,7 +10582,7 @@ Ok(
             Token {
                 range: [192:40, 192:41),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -10636,7 +10636,7 @@ Ok(
             Token {
                 range: [195:34, 195:35),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -10688,7 +10688,7 @@ Ok(
             Token {
                 range: [196:34, 196:35),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -10740,7 +10740,7 @@ Ok(
             Token {
                 range: [197:36, 197:37),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -10810,7 +10810,7 @@ Ok(
             Token {
                 range: [199:26, 199:28),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Comparison(
                             Eq,
                         ),
@@ -10850,7 +10850,7 @@ Ok(
             Token {
                 range: [199:38, 199:40),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Comparison(
                             Eq,
                         ),
@@ -10890,7 +10890,7 @@ Ok(
             Token {
                 range: [199:65, 199:67),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Comparison(
                             Eq,
                         ),
@@ -10946,7 +10946,7 @@ Ok(
             Token {
                 range: [200:39, 200:40),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -11070,7 +11070,7 @@ Ok(
             Token {
                 range: [206:34, 206:35),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -11182,7 +11182,7 @@ Ok(
             Token {
                 range: [208:40, 208:41),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -11270,7 +11270,7 @@ Ok(
             Token {
                 range: [208:75, 208:77),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Shl,
                         ),
@@ -11358,7 +11358,7 @@ Ok(
             Token {
                 range: [211:43, 211:45),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Comparison(
                             Eq,
                         ),
@@ -11400,7 +11400,7 @@ Ok(
             Token {
                 range: [212:52, 212:54),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Comparison(
                             Eq,
                         ),
@@ -11442,7 +11442,7 @@ Ok(
             Token {
                 range: [213:48, 213:50),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Comparison(
                             Eq,
                         ),
@@ -11478,7 +11478,7 @@ Ok(
             Token {
                 range: [214:46, 214:48),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Comparison(
                             Neq,
                         ),
@@ -11520,7 +11520,7 @@ Ok(
             Token {
                 range: [215:46, 215:48),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Comparison(
                             Eq,
                         ),
@@ -11590,7 +11590,7 @@ Ok(
             Token {
                 range: [216:41, 216:42),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -11690,7 +11690,7 @@ Ok(
             Token {
                 range: [217:45, 217:47),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -11776,7 +11776,7 @@ Ok(
             Token {
                 range: [218:38, 218:39),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -11812,7 +11812,7 @@ Ok(
             Token {
                 range: [219:38, 219:39),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -11856,7 +11856,7 @@ Ok(
             Token {
                 range: [220:45, 220:47),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Comparison(
                             Eq,
                         ),
@@ -11930,7 +11930,7 @@ Ok(
             Token {
                 range: [222:46, 222:48),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Comparison(
                             Eq,
                         ),
@@ -12000,7 +12000,7 @@ Ok(
             Token {
                 range: [223:41, 223:42),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -12022,7 +12022,7 @@ Ok(
             Token {
                 range: [223:50, 223:52),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -12100,7 +12100,7 @@ Ok(
             Token {
                 range: [224:38, 224:39),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -12134,7 +12134,7 @@ Ok(
             Token {
                 range: [225:38, 225:39),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -12176,7 +12176,7 @@ Ok(
             Token {
                 range: [226:45, 226:47),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Comparison(
                             Eq,
                         ),
@@ -12250,7 +12250,7 @@ Ok(
             Token {
                 range: [228:48, 228:50),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Comparison(
                             Eq,
                         ),
@@ -12352,7 +12352,7 @@ Ok(
             Token {
                 range: [230:41, 230:42),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -12374,7 +12374,7 @@ Ok(
             Token {
                 range: [230:50, 230:52),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -12452,7 +12452,7 @@ Ok(
             Token {
                 range: [231:38, 231:39),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -12488,7 +12488,7 @@ Ok(
             Token {
                 range: [232:38, 232:39),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -12576,7 +12576,7 @@ Ok(
             Token {
                 range: [234:45, 234:47),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -12662,7 +12662,7 @@ Ok(
             Token {
                 range: [235:38, 235:39),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -12696,7 +12696,7 @@ Ok(
             Token {
                 range: [236:38, 236:39),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -12734,7 +12734,7 @@ Ok(
             Token {
                 range: [238:36, 238:37),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -12768,7 +12768,7 @@ Ok(
             Token {
                 range: [240:40, 240:41),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -12802,7 +12802,7 @@ Ok(
             Token {
                 range: [241:40, 241:41),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -12882,7 +12882,7 @@ Ok(
             Token {
                 range: [245:35, 245:37),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -12920,7 +12920,7 @@ Ok(
             Token {
                 range: [246:27, 246:28),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -12942,7 +12942,7 @@ Ok(
             Token {
                 range: [246:31, 246:32),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Sub,
                         ),
@@ -12972,7 +12972,7 @@ Ok(
             Token {
                 range: [247:35, 247:36),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -13006,7 +13006,7 @@ Ok(
             Token {
                 range: [248:35, 248:36),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -13066,7 +13066,7 @@ Ok(
             Token {
                 range: [248:46, 248:47),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Sub,
                         ),
@@ -13116,7 +13116,7 @@ Ok(
             Token {
                 range: [249:35, 249:37),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -13154,7 +13154,7 @@ Ok(
             Token {
                 range: [250:27, 250:28),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -13176,7 +13176,7 @@ Ok(
             Token {
                 range: [250:31, 250:32),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Add,
                         ),
@@ -13206,7 +13206,7 @@ Ok(
             Token {
                 range: [251:35, 251:36),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -13240,7 +13240,7 @@ Ok(
             Token {
                 range: [252:35, 252:36),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -13332,7 +13332,7 @@ Ok(
             Token {
                 range: [253:35, 253:37),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -13370,7 +13370,7 @@ Ok(
             Token {
                 range: [254:27, 254:28),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -13392,7 +13392,7 @@ Ok(
             Token {
                 range: [254:31, 254:32),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Add,
                         ),
@@ -13434,7 +13434,7 @@ Ok(
             Token {
                 range: [255:35, 255:37),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -13472,7 +13472,7 @@ Ok(
             Token {
                 range: [256:27, 256:28),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -13494,7 +13494,7 @@ Ok(
             Token {
                 range: [256:31, 256:32),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Sub,
                         ),
@@ -13528,7 +13528,7 @@ Ok(
             Token {
                 range: [258:34, 258:35),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Assign(
                             None,
                         ),
@@ -13574,7 +13574,7 @@ Ok(
             Token {
                 range: [260:35, 260:37),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Comparison(
                             Neq,
                         ),
@@ -13616,7 +13616,9 @@ Ok(
             Token {
                 range: [261:35, 261:37),
                 kind: Punctuation(
-                    Incr,
+                    Suffix(
+                        Incr,
+                    ),
                 ),
             },
             Token {
@@ -13642,7 +13644,7 @@ Ok(
             Token {
                 range: [262:35, 262:37),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Comparison(
                             Eq,
                         ),
@@ -13684,7 +13686,7 @@ Ok(
             Token {
                 range: [262:60, 262:62),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Comparison(
                             Eq,
                         ),

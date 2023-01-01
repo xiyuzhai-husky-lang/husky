@@ -28,11 +28,13 @@ pub(crate) fn crate_specific_prelude(
         ident: crate_word,
         module_path: ModulePath::new_root(db, crate_path),
     });
-    nodes.extend(
-        package_dependencies
-            .iter()
-            .map(|package_dependency| todo!()),
-    );
+    nodes
+        .extend(
+            package_dependencies
+                .iter()
+                .map(|package_dependency| todo!()),
+        )
+        .unwrap();
     Ok(nodes)
 }
 

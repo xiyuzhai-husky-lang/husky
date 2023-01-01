@@ -30,7 +30,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
 
     pub(crate) fn accept_list_end(&mut self, ket: Bracket, ket_token_idx: TokenIdx) {
         self.reduce(Precedence::ListItem);
-        match self.take_top_unfinished_expr().unwrap() {
+        match self.take_last_unfinished_expr().unwrap() {
             UnfinishedExpr::List {
                 opr,
                 bra,
@@ -60,6 +60,16 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
 
     fn accept_atom(&mut self, atom: Expr) {
         self.push_expr(atom)
+    }
+
+    fn accept_prefix_opr(&mut self, prefix: PrefixPunctuation, prefix_token_idx: TokenIdx) {
+        match self.top_expr().is_some() {
+            true => todo!(),
+            false => self.push_unfinished_expr(UnfinishedExpr::Prefix {
+                prefix,
+                prefix_token_idx,
+            }),
+        }
     }
 
     fn accept_suffix_opr(&mut self, suffix: SuffixPunctuation, suffix_token_idx: TokenIdx) {

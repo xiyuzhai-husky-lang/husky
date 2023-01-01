@@ -204,7 +204,7 @@ Ok(
             Token {
                 range: [5:22, 5:24),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         Curry,
                     ),
                 ),
@@ -224,7 +224,7 @@ Ok(
             Token {
                 range: [5:29, 5:31),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),

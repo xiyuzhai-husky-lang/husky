@@ -30,7 +30,7 @@ Ok(
             Token {
                 range: [2:13, 2:15),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -50,7 +50,7 @@ Ok(
             Token {
                 range: [2:21, 2:23),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),

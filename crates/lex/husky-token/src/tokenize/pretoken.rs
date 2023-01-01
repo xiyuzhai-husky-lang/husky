@@ -178,14 +178,34 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 "" => IntegerLiteral::Unspecified.into(),
                 "i8" => todo!(),
                 "i16" => todo!(),
-                "i32" => todo!(),
-                "i64" => todo!(),
+                "i32" => {
+                    let Ok(i) = self.buffer.parse() else {
+                        return Pretoken::Err(TokenError::ParseIntError)
+                    };
+                    IntegerLiteral::I32(i).into()
+                }
+                "i64" => {
+                    let Ok(i) = self.buffer.parse() else {
+                        return Pretoken::Err(TokenError::ParseIntError)
+                    };
+                    IntegerLiteral::I64(i).into()
+                }
                 "i128" => todo!(),
                 "i256" => todo!(),
                 "r8" => todo!(),
                 "r16" => todo!(),
-                "r32" => IntegerLiteral::R32(self.buffer.parse().unwrap()).into(),
-                "r64" => IntegerLiteral::R64(self.buffer.parse().unwrap()).into(),
+                "r32" => {
+                    let Ok(i) = self.buffer.parse() else {
+                        return Pretoken::Err(TokenError::ParseIntError)
+                    };
+                    IntegerLiteral::R32(i).into()
+                }
+                "r64" => {
+                    let Ok(i) = self.buffer.parse() else {
+                        return Pretoken::Err(TokenError::ParseIntError)
+                    };
+                    IntegerLiteral::R64(i).into()
+                }
                 "r128" => todo!(),
                 "r256" => todo!(),
                 "u8" => todo!(),

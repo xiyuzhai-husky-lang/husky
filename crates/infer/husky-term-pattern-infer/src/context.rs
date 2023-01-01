@@ -83,9 +83,9 @@ impl<'a> TermPatternInferContext<'a> {
         match opn_variant {
             Opn::Binary(opr) => self.infer_binary_opn(*opr, opds, sheet),
             Opn::Prefix(_) => todo!(),
-            Opn::Suffix(_) => todo!(),
+            Opn::Suffix { .. } => todo!(),
             Opn::CurlBracketed => todo!(),
-            Opn::List(_) => todo!(),
+            Opn::List { .. } => todo!(),
             Opn::Field(_) => todo!(),
             Opn::Abstraction => todo!(),
             Opn::Application => todo!(),

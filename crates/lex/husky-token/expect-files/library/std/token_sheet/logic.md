@@ -28,7 +28,7 @@ Ok(
             Token {
                 range: [1:13, 1:15),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -48,7 +48,7 @@ Ok(
             Token {
                 range: [1:20, 1:22),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         ScopeResolution,
                     ),
                 ),
@@ -56,7 +56,7 @@ Ok(
             Token {
                 range: [1:22, 1:23),
                 kind: Punctuation(
-                    BinaryOpr(
+                    Binary(
                         PureClosed(
                             Mul,
                         ),
