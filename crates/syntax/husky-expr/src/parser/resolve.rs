@@ -48,7 +48,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                         bra: Bracket::Vertical,
                         ..
                     }) => ResolvedToken::Ket(token_idx, Bracket::Vertical),
-                    _ => match self.top_expr().is_some() {
+                    _ => match self.finished_expr().is_some() {
                         true => ResolvedToken::BinaryPunctuation(
                             token_idx,
                             BinaryPunctuation::PureClosed(BinaryPureClosedPunctuation::BitOr),
@@ -61,14 +61,14 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 // return TokenResolveResult::Break(()),
                 Punctuation::XmlKet => todo!(),
                 Punctuation::At => todo!(),
-                Punctuation::QuestionMark => match self.top_expr() {
+                Punctuation::QuestionMark => match self.finished_expr() {
                     Some(_) => {
                         ResolvedToken::SuffixPunctuation(token_idx, SuffixPunctuation::Unveil)
                     }
                     None => todo!(),
                 },
                 Punctuation::PoundSign => todo!(),
-                Punctuation::Ambersand => match self.top_expr() {
+                Punctuation::Ambersand => match self.finished_expr() {
                     Some(_) => ResolvedToken::BinaryPunctuation(
                         token_idx,
                         BinaryPunctuation::PureClosed(BinaryPureClosedPunctuation::BitOr),
@@ -90,7 +90,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                     binary: BinaryPunctuation::ScopeResolution,
                     ..
                 } => {
-                    if let Some(previous_expr) = self.top_expr() {
+                    if let Some(previous_expr) = self.finished_expr() {
                         match previous_expr.base_entity_path() {
                             BaseEntityPath::None => todo!(),
                             BaseEntityPath::Some(_) => todo!(),

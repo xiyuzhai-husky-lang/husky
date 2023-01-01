@@ -27,8 +27,9 @@ pub(super) enum UnfinishedExpr {
     Application {
         function: Expr,
     },
-    Dot {
-        dot_token_idx: TokenIdx,
+    Method {
+        this_expr: Expr,
+        ident_token: IdentifierToken,
     },
 }
 
@@ -39,8 +40,11 @@ impl UnfinishedExpr {
             UnfinishedExpr::Prefix { .. } => Precedence::Prefix,
             UnfinishedExpr::ListItem { .. } | UnfinishedExpr::List { .. } => Precedence::None,
             UnfinishedExpr::LambdaHead { inputs, start } => Precedence::LambdaHead,
-            UnfinishedExpr::Dot { dot_token_idx } => Precedence::Dot,
             UnfinishedExpr::Application { function } => Precedence::Application,
+            UnfinishedExpr::Method {
+                this_expr,
+                ident_token,
+            } => Precedence::Method,
         }
     }
 }

@@ -50,6 +50,12 @@ pub enum Expr {
         opn: Opn,
         opds: ExprIdxRange,
     },
+    MethodCall {
+        this_expr: ExprIdx,
+        arguments: ExprIdxRange,
+        lpar_token_idx: TokenIdx,
+        rpar_token_idx: TokenIdx,
+    },
     Bracketed(ExprIdx),
     Err(ExprError),
 }

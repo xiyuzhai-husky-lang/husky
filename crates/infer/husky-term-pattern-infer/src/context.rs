@@ -71,6 +71,12 @@ impl<'a> TermPatternInferContext<'a> {
             } => self.infer_opn_ty(opn_variant, opds, sheet),
             Expr::Bracketed(_) => todo!(),
             Expr::Err(_) => todo!(),
+            Expr::MethodCall {
+                this_expr,
+                arguments,
+                lpar_token_idx,
+                rpar_token_idx,
+            } => todo!(),
         }
     }
 
@@ -86,9 +92,10 @@ impl<'a> TermPatternInferContext<'a> {
             Opn::Suffix { .. } => todo!(),
             Opn::CurlBracketed => todo!(),
             Opn::List { .. } => todo!(),
-            Opn::Field(_) => todo!(),
+            Opn::Field { .. } => todo!(),
             Opn::Abstraction => todo!(),
             Opn::Application => todo!(),
+            Opn::Method { ident_token } => todo!(),
         }
     }
 
@@ -186,6 +193,12 @@ impl<'a> TermPatternInferContext<'a> {
             } => todo!(),
             Expr::Uncertain(_) => todo!(),
             Expr::Unrecognized(_) => todo!(),
+            Expr::MethodCall {
+                this_expr,
+                arguments,
+                lpar_token_idx,
+                rpar_token_idx,
+            } => todo!(),
         }
     }
 

@@ -46,6 +46,12 @@ impl<'a> InferContext<'a> {
             } => todo!(),
             Expr::Bracketed(_) => todo!(),
             Expr::Err(_) => todo!(),
+            Expr::MethodCall {
+                this_expr,
+                arguments,
+                lpar_token_idx,
+                rpar_token_idx,
+            } => todo!(),
         }
     }
 }

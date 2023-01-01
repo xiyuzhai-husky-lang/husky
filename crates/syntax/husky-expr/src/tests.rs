@@ -451,4 +451,95 @@ fn parse_expr_works() {
         )
     "#]]
     .assert_debug_eq(&t!("|x|x"));
+
+    expect_test::expect![[r#"
+        (
+            ExprSheet {
+                expr_arena: Arena {
+                    data: [
+                        Unrecognized(
+                            Identifier(
+                                Word(
+                                    Id {
+                                        value: 39,
+                                    },
+                                ),
+                            ),
+                        ),
+                        Opn {
+                            opn: Field {
+                                ident_token: IdentifierToken {
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 40,
+                                            },
+                                        ),
+                                    ),
+                                    token_idx: TokenIdx(
+                                        2,
+                                    ),
+                                },
+                            },
+                            opds: ArenaIdxRange(
+                                0..1,
+                            ),
+                        },
+                    ],
+                },
+                entity_path_expr_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_arena: Arena {
+                    data: [],
+                },
+            },
+            Some(
+                1,
+            ),
+        )
+    "#]]
+    .assert_debug_eq(&t!("x.a"));
+
+    expect_test::expect![[r#"
+        (
+            ExprSheet {
+                expr_arena: Arena {
+                    data: [
+                        Unrecognized(
+                            Identifier(
+                                Word(
+                                    Id {
+                                        value: 39,
+                                    },
+                                ),
+                            ),
+                        ),
+                        MethodCall {
+                            this_expr: 0,
+                            arguments: ArenaIdxRange(
+                                0..0,
+                            ),
+                            lpar_token_idx: TokenIdx(
+                                3,
+                            ),
+                            rpar_token_idx: TokenIdx(
+                                4,
+                            ),
+                        },
+                    ],
+                },
+                entity_path_expr_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_arena: Arena {
+                    data: [],
+                },
+            },
+            Some(
+                1,
+            ),
+        )
+    "#]]
+    .assert_debug_eq(&t!("x.len()"));
 }
