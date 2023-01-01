@@ -41,42 +41,43 @@ impl ExprParserStack {
 
 impl Expr {
     pub fn base_entity_path(&self) -> BaseEntityPath {
-        match self {
-            Expr::Literal(_) => todo!(),
-            Expr::EntityPath(_) => todo!(),
-            Expr::Variable { .. } => BaseEntityPath::None,
-            Expr::Uncertain(_) => todo!(),
-            Expr::Unrecognized(_) => BaseEntityPath::Uncertain,
-            Expr::Opn { opn, opds } => match opn {
-                Opn::Binary(_) => todo!(),
-                Opn::CurlBracketed => todo!(),
-                Opn::List { opr, .. } => match opr {
-                    ListOpr::NewTuple => todo!(),
-                    ListOpr::NewVec => BaseEntityPath::None,
-                    ListOpr::NewDict => todo!(),
-                    ListOpr::FunctionCall => todo!(),
-                    ListOpr::Index => todo!(),
-                    ListOpr::ModuloIndex => todo!(),
-                    ListOpr::StructInit => todo!(),
-                    ListOpr::MethodCall => todo!(),
-                    ListOpr::NewLambdaHead => todo!(),
-                    ListOpr::ImplicitParameterList => todo!(),
-                },
-                Opn::Abstraction => todo!(),
-                Opn::Application => todo!(),
-                Opn::Method { .. } | Opn::Field { .. } | Opn::Prefix(_) | Opn::Suffix { .. } => {
-                    BaseEntityPath::None
-                }
-            },
-            Expr::Bracketed(_) => todo!(),
-            Expr::Err(_) => todo!(),
-            Expr::MethodCall {
-                this_expr,
-                arguments,
-                lpar_token_idx,
-                rpar_token_idx,
-            } => todo!(),
-        }
+        todo!()
+        // match self {
+        //     Expr::Literal(_) => todo!(),
+        //     Expr::EntityPath(_) => todo!(),
+        //     Expr::Variable { .. } => BaseEntityPath::None,
+        //     Expr::Uncertain(_) => todo!(),
+        //     Expr::Unrecognized(_) => BaseEntityPath::Uncertain,
+        //     Expr::Opn { opn, opds } => match opn {
+        //         Opn::Binary(_) => todo!(),
+        //         Opn::CurlBracketed => todo!(),
+        //         Opn::List { opr, .. } => match opr {
+        //             ListOpr::NewTuple => todo!(),
+        //             ListOpr::NewVec => BaseEntityPath::None,
+        //             ListOpr::NewDict => todo!(),
+        //             ListOpr::FunctionCall => todo!(),
+        //             ListOpr::Index => todo!(),
+        //             ListOpr::ModuloIndex => todo!(),
+        //             ListOpr::StructInit => todo!(),
+        //             ListOpr::MethodCall => todo!(),
+        //             ListOpr::NewLambdaHead => todo!(),
+        //             ListOpr::ImplicitParameterList => todo!(),
+        //         },
+        //         Opn::Abstraction => todo!(),
+        //         Opn::Application => todo!(),
+        //         Opn::Method { .. } | Opn::Field { .. } | Opn::Prefix(_) | Opn::Suffix { .. } => {
+        //             BaseEntityPath::None
+        //         }
+        //     },
+        //     Expr::Bracketed(_) => todo!(),
+        //     Expr::Err(_) => todo!(),
+        //     Expr::MethodCall {
+        //         this_expr,
+        //         arguments,
+        //         lpar_token_idx,
+        //         rpar_token_idx,
+        //     } => todo!(),
+        // }
     }
 }
 
@@ -137,13 +138,15 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             match self.stack.unfinished_exprs.pop().unwrap().0 {
                 UnfinishedExpr::Binary {
                     lopd,
-                    binary,
-                    binary_token_idx,
+                    punctuation,
+                    punctuation_token_idx,
                 } => match self.take_finished_expr() {
                     Some(ropd) => {
-                        self.stack.finished_expr = Some(Expr::Opn {
-                            opn: Opn::Binary(binary),
-                            opds: self.sheet.alloc_expr_batch([lopd, ropd]),
+                        self.stack.finished_expr = Some(Expr::BinaryOpn {
+                            lopd: self.sheet.alloc_expr(lopd),
+                            punctuation,
+                            punctuation_token_idx,
+                            ropd: self.sheet.alloc_expr(ropd),
                         })
                     }
                     None => {
@@ -151,8 +154,8 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                         self.stack.finished_expr =
                             Some(Expr::Err(ExprError::NoRightOperandForBinaryOperator {
                                 lopd,
-                                binary,
-                                binary_token_idx,
+                                punctuation,
+                                punctuation_token_idx,
                             }))
                     }
                 },
@@ -164,20 +167,21 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                     })
                 }
                 UnfinishedExpr::Prefix {
-                    prefix,
-                    prefix_token_idx,
+                    punctuation,
+                    punctuation_token_idx,
                 } => match self.take_finished_expr() {
                     Some(opd) => {
-                        self.stack.finished_expr = Some(Expr::Opn {
-                            opn: Opn::Prefix(prefix),
-                            opds: self.sheet.alloc_expr_batch([opd]),
+                        self.stack.finished_expr = Some(Expr::PrefixOpn {
+                            punctuation,
+                            punctuation_token_idx,
+                            opd: self.sheet.alloc_expr(opd),
                         })
                     }
                     None => {
                         self.stack.finished_expr =
                             Some(Expr::Err(ExprError::NoOperandForPrefixOperator {
-                                prefix,
-                                prefix_token_idx,
+                                prefix: punctuation,
+                                prefix_token_idx: punctuation_token_idx,
                             }))
                     }
                 },

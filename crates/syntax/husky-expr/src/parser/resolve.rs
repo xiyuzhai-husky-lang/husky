@@ -87,7 +87,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         if let Some(opn) = self.last_unfinished_expr() {
             match opn {
                 UnfinishedExpr::Binary {
-                    binary: BinaryPunctuation::ScopeResolution,
+                    punctuation: BinaryPunctuation::ScopeResolution,
                     ..
                 } => {
                     if let Some(previous_expr) = self.finished_expr() {

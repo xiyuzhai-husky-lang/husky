@@ -4,12 +4,6 @@ use husky_token::{IdentifierToken, TokenIdx};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum Opn {
-    Binary(BinaryPunctuation),
-    Prefix(PrefixPunctuation),
-    Suffix {
-        suffix: SuffixPunctuation,
-        suffix_token_idx: TokenIdx,
-    },
     CurlBracketed,
     List {
         opr: ListOpr,

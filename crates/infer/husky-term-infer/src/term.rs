@@ -27,31 +27,32 @@ impl<'a> InferContext<'a> {
     }
 
     fn infer_term(&mut self) -> TermInferResult<Term> {
-        let expr = self.expr();
-        match expr {
-            Expr::Literal(_) => todo!(),
-            Expr::EntityPath(_) => todo!(),
-            Expr::Variable {
-                token_idx,
-                variable_idx,
-            } => todo!(),
-            Expr::Unrecognized(ident) => Err(DerivedTermInferError::InferTermUnrecogized {
-                ident: self.db.dt_ident(*ident).to_owned(),
-            }
-            .into()),
-            Expr::Uncertain(_) => todo!(),
-            Expr::Opn {
-                opn: ref opn_variant,
-                ref opds,
-            } => todo!(),
-            Expr::Bracketed(_) => todo!(),
-            Expr::Err(_) => todo!(),
-            Expr::MethodCall {
-                this_expr,
-                arguments,
-                lpar_token_idx,
-                rpar_token_idx,
-            } => todo!(),
-        }
+        todo!()
+        //     let expr = self.expr();
+        //     match expr {
+        //         Expr::Literal(_) => todo!(),
+        //         Expr::EntityPath(_) => todo!(),
+        //         Expr::Variable {
+        //             token_idx,
+        //             variable_idx,
+        //         } => todo!(),
+        //         Expr::Unrecognized(ident) => Err(DerivedTermInferError::InferTermUnrecogized {
+        //             ident: self.db.dt_ident(*ident).to_owned(),
+        //         }
+        //         .into()),
+        //         Expr::Uncertain(_) => todo!(),
+        //         Expr::Opn {
+        //             opn: ref opn_variant,
+        //             ref opds,
+        //         } => todo!(),
+        //         Expr::Bracketed(_) => todo!(),
+        //         Expr::Err(_) => todo!(),
+        //         Expr::MethodCall {
+        //             this_expr,
+        //             arguments,
+        //             lpar_token_idx,
+        //             rpar_token_idx,
+        //         } => todo!(),
+        //     }
     }
 }

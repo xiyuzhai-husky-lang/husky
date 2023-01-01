@@ -50,6 +50,22 @@ pub enum Expr {
         opn: Opn,
         opds: ExprIdxRange,
     },
+    BinaryOpn {
+        lopd: ExprIdx,
+        punctuation: BinaryPunctuation,
+        punctuation_token_idx: TokenIdx,
+        ropd: ExprIdx,
+    },
+    PrefixOpn {
+        punctuation: PrefixPunctuation,
+        punctuation_token_idx: TokenIdx,
+        opd: ExprIdx,
+    },
+    SuffixOpn {
+        opd: ExprIdx,
+        punctuation: SuffixPunctuation,
+        punctuation_token_idx: TokenIdx,
+    },
     MethodCall {
         this_expr: ExprIdx,
         arguments: ExprIdxRange,
