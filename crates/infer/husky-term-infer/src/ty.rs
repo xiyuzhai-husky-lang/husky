@@ -47,16 +47,16 @@ impl<'a> InferContext<'a> {
         todo!()
     }
 
-    fn infer_literal(&self, literal: &LiteralToken) -> Term {
+    fn infer_literal(&self, literal: &Literal) -> Term {
         let term_menu = self.term_menu();
         match literal {
-            LiteralToken::Unit => todo!(),
-            LiteralToken::Integer(_) => term_menu.i32(),
-            LiteralToken::Float(_) => todo!(),
-            LiteralToken::Bool(_) => todo!(),
-            LiteralToken::String(_) => todo!(),
-            LiteralToken::Char(_) => todo!(),
-            LiteralToken::TupleIndex(_) => todo!(),
+            Literal::Unit => todo!(),
+            Literal::Integer(_) => term_menu.i32(),
+            Literal::Float(_) => todo!(),
+            Literal::Bool(_) => todo!(),
+            Literal::String(_) => todo!(),
+            Literal::Char(_) => todo!(),
+            Literal::TupleIndex(_) => todo!(),
         }
     }
 }

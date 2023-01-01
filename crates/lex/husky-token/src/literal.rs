@@ -15,7 +15,7 @@ use std::sync::Arc;
 
 /// follows mainly from <https://doc.rust-lang.org/reference/tokens.html#literals/>
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub enum LiteralToken {
+pub enum Literal {
     Unit,
     Char(CharLiteral),
     String(StringLiteral),
@@ -36,16 +36,16 @@ impl StringLiteral {
     }
 }
 
-impl LiteralToken {
-    pub fn negative(self) -> Option<LiteralToken> {
+impl Literal {
+    pub fn negative(self) -> Option<Literal> {
         match self {
-            LiteralToken::Unit => None,
-            LiteralToken::Integer(i) => Some(LiteralToken::Integer(-i)),
-            LiteralToken::Float(f) => Some(LiteralToken::Float(-f)),
-            LiteralToken::Bool(_) => None,
-            LiteralToken::String(_) => None,
-            LiteralToken::Char(_) => todo!(),
-            LiteralToken::TupleIndex(_) => todo!(),
+            Literal::Unit => None,
+            Literal::Integer(i) => Some(Literal::Integer(-i)),
+            Literal::Float(f) => Some(Literal::Float(-f)),
+            Literal::Bool(_) => None,
+            Literal::String(_) => None,
+            Literal::Char(_) => todo!(),
+            Literal::TupleIndex(_) => todo!(),
         }
     }
 }

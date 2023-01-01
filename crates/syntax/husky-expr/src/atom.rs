@@ -3,14 +3,14 @@ use husky_symbol::Symbol;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum AtomExpr {
-    Literal(LiteralToken),
+    Literal(Literal),
     Symbol(Symbol),
     Uncertain(Identifier),
     Unrecognized(Identifier),
 }
 
-impl From<LiteralToken> for AtomExpr {
-    fn from(value: LiteralToken) -> Self {
+impl From<Literal> for AtomExpr {
+    fn from(value: Literal) -> Self {
         AtomExpr::Literal(value)
     }
 }
