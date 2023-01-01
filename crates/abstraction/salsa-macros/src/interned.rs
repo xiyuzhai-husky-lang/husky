@@ -57,7 +57,7 @@ impl crate::options::AllowedOptions for InternedStruct {
 
 impl InternedStruct {
     fn generate_interned(&self) -> syn::Result<TokenStream> {
-        use crate::options::AllowedOptions;
+        
         self.validate_interned()?;
         let id_struct = self.id_struct();
         let data_struct = self.data_struct();

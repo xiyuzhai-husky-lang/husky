@@ -2,13 +2,13 @@ pub fn repeat_line(input: &str, idx: usize) -> String {
     let mut s = String::new();
     for (i, line) in input.lines().enumerate() {
         s += line;
-        if (i < input.lines().count() - 1) {
+        if i < input.lines().count() - 1 {
             s += "\n";
         }
 
-        if (i == idx) {
+        if i == idx {
             s += line;
-            if (i < input.lines().count() - 1) {
+            if i < input.lines().count() - 1 {
                 s += "\n";
             }
         }

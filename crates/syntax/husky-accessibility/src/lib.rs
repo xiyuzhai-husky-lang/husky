@@ -4,7 +4,7 @@ mod tests;
 use husky_token::TokenIdxRange;
 use husky_vfs::{ModulePath, VfsDb};
 use std::cmp::Ordering;
-use with_db::{PartialOrdWithDb, WithDb};
+use with_db::{PartialOrdWithDb};
 
 /// Accessibility is greater if it can be accessed from more places
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -97,9 +97,9 @@ impl salsa::DebugWithDb<dyn VfsDb + '_> for Accessibility {
 impl<Db: VfsDb> salsa::DebugWithDb<Db> for Accessibility {
     fn fmt(
         &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
+        _f: &mut std::fmt::Formatter<'_>,
+        _db: &Db,
+        _include_all_fields: bool,
     ) -> std::fmt::Result {
         todo!()
     }

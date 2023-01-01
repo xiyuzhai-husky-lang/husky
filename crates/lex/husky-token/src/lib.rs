@@ -25,7 +25,7 @@ pub use sheet::*;
 pub use stream::*;
 pub use token_accessibility::*;
 
-use husky_text::{HasTextRange, RangedIdentifier, TextRange};
+use husky_text::{HasTextRange, TextRange};
 use husky_vfs::{ModulePath, VfsResult};
 use husky_word::Identifier;
 #[cfg(test)]

@@ -1,6 +1,6 @@
 use super::*;
 use husky_opn_syntax::{BinaryPunctuation, Bracket};
-use husky_print_utils::p;
+
 use parsec::{HasParseError, ParseContext, ParseFrom};
 
 // punctuation in general

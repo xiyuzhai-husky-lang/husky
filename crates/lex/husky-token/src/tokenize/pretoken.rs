@@ -168,7 +168,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 "f64" => todo!(),
                 "f128" => todo!(),
                 "f256" => todo!(),
-                invalid_float_suffix => todo!(),
+                _invalid_float_suffix => todo!(),
             };
             self.buffer.clear();
             token
@@ -401,7 +401,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                             'n' => s.push('\n'),
                             'r' => s.push('\r'),
                             't' => s.push('\t'),
-                            c => return Err(TokenError::UnexpectedCharAfterBackslash),
+                            _c => return Err(TokenError::UnexpectedCharAfterBackslash),
                         }
                     } else {
                         return Err(TokenError::IncompleteStringLiteral);
