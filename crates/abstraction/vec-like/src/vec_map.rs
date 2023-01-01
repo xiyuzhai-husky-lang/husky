@@ -159,7 +159,7 @@ where
         &mut self.entries
     }
 
-    pub fn from_vec(mut data: Vec<Entry>) -> Result<Self, FromVecEntryRepeatError>
+    pub fn from_vec(data: Vec<Entry>) -> Result<Self, FromVecEntryRepeatError>
     where
         K: Copy,
     {

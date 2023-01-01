@@ -37,7 +37,7 @@ where
         &mut self.entries
     }
 
-    pub fn from_vec(mut data: Vec<Entry>) -> Result<Self, FromVecEntryRepeatError> {
+    pub fn from_vec(data: Vec<Entry>) -> Result<Self, FromVecEntryRepeatError> {
         for i in 0..data.len() {
             for j in (i + 1)..data.len() {
                 if data[i].key() == data[j].key() {
