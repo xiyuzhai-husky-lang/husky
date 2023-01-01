@@ -27,17 +27,20 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             TokenKind::Attr(_) => todo!(),
             TokenKind::Keyword(_keyword) => todo!(),
             TokenKind::Identifier(ident) => self.resolve_ident(ident),
-            TokenKind::Punctuation(special) => match special {
-                Punctuation::BinaryOpr(opr) => ResolvedTokenKind::BinaryOpr(opr),
+            TokenKind::Punctuation(punc) => match punc {
+                Punctuation::Binary(binary) => ResolvedTokenKind::BinaryPunctuation(binary),
                 Punctuation::Bra(bra) => ResolvedTokenKind::Bra(bra),
                 Punctuation::Ket(ket) => ResolvedTokenKind::Ket(ket),
+                Punctuation::Suffix(suffix) => ResolvedTokenKind::SuffixPunctuation(suffix),
                 Punctuation::LAngle => todo!(),
                 Punctuation::RAngle => todo!(),
                 Punctuation::DeriveAssign => todo!(),
-                Punctuation::Minus => ResolvedTokenKind::Prefix(PrefixPunctuation::Minus),
-                Punctuation::Exclamation => ResolvedTokenKind::Prefix(PrefixPunctuation::Not),
-                Punctuation::Incr => ResolvedTokenKind::Suffix(SuffixPunctuation::Incr),
-                Punctuation::Decr => ResolvedTokenKind::Suffix(SuffixPunctuation::Decr),
+                Punctuation::Minus => {
+                    ResolvedTokenKind::PrefixPunctuation(PrefixPunctuation::Minus)
+                }
+                Punctuation::Exclamation => {
+                    ResolvedTokenKind::PrefixPunctuation(PrefixPunctuation::Not)
+                }
                 Punctuation::DoubleVertical => todo!(),
                 Punctuation::BitNot => todo!(),
                 Punctuation::Dot => ResolvedTokenKind::Dot,
@@ -64,15 +67,15 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 Punctuation::XmlKet => todo!(),
                 Punctuation::At => todo!(),
                 Punctuation::QuestionMark => match self.top_expr() {
-                    Some(_) => ResolvedTokenKind::Suffix(SuffixPunctuation::Unveil),
+                    Some(_) => ResolvedTokenKind::SuffixPunctuation(SuffixPunctuation::Unveil),
                     None => todo!(),
                 },
                 Punctuation::PoundSign => todo!(),
                 Punctuation::Ambersand => match self.top_expr() {
-                    Some(_) => ResolvedTokenKind::BinaryOpr(BinaryPunctuation::PureClosed(
+                    Some(_) => ResolvedTokenKind::BinaryPunctuation(BinaryPunctuation::PureClosed(
                         BinaryPureClosedPunctuation::BitOr,
                     )),
-                    None => ResolvedTokenKind::Prefix(PrefixPunctuation::Ref),
+                    None => ResolvedTokenKind::PrefixPunctuation(PrefixPunctuation::Ref),
                 },
             },
             TokenKind::WordOpr(_) => todo!(),
@@ -154,9 +157,9 @@ impl ResolvedToken {
     pub(super) fn to_expr(self, arena: &ExprArena) -> Expr {
         match self.kind {
             ResolvedTokenKind::Atom(variant) => variant.into(),
-            ResolvedTokenKind::BinaryOpr(_) => todo!(),
-            ResolvedTokenKind::Prefix(_) => todo!(),
-            ResolvedTokenKind::Suffix(_) => todo!(),
+            ResolvedTokenKind::BinaryPunctuation(_) => todo!(),
+            ResolvedTokenKind::PrefixPunctuation(_) => todo!(),
+            ResolvedTokenKind::SuffixPunctuation(_) => todo!(),
             ResolvedTokenKind::Bra(_) => todo!(),
             ResolvedTokenKind::Ket(_) => todo!(),
             ResolvedTokenKind::Dot => todo!(),
@@ -172,9 +175,9 @@ impl ResolvedToken {
 #[derive(Clone)]
 pub(crate) enum ResolvedTokenKind {
     Atom(Expr),
-    BinaryOpr(BinaryPunctuation),
-    Prefix(PrefixPunctuation),
-    Suffix(SuffixPunctuation),
+    BinaryPunctuation(BinaryPunctuation),
+    PrefixPunctuation(PrefixPunctuation),
+    SuffixPunctuation(SuffixPunctuation),
     Bra(Bracket),
     Ket(Bracket),
     Dot,

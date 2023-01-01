@@ -1,12 +1,13 @@
-use husky_opn_syntax::{BinaryPunctuation, Bracket};
+use husky_opn_syntax::{BinaryPunctuation, Bracket, SuffixPunctuation};
 
 use crate::{Convexity, TokenKind};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Punctuation {
-    BinaryOpr(BinaryPunctuation),
+    Binary(BinaryPunctuation),
     Bra(Bracket),
     Ket(Bracket),
+    Suffix(SuffixPunctuation),
     LAngle,            // <
     RAngle,            // >
     DeriveAssign,      // ?=
@@ -17,8 +18,6 @@ pub enum Punctuation {
     Colon,             // :
     Comma,             // ,
     Ambersand,         // &
-    Incr,              // ++
-    Decr,              // --
     Vertical,          // |
     Exclamation,       // !
     DoubleExclamation, // !!
@@ -31,7 +30,7 @@ pub enum Punctuation {
 
 impl From<BinaryPunctuation> for Punctuation {
     fn from(v: BinaryPunctuation) -> Self {
-        Self::BinaryOpr(v)
+        Self::Binary(v)
     }
 }
 
@@ -44,9 +43,10 @@ impl std::fmt::Display for Punctuation {
 impl Punctuation {
     pub fn code(&self) -> &'static str {
         match self {
-            Punctuation::BinaryOpr(opr) => opr.code(),
+            Punctuation::Binary(opr) => opr.code(),
             Punctuation::Bra(bra) => bra.bra_code(),
             Punctuation::Ket(ket) => ket.ket_code(),
+            Punctuation::Suffix(_) => todo!(),
             Punctuation::LAngle => "<",
             Punctuation::RAngle => ">",
             Punctuation::DeriveAssign => "?=",
@@ -57,8 +57,6 @@ impl Punctuation {
             Punctuation::Colon => ":",
             Punctuation::Comma => ",",
             Punctuation::Ambersand => todo!(),
-            Punctuation::Incr => "++",
-            Punctuation::Decr => "--",
             Punctuation::Vertical => "|",
             Punctuation::Exclamation => "!",
             Punctuation::DoubleExclamation => "!!",
@@ -80,9 +78,10 @@ impl Punctuation {
 
     pub fn left_convexity(self) -> Option<Convexity> {
         match self {
-            Punctuation::BinaryOpr(_) => todo!(),
+            Punctuation::Binary(_) => todo!(),
             Punctuation::Bra(_) => todo!(),
             Punctuation::Ket(_) => todo!(),
+            Punctuation::Suffix(_) => todo!(),
             Punctuation::LAngle => todo!(),
             Punctuation::RAngle => todo!(),
             Punctuation::DeriveAssign => todo!(),
@@ -93,8 +92,6 @@ impl Punctuation {
             Punctuation::Colon => todo!(),
             Punctuation::Comma => todo!(),
             Punctuation::Ambersand => todo!(),
-            Punctuation::Incr => todo!(),
-            Punctuation::Decr => todo!(),
             Punctuation::Vertical => todo!(),
             Punctuation::Exclamation => todo!(),
             Punctuation::DoubleExclamation => todo!(),

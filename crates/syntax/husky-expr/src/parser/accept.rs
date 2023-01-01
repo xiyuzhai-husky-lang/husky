@@ -10,9 +10,15 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             ResolvedTokenKind::Atom(_atom) => {
                 self.accept_atom(token.to_expr(self.sheet.expr_arena()))
             }
-            ResolvedTokenKind::BinaryOpr(opr) => self.accept_binary_opr(*opr, token.token_idx()),
-            ResolvedTokenKind::Prefix(opr) => self.accept_prefix_opr(*opr, token.token_idx()),
-            ResolvedTokenKind::Suffix(opr) => self.accept_suffix_opr(*opr, token.token_idx()),
+            ResolvedTokenKind::BinaryPunctuation(opr) => {
+                self.accept_binary_opr(*opr, token.token_idx())
+            }
+            ResolvedTokenKind::PrefixPunctuation(opr) => {
+                self.accept_prefix_opr(*opr, token.token_idx())
+            }
+            ResolvedTokenKind::SuffixPunctuation(opr) => {
+                self.accept_suffix_opr(*opr, token.token_idx())
+            }
             ResolvedTokenKind::Bra(bra) => {
                 let opr = match bra {
                     Bracket::Par => todo!(),

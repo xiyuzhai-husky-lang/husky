@@ -69,7 +69,7 @@ impl<'token> Tokenizer<'token> {
             Pretoken::Ambiguous(punc) => match punc {
                 AmbiguousPretoken::SubOrMinus => {
                     let kind = match self.right_convexity() {
-                        Convexity::Convex => TokenKind::Punctuation(Punctuation::BinaryOpr(
+                        Convexity::Convex => TokenKind::Punctuation(Punctuation::Binary(
                             BinaryPunctuation::PureClosed(BinaryPureClosedPunctuation::Sub),
                         )),
                         Convexity::Concave | Convexity::Any => {

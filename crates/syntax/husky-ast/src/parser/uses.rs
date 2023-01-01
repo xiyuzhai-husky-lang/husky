@@ -132,7 +132,7 @@ impl<'b> EntityUseExprParser<'b> {
                     return Some(UseExpr::One { ident })
                 };
                 match next_token.kind {
-                    TokenKind::Punctuation(Punctuation::BinaryOpr(
+                    TokenKind::Punctuation(Punctuation::Binary(
                         BinaryPunctuation::ScopeResolution,
                     )) => {}
                     TokenKind::Punctuation(Punctuation::Comma)
@@ -154,7 +154,7 @@ impl<'b> EntityUseExprParser<'b> {
             }
             TokenKind::Punctuation(Punctuation::Bra(Bracket::Curl)) => self.parse_multiple(),
             // ad hoc; todo: change this to SpecialToken::Star
-            TokenKind::Punctuation(Punctuation::BinaryOpr(BinaryPunctuation::PureClosed(
+            TokenKind::Punctuation(Punctuation::Binary(BinaryPunctuation::PureClosed(
                 BinaryPureClosedPunctuation::Mul,
             ))) => UseExpr::All {},
             _ => UseExpr::Err(EntityUseExprError::ExpectSomething),
