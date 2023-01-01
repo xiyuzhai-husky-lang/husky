@@ -132,13 +132,13 @@ impl<'a> TermPatternInferContext<'a> {
 
     fn infer_literal(
         &self,
-        literal: &LiteralToken,
+        literal: &Literal,
         sheet: &mut TermPatternInferSheet,
     ) -> ExprTermPatternInferRawResults {
         let _term_menu = self.term_menu();
         match literal {
-            LiteralToken::Unit => todo!(),
-            LiteralToken::Integer(_) => {
+            Literal::Unit => todo!(),
+            Literal::Integer(_) => {
                 let term = sheet.it_unresolved(UnresolvedTerm::IntegerLiteral(self.expr_idx()));
                 let ty = sheet.it_unresolved(UnresolvedTerm::IntegerType(term));
                 ExprTermPatternInferRawResults {
@@ -163,7 +163,7 @@ impl<'a> TermPatternInferContext<'a> {
             //     })),
             //     ty: Ok(self.term_menu.i32().into()),
             // },
-            LiteralToken::Float(_) => {
+            Literal::Float(_) => {
                 let term = sheet.it_unresolved(UnresolvedTerm::FloatLiteral(self.expr_idx()));
                 let ty = sheet.it_unresolved(UnresolvedTerm::FloatType(term));
                 ExprTermPatternInferRawResults {
@@ -174,10 +174,10 @@ impl<'a> TermPatternInferContext<'a> {
                     ty: Ok(ty.into()),
                 }
             }
-            LiteralToken::Bool(_) => todo!(),
-            LiteralToken::String(_) => todo!(),
-            LiteralToken::Char(_) => todo!(),
-            LiteralToken::TupleIndex(_) => todo!(),
+            Literal::Bool(_) => todo!(),
+            Literal::String(_) => todo!(),
+            Literal::Char(_) => todo!(),
+            Literal::TupleIndex(_) => todo!(),
         }
     }
 

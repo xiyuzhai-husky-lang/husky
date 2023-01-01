@@ -22,7 +22,7 @@ impl RangedPretoken {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) enum Pretoken {
     Certain(TokenKind),
-    Literal(LiteralToken),
+    Literal(Literal),
     NewLine,
     Ambiguous(AmbiguousPretoken),
     Comment,
@@ -31,13 +31,13 @@ pub(crate) enum Pretoken {
 
 impl Into<Pretoken> for IntegerLiteral {
     fn into(self) -> Pretoken {
-        Pretoken::Certain(TokenKind::Literal(LiteralToken::Integer(self)))
+        Pretoken::Certain(TokenKind::Literal(Literal::Integer(self)))
     }
 }
 
 impl Into<Pretoken> for FloatLiteral {
     fn into(self) -> Pretoken {
-        Pretoken::Certain(TokenKind::Literal(LiteralToken::Float(self)))
+        Pretoken::Certain(TokenKind::Literal(Literal::Float(self)))
     }
 }
 
@@ -411,9 +411,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 c => s.push(c),
             }
         }
-        Ok(Pretoken::Literal(LiteralToken::String(StringLiteral::new(
-            s,
-        ))))
+        Ok(Pretoken::Literal(Literal::String(StringLiteral::new(s))))
     }
 
     fn next_token_variant(&mut self) -> Option<Pretoken> {

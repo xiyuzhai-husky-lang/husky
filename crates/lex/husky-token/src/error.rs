@@ -12,7 +12,7 @@ pub enum TokenError {
     #[error("unrecognized char")]
     UnrecognizedChar(char),
     #[error("ill-formed literal")]
-    IllFormedLiteral(LiteralToken),
+    IllFormedLiteral(Literal),
     #[error("number pseudoliteral")]
     NumberPseudoLiteral(NumberPseudoLiteral),
 }

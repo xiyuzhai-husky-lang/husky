@@ -17,7 +17,7 @@ pub enum TokenKind {
     Identifier(Identifier),
     Punctuation(Punctuation),
     WordOpr(WordOpr),
-    Literal(LiteralToken),
+    Literal(Literal),
     Comment,
     Err(TokenError),
 }
