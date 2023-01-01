@@ -41,27 +41,15 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 Punctuation::DoubleVertical => todo!(),
                 Punctuation::BitNot => todo!(),
                 Punctuation::Dot => ResolvedTokenKind::Dot,
-                Punctuation::BinaryOpr(BinaryPunctuation::Curry) => todo!(),
-                Punctuation::BinaryOpr(BinaryPunctuation::ScopeResolution) => todo!(),
                 Punctuation::Colon => todo!(),
                 Punctuation::Comma => {
                     self.reduce(Precedence::ListItem);
                     match self.last_unfinished_expr() {
                         Some(expr) => match expr {
                             UnfinishedExpr::Binary { .. } => return TokenResolveResult::Break(()),
-                            UnfinishedExpr::ListItem {
-                                separator_token_idx,
-                            } => todo!(),
-                            UnfinishedExpr::Prefix {
-                                prefix,
-                                prefix_token_idx,
-                            } => todo!(),
-                            UnfinishedExpr::List {
-                                opr,
-                                bra,
-                                bra_token_idx,
-                                items,
-                            } => todo!(),
+                            UnfinishedExpr::ListItem { .. } => todo!(),
+                            UnfinishedExpr::Prefix { .. } => todo!(),
+                            UnfinishedExpr::List { .. } => todo!(),
                             UnfinishedExpr::LambdaHead { inputs, start } => todo!(),
                             UnfinishedExpr::Dot { dot_token_idx } => todo!(),
                             UnfinishedExpr::Application { function } => todo!(),

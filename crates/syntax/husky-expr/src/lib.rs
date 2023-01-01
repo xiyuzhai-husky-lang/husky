@@ -13,7 +13,7 @@ mod variable;
 pub use atom::*;
 pub use entity_path::*;
 pub use error::*;
-use husky_symbol::{SymbolContext, VariableIdx};
+use husky_symbol::VariableIdx;
 pub use parser::*;
 pub use pattern::*;
 pub use sheet::*;
