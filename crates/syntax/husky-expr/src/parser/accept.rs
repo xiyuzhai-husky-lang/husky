@@ -24,7 +24,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             }
             ResolvedToken::Ket(token_idx, ket) => self.accept_list_end(ket, token_idx),
             ResolvedToken::Dot(token_idx) => self.accept_dot_opr(token_idx),
-            ResolvedToken::Comma(token_idx) => self.accept_comma(token_idx),
+            ResolvedToken::ListItem(token_idx) => self.accept_comma(token_idx),
         }
     }
 

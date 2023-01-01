@@ -37,13 +37,8 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                     self.reduce(Precedence::ListItem);
                     match self.last_unfinished_expr() {
                         Some(expr) => match expr {
-                            UnfinishedExpr::Binary { .. } => return TokenResolveResult::Break(()),
-                            UnfinishedExpr::ListItem { .. } => todo!(),
-                            UnfinishedExpr::Prefix { .. } => todo!(),
-                            UnfinishedExpr::List { .. } => todo!(),
-                            UnfinishedExpr::LambdaHead { inputs, start } => todo!(),
-                            UnfinishedExpr::Dot { dot_token_idx } => todo!(),
-                            UnfinishedExpr::Application { function } => todo!(),
+                            UnfinishedExpr::List { .. } => ResolvedToken::ListItem(token_idx),
+                            _ => return TokenResolveResult::Break(()),
                         },
                         None => return TokenResolveResult::Break(()),
                     }
@@ -100,7 +95,8 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             }
         }
         match self.ctx.resolve_ident(ident) {
-            Some(symbol) => symbol.into(),
+            Some(symbol) => todo!(),
+            // symbol.into(),
             None => ResolvedToken::Atom(Expr::Unrecognized(ident)),
         }
     }
@@ -115,17 +111,5 @@ pub(crate) enum ResolvedToken {
     Bra(TokenIdx, Bracket),
     Ket(TokenIdx, Bracket),
     Dot(TokenIdx),
-    Comma(TokenIdx),
-}
-
-impl From<Symbol> for ResolvedToken {
-    fn from(symbol: Symbol) -> Self {
-        let expr = match symbol {
-            Symbol::Entity(_) => todo!(),
-            Symbol::Variable(_) => todo!(),
-            Symbol::Lifetime(_) => todo!(),
-            Symbol::Label(_) => todo!(),
-        };
-        ResolvedToken::Atom(expr)
-    }
+    ListItem(TokenIdx),
 }
