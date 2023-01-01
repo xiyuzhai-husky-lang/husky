@@ -10,7 +10,8 @@ pub enum ListOpr {
     Index,
     ModuloIndex,
     StructInit,
-    MethodCall { ranged_ident: RangedIdentifier },
+    MethodCall,
+    ImplicitParameterList,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

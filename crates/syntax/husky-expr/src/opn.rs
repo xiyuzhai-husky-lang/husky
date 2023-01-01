@@ -1,6 +1,6 @@
 use husky_opn_syntax::{BinaryPunctuation, Bracket, ListOpr, PrefixPunctuation, SuffixPunctuation};
 use husky_text::RangedIdentifier;
-use husky_token::TokenIdx;
+use husky_token::{IdentifierToken, TokenIdx};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum Opn {
@@ -17,7 +17,12 @@ pub enum Opn {
         bra_token_idx: TokenIdx,
         ket_token_idx: TokenIdx,
     },
-    Field(Option<RangedIdentifier>),
+    Field {
+        ident_token: IdentifierToken,
+    },
+    Method {
+        ident_token: IdentifierToken,
+    },
     Abstraction,
     Application,
 }
