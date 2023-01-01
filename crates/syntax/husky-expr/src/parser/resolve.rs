@@ -43,7 +43,19 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                         None => return TokenResolveResult::Break(()),
                     }
                 }
-                Punctuation::Vertical => todo!(),
+                Punctuation::Vertical => match self.last_unfinished_expr() {
+                    Some(UnfinishedExpr::List {
+                        bra: Bracket::Vertical,
+                        ..
+                    }) => ResolvedToken::Ket(token_idx, Bracket::Vertical),
+                    _ => match self.top_expr().is_some() {
+                        true => ResolvedToken::BinaryPunctuation(
+                            token_idx,
+                            BinaryPunctuation::PureClosed(BinaryPureClosedPunctuation::BitOr),
+                        ),
+                        false => ResolvedToken::Bra(token_idx, Bracket::Vertical),
+                    },
+                },
                 Punctuation::DoubleExclamation => todo!(),
                 Punctuation::Semicolon => todo!(),
                 // return TokenResolveResult::Break(()),

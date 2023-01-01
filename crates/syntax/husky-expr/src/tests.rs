@@ -397,26 +397,35 @@ fn parse_expr_works() {
             ExprSheet {
                 expr_arena: Arena {
                     data: [
+                        Unrecognized(
+                            Identifier(
+                                Word(
+                                    Id {
+                                        value: 39,
+                                    },
+                                ),
+                            ),
+                        ),
                         Opn {
                             opn: List {
-                                opr: NewVec,
-                                bracket: Box,
+                                opr: NewLambdaHead,
+                                bracket: Vertical,
                                 bra_token_idx: TokenIdx(
                                     0,
                                 ),
                                 ket_token_idx: TokenIdx(
-                                    1,
+                                    2,
                                 ),
                             },
                             opds: ArenaIdxRange(
-                                0..0,
+                                0..1,
                             ),
                         },
                         Unrecognized(
                             Identifier(
                                 Word(
                                     Id {
-                                        value: 5,
+                                        value: 39,
                                     },
                                 ),
                             ),
@@ -424,7 +433,7 @@ fn parse_expr_works() {
                         Opn {
                             opn: Application,
                             opds: ArenaIdxRange(
-                                0..2,
+                                1..3,
                             ),
                         },
                     ],
@@ -437,7 +446,7 @@ fn parse_expr_works() {
                 },
             },
             Some(
-                2,
+                3,
             ),
         )
     "#]]
