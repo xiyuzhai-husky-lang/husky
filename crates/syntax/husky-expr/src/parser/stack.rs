@@ -109,87 +109,10 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     //     // )
     // }
 
-    fn set_top_expr(&mut self, expr: Expr) {
+    pub(super) fn set_top_expr(&mut self, expr: Expr) {
         assert!(self.stack.top_expr.is_none());
         let path = expr.base_entity_path();
         self.stack.top_expr = Some(expr)
-    }
-
-    pub(crate) fn accept_list_end(
-        &mut self,
-        ket: Bracket,
-        ket_token_idx: TokenIdx,
-        attr: ListEndAttr,
-    ) {
-        self.reduce(Precedence::ListItem);
-        match self.stack.unfinished_exprs.pop().unwrap().0 {
-            UnfinishedExpr::List {
-                opr,
-                bra,
-                bra_token_idx,
-                mut items,
-            } => {
-                if let Some(expr) = self.take_top_expr() {
-                    items.push(expr)
-                }
-                let opds = self.sheet.alloc_expr_batch(items);
-                self.set_top_expr(Expr::Opn {
-                    opn: Opn::List(opr),
-                    opds,
-                })
-            }
-            _ => todo!(),
-        }
-        // let original_number_of_oprs = self.number_of_oprs();
-        // let (start_attr, bra_token) = {
-        //     loop {
-        //         match self.pop_opr() {
-        //             Some(opr) => match opr {
-        //                 UnfinishedExpr::ListItem { .. } => (),
-        //                 UnfinishedExpr::ListStart {
-        //                     bra,
-        //                     bra_token_idx,
-        //                     attr,
-        //                 } => {
-        //                     if ket != bra {
-        //                         return Err(ExprError::MisMatchingBracket {
-        //                             bra,
-        //                             bra_token_idx,
-        //                             ket,
-        //                             ket_token_idx,
-        //                         });
-        //                     };
-        //                     break (attr, bra_token_idx);
-        //                 }
-        //                 _ => return Err(ExprError::NoMatchingBra { ket, ket_token_idx }),
-        //             },
-        //             None => return Err(ExprError::NoMatchingBra { ket, ket_token_idx }),
-        //         }
-        //     }
-        // };
-        // let list_len = original_number_of_oprs - self.number_of_oprs() - 1;
-        // let (opds, paths) = self.drain_exprs(list_len);
-        // let opds = self.sheet.alloc_expr_batch(opds, paths);
-        // self.push_expr(new_list_expr(ket, start_attr, attr, opds)?);
-        // Ok(())
-    }
-
-    pub(super) fn synthesize_suffix(
-        &mut self,
-        suffix: SuffixPunctuation,
-        suffix_token_idx: TokenIdx,
-    ) {
-        match self.take_top_expr() {
-            Some(expr) => {
-                let expr = self.sheet.alloc_expr(expr);
-                self.stack.top_expr = Some(Expr::Opn {
-                    opn: Opn::Suffix(suffix),
-                    opds: ExprIdxRange::new_single(expr),
-                })
-            }
-            None => todo!(),
-        }
-        // self.synthesize_opn(suffix.into(), 1)
     }
 
     pub(super) fn take_top_expr(&mut self) -> Option<Expr> {
@@ -208,6 +131,10 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 prefix_token_idx,
             }),
         }
+    }
+
+    pub(super) fn take_top_unfinished_expr(&mut self) -> Option<UnfinishedExpr> {
+        self.stack.unfinished_exprs.pop().map(|(expr, _)| expr)
     }
 
     pub(super) fn reduce(&mut self, next_precedence: Precedence) {
@@ -270,5 +197,14 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 UnfinishedExpr::Dot { dot_token_idx } => todo!(),
             }
         }
+    }
+
+    pub(super) fn replace_top_expr(
+        &mut self,
+        f: impl FnOnce(Option<Expr>, &mut ExprSheet) -> Expr,
+    ) {
+        let top_expr = self.take_top_expr();
+        let new_expr = f(top_expr, &mut self.sheet);
+        self.stack.top_expr = Some(new_expr)
     }
 }

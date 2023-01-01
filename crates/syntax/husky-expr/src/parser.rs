@@ -1,14 +1,9 @@
 mod accept;
 mod resolve;
 mod stack;
-mod synthesize;
 mod unfinished_expr;
-mod utils;
 
 use crate::*;
-use husky_check_utils::should;
-use husky_entity_tree::EntityTreeDb;
-use husky_print_utils::p;
 use husky_symbol::SymbolContext;
 use husky_token::TokenStream;
 use husky_token::{Token, TokenKind};
@@ -50,7 +45,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 ControlFlow::Break(_) => return self.finish_batch(),
             }
         }
-        self.synthesize_all_above(Precedence::None);
+        self.reduce(Precedence::None);
         self.finish_batch()
     }
 }
