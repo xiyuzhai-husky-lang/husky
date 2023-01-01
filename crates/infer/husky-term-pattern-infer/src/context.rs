@@ -105,6 +105,7 @@ impl<'a> TermPatternInferContext<'a> {
             Opn::List(_) => todo!(),
             Opn::Field(_) => todo!(),
             Opn::Abstraction => todo!(),
+            Opn::Application => todo!(),
         }
     }
 

@@ -41,6 +41,7 @@ impl<'a> InferContext<'a> {
                 Opn::List(_) => todo!(),
                 Opn::Field(_) => todo!(),
                 Opn::Abstraction => todo!(),
+                Opn::Application => todo!(),
             },
             Expr::Bracketed(_) => todo!(),
             Expr::Err(_) => todo!(),

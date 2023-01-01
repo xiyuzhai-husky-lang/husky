@@ -19,4 +19,5 @@ pub enum Opn {
     List(ListOpr),
     Field(Option<RangedIdentifier>),
     Abstraction,
+    Application,
 }

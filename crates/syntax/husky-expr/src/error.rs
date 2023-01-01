@@ -30,6 +30,17 @@ pub enum ExprError {
     Token(#[from] TokenError),
     #[error("no left operand for binary operator")]
     NoLeftOperandForBinaryOperator,
+    #[error("no right operand for binary operator")]
+    NoRightOperandForBinaryOperator {
+        lopd: ExprIdx,
+        binary: BinaryPunctuation,
+        binary_token_idx: TokenIdx,
+    },
+    #[error("no operand for prefix operator")]
+    NoOperandForPrefixOperator {
+        prefix: PrefixPunctuation,
+        prefix_token_idx: TokenIdx,
+    },
 }
 
 impl<'a, 'b, 'c> FromAbsent<RightCurlyBraceToken, ExprParser<'a, 'b, 'c>> for ExprError {

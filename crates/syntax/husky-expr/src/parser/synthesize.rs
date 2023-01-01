@@ -53,6 +53,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                         // })
                     }
                     UnfinishedExpr::Dot { dot_token_idx } => todo!(),
+                    UnfinishedExpr::Application { function } => todo!(),
                 }
             } else {
                 return;
