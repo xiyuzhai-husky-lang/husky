@@ -18,7 +18,7 @@ impl<'a> InferContext<'a> {
 
     fn infer_atom(&self, atom: &AtomExpr) -> TermInferResult<Term> {
         match atom {
-            AtomExpr::Literal(literal) => Ok(self.infer_literal(literal)),
+            AtomExpr::Literal(literal) => Ok(self.infer_literal(todo!())),
             AtomExpr::Symbol(symbol) => match symbol {
                 Symbol::Entity(_) => todo!(),
                 Symbol::Variable(_) => todo!(),
