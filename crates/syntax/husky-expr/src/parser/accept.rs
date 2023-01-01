@@ -77,21 +77,23 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     fn accept_prefix_opr(&mut self, prefix: PrefixPunctuation, prefix_token_idx: TokenIdx) {
         self.set_top_expr(
             UnfinishedExpr::Prefix {
-                prefix,
-                prefix_token_idx,
+                punctuation: prefix,
+                punctuation_token_idx: prefix_token_idx,
             }
             .into(),
         )
     }
 
-    fn accept_suffix_opr(&mut self, suffix: SuffixPunctuation, suffix_token_idx: TokenIdx) {
+    fn accept_suffix_opr(
+        &mut self,
+        punctuation: SuffixPunctuation,
+        punctuation_token_idx: TokenIdx,
+    ) {
         self.replace_finished_expr(|this, top_expr| match top_expr {
-            Some(expr) => Expr::Opn {
-                opn: Opn::Suffix {
-                    suffix,
-                    suffix_token_idx,
-                },
-                opds: ExprIdxRange::new_single(this.sheet.alloc_expr(expr)),
+            Some(expr) => Expr::SuffixOpn {
+                opd: this.sheet.alloc_expr(expr),
+                punctuation,
+                punctuation_token_idx,
             }
             .into(),
             None => todo!(),
@@ -153,8 +155,8 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             .unwrap_or(Expr::Err(ExprError::NoLeftOperandForBinaryOperator));
         let unfinished_expr = UnfinishedExpr::Binary {
             lopd,
-            binary,
-            binary_token_idx,
+            punctuation: binary,
+            punctuation_token_idx: binary_token_idx,
         };
         self.reduce(unfinished_expr.precedence());
         self.set_top_expr(unfinished_expr.into())

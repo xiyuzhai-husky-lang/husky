@@ -41,43 +41,44 @@ impl<'a> TermPatternInferContext<'a> {
         &self,
         sheet: &mut TermPatternInferSheet,
     ) -> ExprTermPatternInferRawResults {
-        match self.expr() {
-            Expr::Literal(literal) => self.infer_literal(todo!(), sheet),
-            Expr::EntityPath(_) => todo!(),
-            Expr::Variable {
-                token_idx,
-                variable_idx,
-            } => todo!(),
-            // Expr::Symbol(symbol) => match symbol {
-            //     Symbol::Entity(_) => todo!(),
-            //     Symbol::Variable(_) => todo!(),
-            //     Symbol::Lifetime(_) => todo!(),
-            //     Symbol::Label(_) => todo!(),
-            // },
-            Expr::Unrecognized(ident) => {
-                let error = self.error_original(OriginalTermPatternInferError::IdentUnrecognized {
-                    ident: self.db.dt_ident(*ident).to_owned(),
-                });
-                ExprTermPatternInferRawResults {
-                    const_expr: Err(error.clone()),
-                    ty: self
-                        .err_derived(DerivedTermPatternInferError::TermPatternInferError(error)),
-                }
-            }
-            Expr::Uncertain(_) => todo!(),
-            Expr::Opn {
-                opn: ref opn_variant,
-                ref opds,
-            } => self.infer_opn_ty(opn_variant, opds, sheet),
-            Expr::Bracketed(_) => todo!(),
-            Expr::Err(_) => todo!(),
-            Expr::MethodCall {
-                this_expr,
-                arguments,
-                lpar_token_idx,
-                rpar_token_idx,
-            } => todo!(),
-        }
+        todo!()
+        // match self.expr() {
+        //     Expr::Literal(literal) => self.infer_literal(todo!(), sheet),
+        //     Expr::EntityPath(_) => todo!(),
+        //     Expr::Variable {
+        //         token_idx,
+        //         variable_idx,
+        //     } => todo!(),
+        //     // Expr::Symbol(symbol) => match symbol {
+        //     //     Symbol::Entity(_) => todo!(),
+        //     //     Symbol::Variable(_) => todo!(),
+        //     //     Symbol::Lifetime(_) => todo!(),
+        //     //     Symbol::Label(_) => todo!(),
+        //     // },
+        //     Expr::Unrecognized(ident) => {
+        //         let error = self.error_original(OriginalTermPatternInferError::IdentUnrecognized {
+        //             ident: self.db.dt_ident(*ident).to_owned(),
+        //         });
+        //         ExprTermPatternInferRawResults {
+        //             const_expr: Err(error.clone()),
+        //             ty: self
+        //                 .err_derived(DerivedTermPatternInferError::TermPatternInferError(error)),
+        //         }
+        //     }
+        //     Expr::Uncertain(_) => todo!(),
+        //     Expr::Opn {
+        //         opn: ref opn_variant,
+        //         ref opds,
+        //     } => self.infer_opn_ty(opn_variant, opds, sheet),
+        //     Expr::Bracketed(_) => todo!(),
+        //     Expr::Err(_) => todo!(),
+        //     Expr::MethodCall {
+        //         this_expr,
+        //         arguments,
+        //         lpar_token_idx,
+        //         rpar_token_idx,
+        //     } => todo!(),
+        // }
     }
 
     fn infer_opn_ty(
@@ -87,9 +88,6 @@ impl<'a> TermPatternInferContext<'a> {
         sheet: &mut TermPatternInferSheet,
     ) -> ExprTermPatternInferRawResults {
         match opn_variant {
-            Opn::Binary(opr) => self.infer_binary_opn(*opr, opds, sheet),
-            Opn::Prefix(_) => todo!(),
-            Opn::Suffix { .. } => todo!(),
             Opn::CurlBracketed => todo!(),
             Opn::List { .. } => todo!(),
             Opn::Field { .. } => todo!(),
@@ -181,25 +179,26 @@ impl<'a> TermPatternInferContext<'a> {
     }
 
     fn subexprs(&self) -> Option<ExprIdxRange> {
-        match self.expr() {
-            Expr::Opn { ref opds, .. } => Some(opds.clone()),
-            Expr::Bracketed(_) => todo!(),
-            Expr::Err(_) => todo!(),
-            Expr::Literal(_) => todo!(),
-            Expr::EntityPath(_) => todo!(),
-            Expr::Variable {
-                token_idx,
-                variable_idx,
-            } => todo!(),
-            Expr::Uncertain(_) => todo!(),
-            Expr::Unrecognized(_) => todo!(),
-            Expr::MethodCall {
-                this_expr,
-                arguments,
-                lpar_token_idx,
-                rpar_token_idx,
-            } => todo!(),
-        }
+        todo!()
+        // match self.expr() {
+        //     Expr::Opn { ref opds, .. } => Some(opds.clone()),
+        //     Expr::Bracketed(_) => todo!(),
+        //     Expr::Err(_) => todo!(),
+        //     Expr::Literal(_) => todo!(),
+        //     Expr::EntityPath(_) => todo!(),
+        //     Expr::Variable {
+        //         token_idx,
+        //         variable_idx,
+        //     } => todo!(),
+        //     Expr::Uncertain(_) => todo!(),
+        //     Expr::Unrecognized(_) => todo!(),
+        //     Expr::MethodCall {
+        //         this_expr,
+        //         arguments,
+        //         lpar_token_idx,
+        //         rpar_token_idx,
+        //     } => todo!(),
+        // }
     }
 
     pub(crate) fn expr_idx(&self) -> ExprIdx {

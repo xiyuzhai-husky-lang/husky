@@ -4,15 +4,15 @@ use crate::*;
 pub(super) enum UnfinishedExpr {
     Binary {
         lopd: Expr,
-        binary: BinaryPunctuation,
-        binary_token_idx: TokenIdx,
+        punctuation: BinaryPunctuation,
+        punctuation_token_idx: TokenIdx,
     },
     ListItem {
         separator_token_idx: Option<TokenIdx>,
     },
     Prefix {
-        prefix: PrefixPunctuation,
-        prefix_token_idx: TokenIdx,
+        punctuation: PrefixPunctuation,
+        punctuation_token_idx: TokenIdx,
     },
     List {
         opr: ListOpr,
@@ -36,7 +36,10 @@ pub(super) enum UnfinishedExpr {
 impl UnfinishedExpr {
     pub(super) fn precedence(&self) -> Precedence {
         match self {
-            UnfinishedExpr::Binary { binary, .. } => (*binary).into(),
+            UnfinishedExpr::Binary {
+                punctuation: binary,
+                ..
+            } => (*binary).into(),
             UnfinishedExpr::Prefix { .. } => Precedence::Prefix,
             UnfinishedExpr::ListItem { .. } | UnfinishedExpr::List { .. } => Precedence::None,
             UnfinishedExpr::LambdaHead { inputs, start } => Precedence::LambdaHead,

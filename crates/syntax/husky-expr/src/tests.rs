@@ -88,13 +88,12 @@ fn parse_expr_works() {
                                 1,
                             ),
                         ),
-                        Opn {
-                            opn: Prefix(
-                                Minus,
+                        PrefixOpn {
+                            punctuation: Minus,
+                            punctuation_token_idx: TokenIdx(
+                                0,
                             ),
-                            opds: ArenaIdxRange(
-                                0..1,
-                            ),
+                            opd: 0,
                         },
                     ],
                 },
@@ -205,15 +204,15 @@ fn parse_expr_works() {
                                 2,
                             ),
                         ),
-                        Opn {
-                            opn: Binary(
-                                PureClosed(
-                                    Add,
-                                ),
+                        BinaryOpn {
+                            lopd: 0,
+                            punctuation: PureClosed(
+                                Add,
                             ),
-                            opds: ArenaIdxRange(
-                                0..2,
+                            punctuation_token_idx: TokenIdx(
+                                1,
                             ),
+                            ropd: 1,
                         },
                     ],
                 },
