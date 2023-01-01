@@ -19,6 +19,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                     Bracket::Box => ListOpr::NewVec,
                     Bracket::Angle => todo!(),
                     Bracket::Curl => todo!(),
+                    Bracket::Vertical => ListOpr::NewLambdaHead,
                 };
                 self.accept_list_start(bra, token_idx, opr)
             }

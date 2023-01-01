@@ -4,6 +4,7 @@ use super::*;
 pub enum ListOpr {
     NewTuple,
     NewVec,
+    NewLambdaHead,
     NewDict,
     FunctionCall,
     Index,
@@ -42,6 +43,7 @@ pub enum Bracket {
     Box,
     Angle,
     Curl,
+    Vertical,
 }
 
 impl Bracket {
@@ -51,6 +53,7 @@ impl Bracket {
             Bracket::Box => "[",
             Bracket::Angle => "<",
             Bracket::Curl => "{",
+            Bracket::Vertical => "|",
         }
     }
 
@@ -60,6 +63,7 @@ impl Bracket {
             Bracket::Box => "]",
             Bracket::Angle => ">",
             Bracket::Curl => "}",
+            Bracket::Vertical => "|",
         }
     }
 }

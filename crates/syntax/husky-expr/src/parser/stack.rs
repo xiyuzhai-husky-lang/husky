@@ -35,6 +35,7 @@ impl Expr {
                     ListOpr::ModuloIndex => todo!(),
                     ListOpr::StructInit => todo!(),
                     ListOpr::MethodCall { ranged_ident } => todo!(),
+                    ListOpr::NewLambdaHead => todo!(),
                 },
                 Opn::Field(_) => todo!(),
                 Opn::Abstraction => todo!(),
