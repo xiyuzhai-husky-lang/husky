@@ -1,6 +1,5 @@
 use super::*;
 use husky_symbol::Symbol;
-use husky_term::Term;
 use husky_token::Punctuation;
 use std::ops::ControlFlow;
 
@@ -12,38 +11,27 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         token_idx: TokenIdx,
         token: &Token,
     ) -> TokenResolveResult<ResolvedToken> {
-        TokenResolveResult::Continue(ResolvedToken {
-            token_idx,
-            kind: self.resolve_token_kind(token_idx, token)?,
-        })
-    }
-
-    fn resolve_token_kind(
-        &mut self,
-        token_idx: TokenIdx,
-        token: &Token,
-    ) -> TokenResolveResult<ResolvedTokenKind> {
         TokenResolveResult::Continue(match token.kind {
             TokenKind::Attr(_) => todo!(),
             TokenKind::Keyword(_keyword) => todo!(),
             TokenKind::Identifier(ident) => self.resolve_ident(ident),
             TokenKind::Punctuation(punc) => match punc {
-                Punctuation::Binary(binary) => ResolvedTokenKind::BinaryPunctuation(binary),
-                Punctuation::Bra(bra) => ResolvedTokenKind::Bra(bra),
-                Punctuation::Ket(ket) => ResolvedTokenKind::Ket(ket),
-                Punctuation::Suffix(suffix) => ResolvedTokenKind::SuffixPunctuation(suffix),
+                Punctuation::Binary(binary) => ResolvedToken::BinaryPunctuation(token_idx, binary),
+                Punctuation::Bra(bra) => ResolvedToken::Bra(token_idx, bra),
+                Punctuation::Ket(ket) => ResolvedToken::Ket(token_idx, ket),
+                Punctuation::Suffix(suffix) => ResolvedToken::SuffixPunctuation(token_idx, suffix),
                 Punctuation::LAngle => todo!(),
                 Punctuation::RAngle => todo!(),
                 Punctuation::DeriveAssign => todo!(),
                 Punctuation::Minus => {
-                    ResolvedTokenKind::PrefixPunctuation(PrefixPunctuation::Minus)
+                    ResolvedToken::PrefixPunctuation(token_idx, PrefixPunctuation::Minus)
                 }
                 Punctuation::Exclamation => {
-                    ResolvedTokenKind::PrefixPunctuation(PrefixPunctuation::Not)
+                    ResolvedToken::PrefixPunctuation(token_idx, PrefixPunctuation::Not)
                 }
                 Punctuation::DoubleVertical => todo!(),
                 Punctuation::BitNot => todo!(),
-                Punctuation::Dot => ResolvedTokenKind::Dot,
+                Punctuation::Dot => ResolvedToken::Dot(token_idx),
                 Punctuation::Colon => todo!(),
                 Punctuation::Comma => {
                     self.reduce(Precedence::ListItem);
@@ -67,25 +55,28 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 Punctuation::XmlKet => todo!(),
                 Punctuation::At => todo!(),
                 Punctuation::QuestionMark => match self.top_expr() {
-                    Some(_) => ResolvedTokenKind::SuffixPunctuation(SuffixPunctuation::Unveil),
+                    Some(_) => {
+                        ResolvedToken::SuffixPunctuation(token_idx, SuffixPunctuation::Unveil)
+                    }
                     None => todo!(),
                 },
                 Punctuation::PoundSign => todo!(),
                 Punctuation::Ambersand => match self.top_expr() {
-                    Some(_) => ResolvedTokenKind::BinaryPunctuation(BinaryPunctuation::PureClosed(
-                        BinaryPureClosedPunctuation::BitOr,
-                    )),
-                    None => ResolvedTokenKind::PrefixPunctuation(PrefixPunctuation::Ref),
+                    Some(_) => ResolvedToken::BinaryPunctuation(
+                        token_idx,
+                        BinaryPunctuation::PureClosed(BinaryPureClosedPunctuation::BitOr),
+                    ),
+                    None => ResolvedToken::PrefixPunctuation(token_idx, PrefixPunctuation::Ref),
                 },
             },
             TokenKind::WordOpr(_) => todo!(),
-            TokenKind::Literal(_) => ResolvedTokenKind::Atom(Expr::Literal(token_idx)),
+            TokenKind::Literal(_) => ResolvedToken::Atom(Expr::Literal(token_idx)),
             TokenKind::Comment => unreachable!(),
             TokenKind::Err(_) => todo!(),
         })
     }
 
-    fn resolve_ident(&self, ident: Identifier) -> ResolvedTokenKind {
+    fn resolve_ident(&self, ident: Identifier) -> ResolvedToken {
         if let Some(opn) = self.last_unfinished_expr() {
             match opn {
                 UnfinishedExpr::Binary {
@@ -93,7 +84,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                     ..
                 } => {
                     if let Some(previous_expr) = self.top_expr() {
-                        match self.top_base_entity_path().unwrap() {
+                        match previous_expr.base_entity_path() {
                             BaseEntityPath::None => todo!(),
                             BaseEntityPath::Some(_) => todo!(),
                             BaseEntityPath::Uncertain => {
@@ -110,81 +101,24 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         }
         match self.ctx.resolve_ident(ident) {
             Some(symbol) => symbol.into(),
-            None => ResolvedTokenKind::Atom(Expr::Unrecognized(ident)),
+            None => ResolvedToken::Atom(Expr::Unrecognized(ident)),
         }
-    }
-
-    fn resolve_previous_entity(&self) -> Option<Term> {
-        self.top_expr().map(|expr| self.resolve_entity(expr))
-    }
-
-    fn resolve_entity(&self, expr: &Expr) -> Term {
-        todo!()
-        // match expr.variant {
-        //     Expr::Atom(ref atom) => match atom {
-        //         AtomExpr::Literal(_) => todo!(),
-        //         AtomExpr::Symbol(_) => todo!(),
-        //         AtomExpr::Uncertain(_) => todo!(),
-        //         AtomExpr::Unrecognized(_) => todo!(),
-        //     },
-        //     Expr::Opn {
-        //         ref opn_variant,
-        //         ref opds,
-        //     } => match opn_variant {
-        //         RawOpnVariant::Binary(_) => todo!(),
-        //         RawOpnVariant::Prefix(_) => todo!(),
-        //         RawOpnVariant::Suffix(_) => todo!(),
-        //         RawOpnVariant::List(_) => todo!(),
-        //         RawOpnVariant::Field(_) => todo!(),
-        //         RawOpnVariant::CurlBracketed => self.resolve_entity(&self.arena[opds.start()]),
-        //         RawOpnVariant::Abstraction => todo!(),
-        //     },
-        // }
     }
 }
 
 #[derive(Clone)]
-pub(crate) struct ResolvedToken {
-    kind: ResolvedTokenKind,
-    token_idx: TokenIdx,
-}
-
-impl ResolvedToken {
-    pub(super) fn kind(&self) -> &ResolvedTokenKind {
-        &self.kind
-    }
-
-    pub(super) fn to_expr(self, arena: &ExprArena) -> Expr {
-        match self.kind {
-            ResolvedTokenKind::Atom(variant) => variant.into(),
-            ResolvedTokenKind::BinaryPunctuation(_) => todo!(),
-            ResolvedTokenKind::PrefixPunctuation(_) => todo!(),
-            ResolvedTokenKind::SuffixPunctuation(_) => todo!(),
-            ResolvedTokenKind::Bra(_) => todo!(),
-            ResolvedTokenKind::Ket(_) => todo!(),
-            ResolvedTokenKind::Dot => todo!(),
-            ResolvedTokenKind::Comma => todo!(),
-        }
-    }
-
-    pub(crate) fn token_idx(&self) -> TokenIdx {
-        self.token_idx
-    }
-}
-
-#[derive(Clone)]
-pub(crate) enum ResolvedTokenKind {
+pub(crate) enum ResolvedToken {
     Atom(Expr),
-    BinaryPunctuation(BinaryPunctuation),
-    PrefixPunctuation(PrefixPunctuation),
-    SuffixPunctuation(SuffixPunctuation),
-    Bra(Bracket),
-    Ket(Bracket),
-    Dot,
-    Comma,
+    BinaryPunctuation(TokenIdx, BinaryPunctuation),
+    PrefixPunctuation(TokenIdx, PrefixPunctuation),
+    SuffixPunctuation(TokenIdx, SuffixPunctuation),
+    Bra(TokenIdx, Bracket),
+    Ket(TokenIdx, Bracket),
+    Dot(TokenIdx),
+    Comma(TokenIdx),
 }
 
-impl From<Symbol> for ResolvedTokenKind {
+impl From<Symbol> for ResolvedToken {
     fn from(symbol: Symbol) -> Self {
         let expr = match symbol {
             Symbol::Entity(_) => todo!(),
@@ -192,6 +126,6 @@ impl From<Symbol> for ResolvedTokenKind {
             Symbol::Lifetime(_) => todo!(),
             Symbol::Label(_) => todo!(),
         };
-        ResolvedTokenKind::Atom(expr)
+        ResolvedToken::Atom(expr)
     }
 }

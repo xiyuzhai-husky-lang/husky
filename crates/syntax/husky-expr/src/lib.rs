@@ -8,6 +8,8 @@ mod pattern;
 mod precedence;
 mod sheet;
 mod stmt;
+#[cfg(test)]
+mod tests;
 mod variable;
 
 pub use atom::*;
