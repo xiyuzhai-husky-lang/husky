@@ -2,11 +2,8 @@ mod accept;
 mod opr;
 mod resolve;
 mod stack;
-mod stop_reason;
 mod synthesize;
 mod utils;
-
-pub use stop_reason::ExprParsingStopReason;
 
 use crate::*;
 use husky_check_utils::should;
@@ -24,7 +21,7 @@ pub struct ExprParser<'sheet, 'token, 'context> {
     ctx: SymbolContext<'context>,
     token_iter: TokenStream<'token>,
     sheet: &'sheet mut ExprSheet,
-    stack: AutomataStack,
+    stack: ExprParserStack,
 }
 
 impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
@@ -45,7 +42,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         &self.token_iter
     }
 
-    pub fn parse_exprs(&mut self) -> (ExprIdxRange, ExprParsingStopReason) {
+    pub fn parse_expr(&mut self) -> Option<ExprIdx> {
         while !self.tokens().is_empty() {
             let (token_idx, token) = self.token_iter.next_indexed(IgnoreComment::True).unwrap();
             match self.resolve_token(token_idx, token) {
@@ -56,16 +53,11 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                         todo!("error = {e}")
                     }
                 },
-                ControlFlow::Break(reason) => return (self.finish_batch(), reason),
+                ControlFlow::Break(_) => return self.finish_batch(),
             }
         }
         self.synthesize_all_above(Precedence::None).expect("todo");
-        if self.number_of_exprs() != 1 {
-            p!(self.stack);
-            todo!()
-        }
-        should!(self.number_of_exprs() == 1);
-        (self.finish_batch(), ExprParsingStopReason::NoTokens)
+        self.finish_batch()
     }
 }
 
@@ -73,8 +65,8 @@ pub fn parse_expr<'a>(
     ctx: SymbolContext,
     token_iter: TokenStream<'a>,
     sheet: &mut ExprSheet,
-) -> (ExprIdxRange, ExprParsingStopReason) {
-    ExprParser::new(ctx, token_iter, sheet).parse_exprs()
+) -> Option<ExprIdx> {
+    ExprParser::new(ctx, token_iter, sheet).parse_expr()
 }
 
 impl<'a, 'b, 'c> parsec::HasParseError for ExprParser<'a, 'b, 'c> {

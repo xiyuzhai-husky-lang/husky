@@ -29,7 +29,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     }
 
     fn accept_prefix_opr(&mut self, prefix: PrefixPunctuation, prefix_token_idx: TokenIdx) {
-        self.push_opr(PartialOpn::Prefix {
+        self.push_opr(UnfinishedExpr::Prefix {
             prefix,
             prefix_token_idx,
         })
@@ -59,7 +59,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         binary: BinaryPunctuation,
         binary_token_idx: TokenIdx,
     ) -> ExprResult<()> {
-        let stack_opr = PartialOpn::Binary {
+        let stack_opr = UnfinishedExpr::Binary {
             binary,
             binary_token_idx,
         };
@@ -75,13 +75,13 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         attr: ListStartAttr,
     ) {
         let attached = attr.attached();
-        self.push_opr(PartialOpn::ListStart {
+        self.push_opr(UnfinishedExpr::ListStart {
             bra,
             bra_token_idx,
             attr,
         });
         if attached {
-            self.push_opr(PartialOpn::ListItem {
+            self.push_opr(UnfinishedExpr::ListItem {
                 separator_token_idx: None,
             })
         }
@@ -92,7 +92,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         separator_token_idx: Option<TokenIdx>,
     ) -> ExprResult<()> {
         self.synthesize_all_above(Precedence::ListItem)?;
-        self.push_opr(PartialOpn::ListItem {
+        self.push_opr(UnfinishedExpr::ListItem {
             separator_token_idx,
         });
         Ok(())
@@ -101,7 +101,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     pub(crate) fn accept_list_end(
         &mut self,
         ket: Bracket,
-        ket_token: TokenIdx,
+        ket_token_idx: TokenIdx,
         attr: ListEndAttr,
     ) -> ExprResult<()> {
         let original_number_of_oprs = self.number_of_oprs();
@@ -109,35 +109,25 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             loop {
                 match self.pop_opr() {
                     Some(opr) => match opr {
-                        PartialOpn::ListItem { .. } => (),
-                        PartialOpn::ListStart {
+                        UnfinishedExpr::ListItem { .. } => (),
+                        UnfinishedExpr::ListStart {
                             bra,
-                            bra_token_idx: bra_token,
+                            bra_token_idx,
                             attr,
                         } => {
                             if ket != bra {
                                 return Err(ExprError::MisMatchingBracket {
                                     bra,
-                                    bra_token,
-                                    ket: ket,
-                                    ket_token: ket_token,
+                                    bra_token_idx,
+                                    ket,
+                                    ket_token_idx,
                                 });
                             };
-                            break (attr, bra_token);
+                            break (attr, bra_token_idx);
                         }
-                        _ => {
-                            return Err(ExprError::NoMatchingBra {
-                                ket: ket,
-                                ket_token: ket_token,
-                            })
-                        }
+                        _ => return Err(ExprError::NoMatchingBra { ket, ket_token_idx }),
                     },
-                    None => {
-                        return Err(ExprError::NoMatchingBra {
-                            ket: ket,
-                            ket_token: ket_token,
-                        })
-                    }
+                    None => return Err(ExprError::NoMatchingBra { ket, ket_token_idx }),
                 }
             }
         };

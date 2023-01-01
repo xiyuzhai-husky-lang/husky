@@ -6,19 +6,19 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             if stack_opr.precedence() >= threshold {
                 let stack_opr = self.pop_opr().unwrap();
                 match stack_opr {
-                    PartialOpn::Binary { binary, .. } => self.synthesize_binary(binary),
-                    PartialOpn::Prefix {
+                    UnfinishedExpr::Binary { binary, .. } => self.synthesize_binary(binary),
+                    UnfinishedExpr::Prefix {
                         prefix,
                         prefix_token_idx,
                     } => self.synthesize_prefix(prefix, prefix_token_idx),
-                    PartialOpn::LambdaHead { inputs, start } => {
+                    UnfinishedExpr::LambdaHead { inputs, start } => {
                         self.synthesize_lambda(inputs, start)
                     }
-                    PartialOpn::ListItem { .. } => {
+                    UnfinishedExpr::ListItem { .. } => {
                         let (_bra, bra_token) = loop {
                             if let Some(opr) = self.pop_opr() {
                                 match opr {
-                                    PartialOpn::ListStart {
+                                    UnfinishedExpr::ListStart {
                                         bra,
                                         bra_token_idx: bra_token,
                                         ..
@@ -42,7 +42,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                         //     dev_src: dev_src!(),
                         // });
                     }
-                    PartialOpn::ListStart { .. } => {
+                    UnfinishedExpr::ListStart { .. } => {
                         todo!()
                         // return Err(AstError {
                         //     variant: AstErrorVariant::Original {
@@ -52,7 +52,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                         //     dev_src: dev_src!(),
                         // })
                     }
-                    PartialOpn::Dot { dot_token_idx } => todo!(),
+                    UnfinishedExpr::Dot { dot_token_idx } => todo!(),
                 }
             } else {
                 return Ok(());
