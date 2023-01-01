@@ -83,6 +83,7 @@ impl<T> std::fmt::Debug for ArenaIdxRange<T> {
         f.debug_tuple("ArenaIdxRange").field(&self.0).finish()
     }
 }
+
 impl<T> Clone for ArenaIdxRange<T> {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -148,6 +149,10 @@ impl<T> ArenaIdxRange<T> {
         } else {
             None
         }
+    }
+
+    pub fn new_single(idx: ArenaIdx<T>) -> Self {
+        Self(idx..(idx + 1))
     }
 }
 

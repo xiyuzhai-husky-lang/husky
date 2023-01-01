@@ -1,8 +1,8 @@
 use super::*;
 
 impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
-    pub(super) fn synthesize_all_above(&mut self, threshold: Precedence) -> ExprResult<()> {
-        while let Some(stack_opr) = self.top_opn() {
+    pub(super) fn synthesize_all_above(&mut self, threshold: Precedence) {
+        while let Some(stack_opr) = self.last_unfinished_expr() {
             if stack_opr.precedence() >= threshold {
                 let stack_opr = self.pop_opr().unwrap();
                 match stack_opr {
@@ -18,7 +18,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                         let (_bra, bra_token) = loop {
                             if let Some(opr) = self.pop_opr() {
                                 match opr {
-                                    UnfinishedExpr::ListStart {
+                                    UnfinishedExpr::List {
                                         bra,
                                         bra_token_idx: bra_token,
                                         ..
@@ -42,7 +42,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                         //     dev_src: dev_src!(),
                         // });
                     }
-                    UnfinishedExpr::ListStart { .. } => {
+                    UnfinishedExpr::List { .. } => {
                         todo!()
                         // return Err(AstError {
                         //     variant: AstErrorVariant::Original {
@@ -55,10 +55,9 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                     UnfinishedExpr::Dot { dot_token_idx } => todo!(),
                 }
             } else {
-                return Ok(());
+                return;
             }
         }
-        Ok(())
     }
 
     fn synthesize_binary(&mut self, binary: BinaryPunctuation) {
@@ -75,14 +74,6 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         // self.synthesize_opn(prefix.into(), 1, range)
     }
 
-    pub(super) fn synthesize_suffix(
-        &mut self,
-        suffix: SuffixPunctuation,
-        suffix_token_idx: TokenIdx,
-    ) {
-        self.synthesize_opn(suffix.into(), 1)
-    }
-
     fn synthesize_field_access(&mut self, _field_ident: RangedIdentifier, _end: TextPosition) {
         todo!()
         // let range = (self.exprs.last().unwrap().range.start..end).into();
@@ -94,15 +85,15 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         // )
     }
 
-    fn synthesize_opn(&mut self, opn: Opn, nopds: usize) {
-        let opds = self.take_opds(nopds);
-        self.push_expr(Expr::Opn { opn, opds });
-    }
+    // fn synthesize_opn(&mut self, opn: Opn, nopds: usize) {
+    //     let opds = self.take_opds(nopds);
+    //     self.push_expr(Expr::Opn { opn, opds });
+    // }
 
-    fn take_opds(&mut self, nopds: usize) -> ExprIdxRange {
-        let (drained_exprs, paths) = self.drain_exprs(nopds);
-        self.sheet.alloc_expr_batch(drained_exprs, paths)
-    }
+    // fn take_opds(&mut self, nopds: usize) -> ExprIdxRange {
+    //     let (drained_exprs, paths) = self.drain_exprs(nopds);
+    //     self.sheet.alloc_expr_batch(drained_exprs, paths)
+    // }
 
     fn synthesize_lambda(
         &mut self,

@@ -39,6 +39,7 @@ pub enum Expr {
     Atom(AtomExpr),
     Opn { opn: Opn, opds: ExprIdxRange },
     Bracketed(ExprIdx),
+    Err(ExprError),
 }
 
 impl From<AtomExpr> for Expr {

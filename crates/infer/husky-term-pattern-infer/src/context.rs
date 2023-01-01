@@ -48,6 +48,7 @@ impl<'a> TermPatternInferContext<'a> {
                 ref opds,
             } => self.infer_opn_ty(opn_variant, opds, sheet),
             Expr::Bracketed(_) => todo!(),
+            Expr::Err(_) => todo!(),
         }
     }
 
@@ -193,6 +194,7 @@ impl<'a> TermPatternInferContext<'a> {
             Expr::Atom(_) => None,
             Expr::Opn { ref opds, .. } => Some(opds.clone()),
             Expr::Bracketed(_) => todo!(),
+            Expr::Err(_) => todo!(),
         }
     }
 

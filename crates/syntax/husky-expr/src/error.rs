@@ -28,9 +28,9 @@ pub enum ExprError {
     ExpectIdentifierAfterDot,
     #[error("token error {0}")]
     Token(#[from] TokenError),
+    #[error("no left operand for binary operator")]
+    NoLeftOperandForBinaryOperator,
 }
-
-pub type ExprResult<T> = Result<T, ExprError>;
 
 impl<'a, 'b, 'c> FromAbsent<RightCurlyBraceToken, ExprParser<'a, 'b, 'c>> for ExprError {
     fn new_absent_error(state: <ExprParser<'a, 'b, 'c> as HasParseState>::State) -> Self {

@@ -15,6 +15,8 @@ pub(crate) enum Precedence {
     BitOr = 9,
     And = 8,
     Or = 7,
+    NextCurry = 5,
+    PrevCurry = 4,
     Dot = 3,
     LambdaHead = 2,
     ListItem = 1,

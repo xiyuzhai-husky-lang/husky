@@ -43,6 +43,7 @@ impl<'a> InferContext<'a> {
                 Opn::Abstraction => todo!(),
             },
             Expr::Bracketed(_) => todo!(),
+            Expr::Err(_) => todo!(),
         }
     }
 

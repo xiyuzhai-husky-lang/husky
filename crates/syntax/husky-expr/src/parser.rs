@@ -46,17 +46,11 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         while !self.tokens().is_empty() {
             let (token_idx, token) = self.token_iter.next_indexed(IgnoreComment::True).unwrap();
             match self.resolve_token(token_idx, token) {
-                ControlFlow::Continue(resolved_token) => match self.accept_token(resolved_token) {
-                    Ok(()) => (),
-                    Err(e) => {
-                        p!(self.report_position());
-                        todo!("error = {e}")
-                    }
-                },
+                ControlFlow::Continue(resolved_token) => self.accept_token(resolved_token),
                 ControlFlow::Break(_) => return self.finish_batch(),
             }
         }
-        self.synthesize_all_above(Precedence::None).expect("todo");
+        self.synthesize_all_above(Precedence::None);
         self.finish_batch()
     }
 }
