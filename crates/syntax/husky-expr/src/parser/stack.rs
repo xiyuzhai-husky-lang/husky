@@ -24,10 +24,7 @@ impl Expr {
         match self {
             Expr::Literal(_) => todo!(),
             Expr::EntityPath(_) => todo!(),
-            Expr::Variable {
-                token_idx: TokenIdx,
-                variable_idx: VariableIdx,
-            } => todo!(),
+            Expr::Variable { .. } => BaseEntityPath::None,
             Expr::Uncertain(_) => todo!(),
             Expr::Unrecognized(_) => BaseEntityPath::Uncertain,
             Expr::Opn { opn, opds } => match opn {
@@ -39,7 +36,7 @@ impl Expr {
                     | SuffixPunctuation::Unveil => BaseEntityPath::None,
                 },
                 Opn::CurlBracketed => todo!(),
-                Opn::List(opr) => match opr {
+                Opn::List { opr, .. } => match opr {
                     ListOpr::NewTuple => todo!(),
                     ListOpr::NewVec => BaseEntityPath::None,
                     ListOpr::NewDict => todo!(),

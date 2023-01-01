@@ -14,12 +14,6 @@ pub enum PrefixPunctuation {
     Array(Option<NonZeroUsize>), // [_] or [<usize>]
 }
 
-impl Into<Opn> for PrefixPunctuation {
-    fn into(self) -> Opn {
-        Opn::Prefix(self)
-    }
-}
-
 impl PrefixPunctuation {
     //     pub fn act_on_primitive(&self, opd: PrimitiveValueData) -> PrimitiveValueData {
     //         match self {
