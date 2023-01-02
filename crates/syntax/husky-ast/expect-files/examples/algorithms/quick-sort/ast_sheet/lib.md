@@ -297,13 +297,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `quick_sort_aux`,
                         token_idx: TokenIdx(
-                            40,
+                            41,
                         ),
                     },
                     is_generic: true,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        41,
+                        42,
                     ),
                 },
                 Defn {
@@ -332,13 +332,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `partition`,
                         token_idx: TokenIdx(
-                            100,
+                            102,
                         ),
                     },
                     is_generic: true,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        101,
+                        103,
                     ),
                 },
                 Stmt {
@@ -375,13 +375,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `quick_sort_works_for_integers`,
                         token_idx: TokenIdx(
-                            224,
+                            227,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        225,
+                        228,
                     ),
                 },
                 Stmt {
@@ -418,13 +418,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `quick_sort_works_for_strs`,
                         token_idx: TokenIdx(
-                            284,
+                            287,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        285,
+                        288,
                     ),
                 },
             ],
