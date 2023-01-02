@@ -35,7 +35,7 @@ pub struct DeclJar(
     AlienTypeDecl,
     UnionTypeDecl,
     // form
-    ConstantDecl,
+    ValueDecl,
     FeatureDecl,
     FunctionDecl,
     MorphismDecl,
@@ -62,4 +62,12 @@ pub struct DeclJar(
 #[salsa::tracked(jar = DeclJar, return_ref)]
 fn decl_sheet(db: &dyn DeclDb, module_path: ModulePath) -> EntityTreeResult<DeclSheet> {
     Ok(DeclCollector::new(db, module_path)?.collect_all())
+}
+
+#[test]
+fn decl_sheet_works() {
+    use husky_vfs::VfsTestSupport;
+    use tests::*;
+
+    DB::expect_test_probable_modules_debug_result_with_db("decl_sheet", DeclDb::decl_sheet);
 }

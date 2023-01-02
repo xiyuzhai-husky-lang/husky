@@ -6,5 +6,5 @@ pub struct ValueDefn {
     pub path: FormPath,
     #[return_ref]
     pub expr_sheet: ExprSheet,
-    pub decl: ConstantDecl,
+    pub decl: ValueDecl,
 }
