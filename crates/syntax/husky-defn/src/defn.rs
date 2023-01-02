@@ -40,6 +40,10 @@ impl Defn {
     pub fn ast_idx(self, db: &dyn DefnDb) -> AstIdx {
         self.decl(db).ast_idx(db)
     }
+
+    pub fn implicit_parameters(self, db: &dyn DefnDb) -> &[ImplicitParameterDecl] {
+        self.decl(db).implicit_parameters(db)
+    }
 }
 
 impl From<TraitItemDefn> for Defn {

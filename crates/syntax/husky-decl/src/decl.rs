@@ -32,7 +32,18 @@ impl Decl {
             Decl::Trait(decl) => decl.ast_idx(db),
             Decl::TypeItem(decl) => decl.ast_idx(db),
             Decl::TraitItem(decl) => decl.ast_idx(db),
-            Decl::Variant(_) => todo!(),
+            Decl::Variant(decl) => decl.ast_idx(db),
+        }
+    }
+
+    pub fn implicit_parameters(self, db: &dyn DeclDb) -> &[ImplicitParameterDecl] {
+        match self {
+            Decl::Type(decl) => decl.implicit_parameters(db),
+            Decl::Form(decl) => decl.implicit_parameters(db),
+            Decl::Trait(decl) => decl.implicit_parameters(db),
+            Decl::TypeItem(decl) => decl.implicit_parameters(db),
+            Decl::TraitItem(decl) => decl.implicit_parameters(db),
+            Decl::Variant(decl) => &[],
         }
     }
 }

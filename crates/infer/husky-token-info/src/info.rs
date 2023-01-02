@@ -4,6 +4,7 @@ use husky_entity_taxonomy::EntityKind;
 pub enum TokenInfo {
     None,
     Entity(EntityKind),
+    ImplicitParameter,
 }
 
 impl Default for TokenInfo {

@@ -32,4 +32,14 @@ impl TypeItemDecl {
             TypeItemDecl::Memo(decl) => decl.ast_idx(db),
         }
     }
+
+    pub fn implicit_parameters(self, db: &dyn DeclDb) -> &[ImplicitParameterDecl] {
+        match self {
+            TypeItemDecl::Function(_) => todo!(),
+            TypeItemDecl::Method(_) => todo!(),
+            TypeItemDecl::AlienType(_) => todo!(),
+            TypeItemDecl::Value(_) => todo!(),
+            TypeItemDecl::Memo(_) => todo!(),
+        }
+    }
 }

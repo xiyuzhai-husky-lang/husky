@@ -11,6 +11,7 @@ mod tests;
 pub use db::*;
 pub use decl::*;
 pub use error::*;
+pub use parameter::*;
 pub use sheet::*;
 
 use collector::*;
@@ -19,7 +20,6 @@ use husky_entity_path::*;
 use husky_entity_tree::EntityTreeResult;
 use husky_expr::*;
 use husky_vfs::{ModulePath, VfsResult};
-use parameter::*;
 
 #[salsa::jar(db = DeclDb)]
 pub struct DeclJar(

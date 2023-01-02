@@ -12,13 +12,22 @@ pub struct PropsStructTypeDecl {
     pub path: TypePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    pub implicit_parameters: Option<ImplicitParameterDeclList>,
+    pub implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     pub lcurl: LeftCurlyBraceToken,
     #[return_ref]
     pub fields: Vec<PropsStructFieldDecl>,
     #[return_ref]
     pub separators: Vec<CommaToken>,
     pub rcurl: RightCurlyBraceToken,
+}
+
+impl PropsStructTypeDecl {
+    pub fn implicit_parameters(self, db: &dyn DeclDb) -> &[ImplicitParameterDecl] {
+        self.implicit_parameter_decl_list(db)
+            .as_ref()
+            .map(|l| -> &[ImplicitParameterDecl] { &l })
+            .unwrap_or(&[])
+    }
 }
 
 #[derive(Debug, PartialEq, Eq)]
