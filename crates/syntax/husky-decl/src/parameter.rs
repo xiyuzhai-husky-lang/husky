@@ -13,6 +13,16 @@ pub struct ImplicitParameterDecl {
     traits: Option<(ColonToken, Option<ExprIdx>)>,
 }
 
+impl ImplicitParameterDecl {
+    pub fn ident(&self) -> IdentifierToken {
+        self.ident
+    }
+
+    pub fn traits(&self) -> Option<(ColonToken, Option<ExprIdx>)> {
+        self.traits
+    }
+}
+
 impl<'a, 'b, 'c> ParseFrom<ExprParser<'a, 'b, 'c>> for ImplicitParameterDecl {
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParser<'a, 'b, 'c>,
@@ -60,6 +70,14 @@ pub struct ImplicitParameterDeclList {
     decls: Vec<ImplicitParameterDecl>,
     commas: Vec<CommaToken>,
     rangle: RightAngleBracketToken,
+}
+
+impl std::ops::Deref for ImplicitParameterDeclList {
+    type Target = Vec<ImplicitParameterDecl>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.decls
+    }
 }
 
 impl ImplicitParameterDeclList {

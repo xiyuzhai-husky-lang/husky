@@ -28,4 +28,13 @@ impl TraitItemDecl {
             TraitItemDecl::Value(decl) => decl.ast_idx(db),
         }
     }
+
+    pub fn implicit_parameters(self, db: &dyn DeclDb) -> &[ImplicitParameterDecl] {
+        match self {
+            TraitItemDecl::Function(_) => todo!(),
+            TraitItemDecl::Method(_) => todo!(),
+            TraitItemDecl::AlienType(_) => todo!(),
+            TraitItemDecl::Value(_) => todo!(),
+        }
+    }
 }

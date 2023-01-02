@@ -29,6 +29,15 @@ impl FormDecl {
             FormDecl::Const(decl) => decl.ast_idx(db),
         }
     }
+
+    pub fn implicit_parameters(self, db: &dyn DeclDb) -> &[ImplicitParameterDecl] {
+        match self {
+            FormDecl::Function(_) => todo!(),
+            FormDecl::Feature(_) => todo!(),
+            FormDecl::Morphism(_) => todo!(),
+            FormDecl::Const(_) => todo!(),
+        }
+    }
 }
 
 impl From<ConstantDecl> for FormDecl {

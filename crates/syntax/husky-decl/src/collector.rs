@@ -79,7 +79,13 @@ impl<'a> DeclCollector<'a> {
                         body,
                         saved_stream_state,
                     ),
-                    ModuleItemPath::Trait(path) => self.parse_trai_decl(ast_idx, path),
+                    ModuleItemPath::Trait(path) => self.parse_trai_decl(
+                        ast_idx,
+                        path,
+                        token_group_idx,
+                        body,
+                        saved_stream_state,
+                    ),
                     ModuleItemPath::Form(path) => self.parse_form_decl(
                         ast_idx,
                         path,
@@ -118,8 +124,16 @@ impl<'a> DeclCollector<'a> {
         saved_stream_state: TokenIdx,
     ) -> Result<Decl, DeclError> {
         match type_kind {
-            TypeKind::Enum => self.parse_enum_type_decl(ast_idx, path),
-            TypeKind::Inductive => self.parse_inductive_type_decl(ast_idx, path),
+            TypeKind::Enum => {
+                self.parse_enum_type_decl(ast_idx, path, token_group_idx, body, saved_stream_state)
+            }
+            TypeKind::Inductive => self.parse_inductive_type_decl(
+                ast_idx,
+                path,
+                token_group_idx,
+                body,
+                saved_stream_state,
+            ),
             TypeKind::Record => todo!(),
             TypeKind::Struct => self.parse_struct_type_decl(
                 ast_idx,
@@ -128,7 +142,13 @@ impl<'a> DeclCollector<'a> {
                 body,
                 saved_stream_state,
             ),
-            TypeKind::Structure => self.parse_structure_type_decl(ast_idx, path),
+            TypeKind::Structure => self.parse_structure_type_decl(
+                ast_idx,
+                path,
+                token_group_idx,
+                body,
+                saved_stream_state,
+            ),
             TypeKind::Foreign => self.parse_foreign_type_decl(
                 ast_idx,
                 path,
@@ -139,17 +159,75 @@ impl<'a> DeclCollector<'a> {
         }
     }
 
-    fn parse_enum_type_decl(&self, ast_idx: AstIdx, path: TypePath) -> DeclResult<Decl> {
-        Ok(Decl::Type(EnumTypeDecl::new(self.db, path, ast_idx).into()))
-    }
-
-    fn parse_trai_decl(&self, ast_idx: AstIdx, path: TraitPath) -> DeclResult<Decl> {
-        Ok(Decl::Trait(TraitDecl::new(self.db, path, ast_idx)))
-    }
-
-    fn parse_inductive_type_decl(&self, ast_idx: AstIdx, path: TypePath) -> DeclResult<Decl> {
+    fn parse_enum_type_decl(
+        &self,
+        ast_idx: AstIdx,
+        path: TypePath,
+        token_group_idx: TokenGroupIdx,
+        body: &AstIdxRange,
+        saved_stream_state: TokenIdx,
+    ) -> DeclResult<Decl> {
+        let mut sheet = ExprSheet::default();
+        let mut local_symbol_sheet = LocalSymbolSheet::default();
+        let mut parser = self.expr_parser(
+            path.into(),
+            token_group_idx,
+            saved_stream_state,
+            &mut sheet,
+            &mut local_symbol_sheet,
+        );
+        let implicit_parameters = parser.parse()?;
         Ok(Decl::Type(
-            InductiveTypeDecl::new(self.db, path, ast_idx).into(),
+            EnumTypeDecl::new(self.db, path, ast_idx, implicit_parameters).into(),
+        ))
+    }
+
+    fn parse_trai_decl(
+        &self,
+        ast_idx: AstIdx,
+        path: TraitPath,
+        token_group_idx: TokenGroupIdx,
+        body: &AstIdxRange,
+        saved_stream_state: TokenIdx,
+    ) -> DeclResult<Decl> {
+        let mut sheet = ExprSheet::default();
+        let mut local_symbol_sheet = LocalSymbolSheet::default();
+        let mut parser = self.expr_parser(
+            path.into(),
+            token_group_idx,
+            saved_stream_state,
+            &mut sheet,
+            &mut local_symbol_sheet,
+        );
+        let implicit_parameters = parser.parse()?;
+        Ok(Decl::Trait(TraitDecl::new(
+            self.db,
+            path,
+            ast_idx,
+            implicit_parameters,
+        )))
+    }
+
+    fn parse_inductive_type_decl(
+        &self,
+        ast_idx: AstIdx,
+        path: TypePath,
+        token_group_idx: TokenGroupIdx,
+        body: &AstIdxRange,
+        saved_stream_state: TokenIdx,
+    ) -> DeclResult<Decl> {
+        let mut sheet = ExprSheet::default();
+        let mut local_symbol_sheet = LocalSymbolSheet::default();
+        let mut parser = self.expr_parser(
+            path.into(),
+            token_group_idx,
+            saved_stream_state,
+            &mut sheet,
+            &mut local_symbol_sheet,
+        );
+        let implicit_parameters = parser.parse()?;
+        Ok(Decl::Type(
+            InductiveTypeDecl::new(self.db, path, ast_idx, implicit_parameters).into(),
         ))
     }
 
@@ -214,9 +292,29 @@ impl<'a> DeclCollector<'a> {
         )
     }
 
-    fn parse_structure_type_decl(&self, ast_idx: AstIdx, path: TypePath) -> DeclResult<Decl> {
+    fn parse_structure_type_decl(
+        &self,
+        ast_idx: AstIdx,
+        path: TypePath,
+        token_group_idx: TokenGroupIdx,
+        body: &AstIdxRange,
+        saved_stream_state: TokenIdx,
+    ) -> DeclResult<Decl> {
+        let mut token_iter = self
+            .token_sheet
+            .token_group_token_stream(token_group_idx, Some(saved_stream_state));
+        let mut sheet = ExprSheet::default();
+        let mut local_symbol_sheet = LocalSymbolSheet::default();
+        let mut parser = self.expr_parser(
+            path.into(),
+            token_group_idx,
+            saved_stream_state,
+            &mut sheet,
+            &mut local_symbol_sheet,
+        );
+        let implicit_parameters = parser.parse()?;
         Ok(Decl::Type(
-            StructureTypeDecl::new(self.db, path, ast_idx).into(),
+            StructureTypeDecl::new(self.db, path, ast_idx, implicit_parameters).into(),
         ))
     }
 
@@ -232,23 +330,18 @@ impl<'a> DeclCollector<'a> {
         let mut token_iter = self
             .token_sheet
             .token_group_token_stream(token_group_idx, Some(saved_stream_state));
-        let mut expr_arena = ExprSheet::default();
-        let local_symbol_sheet = LocalSymbolSheet::default();
-        // if let Some(_) = token_iter.try_eat_special(BinaryOpr::Assign(None).into(), true) {
-        //     todo!()
-        // } else {
-        //     match token_iter.try_eat_special(SpecialToken::Semicolon, true) {
-        //         Some(_) => {
-        //             if !token_iter.is_empty() {
-        //                 todo!()
-        //             }
-        //             todo!()
-        //         }
-        //         None => todo!(),
-        //     }
-        // }
+        let mut sheet = ExprSheet::default();
+        let mut local_symbol_sheet = LocalSymbolSheet::default();
+        let mut parser = self.expr_parser(
+            path.into(),
+            token_group_idx,
+            saved_stream_state,
+            &mut sheet,
+            &mut local_symbol_sheet,
+        );
+        let implicit_parameters = parser.parse()?;
         Ok(Decl::Type(
-            AlienTypeDecl::new(self.db, path, ast_idx).into(),
+            AlienTypeDecl::new(self.db, path, ast_idx, implicit_parameters).into(),
         ))
     }
 

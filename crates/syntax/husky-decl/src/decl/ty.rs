@@ -47,6 +47,20 @@ impl TypeDecl {
             TypeDecl::Union(decl) => decl.ast_idx(db),
         }
     }
+
+    pub fn implicit_parameters(self, db: &dyn DeclDb) -> &[ImplicitParameterDecl] {
+        match self {
+            TypeDecl::Enum(decl) => decl.implicit_parameters(db),
+            TypeDecl::UnitStruct(decl) => decl.implicit_parameters(db),
+            TypeDecl::TupleStruct(decl) => decl.implicit_parameters(db),
+            TypeDecl::PropsStruct(decl) => decl.implicit_parameters(db),
+            TypeDecl::Record(decl) => decl.implicit_parameters(db),
+            TypeDecl::Inductive(decl) => decl.implicit_parameters(db),
+            TypeDecl::Structure(decl) => decl.implicit_parameters(db),
+            TypeDecl::Alien(decl) => decl.implicit_parameters(db),
+            TypeDecl::Union(decl) => decl.implicit_parameters(db),
+        }
+    }
 }
 
 impl From<EnumTypeDecl> for TypeDecl {
