@@ -78,6 +78,6 @@ func bottom1(cc: &ConcaveComponent) -> ?f32:
     if dp.y < -3.0:
         require (dp.x / dp.y).abs() > 1.4
     require cc.relative_bounding_box.ymax() < 0.6
-    relative_end = cc.line_segment_sketch.bounding_box.relative_point(cc.end())
+    let relative_end = cc.line_segment_sketch.bounding_box.relative_point(cc.end())
     require relative_end.x > 0.5
     -cc.end().y

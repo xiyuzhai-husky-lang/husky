@@ -54,7 +54,7 @@ def is_four -> ?MnistLabel:
 
     // Type II four, with no hole, the horizontal line is short
 
-    eff_holes = major_connected_component.eff_holes
+    let eff_holes = major_connected_component.eff_holes
 
     require eff_holes.matches[1] be none    // hole.mass
 
@@ -67,25 +67,25 @@ def is_four -> ?MnistLabel:
     // Type IV four, with hole and the horizontal line is short, possibly confused with nine
 
 
-    down_match = components_max_downwards.matches[0]
+    let down_match = components_max_downwards.matches[0]
     require down_match be some
-    down_match_dp_y = down_match.displacement().y
+    let down_match_dp_y = down_match.displacement().y
     
-    higher_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
+    let higher_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
     require higher_excess>7.0
 
     if eff_holes.matches[0] be none:
         require major_concave_components.ilen()>=2
-        four_match_refine_result=components_max_heights.matches[0]
+        let four_match_refine_result = components_max_heights.matches[0]
         require four_match_refine_result be some
         require components_max_heights.norm <1.0
-        higher_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
-        upper_arc = components_max_heights.matches[0]
+        let higher_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
+        let upper_arc = components_max_heights.matches[0]
         require upper_arc be some
         require upper_arc.displacement().y > 0.0
         require upper_arc.angle_change < -110.0
         require components_max_heights.norm < 9.0
-        a = major_connected_component.top_k_row_right_mass_sum(3)
+        let a = major_connected_component.top_k_row_right_mass_sum(3)
 
         require a < 22.0
         require a > 9.0
@@ -104,12 +104,12 @@ def is_four -> ?MnistLabel:
     MnistLabel::Four
 
 func displacement_downwards(cc: &ConcaveComponent) -> ?f32:
-    dp = cc.displacement()
+    let dp = cc.displacement()
     require dp.y < 0.0
     dp.y
 
 func cc_box_heights(cc: &ConcaveComponent)-> ?f32:
-    dp=cc.displacement()
+    let dp = cc.displacement()
     require dp.y >0.0
     require cc.relative_bounding_box.ymin()>0.4
     // dp = cc.displacement()
