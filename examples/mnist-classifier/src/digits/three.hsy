@@ -23,18 +23,18 @@ func three_fermi_match -> FermiMatchResult:
 def is_three -> ?MnistLabel:
     require major_concave_components.ilen() >= 2
     require major_concave_components.ilen() <= 4
-    downarc = three_fermi_match.matches[0]
-    uparc = three_fermi_match.matches[1]
-    back = three_fermi_match.matches[2]
+    let downarc = three_fermi_match.matches[0]
+    let uparc = three_fermi_match.matches[1]
+    let back = three_fermi_match.matches[2]
     require downarc be some    
     require downarc.norm > 3.0
     require uparc be some
 
-    de = downarc.end_tangent().angle(true)
+    let de = downarc.end_tangent().angle(true)
     require de > 0.0 or de < -100.0
-    downarc_enpoint = downarc.end()
-    uparc_startpoint = uparc.start()
-    distance = downarc_enpoint.dist(uparc_startpoint)
+    let downarc_enpoint = downarc.end()
+    let uparc_startpoint = uparc.start()
+    let distance = downarc_enpoint.dist(uparc_startpoint)
     require distance < 20.0
 
     // to improve
@@ -45,16 +45,16 @@ def is_three -> ?MnistLabel:
 
 
 func uparc(cc: &ConcaveComponent) -> ?f32:
-    dp = cc.displacement()
+    let dp = cc.displacement()
     require dp.y <= 0.0
     -cc.bounding_box.ymin()
     
 func downarc(cc: &ConcaveComponent) -> ?f32:
-    dp = cc.displacement()
+    let dp = cc.displacement()
     require dp.y <= 0.0
     -cc.bounding_box.ymin()
 
 func back(cc: &ConcaveComponent) -> ?f32:
-    dp = cc.displacement()
+    let dp = cc.displacement()
     require dp.y >= 0.0
     -cc.bounding_box.ymin()

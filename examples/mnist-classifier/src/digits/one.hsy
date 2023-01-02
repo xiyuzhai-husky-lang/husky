@@ -16,7 +16,7 @@ def is_one -> ?MnistLabel:
         major_connected_component.max_hole_ilen,
         ignored_connected_components_row_span_sum_sum
     )?
-    simp_one_match = fermi_match(major_concave_components, [])
+    let simp_one_match = fermi_match(major_concave_components, [])
     if simp_one_match.norm < 3.0:
         narrow_down(
             MnistLabel::One,
@@ -29,9 +29,9 @@ def is_one -> ?MnistLabel:
     else:
         require major_connected_component.max_hole_ilen == 0.0
         require ignored_connected_components_row_span_sum_sum == 0.0
-        downmost = one_fermi_match.matches[0]
-        upmost = one_fermi_match.matches[1]
-        hat = one_fermi_match.matches[2]
+        let downmost = one_fermi_match.matches[0]
+        let upmost = one_fermi_match.matches[1]
+        let hat = one_fermi_match.matches[2]
         if downmost be none:
             require simp_one_match.norm < 4.2
             narrow_down(
@@ -41,7 +41,7 @@ def is_one -> ?MnistLabel:
             )?
             require 2.0 * major_connected_component.lower_mass - major_connected_component.upper_mass < 52.0
             MnistLabel::One
-        downmost_number_of_strokes = downmost.strokes.end - downmost.strokes.start
+        let downmost_number_of_strokes = downmost.strokes.end - downmost.strokes.start
         require one_fermi_match.norm < 1.0
         narrow_down(
             MnistLabel::One,
@@ -60,8 +60,8 @@ def is_one -> ?MnistLabel:
         if upmost be some:
             // ad hoc; improve syntax
             require upmost.strokes.end - upmost.strokes.start == 2
-            long_vertical = upmost.strokes[upmost.strokes.start + 1]
-            long_vertical_dp = long_vertical.displacement()
+            let long_vertical = upmost.strokes[upmost.strokes.start + 1]
+            let long_vertical_dp = long_vertical.displacement()
             require long_vertical_dp.y > 0.0
             narrow_down(
                 MnistLabel::One,
@@ -86,10 +86,10 @@ def is_one -> ?MnistLabel:
             )?
         // ad hoc
         require downmost_number_of_strokes == 3
-        downmost_hat = downmost.strokes[downmost.strokes.start]
-        downmost_hat_dp = downmost_hat.displacement()
-        downmost_feet = downmost.strokes[downmost.strokes.start + 2]
-        downmost_feet_dp = downmost_feet.displacement()
+        let downmost_hat = downmost.strokes[downmost.strokes.start]
+        let downmost_hat_dp = downmost_hat.displacement()
+        let downmost_feet = downmost.strokes[downmost.strokes.start + 2]
+        let downmost_feet_dp = downmost_feet.displacement()
         narrow_down(
             MnistLabel::One,
             10,
@@ -97,26 +97,26 @@ def is_one -> ?MnistLabel:
             downmost_feet_dp.y
         )?
         require downmost_number_of_strokes == 3
-        a = major_connected_component.lower_mass
-        b = major_connected_component.upper_mass
-        c = a - b
-        d = c + a
+        let a = major_connected_component.lower_mass
+        let b = major_connected_component.upper_mass
+        let c = a - b
+        let d = c + a
         require c >= -10.0
         require c <= 20.0
         MnistLabel::One
 
 func upmost(cc: &ConcaveComponent) -> ?f32:
-    dp = cc.displacement()
+    let dp = cc.displacement()
     require dp.y > 0.0
     dp.y
 
 func downmost(cc: &ConcaveComponent) -> ?f32:
-    dp = cc.displacement()
+    let dp = cc.displacement()
     require dp.y <= 0.0
     -cc.end().y
 
 func hat(cc: &ConcaveComponent) -> ?f32:
-    dp = cc.displacement()
+    let dp = cc.displacement()
     require dp.y < 0.0
     require dp.x < 0.0
     -dp.y-dp.x

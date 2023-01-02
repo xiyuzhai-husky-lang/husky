@@ -17,29 +17,29 @@ func nine_match_refine -> FermiMatchResult:
 def is_nine -> ?MnistLabel:
     require is_zero be none
     require is_six be none 
-    eff_holes = major_connected_component.eff_holes
+    let eff_holes = major_connected_component.eff_holes
 
     require eff_holes.matches[1] be none
 
-    down_match=nine_match.matches[0]
+    let down_match=nine_match.matches[0]
     require down_match be some
-    down_match_dp_y = down_match.displacement().y
+    let down_match_dp_y = down_match.displacement().y
     
-    higher_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
+    let higher_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
     require higher_excess>7.0
 
     if eff_holes.matches[0] be none:
         require major_concave_components.ilen()>=2
-        nine_match_refine_result=nine_match_refine.matches[0]
+        let nine_match_refine_result=nine_match_refine.matches[0]
         require nine_match_refine_result be some
         require nine_match_refine.norm <1.0
-        higher_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
-        upper_arc = nine_match_refine.matches[0]
+        let higher_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
+        let upper_arc = nine_match_refine.matches[0]
         require upper_arc be some
         require upper_arc.displacement().y > 0.0
         require upper_arc.angle_change < -110.0
         require nine_match_refine.norm < 9.0
-        a = major_connected_component.top_k_row_right_mass_sum(3)
+        let a = major_connected_component.top_k_row_right_mass_sum(3)
 
         require a < 22.0
         require a > 9.0
