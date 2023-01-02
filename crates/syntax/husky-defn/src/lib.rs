@@ -61,3 +61,11 @@ pub struct DefnJar(
 fn defn_sheet(db: &dyn DefnDb, module_path: ModulePath) -> EntityTreeResult<DefnSheet> {
     Ok(DefnCollector::new(db, module_path)?.collect_all())
 }
+
+#[test]
+fn defn_sheet_works() {
+    use husky_vfs::VfsTestSupport;
+    use tests::*;
+
+    DB::expect_test_probable_modules_debug_result_with_db("defn_sheet", DefnDb::defn_sheet);
+}

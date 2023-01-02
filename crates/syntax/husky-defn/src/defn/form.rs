@@ -63,3 +63,32 @@ impl From<FunctionDefn> for FormDefn {
         Self::Function(v)
     }
 }
+
+impl<Db: DefnDb + ?Sized> salsa::DebugWithDb<Db> for FormDefn {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        let db = <Db as DbWithJar<DefnJar>>::as_jar_db(db);
+        match self {
+            FormDefn::Function(decl) => f
+                .debug_tuple("Function")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            FormDefn::Feature(decl) => f
+                .debug_tuple("Feature")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            FormDefn::Morphism(decl) => f
+                .debug_tuple("Morphism")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            FormDefn::Value(decl) => f
+                .debug_tuple("Value")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+        }
+    }
+}

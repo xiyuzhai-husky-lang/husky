@@ -88,3 +88,40 @@ impl Defn {
         }
     }
 }
+
+impl<Db: DefnDb + ?Sized> salsa::DebugWithDb<Db> for Defn {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        let db = <Db as DbWithJar<DefnJar>>::as_jar_db(db);
+        match self {
+            Defn::Type(decl) => f
+                .debug_tuple("Type")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            Defn::Trait(decl) => f
+                .debug_tuple("Trait")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            Defn::Form(decl) => f
+                .debug_tuple("Form")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            Defn::Variant(decl) => f
+                .debug_tuple("Variant")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            Defn::TypeItem(decl) => f
+                .debug_tuple("TypeItem")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            Defn::TraitItem(decl) => f
+                .debug_tuple("TraitItem")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+        }
+    }
+}

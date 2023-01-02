@@ -31,3 +31,14 @@ impl TypeItemDefn {
         todo!()
     }
 }
+
+impl<Db: DefnDb + ?Sized> salsa::DebugWithDb<Db> for TypeItemDefn {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        todo!()
+    }
+}

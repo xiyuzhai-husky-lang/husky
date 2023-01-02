@@ -16,3 +16,17 @@ impl DefnSheet {
         self.defns.iter().map(|(_, defn)| *defn)
     }
 }
+
+impl<Db: DefnDb + ?Sized> salsa::DebugWithDb<Db> for DefnSheet {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        let db = <Db as DbWithJar<DefnJar>>::as_jar_db(db);
+        f.debug_struct("DefnSheet")
+            .field("defns", &(&self.defns.data()).debug(db))
+            .finish()
+    }
+}
