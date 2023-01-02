@@ -6,6 +6,7 @@ mod raw_contour
 mod geom2d
 mod line_segment_sketch
 mod fermi
+mod digits
 mod major
 
 
