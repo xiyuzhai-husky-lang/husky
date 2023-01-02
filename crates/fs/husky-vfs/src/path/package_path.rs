@@ -59,15 +59,16 @@ impl PackagePath {
         ))
     }
 
-    pub fn new_toolchain(
+    pub fn new_toolchain_package(
         db: &dyn VfsDb,
         toolchain: Toolchain,
         ident: Identifier,
-    ) -> VfsResult<Self> {
+    ) -> ToolchainResult<Self> {
         match toolchain.data(db) {
             ToolchainData::Published(_) => todo!(),
             ToolchainData::Local { library_path } => {
                 PackagePath::new_local(db, toolchain, &library_path.data(db).join(ident.data(db)))
+                    .map_err(|e| e.into())
             }
         }
     }

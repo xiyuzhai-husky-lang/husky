@@ -1,7 +1,5 @@
-Ok(
-    [
-        `MinimalToml(
-            ExpectWordName,
-        )`,
-    ],
-)
+[
+    `MinimalToml(
+        ExpectWordName,
+    )`,
+]

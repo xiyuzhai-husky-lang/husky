@@ -2,6 +2,7 @@ use crate::*;
 
 use husky_entity_path::EntityPath;
 use husky_vfs::*;
+use vec_like::VecSet;
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn submodules(
@@ -26,17 +27,22 @@ pub(crate) fn submodules(
 pub(crate) fn all_modules_within_crate(
     db: &dyn EntityTreeDb,
     crate_path: CratePath,
-) -> VfsResult<Vec<ModulePath>> {
+) -> VecSet<ModulePath> {
     let root = ModulePath::new_root(db, crate_path);
-    let mut all_modules = vec![root];
+    let mut all_modules = VecSet::default();
+    all_modules.insert(root);
     collect_all_modules(db, root, &mut all_modules);
-    Ok(all_modules)
+    all_modules
 }
 
-fn collect_all_modules(db: &dyn EntityTreeDb, root: ModulePath, all_modules: &mut Vec<ModulePath>) {
+fn collect_all_modules(
+    db: &dyn EntityTreeDb,
+    root: ModulePath,
+    all_modules: &mut VecSet<ModulePath>,
+) {
     if let Ok(submodules) = submodules(db, root).as_ref() {
         for submodule in submodules {
-            all_modules.push(*submodule);
+            all_modules.insert(*submodule);
             collect_all_modules(db, *submodule, all_modules)
         }
     }
@@ -49,7 +55,7 @@ fn submodules_works() {
 
 #[test]
 fn all_modules_works() {
-    DB::expect_test_crates_debug_result_with_db(
+    DB::expect_test_crates_debug_ref_with_db(
         "all_modules_within_crate",
         EntityTreeDb::all_modules_within_crate,
     )

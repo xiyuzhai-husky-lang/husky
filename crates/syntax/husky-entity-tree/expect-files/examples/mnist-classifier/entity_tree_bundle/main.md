@@ -45,11 +45,19 @@ Ok(
                         module_path: `mnist_classifier::fermi`,
                     },
                     Module {
-                        ident: `major`,
+                        ident: `digits`,
                         accessibility: PubicUnder(
                             `mnist_classifier`,
                         ),
                         ast_idx: 17,
+                        module_path: `mnist_classifier::digits`,
+                    },
+                    Module {
+                        ident: `major`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier`,
+                        ),
+                        ast_idx: 18,
                         module_path: `mnist_classifier::major`,
                     },
                 ],
@@ -422,6 +430,435 @@ Ok(
                         ),
                         ast_idx: 26,
                         path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                    },
+                ],
+            },
+            EntityTreeSheet {
+                module_path: `mnist_classifier::digits`,
+                module_symbols: [
+                    Module {
+                        ident: `zero`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits`,
+                        ),
+                        ast_idx: 0,
+                        module_path: `mnist_classifier::digits::zero`,
+                    },
+                    Module {
+                        ident: `one`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits`,
+                        ),
+                        ast_idx: 1,
+                        module_path: `mnist_classifier::digits::one`,
+                    },
+                    Module {
+                        ident: `six`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits`,
+                        ),
+                        ast_idx: 2,
+                        module_path: `mnist_classifier::digits::six`,
+                    },
+                    Module {
+                        ident: `three`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits`,
+                        ),
+                        ast_idx: 3,
+                        module_path: `mnist_classifier::digits::three`,
+                    },
+                    Module {
+                        ident: `four`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits`,
+                        ),
+                        ast_idx: 4,
+                        module_path: `mnist_classifier::digits::four`,
+                    },
+                    Module {
+                        ident: `five`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits`,
+                        ),
+                        ast_idx: 5,
+                        module_path: `mnist_classifier::digits::five`,
+                    },
+                    Module {
+                        ident: `seven`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits`,
+                        ),
+                        ast_idx: 7,
+                        module_path: `mnist_classifier::digits::seven`,
+                    },
+                    Module {
+                        ident: `eight`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits`,
+                        ),
+                        ast_idx: 8,
+                        module_path: `mnist_classifier::digits::eight`,
+                    },
+                    Module {
+                        ident: `nine`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits`,
+                        ),
+                        ast_idx: 9,
+                        module_path: `mnist_classifier::digits::nine`,
+                    },
+                ],
+            },
+            EntityTreeSheet {
+                module_path: `mnist_classifier::digits::zero`,
+                module_symbols: [
+                    ModuleItem {
+                        ident: `open_one_match`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::zero`,
+                        ),
+                        ast_idx: 35,
+                        path: FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `almost_closed`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::zero`,
+                        ),
+                        ast_idx: 36,
+                        path: FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
+                    },
+                    ModuleItem {
+                        ident: `is_zero`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::zero`,
+                        ),
+                        ast_idx: 37,
+                        path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                    },
+                ],
+            },
+            EntityTreeSheet {
+                module_path: `mnist_classifier::digits::one`,
+                module_symbols: [
+                    ModuleItem {
+                        ident: `one_fermi_match`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::one`,
+                        ),
+                        ast_idx: 70,
+                        path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `is_one`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::one`,
+                        ),
+                        ast_idx: 71,
+                        path: FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `upmost`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::one`,
+                        ),
+                        ast_idx: 72,
+                        path: FormPath(`mnist_classifier::digits::one::upmost`, `Function`),
+                    },
+                    ModuleItem {
+                        ident: `downmost`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::one`,
+                        ),
+                        ast_idx: 73,
+                        path: FormPath(`mnist_classifier::digits::one::downmost`, `Function`),
+                    },
+                    ModuleItem {
+                        ident: `hat`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::one`,
+                        ),
+                        ast_idx: 74,
+                        path: FormPath(`mnist_classifier::digits::one::hat`, `Function`),
+                    },
+                ],
+            },
+            EntityTreeSheet {
+                module_path: `mnist_classifier::digits::six`,
+                module_symbols: [
+                    ModuleItem {
+                        ident: `six_match`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::six`,
+                        ),
+                        ast_idx: 59,
+                        path: FormPath(`mnist_classifier::digits::six::six_match`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `six_match_refined1`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::six`,
+                        ),
+                        ast_idx: 60,
+                        path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `is_six`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::six`,
+                        ),
+                        ast_idx: 61,
+                        path: FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `upmost`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::six`,
+                        ),
+                        ast_idx: 62,
+                        path: FormPath(`mnist_classifier::digits::six::upmost`, `Function`),
+                    },
+                    ModuleItem {
+                        ident: `bottom1`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::six`,
+                        ),
+                        ast_idx: 63,
+                        path: FormPath(`mnist_classifier::digits::six::bottom1`, `Function`),
+                    },
+                ],
+            },
+            EntityTreeSheet {
+                module_path: `mnist_classifier::digits::three`,
+                module_symbols: [
+                    ModuleItem {
+                        ident: `three_fermi_match`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::three`,
+                        ),
+                        ast_idx: 44,
+                        path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `is_three`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::three`,
+                        ),
+                        ast_idx: 45,
+                        path: FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `uparc`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::three`,
+                        ),
+                        ast_idx: 46,
+                        path: FormPath(`mnist_classifier::digits::three::uparc`, `Function`),
+                    },
+                    ModuleItem {
+                        ident: `downarc`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::three`,
+                        ),
+                        ast_idx: 47,
+                        path: FormPath(`mnist_classifier::digits::three::downarc`, `Function`),
+                    },
+                    ModuleItem {
+                        ident: `back`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::three`,
+                        ),
+                        ast_idx: 48,
+                        path: FormPath(`mnist_classifier::digits::three::back`, `Function`),
+                    },
+                ],
+            },
+            EntityTreeSheet {
+                module_path: `mnist_classifier::digits::four`,
+                module_symbols: [
+                    ModuleItem {
+                        ident: `left_components`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::four`,
+                        ),
+                        ast_idx: 75,
+                        path: FormPath(`mnist_classifier::digits::four::left_components`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `left_coordinate_max`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::four`,
+                        ),
+                        ast_idx: 76,
+                        path: FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Function`),
+                    },
+                    ModuleItem {
+                        ident: `components_max_downwards`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::four`,
+                        ),
+                        ast_idx: 77,
+                        path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `components_max_heights`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::four`,
+                        ),
+                        ast_idx: 78,
+                        path: FormPath(`mnist_classifier::digits::four::components_max_heights`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `is_four`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::four`,
+                        ),
+                        ast_idx: 79,
+                        path: FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `displacement_downwards`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::four`,
+                        ),
+                        ast_idx: 80,
+                        path: FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Function`),
+                    },
+                    ModuleItem {
+                        ident: `cc_box_heights`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::four`,
+                        ),
+                        ast_idx: 81,
+                        path: FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Function`),
+                    },
+                ],
+            },
+            EntityTreeSheet {
+                module_path: `mnist_classifier::digits::seven`,
+                module_symbols: [
+                    ModuleItem {
+                        ident: `simple_seven_match`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::seven`,
+                        ),
+                        ast_idx: 50,
+                        path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `simple_leftdown_pattern`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::seven`,
+                        ),
+                        ast_idx: 51,
+                        path: FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
+                    },
+                    ModuleItem {
+                        ident: `special_seven_match`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::seven`,
+                        ),
+                        ast_idx: 52,
+                        path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `leftupcc_pattern`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::seven`,
+                        ),
+                        ast_idx: 53,
+                        path: FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
+                    },
+                    ModuleItem {
+                        ident: `leftdowncc_pattern`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::seven`,
+                        ),
+                        ast_idx: 54,
+                        path: FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
+                    },
+                    ModuleItem {
+                        ident: `is_seven`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::seven`,
+                        ),
+                        ast_idx: 55,
+                        path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
+                    },
+                ],
+            },
+            EntityTreeSheet {
+                module_path: `mnist_classifier::digits::eight`,
+                module_symbols: [
+                    ModuleItem {
+                        ident: `upper_mouth_match`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::eight`,
+                        ),
+                        ast_idx: 32,
+                        path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `is_eight`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::eight`,
+                        ),
+                        ast_idx: 33,
+                        path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `big_mouth`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::eight`,
+                        ),
+                        ast_idx: 34,
+                        path: FormPath(`mnist_classifier::digits::eight::big_mouth`, `Function`),
+                    },
+                ],
+            },
+            EntityTreeSheet {
+                module_path: `mnist_classifier::digits::nine`,
+                module_symbols: [
+                    ModuleItem {
+                        ident: `nine_match`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::nine`,
+                        ),
+                        ast_idx: 54,
+                        path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `nine_match_refine`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::nine`,
+                        ),
+                        ast_idx: 55,
+                        path: FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `is_nine`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::nine`,
+                        ),
+                        ast_idx: 56,
+                        path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `downmost`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::nine`,
+                        ),
+                        ast_idx: 57,
+                        path: FormPath(`mnist_classifier::digits::nine::downmost`, `Function`),
+                    },
+                    ModuleItem {
+                        ident: `big_cc`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::nine`,
+                        ),
+                        ast_idx: 58,
+                        path: FormPath(`mnist_classifier::digits::nine::big_cc`, `Function`),
                     },
                 ],
             },

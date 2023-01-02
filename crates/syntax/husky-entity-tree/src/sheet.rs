@@ -81,7 +81,9 @@ pub(crate) fn entity_tree_sheet(
     module_path: ModulePath,
 ) -> EntityTreeResult<&EntityTreeSheet> {
     let crate_path = module_path.crate_path(db);
-    let entity_tree_bundle = entity_tree_bundle(db, crate_path).as_ref()?;
+    let entity_tree_bundle = entity_tree_bundle(db, crate_path)
+        .as_ref()
+        .map_err(|e| e.clone())?;
     entity_tree_bundle
         .get_sheet(module_path)
         .ok_or_else(|| EntityTreeError::InvalidModulePath(module_path))

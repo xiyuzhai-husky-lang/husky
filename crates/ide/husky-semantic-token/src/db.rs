@@ -16,6 +16,8 @@ where
         &self,
         module_path: ModulePath,
     ) -> EntityTreeResult<&[ext::SemanticToken]> {
-        Ok(semantic_tokens_ext(self, module_path).as_ref()?)
+        Ok(semantic_tokens_ext(self, module_path)
+            .as_ref()
+            .map_err(|e| e.clone())?)
     }
 }

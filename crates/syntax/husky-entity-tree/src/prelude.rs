@@ -1,17 +1,33 @@
+use crate::*;
+use husky_manifest::ManifestError;
+use thiserror::Error;
 use vec_like::VecMapGetEntry;
 
-use crate::*;
+#[derive(Debug, Error, PartialEq, Eq, Clone)]
+pub enum PreludeError {
+    #[error("{0}")]
+    Toolchain(#[from] ToolchainError),
+    #[error("core prelude")]
+    CorePreludeEntityTreeSheet(Box<EntityTreeError>),
+    #[error("manifest error {0}")]
+    ManifestError(#[from] ManifestError),
+}
+pub type PreludeResult<T> = Result<T, PreludeError>;
 
 pub(crate) fn crate_prelude<'a>(
     db: &'a dyn EntityTreeDb,
     crate_path: CratePath,
-) -> EntityTreeResult<CratePrelude<'a>> {
+) -> PreludeResult<CratePrelude<'a>> {
     let toolchain = crate_path.toolchain(db);
     let path_menu = db.path_menu(toolchain)?;
     let core_prelude_module = path_menu.core_prelude();
     Ok(CratePrelude::new(
-        entity_tree_sheet(db, core_prelude_module)?.module_symbols(),
-        crate_specific_prelude(db, crate_path).as_ref()?,
+        entity_tree_sheet(db, core_prelude_module)
+            .map_err(|e| PreludeError::CorePreludeEntityTreeSheet(Box::new(e.clone())))?
+            .module_symbols(),
+        crate_specific_prelude(db, crate_path)
+            .as_ref()
+            .map_err(|e| e.clone())?,
     ))
 }
 
@@ -19,7 +35,7 @@ pub(crate) fn crate_prelude<'a>(
 pub(crate) fn crate_specific_prelude(
     db: &dyn EntityTreeDb,
     crate_path: CratePath,
-) -> EntityTreeResult<VecMap<EntitySymbol>> {
+) -> PreludeResult<VecMap<EntitySymbol>> {
     let package_path = crate_path.package_path(db);
     let package_dependencies = db.package_dependencies(package_path)?;
     let mut nodes: VecMap<EntitySymbol> = VecMap::default();

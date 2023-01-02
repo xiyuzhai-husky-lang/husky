@@ -31,7 +31,7 @@ Ok(
             start_character: Some(
                 4,
             ),
-            end_line: 59,
+            end_line: 57,
             end_character: Some(
                 25,
             ),
@@ -109,7 +109,7 @@ Ok(
             start_character: Some(
                 0,
             ),
-            end_line: 63,
+            end_line: 61,
             end_character: Some(
                 21,
             ),

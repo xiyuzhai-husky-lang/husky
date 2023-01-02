@@ -1,8 +1,10 @@
 mod date;
+mod error;
 #[cfg(test)]
 mod tests;
 
 pub use db::*;
+pub use error::*;
 
 use super::*;
 use date::*;

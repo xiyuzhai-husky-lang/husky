@@ -1,8 +1,6 @@
-Ok(
-    [
-        `std`,
-        `std::prelude`,
-        `std::logic`,
-        `std::ops`,
-    ],
-)
+[
+    `std`,
+    `std::prelude`,
+    `std::logic`,
+    `std::ops`,
+]

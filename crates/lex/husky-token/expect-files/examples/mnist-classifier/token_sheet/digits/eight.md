@@ -1082,7 +1082,15 @@ Ok(
                 kind: Comment,
             },
             Token {
-                range: [24:5, 24:17),
+                range: [24:5, 24:8),
+                kind: Keyword(
+                    Stmt(
+                        Let,
+                    ),
+                ),
+            },
+            Token {
+                range: [24:9, 24:21),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -1094,7 +1102,7 @@ Ok(
                 ),
             },
             Token {
-                range: [24:18, 24:19),
+                range: [24:22, 24:23),
                 kind: Punctuation(
                     Binary(
                         Assign(
@@ -1104,7 +1112,7 @@ Ok(
                 ),
             },
             Token {
-                range: [24:20, 24:45),
+                range: [24:24, 24:49),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -1116,13 +1124,13 @@ Ok(
                 ),
             },
             Token {
-                range: [24:45, 24:46),
+                range: [24:49, 24:50),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [24:46, 24:56),
+                range: [24:50, 24:60),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -1134,7 +1142,7 @@ Ok(
                 ),
             },
             Token {
-                range: [24:57, 24:58),
+                range: [24:61, 24:62),
                 kind: Punctuation(
                     Binary(
                         PureClosed(
@@ -1144,7 +1152,7 @@ Ok(
                 ),
             },
             Token {
-                range: [24:59, 24:84),
+                range: [24:63, 24:88),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -1156,13 +1164,13 @@ Ok(
                 ),
             },
             Token {
-                range: [24:84, 24:85),
+                range: [24:88, 24:89),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [24:85, 24:95),
+                range: [24:89, 24:99),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -1961,18 +1969,18 @@ Ok(
             109,
             113,
             114,
-            123,
             124,
             125,
             126,
-            138,
-            150,
-            152,
-            154,
-            157,
-            169,
-            180,
-            204,
+            127,
+            139,
+            151,
+            153,
+            155,
+            158,
+            170,
+            181,
+            205,
         ],
     },
 )

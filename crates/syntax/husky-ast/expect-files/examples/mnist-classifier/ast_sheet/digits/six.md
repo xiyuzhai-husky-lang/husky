@@ -641,13 +641,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `upmost`,
                         token_idx: TokenIdx(
-                            349,
+                            358,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        350,
+                        359,
                     ),
                 },
                 Defn {
@@ -676,13 +676,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `bottom1`,
                         token_idx: TokenIdx(
-                            377,
+                            387,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        378,
+                        388,
                     ),
                 },
             ],

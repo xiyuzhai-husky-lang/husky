@@ -13,6 +13,8 @@ where
     Db: DbWithJar<DefnJar> + DeclDb,
 {
     fn defn_sheet(&self, module_path: ModulePath) -> EntityTreeResult<&DefnSheet> {
-        Ok(defn_sheet(self, module_path).as_ref()?)
+        Ok(defn_sheet(self, module_path)
+            .as_ref()
+            .map_err(|e| e.clone())?)
     }
 }
