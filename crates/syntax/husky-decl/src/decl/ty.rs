@@ -13,6 +13,7 @@ pub use enum_ty::*;
 pub use inductive_ty::*;
 pub use props_struct_ty::*;
 pub use record_ty::*;
+use salsa::DbWithJar;
 pub use structure_ty::*;
 pub use tuple_struct_ty::*;
 pub use union_ty::*;
@@ -29,7 +30,7 @@ pub enum TypeDecl {
     Record(RecordTypeDecl),
     Inductive(InductiveTypeDecl),
     Structure(StructureTypeDecl),
-    Alien(AlienTypeDecl),
+    Foreign(AlienTypeDecl),
     Union(UnionTypeDecl),
 }
 
@@ -43,7 +44,7 @@ impl TypeDecl {
             TypeDecl::Record(decl) => decl.ast_idx(db),
             TypeDecl::Inductive(decl) => decl.ast_idx(db),
             TypeDecl::Structure(decl) => decl.ast_idx(db),
-            TypeDecl::Alien(decl) => decl.ast_idx(db),
+            TypeDecl::Foreign(decl) => decl.ast_idx(db),
             TypeDecl::Union(decl) => decl.ast_idx(db),
         }
     }
@@ -57,7 +58,7 @@ impl TypeDecl {
             TypeDecl::Record(decl) => decl.implicit_parameters(db),
             TypeDecl::Inductive(decl) => decl.implicit_parameters(db),
             TypeDecl::Structure(decl) => decl.implicit_parameters(db),
-            TypeDecl::Alien(decl) => decl.implicit_parameters(db),
+            TypeDecl::Foreign(decl) => decl.implicit_parameters(db),
             TypeDecl::Union(decl) => decl.implicit_parameters(db),
         }
     }
@@ -107,7 +108,7 @@ impl From<StructureTypeDecl> for TypeDecl {
 
 impl From<AlienTypeDecl> for TypeDecl {
     fn from(v: AlienTypeDecl) -> Self {
-        Self::Alien(v)
+        Self::Foreign(v)
     }
 }
 
@@ -121,12 +122,58 @@ impl TypeDecl {
             TypeDecl::PropsStruct(decl) => decl.path(db),
             TypeDecl::TupleStruct(decl) => decl.path(db),
             TypeDecl::Structure(decl) => decl.path(db),
-            TypeDecl::Alien(decl) => decl.path(db),
+            TypeDecl::Foreign(decl) => decl.path(db),
             TypeDecl::Union(decl) => decl.path(db),
         }
     }
 
     pub fn entity_path(self, db: &dyn DeclDb) -> EntityPath {
         self.path(db).into()
+    }
+}
+
+impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for TypeDecl {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        let db = <Db as DbWithJar<DeclJar>>::as_jar_db(db);
+        match self {
+            TypeDecl::Enum(decl) => f
+                .debug_tuple("Enum")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            TypeDecl::Inductive(decl) => f
+                .debug_tuple("Inductive")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            TypeDecl::Record(decl) => f
+                .debug_tuple("Record")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            TypeDecl::PropsStruct(decl) => f
+                .debug_tuple("PropsStruct")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            TypeDecl::TupleStruct(decl) => f
+                .debug_tuple("TupleStruct")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            TypeDecl::UnitStruct(decl) => f
+                .debug_tuple("UnitStruct")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            TypeDecl::Structure(decl) => f
+                .debug_tuple("Structure")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            TypeDecl::Foreign(decl) => f
+                .debug_tuple("Foreign")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            TypeDecl::Union(_) => todo!(),
+        }
     }
 }

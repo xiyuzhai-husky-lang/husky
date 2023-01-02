@@ -53,7 +53,7 @@ impl<'a> DefnCollector<'a> {
             TypeDecl::Record(_) => todo!(),
             TypeDecl::Inductive(decl) => self.parse_inductive_ty_defn(decl).into(),
             TypeDecl::Structure(decl) => self.parse_structure_ty_defn(decl).into(),
-            TypeDecl::Alien(decl) => self.parse_alien_ty_defn(decl).into(),
+            TypeDecl::Foreign(decl) => self.parse_alien_ty_defn(decl).into(),
             TypeDecl::Union(_) => todo!(),
         }
     }
@@ -103,7 +103,7 @@ impl<'a> DefnCollector<'a> {
             FormDecl::Function(decl) => self.parse_function_defn(decl).into(),
             FormDecl::Feature(decl) => self.parse_feature_defn(decl).into(),
             FormDecl::Morphism(_) => todo!(),
-            FormDecl::Const(_) => todo!(),
+            FormDecl::Value(_) => todo!(),
         }
     }
 

@@ -16,3 +16,17 @@ impl DeclSheet {
         &self.decls
     }
 }
+
+impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for DeclSheet {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<DeclJar>>::as_jar_db(db);
+        f.debug_struct("DeclSheet")
+            .field("decls", &(&self.decls.data()).debug(db))
+            .finish()
+    }
+}

@@ -21,3 +21,15 @@ pub enum DeclError {
 }
 
 pub type DeclResult<T> = Result<T, DeclError>;
+
+impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for DeclError {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        // ad hoc
+        std::fmt::Debug::fmt(&self, f)
+    }
+}

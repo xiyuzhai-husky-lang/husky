@@ -38,3 +38,14 @@ impl TraitItemDecl {
         }
     }
 }
+
+impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for TraitItemDecl {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        todo!()
+    }
+}
