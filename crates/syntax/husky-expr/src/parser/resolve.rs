@@ -114,7 +114,6 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     }
 }
 
-#[derive(Clone)]
 pub(crate) enum ResolvedToken {
     Atom(Expr),
     BinaryPunctuation(TokenIdx, BinaryPunctuation),

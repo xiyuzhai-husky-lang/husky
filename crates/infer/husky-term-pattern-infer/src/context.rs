@@ -81,21 +81,21 @@ impl<'a> TermPatternInferContext<'a> {
         // }
     }
 
-    fn infer_opn_ty(
-        &self,
-        opn_variant: &Opn,
-        opds: &ExprIdxRange,
-        sheet: &mut TermPatternInferSheet,
-    ) -> ExprTermPatternInferRawResults {
-        match opn_variant {
-            Opn::CurlBracketed => todo!(),
-            Opn::List { .. } => todo!(),
-            Opn::Field { .. } => todo!(),
-            Opn::Abstraction => todo!(),
-            Opn::Application => todo!(),
-            Opn::Method { ident_token } => todo!(),
-        }
-    }
+    // fn infer_opn_ty(
+    //     &self,
+    //     opn_variant: &Opn,
+    //     opds: &ExprIdxRange,
+    //     sheet: &mut TermPatternInferSheet,
+    // ) -> ExprTermPatternInferRawResults {
+    //     todo!()
+    //     // match opn_variant {
+    //     //     Opn::List { .. } => todo!(),
+    //     //     Opn::Field { .. } => todo!(),
+    //     //     Opn::Abstraction => todo!(),
+    //     //     Opn::Application => todo!(),
+    //     //     Opn::Method { ident_token } => todo!(),
+    //     // }
+    // }
 
     fn infer_binary_opn(
         &self,

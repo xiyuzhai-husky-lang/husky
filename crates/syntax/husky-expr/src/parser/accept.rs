@@ -18,16 +18,13 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             ResolvedToken::Bra(token_idx, bra) => {
                 let opr = match bra {
                     Bracket::Par => match self.top_expr() {
-                        TopExprRef::Unfinished(UnfinishedExpr::Method { .. }) => {
-                            ListOpr::MethodCall
-                        }
-                        TopExprRef::Finished(_) => ListOpr::FunctionCall,
-                        _ => ListOpr::NewTuple,
+                        TopExprRef::Finished(_) => UnfinishedListOpr::FunctionCall,
+                        _ => UnfinishedListOpr::NewTuple,
                     },
-                    Bracket::Box => ListOpr::NewVec,
+                    Bracket::Box => UnfinishedListOpr::NewVec,
                     Bracket::Angle => todo!(),
                     Bracket::Curl => todo!(),
-                    Bracket::Vertical => ListOpr::NewLambdaHead,
+                    Bracket::Vertical => todo!(),
                 };
                 self.accept_list_start(bra, token_idx, opr)
             }
@@ -49,22 +46,52 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 if bra != ket {
                     todo!()
                 }
-                if let Some(expr) = self.take_finished_expr() {
-                    items.push(expr)
-                }
-                let opds = self.sheet.alloc_expr_batch(items);
-                self.set_top_expr(
-                    Expr::Opn {
-                        opn: Opn::List {
-                            opr,
-                            bracket: bra,
-                            bra_token_idx,
-                            ket_token_idx,
-                        },
-                        opds,
+                self.replace_top_expr(|this, finished_expr| {
+                    if let Some(expr) = finished_expr {
+                        items.push(expr)
                     }
-                    .into(),
-                )
+                    let items = this.sheet.alloc_expr_batch(items);
+                    match opr {
+                        UnfinishedListOpr::NewTuple => Expr::NewTuple {
+                            lpar_token_idx: bra_token_idx,
+                            items,
+                            rpar_token_idx: ket_token_idx,
+                        }
+                        .into(),
+                        UnfinishedListOpr::NewVec => Expr::NewList {
+                            lbox_token_idx: bra_token_idx,
+                            items,
+                            rbox_token_idx: ket_token_idx,
+                        }
+                        .into(),
+                        UnfinishedListOpr::NewLambdaHead => todo!(),
+                        UnfinishedListOpr::FunctionCall => todo!(),
+                        UnfinishedListOpr::MethodInstantiation {} => todo!(),
+                        UnfinishedListOpr::MethodCall {
+                            this_expr,
+                            implicit_arguments,
+                        } => Expr::MethodCall {
+                            this_expr,
+                            implicit_arguments,
+                            arguments: items,
+                            lpar_token_idx: bra_token_idx,
+                            rpar_token_idx: ket_token_idx,
+                        }
+                        .into(),
+                    }
+                })
+                // self.set_top_expr(
+                //     Expr::Opn {
+                //         opn: Opn::List {
+                //             opr,
+                //             bracket: bra,
+                //             bra_token_idx,
+                //             ket_token_idx,
+                //         },
+                //         opds,
+                //     }
+                //     .into(),
+                // )
             }
             _ => todo!(),
         }
@@ -89,7 +116,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         punctuation: SuffixPunctuation,
         punctuation_token_idx: TokenIdx,
     ) {
-        self.replace_finished_expr(|this, top_expr| match top_expr {
+        self.replace_top_expr(|this, top_expr| match top_expr {
             Some(expr) => Expr::SuffixOpn {
                 opd: this.sheet.alloc_expr(expr),
                 punctuation,
@@ -101,26 +128,36 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     }
 
     fn accept_dot_opr(&mut self, dot_token_idx: TokenIdx) {
-        self.replace_finished_expr(|this, finished_expr| match finished_expr {
-            Some(this_expr) => match this.parse::<IdentifierToken>() {
-                Ok(Some(ident_token)) => match this.peek() {
-                    Some(Token {
-                        kind:
-                            TokenKind::Punctuation(Punctuation::Bra(Bracket::Angle | Bracket::Par)),
-                        ..
-                    }) => UnfinishedExpr::Method {
-                        ident_token,
-                        this_expr,
-                    }
-                    .into(),
-                    _ => Expr::Opn {
-                        opn: Opn::Field { ident_token },
-                        opds: this.sheet.alloc_expr_batch([this_expr]),
-                    }
-                    .into(),
-                },
-                _ => todo!(),
-            },
+        self.replace_top_expr(|this, finished_expr| match finished_expr {
+            Some(this_expr) => {
+                let this_expr = this.sheet.alloc_expr(this_expr);
+                match this.parse::<IdentifierToken>() {
+                    Ok(Some(ident_token)) => match this.parse::<LeftParenthesisToken>() {
+                        Ok(Some(lpar)) => UnfinishedExpr::List {
+                            opr: UnfinishedListOpr::MethodCall {
+                                this_expr,
+                                implicit_arguments: None,
+                            },
+                            bra: Bracket::Par,
+                            bra_token_idx: lpar.token_idx(),
+                            items: vec![],
+                        }
+                        .into(),
+                        Ok(None) => match this.parse::<LeftAngleBracketToken>() {
+                            Ok(Some(langle)) => todo!(),
+                            Ok(None) => Expr::Field {
+                                this_expr,
+                                dot_token_idx,
+                                ident_token,
+                            }
+                            .into(),
+                            Err(_) => todo!(),
+                        },
+                        Err(_) => todo!(),
+                    },
+                    _ => todo!(),
+                }
+            }
             None => todo!(),
         })
     }
@@ -162,11 +199,11 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         self.set_top_expr(unfinished_expr.into())
     }
 
-    pub(crate) fn accept_list_start(
+    pub(super) fn accept_list_start(
         &mut self,
         bra: Bracket,
         bra_token_idx: TokenIdx,
-        opr: ListOpr,
+        opr: UnfinishedListOpr,
     ) {
         self.set_top_expr(
             UnfinishedExpr::List {
