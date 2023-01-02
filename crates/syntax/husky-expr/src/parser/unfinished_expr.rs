@@ -1,6 +1,6 @@
-use crate::*;
+use super::*;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq)]
 pub(super) enum UnfinishedExpr {
     Binary {
         lopd: Expr,
@@ -15,7 +15,7 @@ pub(super) enum UnfinishedExpr {
         punctuation_token_idx: TokenIdx,
     },
     List {
-        opr: ListOpr,
+        opr: UnfinishedListOpr,
         bra: Bracket,
         bra_token_idx: TokenIdx,
         items: Vec<Expr>,
@@ -26,10 +26,6 @@ pub(super) enum UnfinishedExpr {
     },
     Application {
         function: Expr,
-    },
-    Method {
-        this_expr: Expr,
-        ident_token: IdentifierToken,
     },
 }
 
@@ -44,10 +40,6 @@ impl UnfinishedExpr {
             UnfinishedExpr::ListItem { .. } | UnfinishedExpr::List { .. } => Precedence::None,
             UnfinishedExpr::LambdaHead { inputs, start } => Precedence::LambdaHead,
             UnfinishedExpr::Application { function } => Precedence::Application,
-            UnfinishedExpr::Method {
-                this_expr,
-                ident_token,
-            } => Precedence::Method,
         }
     }
 }

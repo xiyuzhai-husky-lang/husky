@@ -180,6 +180,12 @@ pub struct LeftParenthesisToken {
     token_idx: TokenIdx,
 }
 
+impl LeftParenthesisToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
 impl<'a, Context> parsec::ParseFrom<Context> for LeftParenthesisToken
 where
     Context: TokenParseContext<'a>,

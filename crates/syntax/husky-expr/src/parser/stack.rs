@@ -161,10 +161,9 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 },
                 UnfinishedExpr::Application { function } => {
                     let argument = self.take_finished_expr().unwrap();
-                    self.stack.finished_expr = Some(Expr::Opn {
-                        opn: Opn::Application,
-                        opds: self.sheet.alloc_expr_batch([function, argument]),
-                    })
+                    let function = self.sheet.alloc_expr(function);
+                    let argument = self.sheet.alloc_expr(argument);
+                    self.stack.finished_expr = Some(Expr::Application { function, argument })
                 }
                 UnfinishedExpr::Prefix {
                     punctuation,
@@ -190,46 +189,40 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 } => todo!(),
                 UnfinishedExpr::List { .. } => todo!(),
                 UnfinishedExpr::LambdaHead { inputs, start } => todo!(),
-                UnfinishedExpr::Method {
-                    this_expr,
-                    ident_token,
-                } => match self.take_finished_expr() {
-                    Some(Expr::Opn {
-                        opn:
-                            Opn::List {
-                                opr: ListOpr::ImplicitParameterList,
-                                ..
-                            },
-                        ..
-                    }) => todo!(),
-                    Some(Expr::Opn {
-                        opn:
-                            Opn::List {
-                                opr: ListOpr::MethodCall,
-                                bracket,
-                                bra_token_idx: lpar_token_idx,
-                                ket_token_idx: rpar_token_idx,
-                            },
-                        opds: arguments,
-                    }) => {
-                        self.stack.finished_expr = Some(Expr::MethodCall {
-                            this_expr: self.sheet.alloc_expr(this_expr),
-                            arguments,
-                            lpar_token_idx,
-                            rpar_token_idx,
-                        })
-                    }
-                    Some(_) => todo!(),
-                    None => todo!(),
-                },
+                // match self.take_finished_expr() {
+                //     Some(Expr::Opn {
+                //         opn:
+                //             Opn::List {
+                //                 opr: ListOpr::M,
+                //                 ..
+                //             },
+                //         ..
+                //     }) => todo!(),
+                //     Some(Expr::Opn {
+                //         opn:
+                //             Opn::List {
+                //                 opr: ListOpr::MethodCall,
+                //                 bracket,
+                //                 bra_token_idx: lpar_token_idx,
+                //                 ket_token_idx: rpar_token_idx,
+                //             },
+                //         opds: arguments,
+                //     }) => {
+                //         self.stack.finished_expr = Some(Expr::MethodCall {
+                //             this_expr: self.sheet.alloc_expr(this_expr),
+                //             arguments,
+                //             lpar_token_idx,
+                //             rpar_token_idx,
+                //         })
+                //     }
+                //     Some(_) => todo!(),
+                //     None => todo!(),
+                // },
             }
         }
     }
 
-    pub(super) fn replace_finished_expr(
-        &mut self,
-        f: impl FnOnce(&mut Self, Option<Expr>) -> TopExpr,
-    ) {
+    pub(super) fn replace_top_expr(&mut self, f: impl FnOnce(&mut Self, Option<Expr>) -> TopExpr) {
         let finished_expr = self.take_finished_expr();
         let top_expr = f(self, finished_expr);
         self.set_top_expr(top_expr)

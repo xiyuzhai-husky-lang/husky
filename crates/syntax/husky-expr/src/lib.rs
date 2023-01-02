@@ -2,7 +2,6 @@
 mod atom;
 mod entity_path;
 mod error;
-mod opn;
 mod parser;
 mod pattern;
 mod precedence;
@@ -15,7 +14,6 @@ mod variable;
 pub use atom::*;
 pub use entity_path::*;
 pub use error::*;
-pub use opn::*;
 pub use parser::*;
 pub use pattern::*;
 pub use sheet::*;
@@ -36,7 +34,7 @@ pub enum BaseEntityPath {
     Uncertain,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq)]
 pub enum Expr {
     Literal(TokenIdx),
     EntityPath(EntityPathExprIdx),
@@ -46,10 +44,6 @@ pub enum Expr {
     },
     Uncertain(Identifier),
     Unrecognized(Identifier),
-    Opn {
-        opn: Opn,
-        opds: ExprIdxRange,
-    },
     BinaryOpn {
         lopd: ExprIdx,
         punctuation: BinaryPunctuation,
@@ -66,14 +60,55 @@ pub enum Expr {
         punctuation: SuffixPunctuation,
         punctuation_token_idx: TokenIdx,
     },
+    Field {
+        this_expr: ExprIdx,
+        dot_token_idx: TokenIdx,
+        ident_token: IdentifierToken,
+    },
     MethodCall {
         this_expr: ExprIdx,
+        implicit_arguments: Option<ImplicitArgumentList>,
         arguments: ExprIdxRange,
         lpar_token_idx: TokenIdx,
         rpar_token_idx: TokenIdx,
     },
+    Application {
+        function: ExprIdx,
+        argument: ExprIdx,
+    },
+    NewTuple {
+        lpar_token_idx: TokenIdx,
+        items: ExprIdxRange,
+        rpar_token_idx: TokenIdx,
+    },
+    NewList {
+        lbox_token_idx: TokenIdx,
+        items: ExprIdxRange,
+        rbox_token_idx: TokenIdx,
+    },
     Bracketed(ExprIdx),
     Err(ExprError),
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct ImplicitArgumentList {
+    langle: TokenIdx,
+    arguments: ExprIdxRange,
+    rangle: TokenIdx,
+}
+
+impl ImplicitArgumentList {
+    pub fn langle(&self) -> TokenIdx {
+        self.langle
+    }
+
+    pub fn arguments(&self) -> &ExprIdxRange {
+        &self.arguments
+    }
+
+    pub fn rangle(&self) -> TokenIdx {
+        self.rangle
+    }
 }
 
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
