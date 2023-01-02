@@ -631,13 +631,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `leftdowncc_pattern`,
                         token_idx: TokenIdx(
-                            178,
+                            179,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        179,
+                        180,
                     ),
                 },
                 Defn {
@@ -666,13 +666,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `is_seven`,
                         token_idx: TokenIdx(
-                            230,
+                            233,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        231,
+                        234,
                     ),
                 },
             ],

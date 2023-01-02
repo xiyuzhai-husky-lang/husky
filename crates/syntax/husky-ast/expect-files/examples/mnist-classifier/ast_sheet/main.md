@@ -12,14 +12,6 @@ Ok(
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
-                        16,
-                    ),
-                    body: ArenaIdxRange(
-                        1..1,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
                         17,
                     ),
                     body: ArenaIdxRange(
@@ -85,6 +77,14 @@ Ok(
                 Stmt {
                     token_group_idx: TokenGroupIdx(
                         25,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        26,
                     ),
                     body: ArenaIdxRange(
                         1..1,
@@ -264,10 +264,10 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::major`,
+                        `mnist_classifier::digits`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: `major`,
+                        ident: `digits`,
                         token_idx: TokenIdx(
                             18,
                         ),
@@ -278,11 +278,13 @@ Ok(
                         19,
                     ),
                 },
-                Use {
+                Defn {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
-                    ident: `mnist`,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -290,7 +292,21 @@ Ok(
                             },
                         ),
                     ),
-                    use_expr_idx: 1,
+                    entity_kind: Module,
+                    entity_path: Some(
+                        `mnist_classifier::major`,
+                    ),
+                    ident_token: IdentifierToken {
+                        ident: `major`,
+                        token_idx: TokenIdx(
+                            20,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        21,
+                    ),
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
@@ -304,11 +320,25 @@ Ok(
                             },
                         ),
                     ),
-                    use_expr_idx: 3,
+                    use_expr_idx: 1,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         10,
+                    ),
+                    ident: `mnist`,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 13,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 3,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        11,
                     ),
                     ident: `major`,
                     accessibility: PublicUnder(
@@ -322,7 +352,7 @@ Ok(
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
-                        11,
+                        12,
                     ),
                     ident: `digits`,
                     accessibility: PublicUnder(
@@ -336,7 +366,7 @@ Ok(
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
-                        12,
+                        13,
                     ),
                     ident: `raw_contour`,
                     accessibility: PublicUnder(
@@ -350,7 +380,7 @@ Ok(
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
-                        13,
+                        14,
                     ),
                     ident: `line_segment_sketch`,
                     accessibility: PublicUnder(
@@ -364,7 +394,7 @@ Ok(
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
-                        14,
+                        15,
                     ),
                     ident: `domains`,
                     accessibility: PublicUnder(
@@ -378,7 +408,7 @@ Ok(
                 },
                 Main {
                     token_group_idx: TokenGroupIdx(
-                        15,
+                        16,
                     ),
                     body: ArenaIdxRange(
                         1..11,
@@ -387,7 +417,7 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            11..26,
+            11..27,
         ),
         use_expr_arena: Arena {
             data: [

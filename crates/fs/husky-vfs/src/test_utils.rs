@@ -5,8 +5,8 @@ use std::path::PathBuf;
 
 pub trait VfsTestSupport: VfsDb {
     // toolchain
-    fn dev_toolchain(&self) -> VfsResult<Toolchain>;
-    fn dev_path_menu(&self) -> VfsResult<&PathMenu> {
+    fn dev_toolchain(&self) -> ToolchainResult<Toolchain>;
+    fn dev_path_menu(&self) -> ToolchainResult<&PathMenu> {
         let toolchain = self.dev_toolchain()?;
         self.path_menu(toolchain)
     }
@@ -33,6 +33,11 @@ pub trait VfsTestSupport: VfsDb {
         Self: Default,
         T: salsa::DebugWithDb<Self> + ?Sized,
         E: salsa::DebugWithDb<Self>;
+
+    fn expect_test_crates_debug_ref_with_db<R>(name: &str, f: impl Fn(&Self, CratePath) -> &R)
+    where
+        Self: Default,
+        R: salsa::DebugWithDb<Self> + ?Sized;
 
     fn expect_test_crates_debug_result<T, E>(
         name: &str,
@@ -154,8 +159,21 @@ where
     {
         let db = Self::default();
         for (base, out) in expect_test_base_outs() {
-            expect_test_crates(&db, name, &base, out, &f, |db, r| {
+            expect_test_crate_results(&db, name, &base, out, &f, |db, r| {
                 format!("{:#?}", &r.debug(db))
+            });
+        }
+    }
+
+    fn expect_test_crates_debug_ref_with_db<R>(name: &str, f: impl Fn(&Self, CratePath) -> &R)
+    where
+        Self: Default,
+        R: salsa::DebugWithDb<Self> + ?Sized,
+    {
+        let db = Self::default();
+        for (base, out) in expect_test_base_outs() {
+            expect_test_crate_refs(&db, name, &base, out, &f, |db, r| {
+                format!("{:#?}", (&r).debug(db))
             });
         }
     }
@@ -184,7 +202,7 @@ where
     {
         let db = Self::default();
         for (base, out) in expect_test_base_outs() {
-            expect_test_crates(&db, name, &base, out, &f, |_db, r| format!("{:#?}", r));
+            expect_test_crate_results(&db, name, &base, out, &f, |_db, r| format!("{:#?}", r));
         }
     }
 
@@ -257,7 +275,7 @@ where
         }
     }
 
-    fn dev_toolchain(&self) -> VfsResult<Toolchain> {
+    fn dev_toolchain(&self) -> ToolchainResult<Toolchain> {
         let library_path = derive_library_path_from_cargo_manifest_dir()?;
         let db = <Self as salsa::DbWithJar<VfsJar>>::as_jar_db(&self);
         Ok(Toolchain::new(
@@ -350,7 +368,39 @@ fn expect_test_packages<Db, T, E>(
         });
 }
 
-fn expect_test_crates<Db, T, E>(
+fn expect_test_crate_refs<Db, R>(
+    db: &Db,
+    name: &str,
+    base: &Path,
+    out: PathBuf,
+    f: &impl Fn(&Db, CratePath) -> &R,
+    p: impl Fn(&Db, &R) -> String,
+) where
+    Db: VfsDb,
+    R: ?Sized,
+{
+    let toolchain = db.dev_toolchain().unwrap();
+    std::fs::create_dir_all(&out).unwrap();
+    collect_package_relative_dirs(base)
+        .into_iter()
+        .for_each(|path| {
+            let package_path =
+                PackagePath::new_local(db, toolchain, &path.to_logical_path(base)).unwrap();
+            let resolver = TestPathResolver {
+                db,
+                name,
+                package_expects_dir: path.to_logical_path(&out),
+            };
+
+            for crate_path in db.collect_crates(toolchain, package_path).unwrap() {
+                let path = resolver.decide_crate_expect_file_path(crate_path);
+                std::fs::create_dir_all(path.parent().unwrap()).unwrap();
+                expect_test::expect_file![path].assert_eq(&p(&db, f(&db, crate_path)));
+            }
+        });
+}
+
+fn expect_test_crate_results<Db, T, E>(
     db: &Db,
     name: &str,
     base: &Path,

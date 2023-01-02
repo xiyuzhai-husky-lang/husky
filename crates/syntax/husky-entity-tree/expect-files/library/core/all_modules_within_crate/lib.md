@@ -1,10 +1,8 @@
-Ok(
-    [
-        `core`,
-        `core::basic`,
-        `core::logic`,
-        `core::num`,
-        `core::ops`,
-        `core::prelude`,
-    ],
-)
+[
+    `core`,
+    `core::basic`,
+    `core::logic`,
+    `core::num`,
+    `core::ops`,
+    `core::prelude`,
+]

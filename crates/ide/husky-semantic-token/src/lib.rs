@@ -36,6 +36,8 @@ fn semantic_tokens_ext(
     db: &dyn SemanticTokenDb,
     module_path: ModulePath,
 ) -> EntityTreeResult<Vec<ext::SemanticToken>> {
-    let tokens = semantic_tokens(db, module_path).as_ref()?;
+    let tokens = semantic_tokens(db, module_path)
+        .as_ref()
+        .map_err(|e| e.clone())?;
     Ok(to_semantic_tokens(tokens))
 }

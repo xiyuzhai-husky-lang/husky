@@ -17,15 +17,15 @@ pub struct PathMenu {
 }
 
 #[salsa::tracked(jar = VfsJar, return_ref)]
-pub(crate) fn path_menu(db: &dyn VfsDb, toolchain: Toolchain) -> VfsResult<PathMenu> {
+pub(crate) fn path_menu(db: &dyn VfsDb, toolchain: Toolchain) -> ToolchainResult<PathMenu> {
     PathMenu::new(db, toolchain)
 }
 
 impl PathMenu {
-    fn new(db: &dyn VfsDb, toolchain: Toolchain) -> VfsResult<Self> {
+    fn new(db: &dyn VfsDb, toolchain: Toolchain) -> ToolchainResult<Self> {
         let word_menu = db.word_menu();
-        let core_package = PackagePath::new_toolchain(db, toolchain, word_menu.core())?;
-        let std_package = PackagePath::new_toolchain(db, toolchain, word_menu.std())?;
+        let core_package = PackagePath::new_toolchain_package(db, toolchain, word_menu.core())?;
+        let std_package = PackagePath::new_toolchain_package(db, toolchain, word_menu.std())?;
         let core_library = CratePath::new(db, core_package, CrateKind::Library);
         let std_library = CratePath::new(db, std_package, CrateKind::Library);
         let core = ModulePath::new_root(db, core_library);

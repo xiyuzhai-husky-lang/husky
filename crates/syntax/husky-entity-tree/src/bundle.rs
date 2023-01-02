@@ -1,11 +1,33 @@
 use crate::*;
+use thiserror::Error;
 use vec_like::{VecMap, VecPairMap};
+
+#[derive(Debug, Error, PartialEq, Eq, Clone)]
+pub enum EntityTreeBundleError {
+    #[error("from toolchain error")]
+    Toolchain(#[from] ToolchainError),
+    #[error("from prelude error")]
+    Prelude(#[from] PreludeError),
+}
+
+impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreeBundleError {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        todo!()
+    }
+}
+
+pub type EntityTreeBundleResult<T> = Result<T, EntityTreeBundleError>;
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn entity_tree_bundle(
     db: &dyn EntityTreeDb,
     crate_path: CratePath,
-) -> EntityTreeResult<EntityTreeBundle> {
+) -> EntityTreeBundleResult<EntityTreeBundle> {
     Ok(EntityTreeCollector::new(db, crate_path)?.collect_all())
 }
 
@@ -13,8 +35,10 @@ pub(crate) fn entity_tree_bundle(
 fn entity_tree_bundle_works() {
     DB::expect_test_crates_debug_result_with_db(
         "entity_tree_bundle",
-        |db, crate_path| -> EntityTreeResult<_> {
-            Ok(entity_tree_bundle(db, crate_path).as_ref()?)
+        |db, crate_path| -> EntityTreeBundleResult<_> {
+            Ok(entity_tree_bundle(db, crate_path)
+                .as_ref()
+                .map_err(|e| e.clone())?)
         },
     )
 }

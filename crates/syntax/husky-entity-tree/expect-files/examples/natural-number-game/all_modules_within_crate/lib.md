@@ -1,5 +1,3 @@
-Ok(
-    [
-        `natural_number_game`,
-    ],
-)
+[
+    `natural_number_game`,
+]

@@ -405,13 +405,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `big_mouth`,
                         token_idx: TokenIdx(
-                            158,
+                            159,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        159,
+                        160,
                     ),
                 },
             ],
