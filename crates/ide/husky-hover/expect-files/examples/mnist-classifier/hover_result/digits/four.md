@@ -32,7 +32,7 @@ Ok(
         ),
         (
             TokenIdx(
-                19,
+                20,
             ),
             Some(
                 HoverResult {
@@ -47,11 +47,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 1,
-                                    character: 25,
+                                    character: 34,
                                 },
                                 end: Position {
                                     line: 1,
-                                    character: 34,
+                                    character: 36,
                                 },
                             },
                         ),
@@ -62,7 +62,7 @@ Ok(
         ),
         (
             TokenIdx(
-                38,
+                40,
             ),
             Some(
                 HoverResult {
@@ -77,11 +77,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 3,
-                                    character: 23,
+                                    character: 31,
                                 },
                                 end: Position {
                                     line: 3,
-                                    character: 25,
+                                    character: 33,
                                 },
                             },
                         ),
@@ -92,7 +92,7 @@ Ok(
         ),
         (
             TokenIdx(
-                57,
+                60,
             ),
             Some(
                 HoverResult {
@@ -107,340 +107,10 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 6,
-                                    character: 11,
+                                    character: 49,
                                 },
                                 end: Position {
                                     line: 6,
-                                    character: 30,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                76,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 9,
-                                    character: 84,
-                                },
-                                end: Position {
-                                    line: 9,
-                                    character: 85,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                95,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 12,
-                                    character: 34,
-                                },
-                                end: Position {
-                                    line: 12,
-                                    character: 35,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                114,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 19,
-                                    character: 4,
-                                },
-                                end: Position {
-                                    line: 19,
-                                    character: 15,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                133,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 25,
-                                    character: 28,
-                                },
-                                end: Position {
-                                    line: 25,
-                                    character: 35,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                152,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 33,
-                                    character: 4,
-                                },
-                                end: Position {
-                                    line: 33,
-                                    character: 60,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                171,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 58,
-                                    character: 12,
-                                },
-                                end: Position {
-                                    line: 58,
-                                    character: 21,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                190,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 70,
-                                    character: 4,
-                                },
-                                end: Position {
-                                    line: 70,
-                                    character: 11,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                209,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 73,
-                                    character: 59,
-                                },
-                                end: Position {
-                                    line: 73,
-                                    character: 84,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                228,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 77,
-                                    character: 40,
-                                },
-                                end: Position {
-                                    line: 77,
-                                    character: 41,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                247,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 80,
-                                    character: 16,
-                                },
-                                end: Position {
-                                    line: 80,
-                                    character: 38,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                266,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 82,
-                                    character: 50,
-                                },
-                                end: Position {
-                                    line: 82,
                                     character: 51,
                                 },
                             },
@@ -452,7 +122,7 @@ Ok(
         ),
         (
             TokenIdx(
-                285,
+                80,
             ),
             Some(
                 HoverResult {
@@ -466,12 +136,12 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 85,
+                                    line: 11,
                                     character: 25,
                                 },
                                 end: Position {
-                                    line: 85,
-                                    character: 26,
+                                    line: 11,
+                                    character: 27,
                                 },
                             },
                         ),
@@ -482,7 +152,7 @@ Ok(
         ),
         (
             TokenIdx(
-                304,
+                100,
             ),
             Some(
                 HoverResult {
@@ -496,11 +166,281 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 89,
+                                    line: 15,
+                                    character: 49,
+                                },
+                                end: Position {
+                                    line: 15,
+                                    character: 50,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                120,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 19,
+                                    character: 57,
+                                },
+                                end: Position {
+                                    line: 19,
+                                    character: 58,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                140,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 26,
+                                    character: 12,
+                                },
+                                end: Position {
+                                    line: 26,
+                                    character: 27,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                160,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 44,
+                                    character: 4,
+                                },
+                                end: Position {
+                                    line: 44,
+                                    character: 89,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                180,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 58,
+                                    character: 44,
+                                },
+                                end: Position {
+                                    line: 58,
+                                    character: 56,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                200,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 71,
+                                    character: 36,
+                                },
+                                end: Position {
+                                    line: 71,
+                                    character: 37,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                220,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 76,
+                                    character: 4,
+                                },
+                                end: Position {
+                                    line: 76,
+                                    character: 6,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                240,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 78,
+                                    character: 37,
+                                },
+                                end: Position {
+                                    line: 78,
+                                    character: 38,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                260,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 81,
+                                    character: 28,
+                                },
+                                end: Position {
+                                    line: 81,
+                                    character: 53,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                280,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 84,
                                     character: 8,
                                 },
                                 end: Position {
-                                    line: 89,
+                                    line: 84,
                                     character: 15,
                                 },
                             },
@@ -512,7 +452,7 @@ Ok(
         ),
         (
             TokenIdx(
-                323,
+                300,
             ),
             Some(
                 HoverResult {
@@ -526,72 +466,102 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 103,
+                                    line: 86,
+                                    character: 39,
+                                },
+                                end: Position {
+                                    line: 86,
+                                    character: 43,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                320,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 91,
+                                    character: 8,
+                                },
+                                end: Position {
+                                    line: 91,
+                                    character: 18,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                340,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 105,
+                                    character: 33,
+                                },
+                                end: Position {
+                                    line: 105,
+                                    character: 49,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                360,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 108,
                                     character: 4,
                                 },
                                 end: Position {
-                                    line: 103,
-                                    character: 14,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                342,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 106,
-                                    character: 12,
-                                },
-                                end: Position {
-                                    line: 106,
-                                    character: 24,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                361,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 110,
-                                    character: 41,
-                                },
-                                end: Position {
-                                    line: 110,
-                                    character: 42,
+                                    line: 108,
+                                    character: 6,
                                 },
                             },
                         ),
@@ -616,12 +586,42 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 113,
-                                    character: 12,
+                                    line: 111,
+                                    character: 16,
                                 },
                                 end: Position {
-                                    line: 113,
-                                    character: 14,
+                                    line: 111,
+                                    character: 28,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                400,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 115,
+                                    character: 4,
+                                },
+                                end: Position {
+                                    line: 115,
+                                    character: 29,
                                 },
                             },
                         ),

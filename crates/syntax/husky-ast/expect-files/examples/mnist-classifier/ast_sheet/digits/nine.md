@@ -588,13 +588,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `downmost`,
                         token_idx: TokenIdx(
-                            273,
+                            281,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        274,
+                        282,
                     ),
                 },
                 Defn {
@@ -623,13 +623,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `big_cc`,
                         token_idx: TokenIdx(
-                            301,
+                            309,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        302,
+                        310,
                     ),
                 },
             ],

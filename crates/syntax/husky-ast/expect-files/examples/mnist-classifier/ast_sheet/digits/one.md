@@ -691,13 +691,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `upmost`,
                         token_idx: TokenIdx(
-                            540,
+                            555,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        541,
+                        556,
                     ),
                 },
                 Defn {
@@ -726,13 +726,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `downmost`,
                         token_idx: TokenIdx(
-                            568,
+                            584,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        569,
+                        585,
                     ),
                 },
                 Defn {
@@ -761,13 +761,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `hat`,
                         token_idx: TokenIdx(
-                            601,
+                            618,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        602,
+                        619,
                     ),
                 },
             ],

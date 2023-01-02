@@ -561,13 +561,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `special_seven_match`,
                         token_idx: TokenIdx(
-                            121,
+                            122,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        122,
+                        123,
                     ),
                 },
                 Defn {
@@ -596,13 +596,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `leftupcc_pattern`,
                         token_idx: TokenIdx(
-                            136,
+                            137,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        137,
+                        138,
                     ),
                 },
                 Defn {
@@ -631,13 +631,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `leftdowncc_pattern`,
                         token_idx: TokenIdx(
-                            179,
+                            180,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        180,
+                        181,
                     ),
                 },
                 Defn {
@@ -666,13 +666,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `is_seven`,
                         token_idx: TokenIdx(
-                            233,
+                            234,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        234,
+                        235,
                     ),
                 },
             ],
