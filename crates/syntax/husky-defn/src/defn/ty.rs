@@ -107,3 +107,48 @@ impl From<AlienTypeDefn> for TypeDefn {
         Self::Foreign(v)
     }
 }
+
+impl<Db: DefnDb + ?Sized> salsa::DebugWithDb<Db> for TypeDefn {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        let db = <Db as DbWithJar<DefnJar>>::as_jar_db(db);
+        match self {
+            TypeDefn::Enum(decl) => f
+                .debug_tuple("Enum")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            TypeDefn::Inductive(decl) => f
+                .debug_tuple("Inductive")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            TypeDefn::Record(decl) => f
+                .debug_tuple("Record")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            TypeDefn::PropsStruct(decl) => f
+                .debug_tuple("PropsStruct")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            TypeDefn::TupleStruct(decl) => f
+                .debug_tuple("TupleStruct")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            TypeDefn::UnitStruct(decl) => f
+                .debug_tuple("UnitStruct")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            TypeDefn::Structure(decl) => f
+                .debug_tuple("Structure")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            TypeDefn::Foreign(decl) => f
+                .debug_tuple("Foreign")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+        }
+    }
+}
