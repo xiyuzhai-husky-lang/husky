@@ -1,8 +1,11 @@
 mod accept;
+mod env;
 mod list;
 mod resolve;
 mod stack;
 mod unfinished_expr;
+
+pub use env::*;
 
 use crate::*;
 use husky_symbol::SymbolContext;
@@ -19,6 +22,7 @@ pub struct ExprParser<'sheet, 'token, 'context> {
     token_iter: TokenStream<'token>,
     sheet: &'sheet mut ExprSheet,
     stack: ExprParserStack,
+    env: ExprEnvironmentPlace,
 }
 
 impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
@@ -32,6 +36,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             token_iter,
             sheet,
             stack: Default::default(),
+            env: Default::default(),
         }
     }
 
@@ -39,7 +44,8 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         &self.token_iter
     }
 
-    pub fn parse_expr(&mut self) -> Option<ExprIdx> {
+    pub fn parse_expr(&mut self, env: ExprEnvironment) -> Option<ExprIdx> {
+        self.env.set(env);
         while !self.tokens().is_empty() {
             let (token_idx, token) = self.token_iter.next_indexed(IgnoreComment::True).unwrap();
             match self.resolve_token(token_idx, token) {
@@ -48,6 +54,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             }
         }
         self.reduce(Precedence::None);
+        self.env.unset();
         self.finish_batch()
     }
 }
@@ -56,8 +63,9 @@ pub fn parse_expr<'a>(
     ctx: SymbolContext,
     token_iter: TokenStream<'a>,
     sheet: &mut ExprSheet,
+    env: ExprEnvironment,
 ) -> Option<ExprIdx> {
-    ExprParser::new(ctx, token_iter, sheet).parse_expr()
+    ExprParser::new(ctx, token_iter, sheet).parse_expr(env)
 }
 
 impl<'a, 'b, 'c> parsec::HasParseError for ExprParser<'a, 'b, 'c> {

@@ -12,7 +12,7 @@ pub struct PropsStructTypeDecl {
     pub path: TypePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    pub generic_parameters: Vec<GenericParameter>,
+    pub implicit_parameters: Option<ImplicitParameterDeclList>,
     pub lcurl: LeftCurlyBraceToken,
     #[return_ref]
     pub fields: Vec<PropsStructFieldDecl>,
@@ -34,7 +34,7 @@ impl<'a, 'b, 'c> parsec::ParseFrom<ExprParser<'a, 'b, 'c>> for PropsStructFieldD
     ) -> Result<Option<Self>, ExprError> {
         let ident: IdentifierToken = ctx.parse_expected()?;
         let colon: ColonToken = ctx.parse_expected()?;
-        let Some(expr) = ctx.parse_expr() else { todo!() };
+        let Some(expr) = ctx.parse_expr(ExprEnvironment::None) else { todo!() };
         Ok(Some(PropsStructFieldDecl {
             ident,
             colon,

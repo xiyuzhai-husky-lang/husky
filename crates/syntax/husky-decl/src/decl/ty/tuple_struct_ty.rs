@@ -8,7 +8,7 @@ pub struct TupleStructTypeDecl {
     pub path: TypePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    pub generic_parameters: Vec<GenericParameter>,
+    pub generic_parameters: Vec<ImplicitParameterDecl>,
     #[return_ref]
     pub fields: Vec<TupleStructFieldDecl>,
 }

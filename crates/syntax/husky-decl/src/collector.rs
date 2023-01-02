@@ -170,7 +170,7 @@ impl<'a> DeclCollector<'a> {
             &mut sheet,
             &mut local_symbol_sheet,
         );
-        let generic_parameters = parse_generic_parameters(&mut parser)?;
+        let implicit_parameters = parser.parse()?;
         if let Some(lcurl) = parser.parse::<LeftCurlyBraceToken>()? {
             let (fields, separators) = parse_separated_list(&mut parser)?;
             let rcurl: RightCurlyBraceToken = parser.parse_expected()?;
@@ -179,7 +179,7 @@ impl<'a> DeclCollector<'a> {
                     self.db,
                     path,
                     ast_idx,
-                    generic_parameters,
+                    implicit_parameters,
                     lcurl,
                     fields,
                     separators,
@@ -263,7 +263,9 @@ impl<'a> DeclCollector<'a> {
     ) -> Result<Decl, DeclError> {
         match path.form_kind(self.db) {
             FormKind::Feature => self.parse_feature_decl(ast_idx, path),
-            FormKind::Function => self.parse_function_decl(ast_idx, path),
+            FormKind::Function => {
+                self.parse_function_decl(ast_idx, token_group_idx, saved_stream_state, path)
+            }
             FormKind::Value => todo!(),
             FormKind::TypeAlias => todo!(),
         }
@@ -273,7 +275,25 @@ impl<'a> DeclCollector<'a> {
         Ok(Decl::Form(FeatureDecl::new(self.db, path, ast_idx).into()))
     }
 
-    fn parse_function_decl(&self, ast_idx: AstIdx, path: FormPath) -> Result<Decl, DeclError> {
-        Ok(Decl::Form(FunctionDecl::new(self.db, path, ast_idx).into()))
+    fn parse_function_decl(
+        &self,
+        ast_idx: AstIdx,
+        token_group_idx: TokenGroupIdx,
+        saved_stream_state: TokenIdx,
+        path: FormPath,
+    ) -> Result<Decl, DeclError> {
+        let mut sheet = ExprSheet::default();
+        let mut local_symbol_sheet = LocalSymbolSheet::default();
+        let mut parser = self.expr_parser(
+            path.into(),
+            token_group_idx,
+            saved_stream_state,
+            &mut sheet,
+            &mut local_symbol_sheet,
+        );
+        let implicit_parameters = parser.parse()?;
+        Ok(Decl::Form(
+            FunctionDecl::new(self.db, path, ast_idx, implicit_parameters).into(),
+        ))
     }
 }
