@@ -17,6 +17,30 @@ pub enum BinaryPunctuation {
     As,              // as
 }
 
+impl From<Option<BinaryPureClosedPunctuation>> for BinaryPunctuation {
+    fn from(v: Option<BinaryPureClosedPunctuation>) -> Self {
+        Self::Assign(v)
+    }
+}
+
+impl From<BinaryShortcuitLogicPunctuation> for BinaryPunctuation {
+    fn from(v: BinaryShortcuitLogicPunctuation) -> Self {
+        Self::ShortcuitLogic(v)
+    }
+}
+
+impl From<BinaryPureClosedPunctuation> for BinaryPunctuation {
+    fn from(v: BinaryPureClosedPunctuation) -> Self {
+        Self::PureClosed(v)
+    }
+}
+
+impl From<BinaryComparisonPunctuation> for BinaryPunctuation {
+    fn from(v: BinaryComparisonPunctuation) -> Self {
+        Self::Comparison(v)
+    }
+}
+
 impl BinaryPunctuation {
     pub fn code(self) -> &'static str {
         match self {

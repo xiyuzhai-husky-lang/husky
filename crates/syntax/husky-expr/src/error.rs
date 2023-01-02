@@ -13,6 +13,8 @@ pub enum ExprError {
         ket: Bracket,
         ket_token_idx: TokenIdx,
     },
+    #[error("missing `>`")]
+    MissingRightAngleBracket { langle_token_idx: TokenIdx },
     #[error("expect `}}`")]
     ExpectRightCurlyBrace(TokenIdx),
     #[error("expect identifier")]

@@ -231,4 +231,19 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     pub(super) fn finish_batch(&mut self) -> Option<ExprIdx> {
         core::mem::take(&mut self.stack.finished_expr).map(|expr| self.sheet.alloc_expr(expr))
     }
+
+    pub(super) fn last_bra(&self) -> Option<Bracket> {
+        for (unfinished_expr, _) in &self.stack.unfinished_exprs {
+            match unfinished_expr {
+                UnfinishedExpr::List {
+                    opr,
+                    bra,
+                    bra_token_idx,
+                    items,
+                } => return Some(*bra),
+                _ => (),
+            }
+        }
+        None
+    }
 }

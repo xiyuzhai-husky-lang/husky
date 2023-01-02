@@ -38,7 +38,7 @@ pub(crate) fn quick_parse(
     let token_sheet = TokenSheet::new(tokens);
     let token_iter = token_sheet
         .token_group_token_stream(token_sheet.token_group_iter().next().unwrap().0, None);
-    let expr_idx = parse_expr(ctx, token_iter, &mut expr_sheet);
+    let expr_idx = parse_expr(ctx, token_iter, &mut expr_sheet, ExprEnvironment::None);
     (expr_sheet, expr_idx)
 }
 

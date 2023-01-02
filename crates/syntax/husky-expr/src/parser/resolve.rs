@@ -21,7 +21,16 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 Punctuation::Ket(ket) => ResolvedToken::Ket(token_idx, ket),
                 Punctuation::Suffix(suffix) => ResolvedToken::SuffixPunctuation(token_idx, suffix),
                 Punctuation::LAngle => todo!(),
-                Punctuation::RAngle => todo!(),
+                Punctuation::RAngle => match (self.last_bra(), self.env()) {
+                    (Some(Bracket::Angle), _) => ResolvedToken::Ket(token_idx, Bracket::Angle),
+                    (None, ExprEnvironment::WithinBracket(Bracket::Angle)) => {
+                        return TokenResolveResult::Break(())
+                    }
+                    _ => ResolvedToken::BinaryPunctuation(
+                        token_idx,
+                        BinaryComparisonPunctuation::Greater.into(),
+                    ),
+                },
                 Punctuation::DeriveAssign => todo!(),
                 Punctuation::Minus => {
                     ResolvedToken::PrefixPunctuation(token_idx, PrefixPunctuation::Minus)
