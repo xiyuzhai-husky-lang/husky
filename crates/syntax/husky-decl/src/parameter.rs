@@ -35,18 +35,6 @@ impl<'a, 'b, 'c> ParseFrom<ExprParser<'a, 'b, 'c>> for ImplicitParameterDecl {
     }
 }
 
-// pub(crate) fn parse_implicit_parameters(parser: &mut ExprParser) -> DeclResult {
-//     Ok(
-//         if let Some(lcurl) = parser.parse::<LeftAngleBracketToken>()? {
-//             let (separators) = parse_separated_list(parser);
-//             let rcurl = parser.parse::<RightAngleBracketToken>()?;
-//             todo!()
-//         } else {
-//             (vec![], vec![])
-//         },
-//     )
-// }
-
 impl<'a, 'b, 'c> ParseFrom<ExprParser<'a, 'b, 'c>> for ImplicitParameterDeclList {
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParser<'a, 'b, 'c>,
