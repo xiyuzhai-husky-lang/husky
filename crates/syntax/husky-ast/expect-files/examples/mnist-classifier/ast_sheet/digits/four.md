@@ -751,13 +751,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `displacement_downwards`,
                         token_idx: TokenIdx(
-                            327,
+                            335,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        328,
+                        336,
                     ),
                 },
                 Defn {
@@ -786,13 +786,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `cc_box_heights`,
                         token_idx: TokenIdx(
-                            355,
+                            364,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        356,
+                        365,
                     ),
                 },
             ],

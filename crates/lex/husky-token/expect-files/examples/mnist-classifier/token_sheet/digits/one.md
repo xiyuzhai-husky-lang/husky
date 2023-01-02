@@ -904,7 +904,15 @@ Ok(
                 ),
             },
             Token {
-                range: [19:5, 19:19),
+                range: [19:5, 19:8),
+                kind: Keyword(
+                    Stmt(
+                        Let,
+                    ),
+                ),
+            },
+            Token {
+                range: [19:9, 19:23),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -916,7 +924,7 @@ Ok(
                 ),
             },
             Token {
-                range: [19:20, 19:21),
+                range: [19:24, 19:25),
                 kind: Punctuation(
                     Binary(
                         Assign(
@@ -926,7 +934,7 @@ Ok(
                 ),
             },
             Token {
-                range: [19:22, 19:33),
+                range: [19:26, 19:37),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -938,7 +946,7 @@ Ok(
                 ),
             },
             Token {
-                range: [19:33, 19:34),
+                range: [19:37, 19:38),
                 kind: Punctuation(
                     Bra(
                         Par,
@@ -946,7 +954,7 @@ Ok(
                 ),
             },
             Token {
-                range: [19:34, 19:58),
+                range: [19:38, 19:62),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -958,13 +966,13 @@ Ok(
                 ),
             },
             Token {
-                range: [19:58, 19:59),
+                range: [19:62, 19:63),
                 kind: Punctuation(
                     Comma,
                 ),
             },
             Token {
-                range: [19:60, 19:61),
+                range: [19:64, 19:65),
                 kind: Punctuation(
                     Bra(
                         Box,
@@ -972,7 +980,7 @@ Ok(
                 ),
             },
             Token {
-                range: [19:61, 19:62),
+                range: [19:65, 19:66),
                 kind: Punctuation(
                     Ket(
                         Box,
@@ -980,7 +988,7 @@ Ok(
                 ),
             },
             Token {
-                range: [19:62, 19:63),
+                range: [19:66, 19:67),
                 kind: Punctuation(
                     Ket(
                         Par,
@@ -1416,7 +1424,15 @@ Ok(
                 ),
             },
             Token {
-                range: [32:9, 32:17),
+                range: [32:9, 32:12),
+                kind: Keyword(
+                    Stmt(
+                        Let,
+                    ),
+                ),
+            },
+            Token {
+                range: [32:13, 32:21),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -1428,7 +1444,7 @@ Ok(
                 ),
             },
             Token {
-                range: [32:18, 32:19),
+                range: [32:22, 32:23),
                 kind: Punctuation(
                     Binary(
                         Assign(
@@ -1438,7 +1454,7 @@ Ok(
                 ),
             },
             Token {
-                range: [32:20, 32:35),
+                range: [32:24, 32:39),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -1450,13 +1466,13 @@ Ok(
                 ),
             },
             Token {
-                range: [32:35, 32:36),
+                range: [32:39, 32:40),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [32:36, 32:43),
+                range: [32:40, 32:47),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -1468,7 +1484,7 @@ Ok(
                 ),
             },
             Token {
-                range: [32:43, 32:44),
+                range: [32:47, 32:48),
                 kind: Punctuation(
                     Bra(
                         Box,
@@ -1476,7 +1492,7 @@ Ok(
                 ),
             },
             Token {
-                range: [32:44, 32:45),
+                range: [32:48, 32:49),
                 kind: Literal(
                     Integer(
                         Unspecified,
@@ -1484,7 +1500,7 @@ Ok(
                 ),
             },
             Token {
-                range: [32:45, 32:46),
+                range: [32:49, 32:50),
                 kind: Punctuation(
                     Ket(
                         Box,
@@ -1492,7 +1508,15 @@ Ok(
                 ),
             },
             Token {
-                range: [33:9, 33:15),
+                range: [33:9, 33:12),
+                kind: Keyword(
+                    Stmt(
+                        Let,
+                    ),
+                ),
+            },
+            Token {
+                range: [33:13, 33:19),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -1504,7 +1528,7 @@ Ok(
                 ),
             },
             Token {
-                range: [33:16, 33:17),
+                range: [33:20, 33:21),
                 kind: Punctuation(
                     Binary(
                         Assign(
@@ -1514,7 +1538,7 @@ Ok(
                 ),
             },
             Token {
-                range: [33:18, 33:33),
+                range: [33:22, 33:37),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -1526,13 +1550,13 @@ Ok(
                 ),
             },
             Token {
-                range: [33:33, 33:34),
+                range: [33:37, 33:38),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [33:34, 33:41),
+                range: [33:38, 33:45),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -1544,7 +1568,7 @@ Ok(
                 ),
             },
             Token {
-                range: [33:41, 33:42),
+                range: [33:45, 33:46),
                 kind: Punctuation(
                     Bra(
                         Box,
@@ -1552,7 +1576,7 @@ Ok(
                 ),
             },
             Token {
-                range: [33:42, 33:43),
+                range: [33:46, 33:47),
                 kind: Literal(
                     Integer(
                         Unspecified,
@@ -1560,7 +1584,7 @@ Ok(
                 ),
             },
             Token {
-                range: [33:43, 33:44),
+                range: [33:47, 33:48),
                 kind: Punctuation(
                     Ket(
                         Box,
@@ -1569,6 +1593,14 @@ Ok(
             },
             Token {
                 range: [34:9, 34:12),
+                kind: Keyword(
+                    Stmt(
+                        Let,
+                    ),
+                ),
+            },
+            Token {
+                range: [34:13, 34:16),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -1580,7 +1612,7 @@ Ok(
                 ),
             },
             Token {
-                range: [34:13, 34:14),
+                range: [34:17, 34:18),
                 kind: Punctuation(
                     Binary(
                         Assign(
@@ -1590,7 +1622,7 @@ Ok(
                 ),
             },
             Token {
-                range: [34:15, 34:30),
+                range: [34:19, 34:34),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -1602,13 +1634,13 @@ Ok(
                 ),
             },
             Token {
-                range: [34:30, 34:31),
+                range: [34:34, 34:35),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [34:31, 34:38),
+                range: [34:35, 34:42),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -1620,7 +1652,7 @@ Ok(
                 ),
             },
             Token {
-                range: [34:38, 34:39),
+                range: [34:42, 34:43),
                 kind: Punctuation(
                     Bra(
                         Box,
@@ -1628,7 +1660,7 @@ Ok(
                 ),
             },
             Token {
-                range: [34:39, 34:40),
+                range: [34:43, 34:44),
                 kind: Literal(
                     Integer(
                         Unspecified,
@@ -1636,7 +1668,7 @@ Ok(
                 ),
             },
             Token {
-                range: [34:40, 34:41),
+                range: [34:44, 34:45),
                 kind: Punctuation(
                     Ket(
                         Box,
@@ -2032,7 +2064,15 @@ Ok(
                 ),
             },
             Token {
-                range: [44:9, 44:35),
+                range: [44:9, 44:12),
+                kind: Keyword(
+                    Stmt(
+                        Let,
+                    ),
+                ),
+            },
+            Token {
+                range: [44:13, 44:39),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -2044,7 +2084,7 @@ Ok(
                 ),
             },
             Token {
-                range: [44:36, 44:37),
+                range: [44:40, 44:41),
                 kind: Punctuation(
                     Binary(
                         Assign(
@@ -2054,7 +2094,7 @@ Ok(
                 ),
             },
             Token {
-                range: [44:38, 44:46),
+                range: [44:42, 44:50),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -2066,13 +2106,13 @@ Ok(
                 ),
             },
             Token {
-                range: [44:46, 44:47),
+                range: [44:50, 44:51),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [44:47, 44:54),
+                range: [44:51, 44:58),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -2084,13 +2124,13 @@ Ok(
                 ),
             },
             Token {
-                range: [44:54, 44:55),
+                range: [44:58, 44:59),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [44:55, 44:58),
+                range: [44:59, 44:62),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -2102,7 +2142,7 @@ Ok(
                 ),
             },
             Token {
-                range: [44:59, 44:60),
+                range: [44:63, 44:64),
                 kind: Punctuation(
                     Binary(
                         PureClosed(
@@ -2112,7 +2152,7 @@ Ok(
                 ),
             },
             Token {
-                range: [44:61, 44:69),
+                range: [44:65, 44:73),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -2124,13 +2164,13 @@ Ok(
                 ),
             },
             Token {
-                range: [44:69, 44:70),
+                range: [44:73, 44:74),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [44:70, 44:77),
+                range: [44:74, 44:81),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -2142,13 +2182,13 @@ Ok(
                 ),
             },
             Token {
-                range: [44:77, 44:78),
+                range: [44:81, 44:82),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [44:78, 44:83),
+                range: [44:82, 44:87),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -2922,7 +2962,15 @@ Ok(
                 ),
             },
             Token {
-                range: [63:13, 63:26),
+                range: [63:13, 63:16),
+                kind: Keyword(
+                    Stmt(
+                        Let,
+                    ),
+                ),
+            },
+            Token {
+                range: [63:17, 63:30),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -2934,7 +2982,7 @@ Ok(
                 ),
             },
             Token {
-                range: [63:27, 63:28),
+                range: [63:31, 63:32),
                 kind: Punctuation(
                     Binary(
                         Assign(
@@ -2944,7 +2992,7 @@ Ok(
                 ),
             },
             Token {
-                range: [63:29, 63:35),
+                range: [63:33, 63:39),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -2956,13 +3004,13 @@ Ok(
                 ),
             },
             Token {
-                range: [63:35, 63:36),
+                range: [63:39, 63:40),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [63:36, 63:43),
+                range: [63:40, 63:47),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -2974,7 +3022,7 @@ Ok(
                 ),
             },
             Token {
-                range: [63:43, 63:44),
+                range: [63:47, 63:48),
                 kind: Punctuation(
                     Bra(
                         Box,
@@ -2982,7 +3030,7 @@ Ok(
                 ),
             },
             Token {
-                range: [63:44, 63:50),
+                range: [63:48, 63:54),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -2994,13 +3042,13 @@ Ok(
                 ),
             },
             Token {
-                range: [63:50, 63:51),
+                range: [63:54, 63:55),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [63:51, 63:58),
+                range: [63:55, 63:62),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -3012,13 +3060,13 @@ Ok(
                 ),
             },
             Token {
-                range: [63:58, 63:59),
+                range: [63:62, 63:63),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [63:59, 63:64),
+                range: [63:63, 63:68),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -3030,7 +3078,7 @@ Ok(
                 ),
             },
             Token {
-                range: [63:65, 63:66),
+                range: [63:69, 63:70),
                 kind: Punctuation(
                     Binary(
                         PureClosed(
@@ -3040,7 +3088,7 @@ Ok(
                 ),
             },
             Token {
-                range: [63:67, 63:68),
+                range: [63:71, 63:72),
                 kind: Literal(
                     Integer(
                         Unspecified,
@@ -3048,7 +3096,7 @@ Ok(
                 ),
             },
             Token {
-                range: [63:68, 63:69),
+                range: [63:72, 63:73),
                 kind: Punctuation(
                     Ket(
                         Box,
@@ -3056,7 +3104,15 @@ Ok(
                 ),
             },
             Token {
-                range: [64:13, 64:29),
+                range: [64:13, 64:16),
+                kind: Keyword(
+                    Stmt(
+                        Let,
+                    ),
+                ),
+            },
+            Token {
+                range: [64:17, 64:33),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -3068,7 +3124,7 @@ Ok(
                 ),
             },
             Token {
-                range: [64:30, 64:31),
+                range: [64:34, 64:35),
                 kind: Punctuation(
                     Binary(
                         Assign(
@@ -3078,7 +3134,7 @@ Ok(
                 ),
             },
             Token {
-                range: [64:32, 64:45),
+                range: [64:36, 64:49),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -3090,13 +3146,13 @@ Ok(
                 ),
             },
             Token {
-                range: [64:45, 64:46),
+                range: [64:49, 64:50),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [64:46, 64:58),
+                range: [64:50, 64:62),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -3108,7 +3164,7 @@ Ok(
                 ),
             },
             Token {
-                range: [64:58, 64:59),
+                range: [64:62, 64:63),
                 kind: Punctuation(
                     Bra(
                         Par,
@@ -3116,7 +3172,7 @@ Ok(
                 ),
             },
             Token {
-                range: [64:59, 64:60),
+                range: [64:63, 64:64),
                 kind: Punctuation(
                     Ket(
                         Par,
@@ -4046,7 +4102,15 @@ Ok(
                 ),
             },
             Token {
-                range: [89:9, 89:21),
+                range: [89:9, 89:12),
+                kind: Keyword(
+                    Stmt(
+                        Let,
+                    ),
+                ),
+            },
+            Token {
+                range: [89:13, 89:25),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4058,7 +4122,7 @@ Ok(
                 ),
             },
             Token {
-                range: [89:22, 89:23),
+                range: [89:26, 89:27),
                 kind: Punctuation(
                     Binary(
                         Assign(
@@ -4068,7 +4132,7 @@ Ok(
                 ),
             },
             Token {
-                range: [89:24, 89:32),
+                range: [89:28, 89:36),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4080,13 +4144,13 @@ Ok(
                 ),
             },
             Token {
-                range: [89:32, 89:33),
+                range: [89:36, 89:37),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [89:33, 89:40),
+                range: [89:37, 89:44),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4098,7 +4162,7 @@ Ok(
                 ),
             },
             Token {
-                range: [89:40, 89:41),
+                range: [89:44, 89:45),
                 kind: Punctuation(
                     Bra(
                         Box,
@@ -4106,7 +4170,7 @@ Ok(
                 ),
             },
             Token {
-                range: [89:41, 89:49),
+                range: [89:45, 89:53),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4118,13 +4182,13 @@ Ok(
                 ),
             },
             Token {
-                range: [89:49, 89:50),
+                range: [89:53, 89:54),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [89:50, 89:57),
+                range: [89:54, 89:61),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4136,13 +4200,13 @@ Ok(
                 ),
             },
             Token {
-                range: [89:57, 89:58),
+                range: [89:61, 89:62),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [89:58, 89:63),
+                range: [89:62, 89:67),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4154,7 +4218,7 @@ Ok(
                 ),
             },
             Token {
-                range: [89:63, 89:64),
+                range: [89:67, 89:68),
                 kind: Punctuation(
                     Ket(
                         Box,
@@ -4162,7 +4226,15 @@ Ok(
                 ),
             },
             Token {
-                range: [90:9, 90:24),
+                range: [90:9, 90:12),
+                kind: Keyword(
+                    Stmt(
+                        Let,
+                    ),
+                ),
+            },
+            Token {
+                range: [90:13, 90:28),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4174,7 +4246,7 @@ Ok(
                 ),
             },
             Token {
-                range: [90:25, 90:26),
+                range: [90:29, 90:30),
                 kind: Punctuation(
                     Binary(
                         Assign(
@@ -4184,7 +4256,7 @@ Ok(
                 ),
             },
             Token {
-                range: [90:27, 90:39),
+                range: [90:31, 90:43),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4196,13 +4268,13 @@ Ok(
                 ),
             },
             Token {
-                range: [90:39, 90:40),
+                range: [90:43, 90:44),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [90:40, 90:52),
+                range: [90:44, 90:56),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4214,7 +4286,7 @@ Ok(
                 ),
             },
             Token {
-                range: [90:52, 90:53),
+                range: [90:56, 90:57),
                 kind: Punctuation(
                     Bra(
                         Par,
@@ -4222,7 +4294,7 @@ Ok(
                 ),
             },
             Token {
-                range: [90:53, 90:54),
+                range: [90:57, 90:58),
                 kind: Punctuation(
                     Ket(
                         Par,
@@ -4230,7 +4302,15 @@ Ok(
                 ),
             },
             Token {
-                range: [91:9, 91:22),
+                range: [91:9, 91:12),
+                kind: Keyword(
+                    Stmt(
+                        Let,
+                    ),
+                ),
+            },
+            Token {
+                range: [91:13, 91:26),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4242,7 +4322,7 @@ Ok(
                 ),
             },
             Token {
-                range: [91:23, 91:24),
+                range: [91:27, 91:28),
                 kind: Punctuation(
                     Binary(
                         Assign(
@@ -4252,7 +4332,7 @@ Ok(
                 ),
             },
             Token {
-                range: [91:25, 91:33),
+                range: [91:29, 91:37),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4264,13 +4344,13 @@ Ok(
                 ),
             },
             Token {
-                range: [91:33, 91:34),
+                range: [91:37, 91:38),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [91:34, 91:41),
+                range: [91:38, 91:45),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4282,7 +4362,7 @@ Ok(
                 ),
             },
             Token {
-                range: [91:41, 91:42),
+                range: [91:45, 91:46),
                 kind: Punctuation(
                     Bra(
                         Box,
@@ -4290,7 +4370,7 @@ Ok(
                 ),
             },
             Token {
-                range: [91:42, 91:50),
+                range: [91:46, 91:54),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4302,13 +4382,13 @@ Ok(
                 ),
             },
             Token {
-                range: [91:50, 91:51),
+                range: [91:54, 91:55),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [91:51, 91:58),
+                range: [91:55, 91:62),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4320,13 +4400,13 @@ Ok(
                 ),
             },
             Token {
-                range: [91:58, 91:59),
+                range: [91:62, 91:63),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [91:59, 91:64),
+                range: [91:63, 91:68),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4338,7 +4418,7 @@ Ok(
                 ),
             },
             Token {
-                range: [91:65, 91:66),
+                range: [91:69, 91:70),
                 kind: Punctuation(
                     Binary(
                         PureClosed(
@@ -4348,7 +4428,7 @@ Ok(
                 ),
             },
             Token {
-                range: [91:67, 91:68),
+                range: [91:71, 91:72),
                 kind: Literal(
                     Integer(
                         Unspecified,
@@ -4356,7 +4436,7 @@ Ok(
                 ),
             },
             Token {
-                range: [91:68, 91:69),
+                range: [91:72, 91:73),
                 kind: Punctuation(
                     Ket(
                         Box,
@@ -4364,7 +4444,15 @@ Ok(
                 ),
             },
             Token {
-                range: [92:9, 92:25),
+                range: [92:9, 92:12),
+                kind: Keyword(
+                    Stmt(
+                        Let,
+                    ),
+                ),
+            },
+            Token {
+                range: [92:13, 92:29),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4376,7 +4464,7 @@ Ok(
                 ),
             },
             Token {
-                range: [92:26, 92:27),
+                range: [92:30, 92:31),
                 kind: Punctuation(
                     Binary(
                         Assign(
@@ -4386,7 +4474,7 @@ Ok(
                 ),
             },
             Token {
-                range: [92:28, 92:41),
+                range: [92:32, 92:45),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4398,13 +4486,13 @@ Ok(
                 ),
             },
             Token {
-                range: [92:41, 92:42),
+                range: [92:45, 92:46),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [92:42, 92:54),
+                range: [92:46, 92:58),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4416,7 +4504,7 @@ Ok(
                 ),
             },
             Token {
-                range: [92:54, 92:55),
+                range: [92:58, 92:59),
                 kind: Punctuation(
                     Bra(
                         Par,
@@ -4424,7 +4512,7 @@ Ok(
                 ),
             },
             Token {
-                range: [92:55, 92:56),
+                range: [92:59, 92:60),
                 kind: Punctuation(
                     Ket(
                         Par,
@@ -4622,7 +4710,15 @@ Ok(
                 ),
             },
             Token {
-                range: [100:9, 100:10),
+                range: [100:9, 100:12),
+                kind: Keyword(
+                    Stmt(
+                        Let,
+                    ),
+                ),
+            },
+            Token {
+                range: [100:13, 100:14),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4634,7 +4730,7 @@ Ok(
                 ),
             },
             Token {
-                range: [100:11, 100:12),
+                range: [100:15, 100:16),
                 kind: Punctuation(
                     Binary(
                         Assign(
@@ -4644,7 +4740,7 @@ Ok(
                 ),
             },
             Token {
-                range: [100:13, 100:38),
+                range: [100:17, 100:42),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4656,13 +4752,13 @@ Ok(
                 ),
             },
             Token {
-                range: [100:38, 100:39),
+                range: [100:42, 100:43),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [100:39, 100:49),
+                range: [100:43, 100:53),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4674,7 +4770,15 @@ Ok(
                 ),
             },
             Token {
-                range: [101:9, 101:10),
+                range: [101:9, 101:12),
+                kind: Keyword(
+                    Stmt(
+                        Let,
+                    ),
+                ),
+            },
+            Token {
+                range: [101:13, 101:14),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4686,7 +4790,7 @@ Ok(
                 ),
             },
             Token {
-                range: [101:11, 101:12),
+                range: [101:15, 101:16),
                 kind: Punctuation(
                     Binary(
                         Assign(
@@ -4696,7 +4800,7 @@ Ok(
                 ),
             },
             Token {
-                range: [101:13, 101:38),
+                range: [101:17, 101:42),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4708,13 +4812,13 @@ Ok(
                 ),
             },
             Token {
-                range: [101:38, 101:39),
+                range: [101:42, 101:43),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [101:39, 101:49),
+                range: [101:43, 101:53),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4726,7 +4830,15 @@ Ok(
                 ),
             },
             Token {
-                range: [102:9, 102:10),
+                range: [102:9, 102:12),
+                kind: Keyword(
+                    Stmt(
+                        Let,
+                    ),
+                ),
+            },
+            Token {
+                range: [102:13, 102:14),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4738,7 +4850,7 @@ Ok(
                 ),
             },
             Token {
-                range: [102:11, 102:12),
+                range: [102:15, 102:16),
                 kind: Punctuation(
                     Binary(
                         Assign(
@@ -4748,7 +4860,7 @@ Ok(
                 ),
             },
             Token {
-                range: [102:13, 102:14),
+                range: [102:17, 102:18),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4760,7 +4872,7 @@ Ok(
                 ),
             },
             Token {
-                range: [102:15, 102:16),
+                range: [102:19, 102:20),
                 kind: Punctuation(
                     Binary(
                         PureClosed(
@@ -4770,7 +4882,7 @@ Ok(
                 ),
             },
             Token {
-                range: [102:17, 102:18),
+                range: [102:21, 102:22),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4782,7 +4894,15 @@ Ok(
                 ),
             },
             Token {
-                range: [103:9, 103:10),
+                range: [103:9, 103:12),
+                kind: Keyword(
+                    Stmt(
+                        Let,
+                    ),
+                ),
+            },
+            Token {
+                range: [103:13, 103:14),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4794,7 +4914,7 @@ Ok(
                 ),
             },
             Token {
-                range: [103:11, 103:12),
+                range: [103:15, 103:16),
                 kind: Punctuation(
                     Binary(
                         Assign(
@@ -4804,7 +4924,7 @@ Ok(
                 ),
             },
             Token {
-                range: [103:13, 103:14),
+                range: [103:17, 103:18),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -4816,7 +4936,7 @@ Ok(
                 ),
             },
             Token {
-                range: [103:15, 103:16),
+                range: [103:19, 103:20),
                 kind: Punctuation(
                     Binary(
                         PureClosed(
@@ -4826,7 +4946,7 @@ Ok(
                 ),
             },
             Token {
-                range: [103:17, 103:18),
+                range: [103:21, 103:22),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -5056,7 +5176,15 @@ Ok(
                 ),
             },
             Token {
-                range: [109:5, 109:7),
+                range: [109:5, 109:8),
+                kind: Keyword(
+                    Stmt(
+                        Let,
+                    ),
+                ),
+            },
+            Token {
+                range: [109:9, 109:11),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -5068,7 +5196,7 @@ Ok(
                 ),
             },
             Token {
-                range: [109:8, 109:9),
+                range: [109:12, 109:13),
                 kind: Punctuation(
                     Binary(
                         Assign(
@@ -5078,7 +5206,7 @@ Ok(
                 ),
             },
             Token {
-                range: [109:10, 109:12),
+                range: [109:14, 109:16),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -5090,13 +5218,13 @@ Ok(
                 ),
             },
             Token {
-                range: [109:12, 109:13),
+                range: [109:16, 109:17),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [109:13, 109:25),
+                range: [109:17, 109:29),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -5108,7 +5236,7 @@ Ok(
                 ),
             },
             Token {
-                range: [109:25, 109:26),
+                range: [109:29, 109:30),
                 kind: Punctuation(
                     Bra(
                         Par,
@@ -5116,7 +5244,7 @@ Ok(
                 ),
             },
             Token {
-                range: [109:26, 109:27),
+                range: [109:30, 109:31),
                 kind: Punctuation(
                     Ket(
                         Par,
@@ -5310,7 +5438,15 @@ Ok(
                 ),
             },
             Token {
-                range: [114:5, 114:7),
+                range: [114:5, 114:8),
+                kind: Keyword(
+                    Stmt(
+                        Let,
+                    ),
+                ),
+            },
+            Token {
+                range: [114:9, 114:11),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -5322,7 +5458,7 @@ Ok(
                 ),
             },
             Token {
-                range: [114:8, 114:9),
+                range: [114:12, 114:13),
                 kind: Punctuation(
                     Binary(
                         Assign(
@@ -5332,7 +5468,7 @@ Ok(
                 ),
             },
             Token {
-                range: [114:10, 114:12),
+                range: [114:14, 114:16),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -5344,13 +5480,13 @@ Ok(
                 ),
             },
             Token {
-                range: [114:12, 114:13),
+                range: [114:16, 114:17),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [114:13, 114:25),
+                range: [114:17, 114:29),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -5362,7 +5498,7 @@ Ok(
                 ),
             },
             Token {
-                range: [114:25, 114:26),
+                range: [114:29, 114:30),
                 kind: Punctuation(
                     Bra(
                         Par,
@@ -5370,7 +5506,7 @@ Ok(
                 ),
             },
             Token {
-                range: [114:26, 114:27),
+                range: [114:30, 114:31),
                 kind: Punctuation(
                     Ket(
                         Par,
@@ -5608,7 +5744,15 @@ Ok(
                 ),
             },
             Token {
-                range: [119:5, 119:7),
+                range: [119:5, 119:8),
+                kind: Keyword(
+                    Stmt(
+                        Let,
+                    ),
+                ),
+            },
+            Token {
+                range: [119:9, 119:11),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -5620,7 +5764,7 @@ Ok(
                 ),
             },
             Token {
-                range: [119:8, 119:9),
+                range: [119:12, 119:13),
                 kind: Punctuation(
                     Binary(
                         Assign(
@@ -5630,7 +5774,7 @@ Ok(
                 ),
             },
             Token {
-                range: [119:10, 119:12),
+                range: [119:14, 119:16),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -5642,13 +5786,13 @@ Ok(
                 ),
             },
             Token {
-                range: [119:12, 119:13),
+                range: [119:16, 119:17),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [119:13, 119:25),
+                range: [119:17, 119:29),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -5660,7 +5804,7 @@ Ok(
                 ),
             },
             Token {
-                range: [119:25, 119:26),
+                range: [119:29, 119:30),
                 kind: Punctuation(
                     Bra(
                         Par,
@@ -5668,7 +5812,7 @@ Ok(
                 ),
             },
             Token {
-                range: [119:26, 119:27),
+                range: [119:30, 119:31),
                 kind: Punctuation(
                     Ket(
                         Par,
@@ -5869,64 +6013,64 @@ Ok(
             75,
             81,
             96,
-            105,
-            112,
-            125,
-            132,
-            138,
-            141,
-            143,
-            149,
-            153,
-            161,
-            169,
-            177,
-            182,
-            188,
-            205,
-            217,
-            220,
-            233,
-            239,
-            268,
-            300,
+            106,
+            113,
+            126,
+            133,
+            139,
+            142,
+            144,
+            150,
+            154,
+            163,
+            172,
+            181,
+            186,
+            192,
+            209,
+            221,
+            224,
+            238,
+            244,
+            273,
             305,
-            306,
-            320,
-            334,
-            341,
-            347,
-            372,
-            395,
-            400,
-            441,
-            442,
-            446,
-            458,
-            465,
-            479,
-            486,
-            503,
-            507,
-            512,
-            517,
-            522,
-            527,
-            532,
+            310,
+            311,
+            325,
+            340,
+            348,
+            354,
+            379,
+            402,
+            407,
+            448,
+            449,
+            453,
+            466,
+            474,
+            489,
+            497,
+            514,
+            518,
+            524,
+            530,
             536,
-            539,
+            542,
+            547,
             551,
-            558,
-            564,
-            567,
-            579,
-            586,
-            592,
-            600,
-            612,
-            619,
-            625,
-            631,
+            554,
+            566,
+            574,
+            580,
+            583,
+            595,
+            603,
+            609,
+            617,
+            629,
+            637,
+            643,
+            649,
         ],
     },
 )
