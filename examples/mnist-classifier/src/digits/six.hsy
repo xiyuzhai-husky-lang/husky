@@ -15,10 +15,10 @@ func six_match_refined1 -> FermiMatchResult:
 
 def is_six -> ?MnistLabel:
     require is_one be none
-    upmost_match = six_match.matches[0]
+    let upmost_match = six_match.matches[0]
     require upmost_match be some
-    eff_holes = major_connected_component.eff_holes
-    lower_excess = major_connected_component.lower_mass - major_connected_component.upper_mass
+    let eff_holes = major_connected_component.eff_holes
+    let lower_excess = major_connected_component.lower_mass - major_connected_component.upper_mass
     if eff_holes.matches[0] be none:
         narrow_down(
             MnistLabel::Six,
@@ -26,11 +26,11 @@ def is_six -> ?MnistLabel:
             six_match.norm,
             six_match_refined1.rel_norm
         )?
-        bottom1_match = six_match_refined1.matches[1]
-        bottom1_match_dp = bottom1_match.displacement()
-        bottom1_match_dp_y = bottom1_match_dp.y
-        upmost_match_dp_y = upmost_match.displacement().y
-        others = six_match_refined1.others
+        let bottom1_match = six_match_refined1.matches[1]
+        let bottom1_match_dp = bottom1_match.displacement()
+        let bottom1_match_dp_y = bottom1_match_dp.y
+        let upmost_match_dp_y = upmost_match.displacement().y
+        let others = six_match_refined1.others
         require six_match_refined1.norm < 1.8
         if bottom1_match be some:
             require bottom1_match_dp_y > -2.5
@@ -42,7 +42,7 @@ def is_six -> ?MnistLabel:
                 upmost_match_dp_y
             )?
             MnistLabel::Six
-        rel_upmost_match_end = major_line_segment_sketch.bounding_box.relative_point(upmost_match.end())
+        let rel_upmost_match_end = major_line_segment_sketch.bounding_box.relative_point(upmost_match.end())
         narrow_down(
             MnistLabel::Six,
             15,
@@ -69,12 +69,12 @@ def is_six -> ?MnistLabel:
     MnistLabel::Six
 
 func upmost(cc: &ConcaveComponent) -> ?f32:
-    dp = cc.displacement()
+    let dp = cc.displacement()
     require dp.y > 0.0
     dp.y
 
 func bottom1(cc: &ConcaveComponent) -> ?f32:
-    dp = cc.displacement()
+    let dp = cc.displacement()
     if dp.y < -3.0:
         require (dp.x / dp.y).abs() > 1.4
     require cc.relative_bounding_box.ymax() < 0.6

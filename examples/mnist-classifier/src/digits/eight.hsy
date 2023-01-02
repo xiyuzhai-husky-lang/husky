@@ -21,7 +21,7 @@ def is_eight -> ?MnistLabel:
 
     // require major_connected_component.max_hole_ilen >= 1.
  
-    upper_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
+    let upper_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
          
     // require upper_excess>-5.0 and upper_excess<37.0
 
