@@ -10,7 +10,7 @@ pub enum Punctuation {
     Suffix(SuffixPunctuation),
     LAngle,            // <
     RAngle,            // >
-    DeriveAssign,      // ?=
+    DeriveAssign,      // :=
     Minus,             // -
     DoubleVertical,    // ||
     BitNot,            // ~
@@ -49,7 +49,7 @@ impl Punctuation {
             Punctuation::Suffix(_) => todo!(),
             Punctuation::LAngle => "<",
             Punctuation::RAngle => ">",
-            Punctuation::DeriveAssign => "?=",
+            Punctuation::DeriveAssign => ":=",
             Punctuation::Minus => "-",
             Punctuation::DoubleVertical => "||",
             Punctuation::BitNot => "~",

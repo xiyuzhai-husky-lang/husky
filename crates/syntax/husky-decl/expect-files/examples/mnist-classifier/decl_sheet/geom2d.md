@@ -5,9 +5,9 @@ Ok(
                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                 Err(
                     Expr(
-                        ExpectRightCurlyBrace(
+                        ExpectIdentifier(
                             TokenIdx(
-                                7,
+                                11,
                             ),
                         ),
                     ),
@@ -17,9 +17,9 @@ Ok(
                 TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                 Err(
                     Expr(
-                        ExpectRightCurlyBrace(
+                        ExpectIdentifier(
                             TokenIdx(
-                                148,
+                                152,
                             ),
                         ),
                     ),
@@ -29,9 +29,9 @@ Ok(
                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                 Err(
                     Expr(
-                        ExpectRightCurlyBrace(
+                        ExpectIdentifier(
                             TokenIdx(
-                                160,
+                                164,
                             ),
                         ),
                     ),
@@ -41,9 +41,9 @@ Ok(
                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                 Err(
                     Expr(
-                        ExpectRightCurlyBrace(
+                        ExpectIdentifier(
                             TokenIdx(
-                                488,
+                                492,
                             ),
                         ),
                     ),
@@ -65,9 +65,9 @@ Ok(
                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                 Err(
                     Expr(
-                        ExpectRightCurlyBrace(
+                        ExpectIdentifier(
                             TokenIdx(
-                                693,
+                                697,
                             ),
                         ),
                     ),

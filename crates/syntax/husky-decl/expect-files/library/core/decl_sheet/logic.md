@@ -3,25 +3,25 @@ Ok(
         decls: [
             (
                 TypePath(`core::logic::LogicAnd`, `Structure`),
-                Err(
-                    Expr(
-                        MissingRightAngleBracket {
-                            langle_token_idx: TokenIdx(
-                                3,
-                            ),
-                        },
+                Ok(
+                    Type(
+                        Structure(
+                            StructureTypeDecl {
+                                path: TypePath(`core::logic::LogicAnd`, `Structure`),
+                            },
+                        ),
                     ),
                 ),
             ),
             (
                 TypePath(`core::logic::LogicOr`, `Inductive`),
-                Err(
-                    Expr(
-                        MissingRightAngleBracket {
-                            langle_token_idx: TokenIdx(
-                                25,
-                            ),
-                        },
+                Ok(
+                    Type(
+                        Inductive(
+                            InductiveTypeDecl {
+                                path: TypePath(`core::logic::LogicOr`, `Inductive`),
+                            },
+                        ),
                     ),
                 ),
             ),

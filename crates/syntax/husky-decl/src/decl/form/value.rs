@@ -1,7 +1,7 @@
 use crate::*;
 
 #[salsa::tracked(jar = DeclJar)]
-pub struct MorphismDecl {
+pub struct ValueDecl {
     #[id]
     pub path: FormPath,
     pub ast_idx: AstIdx,
@@ -9,7 +9,7 @@ pub struct MorphismDecl {
     pub implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
 }
 
-impl MorphismDecl {
+impl ValueDecl {
     pub fn implicit_parameters(self, db: &dyn DeclDb) -> &[ImplicitParameterDecl] {
         self.implicit_parameter_decl_list(db)
             .as_ref()

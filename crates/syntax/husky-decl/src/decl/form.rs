@@ -1,15 +1,15 @@
-mod constant;
 mod feature;
 mod function;
 mod morphism;
 mod type_alias;
+mod value;
 
-pub use constant::*;
 pub use feature::*;
 pub use function::*;
 pub use morphism::*;
 use salsa::DbWithJar;
 pub use type_alias::*;
+pub use value::*;
 
 use crate::*;
 
@@ -33,10 +33,10 @@ impl FormDecl {
 
     pub fn implicit_parameters(self, db: &dyn DeclDb) -> &[ImplicitParameterDecl] {
         match self {
-            FormDecl::Function(_) => todo!(),
-            FormDecl::Feature(_) => todo!(),
-            FormDecl::Morphism(_) => todo!(),
-            FormDecl::Value(_) => todo!(),
+            FormDecl::Function(decl) => decl.implicit_parameters(db),
+            FormDecl::Feature(decl) => &[],
+            FormDecl::Morphism(decl) => decl.implicit_parameters(db),
+            FormDecl::Value(decl) => decl.implicit_parameters(db),
         }
     }
 }

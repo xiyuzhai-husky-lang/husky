@@ -7,7 +7,7 @@ Ok(
                     Expr(
                         ExpectRightCurlyBrace(
                             TokenIdx(
-                                42,
+                                45,
                             ),
                         ),
                     ),
@@ -17,9 +17,9 @@ Ok(
                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                 Err(
                     Expr(
-                        ExpectRightCurlyBrace(
+                        ExpectIdentifier(
                             TokenIdx(
-                                153,
+                                159,
                             ),
                         ),
                     ),

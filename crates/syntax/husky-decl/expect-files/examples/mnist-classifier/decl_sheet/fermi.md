@@ -5,9 +5,9 @@ Ok(
                 TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                 Err(
                     Expr(
-                        ExpectRightCurlyBrace(
+                        ExpectIdentifier(
                             TokenIdx(
-                                15,
+                                22,
                             ),
                         ),
                     ),

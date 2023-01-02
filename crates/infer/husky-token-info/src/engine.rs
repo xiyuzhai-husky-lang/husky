@@ -39,9 +39,6 @@ impl<'a> TokenInferEngine<'a> {
                 } => {
                     self.sheet
                         .add(ident_token.token_idx(), TokenInfo::Entity(entity_kind));
-                    if ident_token.ident().data(self.db) == "quick_sort" {
-                        todo!()
-                    }
                     if is_generic {
                         for implicit_parameter in defn.implicit_parameters(self.db) {
                             self.sheet.add(

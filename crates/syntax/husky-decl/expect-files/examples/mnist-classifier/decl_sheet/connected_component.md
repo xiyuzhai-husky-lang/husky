@@ -5,9 +5,9 @@ Ok(
                 TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                 Err(
                     Expr(
-                        ExpectRightCurlyBrace(
+                        ExpectIdentifier(
                             TokenIdx(
-                                21,
+                                33,
                             ),
                         ),
                     ),
@@ -15,12 +15,12 @@ Ok(
             ),
             (
                 TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                Ok(
-                    Type(
-                        PropsStruct(
-                            PropsStructTypeDecl {
-                                path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                            },
+                Err(
+                    Expr(
+                        ExpectIdentifier(
+                            TokenIdx(
+                                45,
+                            ),
                         ),
                     ),
                 ),

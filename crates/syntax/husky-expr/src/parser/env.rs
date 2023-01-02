@@ -1,5 +1,6 @@
 use super::*;
 use husky_opn_syntax::Bracket;
+use husky_print_utils::p;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ExprEnvironment {
@@ -17,6 +18,9 @@ impl Default for ExprEnvironment {
 pub(super) struct ExprEnvironmentPlace(ExprEnvironment);
 impl ExprEnvironmentPlace {
     pub(super) fn set(&mut self, env: ExprEnvironment) {
+        if self.0 != ExprEnvironment::None {
+            p!(self.0)
+        }
         assert!(self.0 == ExprEnvironment::None);
         self.0 = env
     }

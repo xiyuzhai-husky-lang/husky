@@ -50,7 +50,10 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             let (token_idx, token) = self.token_iter.next_indexed(IgnoreComment::True).unwrap();
             match self.resolve_token(token_idx, token) {
                 ControlFlow::Continue(resolved_token) => self.accept_token(resolved_token),
-                ControlFlow::Break(_) => return self.finish_batch(),
+                ControlFlow::Break(_) => {
+                    self.rollback(token_idx);
+                    break;
+                }
             }
         }
         self.reduce(Precedence::None);
