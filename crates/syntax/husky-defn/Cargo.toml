@@ -22,3 +22,7 @@ husky-ast = { path = "../../syntax/husky-ast" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-expr = { path = "../../syntax/husky-expr" }
 husky-decl = { path = "../../syntax/husky-decl" }
+
+[dev-dependencies]
+# fs
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }

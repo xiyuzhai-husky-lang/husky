@@ -2,16 +2,6 @@ Ok(
     DefnSheet {
         defns: [
             (
-                TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                Type(
-                    PropsStruct(
-                        PropsStructTypeDefn {
-                            path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                        },
-                    ),
-                ),
-            ),
-            (
                 FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
                 Form(
                     Function(

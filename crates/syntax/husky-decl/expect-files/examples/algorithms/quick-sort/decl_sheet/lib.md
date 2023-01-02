@@ -3,37 +3,37 @@ Ok(
         decls: [
             (
                 FormPath(`quick_sort::quick_sort`, `Function`),
-                Err(
-                    Expr(
-                        MissingRightAngleBracket {
-                            langle_token_idx: TokenIdx(
-                                3,
-                            ),
-                        },
+                Ok(
+                    Form(
+                        Function(
+                            FunctionDecl {
+                                path: FormPath(`quick_sort::quick_sort`, `Function`),
+                            },
+                        ),
                     ),
                 ),
             ),
             (
                 FormPath(`quick_sort::quick_sort_aux`, `Function`),
-                Err(
-                    Expr(
-                        MissingRightAngleBracket {
-                            langle_token_idx: TokenIdx(
-                                41,
-                            ),
-                        },
+                Ok(
+                    Form(
+                        Function(
+                            FunctionDecl {
+                                path: FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                            },
+                        ),
                     ),
                 ),
             ),
             (
                 FormPath(`quick_sort::partition`, `Function`),
-                Err(
-                    Expr(
-                        MissingRightAngleBracket {
-                            langle_token_idx: TokenIdx(
-                                101,
-                            ),
-                        },
+                Ok(
+                    Form(
+                        Function(
+                            FunctionDecl {
+                                path: FormPath(`quick_sort::partition`, `Function`),
+                            },
+                        ),
                     ),
                 ),
             ),

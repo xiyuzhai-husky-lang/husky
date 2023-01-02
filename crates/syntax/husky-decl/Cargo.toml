@@ -30,4 +30,5 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 [dev-dependencies]
 # infer
 husky-manifest = { path = "../../infer/husky-manifest" }
-
+# fs
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }

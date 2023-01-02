@@ -5,9 +5,9 @@ Ok(
                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                 Err(
                     Expr(
-                        ExpectRightCurlyBrace(
+                        ExpectIdentifier(
                             TokenIdx(
-                                34,
+                                40,
                             ),
                         ),
                     ),

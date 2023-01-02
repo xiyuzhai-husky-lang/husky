@@ -31,7 +31,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                         BinaryComparisonPunctuation::Greater.into(),
                     ),
                 },
-                Punctuation::DeriveAssign => todo!(),
+                Punctuation::DeriveAssign => return TokenResolveResult::Break(()),
                 Punctuation::Minus => {
                     ResolvedToken::PrefixPunctuation(token_idx, PrefixPunctuation::Minus)
                 }
