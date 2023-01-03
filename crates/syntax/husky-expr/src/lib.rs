@@ -31,7 +31,29 @@ use precedence::*;
 pub enum BaseEntityPath {
     None,
     Some(EntityPath),
-    Uncertain,
+    Uncertain {
+        inclination: BaseEntityPathInclination,
+    },
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum BaseEntityPathInclination {
+    GlobalValue,
+    FunctionOrLocalValue,
+    TypeOrVariant,
+}
+
+impl BaseEntityPathInclination {
+    pub fn from_case(case: IdentifierCase) -> Self {
+        match case {
+            IdentifierCase::SingleCapital | IdentifierCase::PascalCase => {
+                BaseEntityPathInclination::TypeOrVariant
+            }
+            IdentifierCase::AllCapital => BaseEntityPathInclination::GlobalValue,
+            IdentifierCase::SnakeCase => BaseEntityPathInclination::FunctionOrLocalValue,
+            _ => todo!(),
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq)]

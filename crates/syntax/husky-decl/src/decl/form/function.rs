@@ -7,6 +7,8 @@ pub struct FunctionDecl {
     pub ast_idx: AstIdx,
     #[return_ref]
     pub implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    #[return_ref]
+    pub parameter_decl_list: ParameterDeclList,
 }
 
 impl FunctionDecl {

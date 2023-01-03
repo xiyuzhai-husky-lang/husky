@@ -6,6 +6,7 @@ mod stack;
 mod unfinished_expr;
 
 pub use env::*;
+use husky_entity_tree::EntityTreeDb;
 
 use crate::*;
 use husky_symbol::SymbolContext;
@@ -40,6 +41,10 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         }
     }
 
+    pub(crate) fn db(&self) -> &'c dyn EntityTreeDb {
+        self.ctx.db()
+    }
+
     pub(crate) fn tokens(&self) -> &TokenStream<'b> {
         &self.token_iter
     }
@@ -59,6 +64,10 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         self.reduce(Precedence::None);
         self.env.unset();
         self.finish_batch()
+    }
+
+    pub(crate) fn alloc_pattern_expr(&mut self, expr: PatternExpr) -> PatternExprIdx {
+        self.sheet.alloc_pattern_expr(expr)
     }
 }
 

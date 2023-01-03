@@ -40,44 +40,62 @@ impl ExprParserStack {
 }
 
 impl Expr {
-    pub fn base_entity_path(&self) -> BaseEntityPath {
-        todo!()
-        // match self {
-        //     Expr::Literal(_) => todo!(),
-        //     Expr::EntityPath(_) => todo!(),
-        //     Expr::Variable { .. } => BaseEntityPath::None,
-        //     Expr::Uncertain(_) => todo!(),
-        //     Expr::Unrecognized(_) => BaseEntityPath::Uncertain,
-        //     Expr::Opn { opn, opds } => match opn {
-        //         Opn::Binary(_) => todo!(),
-        //         Opn::CurlBracketed => todo!(),
-        //         Opn::List { opr, .. } => match opr {
-        //             ListOpr::NewTuple => todo!(),
-        //             ListOpr::NewVec => BaseEntityPath::None,
-        //             ListOpr::NewDict => todo!(),
-        //             ListOpr::FunctionCall => todo!(),
-        //             ListOpr::Index => todo!(),
-        //             ListOpr::ModuloIndex => todo!(),
-        //             ListOpr::StructInit => todo!(),
-        //             ListOpr::MethodCall => todo!(),
-        //             ListOpr::NewLambdaHead => todo!(),
-        //             ListOpr::ImplicitParameterList => todo!(),
-        //         },
-        //         Opn::Abstraction => todo!(),
-        //         Opn::Application => todo!(),
-        //         Opn::Method { .. } | Opn::Field { .. } | Opn::Prefix(_) | Opn::Suffix { .. } => {
-        //             BaseEntityPath::None
-        //         }
-        //     },
-        //     Expr::Bracketed(_) => todo!(),
-        //     Expr::Err(_) => todo!(),
-        //     Expr::MethodCall {
-        //         this_expr,
-        //         arguments,
-        //         lpar_token_idx,
-        //         rpar_token_idx,
-        //     } => todo!(),
-        // }
+    pub fn base_entity_path(&self, db: &dyn WordDb, arena: &ExprArena) -> BaseEntityPath {
+        match self {
+            Expr::Literal(_) => todo!(),
+            Expr::EntityPath(_) => todo!(),
+            Expr::Variable {
+                token_idx,
+                variable_idx,
+            } => todo!(),
+            Expr::Uncertain(_) => todo!(),
+            Expr::BinaryOpn {
+                lopd,
+                punctuation,
+                punctuation_token_idx,
+                ropd,
+            } => todo!(),
+            Expr::PrefixOpn {
+                punctuation,
+                punctuation_token_idx,
+                opd,
+            } => todo!(),
+            Expr::SuffixOpn {
+                opd,
+                punctuation,
+                punctuation_token_idx,
+            } => todo!(),
+            Expr::Field {
+                this_expr,
+                dot_token_idx,
+                ident_token,
+            } => todo!(),
+            Expr::MethodCall {
+                this_expr,
+                implicit_arguments,
+                arguments,
+                lpar_token_idx,
+                rpar_token_idx,
+            } => todo!(),
+            Expr::Application { function, argument } => todo!(),
+            Expr::NewTuple {
+                lpar_token_idx,
+                items,
+                rpar_token_idx,
+            } => todo!(),
+            Expr::NewList {
+                lbox_token_idx,
+                items,
+                rbox_token_idx,
+            } => todo!(),
+            Expr::Bracketed(expr) => arena[expr].base_entity_path(db, arena),
+            Expr::Unrecognized(ident) => BaseEntityPath::Uncertain {
+                inclination: BaseEntityPathInclination::from_case(ident.case(db)),
+            },
+            Expr::Err(_) => BaseEntityPath::Uncertain {
+                inclination: todo!(),
+            },
+        }
     }
 }
 

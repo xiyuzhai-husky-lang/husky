@@ -18,9 +18,35 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             TokenKind::Punctuation(punc) => match punc {
                 Punctuation::Binary(binary) => ResolvedToken::BinaryPunctuation(token_idx, binary),
                 Punctuation::Bra(bra) => ResolvedToken::Bra(token_idx, bra),
-                Punctuation::Ket(ket) => ResolvedToken::Ket(token_idx, ket),
+                Punctuation::Ket(ket) => match self.last_bra() {
+                    Some(bra) => {
+                        if bra != ket {
+                            todo!()
+                        }
+                        ResolvedToken::Ket(token_idx, ket)
+                    }
+                    None => return TokenResolveResult::Break(()),
+                },
                 Punctuation::Suffix(suffix) => ResolvedToken::SuffixPunctuation(token_idx, suffix),
-                Punctuation::LAngle => todo!(),
+                Punctuation::LAngle => match self.top_expr() {
+                    TopExprRef::Unfinished(_) => todo!(),
+                    TopExprRef::Finished(expr) => {
+                        match expr.base_entity_path(self.db(), self.sheet.expr_arena()) {
+                            BaseEntityPath::None => todo!(),
+                            BaseEntityPath::Some(_) => todo!(),
+                            BaseEntityPath::Uncertain { inclination } => match inclination {
+                                BaseEntityPathInclination::GlobalValue
+                                | BaseEntityPathInclination::TypeOrVariant => {
+                                    ResolvedToken::Bra(token_idx, Bracket::Angle)
+                                }
+                                BaseEntityPathInclination::FunctionOrLocalValue => {
+                                    ResolvedToken::BinaryPunctuation(token_idx, todo!())
+                                }
+                            },
+                        }
+                    }
+                    TopExprRef::None => todo!(),
+                },
                 Punctuation::RAngle => match (self.last_bra(), self.env()) {
                     (Some(Bracket::Angle), _) => ResolvedToken::Ket(token_idx, Bracket::Angle),
                     (None, ExprEnvironment::WithinBracket(Bracket::Angle)) => {
@@ -84,6 +110,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                     ),
                     None => ResolvedToken::PrefixPunctuation(token_idx, PrefixPunctuation::Ref),
                 },
+                Punctuation::DotDot => todo!(),
             },
             TokenKind::WordOpr(_) => todo!(),
             TokenKind::Literal(_) => ResolvedToken::Atom(Expr::Literal(token_idx)),
@@ -100,10 +127,10 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                     ..
                 } => {
                     if let Some(previous_expr) = self.finished_expr() {
-                        match previous_expr.base_entity_path() {
+                        match previous_expr.base_entity_path(self.db(), self.sheet.expr_arena()) {
                             BaseEntityPath::None => todo!(),
                             BaseEntityPath::Some(_) => todo!(),
-                            BaseEntityPath::Uncertain => {
+                            BaseEntityPath::Uncertain { .. } => {
                                 todo!()
                                 // return ResolvedTokenKind::Atom(AtomExpr::Uncertain(ident))
                             }

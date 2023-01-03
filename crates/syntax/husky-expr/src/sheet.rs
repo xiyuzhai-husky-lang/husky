@@ -30,6 +30,10 @@ impl ExprSheet {
     pub(crate) fn alloc_expr(&mut self, expr: Expr) -> ExprIdx {
         self.expr_arena.alloc_one(expr)
     }
+
+    pub(crate) fn alloc_pattern_expr(&mut self, expr: PatternExpr) -> PatternExprIdx {
+        self.pattern_expr_arena.alloc_one(expr)
+    }
 }
 
 impl std::ops::Index<ExprIdx> for ExprSheet {

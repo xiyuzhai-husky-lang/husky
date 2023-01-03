@@ -46,6 +46,37 @@ impl Identifier {
     pub fn data(self, db: &dyn WordDb) -> &str {
         db.dt_word(self.0)
     }
+
+    pub fn case(self, db: &dyn WordDb) -> IdentifierCase {
+        let data = self.data(db);
+        let mut chars = data.chars();
+        let is_first_char_uppercase = chars.next().unwrap().is_uppercase();
+        // ad hoc
+        match chars.next() {
+            Some(second_char) => match (is_first_char_uppercase, second_char.is_uppercase()) {
+                (true, true) => IdentifierCase::AllCapital,
+                (true, false) => IdentifierCase::PascalCase,
+                (false, true) => IdentifierCase::CamelCase,
+                (false, false) => IdentifierCase::SnakeCase,
+            },
+            None => {
+                if is_first_char_uppercase {
+                    IdentifierCase::SingleCapital
+                } else {
+                    IdentifierCase::SnakeCase
+                }
+            }
+        }
+    }
+}
+
+#[non_exhaustive]
+pub enum IdentifierCase {
+    SingleCapital,
+    AllCapital,
+    SnakeCase,
+    PascalCase,
+    CamelCase,
 }
 
 pub type IdentMap<T> = VecMap<T>;

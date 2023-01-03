@@ -484,3 +484,70 @@ fn vertical_token_works() {
     assert!(t(&db, "||").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
 }
+
+// at
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct AtToken {
+    token_idx: TokenIdx,
+}
+
+impl<'a, Context> parsec::ParseFrom<Context> for AtToken
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+        Ok(parse_specific_punctuation_from(ctx, Punctuation::At)?
+            .map(|token_idx| AtToken { token_idx }))
+    }
+}
+
+#[test]
+fn at_token_works() {
+    fn t(db: &DB, input: &str) -> TokenResult<Option<AtToken>> {
+        quick_parse(db, input)
+    }
+
+    let db = DB::default();
+    assert!(t(&db, "@").unwrap().is_some());
+    assert!(t(&db, "|").unwrap().is_none());
+    assert!(t(&db, "||").unwrap().is_none());
+    assert!(t(&db, "a").unwrap().is_none());
+}
+
+// dotdot
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct DotDotToken {
+    token_idx: TokenIdx,
+}
+
+impl<'a, Context> parsec::ParseFrom<Context> for DotDotToken
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+        Ok(parse_specific_punctuation_from(ctx, Punctuation::DotDot)?
+            .map(|token_idx| DotDotToken { token_idx }))
+    }
+}
+
+#[test]
+fn dotdot_token_works() {
+    fn t(db: &DB, input: &str) -> TokenResult<Option<DotDotToken>> {
+        quick_parse(db, input)
+    }
+
+    let db = DB::default();
+    assert!(t(&db, "..").unwrap().is_some());
+    assert!(t(&db, "@").unwrap().is_none());
+    assert!(t(&db, ".").unwrap().is_none());
+    assert!(t(&db, "||").unwrap().is_none());
+    assert!(t(&db, "a").unwrap().is_none());
+}
