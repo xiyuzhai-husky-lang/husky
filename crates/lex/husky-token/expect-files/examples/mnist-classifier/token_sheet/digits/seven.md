@@ -956,7 +956,7 @@ Ok(
             Token {
                 range: [17:56, 17:57),
                 kind: Punctuation(
-                    QuestionMark,
+                    Question,
                 ),
             },
             Token {
@@ -1362,7 +1362,7 @@ Ok(
             Token {
                 range: [25:49, 25:50),
                 kind: Punctuation(
-                    QuestionMark,
+                    Question,
                 ),
             },
             Token {
@@ -1744,7 +1744,7 @@ Ok(
             Token {
                 range: [31:51, 31:52),
                 kind: Punctuation(
-                    QuestionMark,
+                    Question,
                 ),
             },
             Token {
@@ -2178,7 +2178,7 @@ Ok(
             Token {
                 range: [41:17, 41:18),
                 kind: Punctuation(
-                    QuestionMark,
+                    Question,
                 ),
             },
             Token {

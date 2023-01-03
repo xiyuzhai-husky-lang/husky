@@ -3,18 +3,18 @@ use std::borrow::Cow;
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum SuffixPunctuation {
+pub enum SuffixOpr {
     Incr, // ++
     Decr, // --
     Unveil,
 }
 
-impl SuffixPunctuation {
+impl SuffixOpr {
     pub fn code(&self) -> Cow<'static, str> {
         match self {
-            SuffixPunctuation::Incr => "++".into(),
-            SuffixPunctuation::Decr => "--".into(),
-            SuffixPunctuation::Unveil => "?".into(),
+            SuffixOpr::Incr => "++".into(),
+            SuffixOpr::Decr => "--".into(),
+            SuffixOpr::Unveil => "?".into(),
         }
     }
 }

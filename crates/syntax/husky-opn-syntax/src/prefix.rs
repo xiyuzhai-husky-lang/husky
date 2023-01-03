@@ -3,7 +3,7 @@ use core::num::NonZeroUsize;
 use super::*;
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
-pub enum PrefixPunctuation {
+pub enum PrefixOpr {
     Minus,                       // -
     Not,                         // !$0
     BitNot,                      // ~
@@ -12,9 +12,10 @@ pub enum PrefixPunctuation {
     Slice,                       // [:]
     CyclicSlice,                 // [%]
     Array(Option<NonZeroUsize>), // [_] or [<usize>]
+    Option,                      // ?
 }
 
-impl PrefixPunctuation {
+impl PrefixOpr {
     //     pub fn act_on_primitive(&self, opd: PrimitiveValueData) -> PrimitiveValueData {
     //         match self {
     //             PrefixOpr::Minus => match opd {
@@ -48,17 +49,18 @@ impl PrefixPunctuation {
 
     pub fn code(self) -> std::borrow::Cow<'static, str> {
         match self {
-            PrefixPunctuation::Minus => "-".into(),
-            PrefixPunctuation::Not => "!".into(),
-            PrefixPunctuation::BitNot => "!".into(),
-            PrefixPunctuation::Ref => "&".into(),
-            PrefixPunctuation::Vector => "[]".into(),
-            PrefixPunctuation::Slice => "[:]".into(),
-            PrefixPunctuation::CyclicSlice => "[%]".into(),
-            PrefixPunctuation::Array(size) => match size {
+            PrefixOpr::Minus => "-".into(),
+            PrefixOpr::Not => "!".into(),
+            PrefixOpr::BitNot => "!".into(),
+            PrefixOpr::Ref => "&".into(),
+            PrefixOpr::Vector => "[]".into(),
+            PrefixOpr::Slice => "[:]".into(),
+            PrefixOpr::CyclicSlice => "[%]".into(),
+            PrefixOpr::Array(size) => match size {
                 Some(size) => format!("[{}]", size).into(),
                 None => "[_]".into(),
             },
+            PrefixOpr::Option => todo!(),
         }
     }
 }

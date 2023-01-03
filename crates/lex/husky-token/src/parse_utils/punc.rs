@@ -1,5 +1,5 @@
 use super::*;
-use husky_opn_syntax::{BinaryPunctuation, Bracket};
+use husky_opn_syntax::{BinaryOpr, Bracket};
 
 use parsec::{HasParseError, ParseContext, ParseFrom};
 
@@ -155,7 +155,7 @@ where
         ctx: &mut Context,
     ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
         Ok(
-            parse_specific_punctuation_from(ctx, BinaryPunctuation::Assign(None).into())?
+            parse_specific_punctuation_from(ctx, BinaryOpr::Assign(None).into())?
                 .map(|token_idx| AssignToken { token_idx }),
         )
     }
