@@ -10,8 +10,6 @@ pub struct FunctionDecl {
     #[return_ref]
     pub expr_sheet: ExprSheet,
     #[return_ref]
-    pub local_symbol_sheet: LocalSymbolSheet,
-    #[return_ref]
     pub implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     #[return_ref]
     pub parameter_decl_list: ParameterDeclList,
