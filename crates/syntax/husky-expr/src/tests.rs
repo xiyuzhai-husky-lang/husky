@@ -29,7 +29,6 @@ pub(crate) fn quick_parse(
     input: &str,
     local_symbol_sheet: &mut LocalSymbolSheet,
 ) -> (ExprSheet, Option<ExprIdx>) {
-    let mut expr_sheet = ExprSheet::default();
     let toolchain = db.dev_toolchain().unwrap();
     let path_menu = db.path_menu(toolchain).unwrap();
     let crate_prelude = db.crate_prelude(path_menu.core_library()).unwrap();
@@ -38,8 +37,7 @@ pub(crate) fn quick_parse(
     let token_sheet = TokenSheet::new(tokens);
     let token_iter = token_sheet
         .token_group_token_stream(token_sheet.token_group_iter().next().unwrap().0, None);
-    let expr_idx = parse_expr(ctx, token_iter, &mut expr_sheet, ExprEnvironment::None);
-    (expr_sheet, expr_idx)
+    parse_expr(ctx, token_iter, ExprEnvironment::None)
 }
 
 #[test]

@@ -3,7 +3,7 @@ use parsec::ParseContext;
 
 use super::*;
 
-impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
+impl<'a, 'b, 'c> ExprParser<'a, 'b> {
     pub(crate) fn accept_token(&mut self, token: ResolvedToken) {
         match token {
             ResolvedToken::Atom(atom) => self.accept_atom(atom),
@@ -33,7 +33,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                     if let Some(expr) = finished_expr {
                         items.push(expr)
                     }
-                    let items = this.sheet.alloc_expr_batch(items);
+                    let items = this.alloc_expr_batch(items);
                     match opr {
                         UnfinishedListOpr::NewTuple => Expr::NewTuple {
                             lpar_token_idx: bra_token_idx,
@@ -98,7 +98,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     fn accept_suffix_opr(&mut self, punctuation: SuffixOpr, punctuation_token_idx: TokenIdx) {
         self.replace_top_expr(|this, top_expr| match top_expr {
             Some(expr) => Expr::SuffixOpn {
-                opd: this.sheet.alloc_expr(expr),
+                opd: this.alloc_expr(expr),
                 punctuation,
                 punctuation_token_idx,
             }
@@ -110,7 +110,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     fn accept_dot_opr(&mut self, dot_token_idx: TokenIdx) {
         self.replace_top_expr(|this, finished_expr| match finished_expr {
             Some(this_expr) => {
-                let this_expr = this.sheet.alloc_expr(this_expr);
+                let this_expr = this.alloc_expr(this_expr);
                 match this.parse::<IdentifierToken>() {
                     Ok(Some(ident_token)) => match this.parse::<LeftParenthesisToken>() {
                         Ok(Some(lpar)) => UnfinishedExpr::List {
@@ -180,7 +180,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     pub(super) fn accept_list_start(&mut self, bra: Bracket, bra_token_idx: TokenIdx) {
         self.replace_top_expr(|this, finished_expr| match finished_expr {
             Some(expr) => {
-                let expr = this.sheet.alloc_expr(expr);
+                let expr = this.alloc_expr(expr);
                 match bra {
                     Bracket::Par => UnfinishedExpr::List {
                         opr: UnfinishedListOpr::FunctionCall { function: expr },

@@ -55,9 +55,9 @@ pub(crate) type PatternExprArena = Arena<PatternExpr>;
 pub type PatternExprIdx = ArenaIdx<PatternExpr>;
 pub type PatternExprIdxRange = ArenaIdxRange<PatternExpr>;
 
-impl<'a, 'b, 'c> ParseFrom<ExprParser<'a, 'b, 'c>> for PatternExprIdx {
+impl<'a, 'b, 'c> ParseFrom<ExprParser<'a, 'b>> for PatternExprIdx {
     fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParser<'a, 'b, 'c>,
+        ctx: &mut ExprParser<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
         // ad hoc
         if let Some(ident_token) = ctx.parse::<IdentifierToken>()? {

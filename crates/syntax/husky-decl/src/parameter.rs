@@ -24,9 +24,9 @@ impl ImplicitParameterDecl {
     }
 }
 
-impl<'a, 'b, 'c> ParseFrom<ExprParser<'a, 'b, 'c>> for ImplicitParameterDecl {
+impl<'a, 'b, 'c> ParseFrom<ExprParser<'a, 'b>> for ImplicitParameterDecl {
     fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParser<'a, 'b, 'c>,
+        ctx: &mut ExprParser<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
         let Some(ident) = ctx.parse::<IdentifierToken>()? else {
             return Ok(None)
@@ -46,9 +46,9 @@ impl<'a, 'b, 'c> ParseFrom<ExprParser<'a, 'b, 'c>> for ImplicitParameterDecl {
     }
 }
 
-impl<'a, 'b, 'c> ParseFrom<ExprParser<'a, 'b, 'c>> for ImplicitParameterDeclList {
+impl<'a, 'b, 'c> ParseFrom<ExprParser<'a, 'b>> for ImplicitParameterDeclList {
     fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParser<'a, 'b, 'c>,
+        ctx: &mut ExprParser<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
         let Some(langle) = ctx.parse::<LeftAngleBracketToken>()? else {
             return Ok(None)
@@ -114,9 +114,9 @@ pub struct ParameterDeclList {
     rpar: RightParenthesisToken,
 }
 
-impl<'a, 'b, 'c> ParseFrom<ExprParser<'a, 'b, 'c>> for ParameterDecl {
+impl<'a, 'b, 'c> ParseFrom<ExprParser<'a, 'b>> for ParameterDecl {
     fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParser<'a, 'b, 'c>,
+        ctx: &mut ExprParser<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
         let Some(pattern) = ctx.parse::<PatternExprIdx>()? else {
             return Ok(None)
@@ -130,9 +130,9 @@ impl<'a, 'b, 'c> ParseFrom<ExprParser<'a, 'b, 'c>> for ParameterDecl {
     }
 }
 
-impl<'a, 'b, 'c> ParseFrom<ExprParser<'a, 'b, 'c>> for ParameterDeclList {
+impl<'a, 'b, 'c> ParseFrom<ExprParser<'a, 'b>> for ParameterDeclList {
     fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParser<'a, 'b, 'c>,
+        ctx: &mut ExprParser<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
         let Some(lpar) = ctx.parse::<LeftParenthesisToken>()? else {
             todo!()

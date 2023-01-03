@@ -39,6 +39,15 @@ impl FormDecl {
             FormDecl::Value(decl) => decl.implicit_parameters(db),
         }
     }
+
+    pub fn expr_sheet(self, db: &dyn DeclDb) -> &ExprSheet {
+        match self {
+            FormDecl::Function(decl) => decl.expr_sheet(db),
+            FormDecl::Feature(decl) => decl.expr_sheet(db),
+            FormDecl::Morphism(decl) => decl.expr_sheet(db),
+            FormDecl::Value(decl) => decl.expr_sheet(db),
+        }
+    }
 }
 
 impl From<ValueDecl> for FormDecl {

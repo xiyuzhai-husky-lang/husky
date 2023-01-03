@@ -12,6 +12,8 @@ pub struct PropsStructTypeDecl {
     pub path: TypePath,
     pub ast_idx: AstIdx,
     #[return_ref]
+    pub expr_sheet: ExprSheet,
+    #[return_ref]
     pub implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     pub lcurl: LeftCurlyBraceToken,
     #[return_ref]
@@ -37,9 +39,9 @@ pub struct PropsStructFieldDecl {
     ty: ExprIdx,
 }
 
-impl<'a, 'b, 'c> parsec::ParseFrom<ExprParser<'a, 'b, 'c>> for PropsStructFieldDecl {
+impl<'a, 'b, 'c> parsec::ParseFrom<ExprParser<'a, 'b>> for PropsStructFieldDecl {
     fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParser<'a, 'b, 'c>,
+        ctx: &mut ExprParser<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
         let ident: IdentifierToken = ctx.parse_expected()?;
         let colon: ColonToken = ctx.parse_expected()?;

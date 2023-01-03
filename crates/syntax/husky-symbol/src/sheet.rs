@@ -2,7 +2,7 @@ use crate::*;
 use husky_word::Identifier;
 use vec_like::AsVecMapEntry;
 
-#[derive(Default)]
+#[derive(Debug, Default, PartialEq, Eq)]
 pub struct LocalSymbolSheet {
     variables: Vec<VariableSymbol>,
 }

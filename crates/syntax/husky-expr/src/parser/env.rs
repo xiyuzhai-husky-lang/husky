@@ -30,7 +30,7 @@ impl ExprEnvironmentPlace {
     }
 }
 
-impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
+impl<'a, 'b, 'c> ExprParser<'a, 'b> {
     pub(super) fn env(&self) -> ExprEnvironment {
         self.env.0
     }

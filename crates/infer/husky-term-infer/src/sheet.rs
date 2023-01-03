@@ -11,10 +11,11 @@ pub struct TermSheet {
 
 impl TermSheet {
     pub(crate) fn new(sheet: &ExprSheet) -> Self {
-        Self {
-            ty_results: ExprMap::new(sheet.expr_arena()),
-            term_results: ExprMap::new(sheet.expr_arena()),
-        }
+        todo!()
+        // Self {
+        //     ty_results: ExprMap::new(sheet.expr_arena()),
+        //     term_results: ExprMap::new(sheet.expr_arena()),
+        // }
     }
 
     pub(crate) fn insert_ty_infer_result(&mut self, expr: ExprIdx, ty: TermInferResult<Term>) {

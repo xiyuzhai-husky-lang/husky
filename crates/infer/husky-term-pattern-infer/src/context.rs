@@ -206,7 +206,8 @@ impl<'a> TermPatternInferContext<'a> {
     }
 
     pub(crate) fn expr(&self) -> &'a Expr {
-        &self.expr_sheet[self.expr_idx]
+        todo!()
+        // &self.expr_sheet[self.expr_idx]
     }
 
     pub(crate) fn term_menu(&self) -> &'a TermMenu {

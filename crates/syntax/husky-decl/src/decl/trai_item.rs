@@ -37,6 +37,15 @@ impl TraitItemDecl {
             TraitItemDecl::Value(_) => todo!(),
         }
     }
+
+    pub fn expr_sheet(self, db: &dyn DeclDb) -> &ExprSheet {
+        match self {
+            TraitItemDecl::Function(_) => todo!(),
+            TraitItemDecl::Method(_) => todo!(),
+            TraitItemDecl::AlienType(_) => todo!(),
+            TraitItemDecl::Value(_) => todo!(),
+        }
+    }
 }
 
 impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for TraitItemDecl {
