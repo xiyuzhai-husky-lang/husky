@@ -5,7 +5,6 @@ pub struct TraitDecl {
     #[id]
     pub path: TraitPath,
     pub ast_idx: AstIdx,
-    #[return_ref]
     pub expr_sheet: ExprSheet,
     #[return_ref]
     pub implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,

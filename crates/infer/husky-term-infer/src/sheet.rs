@@ -10,7 +10,7 @@ pub struct TermSheet {
 }
 
 impl TermSheet {
-    pub(crate) fn new(sheet: &ExprSheet) -> Self {
+    pub(crate) fn new(sheet: ExprSheet) -> Self {
         todo!()
         // Self {
         //     ty_results: ExprMap::new(sheet.expr_arena()),

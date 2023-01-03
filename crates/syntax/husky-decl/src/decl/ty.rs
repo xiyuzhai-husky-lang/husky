@@ -63,7 +63,7 @@ impl TypeDecl {
         }
     }
 
-    pub fn expr_sheet(self, db: &dyn DeclDb) -> &ExprSheet {
+    pub fn expr_sheet(self, db: &dyn DeclDb) -> ExprSheet {
         match self {
             TypeDecl::Enum(decl) => decl.expr_sheet(db),
             TypeDecl::UnitStruct(decl) => decl.expr_sheet(db),

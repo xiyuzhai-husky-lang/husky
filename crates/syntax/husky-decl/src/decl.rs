@@ -47,7 +47,7 @@ impl Decl {
         }
     }
 
-    pub fn expr_sheet(self, db: &dyn DeclDb) -> &ExprSheet {
+    pub fn expr_sheet(self, db: &dyn DeclDb) -> ExprSheet {
         match self {
             Decl::Type(decl) => decl.expr_sheet(db),
             Decl::Form(decl) => decl.expr_sheet(db),

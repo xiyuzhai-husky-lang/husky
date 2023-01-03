@@ -35,7 +35,7 @@ pub struct ExprTermPatternInferRawResults {
 impl TermPatternInferSheet {
     #[cfg(test)]
     pub(crate) fn new_test(
-        sheet: &ExprSheet,
+        sheet: ExprSheet,
         fake_var_results: HashMap<(Identifier, TextRange), VarTermPatternInferResults>,
     ) -> Self {
         todo!()

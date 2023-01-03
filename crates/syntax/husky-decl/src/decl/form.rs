@@ -40,7 +40,7 @@ impl FormDecl {
         }
     }
 
-    pub fn expr_sheet(self, db: &dyn DeclDb) -> &ExprSheet {
+    pub fn expr_sheet(self, db: &dyn DeclDb) -> ExprSheet {
         match self {
             FormDecl::Function(decl) => decl.expr_sheet(db),
             FormDecl::Feature(decl) => decl.expr_sheet(db),
