@@ -15,17 +15,21 @@ pub enum Punctuation {
     DoubleVertical,    // ||
     BitNot,            // ~
     Dot,               // .
-    Colon,             // :
-    Comma,             // ,
-    Ambersand,         // &
-    Vertical,          // |
-    Exclamation,       // !
-    DoubleExclamation, // !!
-    Semicolon,         // ;
-    XmlKet,            // />
-    At,                // @
-    QuestionMark,      // ?
-    PoundSign,         // #
+    DotDot,            // `.`
+    Colon,             // `:`
+    Comma,             // `,`
+    Ambersand,         // `&`
+    Vertical,          // `|`
+    Exclamation,       // `!`
+    DoubleExclamation, // `!!`
+    Semicolon,         // `;`
+    XmlKet,            // `/>`
+    /// `@`
+    At,
+    /// `?`
+    QuestionMark,
+    /// written as `#`
+    PoundSign,
 }
 
 impl From<BinaryPunctuation> for Punctuation {
@@ -54,6 +58,7 @@ impl Punctuation {
             Punctuation::DoubleVertical => "||",
             Punctuation::BitNot => "~",
             Punctuation::Dot => ".",
+            Punctuation::DotDot => "..",
             Punctuation::Colon => ":",
             Punctuation::Comma => ",",
             Punctuation::Ambersand => todo!(),
@@ -89,6 +94,7 @@ impl Punctuation {
             Punctuation::DoubleVertical => todo!(),
             Punctuation::BitNot => todo!(),
             Punctuation::Dot => todo!(),
+            Punctuation::DotDot => todo!(),
             Punctuation::Colon => todo!(),
             Punctuation::Comma => todo!(),
             Punctuation::Ambersand => todo!(),

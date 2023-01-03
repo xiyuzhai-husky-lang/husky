@@ -21,6 +21,8 @@ pub enum ExprError {
     ExpectIdentifier(TokenIdx),
     #[error("expect `:`")]
     ExpectColon(TokenIdx),
+    #[error("expect `)`")]
+    ExpectRightParenthesis(TokenIdx),
     #[error("no matching bracket")]
     NoMatchingBra {
         ket: Bracket,
@@ -70,5 +72,15 @@ where
 {
     fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
         ExprError::ExpectColon(state)
+    }
+}
+
+impl<'a, Context> FromAbsent<RightParenthesisToken, Context> for ExprError
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
+        ExprError::ExpectRightParenthesis(state)
     }
 }

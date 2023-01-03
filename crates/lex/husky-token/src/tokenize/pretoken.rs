@@ -333,7 +333,10 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     _ => Punctuation::Vertical,
                 },
                 '~' => Punctuation::BitNot,
-                '.' => Punctuation::Dot,
+                '.' => match self.peek_char() {
+                    Some('.') => self.pass_two(Punctuation::DotDot),
+                    _ => Punctuation::Dot,
+                },
                 ';' => Punctuation::Semicolon,
                 '%' => Punctuation::Binary(BinaryPunctuation::PureClosed(
                     BinaryPureClosedPunctuation::RemEuclid,

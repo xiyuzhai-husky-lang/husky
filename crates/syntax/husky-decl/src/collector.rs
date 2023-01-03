@@ -384,9 +384,20 @@ impl<'a> DeclCollector<'a> {
             &mut sheet,
             &mut local_symbol_sheet,
         );
-        let implicit_parameters = parser.parse()?;
+        let implicit_parameter_decl_list = parser.parse()?;
+        p!(parser.peek(), path.debug(self.db));
+        let Some(parameter_decl_list) = parser.parse()? else {
+            todo!()
+        };
         Ok(Decl::Form(
-            FunctionDecl::new(self.db, path, ast_idx, implicit_parameters).into(),
+            FunctionDecl::new(
+                self.db,
+                path,
+                ast_idx,
+                implicit_parameter_decl_list,
+                parameter_decl_list,
+            )
+            .into(),
         ))
     }
 }

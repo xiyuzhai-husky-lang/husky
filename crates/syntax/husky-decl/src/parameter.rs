@@ -1,7 +1,8 @@
 use husky_opn_syntax::Bracket;
 use husky_print_utils::p;
 use husky_token::{
-    ColonToken, CommaToken, IdentifierToken, LeftAngleBracketToken, RightAngleBracketToken,
+    ColonToken, CommaToken, IdentifierToken, LeftAngleBracketToken, LeftParenthesisToken,
+    RightAngleBracketToken, RightParenthesisToken,
 };
 use parsec::{parse_separated_list, ParseContext, ParseFrom};
 
@@ -95,5 +96,55 @@ impl ImplicitParameterDeclList {
 
     pub fn rcurl(&self) -> RightAngleBracketToken {
         self.rangle
+    }
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct ParameterDecl {
+    pattern: PatternExprIdx,
+    colon: ColonToken,
+    ty: ExprIdx,
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct ParameterDeclList {
+    lpar: LeftParenthesisToken,
+    decls: Vec<ParameterDecl>,
+    commas: Vec<CommaToken>,
+    rpar: RightParenthesisToken,
+}
+
+impl<'a, 'b, 'c> ParseFrom<ExprParser<'a, 'b, 'c>> for ParameterDecl {
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut ExprParser<'a, 'b, 'c>,
+    ) -> Result<Option<Self>, ExprError> {
+        let Some(pattern) = ctx.parse::<PatternExprIdx>()? else {
+            return Ok(None)
+        };
+        let state = ctx.save_state();
+        let colon = ctx.parse_expected::<ColonToken>()?;
+        let Some(ty) = ctx.parse_expr(ExprEnvironment::WithinBracket(Bracket::Par)) else {
+            todo!()
+        };
+        Ok(Some(ParameterDecl { pattern, colon, ty }))
+    }
+}
+
+impl<'a, 'b, 'c> ParseFrom<ExprParser<'a, 'b, 'c>> for ParameterDeclList {
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut ExprParser<'a, 'b, 'c>,
+    ) -> Result<Option<Self>, ExprError> {
+        let Some(lpar) = ctx.parse::<LeftParenthesisToken>()? else {
+            todo!()
+            // return Ok(None)
+        };
+        let (decls, commas) = parse_separated_list(ctx)?;
+        let rpar = ctx.parse_expected::<RightParenthesisToken>()?;
+        Ok(Some(Self {
+            lpar,
+            decls,
+            commas,
+            rpar,
+        }))
     }
 }

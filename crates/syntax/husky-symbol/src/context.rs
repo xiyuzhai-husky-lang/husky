@@ -36,7 +36,7 @@ impl<'a> SymbolContext<'a> {
         }
     }
 
-    pub fn db(&self) -> &dyn EntityTreeDb {
+    pub fn db(&self) -> &'a dyn EntityTreeDb {
         self.db
     }
 }
