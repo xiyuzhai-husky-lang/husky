@@ -1,4 +1,5 @@
 mod accept;
+mod debug;
 mod env;
 mod list;
 mod resolve;

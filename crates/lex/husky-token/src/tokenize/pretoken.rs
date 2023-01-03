@@ -403,7 +403,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     Some('!') => self.pass_two(Punctuation::DoubleExclamation),
                     _ => Punctuation::Exclamation,
                 },
-                '?' => Punctuation::QuestionMark,
+                '?' => Punctuation::Question,
                 '#' => Punctuation::PoundSign,
                 c => return Some(Pretoken::Err(TokenError::UnrecognizedChar(c))),
             }

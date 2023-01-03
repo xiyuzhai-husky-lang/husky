@@ -104,6 +104,10 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         self.stack.finished_expr.as_ref()
     }
 
+    pub(super) fn unfinished_exprs(&self) -> &[(UnfinishedExpr, Precedence)] {
+        &self.stack.unfinished_exprs
+    }
+
     pub(super) fn take_last_unfinished_expr(&mut self) -> Option<UnfinishedExpr> {
         self.stack.unfinished_exprs.pop().map(|(expr, _)| expr)
     }
@@ -151,6 +155,10 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     pub(super) fn reduce(&mut self, next_precedence: Precedence) {
         while let Some(prev_precedence) = self.stack.prev_unfinished_expr_precedence() {
             if prev_precedence < next_precedence {
+                break;
+            }
+            // curry is right associative
+            if prev_precedence == Precedence::Curry && next_precedence == Precedence::Curry {
                 break;
             }
             match self.stack.unfinished_exprs.pop().unwrap().0 {
@@ -251,7 +259,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     }
 
     pub(super) fn last_bra(&self) -> Option<Bracket> {
-        for (unfinished_expr, _) in &self.stack.unfinished_exprs {
+        for (unfinished_expr, _) in self.stack.unfinished_exprs.iter().rev() {
             match unfinished_expr {
                 UnfinishedExpr::List {
                     opr,

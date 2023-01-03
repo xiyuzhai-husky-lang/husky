@@ -27,7 +27,7 @@ pub enum Punctuation {
     /// `@`
     At,
     /// `?`
-    QuestionMark,
+    Question,
     /// written as `#`
     PoundSign,
 }
@@ -68,7 +68,7 @@ impl Punctuation {
             Punctuation::Semicolon => ";",
             Punctuation::XmlKet => "/>",
             Punctuation::At => "@",
-            Punctuation::QuestionMark => "?",
+            Punctuation::Question => "?",
             Punctuation::PoundSign => "#",
         }
     }
@@ -104,7 +104,7 @@ impl Punctuation {
             Punctuation::Semicolon => todo!(),
             Punctuation::XmlKet => todo!(),
             Punctuation::At => todo!(),
-            Punctuation::QuestionMark => todo!(),
+            Punctuation::Question => todo!(),
             Punctuation::PoundSign => todo!(),
         }
     }

@@ -1,3 +1,4 @@
+use husky_print_utils::p;
 use parsec::ParseContext;
 
 use super::*;
@@ -15,19 +16,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             ResolvedToken::SuffixPunctuation(token_idx, opr) => {
                 self.accept_suffix_opr(opr, token_idx)
             }
-            ResolvedToken::Bra(token_idx, bra) => {
-                let opr = match bra {
-                    Bracket::Par => match self.top_expr() {
-                        TopExprRef::Finished(_) => UnfinishedListOpr::FunctionCall,
-                        _ => UnfinishedListOpr::NewTuple,
-                    },
-                    Bracket::Box => UnfinishedListOpr::NewVec,
-                    Bracket::Angle => todo!(),
-                    Bracket::Curl => todo!(),
-                    Bracket::Vertical => todo!(),
-                };
-                self.accept_list_start(bra, token_idx, opr)
-            }
+            ResolvedToken::Bra(token_idx, bra) => self.accept_list_start(bra, token_idx),
             ResolvedToken::Ket(token_idx, ket) => self.accept_list_end(ket, token_idx),
             ResolvedToken::Dot(token_idx) => self.accept_dot_opr(token_idx),
             ResolvedToken::ListItem(token_idx) => self.accept_list_item(token_idx),
@@ -65,7 +54,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                         }
                         .into(),
                         UnfinishedListOpr::NewLambdaHead => todo!(),
-                        UnfinishedListOpr::FunctionCall => todo!(),
+                        UnfinishedListOpr::FunctionCall { .. } => todo!(),
                         UnfinishedListOpr::MethodInstantiation {} => todo!(),
                         UnfinishedListOpr::MethodCall {
                             this_expr,
@@ -78,20 +67,9 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                             rpar_token_idx: ket_token_idx,
                         }
                         .into(),
+                        UnfinishedListOpr::TemplateInstantiation { template } => todo!(),
                     }
                 })
-                // self.set_top_expr(
-                //     Expr::Opn {
-                //         opn: Opn::List {
-                //             opr,
-                //             bracket: bra,
-                //             bra_token_idx,
-                //             ket_token_idx,
-                //         },
-                //         opds,
-                //     }
-                //     .into(),
-                // )
             }
             _ => todo!(),
         }
@@ -199,20 +177,66 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         self.set_top_expr(unfinished_expr.into())
     }
 
-    pub(super) fn accept_list_start(
-        &mut self,
-        bra: Bracket,
-        bra_token_idx: TokenIdx,
-        opr: UnfinishedListOpr,
-    ) {
-        self.set_top_expr(
-            UnfinishedExpr::List {
-                opr,
-                bra,
-                bra_token_idx,
-                items: vec![],
+    pub(super) fn accept_list_start(&mut self, bra: Bracket, bra_token_idx: TokenIdx) {
+        self.replace_top_expr(|this, finished_expr| match finished_expr {
+            Some(expr) => {
+                let expr = this.sheet.alloc_expr(expr);
+                match bra {
+                    Bracket::Par => UnfinishedExpr::List {
+                        opr: UnfinishedListOpr::FunctionCall { function: expr },
+                        bra,
+                        bra_token_idx,
+                        items: vec![],
+                    }
+                    .into(),
+                    Bracket::Box => todo!(),
+                    Bracket::Angle => UnfinishedExpr::List {
+                        opr: UnfinishedListOpr::TemplateInstantiation { template: expr },
+                        bra,
+                        bra_token_idx,
+                        items: vec![],
+                    }
+                    .into(),
+                    Bracket::Curl => todo!(),
+                    Bracket::Vertical => todo!(),
+                }
             }
-            .into(),
-        );
+            None => match bra {
+                Bracket::Par => UnfinishedExpr::List {
+                    opr: UnfinishedListOpr::NewTuple,
+                    bra,
+                    bra_token_idx,
+                    items: vec![],
+                }
+                .into(),
+                Bracket::Box => UnfinishedExpr::List {
+                    opr: UnfinishedListOpr::NewVec,
+                    bra,
+                    bra_token_idx,
+                    items: vec![],
+                }
+                .into(),
+                Bracket::Angle => todo!(),
+                Bracket::Curl => todo!(),
+                Bracket::Vertical => todo!(),
+            },
+        })
+        // let opr = match bra {
+        //     Bracket::Par => match self.top_expr() {
+        //         TopExprRef::Finished(_) => UnfinishedListOpr::FunctionCall,
+        //         _ => UnfinishedListOpr::NewTuple,
+        //     },
+        //     Bracket::Box => UnfinishedListOpr::NewVec,
+        //     Bracket::Angle => match self.top_expr() {
+        //         TopExprRef::Unfinished(_) => todo!(),
+        //         TopExprRef::Finished(_) => todo!(),
+        //         TopExprRef::None => todo!(),
+        //     },
+        //     Bracket::Curl => todo!(),
+        //     Bracket::Vertical => todo!(),
+        // };
+        // self.set_top_expr(
+
+        // );
     }
 }
