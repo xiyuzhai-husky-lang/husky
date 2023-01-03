@@ -59,43 +59,44 @@ impl<'a> DefnCollector<'a> {
     }
 
     fn parse_trai_defn(&self, decl: TraitDecl) -> TraitDefn {
-        let mut expr_sheet = ExprSheet::default();
-        TraitDefn::new(self.db, decl.path(self.db), decl, expr_sheet)
+        let mut parser = self.expr_parser();
+
+        TraitDefn::new(self.db, decl.path(self.db), decl, parser.finish())
     }
 
     fn parse_enum_ty_defn(&self, decl: EnumTypeDecl) -> EnumTypeDefn {
-        let mut expr_sheet = ExprSheet::default();
-        EnumTypeDefn::new(self.db, decl.path(self.db), decl, expr_sheet)
+        let mut parser = self.expr_parser();
+        EnumTypeDefn::new(self.db, decl.path(self.db), decl, parser.finish())
     }
 
     fn parse_props_struct_ty_defn(&self, decl: PropsStructTypeDecl) -> PropsStructTypeDefn {
-        let mut expr_sheet = ExprSheet::default();
-        PropsStructTypeDefn::new(self.db, decl.path(self.db), decl, expr_sheet)
+        let mut parser = self.expr_parser();
+        PropsStructTypeDefn::new(self.db, decl.path(self.db), decl, parser.finish())
     }
 
     fn parse_tuple_struct_ty_defn(&self, decl: TupleStructTypeDecl) -> TupleStructTypeDefn {
-        let mut expr_sheet = ExprSheet::default();
-        TupleStructTypeDefn::new(self.db, decl.path(self.db), decl, expr_sheet)
+        let mut parser = self.expr_parser();
+        TupleStructTypeDefn::new(self.db, decl.path(self.db), decl, parser.finish())
     }
 
     fn parse_unit_struct_ty_defn(&self, decl: UnitStructTypeDecl) -> UnitStructTypeDefn {
-        let mut expr_sheet = ExprSheet::default();
-        UnitStructTypeDefn::new(self.db, decl.path(self.db), decl, expr_sheet)
+        let mut parser = self.expr_parser();
+        UnitStructTypeDefn::new(self.db, decl.path(self.db), decl, parser.finish())
     }
 
     fn parse_inductive_ty_defn(&self, decl: InductiveTypeDecl) -> InductiveTypeDefn {
-        let mut expr_sheet = ExprSheet::default();
-        InductiveTypeDefn::new(self.db, decl.path(self.db), decl, expr_sheet)
+        let mut parser = self.expr_parser();
+        InductiveTypeDefn::new(self.db, decl.path(self.db), decl, parser.finish())
     }
 
     fn parse_structure_ty_defn(&self, decl: StructureTypeDecl) -> StructureTypeDefn {
-        let mut expr_sheet = ExprSheet::default();
-        StructureTypeDefn::new(self.db, decl.path(self.db), decl, expr_sheet)
+        let mut parser = self.expr_parser();
+        StructureTypeDefn::new(self.db, decl.path(self.db), decl, parser.finish())
     }
 
     fn parse_alien_ty_defn(&self, decl: AlienTypeDecl) -> AlienTypeDefn {
-        let mut expr_sheet = ExprSheet::default();
-        AlienTypeDefn::new(self.db, decl.path(self.db), decl, expr_sheet)
+        let mut parser = self.expr_parser();
+        AlienTypeDefn::new(self.db, decl.path(self.db), decl, parser.finish())
     }
 
     fn parse_form_defn(&self, decl: FormDecl) -> FormDefn {
@@ -108,12 +109,24 @@ impl<'a> DefnCollector<'a> {
     }
 
     fn parse_function_defn(&self, decl: FunctionDecl) -> FunctionDefn {
-        let mut expr_sheet = ExprSheet::default();
-        FunctionDefn::new(self.db, decl.path(self.db), decl, expr_sheet)
+        let mut parser = self.expr_parser();
+        FunctionDefn::new(self.db, decl.path(self.db), decl, parser.finish())
     }
 
     fn parse_feature_defn(&self, decl: FeatureDecl) -> FeatureDefn {
-        let mut expr_sheet = ExprSheet::default();
-        FeatureDefn::new(self.db, decl.path(self.db), decl, expr_sheet)
+        let mut parser = self.expr_parser();
+        FeatureDefn::new(self.db, decl.path(self.db), decl, parser.finish())
+    }
+    fn expr_parser<'b, 'c>(&self) -> ExprParser<'b, 'a>
+    where
+        'a: 'c,
+    {
+        todo!()
+        // let ctx = SymbolContext::new(self.db, self.crate_prelude, local_symbol_sheet);
+        // ExprParser::new(
+        //     ctx,
+        //     self.token_sheet
+        //         .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
+        // )
     }
 }
