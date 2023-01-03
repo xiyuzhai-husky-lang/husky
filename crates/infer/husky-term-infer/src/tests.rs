@@ -13,17 +13,17 @@ use husky_vfs::{VfsDb, VfsTestSupport};
 fn test_decl() {
     // expect_test_husky_to_rust("decl", &debug_decl);
 
-    fn debug_decl(text: &str) -> String {
-        let db = TermInferTestsDb::new();
-        let (arena, expr) = db.parse_expr_from_text(text);
-        let mut sheet = TermSheet::new(&arena);
-        let toolchain = db.dev_toolchain().unwrap();
-        let term_menu = db.term_menu(toolchain).as_ref().unwrap();
-        let mut ctx = InferContext::new(&db, &mut sheet, &arena, expr, &term_menu);
-        let term = ctx.term_result().unwrap();
-        todo!()
-        // format!("{:?}", db.decl(term.path()))
-    }
+    // fn debug_decl(text: &str) -> String {
+    //     let db = TermInferTestsDb::new();
+    //     let (arena, expr) = db.parse_expr_from_text(text);
+    //     let mut sheet = TermSheet::new(&arena);
+    //     let toolchain = db.dev_toolchain().unwrap();
+    //     let term_menu = db.term_menu(toolchain).as_ref().unwrap();
+    //     let mut ctx = InferContext::new(&db, &mut sheet, &arena, expr, &term_menu);
+    //     let term = ctx.term_result().unwrap();
+    //     todo!()
+    //     // format!("{:?}", db.decl(term.path()))
+    // }
 }
 
 #[test]

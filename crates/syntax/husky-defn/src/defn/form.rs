@@ -38,6 +38,14 @@ impl FormDefn {
             FormDefn::Value(defn) => defn.path(db),
         }
     }
+    pub fn expr_sheet(self, db: &dyn DefnDb) -> ExprSheet {
+        match self {
+            FormDefn::Function(defn) => defn.expr_sheet(db),
+            FormDefn::Feature(defn) => defn.expr_sheet(db),
+            FormDefn::Morphism(defn) => defn.expr_sheet(db),
+            FormDefn::Value(defn) => defn.expr_sheet(db),
+        }
+    }
 }
 
 impl From<ValueDefn> for FormDefn {

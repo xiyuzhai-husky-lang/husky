@@ -5,7 +5,6 @@ use husky_expr::ExprSheet;
 pub struct TraitAssociatedFunctionDefn {
     #[id]
     pub entity_path: EntityPath,
-    #[return_ref]
     pub expr_sheet: ExprSheet,
     pub decl: TraitAssociatedFunctionDecl,
 }

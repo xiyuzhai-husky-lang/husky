@@ -4,7 +4,6 @@ use crate::*;
 pub struct ValueDefn {
     #[id]
     pub path: FormPath,
-    #[return_ref]
     pub expr_sheet: ExprSheet,
     pub decl: ValueDecl,
 }

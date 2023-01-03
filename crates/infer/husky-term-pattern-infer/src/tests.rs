@@ -43,7 +43,7 @@ impl Upcast<dyn TermDb> for DB {
 impl Database for DB {}
 
 impl DB {
-    pub(crate) fn new_sheet(&self, sheet: &ExprSheet) -> TermPatternInferSheet {
+    pub(crate) fn new_sheet(&self, sheet: ExprSheet) -> TermPatternInferSheet {
         TermPatternInferSheet::new_test(sheet, Default::default())
     }
 
