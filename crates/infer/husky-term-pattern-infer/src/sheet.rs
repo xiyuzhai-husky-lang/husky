@@ -38,11 +38,12 @@ impl TermPatternInferSheet {
         sheet: &ExprSheet,
         fake_var_results: HashMap<(Identifier, TextRange), VarTermPatternInferResults>,
     ) -> Self {
-        Self {
-            term_patt_itr: Default::default(),
-            expr_results: ExprMap::new(sheet.expr_arena()),
-            var_results: fake_var_results,
-        }
+        todo!()
+        // Self {
+        //     term_patt_itr: Default::default(),
+        //     expr_results: ExprMap::new(sheet.expr_arena()),
+        //     var_results: fake_var_results,
+        // }
     }
 
     pub(crate) fn insert_result(&mut self, expr: ExprIdx, result: ExprTermPatternInferRawResults) {

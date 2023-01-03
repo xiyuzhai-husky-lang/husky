@@ -6,7 +6,7 @@ use std::ops::ControlFlow;
 
 pub type TokenResolveResult<T> = ControlFlow<(), T>;
 
-impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
+impl<'a, 'b, 'c> ExprParser<'a, 'b> {
     pub(crate) fn resolve_token(
         &mut self,
         token_idx: TokenIdx,
@@ -34,7 +34,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 Punctuation::LAngle => match self.top_expr() {
                     TopExprRef::Unfinished(_) => todo!(),
                     TopExprRef::Finished(expr) => {
-                        match expr.base_entity_path(self.db(), self.sheet.expr_arena()) {
+                        match expr.base_entity_path(self.db(), &self.expr_arena) {
                             BaseEntityPath::None => todo!(),
                             BaseEntityPath::Some(_) => todo!(),
                             BaseEntityPath::Uncertain { inclination } => match inclination {
@@ -124,7 +124,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                     ..
                 } => {
                     if let Some(previous_expr) = self.finished_expr() {
-                        match previous_expr.base_entity_path(self.db(), self.sheet.expr_arena()) {
+                        match previous_expr.base_entity_path(self.db(), &self.expr_arena) {
                             BaseEntityPath::None => todo!(),
                             BaseEntityPath::Some(_) => todo!(),
                             BaseEntityPath::Uncertain { .. } => {

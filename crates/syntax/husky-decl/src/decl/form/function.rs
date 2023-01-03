@@ -1,3 +1,5 @@
+use husky_symbol::LocalSymbolSheet;
+
 use crate::*;
 
 #[salsa::tracked(jar = DeclJar)]
@@ -5,6 +7,10 @@ pub struct FunctionDecl {
     #[id]
     pub path: FormPath,
     pub ast_idx: AstIdx,
+    #[return_ref]
+    pub expr_sheet: ExprSheet,
+    #[return_ref]
+    pub local_symbol_sheet: LocalSymbolSheet,
     #[return_ref]
     pub implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     #[return_ref]

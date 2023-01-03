@@ -167,18 +167,16 @@ impl<'a> DeclCollector<'a> {
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<Decl> {
-        let mut sheet = ExprSheet::default();
         let mut local_symbol_sheet = LocalSymbolSheet::default();
         let mut parser = self.expr_parser(
             path.into(),
             token_group_idx,
             saved_stream_state,
-            &mut sheet,
             &mut local_symbol_sheet,
         );
         let implicit_parameters = parser.parse()?;
         Ok(Decl::Type(
-            EnumTypeDecl::new(self.db, path, ast_idx, implicit_parameters).into(),
+            EnumTypeDecl::new(self.db, path, ast_idx, sheet, implicit_parameters).into(),
         ))
     }
 
@@ -204,6 +202,7 @@ impl<'a> DeclCollector<'a> {
             self.db,
             path,
             ast_idx,
+            sheet,
             implicit_parameters,
         )))
     }
@@ -227,7 +226,7 @@ impl<'a> DeclCollector<'a> {
         );
         let implicit_parameters = parser.parse()?;
         Ok(Decl::Type(
-            InductiveTypeDecl::new(self.db, path, ast_idx, implicit_parameters).into(),
+            InductiveTypeDecl::new(self.db, path, ast_idx, sheet, implicit_parameters).into(),
         ))
     }
 
@@ -257,6 +256,7 @@ impl<'a> DeclCollector<'a> {
                     self.db,
                     path,
                     ast_idx,
+                    sheet,
                     implicit_parameters,
                     lcurl,
                     fields,
@@ -277,9 +277,8 @@ impl<'a> DeclCollector<'a> {
         entity_path: EntityPath,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenIdx,
-        sheet: &'b mut ExprSheet,
         local_symbol_sheet: &'c mut LocalSymbolSheet,
-    ) -> ExprParser<'b, 'a, 'c>
+    ) -> ExprParser<'b, 'a>
     where
         'a: 'c,
     {
@@ -288,7 +287,6 @@ impl<'a> DeclCollector<'a> {
             ctx,
             self.token_sheet
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
-            sheet,
         )
     }
 
@@ -314,7 +312,7 @@ impl<'a> DeclCollector<'a> {
         );
         let implicit_parameters = parser.parse()?;
         Ok(Decl::Type(
-            StructureTypeDecl::new(self.db, path, ast_idx, implicit_parameters).into(),
+            StructureTypeDecl::new(self.db, path, ast_idx, sheet, implicit_parameters).into(),
         ))
     }
 
@@ -341,7 +339,7 @@ impl<'a> DeclCollector<'a> {
         );
         let implicit_parameters = parser.parse()?;
         Ok(Decl::Type(
-            AlienTypeDecl::new(self.db, path, ast_idx, implicit_parameters).into(),
+            AlienTypeDecl::new(self.db, path, ast_idx, sheet, implicit_parameters).into(),
         ))
     }
 
@@ -365,7 +363,10 @@ impl<'a> DeclCollector<'a> {
     }
 
     fn parse_feature_decl(&self, ast_idx: AstIdx, path: FormPath) -> Result<Decl, DeclError> {
-        Ok(Decl::Form(FeatureDecl::new(self.db, path, ast_idx).into()))
+        let mut sheet = ExprSheet::default();
+        Ok(Decl::Form(
+            FeatureDecl::new(self.db, path, ast_idx, sheet).into(),
+        ))
     }
 
     fn parse_function_decl(
@@ -394,6 +395,8 @@ impl<'a> DeclCollector<'a> {
                 self.db,
                 path,
                 ast_idx,
+                sheet,
+                local_symbol_sheet,
                 implicit_parameter_decl_list,
                 parameter_decl_list,
             )

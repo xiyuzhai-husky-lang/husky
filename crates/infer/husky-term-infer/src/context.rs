@@ -48,7 +48,8 @@ impl<'a> InferContext<'a> {
     }
 
     pub(crate) fn expr(&self) -> &'a Expr {
-        &self.expr_sheet[self.expr]
+        todo!()
+        // &self.expr_sheet[self.expr]
     }
 
     pub(crate) fn term_menu(&self) -> &'a TermMenu {

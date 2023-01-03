@@ -1,5 +1,6 @@
 #![feature(trait_upcasting)]
 mod atom;
+mod db;
 mod entity_path;
 mod error;
 mod parser;
@@ -12,6 +13,7 @@ mod tests;
 mod variable;
 
 pub use atom::*;
+pub use db::ExprDb;
 pub use entity_path::*;
 pub use error::*;
 pub use parser::*;
@@ -26,6 +28,9 @@ use husky_text::*;
 use husky_token::*;
 use husky_word::*;
 use precedence::*;
+
+#[salsa::jar(db = ExprDb)]
+pub struct ExprJar(ExprSheet);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum BaseEntityPath {

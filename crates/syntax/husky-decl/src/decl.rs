@@ -46,6 +46,17 @@ impl Decl {
             Decl::Variant(decl) => &[],
         }
     }
+
+    pub fn expr_sheet(self, db: &dyn DeclDb) -> &ExprSheet {
+        match self {
+            Decl::Type(decl) => decl.expr_sheet(db),
+            Decl::Form(decl) => decl.expr_sheet(db),
+            Decl::Trait(decl) => decl.expr_sheet(db),
+            Decl::TypeItem(decl) => decl.expr_sheet(db),
+            Decl::TraitItem(decl) => decl.expr_sheet(db),
+            Decl::Variant(decl) => todo!(),
+        }
+    }
 }
 
 impl From<TraitDecl> for Decl {

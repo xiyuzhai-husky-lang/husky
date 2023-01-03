@@ -62,6 +62,20 @@ impl TypeDecl {
             TypeDecl::Union(decl) => decl.implicit_parameters(db),
         }
     }
+
+    pub fn expr_sheet(self, db: &dyn DeclDb) -> &ExprSheet {
+        match self {
+            TypeDecl::Enum(decl) => decl.expr_sheet(db),
+            TypeDecl::UnitStruct(decl) => decl.expr_sheet(db),
+            TypeDecl::TupleStruct(decl) => decl.expr_sheet(db),
+            TypeDecl::PropsStruct(decl) => decl.expr_sheet(db),
+            TypeDecl::Record(decl) => decl.expr_sheet(db),
+            TypeDecl::Inductive(decl) => decl.expr_sheet(db),
+            TypeDecl::Structure(decl) => decl.expr_sheet(db),
+            TypeDecl::Foreign(decl) => decl.expr_sheet(db),
+            TypeDecl::Union(decl) => decl.expr_sheet(db),
+        }
+    }
 }
 
 impl From<EnumTypeDecl> for TypeDecl {

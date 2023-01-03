@@ -3,7 +3,7 @@ use husky_print_utils::p;
 use super::*;
 
 #[derive(Default, Debug)]
-pub(crate) struct ExprParserStack {
+pub(crate) struct ExprStack {
     unfinished_exprs: Vec<(UnfinishedExpr, Precedence)>,
     finished_expr: Option<Expr>,
 }
@@ -31,7 +31,7 @@ impl From<UnfinishedExpr> for TopExpr {
     }
 }
 
-impl ExprParserStack {
+impl ExprStack {
     pub(super) fn prev_unfinished_expr_precedence(&self) -> Option<Precedence> {
         self.unfinished_exprs
             .last()
@@ -102,7 +102,7 @@ impl Expr {
     }
 }
 
-impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
+impl<'a, 'b, 'c> ExprParser<'a, 'b> {
     pub(super) fn finished_expr(&self) -> Option<&Expr> {
         self.stack.finished_expr.as_ref()
     }
@@ -172,14 +172,14 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 } => match self.take_finished_expr() {
                     Some(ropd) => {
                         self.stack.finished_expr = Some(Expr::BinaryOpn {
-                            lopd: self.sheet.alloc_expr(lopd),
+                            lopd: self.alloc_expr(lopd),
                             punctuation,
                             punctuation_token_idx,
-                            ropd: self.sheet.alloc_expr(ropd),
+                            ropd: self.alloc_expr(ropd),
                         })
                     }
                     None => {
-                        let lopd = self.sheet.alloc_expr(lopd);
+                        let lopd = self.alloc_expr(lopd);
                         self.stack.finished_expr =
                             Some(Expr::Err(ExprError::NoRightOperandForBinaryOperator {
                                 lopd,
@@ -190,8 +190,8 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 },
                 UnfinishedExpr::Application { function } => {
                     let argument = self.take_finished_expr().unwrap();
-                    let function = self.sheet.alloc_expr(function);
-                    let argument = self.sheet.alloc_expr(argument);
+                    let function = self.alloc_expr(function);
+                    let argument = self.alloc_expr(argument);
                     self.stack.finished_expr = Some(Expr::Application { function, argument })
                 }
                 UnfinishedExpr::Prefix {
@@ -202,7 +202,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                         self.stack.finished_expr = Some(Expr::PrefixOpn {
                             punctuation,
                             punctuation_token_idx,
-                            opd: self.sheet.alloc_expr(opd),
+                            opd: self.alloc_expr(opd),
                         })
                     }
                     None => {
@@ -238,7 +238,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 //         opds: arguments,
                 //     }) => {
                 //         self.stack.finished_expr = Some(Expr::MethodCall {
-                //             this_expr: self.sheet.alloc_expr(this_expr),
+                //             this_expr: self.alloc_expr(this_expr),
                 //             arguments,
                 //             lpar_token_idx,
                 //             rpar_token_idx,
@@ -258,7 +258,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     }
 
     pub(super) fn finish_batch(&mut self) -> Option<ExprIdx> {
-        core::mem::take(&mut self.stack.finished_expr).map(|expr| self.sheet.alloc_expr(expr))
+        core::mem::take(&mut self.stack.finished_expr).map(|expr| self.alloc_expr(expr))
     }
 
     pub(super) fn last_bra(&self) -> Option<Bracket> {

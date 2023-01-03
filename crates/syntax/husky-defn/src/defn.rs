@@ -44,6 +44,17 @@ impl Defn {
     pub fn implicit_parameters(self, db: &dyn DefnDb) -> &[ImplicitParameterDecl] {
         self.decl(db).implicit_parameters(db)
     }
+    pub fn expr_sheet(self, db: &dyn DefnDb) -> &ExprSheet {
+        todo!()
+        // match self {
+        //     Defn::Type(defn) => defn.expr_sheet(db).into(),
+        //     Defn::Trait(defn) => defn.expr_sheet(db).into(),
+        //     Defn::Form(defn) => defn.expr_sheet(db).into(),
+        //     Defn::TypeItem(defn) => defn.expr_sheet(db).into(),
+        //     Defn::TraitItem(defn) => defn.expr_sheet(db).into(),
+        //     Defn::Variant(defn) => defn.expr_sheet(db).into(),
+        // }
+    }
 }
 
 impl From<TraitItemDefn> for Defn {

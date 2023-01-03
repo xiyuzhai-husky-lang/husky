@@ -24,6 +24,9 @@ impl<'a> TokenInferEngine<'a> {
 
     pub(crate) fn infer_all(mut self) -> TokenInfoSheet {
         for defn in self.defn_sheet.defns() {
+            let decl = defn.decl(self.db);
+            let decl_expr_sheet = decl.expr_sheet(self.db);
+            let expr_sheet = defn.expr_sheet(self.db);
             let ast_idx = defn.ast_idx(self.db);
             match self.ast_sheet[ast_idx] {
                 Ast::Defn {
@@ -112,6 +115,30 @@ impl<'a> TokenInferEngine<'a> {
     }
 
     fn infer_form(&mut self, defn: FormDefn) {
+        match defn {
+            FormDefn::Function(defn) => self.infer_function(defn),
+            FormDefn::Feature(defn) => self.infer_feature(defn),
+            FormDefn::Morphism(defn) => self.infer_morphism(defn),
+            FormDefn::Value(defn) => self.infer_value(defn),
+        }
+    }
+
+    fn infer_function(&mut self, defn: FunctionDefn) {
+        // todo!()
+    }
+
+    fn infer_feature(&mut self, defn: FeatureDefn) {
+        let decl = defn.decl(self.db);
+        // todo!()
+    }
+
+    fn infer_morphism(&mut self, defn: MorphismDefn) {
+        let decl = defn.decl(self.db);
+        // todo!()
+    }
+
+    fn infer_value(&mut self, defn: ValueDefn) {
+        let decl = defn.decl(self.db);
         // todo!()
     }
 }
