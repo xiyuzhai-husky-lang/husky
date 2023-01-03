@@ -4,14 +4,14 @@ use super::*;
 pub(super) enum UnfinishedExpr {
     Binary {
         lopd: Expr,
-        punctuation: BinaryPunctuation,
+        punctuation: BinaryOpr,
         punctuation_token_idx: TokenIdx,
     },
     ListItem {
         separator_token_idx: Option<TokenIdx>,
     },
     Prefix {
-        punctuation: PrefixPunctuation,
+        punctuation: PrefixOpr,
         punctuation_token_idx: TokenIdx,
     },
     List {

@@ -538,7 +538,7 @@ Ok(
             Token {
                 range: [24:11, 24:12),
                 kind: Punctuation(
-                    QuestionMark,
+                    Question,
                 ),
             },
             Token {
@@ -556,7 +556,7 @@ Ok(
             Token {
                 range: [25:11, 25:12),
                 kind: Punctuation(
-                    QuestionMark,
+                    Question,
                 ),
             },
             Token {
@@ -574,7 +574,7 @@ Ok(
             Token {
                 range: [26:12, 26:13),
                 kind: Punctuation(
-                    QuestionMark,
+                    Question,
                 ),
             },
             Token {
@@ -592,7 +592,7 @@ Ok(
             Token {
                 range: [27:13, 27:14),
                 kind: Punctuation(
-                    QuestionMark,
+                    Question,
                 ),
             },
             Token {
@@ -610,7 +610,7 @@ Ok(
             Token {
                 range: [28:13, 28:14),
                 kind: Punctuation(
-                    QuestionMark,
+                    Question,
                 ),
             },
             Token {
@@ -628,7 +628,7 @@ Ok(
             Token {
                 range: [29:13, 29:14),
                 kind: Punctuation(
-                    QuestionMark,
+                    Question,
                 ),
             },
             Token {
@@ -646,7 +646,7 @@ Ok(
             Token {
                 range: [30:12, 30:13),
                 kind: Punctuation(
-                    QuestionMark,
+                    Question,
                 ),
             },
             Token {
@@ -664,7 +664,7 @@ Ok(
             Token {
                 range: [31:12, 31:13),
                 kind: Punctuation(
-                    QuestionMark,
+                    Question,
                 ),
             },
             Token {
@@ -682,7 +682,7 @@ Ok(
             Token {
                 range: [32:11, 32:12),
                 kind: Punctuation(
-                    QuestionMark,
+                    Question,
                 ),
             },
             Token {

@@ -7,15 +7,9 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     pub(crate) fn accept_token(&mut self, token: ResolvedToken) {
         match token {
             ResolvedToken::Atom(atom) => self.accept_atom(atom),
-            ResolvedToken::BinaryPunctuation(token_idx, opr) => {
-                self.accept_binary_opr(opr, token_idx)
-            }
-            ResolvedToken::PrefixPunctuation(token_idx, opr) => {
-                self.accept_prefix_opr(opr, token_idx)
-            }
-            ResolvedToken::SuffixPunctuation(token_idx, opr) => {
-                self.accept_suffix_opr(opr, token_idx)
-            }
+            ResolvedToken::BinaryOpr(token_idx, opr) => self.accept_binary_opr(opr, token_idx),
+            ResolvedToken::PrefixOpr(token_idx, opr) => self.accept_prefix_opr(opr, token_idx),
+            ResolvedToken::SuffixOpr(token_idx, opr) => self.accept_suffix_opr(opr, token_idx),
             ResolvedToken::Bra(token_idx, bra) => self.accept_list_start(bra, token_idx),
             ResolvedToken::Ket(token_idx, ket) => self.accept_list_end(ket, token_idx),
             ResolvedToken::Dot(token_idx) => self.accept_dot_opr(token_idx),
@@ -58,16 +52,28 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                         UnfinishedListOpr::MethodInstantiation {} => todo!(),
                         UnfinishedListOpr::MethodCall {
                             this_expr,
+                            dot_token_idx,
+                            method_ident_token,
                             implicit_arguments,
                         } => Expr::MethodCall {
                             this_expr,
                             implicit_arguments,
-                            arguments: items,
                             lpar_token_idx: bra_token_idx,
+                            arguments: items,
                             rpar_token_idx: ket_token_idx,
                         }
                         .into(),
-                        UnfinishedListOpr::TemplateInstantiation { template } => todo!(),
+                        UnfinishedListOpr::TemplateInstantiation { template } => {
+                            Expr::TemplateInstantiation {
+                                template,
+                                implicit_arguments: ImplicitArgumentList::new(
+                                    bra_token_idx,
+                                    items,
+                                    ket_token_idx,
+                                ),
+                            }
+                            .into()
+                        }
                     }
                 })
             }
@@ -79,7 +85,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         self.set_top_expr(atom.into())
     }
 
-    fn accept_prefix_opr(&mut self, prefix: PrefixPunctuation, prefix_token_idx: TokenIdx) {
+    fn accept_prefix_opr(&mut self, prefix: PrefixOpr, prefix_token_idx: TokenIdx) {
         self.set_top_expr(
             UnfinishedExpr::Prefix {
                 punctuation: prefix,
@@ -89,11 +95,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         )
     }
 
-    fn accept_suffix_opr(
-        &mut self,
-        punctuation: SuffixPunctuation,
-        punctuation_token_idx: TokenIdx,
-    ) {
+    fn accept_suffix_opr(&mut self, punctuation: SuffixOpr, punctuation_token_idx: TokenIdx) {
         self.replace_top_expr(|this, top_expr| match top_expr {
             Some(expr) => Expr::SuffixOpn {
                 opd: this.sheet.alloc_expr(expr),
@@ -115,6 +117,8 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                             opr: UnfinishedListOpr::MethodCall {
                                 this_expr,
                                 implicit_arguments: None,
+                                dot_token_idx,
+                                method_ident_token: ident_token,
                             },
                             bra: Bracket::Par,
                             bra_token_idx: lpar.token_idx(),
@@ -160,11 +164,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         }
     }
 
-    pub(crate) fn accept_binary_opr(
-        &mut self,
-        binary: BinaryPunctuation,
-        binary_token_idx: TokenIdx,
-    ) {
+    pub(crate) fn accept_binary_opr(&mut self, binary: BinaryOpr, binary_token_idx: TokenIdx) {
         let lopd = self
             .take_finished_expr()
             .unwrap_or(Expr::Err(ExprError::NoLeftOperandForBinaryOperator));

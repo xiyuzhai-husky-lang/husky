@@ -95,6 +95,9 @@ impl Expr {
             Expr::Err(_) => BaseEntityPath::Uncertain {
                 inclination: todo!(),
             },
+            Expr::TemplateInstantiation { template, .. } => {
+                arena[template].base_entity_path(db, arena)
+            }
         }
     }
 }

@@ -68,18 +68,18 @@ pub enum Expr {
     Unrecognized(Identifier),
     BinaryOpn {
         lopd: ExprIdx,
-        punctuation: BinaryPunctuation,
+        punctuation: BinaryOpr,
         punctuation_token_idx: TokenIdx,
         ropd: ExprIdx,
     },
     PrefixOpn {
-        punctuation: PrefixPunctuation,
+        punctuation: PrefixOpr,
         punctuation_token_idx: TokenIdx,
         opd: ExprIdx,
     },
     SuffixOpn {
         opd: ExprIdx,
-        punctuation: SuffixPunctuation,
+        punctuation: SuffixOpr,
         punctuation_token_idx: TokenIdx,
     },
     Field {
@@ -93,6 +93,10 @@ pub enum Expr {
         arguments: ExprIdxRange,
         lpar_token_idx: TokenIdx,
         rpar_token_idx: TokenIdx,
+    },
+    TemplateInstantiation {
+        template: ExprIdx,
+        implicit_arguments: ImplicitArgumentList,
     },
     Application {
         function: ExprIdx,
@@ -120,6 +124,14 @@ pub struct ImplicitArgumentList {
 }
 
 impl ImplicitArgumentList {
+    pub(crate) fn new(langle: TokenIdx, arguments: ExprIdxRange, rangle: TokenIdx) -> Self {
+        Self {
+            langle,
+            arguments,
+            rangle,
+        }
+    }
+
     pub fn langle(&self) -> TokenIdx {
         self.langle
     }

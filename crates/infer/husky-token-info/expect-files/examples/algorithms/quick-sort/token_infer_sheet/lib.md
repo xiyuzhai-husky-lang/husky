@@ -3,16 +3,7 @@ Ok(
         token_infos: [
             None,
             None,
-            Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Function,
-                    ),
-                    connection: Connected,
-                },
-            ),
             None,
-            ImplicitParameter,
             None,
             None,
             None,
@@ -49,16 +40,7 @@ Ok(
             None,
             None,
             None,
-            Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Function,
-                    ),
-                    connection: Connected,
-                },
-            ),
             None,
-            ImplicitParameter,
             None,
             None,
             None,
@@ -117,16 +99,13 @@ Ok(
             None,
             None,
             None,
-            Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Function,
-                    ),
-                    connection: Connected,
-                },
-            ),
             None,
-            ImplicitParameter,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
             None,
             None,
             None,

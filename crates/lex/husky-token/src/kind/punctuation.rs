@@ -1,13 +1,13 @@
-use husky_opn_syntax::{BinaryPunctuation, Bracket, SuffixPunctuation};
+use husky_opn_syntax::{BinaryOpr, Bracket, SuffixOpr};
 
 use crate::{Convexity, TokenKind};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Punctuation {
-    Binary(BinaryPunctuation),
+    Binary(BinaryOpr),
     Bra(Bracket),
     Ket(Bracket),
-    Suffix(SuffixPunctuation),
+    Suffix(SuffixOpr),
     LAngle,            // <
     RAngle,            // >
     DeriveAssign,      // :=
@@ -32,8 +32,8 @@ pub enum Punctuation {
     PoundSign,
 }
 
-impl From<BinaryPunctuation> for Punctuation {
-    fn from(v: BinaryPunctuation) -> Self {
+impl From<BinaryOpr> for Punctuation {
+    fn from(v: BinaryOpr) -> Self {
         Self::Binary(v)
     }
 }

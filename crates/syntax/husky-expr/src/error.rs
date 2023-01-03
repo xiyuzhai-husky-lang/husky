@@ -37,12 +37,12 @@ pub enum ExprError {
     #[error("no right operand for binary operator")]
     NoRightOperandForBinaryOperator {
         lopd: ExprIdx,
-        punctuation: BinaryPunctuation,
+        punctuation: BinaryOpr,
         punctuation_token_idx: TokenIdx,
     },
     #[error("no operand for prefix operator")]
     NoOperandForPrefixOperator {
-        prefix: PrefixPunctuation,
+        prefix: PrefixOpr,
         prefix_token_idx: TokenIdx,
     },
     #[error("missing item before comma")]

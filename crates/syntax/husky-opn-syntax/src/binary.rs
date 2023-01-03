@@ -7,93 +7,93 @@ pub use logic::*;
 pub use pure_closed::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum BinaryPunctuation {
-    PureClosed(BinaryPureClosedPunctuation),
+pub enum BinaryOpr {
+    PureClosed(BinaryPureClosedOpr),
     Comparison(BinaryComparisonPunctuation),
     ShortcuitLogic(BinaryShortcuitLogicPunctuation),
-    Assign(Option<BinaryPureClosedPunctuation>),
+    Assign(Option<BinaryPureClosedOpr>),
     ScopeResolution, // ::
     Curry,           // ->
     As,              // as
 }
 
-impl From<Option<BinaryPureClosedPunctuation>> for BinaryPunctuation {
-    fn from(v: Option<BinaryPureClosedPunctuation>) -> Self {
+impl From<Option<BinaryPureClosedOpr>> for BinaryOpr {
+    fn from(v: Option<BinaryPureClosedOpr>) -> Self {
         Self::Assign(v)
     }
 }
 
-impl From<BinaryShortcuitLogicPunctuation> for BinaryPunctuation {
+impl From<BinaryShortcuitLogicPunctuation> for BinaryOpr {
     fn from(v: BinaryShortcuitLogicPunctuation) -> Self {
         Self::ShortcuitLogic(v)
     }
 }
 
-impl From<BinaryPureClosedPunctuation> for BinaryPunctuation {
-    fn from(v: BinaryPureClosedPunctuation) -> Self {
+impl From<BinaryPureClosedOpr> for BinaryOpr {
+    fn from(v: BinaryPureClosedOpr) -> Self {
         Self::PureClosed(v)
     }
 }
 
-impl From<BinaryComparisonPunctuation> for BinaryPunctuation {
+impl From<BinaryComparisonPunctuation> for BinaryOpr {
     fn from(v: BinaryComparisonPunctuation) -> Self {
         Self::Comparison(v)
     }
 }
 
-impl BinaryPunctuation {
+impl BinaryOpr {
     pub fn code(self) -> &'static str {
         match self {
-            BinaryPunctuation::PureClosed(pure_opr) => pure_opr.husky_code(),
-            BinaryPunctuation::Assign(None) => "=",
-            BinaryPunctuation::Assign(Some(pure_opr)) => match pure_opr {
-                BinaryPureClosedPunctuation::Add => "+=",
-                BinaryPureClosedPunctuation::BitAnd => "&=",
-                BinaryPureClosedPunctuation::BitOr => "|=",
-                BinaryPureClosedPunctuation::BitXor => "^=",
-                BinaryPureClosedPunctuation::Div => "/=",
-                BinaryPureClosedPunctuation::Mul => "*=",
-                BinaryPureClosedPunctuation::RemEuclid => "%=",
-                BinaryPureClosedPunctuation::Power => "**=",
-                BinaryPureClosedPunctuation::Shl => "<<=",
-                BinaryPureClosedPunctuation::Shr => ">>=",
-                BinaryPureClosedPunctuation::Sub => "-=",
+            BinaryOpr::PureClosed(pure_opr) => pure_opr.husky_code(),
+            BinaryOpr::Assign(None) => "=",
+            BinaryOpr::Assign(Some(pure_opr)) => match pure_opr {
+                BinaryPureClosedOpr::Add => "+=",
+                BinaryPureClosedOpr::BitAnd => "&=",
+                BinaryPureClosedOpr::BitOr => "|=",
+                BinaryPureClosedOpr::BitXor => "^=",
+                BinaryPureClosedOpr::Div => "/=",
+                BinaryPureClosedOpr::Mul => "*=",
+                BinaryPureClosedOpr::RemEuclid => "%=",
+                BinaryPureClosedOpr::Power => "**=",
+                BinaryPureClosedOpr::Shl => "<<=",
+                BinaryPureClosedOpr::Shr => ">>=",
+                BinaryPureClosedOpr::Sub => "-=",
             },
-            BinaryPunctuation::Comparison(cmp_opr) => cmp_opr.husky_code(),
-            BinaryPunctuation::ShortcuitLogic(logic_opr) => logic_opr.husky_code(),
-            BinaryPunctuation::ScopeResolution => "::",
-            BinaryPunctuation::Curry => "->",
-            BinaryPunctuation::As => todo!(),
+            BinaryOpr::Comparison(cmp_opr) => cmp_opr.husky_code(),
+            BinaryOpr::ShortcuitLogic(logic_opr) => logic_opr.husky_code(),
+            BinaryOpr::ScopeResolution => "::",
+            BinaryOpr::Curry => "->",
+            BinaryOpr::As => todo!(),
         }
     }
 
     pub fn spaced_code(self) -> &'static str {
         match self {
-            BinaryPunctuation::PureClosed(pure_binary_opr) => pure_binary_opr.spaced_husky_code(),
-            BinaryPunctuation::Comparison(cmp_opr) => cmp_opr.spaced_husky_code(),
-            BinaryPunctuation::ShortcuitLogic(logic_opr) => logic_opr.spaced_husky_code(),
-            BinaryPunctuation::Assign(opt_binary_opr) => {
+            BinaryOpr::PureClosed(pure_binary_opr) => pure_binary_opr.spaced_husky_code(),
+            BinaryOpr::Comparison(cmp_opr) => cmp_opr.spaced_husky_code(),
+            BinaryOpr::ShortcuitLogic(logic_opr) => logic_opr.spaced_husky_code(),
+            BinaryOpr::Assign(opt_binary_opr) => {
                 if let Some(binary_opr) = opt_binary_opr {
                     match binary_opr {
-                        BinaryPureClosedPunctuation::Add => " += ",
-                        BinaryPureClosedPunctuation::BitAnd => " &= ",
-                        BinaryPureClosedPunctuation::BitOr => " |= ",
-                        BinaryPureClosedPunctuation::BitXor => " ^= ",
-                        BinaryPureClosedPunctuation::Div => " /= ",
-                        BinaryPureClosedPunctuation::Mul => " *= ",
-                        BinaryPureClosedPunctuation::RemEuclid => " %= ",
-                        BinaryPureClosedPunctuation::Power => " **= ",
-                        BinaryPureClosedPunctuation::Shl => " <<= ",
-                        BinaryPureClosedPunctuation::Shr => " >>= ",
-                        BinaryPureClosedPunctuation::Sub => " -= ",
+                        BinaryPureClosedOpr::Add => " += ",
+                        BinaryPureClosedOpr::BitAnd => " &= ",
+                        BinaryPureClosedOpr::BitOr => " |= ",
+                        BinaryPureClosedOpr::BitXor => " ^= ",
+                        BinaryPureClosedOpr::Div => " /= ",
+                        BinaryPureClosedOpr::Mul => " *= ",
+                        BinaryPureClosedOpr::RemEuclid => " %= ",
+                        BinaryPureClosedOpr::Power => " **= ",
+                        BinaryPureClosedOpr::Shl => " <<= ",
+                        BinaryPureClosedOpr::Shr => " >>= ",
+                        BinaryPureClosedOpr::Sub => " -= ",
                     }
                 } else {
                     " = "
                 }
             }
-            BinaryPunctuation::ScopeResolution => todo!(),
-            BinaryPunctuation::Curry => " -> ",
-            BinaryPunctuation::As => todo!(),
+            BinaryOpr::ScopeResolution => todo!(),
+            BinaryOpr::Curry => " -> ",
+            BinaryOpr::As => todo!(),
         }
     }
 }

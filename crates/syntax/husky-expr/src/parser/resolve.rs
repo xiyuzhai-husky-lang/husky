@@ -17,7 +17,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
             TokenKind::Keyword(_keyword) => todo!(),
             TokenKind::Identifier(ident) => self.resolve_ident(ident),
             TokenKind::Punctuation(punc) => match punc {
-                Punctuation::Binary(binary) => ResolvedToken::BinaryPunctuation(token_idx, binary),
+                Punctuation::Binary(binary) => ResolvedToken::BinaryOpr(token_idx, binary),
                 Punctuation::Bra(bra) => ResolvedToken::Bra(token_idx, bra),
                 Punctuation::Ket(ket) => match self.last_bra() {
                     Some(bra) => {
@@ -30,7 +30,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                     }
                     None => return TokenResolveResult::Break(()),
                 },
-                Punctuation::Suffix(suffix) => ResolvedToken::SuffixPunctuation(token_idx, suffix),
+                Punctuation::Suffix(suffix) => ResolvedToken::SuffixOpr(token_idx, suffix),
                 Punctuation::LAngle => match self.top_expr() {
                     TopExprRef::Unfinished(_) => todo!(),
                     TopExprRef::Finished(expr) => {
@@ -43,7 +43,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                                     ResolvedToken::Bra(token_idx, Bracket::Angle)
                                 }
                                 BaseEntityPathInclination::FunctionOrLocalValue => {
-                                    ResolvedToken::BinaryPunctuation(token_idx, todo!())
+                                    ResolvedToken::BinaryOpr(token_idx, todo!())
                                 }
                             },
                         }
@@ -55,18 +55,14 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                     (None, ExprEnvironment::WithinBracket(Bracket::Angle)) => {
                         return TokenResolveResult::Break(())
                     }
-                    _ => ResolvedToken::BinaryPunctuation(
+                    _ => ResolvedToken::BinaryOpr(
                         token_idx,
                         BinaryComparisonPunctuation::Greater.into(),
                     ),
                 },
                 Punctuation::DeriveAssign => return TokenResolveResult::Break(()),
-                Punctuation::Minus => {
-                    ResolvedToken::PrefixPunctuation(token_idx, PrefixPunctuation::Minus)
-                }
-                Punctuation::Exclamation => {
-                    ResolvedToken::PrefixPunctuation(token_idx, PrefixPunctuation::Not)
-                }
+                Punctuation::Minus => ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Minus),
+                Punctuation::Exclamation => ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Not),
                 Punctuation::DoubleVertical => todo!(),
                 Punctuation::BitNot => todo!(),
                 Punctuation::Dot => ResolvedToken::Dot(token_idx),
@@ -87,9 +83,9 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                         ..
                     }) => ResolvedToken::Ket(token_idx, Bracket::Vertical),
                     _ => match self.finished_expr().is_some() {
-                        true => ResolvedToken::BinaryPunctuation(
+                        true => ResolvedToken::BinaryOpr(
                             token_idx,
-                            BinaryPunctuation::PureClosed(BinaryPureClosedPunctuation::BitOr),
+                            BinaryOpr::PureClosed(BinaryPureClosedOpr::BitOr),
                         ),
                         false => ResolvedToken::Bra(token_idx, Bracket::Vertical),
                     },
@@ -100,18 +96,16 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 Punctuation::XmlKet => todo!(),
                 Punctuation::At => todo!(),
                 Punctuation::Question => match self.finished_expr() {
-                    Some(_) => {
-                        ResolvedToken::SuffixPunctuation(token_idx, SuffixPunctuation::Unveil)
-                    }
-                    None => todo!(),
+                    Some(_) => ResolvedToken::SuffixOpr(token_idx, SuffixOpr::Unveil),
+                    None => ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Option),
                 },
                 Punctuation::PoundSign => todo!(),
                 Punctuation::Ambersand => match self.finished_expr() {
-                    Some(_) => ResolvedToken::BinaryPunctuation(
+                    Some(_) => ResolvedToken::BinaryOpr(
                         token_idx,
-                        BinaryPunctuation::PureClosed(BinaryPureClosedPunctuation::BitOr),
+                        BinaryOpr::PureClosed(BinaryPureClosedOpr::BitOr),
                     ),
-                    None => ResolvedToken::PrefixPunctuation(token_idx, PrefixPunctuation::Ref),
+                    None => ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Ref),
                 },
                 Punctuation::DotDot => todo!(),
             },
@@ -126,7 +120,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
         if let Some(opn) = self.last_unfinished_expr() {
             match opn {
                 UnfinishedExpr::Binary {
-                    punctuation: BinaryPunctuation::ScopeResolution,
+                    punctuation: BinaryOpr::ScopeResolution,
                     ..
                 } => {
                     if let Some(previous_expr) = self.finished_expr() {
@@ -155,9 +149,9 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
 
 pub(crate) enum ResolvedToken {
     Atom(Expr),
-    BinaryPunctuation(TokenIdx, BinaryPunctuation),
-    PrefixPunctuation(TokenIdx, PrefixPunctuation),
-    SuffixPunctuation(TokenIdx, SuffixPunctuation),
+    BinaryOpr(TokenIdx, BinaryOpr),
+    PrefixOpr(TokenIdx, PrefixOpr),
+    SuffixOpr(TokenIdx, SuffixOpr),
     Bra(TokenIdx, Bracket),
     Ket(TokenIdx, Bracket),
     Dot(TokenIdx),
