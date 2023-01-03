@@ -1,4 +1,5 @@
 use super::*;
+use husky_print_utils::p;
 use husky_symbol::Symbol;
 use husky_token::Punctuation;
 use std::ops::ControlFlow;
@@ -21,6 +22,8 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 Punctuation::Ket(ket) => match self.last_bra() {
                     Some(bra) => {
                         if bra != ket {
+                            p!(bra, ket);
+                            p!(self.unfinished_exprs());
                             todo!()
                         }
                         ResolvedToken::Ket(token_idx, ket)
@@ -96,7 +99,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
                 // return TokenResolveResult::Break(()),
                 Punctuation::XmlKet => todo!(),
                 Punctuation::At => todo!(),
-                Punctuation::QuestionMark => match self.finished_expr() {
+                Punctuation::Question => match self.finished_expr() {
                     Some(_) => {
                         ResolvedToken::SuffixPunctuation(token_idx, SuffixPunctuation::Unveil)
                     }

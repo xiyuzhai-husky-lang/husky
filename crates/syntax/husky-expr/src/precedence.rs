@@ -15,8 +15,7 @@ pub(crate) enum Precedence {
     BitOr = 1009,
     And = 1008,
     Or = 1007,
-    NextCurry = 106,
-    PrevCurry = 105,
+    Curry = 105,
     Application = 54,
     ListItem = 11,
     LambdaHead = 3,
@@ -65,7 +64,7 @@ impl From<BinaryPunctuation> for Precedence {
             },
             BinaryPunctuation::Assign(_) => Precedence::None,
             BinaryPunctuation::ScopeResolution => Precedence::ScopeResolution,
-            BinaryPunctuation::Curry => todo!(),
+            BinaryPunctuation::Curry => Precedence::Curry,
             BinaryPunctuation::As => todo!(),
         }
     }
