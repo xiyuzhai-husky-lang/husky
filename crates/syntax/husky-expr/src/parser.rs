@@ -51,7 +51,7 @@ impl<'a, 'b> ExprParser<'a, 'b> {
         &self.token_iter
     }
 
-    pub fn parse_expr(&mut self, env: ExprEnvironment) -> (ExprSheet, Option<ExprIdx>) {
+    pub fn parse_expr(&mut self, env: ExprEnvironment) -> Option<ExprIdx> {
         self.env.set(env);
         while !self.tokens().is_empty() {
             let (token_idx, token) = self.token_iter.next_indexed(IgnoreComment::True).unwrap();
@@ -65,8 +65,10 @@ impl<'a, 'b> ExprParser<'a, 'b> {
         }
         self.reduce(Precedence::None);
         self.env.unset();
-        let expr = self.finish_batch();
-        (todo!(), expr)
+        self.finish_batch()
+    }
+    pub fn finish(mut self) -> ExprSheet {
+        todo!()
     }
 }
 
@@ -75,7 +77,8 @@ pub fn parse_expr<'a>(
     token_iter: TokenStream<'a>,
     env: ExprEnvironment,
 ) -> (ExprSheet, Option<ExprIdx>) {
-    ExprParser::new(ctx, token_iter).parse_expr(env)
+    todo!()
+    // ExprParser::new(ctx, token_iter).parse_expr(env)
 }
 
 impl<'a, 'b> parsec::HasParseError for ExprParser<'a, 'b> {

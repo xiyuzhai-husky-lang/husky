@@ -167,16 +167,10 @@ impl<'a> DeclCollector<'a> {
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<Decl> {
-        let mut local_symbol_sheet = LocalSymbolSheet::default();
-        let mut parser = self.expr_parser(
-            path.into(),
-            token_group_idx,
-            saved_stream_state,
-            &mut local_symbol_sheet,
-        );
+        let mut parser = self.expr_parser(path.into(), token_group_idx, saved_stream_state);
         let implicit_parameters = parser.parse()?;
         Ok(Decl::Type(
-            EnumTypeDecl::new(self.db, path, ast_idx, sheet, implicit_parameters).into(),
+            EnumTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters).into(),
         ))
     }
 
@@ -188,21 +182,13 @@ impl<'a> DeclCollector<'a> {
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<Decl> {
-        let mut sheet = ExprSheet::default();
-        let mut local_symbol_sheet = LocalSymbolSheet::default();
-        let mut parser = self.expr_parser(
-            path.into(),
-            token_group_idx,
-            saved_stream_state,
-            &mut sheet,
-            &mut local_symbol_sheet,
-        );
+        let mut parser = self.expr_parser(path.into(), token_group_idx, saved_stream_state);
         let implicit_parameters = parser.parse()?;
         Ok(Decl::Trait(TraitDecl::new(
             self.db,
             path,
             ast_idx,
-            sheet,
+            parser.finish(),
             implicit_parameters,
         )))
     }
@@ -215,18 +201,11 @@ impl<'a> DeclCollector<'a> {
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<Decl> {
-        let mut sheet = ExprSheet::default();
-        let mut local_symbol_sheet = LocalSymbolSheet::default();
-        let mut parser = self.expr_parser(
-            path.into(),
-            token_group_idx,
-            saved_stream_state,
-            &mut sheet,
-            &mut local_symbol_sheet,
-        );
+        let mut parser = self.expr_parser(path.into(), token_group_idx, saved_stream_state);
         let implicit_parameters = parser.parse()?;
         Ok(Decl::Type(
-            InductiveTypeDecl::new(self.db, path, ast_idx, sheet, implicit_parameters).into(),
+            InductiveTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters)
+                .into(),
         ))
     }
 
@@ -238,15 +217,7 @@ impl<'a> DeclCollector<'a> {
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<Decl> {
-        let mut sheet = ExprSheet::default();
-        let mut local_symbol_sheet = LocalSymbolSheet::default();
-        let mut parser = self.expr_parser(
-            path.into(),
-            token_group_idx,
-            saved_stream_state,
-            &mut sheet,
-            &mut local_symbol_sheet,
-        );
+        let mut parser = self.expr_parser(path.into(), token_group_idx, saved_stream_state);
         let implicit_parameters = parser.parse()?;
         if let Some(lcurl) = parser.parse::<LeftCurlyBraceToken>()? {
             let (fields, separators) = parse_separated_list(&mut parser)?;
@@ -256,7 +227,7 @@ impl<'a> DeclCollector<'a> {
                     self.db,
                     path,
                     ast_idx,
-                    sheet,
+                    parser.finish(),
                     implicit_parameters,
                     lcurl,
                     fields,
@@ -277,17 +248,17 @@ impl<'a> DeclCollector<'a> {
         entity_path: EntityPath,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenIdx,
-        local_symbol_sheet: &'c mut LocalSymbolSheet,
     ) -> ExprParser<'b, 'a>
     where
         'a: 'c,
     {
-        let ctx = SymbolContext::new(self.db, self.crate_prelude, local_symbol_sheet);
-        ExprParser::new(
-            ctx,
-            self.token_sheet
-                .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
-        )
+        todo!()
+        // let ctx = SymbolContext::new(self.db, self.crate_prelude, local_symbol_sheet);
+        // ExprParser::new(
+        //     ctx,
+        //     self.token_sheet
+        //         .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
+        // )
     }
 
     fn parse_structure_type_decl(
@@ -301,18 +272,11 @@ impl<'a> DeclCollector<'a> {
         let mut token_iter = self
             .token_sheet
             .token_group_token_stream(token_group_idx, Some(saved_stream_state));
-        let mut sheet = ExprSheet::default();
-        let mut local_symbol_sheet = LocalSymbolSheet::default();
-        let mut parser = self.expr_parser(
-            path.into(),
-            token_group_idx,
-            saved_stream_state,
-            &mut sheet,
-            &mut local_symbol_sheet,
-        );
+        let mut parser = self.expr_parser(path.into(), token_group_idx, saved_stream_state);
         let implicit_parameters = parser.parse()?;
         Ok(Decl::Type(
-            StructureTypeDecl::new(self.db, path, ast_idx, sheet, implicit_parameters).into(),
+            StructureTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters)
+                .into(),
         ))
     }
 
@@ -328,18 +292,10 @@ impl<'a> DeclCollector<'a> {
         let mut token_iter = self
             .token_sheet
             .token_group_token_stream(token_group_idx, Some(saved_stream_state));
-        let mut sheet = ExprSheet::default();
-        let mut local_symbol_sheet = LocalSymbolSheet::default();
-        let mut parser = self.expr_parser(
-            path.into(),
-            token_group_idx,
-            saved_stream_state,
-            &mut sheet,
-            &mut local_symbol_sheet,
-        );
+        let mut parser = self.expr_parser(path.into(), token_group_idx, saved_stream_state);
         let implicit_parameters = parser.parse()?;
         Ok(Decl::Type(
-            AlienTypeDecl::new(self.db, path, ast_idx, sheet, implicit_parameters).into(),
+            AlienTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters).into(),
         ))
     }
 
@@ -353,7 +309,9 @@ impl<'a> DeclCollector<'a> {
         saved_stream_state: TokenIdx,
     ) -> Result<Decl, DeclError> {
         match path.form_kind(self.db) {
-            FormKind::Feature => self.parse_feature_decl(ast_idx, path),
+            FormKind::Feature => {
+                self.parse_feature_decl(ast_idx, token_group_idx, saved_stream_state, path)
+            }
             FormKind::Function => {
                 self.parse_function_decl(ast_idx, token_group_idx, saved_stream_state, path)
             }
@@ -362,10 +320,16 @@ impl<'a> DeclCollector<'a> {
         }
     }
 
-    fn parse_feature_decl(&self, ast_idx: AstIdx, path: FormPath) -> Result<Decl, DeclError> {
-        let mut sheet = ExprSheet::default();
+    fn parse_feature_decl(
+        &self,
+        ast_idx: AstIdx,
+        token_group_idx: TokenGroupIdx,
+        saved_stream_state: TokenIdx,
+        path: FormPath,
+    ) -> Result<Decl, DeclError> {
+        let mut parser = self.expr_parser(path.into(), token_group_idx, saved_stream_state);
         Ok(Decl::Form(
-            FeatureDecl::new(self.db, path, ast_idx, sheet).into(),
+            FeatureDecl::new(self.db, path, ast_idx, parser.finish()).into(),
         ))
     }
 
@@ -376,15 +340,7 @@ impl<'a> DeclCollector<'a> {
         saved_stream_state: TokenIdx,
         path: FormPath,
     ) -> Result<Decl, DeclError> {
-        let mut sheet = ExprSheet::default();
-        let mut local_symbol_sheet = LocalSymbolSheet::default();
-        let mut parser = self.expr_parser(
-            path.into(),
-            token_group_idx,
-            saved_stream_state,
-            &mut sheet,
-            &mut local_symbol_sheet,
-        );
+        let mut parser = self.expr_parser(path.into(), token_group_idx, saved_stream_state);
         let implicit_parameter_decl_list = parser.parse()?;
         p!(parser.peek(), path.debug(self.db));
         let Some(parameter_decl_list) = parser.parse()? else {
@@ -395,8 +351,7 @@ impl<'a> DeclCollector<'a> {
                 self.db,
                 path,
                 ast_idx,
-                sheet,
-                local_symbol_sheet,
+                parser.finish(),
                 implicit_parameter_decl_list,
                 parameter_decl_list,
             )
