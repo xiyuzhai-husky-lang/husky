@@ -8,12 +8,12 @@ mod kind;
 mod literal;
 mod parse_utils;
 mod sheet;
+mod snippet;
 mod stream;
 #[cfg(test)]
 mod tests;
 mod token_accessibility;
 mod tokenize;
-mod utils;
 
 pub use convexity::*;
 pub use db::*;
@@ -22,6 +22,7 @@ pub use kind::*;
 pub use literal::*;
 pub use parse_utils::*;
 pub use sheet::*;
+pub use snippet::*;
 pub use stream::*;
 pub use token_accessibility::*;
 
@@ -33,7 +34,7 @@ use tests::*;
 use tokenize::*;
 
 #[salsa::jar(db = TokenDb)]
-pub struct TokenJar(token_sheet, reserved_words);
+pub struct TokenJar(Snippet, token_sheet, reserved_words, tokenize_snippet);
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct Token {

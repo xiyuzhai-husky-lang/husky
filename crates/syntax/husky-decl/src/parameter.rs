@@ -24,9 +24,9 @@ impl ImplicitParameterDecl {
     }
 }
 
-impl<'a, 'b, 'c> ParseFrom<ExprParser<'a, 'b>> for ImplicitParameterDecl {
+impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDecl {
     fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParser<'a, 'b>,
+        ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
         let Some(ident) = ctx.parse::<IdentifierToken>()? else {
             return Ok(None)
@@ -37,7 +37,7 @@ impl<'a, 'b, 'c> ParseFrom<ExprParser<'a, 'b>> for ImplicitParameterDecl {
             traits: if let Some(colon) = ctx.parse::<ColonToken>()? {
                 Some((
                     colon,
-                    ctx.parse_expr(ExprEnvironment::WithinBracket(Bracket::Angle)),
+                    ctx.parse_expr(ExprParseEnvironment::WithinBracket(Bracket::Angle)),
                 ))
             } else {
                 None
@@ -46,9 +46,9 @@ impl<'a, 'b, 'c> ParseFrom<ExprParser<'a, 'b>> for ImplicitParameterDecl {
     }
 }
 
-impl<'a, 'b, 'c> ParseFrom<ExprParser<'a, 'b>> for ImplicitParameterDeclList {
+impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclList {
     fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParser<'a, 'b>,
+        ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
         let Some(langle) = ctx.parse::<LeftAngleBracketToken>()? else {
             return Ok(None)
@@ -114,25 +114,25 @@ pub struct ParameterDeclList {
     rpar: RightParenthesisToken,
 }
 
-impl<'a, 'b, 'c> ParseFrom<ExprParser<'a, 'b>> for ParameterDecl {
+impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for ParameterDecl {
     fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParser<'a, 'b>,
+        ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
         let Some(pattern) = ctx.parse::<PatternExprIdx>()? else {
             return Ok(None)
         };
         let state = ctx.save_state();
         let colon = ctx.parse_expected::<ColonToken>()?;
-        let Some(ty) = ctx.parse_expr(ExprEnvironment::WithinBracket(Bracket::Par)) else {
+        let Some(ty) = ctx.parse_expr(ExprParseEnvironment::WithinBracket(Bracket::Par)) else {
             todo!()
         };
         Ok(Some(ParameterDecl { pattern, colon, ty }))
     }
 }
 
-impl<'a, 'b, 'c> ParseFrom<ExprParser<'a, 'b>> for ParameterDeclList {
+impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for ParameterDeclList {
     fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParser<'a, 'b>,
+        ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
         let Some(lpar) = ctx.parse::<LeftParenthesisToken>()? else {
             todo!()

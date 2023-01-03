@@ -15,7 +15,9 @@ pub(crate) struct DB {
 impl Database for DB {}
 
 fn tokenize_snippet_debug(snippet: &str) -> String {
-    format!("{:#?}", DB::default().tokenize(snippet))
+    let db = DB::default();
+    let snippet = Snippet::new(&db, snippet.to_owned());
+    format!("{:#?}", db.tokenize_snippet(snippet))
 }
 
 #[test]

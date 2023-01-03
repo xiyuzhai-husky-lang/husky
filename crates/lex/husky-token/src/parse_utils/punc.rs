@@ -68,8 +68,7 @@ fn quick_parse<T>(db: &DB, input: &str) -> TokenResult<Option<T>>
 where
     T: for<'a> ParseFrom<TokenStream<'a>>,
 {
-    let tokens = db.tokenize(input);
-    let token_sheet = TokenSheet::new(tokens);
+    let token_sheet = db.tokenize_snippet(Snippet::new(db, input.to_owned()));
     let mut stream = token_sheet
         .token_group_token_stream(token_sheet.token_group_iter().next().unwrap().0, None);
     stream.parse()

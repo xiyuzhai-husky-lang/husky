@@ -6,7 +6,7 @@ use std::ops::ControlFlow;
 
 pub type TokenResolveResult<T> = ControlFlow<(), T>;
 
-impl<'a, 'b, 'c> ExprParser<'a, 'b> {
+impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
     pub(crate) fn resolve_token(
         &mut self,
         token_idx: TokenIdx,
@@ -34,7 +34,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b> {
                 Punctuation::LAngle => match self.top_expr() {
                     TopExprRef::Unfinished(_) => todo!(),
                     TopExprRef::Finished(expr) => {
-                        match expr.base_entity_path(self.db(), &self.expr_arena) {
+                        match expr.base_entity_path(self.db(), &self.parser.expr_arena) {
                             BaseEntityPath::None => todo!(),
                             BaseEntityPath::Some(_) => todo!(),
                             BaseEntityPath::Uncertain { inclination } => match inclination {
@@ -52,7 +52,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b> {
                 },
                 Punctuation::RAngle => match (self.last_bra(), self.env()) {
                     (Some(Bracket::Angle), _) => ResolvedToken::Ket(token_idx, Bracket::Angle),
-                    (None, ExprEnvironment::WithinBracket(Bracket::Angle)) => {
+                    (None, ExprParseEnvironment::WithinBracket(Bracket::Angle)) => {
                         return TokenResolveResult::Break(())
                     }
                     _ => ResolvedToken::BinaryOpr(
@@ -115,7 +115,9 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b> {
             TokenKind::Err(ref error) => ResolvedToken::Atom(Expr::Err(error.clone().into())),
         })
     }
+}
 
+impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
     fn resolve_ident(&self, ident: Identifier) -> ResolvedToken {
         if let Some(opn) = self.last_unfinished_expr() {
             match opn {
@@ -124,7 +126,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b> {
                     ..
                 } => {
                     if let Some(previous_expr) = self.finished_expr() {
-                        match previous_expr.base_entity_path(self.db(), &self.expr_arena) {
+                        match previous_expr.base_entity_path(self.db(), &self.parser.expr_arena) {
                             BaseEntityPath::None => todo!(),
                             BaseEntityPath::Some(_) => todo!(),
                             BaseEntityPath::Uncertain { .. } => {
@@ -139,7 +141,7 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b> {
                 _ => (),
             }
         }
-        match self.ctx.resolve_ident(ident) {
+        match self.parser.symbol_stack.resolve_ident(ident) {
             Some(symbol) => todo!(),
             // symbol.into(),
             None => ResolvedToken::Atom(Expr::Unrecognized(ident)),

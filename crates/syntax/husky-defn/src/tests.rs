@@ -17,6 +17,7 @@ use salsa::Database;
     EntityTreeJar,
     ManifestJar,
     DeclJar,
+    ExprJar,
     DefnJar
 )]
 #[derive(Default)]

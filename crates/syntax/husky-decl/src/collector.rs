@@ -167,8 +167,12 @@ impl<'a> DeclCollector<'a> {
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<Decl> {
-        let mut parser = self.expr_parser(path.into(), token_group_idx, saved_stream_state);
-        let implicit_parameters = parser.parse()?;
+        let mut parser = self.expr_parser(path.into());
+        let mut ctx = parser.ctx(
+            self.token_sheet
+                .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
+        );
+        let implicit_parameters = ctx.parse()?;
         Ok(Decl::Type(
             EnumTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters).into(),
         ))
@@ -182,8 +186,12 @@ impl<'a> DeclCollector<'a> {
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<Decl> {
-        let mut parser = self.expr_parser(path.into(), token_group_idx, saved_stream_state);
-        let implicit_parameters = parser.parse()?;
+        let mut parser = self.expr_parser(path.into());
+        let mut ctx = parser.ctx(
+            self.token_sheet
+                .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
+        );
+        let implicit_parameters = ctx.parse()?;
         Ok(Decl::Trait(TraitDecl::new(
             self.db,
             path,
@@ -201,8 +209,12 @@ impl<'a> DeclCollector<'a> {
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<Decl> {
-        let mut parser = self.expr_parser(path.into(), token_group_idx, saved_stream_state);
-        let implicit_parameters = parser.parse()?;
+        let mut parser = self.expr_parser(path.into());
+        let mut ctx = parser.ctx(
+            self.token_sheet
+                .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
+        );
+        let implicit_parameters = ctx.parse()?;
         Ok(Decl::Type(
             InductiveTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters)
                 .into(),
@@ -217,11 +229,15 @@ impl<'a> DeclCollector<'a> {
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<Decl> {
-        let mut parser = self.expr_parser(path.into(), token_group_idx, saved_stream_state);
-        let implicit_parameters = parser.parse()?;
-        if let Some(lcurl) = parser.parse::<LeftCurlyBraceToken>()? {
-            let (fields, separators) = parse_separated_list(&mut parser)?;
-            let rcurl: RightCurlyBraceToken = parser.parse_expected()?;
+        let mut parser = self.expr_parser(path.into());
+        let mut ctx = parser.ctx(
+            self.token_sheet
+                .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
+        );
+        let implicit_parameters = ctx.parse()?;
+        if let Some(lcurl) = ctx.parse::<LeftCurlyBraceToken>()? {
+            let (fields, separators) = parse_separated_list(&mut ctx)?;
+            let rcurl: RightCurlyBraceToken = ctx.parse_expected()?;
             Ok(Decl::Type(
                 PropsStructTypeDecl::new(
                     self.db,
@@ -236,29 +252,15 @@ impl<'a> DeclCollector<'a> {
                 )
                 .into(),
             ))
-        } else if let Some(lbox) = parser.parse::<LeftBoxBracketToken>()? {
+        } else if let Some(lbox) = ctx.parse::<LeftBoxBracketToken>()? {
             todo!()
         } else {
-            Err(DeclError::ExpectLCurlOrLParOrSemicolon(parser.save_state()))
+            Err(DeclError::ExpectLCurlOrLParOrSemicolon(ctx.save_state()))
         }
     }
 
-    fn expr_parser<'b, 'c>(
-        &self,
-        entity_path: EntityPath,
-        token_group_idx: TokenGroupIdx,
-        saved_stream_state: TokenIdx,
-    ) -> ExprParser<'b, 'a>
-    where
-        'a: 'c,
-    {
-        todo!()
-        // let ctx = SymbolContext::new(self.db, self.crate_prelude, local_symbol_sheet);
-        // ExprParser::new(
-        //     ctx,
-        //     self.token_sheet
-        //         .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
-        // )
+    fn expr_parser(&self, entity_path: EntityPath) -> ExprParser<'a> {
+        ExprParser::new(self.db, self.crate_prelude)
     }
 
     fn parse_structure_type_decl(
@@ -272,8 +274,13 @@ impl<'a> DeclCollector<'a> {
         let mut token_iter = self
             .token_sheet
             .token_group_token_stream(token_group_idx, Some(saved_stream_state));
-        let mut parser = self.expr_parser(path.into(), token_group_idx, saved_stream_state);
-        let implicit_parameters = parser.parse()?;
+
+        let mut parser = self.expr_parser(path.into());
+        let mut ctx = parser.ctx(
+            self.token_sheet
+                .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
+        );
+        let implicit_parameters = ctx.parse()?;
         Ok(Decl::Type(
             StructureTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters)
                 .into(),
@@ -292,8 +299,13 @@ impl<'a> DeclCollector<'a> {
         let mut token_iter = self
             .token_sheet
             .token_group_token_stream(token_group_idx, Some(saved_stream_state));
-        let mut parser = self.expr_parser(path.into(), token_group_idx, saved_stream_state);
-        let implicit_parameters = parser.parse()?;
+
+        let mut parser = self.expr_parser(path.into());
+        let mut ctx = parser.ctx(
+            self.token_sheet
+                .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
+        );
+        let implicit_parameters = ctx.parse()?;
         Ok(Decl::Type(
             AlienTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters).into(),
         ))
@@ -327,7 +339,11 @@ impl<'a> DeclCollector<'a> {
         saved_stream_state: TokenIdx,
         path: FormPath,
     ) -> Result<Decl, DeclError> {
-        let mut parser = self.expr_parser(path.into(), token_group_idx, saved_stream_state);
+        let mut parser = self.expr_parser(path.into());
+        let mut ctx = parser.ctx(
+            self.token_sheet
+                .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
+        );
         Ok(Decl::Form(
             FeatureDecl::new(self.db, path, ast_idx, parser.finish()).into(),
         ))
@@ -340,10 +356,13 @@ impl<'a> DeclCollector<'a> {
         saved_stream_state: TokenIdx,
         path: FormPath,
     ) -> Result<Decl, DeclError> {
-        let mut parser = self.expr_parser(path.into(), token_group_idx, saved_stream_state);
-        let implicit_parameter_decl_list = parser.parse()?;
-        p!(parser.peek(), path.debug(self.db));
-        let Some(parameter_decl_list) = parser.parse()? else {
+        let mut parser = self.expr_parser(path.into());
+        let mut ctx = parser.ctx(
+            self.token_sheet
+                .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
+        );
+        let implicit_parameter_decl_list = ctx.parse()?;
+        let Some(parameter_decl_list) = ctx.parse()? else {
             todo!()
         };
         Ok(Decl::Form(

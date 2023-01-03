@@ -4,6 +4,7 @@ use husky_defn::DefnJar;
 use husky_diagnostics::DiagnosticsJar;
 use husky_entity_path::EntityPathJar;
 use husky_entity_tree::EntityTreeJar;
+use husky_expr::ExprJar;
 use husky_folding_range::FoldingRangeJar;
 use husky_hover::HoverJar;
 use husky_layout::LayoutJar;
@@ -31,6 +32,7 @@ use husky_word::WordJar;
     LayoutJar,
     ManifestJar,
     // syntax
+    ExprJar,
     DeclJar,
     DefnJar,
     // infer

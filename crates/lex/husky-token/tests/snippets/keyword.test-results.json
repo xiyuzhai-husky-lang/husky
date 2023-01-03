@@ -1,18 +1,18 @@
 [
   {
     "input": "def",
-    "output": "[\n    Token {\n        range: [1:1, 1:4),\n        kind: Keyword(\n            Paradigm(\n                Def,\n            ),\n        ),\n    },\n]"
+    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:4),\n            kind: Keyword(\n                Paradigm(\n                    Def,\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "func",
-    "output": "[\n    Token {\n        range: [1:1, 1:5),\n        kind: Keyword(\n            Paradigm(\n                Func,\n            ),\n        ),\n    },\n]"
+    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:5),\n            kind: Keyword(\n                Paradigm(\n                    Func,\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "proc",
-    "output": "[\n    Token {\n        range: [1:1, 1:5),\n        kind: Keyword(\n            Paradigm(\n                Proc,\n            ),\n        ),\n    },\n]"
+    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:5),\n            kind: Keyword(\n                Paradigm(\n                    Proc,\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "trait",
-    "output": "[\n    Token {\n        range: [1:1, 1:6),\n        kind: Keyword(\n            Trait,\n        ),\n    },\n]"
+    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:6),\n            kind: Keyword(\n                Trait,\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   }
 ]
