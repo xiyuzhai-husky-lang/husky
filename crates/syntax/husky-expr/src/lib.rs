@@ -7,6 +7,7 @@ mod parser;
 mod pattern;
 mod precedence;
 mod sheet;
+mod snippet;
 mod stmt;
 #[cfg(test)]
 mod tests;
@@ -28,9 +29,10 @@ use husky_text::*;
 use husky_token::*;
 use husky_word::*;
 use precedence::*;
+use snippet::*;
 
 #[salsa::jar(db = ExprDb)]
-pub struct ExprJar(ExprSheet);
+pub struct ExprJar(ExprSheet, parse_expr_from_snippet);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum BaseEntityPath {

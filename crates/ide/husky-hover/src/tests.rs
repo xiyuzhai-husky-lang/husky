@@ -4,6 +4,7 @@ use husky_decl::DeclJar;
 use husky_defn::DefnJar;
 use husky_entity_path::EntityPathJar;
 use husky_entity_tree::{EntityTreeJar, EntityTreeResult};
+use husky_expr::ExprJar;
 use husky_manifest::ManifestJar;
 use husky_token::{TokenDb, TokenIdx, TokenJar};
 use husky_token_info::TokenInfoJar;
@@ -20,6 +21,7 @@ use husky_word::WordJar;
     EntityTreeJar,
     DeclJar,
     DefnJar,
+    ExprJar,
     HoverJar
 )]
 #[derive(Default)]

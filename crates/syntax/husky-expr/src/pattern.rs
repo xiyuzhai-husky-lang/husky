@@ -1,4 +1,4 @@
-use crate::{ExprError, ExprParser, ExprSheet};
+use crate::{ExprError, ExprParseContext, ExprSheet};
 use husky_entity_path::EntityPath;
 use husky_symbol::SymbolContext;
 use husky_token::{AtToken, DotDotToken, IdentifierToken, TokenStream};
@@ -55,9 +55,9 @@ pub(crate) type PatternExprArena = Arena<PatternExpr>;
 pub type PatternExprIdx = ArenaIdx<PatternExpr>;
 pub type PatternExprIdxRange = ArenaIdxRange<PatternExpr>;
 
-impl<'a, 'b, 'c> ParseFrom<ExprParser<'a, 'b>> for PatternExprIdx {
+impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for PatternExprIdx {
     fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParser<'a, 'b>,
+        ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
         // ad hoc
         if let Some(ident_token) = ctx.parse::<IdentifierToken>()? {

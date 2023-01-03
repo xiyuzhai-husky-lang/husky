@@ -1,6 +1,6 @@
 [
   {
     "input": "\"\\a\"",
-    "output": "[\n    Token {\n        range: [1:1, 1:5),\n        kind: Err(\n            UnexpectedCharAfterBackslash,\n        ),\n    },\n]"
+    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:5),\n            kind: Err(\n                UnexpectedCharAfterBackslash,\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   }
 ]

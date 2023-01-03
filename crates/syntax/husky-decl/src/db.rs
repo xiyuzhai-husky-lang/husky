@@ -3,13 +3,13 @@ use husky_entity_tree::{EntityTreeDb, EntityTreeResult};
 use husky_vfs::{ModulePath, VfsResult};
 use salsa::DbWithJar;
 
-pub trait DeclDb: DbWithJar<DeclJar> + EntityTreeDb {
+pub trait DeclDb: DbWithJar<DeclJar> + ExprDb {
     fn decl_sheet(&self, module_path: ModulePath) -> EntityTreeResult<&DeclSheet>;
 }
 
 impl<Db> DeclDb for Db
 where
-    Db: DbWithJar<DeclJar> + EntityTreeDb,
+    Db: DbWithJar<DeclJar> + ExprDb,
 {
     fn decl_sheet(&self, module_path: ModulePath) -> EntityTreeResult<&DeclSheet> {
         Ok(decl_sheet(self, module_path)

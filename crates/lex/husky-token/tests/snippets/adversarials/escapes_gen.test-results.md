@@ -11,12 +11,17 @@ input
 output
 
 ```husky
-[
-    Token {
-        range: [1:1, 1:5),
-        kind: Err(
-            UnexpectedCharAfterBackslash,
-        ),
-    },
-]
+TokenSheet {
+    tokens: [
+        Token {
+            range: [1:1, 1:5),
+            kind: Err(
+                UnexpectedCharAfterBackslash,
+            ),
+        },
+    ],
+    group_starts: [
+        0,
+    ],
+}
 ```

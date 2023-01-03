@@ -16,6 +16,7 @@ use husky_word::WordJar;
     AstJar,
     EntityTreeJar,
     ManifestJar,
+    ExprJar,
     DeclJar
 )]
 #[derive(Default)]

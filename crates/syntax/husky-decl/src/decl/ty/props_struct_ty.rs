@@ -38,13 +38,13 @@ pub struct PropsStructFieldDecl {
     ty: ExprIdx,
 }
 
-impl<'a, 'b, 'c> parsec::ParseFrom<ExprParser<'a, 'b>> for PropsStructFieldDecl {
+impl<'a, 'b, 'c> parsec::ParseFrom<ExprParseContext<'a, 'b>> for PropsStructFieldDecl {
     fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParser<'a, 'b>,
+        ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
         let ident: IdentifierToken = ctx.parse_expected()?;
         let colon: ColonToken = ctx.parse_expected()?;
-        let Some(expr) = ctx.parse_expr(ExprEnvironment::None) else { todo!() };
+        let Some(expr) = ctx.parse_expr(ExprParseEnvironment::None) else { todo!() };
         Ok(Some(PropsStructFieldDecl {
             ident,
             colon,

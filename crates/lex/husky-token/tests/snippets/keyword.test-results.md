@@ -11,16 +11,21 @@ def
 output
 
 ```husky
-[
-    Token {
-        range: [1:1, 1:4),
-        kind: Keyword(
-            Paradigm(
-                Def,
+TokenSheet {
+    tokens: [
+        Token {
+            range: [1:1, 1:4),
+            kind: Keyword(
+                Paradigm(
+                    Def,
+                ),
             ),
-        ),
-    },
-]
+        },
+    ],
+    group_starts: [
+        0,
+    ],
+}
 ```
 
 ## Test#1
@@ -34,16 +39,21 @@ func
 output
 
 ```husky
-[
-    Token {
-        range: [1:1, 1:5),
-        kind: Keyword(
-            Paradigm(
-                Func,
+TokenSheet {
+    tokens: [
+        Token {
+            range: [1:1, 1:5),
+            kind: Keyword(
+                Paradigm(
+                    Func,
+                ),
             ),
-        ),
-    },
-]
+        },
+    ],
+    group_starts: [
+        0,
+    ],
+}
 ```
 
 ## Test#2
@@ -57,16 +67,21 @@ proc
 output
 
 ```husky
-[
-    Token {
-        range: [1:1, 1:5),
-        kind: Keyword(
-            Paradigm(
-                Proc,
+TokenSheet {
+    tokens: [
+        Token {
+            range: [1:1, 1:5),
+            kind: Keyword(
+                Paradigm(
+                    Proc,
+                ),
             ),
-        ),
-    },
-]
+        },
+    ],
+    group_starts: [
+        0,
+    ],
+}
 ```
 
 ## Test#3
@@ -80,12 +95,17 @@ trait
 output
 
 ```husky
-[
-    Token {
-        range: [1:1, 1:6),
-        kind: Keyword(
-            Trait,
-        ),
-    },
-]
+TokenSheet {
+    tokens: [
+        Token {
+            range: [1:1, 1:6),
+            kind: Keyword(
+                Trait,
+            ),
+        },
+    ],
+    group_starts: [
+        0,
+    ],
+}
 ```

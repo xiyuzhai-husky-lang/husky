@@ -102,7 +102,7 @@ impl Expr {
     }
 }
 
-impl<'a, 'b, 'c> ExprParser<'a, 'b> {
+impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
     pub(super) fn finished_expr(&self) -> Option<&Expr> {
         self.stack.finished_expr.as_ref()
     }
@@ -258,7 +258,8 @@ impl<'a, 'b, 'c> ExprParser<'a, 'b> {
     }
 
     pub(super) fn finish_batch(&mut self) -> Option<ExprIdx> {
-        core::mem::take(&mut self.stack.finished_expr).map(|expr| self.alloc_expr(expr))
+        assert!(self.stack.unfinished_exprs.len() == 0);
+        std::mem::take(&mut self.stack.finished_expr).map(|expr| self.parser.alloc_expr(expr))
     }
 
     pub(super) fn last_bra(&self) -> Option<Bracket> {

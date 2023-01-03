@@ -1,26 +1,26 @@
 [
   {
     "input": "\"haha\"",
-    "output": "[\n    Token {\n        range: [1:1, 1:7),\n        kind: Literal(\n            String(\n                StringLiteral {\n                    data: \"haha\",\n                },\n            ),\n        ),\n    },\n]"
+    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:7),\n            kind: Literal(\n                String(\n                    StringLiteral {\n                        data: \"haha\",\n                    },\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "\"\\n\"",
-    "output": "[\n    Token {\n        range: [1:1, 1:5),\n        kind: Literal(\n            String(\n                StringLiteral {\n                    data: \"\\n\",\n                },\n            ),\n        ),\n    },\n]"
+    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:5),\n            kind: Literal(\n                String(\n                    StringLiteral {\n                        data: \"\\n\",\n                    },\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "\"\\t\"",
-    "output": "[\n    Token {\n        range: [1:1, 1:5),\n        kind: Literal(\n            String(\n                StringLiteral {\n                    data: \"\\t\",\n                },\n            ),\n        ),\n    },\n]"
+    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:5),\n            kind: Literal(\n                String(\n                    StringLiteral {\n                        data: \"\\t\",\n                    },\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "\"\\\\\"",
-    "output": "[\n    Token {\n        range: [1:1, 1:5),\n        kind: Literal(\n            String(\n                StringLiteral {\n                    data: \"\\\\\",\n                },\n            ),\n        ),\n    },\n]"
+    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:5),\n            kind: Literal(\n                String(\n                    StringLiteral {\n                        data: \"\\\\\",\n                    },\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "\"\\\"\"",
-    "output": "[\n    Token {\n        range: [1:1, 1:5),\n        kind: Literal(\n            String(\n                StringLiteral {\n                    data: \"\\\"\",\n                },\n            ),\n        ),\n    },\n]"
+    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:5),\n            kind: Literal(\n                String(\n                    StringLiteral {\n                        data: \"\\\"\",\n                    },\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "\"\\r\"",
-    "output": "[\n    Token {\n        range: [1:1, 1:5),\n        kind: Literal(\n            String(\n                StringLiteral {\n                    data: \"\\r\",\n                },\n            ),\n        ),\n    },\n]"
+    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:5),\n            kind: Literal(\n                String(\n                    StringLiteral {\n                        data: \"\\r\",\n                    },\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   }
 ]

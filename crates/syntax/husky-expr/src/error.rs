@@ -49,8 +49,8 @@ pub enum ExprError {
     MissingItemBeforeComma { comma_token_idx: TokenIdx },
 }
 
-impl<'a, 'b, 'c> FromAbsent<RightCurlyBraceToken, ExprParser<'a, 'b>> for ExprError {
-    fn new_absent_error(state: <ExprParser<'a, 'b> as HasParseState>::State) -> Self {
+impl<'a, 'b, 'c> FromAbsent<RightCurlyBraceToken, ExprParseContext<'a, 'b>> for ExprError {
+    fn new_absent_error(state: <ExprParseContext<'a, 'b> as HasParseState>::State) -> Self {
         ExprError::ExpectRightCurlyBrace(state)
     }
 }
