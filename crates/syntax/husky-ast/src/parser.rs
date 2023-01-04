@@ -185,7 +185,7 @@ impl<'a> AstParser<'a> {
 
     fn parse_stmt(&mut self, token_group_idx: TokenGroupIdx, context: &Context) -> Ast {
         let body = self.parse_asts(context.subcontext(AstContextKind::InsideForm));
-        Ast::Stmt {
+        Ast::BasicStmt {
             token_group_idx,
             body,
         }

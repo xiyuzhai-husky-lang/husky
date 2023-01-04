@@ -43,7 +43,7 @@ Ok(
                     Expr(
                         ExpectIdentifier(
                             TokenIdx(
-                                492,
+                                493,
                             ),
                         ),
                     ),
@@ -55,7 +55,7 @@ Ok(
                     Expr(
                         ExpectIdentifier(
                             TokenIdx(
-                                570,
+                                571,
                             ),
                         ),
                     ),
@@ -67,7 +67,7 @@ Ok(
                     Expr(
                         ExpectIdentifier(
                             TokenIdx(
-                                697,
+                                698,
                             ),
                         ),
                     ),

@@ -4,6 +4,10 @@ impl<'a> ExprParser<'a> {
     pub(crate) fn alloc_expr(&mut self, expr: Expr) -> ExprIdx {
         self.expr_arena.alloc_one(expr)
     }
+
+    pub(super) fn alloc_stmts(&mut self, stmts: Vec<Stmt>) -> StmtIdxRange {
+        self.stmt_arena.alloc_batch(stmts)
+    }
 }
 
 impl<'a, 'b> ExprParseContext<'a, 'b> {

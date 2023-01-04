@@ -11,5 +11,5 @@ pub enum EntityPathExpr {
     },
 }
 
-pub(crate) type EntityPathExprArena = Arena<EntityPathExpr>;
+pub type EntityPathExprArena = Arena<EntityPathExpr>;
 pub type EntityPathExprIdx = ArenaIdx<EntityPathExpr>;

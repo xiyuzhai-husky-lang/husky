@@ -92,6 +92,7 @@ impl Expr {
             Expr::TemplateInstantiation { template, .. } => {
                 arena[template].base_entity_path(db, arena)
             }
+            Expr::Block { stmts } => BaseEntityPath::None,
         }
     }
 }

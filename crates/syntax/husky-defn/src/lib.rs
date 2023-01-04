@@ -2,18 +2,20 @@
 mod collector;
 mod db;
 mod defn;
+mod error;
 mod sheet;
 #[cfg(test)]
 mod tests;
 
 pub use db::*;
 pub use defn::*;
-use husky_entity_tree::EntityTreeResult;
+pub use error::*;
 pub use sheet::*;
 
 use collector::*;
 use husky_decl::*;
 use husky_entity_path::*;
+use husky_entity_tree::EntityTreeResult;
 use husky_expr::*;
 use husky_expr::{ExprIdx, ExprSheet};
 use husky_vfs::{ModulePath, VfsResult};

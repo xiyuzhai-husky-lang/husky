@@ -9,6 +9,7 @@ mod symbol_stack;
 mod unfinished_expr;
 
 pub use env::*;
+use husky_ast::{Ast, AstIdxRange, AstSheet};
 
 use crate::*;
 use expr_stack::*;
@@ -24,20 +25,28 @@ use unfinished_expr::*;
 
 pub struct ExprParser<'a> {
     db: &'a dyn ExprDb,
+    ast_sheet: Option<&'a AstSheet>,
     symbol_stack: SymbolStack<'a>,
     expr_arena: ExprArena,
     entity_path_expr_arena: EntityPathExprArena,
     pattern_expr_arena: PatternExprArena,
+    stmt_arena: StmtArena,
 }
 
 impl<'a> ExprParser<'a> {
-    pub fn new(db: &'a dyn ExprDb, crate_prelude: CratePrelude<'a>) -> Self {
+    pub fn new(
+        db: &'a dyn ExprDb,
+        ast_sheet: Option<&'a AstSheet>,
+        crate_prelude: CratePrelude<'a>,
+    ) -> Self {
         Self {
             db,
+            ast_sheet,
             symbol_stack: SymbolStack::new(crate_prelude),
             expr_arena: Default::default(),
             entity_path_expr_arena: Default::default(),
             pattern_expr_arena: Default::default(),
+            stmt_arena: Default::default(),
         }
     }
 
@@ -47,6 +56,7 @@ impl<'a> ExprParser<'a> {
             self.expr_arena,
             self.entity_path_expr_arena,
             self.pattern_expr_arena,
+            self.stmt_arena,
         )
     }
 
@@ -55,6 +65,53 @@ impl<'a> ExprParser<'a> {
         'a: 'b,
     {
         ExprParseContext::new(self, token_iter)
+    }
+
+    pub fn parse_block(&mut self, body: &AstIdxRange) -> Option<ExprIdx> {
+        if body.len() == 0 {
+            return None;
+        }
+        let stmts = self.ast_sheet.unwrap()[body]
+            .iter()
+            .filter_map(|ast| self.parse_stmt(ast))
+            .collect();
+        let stmts = self.alloc_stmts(stmts);
+        Some(self.alloc_expr(Expr::Block { stmts }))
+    }
+
+    fn parse_stmt(&mut self, ast: &Ast) -> Option<Stmt> {
+        match ast {
+            Ast::Err {
+                token_group_idx,
+                error,
+            } => todo!(),
+            Ast::Use {
+                token_group_idx,
+                accessibility,
+                ident,
+                use_expr_idx,
+            } => todo!(),
+            Ast::Comment { token_group_idx } => todo!(),
+            Ast::Decor { token_group_idx } => todo!(),
+            Ast::BasicStmt {
+                token_group_idx,
+                body,
+            } => todo!(),
+            Ast::IfElseStmts {
+                if_stmt,
+                elif_stmts,
+                else_stmt,
+            } => todo!(),
+            Ast::MatchStmts {
+                pattern_stmt,
+                case_stmts,
+            } => todo!(),
+            Ast::Defn { .. } => todo!(),
+            Ast::ModuleItemVariant { .. } => todo!(),
+            Ast::Impl { .. } => todo!(),
+            Ast::Main { .. } => todo!(),
+            Ast::Config { .. } => todo!(),
+        }
     }
 }
 
@@ -107,7 +164,7 @@ pub fn parse_expr<'a>(
     token_iter: TokenStream<'a>,
     env: ExprParseEnvironment,
 ) -> (ExprSheet, Option<ExprIdx>) {
-    let mut expr_parser = ExprParser::new(db, crate_prelude);
+    let mut expr_parser = ExprParser::new(db, None, crate_prelude);
     let expr = expr_parser.ctx(token_iter).parse_expr(env);
     (expr_parser.finish(), expr)
 }

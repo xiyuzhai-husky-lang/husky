@@ -51,7 +51,7 @@ pub enum LiteralData {
 #[derive(Debug, PartialEq, Eq)]
 pub enum PatternOpn {}
 
-pub(crate) type PatternExprArena = Arena<PatternExpr>;
+pub type PatternExprArena = Arena<PatternExpr>;
 pub type PatternExprIdx = ArenaIdx<PatternExpr>;
 pub type PatternExprIdxRange = ArenaIdxRange<PatternExpr>;
 
