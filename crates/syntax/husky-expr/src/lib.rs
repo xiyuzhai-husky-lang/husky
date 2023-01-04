@@ -88,6 +88,13 @@ pub enum Expr {
         punctuation: SuffixOpr,
         punctuation_token_idx: TokenIdx,
     },
+    FunctionCall {
+        function: ExprIdx,
+        implicit_arguments: Option<ImplicitArgumentList>,
+        lpar_token_idx: TokenIdx,
+        arguments: ExprIdxRange,
+        rpar_token_idx: TokenIdx,
+    },
     Field {
         this_expr: ExprIdx,
         dot_token_idx: TokenIdx,

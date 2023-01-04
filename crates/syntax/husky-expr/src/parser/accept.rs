@@ -5,8 +5,6 @@ use super::*;
 
 impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
     pub(crate) fn accept_token(&mut self, token: ResolvedToken) {
-        p!(token);
-        p!(self.finished_expr());
         match token {
             ResolvedToken::Atom(atom) => self.accept_atom(atom),
             ResolvedToken::BinaryOpr(token_idx, opr) => self.accept_binary_opr(opr, token_idx),
@@ -17,7 +15,6 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
             ResolvedToken::Dot(token_idx) => self.accept_dot_opr(token_idx),
             ResolvedToken::ListItem(token_idx) => self.accept_list_item(token_idx),
         }
-        p!(self.finished_expr())
     }
 
     pub(crate) fn accept_list_end(&mut self, ket: Bracket, ket_token_idx: TokenIdx) {
@@ -51,7 +48,14 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
                         }
                         .into(),
                         UnfinishedListOpr::NewLambdaHead => todo!(),
-                        UnfinishedListOpr::FunctionCall { .. } => todo!(),
+                        UnfinishedListOpr::FunctionCall { function } => Expr::FunctionCall {
+                            function,
+                            implicit_arguments: None, // ad hoc
+                            lpar_token_idx: bra_token_idx,
+                            arguments: items,
+                            rpar_token_idx: ket_token_idx,
+                        }
+                        .into(),
                         UnfinishedListOpr::MethodInstantiation {} => todo!(),
                         UnfinishedListOpr::MethodCall {
                             this_expr,
@@ -194,7 +198,13 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
                         items: vec![],
                     }
                     .into(),
-                    Bracket::Box => todo!(),
+                    Bracket::Box => UnfinishedExpr::List {
+                        opr: UnfinishedListOpr::NewVec,
+                        bra,
+                        bra_token_idx,
+                        items: vec![],
+                    }
+                    .into(),
                     Bracket::Angle => UnfinishedExpr::List {
                         opr: UnfinishedListOpr::TemplateInstantiation { template: expr },
                         bra,

@@ -7,6 +7,8 @@ pub enum TokenInfo {
     ImplicitParameter,
     Parameter,
     Variable,
+    Field,
+    Method,
 }
 
 impl Default for TokenInfo {

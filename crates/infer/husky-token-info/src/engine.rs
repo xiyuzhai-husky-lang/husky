@@ -172,17 +172,21 @@ struct ExprSheetTokenInfoInferEngine<'a> {
 impl<'a> ExprSheetTokenInfoInferEngine<'a> {
     fn visit_expr(&mut self, expr: &Expr) {
         match expr {
-            Expr::Literal(_) => todo!(),
-            Expr::EntityPath(_) => todo!(),
             Expr::Variable {
                 token_idx,
                 variable_idx,
             } => todo!(),
-            Expr::Uncertain(_) => todo!(),
-            Expr::Unrecognized(_) => (),
-            Expr::Field { ident_token, .. } => todo!(),
-            Expr::MethodCall { ident_token, .. } => todo!(),
-            Expr::BinaryOpn { .. }
+            Expr::Field { ident_token, .. } => {
+                self.sheet.add(ident_token.token_idx(), TokenInfo::Field)
+            }
+            Expr::MethodCall { ident_token, .. } => {
+                self.sheet.add(ident_token.token_idx(), TokenInfo::Method)
+            }
+            Expr::Literal(_)
+            | Expr::EntityPath(_)
+            | Expr::Uncertain(_)
+            | Expr::Unrecognized(_)
+            | Expr::BinaryOpn { .. }
             | Expr::PrefixOpn { .. }
             | Expr::SuffixOpn { .. }
             | Expr::TemplateInstantiation { .. }
@@ -190,8 +194,9 @@ impl<'a> ExprSheetTokenInfoInferEngine<'a> {
             | Expr::NewTuple { .. }
             | Expr::NewList { .. }
             | Expr::Bracketed(_)
-            | Expr::Err(_) => (),
-            Expr::Block { stmts } => (),
+            | Expr::Err(_)
+            | Expr::Block { .. }
+            | Expr::FunctionCall { .. } => (),
         }
     }
 

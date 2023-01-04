@@ -94,6 +94,7 @@ impl Expr {
                 arena[template].base_entity_path(db, arena)
             }
             Expr::Block { stmts } => BaseEntityPath::None,
+            Expr::FunctionCall { .. } => todo!(),
         }
     }
 }
@@ -183,11 +184,6 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
                     })
                 }
                 UnfinishedExpr::Application { function } => {
-                    p!(
-                        self.parser.entity_path.debug(self.db()),
-                        self.token_stream.text_range(),
-                        function
-                    );
                     let argument = self.take_finished_expr().unwrap();
                     let function = self.alloc_expr(function);
                     let argument = self.alloc_expr(argument);
