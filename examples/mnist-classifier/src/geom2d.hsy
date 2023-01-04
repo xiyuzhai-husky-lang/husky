@@ -46,7 +46,7 @@ impl Vector2d:
         this.x * other.y - this.y * other.x
 
     func angle(is_branch_cut_positive: bool) -> f32:
-        cos_value = (this.x/this.norm()).min(1.)
+        let cos_value = (this.x/this.norm()).min(1.)
         if cos_value + 1.0 < 0.001:
             if is_branch_cut_positive:
                 180.0
