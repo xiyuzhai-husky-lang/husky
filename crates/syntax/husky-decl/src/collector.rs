@@ -104,7 +104,7 @@ impl<'a> DeclCollector<'a> {
             | Ast::Use { .. }
             | Ast::Comment { .. }
             | Ast::Decor { .. }
-            | Ast::Stmt { .. }
+            | Ast::BasicStmt { .. }
             | Ast::IfElseStmts { .. }
             | Ast::MatchStmts { .. }
             | Ast::ModuleItemVariant { .. }
@@ -260,7 +260,7 @@ impl<'a> DeclCollector<'a> {
     }
 
     fn expr_parser(&self, entity_path: EntityPath) -> ExprParser<'a> {
-        ExprParser::new(self.db, self.crate_prelude)
+        ExprParser::new(self.db, None, self.crate_prelude)
     }
 
     fn parse_structure_type_decl(

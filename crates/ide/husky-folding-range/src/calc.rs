@@ -36,7 +36,7 @@ impl<'a> FoldingRangeCalculator<'a> {
             | Ast::IfElseStmts { .. }
             | Ast::MatchStmts { .. }
             | Ast::ModuleItemVariant { .. } => None,
-            Ast::Stmt { body, .. }
+            Ast::BasicStmt { body, .. }
             | Ast::Defn { body, .. }
             | Ast::Impl { body, .. }
             | Ast::Main { body, .. }

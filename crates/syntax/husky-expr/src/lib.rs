@@ -1,5 +1,4 @@
 #![feature(trait_upcasting)]
-mod atom;
 mod db;
 mod entity_path;
 mod error;
@@ -13,13 +12,13 @@ mod stmt;
 mod tests;
 mod variable;
 
-pub use atom::*;
-pub use db::ExprDb;
+pub use db::*;
 pub use entity_path::*;
 pub use error::*;
 pub use parser::*;
 pub use pattern::*;
 pub use sheet::*;
+pub use stmt::*;
 pub use variable::*;
 
 use husky_entity_path::EntityPath;
@@ -122,6 +121,9 @@ pub enum Expr {
         rbox_token_idx: TokenIdx,
     },
     Bracketed(ExprIdx),
+    Block {
+        stmts: StmtIdxRange,
+    },
     Err(ExprError),
 }
 
@@ -156,7 +158,7 @@ impl ImplicitArgumentList {
 
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 
-pub(crate) type ExprArena = Arena<Expr>;
+pub type ExprArena = Arena<Expr>;
 pub type ExprIdx = ArenaIdx<Expr>;
 pub type ExprIdxRange = ArenaIdxRange<Expr>;
 pub type ExprMap<V> = ArenaMap<Expr, V>;

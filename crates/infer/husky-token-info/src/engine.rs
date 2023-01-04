@@ -1,9 +1,9 @@
 use crate::*;
 use husky_ast::{Ast, AstSheet};
 use husky_defn::*;
-use husky_expr::{Expr, ExprSheet, PatternExpr};
+use husky_expr::*;
 
-pub(crate) struct TokenInferEngine<'a> {
+pub(crate) struct TokenInfoInferEngine<'a> {
     db: &'a dyn TokenInfoDb,
     token_sheet: &'a TokenSheet,
     ast_sheet: &'a AstSheet,
@@ -11,7 +11,7 @@ pub(crate) struct TokenInferEngine<'a> {
     sheet: TokenInfoSheet,
 }
 
-impl<'a> TokenInferEngine<'a> {
+impl<'a> TokenInfoInferEngine<'a> {
     pub(crate) fn new(db: &'a dyn TokenInfoDb, module_path: ModulePath) -> EntityTreeResult<Self> {
         let token_sheet = &db.token_sheet(module_path)?;
         Ok(Self {
@@ -26,7 +26,6 @@ impl<'a> TokenInferEngine<'a> {
     pub(crate) fn visit_all(mut self) -> TokenInfoSheet {
         for defn in self.defn_sheet.defns() {
             let decl = defn.decl(self.db);
-
             self.visit_expr_sheet(decl.expr_sheet(self.db));
             self.visit_expr_sheet(defn.expr_sheet(self.db));
             let ast_idx = defn.ast_idx(self.db);
@@ -68,59 +67,17 @@ impl<'a> TokenInferEngine<'a> {
     }
 
     fn visit_expr_sheet(&mut self, expr_sheet: ExprSheet) {
-        for expr in expr_sheet.expr_arena(self.db).data() {
-            self.visit_expr(expr)
+        ExprSheetTokenInfoInferEngine {
+            db: self.db,
+            token_sheet: self.token_sheet,
+            ast_sheet: self.ast_sheet,
+            sheet: &mut self.sheet,
+            expr_arena: expr_sheet.expr_arena(self.db),
+            pattern_expr_arena: expr_sheet.pattern_expr_arena(self.db),
+            entity_path_expr_arena: expr_sheet.entity_path_expr_arena(self.db),
+            stmt_arena: expr_sheet.stmt_arena(self.db),
         }
-        for pattern_expr in expr_sheet.pattern_expr_arena(self.db).data() {
-            self.visit_pattern_expr(pattern_expr)
-        }
-    }
-
-    fn visit_expr(&mut self, expr: &Expr) {
-        match expr {
-            Expr::Literal(_) => todo!(),
-            Expr::EntityPath(_) => todo!(),
-            Expr::Variable {
-                token_idx,
-                variable_idx,
-            } => todo!(),
-            Expr::Uncertain(_) => todo!(),
-            Expr::Unrecognized(_) => (),
-            Expr::Field { ident_token, .. } => todo!(),
-            Expr::MethodCall { ident_token, .. } => todo!(),
-            Expr::BinaryOpn { .. }
-            | Expr::PrefixOpn { .. }
-            | Expr::SuffixOpn { .. }
-            | Expr::TemplateInstantiation { .. }
-            | Expr::Application { .. }
-            | Expr::NewTuple { .. }
-            | Expr::NewList { .. }
-            | Expr::Bracketed(_)
-            | Expr::Err(_) => (),
-        }
-    }
-
-    fn visit_pattern_expr(&mut self, pattern_expr: &PatternExpr) {
-        match pattern_expr {
-            PatternExpr::Literal(_) => todo!(),
-            PatternExpr::ParameterIdentifier { ident_token } => self
-                .sheet
-                .add(ident_token.token_idx(), TokenInfo::Parameter),
-            PatternExpr::Entity(_) => todo!(),
-            PatternExpr::Tuple { name, fields } => todo!(),
-            PatternExpr::Struct { name, fields } => todo!(),
-            PatternExpr::OneOf { options } => todo!(),
-            PatternExpr::Binding {
-                ident_token,
-                asperand_token,
-                src,
-            } => todo!(),
-            PatternExpr::Range {
-                start,
-                dot_dot_token,
-                end,
-            } => todo!(),
-        }
+        .visit_all()
     }
 
     fn visit_ty(&mut self, defn: TypeDefn) {
@@ -201,7 +158,82 @@ impl<'a> TokenInferEngine<'a> {
     }
 }
 
-enum A {
-    A1 { a: i32 },
-    A2 { a: i32 },
+struct ExprSheetTokenInfoInferEngine<'a> {
+    db: &'a dyn TokenInfoDb,
+    token_sheet: &'a TokenSheet,
+    ast_sheet: &'a AstSheet,
+    expr_arena: &'a ExprArena,
+    pattern_expr_arena: &'a PatternExprArena,
+    entity_path_expr_arena: &'a EntityPathExprArena,
+    stmt_arena: &'a StmtArena,
+    sheet: &'a mut TokenInfoSheet,
+}
+
+impl<'a> ExprSheetTokenInfoInferEngine<'a> {
+    fn visit_expr(&mut self, expr: &Expr) {
+        match expr {
+            Expr::Literal(_) => todo!(),
+            Expr::EntityPath(_) => todo!(),
+            Expr::Variable {
+                token_idx,
+                variable_idx,
+            } => todo!(),
+            Expr::Uncertain(_) => todo!(),
+            Expr::Unrecognized(_) => (),
+            Expr::Field { ident_token, .. } => todo!(),
+            Expr::MethodCall { ident_token, .. } => todo!(),
+            Expr::BinaryOpn { .. }
+            | Expr::PrefixOpn { .. }
+            | Expr::SuffixOpn { .. }
+            | Expr::TemplateInstantiation { .. }
+            | Expr::Application { .. }
+            | Expr::NewTuple { .. }
+            | Expr::NewList { .. }
+            | Expr::Bracketed(_)
+            | Expr::Err(_) => (),
+            Expr::Block { stmts } => {
+                for stmt in &self.stmt_arena[stmts] {
+                    self.visit_stmt(stmt)
+                }
+            }
+        }
+    }
+
+    fn visit_stmt(&mut self, stmt: &Stmt) {
+        match stmt {
+            Stmt::Let {} => todo!(),
+        }
+    }
+
+    fn visit_pattern_expr(&mut self, pattern_expr: &PatternExpr) {
+        match pattern_expr {
+            PatternExpr::Literal(_) => todo!(),
+            PatternExpr::ParameterIdentifier { ident_token } => self
+                .sheet
+                .add(ident_token.token_idx(), TokenInfo::Parameter),
+            PatternExpr::Entity(_) => todo!(),
+            PatternExpr::Tuple { name, fields } => todo!(),
+            PatternExpr::Struct { name, fields } => todo!(),
+            PatternExpr::OneOf { options } => todo!(),
+            PatternExpr::Binding {
+                ident_token,
+                asperand_token,
+                src,
+            } => todo!(),
+            PatternExpr::Range {
+                start,
+                dot_dot_token,
+                end,
+            } => todo!(),
+        }
+    }
+
+    fn visit_all(mut self) {
+        for expr in self.expr_arena.data() {
+            self.visit_expr(expr)
+        }
+        for pattern_expr in self.pattern_expr_arena.data() {
+            self.visit_pattern_expr(pattern_expr)
+        }
+    }
 }

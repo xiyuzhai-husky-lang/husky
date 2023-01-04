@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ast::AstSheet;
+use husky_ast::{Ast, AstSheet};
 use husky_entity_tree::{CratePrelude, EntityTreeResult};
 use husky_token::TokenSheet;
 use vec_like::VecPairMap;
@@ -127,9 +127,15 @@ impl<'a> DefnCollector<'a> {
     fn parse_feature_defn(&self, decl: FeatureDecl) -> FeatureDefn {
         let path = decl.path(self.db);
         let mut parser = self.expr_parser(path.into());
-        FeatureDefn::new(self.db, path, decl, parser.finish())
+        let ast_idx = decl.ast_idx(self.db);
+        let ast = &self.ast_sheet[ast_idx];
+        let body = match ast {
+            Ast::Defn { body, .. } => parser.parse_block(body).ok_or(DefnError::MissingBody),
+            _ => unreachable!(),
+        };
+        FeatureDefn::new(self.db, path, decl, parser.finish(), body)
     }
     fn expr_parser(&self, entity_path: EntityPath) -> ExprParser<'a> {
-        ExprParser::new(self.db, self.crate_prelude)
+        ExprParser::new(self.db, Some(self.ast_sheet), self.crate_prelude)
     }
 }

@@ -8,4 +8,6 @@ pub struct ExprSheet {
     pub entity_path_expr_arena: EntityPathExprArena,
     #[return_ref]
     pub pattern_expr_arena: PatternExprArena,
+    #[return_ref]
+    pub stmt_arena: StmtArena,
 }

@@ -156,7 +156,7 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
             Ast::Err { .. }
             | Ast::Comment { .. }
             | Ast::Decor { .. }
-            | Ast::Stmt { .. }
+            | Ast::BasicStmt { .. }
             | Ast::IfElseStmts { .. }
             | Ast::MatchStmts { .. }
             | Ast::ModuleItemVariant { .. }

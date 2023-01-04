@@ -2798,7 +2798,15 @@ Ok(
                 ),
             },
             Token {
-                range: [49:9, 49:18),
+                range: [49:9, 49:12),
+                kind: Keyword(
+                    Stmt(
+                        Let,
+                    ),
+                ),
+            },
+            Token {
+                range: [49:13, 49:22),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -2810,7 +2818,7 @@ Ok(
                 ),
             },
             Token {
-                range: [49:19, 49:20),
+                range: [49:23, 49:24),
                 kind: Punctuation(
                     Binary(
                         Assign(
@@ -2820,7 +2828,7 @@ Ok(
                 ),
             },
             Token {
-                range: [49:21, 49:22),
+                range: [49:25, 49:26),
                 kind: Punctuation(
                     Bra(
                         Par,
@@ -2828,7 +2836,7 @@ Ok(
                 ),
             },
             Token {
-                range: [49:22, 49:26),
+                range: [49:26, 49:30),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -2840,13 +2848,13 @@ Ok(
                 ),
             },
             Token {
-                range: [49:26, 49:27),
+                range: [49:30, 49:31),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [49:27, 49:28),
+                range: [49:31, 49:32),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -2858,7 +2866,7 @@ Ok(
                 ),
             },
             Token {
-                range: [49:28, 49:29),
+                range: [49:32, 49:33),
                 kind: Punctuation(
                     Binary(
                         PureClosed(
@@ -2868,7 +2876,7 @@ Ok(
                 ),
             },
             Token {
-                range: [49:29, 49:33),
+                range: [49:33, 49:37),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -2880,13 +2888,13 @@ Ok(
                 ),
             },
             Token {
-                range: [49:33, 49:34),
+                range: [49:37, 49:38),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [49:34, 49:38),
+                range: [49:38, 49:42),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -2898,7 +2906,7 @@ Ok(
                 ),
             },
             Token {
-                range: [49:38, 49:39),
+                range: [49:42, 49:43),
                 kind: Punctuation(
                     Bra(
                         Par,
@@ -2906,7 +2914,7 @@ Ok(
                 ),
             },
             Token {
-                range: [49:39, 49:40),
+                range: [49:43, 49:44),
                 kind: Punctuation(
                     Ket(
                         Par,
@@ -2914,7 +2922,7 @@ Ok(
                 ),
             },
             Token {
-                range: [49:40, 49:41),
+                range: [49:44, 49:45),
                 kind: Punctuation(
                     Ket(
                         Par,
@@ -2922,13 +2930,13 @@ Ok(
                 ),
             },
             Token {
-                range: [49:41, 49:42),
+                range: [49:45, 49:46),
                 kind: Punctuation(
                     Dot,
                 ),
             },
             Token {
-                range: [49:42, 49:45),
+                range: [49:46, 49:49),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -2940,7 +2948,7 @@ Ok(
                 ),
             },
             Token {
-                range: [49:45, 49:46),
+                range: [49:49, 49:50),
                 kind: Punctuation(
                     Bra(
                         Par,
@@ -2948,7 +2956,7 @@ Ok(
                 ),
             },
             Token {
-                range: [49:46, 49:48),
+                range: [49:50, 49:52),
                 kind: Literal(
                     Float(
                         Unspecified,
@@ -2956,7 +2964,7 @@ Ok(
                 ),
             },
             Token {
-                range: [49:48, 49:49),
+                range: [49:52, 49:53),
                 kind: Punctuation(
                     Ket(
                         Par,
@@ -6844,72 +6852,72 @@ Ok(
             276,
             291,
             301,
-            319,
-            326,
-            329,
+            320,
+            327,
             330,
-            332,
-            334,
-            336,
-            357,
+            331,
+            333,
+            335,
+            337,
             358,
-            368,
+            359,
             369,
             370,
             371,
-            379,
-            384,
-            398,
-            405,
-            409,
-            416,
-            420,
-            441,
-            448,
-            451,
+            372,
+            380,
+            385,
+            399,
+            406,
+            410,
+            417,
+            421,
+            442,
+            449,
             452,
-            454,
-            456,
-            458,
-            476,
-            481,
-            493,
-            496,
-            506,
-            510,
-            515,
-            526,
-            537,
-            544,
-            554,
-            559,
-            566,
-            570,
-            575,
-            580,
+            453,
+            455,
+            457,
+            459,
+            477,
+            482,
+            494,
+            497,
+            507,
+            511,
+            516,
+            527,
+            538,
+            545,
+            555,
+            560,
+            567,
+            571,
+            576,
             581,
-            584,
-            594,
-            615,
-            625,
-            646,
-            653,
-            656,
-            663,
-            666,
-            673,
-            676,
-            683,
-            686,
-            698,
-            701,
-            708,
-            711,
-            718,
-            721,
-            728,
-            731,
-            738,
+            582,
+            585,
+            595,
+            616,
+            626,
+            647,
+            654,
+            657,
+            664,
+            667,
+            674,
+            677,
+            684,
+            687,
+            699,
+            702,
+            709,
+            712,
+            719,
+            722,
+            729,
+            732,
+            739,
         ],
     },
 )

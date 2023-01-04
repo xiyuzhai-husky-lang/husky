@@ -48,7 +48,7 @@ pub enum Ast {
     Decor {
         token_group_idx: TokenGroupIdx,
     },
-    Stmt {
+    BasicStmt {
         token_group_idx: TokenGroupIdx,
         body: AstIdxRange,
     },
@@ -202,7 +202,7 @@ impl<Db: AstDb> salsa::DebugWithDb<Db> for Ast {
                 .debug_struct("Decor")
                 .field("token_group_idx", token_group_idx)
                 .finish(),
-            Ast::Stmt {
+            Ast::BasicStmt {
                 token_group_idx,
                 body,
             } => f
