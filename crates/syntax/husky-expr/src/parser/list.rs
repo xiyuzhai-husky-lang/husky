@@ -15,7 +15,7 @@ pub(super) enum UnfinishedListOpr {
     MethodCall {
         this_expr: ExprIdx,
         dot_token_idx: TokenIdx,
-        method_ident_token: IdentifierToken,
+        ident_token: IdentifierToken,
         implicit_arguments: Option<ImplicitArgumentList>,
     },
 }

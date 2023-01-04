@@ -70,13 +70,7 @@ impl Expr {
                 dot_token_idx,
                 ident_token,
             } => todo!(),
-            Expr::MethodCall {
-                this_expr,
-                implicit_arguments,
-                arguments,
-                lpar_token_idx,
-                rpar_token_idx,
-            } => todo!(),
+            Expr::MethodCall { .. } => todo!(),
             Expr::Application { function, argument } => todo!(),
             Expr::NewTuple {
                 lpar_token_idx,

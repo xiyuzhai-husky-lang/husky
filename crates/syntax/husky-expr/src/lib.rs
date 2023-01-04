@@ -96,9 +96,11 @@ pub enum Expr {
     },
     MethodCall {
         this_expr: ExprIdx,
+        dot_token_idx: TokenIdx,
+        ident_token: IdentifierToken,
         implicit_arguments: Option<ImplicitArgumentList>,
-        arguments: ExprIdxRange,
         lpar_token_idx: TokenIdx,
+        arguments: ExprIdxRange,
         rpar_token_idx: TokenIdx,
     },
     TemplateInstantiation {

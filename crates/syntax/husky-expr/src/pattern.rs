@@ -12,7 +12,7 @@ pub enum PatternExpr {
     /// example: `1`
     Literal(LiteralData),
     /// example: `a`
-    Identifier { ident_token: IdentifierToken },
+    ParameterIdentifier { ident_token: IdentifierToken },
     /// example: `A::B`
     Entity(EntityPath),
     /// example: `(a, b)`
@@ -55,17 +55,44 @@ pub(crate) type PatternExprArena = Arena<PatternExpr>;
 pub type PatternExprIdx = ArenaIdx<PatternExpr>;
 pub type PatternExprIdxRange = ArenaIdxRange<PatternExpr>;
 
-impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for PatternExprIdx {
+// impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for PatternExprIdx {
+//     fn parse_from_without_guaranteed_rollback(
+//         ctx: &mut ExprParseContext<'a, 'b>,
+//     ) -> Result<Option<Self>, ExprError> {
+//         // ad hoc
+//         if let Some(ident_token) = ctx.parse::<IdentifierToken>()? {
+//             Ok(Some(ctx.alloc_pattern_expr(PatternExpr::Identifier {
+//                 ident_token,
+//             })))
+//         } else {
+//             Ok(None)
+//         }
+//     }
+// }
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct ParameterPattern {
+    pattern_expr_idx: PatternExprIdx,
+}
+
+impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for ParameterPattern {
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
         // ad hoc
         if let Some(ident_token) = ctx.parse::<IdentifierToken>()? {
-            Ok(Some(ctx.alloc_pattern_expr(PatternExpr::Identifier {
-                ident_token,
-            })))
+            Ok(Some(ParameterPattern {
+                pattern_expr_idx: ctx
+                    .alloc_pattern_expr(PatternExpr::ParameterIdentifier { ident_token }),
+            }))
         } else {
             Ok(None)
         }
+    }
+}
+
+impl ParameterPattern {
+    pub fn pattern_expr_idx(&self) -> ArenaIdx<PatternExpr> {
+        self.pattern_expr_idx
     }
 }

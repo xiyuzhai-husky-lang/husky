@@ -1,6 +1,7 @@
 use crate::*;
 use husky_ast::{Ast, AstSheet};
 use husky_defn::*;
+use husky_expr::{Expr, ExprSheet, PatternExpr};
 
 pub(crate) struct TokenInferEngine<'a> {
     db: &'a dyn TokenInfoDb,
@@ -22,11 +23,12 @@ impl<'a> TokenInferEngine<'a> {
         })
     }
 
-    pub(crate) fn infer_all(mut self) -> TokenInfoSheet {
+    pub(crate) fn visit_all(mut self) -> TokenInfoSheet {
         for defn in self.defn_sheet.defns() {
             let decl = defn.decl(self.db);
-            let decl_expr_sheet = decl.expr_sheet(self.db);
-            let expr_sheet = defn.expr_sheet(self.db);
+
+            self.visit_expr_sheet(decl.expr_sheet(self.db));
+            self.visit_expr_sheet(defn.expr_sheet(self.db));
             let ast_idx = defn.ast_idx(self.db);
             match self.ast_sheet[ast_idx] {
                 Ast::Defn {
@@ -54,9 +56,9 @@ impl<'a> TokenInferEngine<'a> {
                 _ => unreachable!(),
             }
             match defn {
-                Defn::Type(defn) => self.infer_ty(defn),
-                Defn::Trait(defn) => self.infer_trai(defn),
-                Defn::Form(defn) => self.infer_form(defn),
+                Defn::Type(defn) => self.visit_ty(defn),
+                Defn::Trait(defn) => self.visit_trai(defn),
+                Defn::Form(defn) => self.visit_form(defn),
                 Defn::TypeItem(_) => todo!(),
                 Defn::TraitItem(_) => todo!(),
                 Defn::Variant(_) => todo!(),
@@ -65,80 +67,141 @@ impl<'a> TokenInferEngine<'a> {
         self.sheet
     }
 
-    fn infer_ty(&mut self, defn: TypeDefn) {
-        match defn {
-            TypeDefn::Enum(defn) => self.infer_enum_ty(defn),
-            TypeDefn::Inductive(defn) => self.infer_inductive_ty(defn),
-            TypeDefn::Record(defn) => self.infer_record_ty(defn),
-            TypeDefn::UnitStruct(defn) => self.infer_unit_struct_ty(defn),
-            TypeDefn::TupleStruct(defn) => self.infer_tuple_struct_ty(defn),
-            TypeDefn::PropsStruct(defn) => self.infer_props_struct_ty(defn),
-            TypeDefn::Structure(defn) => self.infer_structure_ty(defn),
-            TypeDefn::Foreign(defn) => self.infer_alias_ty(defn),
+    fn visit_expr_sheet(&mut self, expr_sheet: ExprSheet) {
+        for expr in expr_sheet.expr_arena(self.db).data() {
+            self.visit_expr(expr)
+        }
+        for pattern_expr in expr_sheet.pattern_expr_arena(self.db).data() {
+            self.visit_pattern_expr(pattern_expr)
         }
     }
 
-    fn infer_enum_ty(&mut self, defn: EnumTypeDefn) {
+    fn visit_expr(&mut self, expr: &Expr) {
+        match expr {
+            Expr::Literal(_) => todo!(),
+            Expr::EntityPath(_) => todo!(),
+            Expr::Variable {
+                token_idx,
+                variable_idx,
+            } => todo!(),
+            Expr::Uncertain(_) => todo!(),
+            Expr::Unrecognized(_) => (),
+            Expr::Field { ident_token, .. } => todo!(),
+            Expr::MethodCall { ident_token, .. } => todo!(),
+            Expr::BinaryOpn { .. }
+            | Expr::PrefixOpn { .. }
+            | Expr::SuffixOpn { .. }
+            | Expr::TemplateInstantiation { .. }
+            | Expr::Application { .. }
+            | Expr::NewTuple { .. }
+            | Expr::NewList { .. }
+            | Expr::Bracketed(_)
+            | Expr::Err(_) => (),
+        }
+    }
+
+    fn visit_pattern_expr(&mut self, pattern_expr: &PatternExpr) {
+        match pattern_expr {
+            PatternExpr::Literal(_) => todo!(),
+            PatternExpr::ParameterIdentifier { ident_token } => self
+                .sheet
+                .add(ident_token.token_idx(), TokenInfo::Parameter),
+            PatternExpr::Entity(_) => todo!(),
+            PatternExpr::Tuple { name, fields } => todo!(),
+            PatternExpr::Struct { name, fields } => todo!(),
+            PatternExpr::OneOf { options } => todo!(),
+            PatternExpr::Binding {
+                ident_token,
+                asperand_token,
+                src,
+            } => todo!(),
+            PatternExpr::Range {
+                start,
+                dot_dot_token,
+                end,
+            } => todo!(),
+        }
+    }
+
+    fn visit_ty(&mut self, defn: TypeDefn) {
+        match defn {
+            TypeDefn::Enum(defn) => self.visit_enum_ty(defn),
+            TypeDefn::Inductive(defn) => self.visit_inductive_ty(defn),
+            TypeDefn::Record(defn) => self.visit_record_ty(defn),
+            TypeDefn::UnitStruct(defn) => self.visit_unit_struct_ty(defn),
+            TypeDefn::TupleStruct(defn) => self.visit_tuple_struct_ty(defn),
+            TypeDefn::PropsStruct(defn) => self.visit_props_struct_ty(defn),
+            TypeDefn::Structure(defn) => self.visit_structure_ty(defn),
+            TypeDefn::Foreign(defn) => self.visit_alias_ty(defn),
+        }
+    }
+
+    fn visit_enum_ty(&mut self, defn: EnumTypeDefn) {
         // todo!()
     }
 
-    fn infer_inductive_ty(&mut self, defn: InductiveTypeDefn) {
+    fn visit_inductive_ty(&mut self, defn: InductiveTypeDefn) {
         // todo!()
     }
 
-    fn infer_record_ty(&mut self, defn: RecordTypeDefn) {
+    fn visit_record_ty(&mut self, defn: RecordTypeDefn) {
         // todo!()
     }
 
-    fn infer_unit_struct_ty(&mut self, defn: UnitStructTypeDefn) {
+    fn visit_unit_struct_ty(&mut self, defn: UnitStructTypeDefn) {
         // todo!()
     }
 
-    fn infer_tuple_struct_ty(&mut self, defn: TupleStructTypeDefn) {
+    fn visit_tuple_struct_ty(&mut self, defn: TupleStructTypeDefn) {
         // todo!()
     }
 
-    fn infer_props_struct_ty(&mut self, defn: PropsStructTypeDefn) {
+    fn visit_props_struct_ty(&mut self, defn: PropsStructTypeDefn) {
         // todo!()
     }
 
-    fn infer_structure_ty(&mut self, defn: StructureTypeDefn) {
+    fn visit_structure_ty(&mut self, defn: StructureTypeDefn) {
         // todo!()
     }
 
-    fn infer_alias_ty(&mut self, defn: AlienTypeDefn) {
+    fn visit_alias_ty(&mut self, defn: AlienTypeDefn) {
         // todo!()
     }
 
-    fn infer_trai(&mut self, defn: TraitDefn) {
+    fn visit_trai(&mut self, defn: TraitDefn) {
         //todo!()
     }
 
-    fn infer_form(&mut self, defn: FormDefn) {
+    fn visit_form(&mut self, defn: FormDefn) {
         match defn {
-            FormDefn::Function(defn) => self.infer_function(defn),
-            FormDefn::Feature(defn) => self.infer_feature(defn),
-            FormDefn::Morphism(defn) => self.infer_morphism(defn),
-            FormDefn::Value(defn) => self.infer_value(defn),
+            FormDefn::Function(defn) => self.visit_function(defn),
+            FormDefn::Feature(defn) => self.visit_feature(defn),
+            FormDefn::Morphism(defn) => self.visit_morphism(defn),
+            FormDefn::Value(defn) => self.visit_value(defn),
         }
     }
 
-    fn infer_function(&mut self, defn: FunctionDefn) {
+    fn visit_function(&mut self, defn: FunctionDefn) {
         // todo!()
     }
 
-    fn infer_feature(&mut self, defn: FeatureDefn) {
+    fn visit_feature(&mut self, defn: FeatureDefn) {
         let decl = defn.decl(self.db);
         // todo!()
     }
 
-    fn infer_morphism(&mut self, defn: MorphismDefn) {
+    fn visit_morphism(&mut self, defn: MorphismDefn) {
         let decl = defn.decl(self.db);
         // todo!()
     }
 
-    fn infer_value(&mut self, defn: ValueDefn) {
+    fn visit_value(&mut self, defn: ValueDefn) {
         let decl = defn.decl(self.db);
         // todo!()
     }
+}
+
+enum A {
+    A1 { a: i32 },
+    A2 { a: i32 },
 }
