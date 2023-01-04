@@ -78,6 +78,11 @@ pub enum Expr {
         punctuation_token_idx: TokenIdx,
         ropd: ExprIdx,
     },
+    Be {
+        src: ExprIdx,
+        be_token_idx: TokenIdx,
+        target: ExprResult<BePattern>,
+    },
     PrefixOpn {
         punctuation: PrefixOpr,
         punctuation_token_idx: TokenIdx,

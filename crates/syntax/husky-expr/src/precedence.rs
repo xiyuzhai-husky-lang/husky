@@ -17,6 +17,7 @@ pub(crate) enum Precedence {
     Or = 1007,
     Curry = 105,
     Application = 54,
+    Be = 23,
     ListItem = 11,
     LambdaHead = 3,
     Method = 2,
@@ -46,17 +47,15 @@ impl From<BinaryOpr> for Precedence {
                 BinaryPureClosedOpr::Power => Precedence::Power,
             },
             BinaryOpr::Comparison(cmp_opr) => match cmp_opr {
-                BinaryComparisonPunctuation::Eq | BinaryComparisonPunctuation::Neq => {
-                    Precedence::EqComparison
-                }
-                BinaryComparisonPunctuation::Leq
-                | BinaryComparisonPunctuation::Less
-                | BinaryComparisonPunctuation::Geq
-                | BinaryComparisonPunctuation::Greater => Precedence::OrdComparison,
+                BinaryComparisonOpr::Eq | BinaryComparisonOpr::Neq => Precedence::EqComparison,
+                BinaryComparisonOpr::Leq
+                | BinaryComparisonOpr::Less
+                | BinaryComparisonOpr::Geq
+                | BinaryComparisonOpr::Greater => Precedence::OrdComparison,
             },
             BinaryOpr::ShortcuitLogic(logic_opr) => match logic_opr {
-                BinaryShortcuitLogicPunctuation::And => Precedence::And,
-                BinaryShortcuitLogicPunctuation::Or => Precedence::Or,
+                BinaryShortcuitLogicOpr::And => Precedence::And,
+                BinaryShortcuitLogicOpr::Or => Precedence::Or,
             },
             BinaryOpr::Assign(_) => Precedence::None,
             BinaryOpr::ScopeResolution => Precedence::ScopeResolution,

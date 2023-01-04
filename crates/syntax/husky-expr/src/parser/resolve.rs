@@ -2,6 +2,7 @@ use super::*;
 use husky_print_utils::p;
 use husky_symbol::Symbol;
 use husky_token::Punctuation;
+use salsa::DebugWithDb;
 use std::ops::ControlFlow;
 
 pub type TokenResolveResult<T> = ControlFlow<(), T>;
@@ -37,7 +38,10 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
                     TopExprRef::Unfinished(_) => todo!(),
                     TopExprRef::Finished(expr) => {
                         match expr.base_entity_path(self.db(), &self.parser.expr_arena) {
-                            BaseEntityPath::None => todo!(),
+                            BaseEntityPath::None => ResolvedToken::BinaryOpr(
+                                token_idx,
+                                BinaryOpr::Comparison(BinaryComparisonOpr::Less),
+                            ),
                             BaseEntityPath::Some(_) => todo!(),
                             BaseEntityPath::Uncertain { inclination } => match inclination {
                                 BaseEntityPathInclination::GlobalValue
@@ -45,7 +49,10 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
                                     ResolvedToken::Bra(token_idx, Bracket::Angle)
                                 }
                                 BaseEntityPathInclination::FunctionOrLocalValue => {
-                                    ResolvedToken::BinaryOpr(token_idx, todo!())
+                                    ResolvedToken::BinaryOpr(
+                                        token_idx,
+                                        BinaryOpr::Comparison(BinaryComparisonOpr::Less),
+                                    )
                                 }
                             },
                         }
@@ -57,10 +64,7 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
                     (None, ExprParseEnvironment::WithinBracket(Bracket::Angle)) => {
                         return TokenResolveResult::Break(())
                     }
-                    _ => ResolvedToken::BinaryOpr(
-                        token_idx,
-                        BinaryComparisonPunctuation::Greater.into(),
-                    ),
+                    _ => ResolvedToken::BinaryOpr(token_idx, BinaryComparisonOpr::Greater.into()),
                 },
                 Punctuation::DeriveAssign => return TokenResolveResult::Break(()),
                 Punctuation::Minus => ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Minus),
@@ -111,7 +115,18 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
                 },
                 Punctuation::DotDot => todo!(),
             },
-            TokenKind::WordOpr(_) => todo!(),
+            TokenKind::WordOpr(opr) => match opr {
+                WordOpr::And => ResolvedToken::BinaryOpr(
+                    token_idx,
+                    BinaryOpr::ShortcuitLogic(BinaryShortcuitLogicOpr::And),
+                ),
+                WordOpr::Or => ResolvedToken::BinaryOpr(
+                    token_idx,
+                    BinaryOpr::ShortcuitLogic(BinaryShortcuitLogicOpr::Or),
+                ),
+                WordOpr::As => ResolvedToken::BinaryOpr(token_idx, BinaryOpr::As),
+                WordOpr::Be => ResolvedToken::Be(token_idx),
+            },
             TokenKind::Literal(_) => ResolvedToken::Atom(Expr::Literal(token_idx)),
             TokenKind::Comment => unreachable!(),
             TokenKind::Err(ref error) => ResolvedToken::Atom(Expr::Err(error.clone().into())),
@@ -161,4 +176,5 @@ pub(crate) enum ResolvedToken {
     Ket(TokenIdx, Bracket),
     Dot(TokenIdx),
     ListItem(TokenIdx),
+    Be(TokenIdx),
 }

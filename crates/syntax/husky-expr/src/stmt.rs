@@ -17,9 +17,11 @@ pub enum Stmt {
     },
     Return {
         return_token: ReturnToken,
+        result: ExprResult<ExprIdx>,
     },
     Require {
         require_token: RequireToken,
+        condition: ExprResult<ExprIdx>,
     },
     Break {
         break_token: BreakToken,

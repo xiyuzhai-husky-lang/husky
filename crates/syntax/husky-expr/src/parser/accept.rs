@@ -14,6 +14,7 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
             ResolvedToken::Ket(token_idx, ket) => self.accept_list_end(ket, token_idx),
             ResolvedToken::Dot(token_idx) => self.accept_dot_opr(token_idx),
             ResolvedToken::ListItem(token_idx) => self.accept_list_item(token_idx),
+            ResolvedToken::Be(token_idx) => self.accept_be_pattern(token_idx),
         }
     }
 
@@ -56,7 +57,7 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
                             rpar_token_idx: ket_token_idx,
                         }
                         .into(),
-                        UnfinishedListOpr::MethodInstantiation {} => todo!(),
+                        UnfinishedListOpr::MethodInstantiation { .. } => todo!(),
                         UnfinishedListOpr::MethodCall {
                             this_expr,
                             dot_token_idx,
@@ -83,6 +84,7 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
                             }
                             .into()
                         }
+                        UnfinishedListOpr::FunctionInstantiation {} => todo!(),
                     }
                 })
             }
@@ -125,9 +127,9 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
                         Ok(Some(lpar)) => UnfinishedExpr::List {
                             opr: UnfinishedListOpr::MethodCall {
                                 this_expr,
-                                implicit_arguments: None,
                                 dot_token_idx,
                                 ident_token,
+                                implicit_arguments: None,
                             },
                             bra: Bracket::Par,
                             bra_token_idx: lpar.token_idx(),
@@ -135,7 +137,17 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
                         }
                         .into(),
                         Ok(None) => match this.parse::<LeftAngleBracketToken>() {
-                            Ok(Some(langle)) => todo!(),
+                            Ok(Some(langle)) => UnfinishedExpr::List {
+                                opr: UnfinishedListOpr::MethodInstantiation {
+                                    this_expr,
+                                    dot_token_idx,
+                                    ident_token,
+                                },
+                                bra: Bracket::Angle,
+                                bra_token_idx: langle.token_idx(),
+                                items: vec![],
+                            }
+                            .into(),
                             Ok(None) => Expr::Field {
                                 this_expr,
                                 dot_token_idx,
@@ -171,6 +183,20 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
             },
             None => unreachable!(),
         }
+    }
+
+    fn accept_be_pattern(&mut self, be_token_idx: TokenIdx) {
+        self.reduce(Precedence::Be);
+        let src = self
+            .take_finished_expr()
+            .unwrap_or(Expr::Err(ExprError::MissingItemBeforeBe { be_token_idx }));
+        let src = self.alloc_expr(src);
+        let expr = Expr::Be {
+            src,
+            be_token_idx,
+            target: self.parse_expected(),
+        };
+        self.set_top_expr(expr.into())
     }
 
     pub(crate) fn accept_binary_opr(&mut self, binary: BinaryOpr, binary_token_idx: TokenIdx) {

@@ -9,8 +9,8 @@ pub use pure_closed::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum BinaryOpr {
     PureClosed(BinaryPureClosedOpr),
-    Comparison(BinaryComparisonPunctuation),
-    ShortcuitLogic(BinaryShortcuitLogicPunctuation),
+    Comparison(BinaryComparisonOpr),
+    ShortcuitLogic(BinaryShortcuitLogicOpr),
     Assign(Option<BinaryPureClosedOpr>),
     ScopeResolution, // ::
     Curry,           // ->
@@ -23,8 +23,8 @@ impl From<Option<BinaryPureClosedOpr>> for BinaryOpr {
     }
 }
 
-impl From<BinaryShortcuitLogicPunctuation> for BinaryOpr {
-    fn from(v: BinaryShortcuitLogicPunctuation) -> Self {
+impl From<BinaryShortcuitLogicOpr> for BinaryOpr {
+    fn from(v: BinaryShortcuitLogicOpr) -> Self {
         Self::ShortcuitLogic(v)
     }
 }
@@ -35,8 +35,8 @@ impl From<BinaryPureClosedOpr> for BinaryOpr {
     }
 }
 
-impl From<BinaryComparisonPunctuation> for BinaryOpr {
-    fn from(v: BinaryComparisonPunctuation) -> Self {
+impl From<BinaryComparisonOpr> for BinaryOpr {
+    fn from(v: BinaryComparisonOpr) -> Self {
         Self::Comparison(v)
     }
 }

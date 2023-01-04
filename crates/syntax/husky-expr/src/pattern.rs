@@ -125,3 +125,30 @@ impl LetVariablePattern {
         self.pattern_expr_idx
     }
 }
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct BePattern {
+    pattern_expr_idx: PatternExprIdx,
+}
+
+impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for BePattern {
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut ExprParseContext<'a, 'b>,
+    ) -> Result<Option<Self>, ExprError> {
+        // ad hoc
+        if let Some(ident_token) = ctx.parse::<IdentifierToken>()? {
+            Ok(Some(BePattern {
+                pattern_expr_idx: ctx
+                    .alloc_pattern_expr(PatternExpr::LetVariableIdentifier { ident_token }),
+            }))
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+impl BePattern {
+    pub fn pattern_expr_idx(&self) -> ArenaIdx<PatternExpr> {
+        self.pattern_expr_idx
+    }
+}

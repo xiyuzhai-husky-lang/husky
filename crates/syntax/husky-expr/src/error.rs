@@ -45,8 +45,10 @@ pub enum ExprError {
         prefix: PrefixOpr,
         prefix_token_idx: TokenIdx,
     },
-    #[error("missing item before comma")]
+    #[error("missing item before `,`")]
     MissingItemBeforeComma { comma_token_idx: TokenIdx },
+    #[error("missing item before `be`")]
+    MissingItemBeforeBe { be_token_idx: TokenIdx },
     #[error("expect variable pattern")]
     ExpectLetVariablePattern(TokenIdx),
     #[error("expect `=`")]
@@ -55,6 +57,14 @@ pub enum ExprError {
     MissingInitialValue,
     #[error("unexpected keyword")]
     UnexpectedKeyword(TokenIdx),
+    #[error("missing result")]
+    MissingResult,
+    #[error("missing condition")]
+    MissingCondition,
+    #[error("expect be pattern")]
+    ExpectBePattern(TokenIdx),
+    #[error("unterminated list")]
+    UnterminatedList,
 }
 
 pub type ExprResult<T> = Result<T, ExprError>;
@@ -112,5 +122,15 @@ where
 {
     fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
         ExprError::ExpectAssignToken(state)
+    }
+}
+
+impl<'a, Context> FromAbsent<BePattern, Context> for ExprError
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
+        ExprError::ExpectBePattern(state)
     }
 }

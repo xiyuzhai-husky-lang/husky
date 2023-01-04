@@ -24,6 +24,15 @@ use std::ops::ControlFlow;
 use symbol_stack::*;
 use unfinished_expr::*;
 
+macro_rules! report_location {
+    () => {{
+        p!(
+            self.parser.entity_path.debug(self.db()),
+            self.token_stream.text_range()
+        );
+    }};
+}
+
 pub struct ExprParser<'a> {
     db: &'a dyn ExprDb,
     entity_path: Option<EntityPath>,
@@ -106,12 +115,18 @@ impl<'a> ExprParser<'a> {
                                 .parse_expr(ExprParseEnvironment::None)
                                 .ok_or(ExprError::MissingInitialValue),
                         },
-                        BasicStmtKeywordToken::Return(return_token) => {
-                            Stmt::Return { return_token }
-                        }
-                        BasicStmtKeywordToken::Require(require_token) => {
-                            Stmt::Require { require_token }
-                        }
+                        BasicStmtKeywordToken::Return(return_token) => Stmt::Return {
+                            return_token,
+                            result: ctx
+                                .parse_expr(ExprParseEnvironment::None)
+                                .ok_or(ExprError::MissingResult),
+                        },
+                        BasicStmtKeywordToken::Require(require_token) => Stmt::Require {
+                            require_token,
+                            condition: ctx
+                                .parse_expr(ExprParseEnvironment::None)
+                                .ok_or(ExprError::MissingCondition),
+                        },
                         BasicStmtKeywordToken::Break(break_token) => Stmt::Break { break_token },
                     }),
                     Ok(None) => Some(Stmt::Eval {}),
@@ -167,8 +182,11 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
     pub fn parse_expr(&mut self, env: ExprParseEnvironment) -> Option<ExprIdx> {
         self.env.set(env);
-        while !self.tokens().is_empty() {
-            let (token_idx, token) = self.token_stream.next_indexed(IgnoreComment::True).unwrap();
+        loop {
+            let Some((token_idx, token)) = self.token_stream.next_indexed(IgnoreComment::True)
+                else {
+                    break
+                };
             match self.resolve_token(token_idx, token) {
                 ControlFlow::Continue(resolved_token) => self.accept_token(resolved_token),
                 ControlFlow::Break(_) => {
