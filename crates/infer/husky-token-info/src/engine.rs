@@ -200,8 +200,11 @@ impl<'a> ExprSheetTokenInfoInferEngine<'a> {
     }
 
     fn visit_stmt(&mut self, stmt: &Stmt) {
+        // ad hoc
         match stmt {
-            Stmt::Let {} => todo!(),
+            Stmt::Let {} => (),
+            Stmt::IfElse {} => (),
+            Stmt::Match {} => (),
         }
     }
 

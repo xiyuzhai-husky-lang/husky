@@ -8,4 +8,6 @@ pub type StmtMap<V> = ArenaMap<Stmt, V>;
 #[derive(Debug, PartialEq, Eq)]
 pub enum Stmt {
     Let {},
+    IfElse {},
+    Match {},
 }

@@ -81,36 +81,28 @@ impl<'a> ExprParser<'a> {
 
     fn parse_stmt(&mut self, ast: &Ast) -> Option<Stmt> {
         match ast {
-            Ast::Err {
-                token_group_idx,
-                error,
-            } => todo!(),
-            Ast::Use {
-                token_group_idx,
-                accessibility,
-                ident,
-                use_expr_idx,
-            } => todo!(),
-            Ast::Comment { token_group_idx } => todo!(),
-            Ast::Decor { token_group_idx } => todo!(),
             Ast::BasicStmt {
                 token_group_idx,
                 body,
-            } => todo!(),
+            } => Some(Stmt::Let {}),
             Ast::IfElseStmts {
                 if_stmt,
                 elif_stmts,
                 else_stmt,
-            } => todo!(),
+            } => Some(Stmt::IfElse {}),
             Ast::MatchStmts {
                 pattern_stmt,
                 case_stmts,
-            } => todo!(),
-            Ast::Defn { .. } => todo!(),
-            Ast::ModuleItemVariant { .. } => todo!(),
-            Ast::Impl { .. } => todo!(),
-            Ast::Main { .. } => todo!(),
-            Ast::Config { .. } => todo!(),
+            } => Some(Stmt::Match {}),
+            Ast::Err { .. }
+            | Ast::Use { .. }
+            | Ast::Comment { .. }
+            | Ast::Decor { .. }
+            | Ast::Defn { .. }
+            | Ast::ModuleItemVariant { .. }
+            | Ast::Impl { .. }
+            | Ast::Main { .. }
+            | Ast::Config { .. } => None,
         }
     }
 }
