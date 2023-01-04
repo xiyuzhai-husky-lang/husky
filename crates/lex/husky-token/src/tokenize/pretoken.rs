@@ -297,7 +297,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
             match c_start {
                 '=' => match self.peek_char() {
                     Some('=') => self.pass_two(Punctuation::Binary(BinaryOpr::Comparison(
-                        BinaryComparisonPunctuation::Eq,
+                        BinaryComparisonOpr::Eq,
                     ))),
                     _ => Punctuation::Binary(BinaryOpr::Assign(None)),
                 },
@@ -316,7 +316,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 '@' => Punctuation::At,
                 '&' => match self.peek_char() {
                     Some('&') => self.pass_two(Punctuation::Binary(BinaryOpr::ShortcuitLogic(
-                        BinaryShortcuitLogicPunctuation::And,
+                        BinaryShortcuitLogicOpr::And,
                     ))),
                     Some('=') => self.pass_two(Punctuation::Binary(BinaryOpr::Assign(Some(
                         BinaryPureClosedOpr::BitAnd,
@@ -351,14 +351,14 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                         BinaryPureClosedOpr::Shl,
                     ))),
                     Some('=') => self.pass_two(Punctuation::Binary(BinaryOpr::Comparison(
-                        BinaryComparisonPunctuation::Leq,
+                        BinaryComparisonOpr::Leq,
                     ))),
                     _ => Punctuation::LAngle,
                 },
                 '>' => match self.peek_char() {
                     // '>' => self.pass_two(SpecialToken::Shr), // >>
                     Some('=') => self.pass_two(Punctuation::Binary(BinaryOpr::Comparison(
-                        BinaryComparisonPunctuation::Geq,
+                        BinaryComparisonOpr::Geq,
                     ))),
                     _ => Punctuation::RAngle,
                 },
@@ -388,7 +388,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 },
                 '!' => match self.peek_char() {
                     Some('=') => self.pass_two(Punctuation::Binary(BinaryOpr::Comparison(
-                        BinaryComparisonPunctuation::Neq,
+                        BinaryComparisonOpr::Neq,
                     ))),
                     Some('!') => self.pass_two(Punctuation::DoubleExclamation),
                     _ => Punctuation::Exclamation,

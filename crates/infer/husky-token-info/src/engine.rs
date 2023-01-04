@@ -196,7 +196,8 @@ impl<'a> ExprSheetTokenInfoInferEngine<'a> {
             | Expr::Bracketed(_)
             | Expr::Err(_)
             | Expr::Block { .. }
-            | Expr::FunctionCall { .. } => (),
+            | Expr::FunctionCall { .. }
+            | Expr::Be { .. } => (),
         }
     }
 

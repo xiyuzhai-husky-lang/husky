@@ -1,5 +1,5 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum BinaryComparisonPunctuation {
+pub enum BinaryComparisonOpr {
     Eq,
     Neq,
     Geq,
@@ -8,36 +8,36 @@ pub enum BinaryComparisonPunctuation {
     Less,
 }
 
-impl BinaryComparisonPunctuation {
+impl BinaryComparisonOpr {
     pub fn husky_code(self) -> &'static str {
         match self {
-            BinaryComparisonPunctuation::Eq => "==",
-            BinaryComparisonPunctuation::Neq => "!=",
-            BinaryComparisonPunctuation::Greater => ">",
-            BinaryComparisonPunctuation::Geq => ">=",
-            BinaryComparisonPunctuation::Less => "<",
-            BinaryComparisonPunctuation::Leq => "<=",
+            BinaryComparisonOpr::Eq => "==",
+            BinaryComparisonOpr::Neq => "!=",
+            BinaryComparisonOpr::Greater => ">",
+            BinaryComparisonOpr::Geq => ">=",
+            BinaryComparisonOpr::Less => "<",
+            BinaryComparisonOpr::Leq => "<=",
         }
     }
     pub fn spaced_husky_code(self) -> &'static str {
         match self {
-            BinaryComparisonPunctuation::Greater => " > ",
-            BinaryComparisonPunctuation::Geq => " >= ",
-            BinaryComparisonPunctuation::Less => " < ",
-            BinaryComparisonPunctuation::Leq => " <= ",
-            BinaryComparisonPunctuation::Eq => " == ",
-            BinaryComparisonPunctuation::Neq => " != ",
+            BinaryComparisonOpr::Greater => " > ",
+            BinaryComparisonOpr::Geq => " >= ",
+            BinaryComparisonOpr::Less => " < ",
+            BinaryComparisonOpr::Leq => " <= ",
+            BinaryComparisonOpr::Eq => " == ",
+            BinaryComparisonOpr::Neq => " != ",
         }
     }
 
     pub fn rust_trait_name(self) -> &'static str {
         match self {
-            BinaryComparisonPunctuation::Eq => todo!(),
-            BinaryComparisonPunctuation::Neq => "ne",
-            BinaryComparisonPunctuation::Geq => todo!(),
-            BinaryComparisonPunctuation::Greater => todo!(),
-            BinaryComparisonPunctuation::Leq => todo!(),
-            BinaryComparisonPunctuation::Less => todo!(),
+            BinaryComparisonOpr::Eq => todo!(),
+            BinaryComparisonOpr::Neq => "ne",
+            BinaryComparisonOpr::Geq => todo!(),
+            BinaryComparisonOpr::Greater => todo!(),
+            BinaryComparisonOpr::Leq => todo!(),
+            BinaryComparisonOpr::Less => todo!(),
         }
     }
 }

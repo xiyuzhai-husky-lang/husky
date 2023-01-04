@@ -5,13 +5,18 @@ pub(super) enum UnfinishedListOpr {
     NewTuple,
     NewVec,
     NewLambdaHead,
+    FunctionInstantiation {},
     FunctionCall {
         function: ExprIdx,
     },
     TemplateInstantiation {
         template: ExprIdx,
     },
-    MethodInstantiation {},
+    MethodInstantiation {
+        this_expr: ExprIdx,
+        dot_token_idx: TokenIdx,
+        ident_token: IdentifierToken,
+    },
     MethodCall {
         this_expr: ExprIdx,
         dot_token_idx: TokenIdx,

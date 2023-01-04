@@ -43,7 +43,7 @@ impl ExprStack {
 impl Expr {
     pub fn base_entity_path(&self, db: &dyn WordDb, arena: &ExprArena) -> BaseEntityPath {
         match self {
-            Expr::Literal(_) => todo!(),
+            Expr::Literal(_) => BaseEntityPath::None,
             Expr::EntityPath(_) => todo!(),
             Expr::Variable {
                 token_idx,
@@ -71,7 +71,7 @@ impl Expr {
                 dot_token_idx,
                 ident_token,
             } => todo!(),
-            Expr::MethodCall { .. } => todo!(),
+            Expr::MethodCall { .. } => BaseEntityPath::None,
             Expr::Application { function, argument } => todo!(),
             Expr::NewTuple {
                 lpar_token_idx,
@@ -95,6 +95,11 @@ impl Expr {
             }
             Expr::Block { stmts } => BaseEntityPath::None,
             Expr::FunctionCall { .. } => todo!(),
+            Expr::Be {
+                src,
+                be_token_idx,
+                target,
+            } => todo!(),
         }
     }
 }
@@ -209,7 +214,9 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
                 UnfinishedExpr::ListItem {
                     separator_token_idx,
                 } => todo!(),
-                UnfinishedExpr::List { .. } => todo!(),
+                UnfinishedExpr::List { .. } => {
+                    self.stack.finished_expr = Some(Expr::Err(ExprError::UnterminatedList))
+                }
                 UnfinishedExpr::LambdaHead { inputs, start } => todo!(),
             }
         }
