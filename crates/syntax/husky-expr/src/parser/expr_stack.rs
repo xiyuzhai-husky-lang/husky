@@ -1,4 +1,5 @@
 use husky_print_utils::p;
+use salsa::DebugWithDb;
 
 use super::*;
 
@@ -164,26 +165,29 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
                     lopd,
                     punctuation,
                     punctuation_token_idx,
-                } => match self.take_finished_expr() {
-                    Some(ropd) => {
-                        self.stack.finished_expr = Some(Expr::BinaryOpn {
-                            lopd: self.alloc_expr(lopd),
+                } => {
+                    let lopd = self.alloc_expr(lopd);
+                    let finished_expr = self.take_finished_expr();
+                    self.stack.finished_expr = Some(match finished_expr {
+                        Some(ropd) => Expr::BinaryOpn {
+                            lopd,
                             punctuation,
                             punctuation_token_idx,
                             ropd: self.alloc_expr(ropd),
-                        })
-                    }
-                    None => {
-                        let lopd = self.alloc_expr(lopd);
-                        self.stack.finished_expr =
-                            Some(Expr::Err(ExprError::NoRightOperandForBinaryOperator {
-                                lopd,
-                                punctuation,
-                                punctuation_token_idx,
-                            }))
-                    }
-                },
+                        },
+                        None => Expr::Err(ExprError::NoRightOperandForBinaryOperator {
+                            lopd,
+                            punctuation,
+                            punctuation_token_idx,
+                        }),
+                    })
+                }
                 UnfinishedExpr::Application { function } => {
+                    p!(
+                        self.parser.entity_path.debug(self.db()),
+                        self.token_stream.text_range(),
+                        function
+                    );
                     let argument = self.take_finished_expr().unwrap();
                     let function = self.alloc_expr(function);
                     let argument = self.alloc_expr(argument);
@@ -192,56 +196,25 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
                 UnfinishedExpr::Prefix {
                     punctuation,
                     punctuation_token_idx,
-                } => match self.take_finished_expr() {
-                    Some(opd) => {
-                        self.stack.finished_expr = Some(Expr::PrefixOpn {
+                } => {
+                    let finished_expr = self.take_finished_expr();
+                    self.stack.finished_expr = Some(match finished_expr {
+                        Some(opd) => Expr::PrefixOpn {
                             punctuation,
                             punctuation_token_idx,
                             opd: self.alloc_expr(opd),
-                        })
-                    }
-                    None => {
-                        self.stack.finished_expr =
-                            Some(Expr::Err(ExprError::NoOperandForPrefixOperator {
-                                prefix: punctuation,
-                                prefix_token_idx: punctuation_token_idx,
-                            }))
-                    }
-                },
+                        },
+                        None => Expr::Err(ExprError::NoOperandForPrefixOperator {
+                            prefix: punctuation,
+                            prefix_token_idx: punctuation_token_idx,
+                        }),
+                    })
+                }
                 UnfinishedExpr::ListItem {
                     separator_token_idx,
                 } => todo!(),
                 UnfinishedExpr::List { .. } => todo!(),
                 UnfinishedExpr::LambdaHead { inputs, start } => todo!(),
-                // match self.take_finished_expr() {
-                //     Some(Expr::Opn {
-                //         opn:
-                //             Opn::List {
-                //                 opr: ListOpr::M,
-                //                 ..
-                //             },
-                //         ..
-                //     }) => todo!(),
-                //     Some(Expr::Opn {
-                //         opn:
-                //             Opn::List {
-                //                 opr: ListOpr::MethodCall,
-                //                 bracket,
-                //                 bra_token_idx: lpar_token_idx,
-                //                 ket_token_idx: rpar_token_idx,
-                //             },
-                //         opds: arguments,
-                //     }) => {
-                //         self.stack.finished_expr = Some(Expr::MethodCall {
-                //             this_expr: self.alloc_expr(this_expr),
-                //             arguments,
-                //             lpar_token_idx,
-                //             rpar_token_idx,
-                //         })
-                //     }
-                //     Some(_) => todo!(),
-                //     None => todo!(),
-                // },
             }
         }
     }

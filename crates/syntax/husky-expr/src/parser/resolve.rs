@@ -151,6 +151,7 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
     }
 }
 
+#[derive(Debug)]
 pub(crate) enum ResolvedToken {
     Atom(Expr),
     BinaryOpr(TokenIdx, BinaryOpr),

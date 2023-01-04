@@ -5,6 +5,8 @@ use super::*;
 
 impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
     pub(crate) fn accept_token(&mut self, token: ResolvedToken) {
+        p!(token);
+        p!(self.finished_expr());
         match token {
             ResolvedToken::Atom(atom) => self.accept_atom(atom),
             ResolvedToken::BinaryOpr(token_idx, opr) => self.accept_binary_opr(opr, token_idx),
@@ -15,6 +17,7 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
             ResolvedToken::Dot(token_idx) => self.accept_dot_opr(token_idx),
             ResolvedToken::ListItem(token_idx) => self.accept_list_item(token_idx),
         }
+        p!(self.finished_expr())
     }
 
     pub(crate) fn accept_list_end(&mut self, ket: Bracket, ket_token_idx: TokenIdx) {
@@ -167,6 +170,7 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
     }
 
     pub(crate) fn accept_binary_opr(&mut self, binary: BinaryOpr, binary_token_idx: TokenIdx) {
+        self.reduce(binary.into());
         let lopd = self
             .take_finished_expr()
             .unwrap_or(Expr::Err(ExprError::NoLeftOperandForBinaryOperator));
@@ -175,7 +179,6 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
             punctuation: binary,
             punctuation_token_idx: binary_token_idx,
         };
-        self.reduce(unfinished_expr.precedence());
         self.set_top_expr(unfinished_expr.into())
     }
 
