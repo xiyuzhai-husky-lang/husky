@@ -11,8 +11,8 @@ use line_segment::*
 
 struct LineSegmentStroke {
     points: [%]Point2d,
-    start: Point2d := points.firstx().clone(),
-    end: Point2d := points.lastx().clone(),
+    start: Point2d := points.first()!.clone(),
+    end: Point2d := points.last()!.clone(),
 }
 
 impl LineSegmentStroke:
@@ -59,15 +59,15 @@ impl LineSegmentSketch:
         this.strokes
 
 func go_right(u: Vector2d, r: f32) -> Vector2d:
-    L = (u.x*u.x+u.y*u.y).sqrt()
+    let L = (u.x*u.x+u.y*u.y).sqrt()
     assert L > r
-    dr = r*L/(L*L-r*r).sqrt()
-    dx = dr*u.y/L
-    dy = -dr*u.x/L
+    let dr = r*L/(L*L-r*r).sqrt()
+    let dx = dr*u.y/L
+    let dy = -dr*u.x/L
     Vector2d(u.x+dx, u.y+dy)
 
 func go_left(u: Vector2d, r: f32) -> Vector2d:
-    L = (u.x*u.x+u.y*u.y).sqrt()
+    let L = (u.x*u.x+u.y*u.y).sqrt()
     assert L > r
     dr = r*L/(L*L-r*r).sqrt()
     dx = -dr*u.y/L
