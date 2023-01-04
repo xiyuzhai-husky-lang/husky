@@ -144,6 +144,7 @@ impl<'a> DefnCollector<'a> {
     fn expr_parser(&self, entity_path: EntityPath) -> ExprParser<'a> {
         ExprParser::new(
             self.db,
+            Some(entity_path),
             self.token_sheet,
             Some(self.ast_sheet),
             self.crate_prelude,

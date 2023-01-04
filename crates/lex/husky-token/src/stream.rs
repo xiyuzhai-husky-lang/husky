@@ -72,8 +72,8 @@ impl<'a> TokenStream<'a> {
         self.next_relative
     }
 
-    pub fn text_range(&self, text_start: TextPosition) -> TextRange {
-        (text_start..self.text_end()).into()
+    pub fn text_range(&self) -> TextRange {
+        self.tokens.text_range()
     }
 
     pub fn save_state(&self) -> TokenIdx {

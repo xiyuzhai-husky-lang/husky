@@ -26,6 +26,7 @@ use unfinished_expr::*;
 
 pub struct ExprParser<'a> {
     db: &'a dyn ExprDb,
+    entity_path: Option<EntityPath>,
     token_sheet: &'a TokenSheet,
     ast_sheet: Option<&'a AstSheet>,
     symbol_stack: SymbolStack<'a>,
@@ -38,12 +39,14 @@ pub struct ExprParser<'a> {
 impl<'a> ExprParser<'a> {
     pub fn new(
         db: &'a dyn ExprDb,
+        entity_path: Option<EntityPath>,
         token_sheet: &'a TokenSheet,
         ast_sheet: Option<&'a AstSheet>,
         crate_prelude: CratePrelude<'a>,
     ) -> Self {
         Self {
             db,
+            entity_path,
             token_sheet,
             ast_sheet,
             symbol_stack: SymbolStack::new(crate_prelude),
@@ -140,16 +143,16 @@ impl<'a> ExprParser<'a> {
 pub struct ExprParseContext<'a, 'b> {
     parser: &'b mut ExprParser<'a>,
     env: ExprParseEnvironmentPlace,
-    token_iter: TokenStream<'a>,
+    token_stream: TokenStream<'a>,
     stack: ExprStack,
 }
 
 impl<'a, 'b> ExprParseContext<'a, 'b> {
-    fn new(parser: &'b mut ExprParser<'a>, token_iter: TokenStream<'a>) -> Self {
+    fn new(parser: &'b mut ExprParser<'a>, token_stream: TokenStream<'a>) -> Self {
         Self {
             parser,
             env: Default::default(),
-            token_iter,
+            token_stream,
             stack: Default::default(),
         }
     }
@@ -159,13 +162,13 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     }
 
     pub(crate) fn tokens(&self) -> &TokenStream<'a> {
-        &self.token_iter
+        &self.token_stream
     }
 
     pub fn parse_expr(&mut self, env: ExprParseEnvironment) -> Option<ExprIdx> {
         self.env.set(env);
         while !self.tokens().is_empty() {
-            let (token_idx, token) = self.token_iter.next_indexed(IgnoreComment::True).unwrap();
+            let (token_idx, token) = self.token_stream.next_indexed(IgnoreComment::True).unwrap();
             match self.resolve_token(token_idx, token) {
                 ControlFlow::Continue(resolved_token) => self.accept_token(resolved_token),
                 ControlFlow::Break(_) => {
@@ -182,12 +185,13 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
 pub fn parse_expr<'a>(
     db: &'a dyn ExprDb,
+    entity_path: Option<EntityPath>,
     crate_prelude: CratePrelude<'a>,
     token_sheet: &'a TokenSheet,
     token_iter: TokenStream<'a>,
     env: ExprParseEnvironment,
 ) -> (ExprSheet, Option<ExprIdx>) {
-    let mut expr_parser = ExprParser::new(db, token_sheet, None, crate_prelude);
+    let mut expr_parser = ExprParser::new(db, entity_path, token_sheet, None, crate_prelude);
     let expr = expr_parser.ctx(token_iter).parse_expr(env);
     (expr_parser.finish(), expr)
 }
@@ -199,25 +203,25 @@ impl<'a, 'b> parsec::HasParseError for ExprParseContext<'a, 'b> {
 impl<'a, 'b> std::ops::Deref for ExprParseContext<'a, 'b> {
     type Target = TokenStream<'a>;
     fn deref(&self) -> &Self::Target {
-        &self.token_iter
+        &self.token_stream
     }
 }
 
 impl<'a, 'b> std::ops::DerefMut for ExprParseContext<'a, 'b> {
     fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.token_iter
+        &mut self.token_stream
     }
 }
 
 impl<'a, 'b> std::borrow::Borrow<TokenStream<'a>> for ExprParseContext<'a, 'b> {
     fn borrow(&self) -> &TokenStream<'a> {
-        &self.token_iter
+        &self.token_stream
     }
 }
 
 impl<'a, 'b> std::borrow::BorrowMut<TokenStream<'a>> for ExprParseContext<'a, 'b> {
     fn borrow_mut(&mut self) -> &mut TokenStream<'a> {
-        &mut self.token_iter
+        &mut self.token_stream
     }
 }
 
