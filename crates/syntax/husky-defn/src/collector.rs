@@ -136,6 +136,11 @@ impl<'a> DefnCollector<'a> {
         FeatureDefn::new(self.db, path, decl, parser.finish(), body)
     }
     fn expr_parser(&self, entity_path: EntityPath) -> ExprParser<'a> {
-        ExprParser::new(self.db, Some(self.ast_sheet), self.crate_prelude)
+        ExprParser::new(
+            self.db,
+            self.token_sheet,
+            Some(self.ast_sheet),
+            self.crate_prelude,
+        )
     }
 }

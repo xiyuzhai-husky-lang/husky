@@ -47,7 +47,13 @@ pub enum ExprError {
     },
     #[error("missing item before comma")]
     MissingItemBeforeComma { comma_token_idx: TokenIdx },
+    #[error("expect variable pattern")]
+    ExpectLetVariablePattern(TokenIdx),
+    #[error("expect `=`")]
+    ExpectAssignToken(TokenIdx),
 }
+
+pub type ExprResult<T> = Result<T, ExprError>;
 
 impl<'a, 'b, 'c> FromAbsent<RightCurlyBraceToken, ExprParseContext<'a, 'b>> for ExprError {
     fn new_absent_error(state: <ExprParseContext<'a, 'b> as HasParseState>::State) -> Self {
@@ -82,5 +88,25 @@ where
 {
     fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
         ExprError::ExpectRightParenthesis(state)
+    }
+}
+
+impl<'a, Context> FromAbsent<LetVariablePattern, Context> for ExprError
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
+        ExprError::ExpectLetVariablePattern(state)
+    }
+}
+
+impl<'a, Context> FromAbsent<AssignToken, Context> for ExprError
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
+        ExprError::ExpectAssignToken(state)
     }
 }

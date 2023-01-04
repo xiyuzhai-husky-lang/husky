@@ -23,6 +23,7 @@ pub(crate) fn collect_semantic_tokens(
                 TokenInfo::Entity(entity_kind) => SemanticToken::Entity(*entity_kind),
                 TokenInfo::ImplicitParameter => SemanticToken::ImplicitParameter,
                 TokenInfo::Parameter => SemanticToken::Parameter,
+                TokenInfo::Variable => SemanticToken::Variable,
             };
             Some(RangedSemanticToken {
                 semantic_token,

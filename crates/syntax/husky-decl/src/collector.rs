@@ -260,7 +260,7 @@ impl<'a> DeclCollector<'a> {
     }
 
     fn expr_parser(&self, entity_path: EntityPath) -> ExprParser<'a> {
-        ExprParser::new(self.db, None, self.crate_prelude)
+        ExprParser::new(self.db, self.token_sheet, None, self.crate_prelude)
     }
 
     fn parse_structure_type_decl(

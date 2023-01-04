@@ -10,6 +10,7 @@ mod unfinished_expr;
 
 pub use env::*;
 use husky_ast::{Ast, AstIdxRange, AstSheet};
+use parsec::ParseContext;
 
 use crate::*;
 use expr_stack::*;
@@ -25,6 +26,7 @@ use unfinished_expr::*;
 
 pub struct ExprParser<'a> {
     db: &'a dyn ExprDb,
+    token_sheet: &'a TokenSheet,
     ast_sheet: Option<&'a AstSheet>,
     symbol_stack: SymbolStack<'a>,
     expr_arena: ExprArena,
@@ -36,11 +38,13 @@ pub struct ExprParser<'a> {
 impl<'a> ExprParser<'a> {
     pub fn new(
         db: &'a dyn ExprDb,
+        token_sheet: &'a TokenSheet,
         ast_sheet: Option<&'a AstSheet>,
         crate_prelude: CratePrelude<'a>,
     ) -> Self {
         Self {
             db,
+            token_sheet,
             ast_sheet,
             symbol_stack: SymbolStack::new(crate_prelude),
             expr_arena: Default::default(),
@@ -60,11 +64,11 @@ impl<'a> ExprParser<'a> {
         )
     }
 
-    pub fn ctx<'b>(&'b mut self, token_iter: TokenStream<'a>) -> ExprParseContext<'a, 'b>
+    pub fn ctx<'b>(&'b mut self, token_stream: TokenStream<'a>) -> ExprParseContext<'a, 'b>
     where
         'a: 'b,
     {
-        ExprParseContext::new(self, token_iter)
+        ExprParseContext::new(self, token_stream)
     }
 
     pub fn parse_block(&mut self, body: &AstIdxRange) -> Option<ExprIdx> {
@@ -84,7 +88,30 @@ impl<'a> ExprParser<'a> {
             Ast::BasicStmt {
                 token_group_idx,
                 body,
-            } => Some(Stmt::Let {}),
+            } => {
+                let token_stream = self
+                    .token_sheet
+                    .token_group_token_stream(*token_group_idx, None);
+                let mut ctx = self.ctx(token_stream);
+                match ctx.parse::<BasicStmtKeywordToken>() {
+                    Ok(Some(basic_stmt_keyword_token)) => Some(match basic_stmt_keyword_token {
+                        BasicStmtKeywordToken::Let(let_token) => Stmt::Let {
+                            let_token,
+                            let_variable_pattern: ctx.parse_expected(),
+                            assign_token: ctx.parse_expected(),
+                        },
+                        BasicStmtKeywordToken::Return(return_token) => {
+                            Stmt::Return { return_token }
+                        }
+                        BasicStmtKeywordToken::Require(require_token) => {
+                            Stmt::Require { require_token }
+                        }
+                        BasicStmtKeywordToken::Break(break_token) => Stmt::Break { break_token },
+                    }),
+                    Ok(None) => Some(Stmt::Eval {}),
+                    Err(_) => todo!(),
+                }
+            }
             Ast::IfElseStmts {
                 if_stmt,
                 elif_stmts,
@@ -153,10 +180,11 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 pub fn parse_expr<'a>(
     db: &'a dyn ExprDb,
     crate_prelude: CratePrelude<'a>,
+    token_sheet: &'a TokenSheet,
     token_iter: TokenStream<'a>,
     env: ExprParseEnvironment,
 ) -> (ExprSheet, Option<ExprIdx>) {
-    let mut expr_parser = ExprParser::new(db, None, crate_prelude);
+    let mut expr_parser = ExprParser::new(db, token_sheet, None, crate_prelude);
     let expr = expr_parser.ctx(token_iter).parse_expr(env);
     (expr_parser.finish(), expr)
 }
