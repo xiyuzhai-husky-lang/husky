@@ -13,6 +13,8 @@ pub enum PatternExpr {
     Literal(LiteralData),
     /// example: `a`
     ParameterIdentifier { ident_token: IdentifierToken },
+    /// example: `a`
+    LetVariableIdentifier { ident_token: IdentifierToken },
     /// example: `A::B`
     Entity(EntityPath),
     /// example: `(a, b)`
@@ -92,6 +94,33 @@ impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for ParameterPattern {
 }
 
 impl ParameterPattern {
+    pub fn pattern_expr_idx(&self) -> ArenaIdx<PatternExpr> {
+        self.pattern_expr_idx
+    }
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct LetVariablePattern {
+    pattern_expr_idx: PatternExprIdx,
+}
+
+impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for LetVariablePattern {
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut ExprParseContext<'a, 'b>,
+    ) -> Result<Option<Self>, ExprError> {
+        // ad hoc
+        if let Some(ident_token) = ctx.parse::<IdentifierToken>()? {
+            Ok(Some(LetVariablePattern {
+                pattern_expr_idx: ctx
+                    .alloc_pattern_expr(PatternExpr::LetVariableIdentifier { ident_token }),
+            }))
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+impl LetVariablePattern {
     pub fn pattern_expr_idx(&self) -> ArenaIdx<PatternExpr> {
         self.pattern_expr_idx
     }

@@ -191,20 +191,7 @@ impl<'a> ExprSheetTokenInfoInferEngine<'a> {
             | Expr::NewList { .. }
             | Expr::Bracketed(_)
             | Expr::Err(_) => (),
-            Expr::Block { stmts } => {
-                for stmt in &self.stmt_arena[stmts] {
-                    self.visit_stmt(stmt)
-                }
-            }
-        }
-    }
-
-    fn visit_stmt(&mut self, stmt: &Stmt) {
-        // ad hoc
-        match stmt {
-            Stmt::Let {} => (),
-            Stmt::IfElse {} => (),
-            Stmt::Match {} => (),
+            Expr::Block { stmts } => (),
         }
     }
 
@@ -214,6 +201,9 @@ impl<'a> ExprSheetTokenInfoInferEngine<'a> {
             PatternExpr::ParameterIdentifier { ident_token } => self
                 .sheet
                 .add(ident_token.token_idx(), TokenInfo::Parameter),
+            PatternExpr::LetVariableIdentifier { ident_token } => {
+                self.sheet.add(ident_token.token_idx(), TokenInfo::Variable)
+            }
             PatternExpr::Entity(_) => todo!(),
             PatternExpr::Tuple { name, fields } => todo!(),
             PatternExpr::Struct { name, fields } => todo!(),
