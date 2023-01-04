@@ -5,6 +5,7 @@ mod tests;
 
 pub use db::*;
 pub use error::*;
+use husky_fs_specs::library_path;
 
 use super::*;
 use date::*;
@@ -90,8 +91,7 @@ pub(crate) fn current_toolchain(db: &dyn VfsDb) -> VfsResult<Toolchain> {
     Ok(Toolchain::new(
         db,
         ToolchainData::Local {
-            library_path: DiffPath::try_new(db, "/home/xiyuzhai/repos/husky/library")
-                .expect("ad hoc; this only works on my computer"),
+            library_path: DiffPath::try_new(db, library_path()?)?,
         },
     ))
 }
