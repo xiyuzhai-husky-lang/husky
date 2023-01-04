@@ -53,10 +53,12 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
                         UnfinishedListOpr::MethodCall {
                             this_expr,
                             dot_token_idx,
-                            method_ident_token,
+                            ident_token,
                             implicit_arguments,
                         } => Expr::MethodCall {
                             this_expr,
+                            dot_token_idx,
+                            ident_token,
                             implicit_arguments,
                             lpar_token_idx: bra_token_idx,
                             arguments: items,
@@ -118,7 +120,7 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
                                 this_expr,
                                 implicit_arguments: None,
                                 dot_token_idx,
-                                method_ident_token: ident_token,
+                                ident_token,
                             },
                             bra: Bracket::Par,
                             bra_token_idx: lpar.token_idx(),

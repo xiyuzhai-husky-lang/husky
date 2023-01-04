@@ -5,6 +5,7 @@ pub enum TokenInfo {
     None,
     Entity(EntityKind),
     ImplicitParameter,
+    Parameter,
 }
 
 impl Default for TokenInfo {

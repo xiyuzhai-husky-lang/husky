@@ -101,7 +101,7 @@ impl ImplicitParameterDeclList {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct ParameterDecl {
-    pattern: PatternExprIdx,
+    pattern: ParameterPattern,
     colon: ColonToken,
     ty: ExprIdx,
 }
@@ -118,7 +118,7 @@ impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for ParameterDecl {
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
-        let Some(pattern) = ctx.parse::<PatternExprIdx>()? else {
+        let Some(pattern) = ctx.parse::<ParameterPattern >()? else {
             return Ok(None)
         };
         let state = ctx.save_state();
