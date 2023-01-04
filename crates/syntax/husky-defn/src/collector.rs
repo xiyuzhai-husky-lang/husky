@@ -121,7 +121,13 @@ impl<'a> DefnCollector<'a> {
     fn parse_function_defn(&self, decl: FunctionDecl) -> FunctionDefn {
         let path = decl.path(self.db);
         let mut parser = self.expr_parser(path.into());
-        FunctionDefn::new(self.db, path, decl, parser.finish())
+        let ast_idx = decl.ast_idx(self.db);
+        let ast = &self.ast_sheet[ast_idx];
+        let body = match ast {
+            Ast::Defn { body, .. } => parser.parse_block(body).ok_or(DefnError::MissingBody),
+            _ => unreachable!(),
+        };
+        FunctionDefn::new(self.db, path, decl, parser.finish(), body)
     }
 
     fn parse_feature_defn(&self, decl: FeatureDecl) -> FeatureDefn {
