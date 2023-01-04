@@ -13,6 +13,7 @@ pub enum Stmt {
         let_token: LetToken,
         let_variable_pattern: ExprResult<LetVariablePattern>,
         assign_token: ExprResult<AssignToken>,
+        initial_value: ExprResult<ExprIdx>,
     },
     Return {
         return_token: ReturnToken,

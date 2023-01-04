@@ -99,6 +99,9 @@ impl<'a> ExprParser<'a> {
                             let_token,
                             let_variable_pattern: ctx.parse_expected(),
                             assign_token: ctx.parse_expected(),
+                            initial_value: ctx
+                                .parse_expr(ExprParseEnvironment::None)
+                                .ok_or(ExprError::MissingInitialValue),
                         },
                         BasicStmtKeywordToken::Return(return_token) => {
                             Stmt::Return { return_token }
