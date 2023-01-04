@@ -14,7 +14,9 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
     ) -> TokenResolveResult<ResolvedToken> {
         TokenResolveResult::Continue(match token.kind {
             TokenKind::Attr(_) => todo!(),
-            TokenKind::Keyword(_keyword) => todo!(),
+            TokenKind::Keyword(keyword) => {
+                ResolvedToken::Atom(Expr::Err(ExprError::UnexpectedKeyword(token_idx)))
+            }
             TokenKind::Identifier(ident) => self.resolve_ident(ident),
             TokenKind::Punctuation(punc) => match punc {
                 Punctuation::Binary(binary) => ResolvedToken::BinaryOpr(token_idx, binary),

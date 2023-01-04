@@ -51,6 +51,10 @@ pub enum ExprError {
     ExpectLetVariablePattern(TokenIdx),
     #[error("expect `=`")]
     ExpectAssignToken(TokenIdx),
+    #[error("missing initial value")]
+    MissingInitialValue,
+    #[error("unexpected keyword")]
+    UnexpectedKeyword(TokenIdx),
 }
 
 pub type ExprResult<T> = Result<T, ExprError>;
