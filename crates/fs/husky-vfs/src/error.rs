@@ -32,6 +32,8 @@ pub enum VfsError {
     PackageIdent,
     #[error("derived {0}")]
     PathUtils(#[from] PathUtilsError),
+    #[error("fs specs")]
+    FsSpecs(#[from] FsSpecsError),
 }
 
 impl From<&VfsError> for VfsError {
