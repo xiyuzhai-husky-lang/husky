@@ -24,6 +24,8 @@ pub(crate) fn collect_semantic_tokens(
                 TokenInfo::ImplicitParameter => SemanticToken::ImplicitParameter,
                 TokenInfo::Parameter => SemanticToken::Parameter,
                 TokenInfo::Variable => SemanticToken::Variable,
+                TokenInfo::Field => SemanticToken::Field,
+                TokenInfo::Method => SemanticToken::Method,
             };
             Some(RangedSemanticToken {
                 semantic_token,
