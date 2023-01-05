@@ -36,30 +36,24 @@ use tokenize::*;
 #[salsa::jar(db = TokenDb)]
 pub struct TokenJar(Snippet, token_sheet, reserved_words, tokenize_snippet);
 
-#[derive(Debug, PartialEq, Eq)]
-pub struct Token {
-    pub range: TextRange,
-    pub kind: TokenKind,
-}
-
 impl Token {
-    pub fn new(i: u32, start: u32, end: u32, kind: TokenKind) -> Token {
-        Token {
-            range: husky_text::new_same_line(i, start, end),
-            kind,
-        }
-    }
+    // pub fn new(i: u32, start: u32, end: u32, kind: Token) -> Token {
+    //     Token {
+    //         range: husky_text::new_same_line(i, start, end),
+    //         kind,
+    //     }
+    // }
 
     pub fn identify(&self) -> Option<Identifier> {
-        match self.kind {
-            TokenKind::Identifier(ident) => Some(ident),
+        match self {
+            Token::Identifier(ident) => Some(*ident),
             _ => None,
         }
     }
 }
 
-impl HasTextRange for Token {
-    fn text_range(&self) -> TextRange {
-        self.range
-    }
-}
+// impl HasTextRange for Token {
+//     fn text_range(&self) -> TextRange {
+//         self.range
+//     }
+// }

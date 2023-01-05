@@ -9,7 +9,7 @@ use husky_print_utils::p;
 use husky_symbol::{LocalSymbolSheet, SymbolContext};
 use husky_token::{
     IdentifierToken, LeftAngleBracketToken, LeftBoxBracketToken, LeftCurlyBraceToken, Punctuation,
-    RightCurlyBraceToken, TokenGroupIdx, TokenIdx, TokenSheet,
+    RangedTokenSheet, RightCurlyBraceToken, TokenGroupIdx, TokenIdx,
 };
 use parsec::{parse_separated_list, ParseContext, ParseFrom};
 use salsa::DebugWithDb;
@@ -18,7 +18,7 @@ use vec_like::VecPairMap;
 pub(crate) struct DeclCollector<'a> {
     db: &'a dyn DeclDb,
     crate_prelude: CratePrelude<'a>,
-    token_sheet: &'a TokenSheet,
+    token_sheet: &'a RangedTokenSheet,
     ast_sheet: &'a AstSheet,
     entity_tree_sheet: &'a EntityTreeSheet,
 }

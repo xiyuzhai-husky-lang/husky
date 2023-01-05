@@ -11,18 +11,18 @@ input
 output
 
 ```husky
-TokenSheet {
+RangedTokenSheet {
     tokens: [
-        Token {
-            range: [1:1, 1:2),
-            kind: Punctuation(
-                Binary(
-                    PureClosed(
-                        Add,
-                    ),
+        Punctuation(
+            Binary(
+                PureClosed(
+                    Add,
                 ),
             ),
-        },
+        ),
+    ],
+    token_ranges: [
+        [1:1, 1:2),
     ],
     group_starts: [
         0,
@@ -41,14 +41,14 @@ input
 output
 
 ```husky
-TokenSheet {
+RangedTokenSheet {
     tokens: [
-        Token {
-            range: [1:1, 1:2),
-            kind: Punctuation(
-                Minus,
-            ),
-        },
+        Punctuation(
+            Minus,
+        ),
+    ],
+    token_ranges: [
+        [1:1, 1:2),
     ],
     group_starts: [
         0,
@@ -67,18 +67,18 @@ input
 output
 
 ```husky
-TokenSheet {
+RangedTokenSheet {
     tokens: [
-        Token {
-            range: [1:1, 1:2),
-            kind: Punctuation(
-                Binary(
-                    PureClosed(
-                        Mul,
-                    ),
+        Punctuation(
+            Binary(
+                PureClosed(
+                    Mul,
                 ),
             ),
-        },
+        ),
+    ],
+    token_ranges: [
+        [1:1, 1:2),
     ],
     group_starts: [
         0,
@@ -97,18 +97,18 @@ input
 output
 
 ```husky
-TokenSheet {
+RangedTokenSheet {
     tokens: [
-        Token {
-            range: [1:1, 1:2),
-            kind: Punctuation(
-                Binary(
-                    PureClosed(
-                        Div,
-                    ),
+        Punctuation(
+            Binary(
+                PureClosed(
+                    Div,
                 ),
             ),
-        },
+        ),
+    ],
+    token_ranges: [
+        [1:1, 1:2),
     ],
     group_starts: [
         0,
@@ -127,18 +127,18 @@ input
 output
 
 ```husky
-TokenSheet {
+RangedTokenSheet {
     tokens: [
-        Token {
-            range: [1:1, 1:3),
-            kind: Punctuation(
-                Binary(
-                    PureClosed(
-                        Power,
-                    ),
+        Punctuation(
+            Binary(
+                PureClosed(
+                    Power,
                 ),
             ),
-        },
+        ),
+    ],
+    token_ranges: [
+        [1:1, 1:3),
     ],
     group_starts: [
         0,
@@ -157,14 +157,14 @@ input
 output
 
 ```husky
-TokenSheet {
+RangedTokenSheet {
     tokens: [
-        Token {
-            range: [1:1, 1:2),
-            kind: Punctuation(
-                Vertical,
-            ),
-        },
+        Punctuation(
+            Vertical,
+        ),
+    ],
+    token_ranges: [
+        [1:1, 1:2),
     ],
     group_starts: [
         0,
@@ -183,14 +183,14 @@ input
 output
 
 ```husky
-TokenSheet {
+RangedTokenSheet {
     tokens: [
-        Token {
-            range: [1:1, 1:3),
-            kind: Punctuation(
-                DoubleVertical,
-            ),
-        },
+        Punctuation(
+            DoubleVertical,
+        ),
+    ],
+    token_ranges: [
+        [1:1, 1:3),
     ],
     group_starts: [
         0,
@@ -209,18 +209,18 @@ input
 output
 
 ```husky
-TokenSheet {
+RangedTokenSheet {
     tokens: [
-        Token {
-            range: [1:1, 1:3),
-            kind: Punctuation(
-                Binary(
-                    ShortcuitLogic(
-                        And,
-                    ),
+        Punctuation(
+            Binary(
+                ShortcuitLogic(
+                    And,
                 ),
             ),
-        },
+        ),
+    ],
+    token_ranges: [
+        [1:1, 1:3),
     ],
     group_starts: [
         0,
@@ -239,18 +239,18 @@ input
 output
 
 ```husky
-TokenSheet {
+RangedTokenSheet {
     tokens: [
-        Token {
-            range: [1:1, 1:3),
-            kind: Punctuation(
-                Binary(
-                    Comparison(
-                        Eq,
-                    ),
+        Punctuation(
+            Binary(
+                Comparison(
+                    Eq,
                 ),
             ),
-        },
+        ),
+    ],
+    token_ranges: [
+        [1:1, 1:3),
     ],
     group_starts: [
         0,
@@ -269,18 +269,18 @@ input
 output
 
 ```husky
-TokenSheet {
+RangedTokenSheet {
     tokens: [
-        Token {
-            range: [1:1, 1:3),
-            kind: Punctuation(
-                Binary(
-                    Comparison(
-                        Neq,
-                    ),
+        Punctuation(
+            Binary(
+                Comparison(
+                    Neq,
                 ),
             ),
-        },
+        ),
+    ],
+    token_ranges: [
+        [1:1, 1:3),
     ],
     group_starts: [
         0,
@@ -299,14 +299,14 @@ input
 output
 
 ```husky
-TokenSheet {
+RangedTokenSheet {
     tokens: [
-        Token {
-            range: [1:1, 1:2),
-            kind: Punctuation(
-                RAngle,
-            ),
-        },
+        Punctuation(
+            RAngle,
+        ),
+    ],
+    token_ranges: [
+        [1:1, 1:2),
     ],
     group_starts: [
         0,
@@ -325,18 +325,18 @@ input
 output
 
 ```husky
-TokenSheet {
+RangedTokenSheet {
     tokens: [
-        Token {
-            range: [1:1, 1:3),
-            kind: Punctuation(
-                Binary(
-                    Comparison(
-                        Geq,
-                    ),
+        Punctuation(
+            Binary(
+                Comparison(
+                    Geq,
                 ),
             ),
-        },
+        ),
+    ],
+    token_ranges: [
+        [1:1, 1:3),
     ],
     group_starts: [
         0,
@@ -355,14 +355,14 @@ input
 output
 
 ```husky
-TokenSheet {
+RangedTokenSheet {
     tokens: [
-        Token {
-            range: [1:1, 1:2),
-            kind: Punctuation(
-                LAngle,
-            ),
-        },
+        Punctuation(
+            LAngle,
+        ),
+    ],
+    token_ranges: [
+        [1:1, 1:2),
     ],
     group_starts: [
         0,
@@ -381,18 +381,18 @@ input
 output
 
 ```husky
-TokenSheet {
+RangedTokenSheet {
     tokens: [
-        Token {
-            range: [1:1, 1:3),
-            kind: Punctuation(
-                Binary(
-                    Comparison(
-                        Leq,
-                    ),
+        Punctuation(
+            Binary(
+                Comparison(
+                    Leq,
                 ),
             ),
-        },
+        ),
+    ],
+    token_ranges: [
+        [1:1, 1:3),
     ],
     group_starts: [
         0,

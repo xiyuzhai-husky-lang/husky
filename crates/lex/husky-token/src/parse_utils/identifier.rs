@@ -49,15 +49,18 @@ where
         ctx: &mut Context,
     ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed(IgnoreComment::True) {
-            match token.kind {
-                TokenKind::Identifier(ident) => Ok(Some(IdentifierToken { ident, token_idx })),
-                TokenKind::Comment => unreachable!(),
-                TokenKind::Err(ref e) => Err(e.clone().into()),
-                TokenKind::Punctuation(_)
-                | TokenKind::WordOpr(_)
-                | TokenKind::Literal(_)
-                | TokenKind::Attr(_)
-                | TokenKind::Keyword(_) => Ok(None),
+            match token {
+                Token::Identifier(ident) => Ok(Some(IdentifierToken {
+                    ident: *ident,
+                    token_idx,
+                })),
+                Token::Comment => unreachable!(),
+                Token::Err(ref e) => Err(e.clone().into()),
+                Token::Punctuation(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Attr(_)
+                | Token::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)

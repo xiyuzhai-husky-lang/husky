@@ -13,29 +13,26 @@ where
     fn module_path(&self) -> ModulePath;
 
     fn parse_accessibility(&mut self) -> AstResult<Accessibility> {
-        Ok(
-            match self.borrow_mut().peek_noncomment_token().unwrap().kind {
-                TokenKind::Attr(decor) => match decor {
-                    AttributeKeyword::Pub => {
-                        self.borrow_mut().next();
-                        match self
-                            .borrow_mut()
-                            .peek_noncomment_token()
-                            .ok_or(AstError::ExpectParBraOrDecoratorOrIdentifier(None))?
-                            .kind
-                        {
-                            TokenKind::Punctuation(Punctuation::Bra(Bracket::Par)) => todo!(),
-                            _ => Accessibility::Public,
-                        }
+        Ok(match self.borrow_mut().peek_noncomment_token().unwrap() {
+            Token::Attr(decor) => match decor {
+                AttributeKeyword::Pub => {
+                    self.borrow_mut().next();
+                    match self
+                        .borrow_mut()
+                        .peek_noncomment_token()
+                        .ok_or(AstError::ExpectParBraOrDecoratorOrIdentifier(None))?
+                    {
+                        Token::Punctuation(Punctuation::Bra(Bracket::Par)) => todo!(),
+                        _ => Accessibility::Public,
                     }
-                    AttributeKeyword::Protected => todo!(),
-                    AttributeKeyword::Private => todo!(),
-                    AttributeKeyword::Async => todo!(),
-                    AttributeKeyword::Static => Accessibility::Public,
-                },
-                _ => Accessibility::PublicUnder(self.module_path()),
+                }
+                AttributeKeyword::Protected => todo!(),
+                AttributeKeyword::Private => todo!(),
+                AttributeKeyword::Async => todo!(),
+                AttributeKeyword::Static => Accessibility::Public,
             },
-        )
+            _ => Accessibility::PublicUnder(self.module_path()),
+        })
     }
 
     fn take_entity_kind_keyword(&mut self) -> AstResult<Keyword> {
@@ -43,9 +40,9 @@ where
             .borrow_mut()
             .next_indexed(IgnoreComment::True)
             .ok_or(AstError::ExpectEntityKeyword)?;
-        Ok(match token.kind {
-            TokenKind::Attr(_) => self.take_entity_kind_keyword()?,
-            TokenKind::Keyword(kw) => kw,
+        Ok(match token {
+            Token::Attr(_) => self.take_entity_kind_keyword()?,
+            Token::Keyword(kw) => *kw,
             // match kw {
             //     Keyword::Paradigm(_) | Keyword::Visual => match self.ast_parent() {
             //         AstContextInside::Trait { .. } | AstContextInside::Impl => {
@@ -79,7 +76,7 @@ where
             //     | Keyword::Main
             //     | Keyword::Use => unreachable!(),
             // },
-            TokenKind::Comment => todo!(),
+            Token::Comment => todo!(),
             _ => return Err(AstError::ExpectEntityKeyword),
         })
     }
@@ -88,8 +85,8 @@ where
         let Some (token) = &self
             .token_stream_mut()
             .peek_noncomment_token() else { return false };
-        match token.kind {
-            TokenKind::Punctuation(Punctuation::LAngle) => true,
+        match token {
+            Token::Punctuation(Punctuation::LAngle) => true,
             _ => false,
         }
     }
@@ -165,9 +162,5 @@ impl<'a> BasicAuxAstParser<'a> {
 
     pub(crate) fn db(&self) -> &dyn AstDb {
         self.db
-    }
-
-    pub(crate) fn text_start(&self) -> TextPosition {
-        self.token_iter.text_start()
     }
 }

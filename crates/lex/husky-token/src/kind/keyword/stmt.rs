@@ -1,6 +1,6 @@
 use std::ops::Deref;
 
-use crate::{Keyword, TokenKind};
+use crate::{Keyword, Token};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum StmtKeyword {
@@ -55,8 +55,8 @@ impl const From<StmtKeyword> for Keyword {
     }
 }
 
-impl const Into<TokenKind> for StmtKeyword {
-    fn into(self) -> TokenKind {
-        TokenKind::Keyword(self.into())
+impl const Into<Token> for StmtKeyword {
+    fn into(self) -> Token {
+        Token::Keyword(self.into())
     }
 }

@@ -15,8 +15,8 @@ use crate::*;
 use expr_stack::*;
 use husky_entity_tree::{CratePrelude, EntityTreeDb};
 use husky_symbol::SymbolContext;
+use husky_token::Token;
 use husky_token::TokenStream;
-use husky_token::{Token, TokenKind};
 use list::*;
 use resolve::*;
 use salsa::DebugWithDb;
@@ -29,8 +29,7 @@ macro_rules! report {
     ($self: expr) => {{
         p!(
             $self.stack,
-            $self.parser.entity_path.debug($self.db()),
-            $self.token_stream.text_range()
+            $self.parser.entity_path.debug($self.db()) // $self.token_stream.text_range()
         );
     }};
 }
@@ -39,7 +38,7 @@ use report;
 pub struct ExprParser<'a> {
     db: &'a dyn ExprDb,
     entity_path: Option<EntityPath>,
-    token_sheet: &'a TokenSheet,
+    token_sheet: &'a RangedTokenSheet,
     ast_sheet: Option<&'a AstSheet>,
     symbol_stack: SymbolStack<'a>,
     expr_arena: ExprArena,
@@ -52,7 +51,7 @@ impl<'a> ExprParser<'a> {
     pub fn new(
         db: &'a dyn ExprDb,
         entity_path: Option<EntityPath>,
-        token_sheet: &'a TokenSheet,
+        token_sheet: &'a RangedTokenSheet,
         ast_sheet: Option<&'a AstSheet>,
         crate_prelude: CratePrelude<'a>,
     ) -> Self {
@@ -225,7 +224,7 @@ pub fn parse_expr<'a>(
     db: &'a dyn ExprDb,
     entity_path: Option<EntityPath>,
     crate_prelude: CratePrelude<'a>,
-    token_sheet: &'a TokenSheet,
+    token_sheet: &'a RangedTokenSheet,
     token_iter: TokenStream<'a>,
     env: ExprParseEnvironment,
 ) -> (ExprSheet, Option<ExprIdx>) {

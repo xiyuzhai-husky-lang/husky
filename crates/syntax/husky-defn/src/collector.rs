@@ -1,13 +1,13 @@
 use crate::*;
 use husky_ast::{Ast, AstSheet};
 use husky_entity_tree::{CratePrelude, EntityTreeResult};
-use husky_token::TokenSheet;
+use husky_token::RangedTokenSheet;
 use vec_like::VecPairMap;
 
 pub(crate) struct DefnCollector<'a> {
     db: &'a dyn DefnDb,
     crate_prelude: CratePrelude<'a>,
-    token_sheet: &'a TokenSheet,
+    token_sheet: &'a RangedTokenSheet,
     ast_sheet: &'a AstSheet,
     decl_sheet: &'a DeclSheet,
 }

@@ -11,7 +11,7 @@ impl TokenIdx {
     }
 }
 
-impl std::ops::Index<TokenIdx> for TokenSheet {
+impl std::ops::Index<TokenIdx> for RangedTokenSheet {
     type Output = Token;
 
     fn index(&self, index: TokenIdx) -> &Self::Output {
@@ -40,18 +40,27 @@ impl TokenIdxRange {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct TokenSheet {
+pub struct RangedTokenSheet {
     tokens: Vec<Token>,
+    token_ranges: Vec<TextRange>,
     group_starts: Vec<usize>,
 }
 
-impl TokenSheet {
+impl RangedTokenSheet {
     pub fn len(&self) -> usize {
         self.tokens.len()
     }
 
     pub fn tokens(&self) -> &[Token] {
         self.tokens.as_ref()
+    }
+
+    pub fn ranged_token_iter<'a>(
+        &'a self,
+    ) -> impl Iterator<Item = (&'a TextRange, &'a Token)> + 'a {
+        (0..self.tokens.len())
+            .into_iter()
+            .map(|i| (&self.token_ranges[i], &self.tokens[i]))
     }
 
     pub fn token_index_iter<'a>(&'a self) -> impl Iterator<Item = TokenIdx> + 'a {
@@ -61,24 +70,34 @@ impl TokenSheet {
     // todo: test this
     pub fn search_token_by_position(&self, pos: TextPosition) -> Option<TokenIdx> {
         let index = match self
-            .tokens
-            .binary_search_by(|pos1| pos1.range.start.cmp(&pos))
+            .token_ranges
+            .binary_search_by(|range1| range1.start.cmp(&pos))
         {
             Ok(i) => i,
             Err(e) => (e > 0).then(|| e - 1)?,
         };
-        assert!(self.tokens[index].range.start <= pos);
-        assert!(self.tokens[index + 1].range.start > pos);
-        (self.tokens[index].range.end > pos).then(|| TokenIdx(index))
+        assert!(self.token_ranges[index].start <= pos);
+        assert!(self.token_ranges[index + 1].start > pos);
+        (self.token_ranges[index].end > pos).then(|| TokenIdx(index))
+    }
+
+    pub fn token_group_text_range(&self, token_group_idx: TokenGroupIdx) -> TextRange {
+        let start = self.group_starts[token_group_idx.0];
+        let end = self
+            .group_starts
+            .get(token_group_idx.0 + 1)
+            .map(|end| *end)
+            .unwrap_or(self.tokens.len());
+        self.token_ranges[start..end].text_range()
     }
 }
 
 #[salsa::tracked(jar = TokenJar, return_ref)]
-pub(crate) fn token_sheet(db: &dyn TokenDb, module_path: ModulePath) -> VfsResult<TokenSheet> {
-    Ok(TokenSheet::new(tokenize::tokenize(
-        db,
-        db.module_content(module_path)?,
-    )))
+pub(crate) fn token_sheet(
+    db: &dyn TokenDb,
+    module_path: ModulePath,
+) -> VfsResult<RangedTokenSheet> {
+    Ok(tokenize::tokenize(db, db.module_content(module_path)?))
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -86,14 +105,20 @@ pub struct TokenGroupIdx(usize);
 
 pub struct TokenGroupIter<'a> {
     tokens: &'a [Token],
+    token_ranges: &'a [TextRange],
     line_group_starts: &'a [usize],
     current: usize,
 }
 
 impl<'a> TokenGroupIter<'a> {
-    pub(crate) fn new(tokens: &'a [Token], line_group_starts: &'a [usize]) -> Self {
+    pub(crate) fn new(
+        tokens: &'a [Token],
+        token_ranges: &'a [TextRange],
+        line_group_starts: &'a [usize],
+    ) -> Self {
         Self {
             tokens,
+            token_ranges,
             line_group_starts,
             current: 0,
         }
@@ -115,6 +140,7 @@ impl<'a> TokenGroupIter<'a> {
             TokenGroup {
                 base: start,
                 tokens: &self.tokens[start..end],
+                token_ranges: &self.token_ranges[start..end],
             },
         ))
     }
@@ -159,6 +185,7 @@ impl<'a> Iterator for TokenGroupIter<'a> {
 pub struct TokenGroup<'a> {
     base: usize,
     tokens: &'a [Token],
+    token_ranges: &'a [TextRange],
 }
 
 impl<'a> TokenGroup<'a> {
@@ -169,16 +196,16 @@ impl<'a> TokenGroup<'a> {
     fn first_noncomment_token_idx(&self) -> Option<TokenIdx> {
         self.tokens
             .iter()
-            .position(|token| match token.kind {
-                TokenKind::Comment => false,
+            .position(|token| match token {
+                Token::Comment => false,
                 _ => true,
             })
             .map(|i| TokenIdx(self.base + i))
     }
 
     fn first_noncomment_token(&self) -> Option<&'a Token> {
-        self.tokens.iter().find(|token| match token.kind {
-            TokenKind::Comment => false,
+        self.tokens.iter().find(|token| match token {
+            Token::Comment => false,
             _ => true,
         })
     }
@@ -188,24 +215,24 @@ impl<'a> TokenGroup<'a> {
     }
 
     pub fn indent(&self) -> u32 {
-        self.first().range.start.col.0
+        self.token_ranges.first().unwrap().start.col.0
     }
 }
 
-pub(crate) fn produce_group_starts(tokens: &[Token]) -> Vec<usize> {
-    let line_starts = produce_line_starts(tokens);
+pub(crate) fn produce_group_starts(tokens: &[Token], token_ranges: &[TextRange]) -> Vec<usize> {
+    let line_starts = produce_line_starts(token_ranges);
     let mut i = 0;
     let mut line_group_starts = vec![];
     while i < line_starts.len() {
         let line_start0 = line_starts[i];
-        let line_indent0 = tokens[line_start0].range.start.col.0;
+        let line_indent0 = token_ranges[line_start0].start.col.0;
         line_group_starts.push(line_start0);
         i = {
             let mut j = i + 1;
             while j < line_starts.len() {
                 let line_start1 = line_starts[j];
                 let line_start_token = &tokens[line_start1];
-                let line_indent1 = line_start_token.range.start.col.0;
+                let line_indent1 = token_ranges[line_start1].start.col.0;
                 enum ControlFlow {
                     Break,
                     Continue,
@@ -213,12 +240,12 @@ pub(crate) fn produce_group_starts(tokens: &[Token]) -> Vec<usize> {
                 use ControlFlow::*;
                 let flag = if line_indent1 > line_indent0 {
                     // detect an indentation
-                    match tokens[line_start1 - 1].kind {
-                        TokenKind::Keyword(Keyword::End(_))
-                        | TokenKind::Punctuation(Punctuation::Colon) => Break,
-                        _ => match line_start_token.kind {
-                            TokenKind::Attr(_) => Break,
-                            TokenKind::Keyword(kw) => match kw {
+                    match tokens[line_start1 - 1] {
+                        Token::Keyword(Keyword::End(_))
+                        | Token::Punctuation(Punctuation::Colon) => Break,
+                        _ => match line_start_token {
+                            Token::Attr(_) => Break,
+                            Token::Keyword(kw) => match kw {
                                 Keyword::Liason(_) | Keyword::End(_) => Continue,
                                 _ => Break,
                             },
@@ -227,8 +254,8 @@ pub(crate) fn produce_group_starts(tokens: &[Token]) -> Vec<usize> {
                     }
                 } else {
                     if line_indent1 == line_indent0 {
-                        match line_start_token.kind {
-                            TokenKind::Punctuation(Punctuation::Ket(_)) => Continue,
+                        match line_start_token {
+                            Token::Punctuation(Punctuation::Ket(_)) => Continue,
                             _ => Break,
                         }
                     } else {
@@ -246,12 +273,12 @@ pub(crate) fn produce_group_starts(tokens: &[Token]) -> Vec<usize> {
     line_group_starts
 }
 
-fn produce_line_starts(tokens: &[Token]) -> Vec<usize> {
-    (0..tokens.len())
+fn produce_line_starts(token_ranges: &[TextRange]) -> Vec<usize> {
+    (0..token_ranges.len())
         .filter_map(|line_start| {
             if line_start == 0 {
                 Some(0)
-            } else if tokens[line_start - 1].range.end.line < tokens[line_start].range.start.line {
+            } else if token_ranges[line_start - 1].end.line < token_ranges[line_start].start.line {
                 Some(line_start)
             } else {
                 None
@@ -260,24 +287,29 @@ fn produce_line_starts(tokens: &[Token]) -> Vec<usize> {
         .collect()
 }
 
-impl TokenSheet {
-    pub fn new(tokens: Vec<Token>) -> TokenSheet {
-        TokenSheet {
-            group_starts: produce_group_starts(&tokens),
+impl RangedTokenSheet {
+    pub fn new(tokens: Vec<Token>, token_ranges: Vec<TextRange>) -> RangedTokenSheet {
+        RangedTokenSheet {
+            group_starts: produce_group_starts(&tokens, &token_ranges),
             tokens,
+            token_ranges,
         }
     }
 
     pub fn token_group_iter<'a>(&'a self) -> TokenGroupIter<'a> {
-        TokenGroupIter::new(&self.tokens, &self.group_starts)
+        TokenGroupIter::new(&self.tokens, &self.token_ranges, &self.group_starts)
     }
 
     pub fn group_start(&self, token_group_idx: TokenGroupIdx) -> usize {
         self.group_starts[token_group_idx.0]
     }
+
+    pub fn token_range(&self, token_idx: TokenIdx) -> TextRange {
+        self.token_ranges[token_idx.0]
+    }
 }
 
-impl std::ops::Index<TokenGroupIdx> for TokenSheet {
+impl std::ops::Index<TokenGroupIdx> for RangedTokenSheet {
     type Output = [Token];
 
     fn index(&self, index: TokenGroupIdx) -> &Self::Output {

@@ -63,8 +63,8 @@ impl<'a> AstParser<'a> {
                         ctx.indent(),
                     ) {
                     Some((_token_group_idx, token_group, first_noncomment_token)) => {
-                        match first_noncomment_token.kind {
-                            TokenKind::Punctuation(Punctuation::Vertical) => (
+                        match first_noncomment_token {
+                            Token::Punctuation(Punctuation::Vertical) => (
                                 self.parse_enum_variants(ctx.subcontext(ast_ctx_kind)),
                                 DefnBodyKind::EnumVariants,
                             ),
@@ -97,8 +97,8 @@ impl<'a> AstParser<'a> {
                 context.indent(),
             )
         {
-            match first_noncomment_token.kind {
-                TokenKind::Punctuation(Punctuation::Vertical) => {
+            match first_noncomment_token {
+                Token::Punctuation(Punctuation::Vertical) => {
                     self.token_groups.next();
                     verticals.push(self.parse_enum_variant(idx, &context))
                 }
@@ -110,15 +110,15 @@ impl<'a> AstParser<'a> {
 
     fn parse_enum_variant(&mut self, token_group_idx: TokenGroupIdx, context: &Context) -> Ast {
         let ident = match self.token_sheet[token_group_idx].get(1) {
-            Some(token) => match token.kind {
-                TokenKind::Attr(_) => todo!(),
-                TokenKind::Keyword(_) => todo!(),
-                TokenKind::Identifier(_) => todo!(),
-                TokenKind::Punctuation(_) => todo!(),
-                TokenKind::WordOpr(_) => todo!(),
-                TokenKind::Literal(_) => todo!(),
-                TokenKind::Comment => todo!(),
-                TokenKind::Err(_) => todo!(),
+            Some(token) => match token {
+                Token::Attr(_) => todo!(),
+                Token::Keyword(_) => todo!(),
+                Token::Identifier(_) => todo!(),
+                Token::Punctuation(_) => todo!(),
+                Token::WordOpr(_) => todo!(),
+                Token::Literal(_) => todo!(),
+                Token::Comment => todo!(),
+                Token::Err(_) => todo!(),
             },
             None => todo!(),
         };
@@ -146,8 +146,8 @@ impl<'a> BasicAuxAstParser<'a> {
                     let trai_item_kind: TraitItemKind = if let Some(token) =
                         self.token_stream_mut().peek_noncomment_token()
                     {
-                        match token.kind {
-                            TokenKind::Punctuation(special_token) => match special_token {
+                        match token {
+                            Token::Punctuation(special_token) => match special_token {
                                 Punctuation::Bra(Bracket::Par) | Punctuation::LAngle => match kw {
                                     FormKeyword::Def => todo!(),
                                     FormKeyword::Func
@@ -220,8 +220,8 @@ impl<'a> BasicAuxAstParser<'a> {
                     let type_item_kind: TypeItemKind = if let Some(token) =
                         self.token_stream_mut().peek_noncomment_token()
                     {
-                        match token.kind {
-                            TokenKind::Punctuation(special_token) => match special_token {
+                        match token {
+                            Token::Punctuation(special_token) => match special_token {
                                 Punctuation::Bra(Bracket::Par) | Punctuation::LAngle => match kw {
                                     FormKeyword::Def => todo!(),
                                     FormKeyword::Func
@@ -266,8 +266,8 @@ impl<'a> BasicAuxAstParser<'a> {
                     let form_kind = if let Some(token) =
                         self.token_stream_mut().peek_noncomment_token()
                     {
-                        match token.kind {
-                            TokenKind::Punctuation(special_token) => match special_token {
+                        match token {
+                            Token::Punctuation(special_token) => match special_token {
                                 Punctuation::Bra(Bracket::Par) | Punctuation::LAngle => match kw {
                                     FormKeyword::Def => todo!(),
                                     FormKeyword::Func
@@ -312,8 +312,8 @@ impl<'a> BasicAuxAstParser<'a> {
                     let form_kind = if let Some(token) =
                         self.token_stream_mut().peek_noncomment_token()
                     {
-                        match token.kind {
-                            TokenKind::Punctuation(special_token) => match special_token {
+                        match token {
+                            Token::Punctuation(special_token) => match special_token {
                                 Punctuation::Bra(Bracket::Par) | Punctuation::LAngle => match kw {
                                     FormKeyword::Def => todo!(),
                                     FormKeyword::Func

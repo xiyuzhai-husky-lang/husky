@@ -6,13 +6,13 @@ use husky_text::TextLine;
 pub(crate) struct Tokenizer<'lex> {
     db: &'lex dyn TokenDb,
     tokens: Vec<Token>,
-    errors: Vec<TokenError>,
+    token_ranges: Vec<TextRange>,
     line: TextLine,
 }
 
 enum TokenizerAction {
-    Push(Token),
-    ReplaceLast(Token),
+    Push((Token, TextRange)),
+    ReplaceLast((Token, TextRange)),
     NewLine,
 }
 
@@ -21,77 +21,58 @@ impl<'token> Tokenizer<'token> {
         Self {
             db,
             tokens: vec![],
-            errors: vec![],
+            token_ranges: vec![],
             line: Default::default(),
         }
     }
 
-    pub fn finish_with_tokens(self) -> Vec<Token> {
-        self.tokens
+    pub fn finish(self) -> RangedTokenSheet {
+        RangedTokenSheet::new(self.tokens, self.token_ranges)
     }
 
     pub(crate) fn push_tokens(&mut self, iter: impl Iterator<Item = RangedPretoken>) {
         for token in iter {
             match self.resolve_token(token) {
-                TokenizerAction::Push(token) => self.tokens.push(token),
-                TokenizerAction::ReplaceLast(token) => *self.tokens.last_mut().unwrap() = token,
+                TokenizerAction::Push((token, token_range)) => {
+                    self.tokens.push(token);
+                    self.token_ranges.push(token_range)
+                }
+                TokenizerAction::ReplaceLast((token, token_range)) => {
+                    *self.tokens.last_mut().unwrap() = token;
+                    todo!()
+                }
                 TokenizerAction::NewLine => self.line = self.line.to_next_line(),
             }
         }
     }
 
-    fn resolve_token(&self, token: RangedPretoken) -> TokenizerAction {
-        match token.token {
-            Pretoken::Certain(kind) => {
-                let token = Token {
-                    range: token.range,
-                    kind,
-                };
-                TokenizerAction::Push(token)
-            }
-            Pretoken::Literal(lit) => match self.tokens.last().map(|t| &t.kind) {
-                Some(TokenKind::Punctuation(Punctuation::Minus)) => {
-                    let token = Token {
-                        range: token.range,
-                        kind: TokenKind::Literal(lit.negative().expect("todo")),
-                    };
-                    TokenizerAction::ReplaceLast(token)
-                }
-                _ => {
-                    let token = Token {
-                        range: token.range,
-                        kind: TokenKind::Literal(lit),
-                    };
-                    TokenizerAction::Push(token)
-                }
+    fn resolve_token(&self, ranged_pretoken: RangedPretoken) -> TokenizerAction {
+        match ranged_pretoken.token {
+            Pretoken::Certain(kind) => TokenizerAction::Push((kind, ranged_pretoken.range)),
+            Pretoken::Literal(lit) => match self.tokens.last() {
+                Some(Token::Punctuation(Punctuation::Minus)) => TokenizerAction::ReplaceLast((
+                    Token::Literal(lit.negative().expect("todo")),
+                    ranged_pretoken.range,
+                )),
+                _ => TokenizerAction::Push((Token::Literal(lit), ranged_pretoken.range)),
             },
             Pretoken::NewLine => TokenizerAction::NewLine,
             Pretoken::Ambiguous(punc) => match punc {
                 AmbiguousPretoken::SubOrMinus => {
-                    let kind = match self.right_convexity() {
-                        Convexity::Convex => TokenKind::Punctuation(Punctuation::Binary(
+                    let token = match self.right_convexity() {
+                        Convexity::Convex => Token::Punctuation(Punctuation::Binary(
                             BinaryOpr::PureClosed(BinaryPureClosedOpr::Sub),
                         )),
                         Convexity::Concave | Convexity::Any => {
-                            TokenKind::Punctuation(Punctuation::Minus)
+                            Token::Punctuation(Punctuation::Minus)
                         }
                     };
-                    let token = Token {
-                        range: token.range,
-                        kind,
-                    };
-                    TokenizerAction::Push(token)
+                    TokenizerAction::Push((token, ranged_pretoken.range))
                 }
                 AmbiguousPretoken::For => todo!(),
             },
-            Pretoken::Comment => TokenizerAction::Push(Token {
-                range: token.range,
-                kind: TokenKind::Comment,
-            }),
-            Pretoken::Err(e) => TokenizerAction::Push(Token {
-                range: token.range,
-                kind: TokenKind::Err(e),
-            }),
+            Pretoken::Comment => TokenizerAction::Push((Token::Comment, ranged_pretoken.range)),
+            Pretoken::Err(e) => TokenizerAction::Push((Token::Err(e), ranged_pretoken.range)),
         }
     }
 
@@ -103,9 +84,8 @@ impl<'token> Tokenizer<'token> {
     }
 
     fn last_token_in_unfinished_line(&self) -> Option<&Token> {
-        let last_token = self.tokens.last()?;
-        if last_token.range.start.line >= self.line {
-            Some(last_token)
+        if self.token_ranges.last()?.start.line >= self.line {
+            self.tokens.last()
         } else {
             None
         }

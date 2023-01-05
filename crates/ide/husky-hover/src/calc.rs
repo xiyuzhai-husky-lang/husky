@@ -1,5 +1,6 @@
 use husky_entity_tree::EntityTreeResult;
-use husky_token::{Token, TokenKind};
+use husky_text::TextRange;
+use husky_token::Token;
 use husky_token_info::TokenInfo;
 
 use crate::*;
@@ -17,6 +18,7 @@ struct HoverResultCalculator<'a> {
     module_path: ModulePath,
     token_idx: TokenIdx,
     token: &'a Token,
+    token_range: TextRange,
     token_info: &'a TokenInfo,
     markdown_content: String,
     actions: Vec<CommandLinkGroup>,
@@ -35,6 +37,7 @@ impl<'a> HoverResultCalculator<'a> {
             module_path,
             token_idx,
             token: &token_sheet[token_idx],
+            token_range: token_sheet.token_range(token_idx),
             token_info: &token_info_sheet[token_idx],
             markdown_content: String::new(),
             actions: vec![],
@@ -53,7 +56,7 @@ impl<'a> HoverResultCalculator<'a> {
                     kind: lsp_types::MarkupKind::Markdown,
                     value: self.markdown_content,
                 }),
-                range: Some(self.token.range.into()),
+                range: Some(self.token_range.into()),
             },
             actions: self.actions,
         }
@@ -68,8 +71,8 @@ impl<'a> HoverResultCalculator<'a> {
     }
 
     fn gen_content_aux(&self) -> std::borrow::Cow<'static, str> {
-        match self.token.kind {
-            TokenKind::Keyword(kw) => self.gen_keyword_content(kw).into(),
+        match self.token {
+            Token::Keyword(kw) => self.gen_keyword_content(*kw).into(),
             _ => "".into(),
         }
     }

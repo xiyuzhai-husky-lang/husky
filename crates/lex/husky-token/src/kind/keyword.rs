@@ -16,9 +16,9 @@ pub use ty::*;
 
 use crate::*;
 
-impl const From<Keyword> for TokenKind {
+impl const From<Keyword> for Token {
     fn from(keyword: Keyword) -> Self {
-        TokenKind::Keyword(keyword)
+        Token::Keyword(keyword)
     }
 }
 
@@ -83,8 +83,8 @@ impl Deref for Keyword {
     }
 }
 
-impl const Into<TokenKind> for ConfigKeyword {
-    fn into(self) -> TokenKind {
-        TokenKind::Keyword(self.into())
+impl const Into<Token> for ConfigKeyword {
+    fn into(self) -> Token {
+        Token::Keyword(self.into())
     }
 }

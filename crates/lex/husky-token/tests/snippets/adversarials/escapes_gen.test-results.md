@@ -11,14 +11,14 @@ input
 output
 
 ```husky
-TokenSheet {
+RangedTokenSheet {
     tokens: [
-        Token {
-            range: [1:1, 1:5),
-            kind: Err(
-                UnexpectedCharAfterBackslash,
-            ),
-        },
+        Err(
+            UnexpectedCharAfterBackslash,
+        ),
+    ],
+    token_ranges: [
+        [1:1, 1:5),
     ],
     group_starts: [
         0,

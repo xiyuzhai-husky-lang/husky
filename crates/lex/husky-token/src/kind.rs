@@ -11,7 +11,7 @@ pub use wordopr::*;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum TokenKind {
+pub enum Token {
     Attr(AttributeKeyword),
     Keyword(Keyword),
     Identifier(Identifier),
@@ -22,7 +22,7 @@ pub enum TokenKind {
     Err(TokenError),
 }
 
-impl std::hash::Hash for TokenKind {
+impl std::hash::Hash for Token {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         core::mem::discriminant(self).hash(state);
     }

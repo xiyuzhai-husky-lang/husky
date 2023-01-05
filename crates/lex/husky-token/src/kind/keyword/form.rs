@@ -48,8 +48,8 @@ impl const From<FormKeyword> for Keyword {
     }
 }
 
-impl const From<FormKeyword> for TokenKind {
+impl const From<FormKeyword> for Token {
     fn from(kw: FormKeyword) -> Self {
-        TokenKind::Keyword(kw.into())
+        Token::Keyword(kw.into())
     }
 }

@@ -21,15 +21,18 @@ where
         ctx: &mut Context,
     ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed(IgnoreComment::True) {
-            match token.kind {
-                TokenKind::Punctuation(punc) => Ok(Some(PunctuationToken { punc, token_idx })),
-                TokenKind::Comment => unreachable!(),
-                TokenKind::Err(ref e) => Err(e.clone().into()),
-                TokenKind::Identifier(_)
-                | TokenKind::WordOpr(_)
-                | TokenKind::Literal(_)
-                | TokenKind::Attr(_)
-                | TokenKind::Keyword(_) => Ok(None),
+            match token {
+                Token::Punctuation(punc) => Ok(Some(PunctuationToken {
+                    punc: *punc,
+                    token_idx,
+                })),
+                Token::Comment => unreachable!(),
+                Token::Err(ref e) => Err(e.clone().into()),
+                Token::Identifier(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Attr(_)
+                | Token::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -48,16 +51,16 @@ where
     <Context as HasParseError>::Error: From<TokenError>,
 {
     if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed(IgnoreComment::True) {
-        match token.kind {
-            TokenKind::Punctuation(punc) if punc == target => Ok(Some(token_idx)),
-            TokenKind::Comment => unreachable!(),
-            TokenKind::Err(ref e) => Err(e.clone()),
-            TokenKind::Punctuation(_)
-            | TokenKind::Identifier(_)
-            | TokenKind::WordOpr(_)
-            | TokenKind::Literal(_)
-            | TokenKind::Attr(_)
-            | TokenKind::Keyword(_) => Ok(None),
+        match token {
+            Token::Punctuation(punc) if punc == &target => Ok(Some(token_idx)),
+            Token::Comment => unreachable!(),
+            Token::Err(ref e) => Err(e.clone()),
+            Token::Punctuation(_)
+            | Token::Identifier(_)
+            | Token::WordOpr(_)
+            | Token::Literal(_)
+            | Token::Attr(_)
+            | Token::Keyword(_) => Ok(None),
         }
     } else {
         Ok(None)
@@ -568,21 +571,21 @@ where
     ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
         let token_stream = ctx.token_stream_mut();
         if let Some((token_idx, token)) = token_stream.next_indexed(IgnoreComment::True) {
-            match token.kind {
-                TokenKind::Punctuation(Punctuation::Colon) => {
+            match token {
+                Token::Punctuation(Punctuation::Colon) => {
                     match token_stream.peek_noncomment_token() {
                         Some(_) => Ok(None),
                         None => Ok(Some(EolColonToken { token_idx })),
                     }
                 }
-                TokenKind::Comment => unreachable!(),
-                TokenKind::Err(ref e) => Err(e.clone().into()),
-                TokenKind::Punctuation(_)
-                | TokenKind::Identifier(_)
-                | TokenKind::WordOpr(_)
-                | TokenKind::Literal(_)
-                | TokenKind::Attr(_)
-                | TokenKind::Keyword(_) => Ok(None),
+                Token::Comment => unreachable!(),
+                Token::Err(ref e) => Err(e.clone().into()),
+                Token::Punctuation(_)
+                | Token::Identifier(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Attr(_)
+                | Token::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)

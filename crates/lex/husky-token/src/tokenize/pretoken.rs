@@ -21,7 +21,7 @@ impl RangedPretoken {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) enum Pretoken {
-    Certain(TokenKind),
+    Certain(Token),
     Literal(Literal),
     NewLine,
     Ambiguous(AmbiguousPretoken),
@@ -31,13 +31,13 @@ pub(crate) enum Pretoken {
 
 impl Into<Pretoken> for IntegerLiteral {
     fn into(self) -> Pretoken {
-        Pretoken::Certain(TokenKind::Literal(Literal::Integer(self)))
+        Pretoken::Certain(Token::Literal(Literal::Integer(self)))
     }
 }
 
 impl Into<Pretoken> for FloatLiteral {
     fn into(self) -> Pretoken {
-        Pretoken::Certain(TokenKind::Literal(Literal::Float(self)))
+        Pretoken::Certain(Token::Literal(Literal::Float(self)))
     }
 }
 
@@ -47,8 +47,8 @@ pub enum AmbiguousPretoken {
     For,
 }
 
-impl From<TokenKind> for Pretoken {
-    fn from(kind: TokenKind) -> Self {
+impl From<Token> for Pretoken {
+    fn from(kind: Token) -> Self {
         Pretoken::Certain(kind)
     }
 }
@@ -107,11 +107,11 @@ impl Into<Pretoken> for FormKeyword {
     }
 }
 
-impl From<Token> for RangedPretoken {
-    fn from(value: Token) -> Self {
+impl From<(Token, TextRange)> for RangedPretoken {
+    fn from((token, range): (Token, TextRange)) -> Self {
         Self {
-            range: value.range,
-            token: Pretoken::Certain(value.kind),
+            range: range,
+            token: Pretoken::Certain(token),
         }
     }
 }
@@ -235,7 +235,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
             token_kind
         } else {
             let identifier = self.db.it_ident_owned(word).unwrap();
-            TokenKind::Identifier(identifier).into()
+            Token::Identifier(identifier).into()
         }
     }
 

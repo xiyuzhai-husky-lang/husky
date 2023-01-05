@@ -10,9 +10,9 @@ pub enum WordOpr {
     Be,
 }
 
-impl const From<WordOpr> for TokenKind {
+impl const From<WordOpr> for Token {
     fn from(wordopr: WordOpr) -> Self {
-        TokenKind::WordOpr(wordopr)
+        Token::WordOpr(wordopr)
     }
 }
 

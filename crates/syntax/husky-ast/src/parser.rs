@@ -7,14 +7,14 @@ use crate::*;
 use context::*;
 use husky_print_utils::p;
 use husky_token::{
-    ConnectionKeyword, Keyword, Punctuation, StmtKeyword, TokenGroupIter, TokenKind, TokenSheet,
+    ConnectionKeyword, Keyword, Punctuation, RangedTokenSheet, StmtKeyword, Token, TokenGroupIter,
 };
 use utils::*;
 
 pub(crate) struct AstParser<'a> {
     db: &'a dyn AstDb,
     module_path: ModulePath,
-    token_sheet: &'a TokenSheet,
+    token_sheet: &'a RangedTokenSheet,
     token_groups: TokenGroupIter<'a>,
     ast_arena: AstArena,
     use_expr_arena: UseExprArena,
@@ -67,9 +67,9 @@ impl<'a> AstParser<'a> {
                 error: AstError::ExcessiveIndent,
             });
         }
-        Some(match first_noncomment_token.kind {
-            TokenKind::Attr(_) => self.parse_defn_or_use(token_group_idx, context),
-            TokenKind::Keyword(kw) => match kw {
+        Some(match first_noncomment_token {
+            Token::Attr(_) => self.parse_defn_or_use(token_group_idx, context),
+            Token::Keyword(kw) => match kw {
                 Keyword::Stmt(kw) => match kw {
                     StmtKeyword::If => self.parse_if_else_stmts(token_group_idx, &context),
                     StmtKeyword::Elif => Ast::Err {
@@ -120,13 +120,13 @@ impl<'a> AstParser<'a> {
                 Keyword::End(_) => unreachable!(),
                 Keyword::Connection(_) => todo!(),
             },
-            TokenKind::Punctuation(Punctuation::PoundSign) => Ast::Decor { token_group_idx },
-            TokenKind::Punctuation(_)
-            | TokenKind::Identifier(_)
-            | TokenKind::WordOpr(_)
-            | TokenKind::Literal(_) => self.parse_stmt(token_group_idx, &context),
-            TokenKind::Comment => Ast::Comment { token_group_idx },
-            TokenKind::Err(_) => todo!(),
+            Token::Punctuation(Punctuation::PoundSign) => Ast::Decor { token_group_idx },
+            Token::Punctuation(_)
+            | Token::Identifier(_)
+            | Token::WordOpr(_)
+            | Token::Literal(_) => self.parse_stmt(token_group_idx, &context),
+            Token::Comment => Ast::Comment { token_group_idx },
+            Token::Err(_) => todo!(),
         })
     }
 
@@ -135,7 +135,7 @@ impl<'a> AstParser<'a> {
         // todo: improve this
         self.token_sheet
             .token_group_token_stream(token_group_idx, None)
-            .find(|token| token.kind == Keyword::Connection(ConnectionKeyword::For).into())
+            .find(|token| *token == &(Keyword::Connection(ConnectionKeyword::For).into()))
             .is_some()
     }
 
@@ -155,8 +155,8 @@ impl<'a> AstParser<'a> {
                 context.indent(),
             )
         {
-            match first_noncomment_token.kind {
-                TokenKind::Keyword(Keyword::Stmt(StmtKeyword::Elif)) => {
+            match first_noncomment_token {
+                Token::Keyword(Keyword::Stmt(StmtKeyword::Elif)) => {
                     self.token_groups.next();
                     elif_stmts.push(self.parse_stmt(idx, &context))
                 }
@@ -172,8 +172,8 @@ impl<'a> AstParser<'a> {
             .peek_noncomment_token_group_of_exact_indent_with_its_first_noncomment_token(
                 context.indent(),
             )?;
-        match first_noncomment_token.kind {
-            TokenKind::Keyword(Keyword::Stmt(StmtKeyword::Else)) => {
+        match first_noncomment_token {
+            Token::Keyword(Keyword::Stmt(StmtKeyword::Else)) => {
                 self.token_groups.next();
                 Some(self.alloc_stmt(idx, context))
             }
@@ -209,8 +209,8 @@ impl<'a> AstParser<'a> {
                 context.indent(),
             )
         {
-            match first_noncomment.kind {
-                TokenKind::Punctuation(Punctuation::Vertical) => {
+            match first_noncomment {
+                Token::Punctuation(Punctuation::Vertical) => {
                     self.token_groups.next();
                     verticals.push(self.parse_stmt(idx, &context))
                 }
@@ -225,22 +225,20 @@ impl<'a> AstParser<'a> {
 
     fn parse_defn_or_use(&mut self, token_group_idx: TokenGroupIdx, context: &Context) -> Ast {
         for token in &self.token_sheet[token_group_idx] {
-            match token.kind {
-                TokenKind::Attr(_) | TokenKind::Comment => (),
-                TokenKind::Keyword(Keyword::Use) => {
-                    return self.parse_uses(token_group_idx, context)
-                }
-                TokenKind::Keyword(_) => return self.parse_defn(context, token_group_idx),
-                TokenKind::Identifier(_)
-                | TokenKind::Punctuation(_)
-                | TokenKind::WordOpr(_)
-                | TokenKind::Literal(_) => {
+            match token {
+                Token::Attr(_) | Token::Comment => (),
+                Token::Keyword(Keyword::Use) => return self.parse_uses(token_group_idx, context),
+                Token::Keyword(_) => return self.parse_defn(context, token_group_idx),
+                Token::Identifier(_)
+                | Token::Punctuation(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_) => {
                     return Ast::Err {
                         token_group_idx,
                         error: AstError::ExpectDecoratorOrEntityKeyword,
                     }
                 }
-                TokenKind::Err(_) => todo!(),
+                Token::Err(_) => todo!(),
             }
         }
         Ast::Err {

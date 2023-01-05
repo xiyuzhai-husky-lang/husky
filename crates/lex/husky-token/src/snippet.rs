@@ -7,7 +7,7 @@ pub struct Snippet {
 }
 
 #[salsa::tracked(jar = TokenJar, return_ref)]
-pub(crate) fn tokenize_snippet(db: &dyn TokenDb, snippet: Snippet) -> TokenSheet {
+pub(crate) fn tokenize_snippet(db: &dyn TokenDb, snippet: Snippet) -> RangedTokenSheet {
     let input = snippet.data(db);
-    TokenSheet::new(tokenize(db, input))
+    tokenize(db, input)
 }

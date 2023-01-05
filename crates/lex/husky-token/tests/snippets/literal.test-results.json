@@ -1,26 +1,26 @@
 [
   {
     "input": "\"haha\"",
-    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:7),\n            kind: Literal(\n                String(\n                    StringLiteral {\n                        data: \"haha\",\n                    },\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
+    "output": "RangedTokenSheet {\n    tokens: [\n        Literal(\n            String(\n                StringLiteral {\n                    data: \"haha\",\n                },\n            ),\n        ),\n    ],\n    token_ranges: [\n        [1:1, 1:7),\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "\"\\n\"",
-    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:5),\n            kind: Literal(\n                String(\n                    StringLiteral {\n                        data: \"\\n\",\n                    },\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
+    "output": "RangedTokenSheet {\n    tokens: [\n        Literal(\n            String(\n                StringLiteral {\n                    data: \"\\n\",\n                },\n            ),\n        ),\n    ],\n    token_ranges: [\n        [1:1, 1:5),\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "\"\\t\"",
-    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:5),\n            kind: Literal(\n                String(\n                    StringLiteral {\n                        data: \"\\t\",\n                    },\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
+    "output": "RangedTokenSheet {\n    tokens: [\n        Literal(\n            String(\n                StringLiteral {\n                    data: \"\\t\",\n                },\n            ),\n        ),\n    ],\n    token_ranges: [\n        [1:1, 1:5),\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "\"\\\\\"",
-    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:5),\n            kind: Literal(\n                String(\n                    StringLiteral {\n                        data: \"\\\\\",\n                    },\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
+    "output": "RangedTokenSheet {\n    tokens: [\n        Literal(\n            String(\n                StringLiteral {\n                    data: \"\\\\\",\n                },\n            ),\n        ),\n    ],\n    token_ranges: [\n        [1:1, 1:5),\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "\"\\\"\"",
-    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:5),\n            kind: Literal(\n                String(\n                    StringLiteral {\n                        data: \"\\\"\",\n                    },\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
+    "output": "RangedTokenSheet {\n    tokens: [\n        Literal(\n            String(\n                StringLiteral {\n                    data: \"\\\"\",\n                },\n            ),\n        ),\n    ],\n    token_ranges: [\n        [1:1, 1:5),\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "\"\\r\"",
-    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:5),\n            kind: Literal(\n                String(\n                    StringLiteral {\n                        data: \"\\r\",\n                    },\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
+    "output": "RangedTokenSheet {\n    tokens: [\n        Literal(\n            String(\n                StringLiteral {\n                    data: \"\\r\",\n                },\n            ),\n        ),\n    ],\n    token_ranges: [\n        [1:1, 1:5),\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   }
 ]
