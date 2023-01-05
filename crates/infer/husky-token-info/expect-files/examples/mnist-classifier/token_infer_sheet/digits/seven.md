@@ -135,7 +135,7 @@ Ok(
             None,
             None,
             None,
-            None,
+            Field,
             None,
             Entity(
                 ModuleItem {
@@ -203,11 +203,11 @@ Ok(
             None,
             None,
             None,
+            Method,
             None,
             None,
             None,
-            None,
-            None,
+            Field,
             None,
             Entity(
                 ModuleItem {

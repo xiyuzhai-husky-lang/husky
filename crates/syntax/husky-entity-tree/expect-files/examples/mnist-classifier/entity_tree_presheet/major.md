@@ -7,7 +7,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::major`,
                 ),
-                ast_idx: 22,
+                ast_idx: 19,
                 path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
             },
             ModuleItem {
@@ -15,7 +15,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::major`,
                 ),
-                ast_idx: 23,
+                ast_idx: 20,
                 path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
             },
             ModuleItem {
@@ -23,7 +23,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::major`,
                 ),
-                ast_idx: 24,
+                ast_idx: 21,
                 path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
             },
             ModuleItem {
@@ -31,38 +31,14 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::major`,
                 ),
-                ast_idx: 25,
+                ast_idx: 22,
                 path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
-            },
-            ModuleItem {
-                ident: `major_raw_contour`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::major`,
-                ),
-                ast_idx: 27,
-                path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
-            },
-            ModuleItem {
-                ident: `major_line_segment_sketch`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::major`,
-                ),
-                ast_idx: 28,
-                path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
-            },
-            ModuleItem {
-                ident: `major_concave_components`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::major`,
-                ),
-                ast_idx: 29,
-                path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(
             [
                 EntityUseTracker {
-                    ast_idx: 18,
+                    ast_idx: 15,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -82,7 +58,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 19,
+                    ast_idx: 16,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -102,7 +78,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 20,
+                    ast_idx: 17,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -122,7 +98,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 21,
+                    ast_idx: 18,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {

@@ -46,6 +46,7 @@ impl<'a> Iterator for TokenStream<'a> {
     }
 }
 
+#[derive(Debug, PartialEq, Eq)]
 pub enum IgnoreComment {
     True,
     False,
@@ -97,12 +98,8 @@ impl<'a> TokenStream<'a> {
     pub fn try_eat_with(
         &mut self,
         predicate: impl FnOnce(&TokenKind) -> bool,
-        ignore_comment: bool,
     ) -> Option<&'a Token> {
-        if ignore_comment {
-            self.eat_comments()
-        }
-        let token = self.peek()?;
+        let token = self.peek_noncomment_token()?;
         if predicate(&token.kind) {
             self.next();
             Some(token)
@@ -111,19 +108,12 @@ impl<'a> TokenStream<'a> {
         }
     }
 
-    pub fn try_eat_special(
-        &mut self,
-        punc: Punctuation,
-        ignore_comment: bool,
-    ) -> Option<&'a Token> {
-        self.try_eat_with(
-            |token_kind| token_kind == &TokenKind::Punctuation(punc),
-            ignore_comment,
-        )
+    pub fn try_eat_special(&mut self, punc: Punctuation) -> Option<&'a Token> {
+        self.try_eat_with(|token_kind| token_kind == &TokenKind::Punctuation(punc))
     }
 
     pub fn eat_comments(&mut self) {
-        while let Some(token) = self.peek() {
+        while let Some(token) = self.peek_raw() {
             match token.kind {
                 TokenKind::Comment => {
                     self.next();
@@ -172,12 +162,18 @@ impl<'a> TokenStream<'a> {
         self.next_relative -= 1
     }
 
-    pub fn peek(&self) -> Option<&'a Token> {
+    fn peek_raw(&self) -> Option<&'a Token> {
         if self.next_relative < self.tokens.len() {
             Some(&self.tokens[self.next_relative])
         } else {
             None
         }
+    }
+
+    /// this will eat all comments and stop at first noncomment
+    pub fn peek_noncomment_token(&mut self) -> Option<&'a Token> {
+        self.eat_comments();
+        self.peek_raw()
     }
 
     pub fn next_range(&self) -> TextRange {
@@ -200,14 +196,18 @@ impl<'a> TokenStream<'a> {
         }
     }
 
-    pub fn is_next_ident(&self) -> bool {
-        match self.peek() {
+    pub fn is_next_ident(&mut self) -> bool {
+        match self.peek_noncomment_token() {
             Some(token) => match token.kind {
                 TokenKind::Identifier(_) => true,
                 _ => false,
             },
             None => false,
         }
+    }
+
+    pub fn tokens(&self) -> &[Token] {
+        self.tokens
     }
 }
 

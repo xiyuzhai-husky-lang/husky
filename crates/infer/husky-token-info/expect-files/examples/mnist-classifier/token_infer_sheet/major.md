@@ -72,7 +72,7 @@ Ok(
             None,
             None,
             None,
-            None,
+            Method,
             None,
             None,
             None,
@@ -123,7 +123,7 @@ Ok(
             None,
             None,
             None,
-            None,
+            Method,
             None,
             None,
             None,
@@ -157,17 +157,7 @@ Ok(
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Feature,
-                    ),
-                    connection: Connected,
-                },
-            ),
+            Field,
             None,
             None,
             None,
@@ -178,14 +168,6 @@ Ok(
             None,
             None,
             None,
-            Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Feature,
-                    ),
-                    connection: Connected,
-                },
-            ),
             None,
             None,
             None,
@@ -193,14 +175,11 @@ Ok(
             None,
             None,
             None,
-            Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Feature,
-                    ),
-                    connection: Connected,
-                },
-            ),
+            None,
+            None,
+            None,
+            None,
+            None,
             None,
             None,
             None,

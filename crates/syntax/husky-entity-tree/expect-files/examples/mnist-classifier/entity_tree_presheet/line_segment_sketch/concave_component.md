@@ -7,22 +7,14 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
-                ast_idx: 77,
+                ast_idx: 7,
                 path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-            },
-            ModuleItem {
-                ident: `find_concave_components`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::line_segment_sketch::concave_component`,
-                ),
-                ast_idx: 78,
-                path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(
             [
                 EntityUseTracker {
-                    ast_idx: 73,
+                    ast_idx: 3,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -42,7 +34,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 74,
+                    ast_idx: 4,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -62,7 +54,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 75,
+                    ast_idx: 5,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -82,7 +74,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 76,
+                    ast_idx: 6,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {

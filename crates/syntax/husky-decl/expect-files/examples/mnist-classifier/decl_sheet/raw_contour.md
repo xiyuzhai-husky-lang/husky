@@ -102,7 +102,7 @@ Ok(
                 Err(
                     ExpectLCurlOrLParOrSemicolon(
                         TokenIdx(
-                            887,
+                            889,
                         ),
                     ),
                 ),

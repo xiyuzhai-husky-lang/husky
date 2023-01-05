@@ -44,9 +44,9 @@ Ok(
             start_character: Some(
                 0,
             ),
-            end_line: 45,
+            end_line: 35,
             end_character: Some(
-                20,
+                66,
             ),
             kind: Some(
                 Region,

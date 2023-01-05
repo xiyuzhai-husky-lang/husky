@@ -95,7 +95,17 @@ impl Context {
 
     #[inline(always)]
     pub(super) fn subcontext(&self, parent: AstContextKind) -> Self {
-        let indent = self.indent + INDENT_INCR;
+        let indent = match parent {
+            AstContextKind::InsideMatchStmt | AstContextKind::InsideEnumLikeType { .. } => {
+                self.indent
+            }
+            AstContextKind::InsideTrait { .. }
+            | AstContextKind::InsideForm
+            | AstContextKind::InsideTypeImpl
+            | AstContextKind::InsideTraitImpl
+            | AstContextKind::InsideModule
+            | AstContextKind::InsideNoChild => self.indent + INDENT_INCR,
+        };
         Self {
             indent,
             inside: parent,

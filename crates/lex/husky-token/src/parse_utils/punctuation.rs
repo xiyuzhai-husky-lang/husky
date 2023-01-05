@@ -1,6 +1,7 @@
 use super::*;
 use husky_opn_syntax::{BinaryOpr, Bracket};
 
+use husky_print_utils::p;
 use parsec::{HasParseError, ParseContext, ParseFrom};
 
 // punctuation in general
@@ -565,10 +566,11 @@ where
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
-        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed(IgnoreComment::True) {
+        let token_stream = ctx.token_stream_mut();
+        if let Some((token_idx, token)) = token_stream.next_indexed(IgnoreComment::True) {
             match token.kind {
-                TokenKind::Punctuation(punc) if punc == Punctuation::Colon => {
-                    match ctx.token_iter().peek() {
+                TokenKind::Punctuation(Punctuation::Colon) => {
+                    match token_stream.peek_noncomment_token() {
                         Some(_) => Ok(None),
                         None => Ok(Some(EolColonToken { token_idx })),
                     }
@@ -590,7 +592,7 @@ where
 
 #[test]
 fn eol_colon_token_works() {
-    fn t(db: &DB, input: &str) -> TokenResult<Option<DotDotToken>> {
+    fn t(db: &DB, input: &str) -> TokenResult<Option<EolColonToken>> {
         quick_parse(db, input)
     }
 

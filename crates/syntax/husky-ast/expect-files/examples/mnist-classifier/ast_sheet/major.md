@@ -121,30 +121,6 @@ Ok(
                         14..14,
                     ),
                 },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        24,
-                    ),
-                    body: ArenaIdxRange(
-                        15..15,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        26,
-                    ),
-                    body: ArenaIdxRange(
-                        16..16,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        28,
-                    ),
-                    body: ArenaIdxRange(
-                        17..17,
-                    ),
-                },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         0,
@@ -341,120 +317,10 @@ Ok(
                         121,
                     ),
                 },
-                Comment {
-                    token_group_idx: TokenGroupIdx(
-                        22,
-                    ),
-                },
-                Defn {
-                    token_group_idx: TokenGroupIdx(
-                        23,
-                    ),
-                    body: ArenaIdxRange(
-                        15..16,
-                    ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 32,
-                            },
-                        ),
-                    ),
-                    entity_kind: ModuleItem {
-                        module_item_kind: Form(
-                            Feature,
-                        ),
-                        connection: Connected,
-                    },
-                    entity_path: Some(
-                        FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
-                    ),
-                    ident_token: IdentifierToken {
-                        ident: `major_raw_contour`,
-                        token_idx: TokenIdx(
-                            131,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: Block,
-                    saved_stream_state: TokenIdx(
-                        132,
-                    ),
-                },
-                Defn {
-                    token_group_idx: TokenGroupIdx(
-                        25,
-                    ),
-                    body: ArenaIdxRange(
-                        16..17,
-                    ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 32,
-                            },
-                        ),
-                    ),
-                    entity_kind: ModuleItem {
-                        module_item_kind: Form(
-                            Feature,
-                        ),
-                        connection: Connected,
-                    },
-                    entity_path: Some(
-                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
-                    ),
-                    ident_token: IdentifierToken {
-                        ident: `major_line_segment_sketch`,
-                        token_idx: TokenIdx(
-                            142,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: Block,
-                    saved_stream_state: TokenIdx(
-                        143,
-                    ),
-                },
-                Defn {
-                    token_group_idx: TokenGroupIdx(
-                        27,
-                    ),
-                    body: ArenaIdxRange(
-                        17..18,
-                    ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 32,
-                            },
-                        ),
-                    ),
-                    entity_kind: ModuleItem {
-                        module_item_kind: Form(
-                            Feature,
-                        ),
-                        connection: Connected,
-                    },
-                    entity_path: Some(
-                        FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
-                    ),
-                    ident_token: IdentifierToken {
-                        ident: `major_concave_components`,
-                        token_idx: TokenIdx(
-                            150,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: Block,
-                    saved_stream_state: TokenIdx(
-                        151,
-                    ),
-                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            18..30,
+            15..23,
         ),
         use_expr_arena: Arena {
             data: [

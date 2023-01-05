@@ -13,27 +13,29 @@ where
     fn module_path(&self) -> ModulePath;
 
     fn parse_accessibility(&mut self) -> AstResult<Accessibility> {
-        Ok(match self.borrow_mut().peek().unwrap().kind {
-            TokenKind::Attr(decor) => match decor {
-                AttributeKeyword::Pub => {
-                    self.borrow_mut().next();
-                    match self
-                        .borrow_mut()
-                        .peek()
-                        .ok_or(AstError::ExpectParBraOrDecoratorOrIdentifier(None))?
-                        .kind
-                    {
-                        TokenKind::Punctuation(Punctuation::Bra(Bracket::Par)) => todo!(),
-                        _ => Accessibility::Public,
+        Ok(
+            match self.borrow_mut().peek_noncomment_token().unwrap().kind {
+                TokenKind::Attr(decor) => match decor {
+                    AttributeKeyword::Pub => {
+                        self.borrow_mut().next();
+                        match self
+                            .borrow_mut()
+                            .peek_noncomment_token()
+                            .ok_or(AstError::ExpectParBraOrDecoratorOrIdentifier(None))?
+                            .kind
+                        {
+                            TokenKind::Punctuation(Punctuation::Bra(Bracket::Par)) => todo!(),
+                            _ => Accessibility::Public,
+                        }
                     }
-                }
-                AttributeKeyword::Protected => todo!(),
-                AttributeKeyword::Private => todo!(),
-                AttributeKeyword::Async => todo!(),
-                AttributeKeyword::Static => Accessibility::Public,
+                    AttributeKeyword::Protected => todo!(),
+                    AttributeKeyword::Private => todo!(),
+                    AttributeKeyword::Async => todo!(),
+                    AttributeKeyword::Static => Accessibility::Public,
+                },
+                _ => Accessibility::PublicUnder(self.module_path()),
             },
-            _ => Accessibility::PublicUnder(self.module_path()),
-        })
+        )
     }
 
     fn take_entity_kind_keyword(&mut self) -> AstResult<Keyword> {
@@ -82,10 +84,10 @@ where
         })
     }
 
-    fn parse_is_generic(&self) -> bool {
+    fn parse_is_generic(&mut self) -> bool {
         let Some (token) = &self
-            .token_iter()
-            .peek() else { return false };
+            .token_stream_mut()
+            .peek_noncomment_token() else { return false };
         match token.kind {
             TokenKind::Punctuation(Punctuation::LAngle) => true,
             _ => false,
