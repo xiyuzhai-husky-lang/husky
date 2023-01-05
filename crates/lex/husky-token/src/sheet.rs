@@ -19,11 +19,23 @@ impl std::ops::Index<TokenIdx> for TokenSheetData {
     }
 }
 
-#[derive(Debug, Hash, PartialOrd, Ord, PartialEq, Eq, Clone, Copy)]
+#[derive(Hash, PartialOrd, Ord, PartialEq, Eq, Clone, Copy)]
 pub struct TokenIdxRange {
-    start: TokenIdx,
-    end: TokenIdx,
+    start: TokenIdxRangeStart,
+    end: TokenIdxRangeEnd,
 }
+
+impl std::fmt::Debug for TokenIdxRange {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        (self.start.0 .0..self.end.0 .0).fmt(f)
+    }
+}
+
+#[derive(Debug, Hash, PartialOrd, Ord, PartialEq, Eq, Clone, Copy)]
+pub struct TokenIdxRangeStart(TokenIdx);
+
+#[derive(Debug, Hash, PartialOrd, Ord, PartialEq, Eq, Clone, Copy)]
+pub struct TokenIdxRangeEnd(TokenIdx);
 
 pub trait HasTokenIdxRange {
     fn token_idx_range(&self) -> TokenIdxRange;
@@ -42,8 +54,8 @@ where
     fn token_idx_range(&self) -> TokenIdxRange {
         if self.len() == 0 {
             return TokenIdxRange {
-                start: TokenIdx(0),
-                end: TokenIdx(0),
+                start: TokenIdxRangeStart(TokenIdx(0)),
+                end: TokenIdxRangeEnd(TokenIdx(0)),
             };
         }
         TokenIdxRange {
@@ -53,30 +65,26 @@ where
     }
 }
 
-impl From<std::ops::Range<TokenIdx>> for TokenIdxRange {
-    fn from((value): std::ops::Range<TokenIdx>) -> Self {
-        Self {
-            start: value.start,
-            end: value.end,
-        }
+impl From<(TokenIdxRangeStart, TokenIdxRangeEnd)> for TokenIdxRange {
+    fn from((start, end): (TokenIdxRangeStart, TokenIdxRangeEnd)) -> Self {
+        Self { start, end }
     }
 }
 
 impl TokenIdxRange {
-    pub(crate) fn new(start: TokenIdx, end: TokenIdx) -> Self {
-        Self { start, end }
+    fn new(start: usize, end: usize) -> Self {
+        Self {
+            start: TokenIdxRangeStart(TokenIdx(start)),
+            end: TokenIdxRangeEnd(TokenIdx(end)),
+        }
     }
 
-    pub fn start(&self) -> TokenIdx {
+    pub fn start(&self) -> TokenIdxRangeStart {
         self.start
     }
 
-    pub fn end(&self) -> TokenIdx {
+    pub fn end(&self) -> TokenIdxRangeEnd {
         self.end
-    }
-
-    pub fn set_start(&mut self, start: TokenIdx) {
-        self.start = start;
     }
 }
 
@@ -163,8 +171,8 @@ impl RangedTokenSheet {
     }
 
     pub fn tokens_text_range(&self, token_idx_range: TokenIdxRange) -> TextRange {
-        let start = token_idx_range.start.0;
-        let end = token_idx_range.end.0;
+        let start = token_idx_range.start.0 .0;
+        let end = token_idx_range.end.0 .0;
         self.token_ranges[start..end].text_range()
     }
 
@@ -415,10 +423,7 @@ impl TokenSheetData {
             .get(token_group_idx.0 + 1)
             .map(|end| *end)
             .unwrap_or(self.tokens.len());
-        TokenIdxRange {
-            start: TokenIdx(start),
-            end: TokenIdx(end),
-        }
+        TokenIdxRange::new(start, end)
     }
 
     pub fn tokens(&self) -> &[Token] {

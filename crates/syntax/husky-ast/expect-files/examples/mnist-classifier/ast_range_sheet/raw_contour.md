@@ -1,1758 +1,225 @@
 Ok(
     AstRangeSheet {
-        text_ranges: [
-            TokenIdxRange {
-                start: TokenIdx(
-                    49,
-                ),
-                end: TokenIdx(
-                    57,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    106,
-                ),
-                end: TokenIdx(
-                    113,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    113,
-                ),
-                end: TokenIdx(
-                    123,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    123,
-                ),
-                end: TokenIdx(
-                    133,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    133,
-                ),
-                end: TokenIdx(
-                    143,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    143,
-                ),
-                end: TokenIdx(
-                    153,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    62,
-                ),
-                end: TokenIdx(
-                    69,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    69,
-                ),
-                end: TokenIdx(
-                    76,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    76,
-                ),
-                end: TokenIdx(
-                    83,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    83,
-                ),
-                end: TokenIdx(
-                    90,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    90,
-                ),
-                end: TokenIdx(
-                    97,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    97,
-                ),
-                end: TokenIdx(
-                    153,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    153,
-                ),
-                end: TokenIdx(
-                    171,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    176,
-                ),
-                end: TokenIdx(
-                    191,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    212,
-                ),
-                end: TokenIdx(
-                    221,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    221,
-                ),
-                end: TokenIdx(
-                    228,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    228,
-                ),
-                end: TokenIdx(
-                    257,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    196,
-                ),
-                end: TokenIdx(
-                    201,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    201,
-                ),
-                end: TokenIdx(
-                    257,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    257,
-                ),
-                end: TokenIdx(
-                    270,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    270,
-                ),
-                end: TokenIdx(
-                    277,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    277,
-                ),
-                end: TokenIdx(
-                    306,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    306,
-                ),
-                end: TokenIdx(
-                    308,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    322,
-                ),
-                end: TokenIdx(
-                    331,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    331,
-                ),
-                end: TokenIdx(
-                    341,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    341,
-                ),
-                end: TokenIdx(
-                    351,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    351,
-                ),
-                end: TokenIdx(
-                    357,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    44,
-                ),
-                end: TokenIdx(
-                    57,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    57,
-                ),
-                end: TokenIdx(
-                    171,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    171,
-                ),
-                end: TokenIdx(
-                    191,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    191,
-                ),
-                end: TokenIdx(
-                    308,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    308,
-                ),
-                end: TokenIdx(
-                    357,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    357,
-                ),
-                end: TokenIdx(
-                    359,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    359,
-                ),
-                end: TokenIdx(
-                    369,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    393,
-                ),
-                end: TokenIdx(
-                    405,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    419,
-                ),
-                end: TokenIdx(
-                    427,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    441,
-                ),
-                end: TokenIdx(
-                    453,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    490,
-                ),
-                end: TokenIdx(
-                    493,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    498,
-                ),
-                end: TokenIdx(
-                    501,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    501,
-                ),
-                end: TokenIdx(
-                    503,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    503,
-                ),
-                end: TokenIdx(
-                    510,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    510,
-                ),
-                end: TokenIdx(
-                    517,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    517,
-                ),
-                end: TokenIdx(
-                    522,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    498,
-                ),
-                end: TokenIdx(
-                    522,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    534,
-                ),
-                end: TokenIdx(
-                    537,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    537,
-                ),
-                end: TokenIdx(
-                    544,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    544,
-                ),
-                end: TokenIdx(
-                    546,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    546,
-                ),
-                end: TokenIdx(
-                    553,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    553,
-                ),
-                end: TokenIdx(
-                    560,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    560,
-                ),
-                end: TokenIdx(
-                    565,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    534,
-                ),
-                end: TokenIdx(
-                    565,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    570,
-                ),
-                end: TokenIdx(
-                    573,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    573,
-                ),
-                end: TokenIdx(
-                    575,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    575,
-                ),
-                end: TokenIdx(
-                    582,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    582,
-                ),
-                end: TokenIdx(
-                    589,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    589,
-                ),
-                end: TokenIdx(
-                    594,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    570,
-                ),
-                end: TokenIdx(
-                    594,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    493,
-                ),
-                end: TokenIdx(
-                    522,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    522,
-                ),
-                end: TokenIdx(
-                    529,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    529,
-                ),
-                end: TokenIdx(
-                    565,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    565,
-                ),
-                end: TokenIdx(
-                    594,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    594,
-                ),
-                end: TokenIdx(
-                    599,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    472,
-                ),
-                end: TokenIdx(
-                    481,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    481,
-                ),
-                end: TokenIdx(
-                    490,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    490,
-                ),
-                end: TokenIdx(
-                    599,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    637,
-                ),
-                end: TokenIdx(
-                    640,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    640,
-                ),
-                end: TokenIdx(
-                    642,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    642,
-                ),
-                end: TokenIdx(
-                    644,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    644,
-                ),
-                end: TokenIdx(
-                    651,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    651,
-                ),
-                end: TokenIdx(
-                    657,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    657,
-                ),
-                end: TokenIdx(
-                    662,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    613,
-                ),
-                end: TokenIdx(
-                    637,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    637,
-                ),
-                end: TokenIdx(
-                    662,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    701,
-                ),
-                end: TokenIdx(
-                    704,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    709,
-                ),
-                end: TokenIdx(
-                    712,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    712,
-                ),
-                end: TokenIdx(
-                    719,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    719,
-                ),
-                end: TokenIdx(
-                    721,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    721,
-                ),
-                end: TokenIdx(
-                    728,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    728,
-                ),
-                end: TokenIdx(
-                    733,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    709,
-                ),
-                end: TokenIdx(
-                    733,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    738,
-                ),
-                end: TokenIdx(
-                    741,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    760,
-                ),
-                end: TokenIdx(
-                    763,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    763,
-                ),
-                end: TokenIdx(
-                    772,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    772,
-                ),
-                end: TokenIdx(
-                    781,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    781,
-                ),
-                end: TokenIdx(
-                    786,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    760,
-                ),
-                end: TokenIdx(
-                    786,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    741,
-                ),
-                end: TokenIdx(
-                    748,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    748,
-                ),
-                end: TokenIdx(
-                    755,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    755,
-                ),
-                end: TokenIdx(
-                    786,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    786,
-                ),
-                end: TokenIdx(
-                    793,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    793,
-                ),
-                end: TokenIdx(
-                    798,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    738,
-                ),
-                end: TokenIdx(
-                    798,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    803,
-                ),
-                end: TokenIdx(
-                    806,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    822,
-                ),
-                end: TokenIdx(
-                    825,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    825,
-                ),
-                end: TokenIdx(
-                    834,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    834,
-                ),
-                end: TokenIdx(
-                    843,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    843,
-                ),
-                end: TokenIdx(
-                    848,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    822,
-                ),
-                end: TokenIdx(
-                    848,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    806,
-                ),
-                end: TokenIdx(
-                    808,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    808,
-                ),
-                end: TokenIdx(
-                    810,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    810,
-                ),
-                end: TokenIdx(
-                    817,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    817,
-                ),
-                end: TokenIdx(
-                    848,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    848,
-                ),
-                end: TokenIdx(
-                    853,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    803,
-                ),
-                end: TokenIdx(
-                    853,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    858,
-                ),
-                end: TokenIdx(
-                    861,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    861,
-                ),
-                end: TokenIdx(
-                    863,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    863,
-                ),
-                end: TokenIdx(
-                    870,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    870,
-                ),
-                end: TokenIdx(
-                    877,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    877,
-                ),
-                end: TokenIdx(
-                    882,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    858,
-                ),
-                end: TokenIdx(
-                    882,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    704,
-                ),
-                end: TokenIdx(
-                    733,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    733,
-                ),
-                end: TokenIdx(
-                    798,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    798,
-                ),
-                end: TokenIdx(
-                    853,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    853,
-                ),
-                end: TokenIdx(
-                    882,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    882,
-                ),
-                end: TokenIdx(
-                    887,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    685,
-                ),
-                end: TokenIdx(
-                    693,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    693,
-                ),
-                end: TokenIdx(
-                    701,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    701,
-                ),
-                end: TokenIdx(
-                    887,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    890,
-                ),
-                end: TokenIdx(
-                    893,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    893,
-                ),
-                end: TokenIdx(
-                    896,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    908,
-                ),
-                end: TokenIdx(
-                    915,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    915,
-                ),
-                end: TokenIdx(
-                    923,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    923,
-                ),
-                end: TokenIdx(
-                    931,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    931,
-                ),
-                end: TokenIdx(
-                    958,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    994,
-                ),
-                end: TokenIdx(
-                    1005,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1005,
-                ),
-                end: TokenIdx(
-                    1014,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1014,
-                ),
-                end: TokenIdx(
-                    1020,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1020,
-                ),
-                end: TokenIdx(
-                    1026,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1026,
-                ),
-                end: TokenIdx(
-                    1053,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1255,
-                ),
-                end: TokenIdx(
-                    1265,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1265,
-                ),
-                end: TokenIdx(
-                    1278,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1278,
-                ),
-                end: TokenIdx(
-                    1282,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1282,
-                ),
-                end: TokenIdx(
-                    1286,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1231,
-                ),
-                end: TokenIdx(
-                    1286,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1231,
-                ),
-                end: TokenIdx(
-                    1286,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1286,
-                ),
-                end: TokenIdx(
-                    1300,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1300,
-                ),
-                end: TokenIdx(
-                    1314,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1314,
-                ),
-                end: TokenIdx(
-                    1317,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1317,
-                ),
-                end: TokenIdx(
-                    1320,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1320,
-                ),
-                end: TokenIdx(
-                    1338,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1338,
-                ),
-                end: TokenIdx(
-                    1352,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1352,
-                ),
-                end: TokenIdx(
-                    1356,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1356,
-                ),
-                end: TokenIdx(
-                    1360,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1360,
-                ),
-                end: TokenIdx(
-                    1362,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1362,
-                ),
-                end: TokenIdx(
-                    1375,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1375,
-                ),
-                end: TokenIdx(
-                    1378,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1378,
-                ),
-                end: TokenIdx(
-                    1381,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1381,
-                ),
-                end: TokenIdx(
-                    1384,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1384,
-                ),
-                end: TokenIdx(
-                    1387,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1387,
-                ),
-                end: TokenIdx(
-                    1390,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1228,
-                ),
-                end: TokenIdx(
-                    1390,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1398,
-                ),
-                end: TokenIdx(
-                    1403,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1403,
-                ),
-                end: TokenIdx(
-                    1406,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1406,
-                ),
-                end: TokenIdx(
-                    1416,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1421,
-                ),
-                end: TokenIdx(
-                    1426,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1426,
-                ),
-                end: TokenIdx(
-                    1429,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1429,
-                ),
-                end: TokenIdx(
-                    1437,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1442,
-                ),
-                end: TokenIdx(
-                    1447,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1452,
-                ),
-                end: TokenIdx(
-                    1457,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1393,
-                ),
-                end: TokenIdx(
-                    1416,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1416,
-                ),
-                end: TokenIdx(
-                    1437,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1437,
-                ),
-                end: TokenIdx(
-                    1447,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1447,
-                ),
-                end: TokenIdx(
-                    1457,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1390,
-                ),
-                end: TokenIdx(
-                    1457,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1466,
-                ),
-                end: TokenIdx(
-                    1468,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1460,
-                ),
-                end: TokenIdx(
-                    1468,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1188,
-                ),
-                end: TokenIdx(
-                    1201,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1201,
-                ),
-                end: TokenIdx(
-                    1210,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1210,
-                ),
-                end: TokenIdx(
-                    1228,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1228,
-                ),
-                end: TokenIdx(
-                    1390,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1390,
-                ),
-                end: TokenIdx(
-                    1457,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1457,
-                ),
-                end: TokenIdx(
-                    1460,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1460,
-                ),
-                end: TokenIdx(
-                    1468,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1482,
-                ),
-                end: TokenIdx(
-                    1488,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1468,
-                ),
-                end: TokenIdx(
-                    1488,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1066,
-                ),
-                end: TokenIdx(
-                    1075,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1075,
-                ),
-                end: TokenIdx(
-                    1080,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1080,
-                ),
-                end: TokenIdx(
-                    1092,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1092,
-                ),
-                end: TokenIdx(
-                    1104,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1104,
-                ),
-                end: TokenIdx(
-                    1114,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1114,
-                ),
-                end: TokenIdx(
-                    1126,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1126,
-                ),
-                end: TokenIdx(
-                    1130,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1130,
-                ),
-                end: TokenIdx(
-                    1134,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1134,
-                ),
-                end: TokenIdx(
-                    1138,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1138,
-                ),
-                end: TokenIdx(
-                    1143,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1143,
-                ),
-                end: TokenIdx(
-                    1148,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1148,
-                ),
-                end: TokenIdx(
-                    1153,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1153,
-                ),
-                end: TokenIdx(
-                    1159,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1159,
-                ),
-                end: TokenIdx(
-                    1165,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1165,
-                ),
-                end: TokenIdx(
-                    1171,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1171,
-                ),
-                end: TokenIdx(
-                    1468,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1468,
-                ),
-                end: TokenIdx(
-                    1488,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1488,
-                ),
-                end: TokenIdx(
-                    1499,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1060,
-                ),
-                end: TokenIdx(
-                    1499,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    971,
-                ),
-                end: TokenIdx(
-                    980,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    980,
-                ),
-                end: TokenIdx(
-                    987,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    987,
-                ),
-                end: TokenIdx(
-                    1053,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1053,
-                ),
-                end: TokenIdx(
-                    1499,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    1499,
-                ),
-                end: TokenIdx(
-                    1501,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    0,
-                ),
-                end: TokenIdx(
-                    6,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    6,
-                ),
-                end: TokenIdx(
-                    12,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    12,
-                ),
-                end: TokenIdx(
-                    18,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    18,
-                ),
-                end: TokenIdx(
-                    26,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    26,
-                ),
-                end: TokenIdx(
-                    41,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    41,
-                ),
-                end: TokenIdx(
-                    369,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    369,
-                ),
-                end: TokenIdx(
-                    371,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    371,
-                ),
-                end: TokenIdx(
-                    373,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    373,
-                ),
-                end: TokenIdx(
-                    375,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    375,
-                ),
-                end: TokenIdx(
-                    377,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    377,
-                ),
-                end: TokenIdx(
-                    379,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    379,
-                ),
-                end: TokenIdx(
-                    405,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    405,
-                ),
-                end: TokenIdx(
-                    427,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    427,
-                ),
-                end: TokenIdx(
-                    453,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    453,
-                ),
-                end: TokenIdx(
-                    599,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    599,
-                ),
-                end: TokenIdx(
-                    662,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    662,
-                ),
-                end: TokenIdx(
-                    887,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    887,
-                ),
-                end: TokenIdx(
-                    896,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    896,
-                ),
-                end: TokenIdx(
-                    958,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    958,
-                ),
-                end: TokenIdx(
-                    1501,
-                ),
-            },
+        ast_ranges: [
+            49..57,
+            106..113,
+            113..123,
+            123..133,
+            133..143,
+            143..153,
+            62..69,
+            69..76,
+            76..83,
+            83..90,
+            90..97,
+            97..153,
+            153..171,
+            176..191,
+            212..221,
+            221..228,
+            228..257,
+            196..201,
+            201..257,
+            257..270,
+            270..277,
+            277..306,
+            306..308,
+            322..331,
+            331..341,
+            341..351,
+            351..357,
+            44..57,
+            57..171,
+            171..191,
+            191..308,
+            308..357,
+            357..359,
+            359..369,
+            393..405,
+            419..427,
+            441..453,
+            490..493,
+            498..501,
+            501..503,
+            503..510,
+            510..517,
+            517..522,
+            498..522,
+            534..537,
+            537..544,
+            544..546,
+            546..553,
+            553..560,
+            560..565,
+            534..565,
+            570..573,
+            573..575,
+            575..582,
+            582..589,
+            589..594,
+            570..594,
+            493..522,
+            522..529,
+            529..565,
+            565..594,
+            594..599,
+            472..481,
+            481..490,
+            490..599,
+            637..640,
+            640..642,
+            642..644,
+            644..651,
+            651..657,
+            657..662,
+            613..637,
+            637..662,
+            701..704,
+            709..712,
+            712..719,
+            719..721,
+            721..728,
+            728..733,
+            709..733,
+            738..741,
+            760..763,
+            763..772,
+            772..781,
+            781..786,
+            760..786,
+            741..748,
+            748..755,
+            755..786,
+            786..793,
+            793..798,
+            738..798,
+            803..806,
+            822..825,
+            825..834,
+            834..843,
+            843..848,
+            822..848,
+            806..808,
+            808..810,
+            810..817,
+            817..848,
+            848..853,
+            803..853,
+            858..861,
+            861..863,
+            863..870,
+            870..877,
+            877..882,
+            858..882,
+            704..733,
+            733..798,
+            798..853,
+            853..882,
+            882..887,
+            685..693,
+            693..701,
+            701..887,
+            890..893,
+            893..896,
+            908..915,
+            915..923,
+            923..931,
+            931..958,
+            994..1005,
+            1005..1014,
+            1014..1020,
+            1020..1026,
+            1026..1053,
+            1255..1265,
+            1265..1278,
+            1278..1282,
+            1282..1286,
+            1231..1286,
+            1231..1286,
+            1286..1300,
+            1300..1314,
+            1314..1317,
+            1317..1320,
+            1320..1338,
+            1338..1352,
+            1352..1356,
+            1356..1360,
+            1360..1362,
+            1362..1375,
+            1375..1378,
+            1378..1381,
+            1381..1384,
+            1384..1387,
+            1387..1390,
+            1228..1390,
+            1398..1403,
+            1403..1406,
+            1406..1416,
+            1421..1426,
+            1426..1429,
+            1429..1437,
+            1442..1447,
+            1452..1457,
+            1393..1416,
+            1416..1437,
+            1437..1447,
+            1447..1457,
+            1390..1457,
+            1466..1468,
+            1460..1468,
+            1188..1201,
+            1201..1210,
+            1210..1228,
+            1228..1390,
+            1390..1457,
+            1457..1460,
+            1460..1468,
+            1482..1488,
+            1468..1488,
+            1066..1075,
+            1075..1080,
+            1080..1092,
+            1092..1104,
+            1104..1114,
+            1114..1126,
+            1126..1130,
+            1130..1134,
+            1134..1138,
+            1138..1143,
+            1143..1148,
+            1148..1153,
+            1153..1159,
+            1159..1165,
+            1165..1171,
+            1171..1468,
+            1468..1488,
+            1488..1499,
+            1060..1499,
+            971..980,
+            980..987,
+            987..1053,
+            1053..1499,
+            1499..1501,
+            0..6,
+            6..12,
+            12..18,
+            18..26,
+            26..41,
+            41..369,
+            369..371,
+            371..373,
+            373..375,
+            375..377,
+            377..379,
+            379..405,
+            405..427,
+            427..453,
+            453..599,
+            599..662,
+            662..887,
+            887..896,
+            896..958,
+            958..1501,
         ],
     },
 )

@@ -46,7 +46,7 @@ impl<Db: AstDb> salsa::DebugWithDb<Db> for AstRangeSheet {
         _include_all_fields: bool,
     ) -> std::fmt::Result {
         f.debug_struct("AstRangeSheet")
-            .field("text_ranges", &self.ast_ranges)
+            .field("ast_ranges", &self.ast_ranges)
             .finish()
     }
 }
@@ -112,7 +112,7 @@ impl<'a> AstRangeCalculator<'a> {
                     Some(last) => self.ast_ranges[last.raw()].end(),
                     None => token_group_token_idx_range.end(),
                 };
-                (start..end).into()
+                (start, end).into()
             }
             Ast::IfElseStmts {
                 if_stmt,
@@ -131,7 +131,7 @@ impl<'a> AstRangeCalculator<'a> {
                         }
                     }
                 };
-                (start..end).into()
+                (start, end).into()
             }
             Ast::MatchStmts {
                 pattern_stmt,
@@ -147,7 +147,7 @@ impl<'a> AstRangeCalculator<'a> {
                         pattern_stmt_token_idx_range.end()
                     }
                 };
-                (start..end).into()
+                (start, end).into()
             }
         }
     }

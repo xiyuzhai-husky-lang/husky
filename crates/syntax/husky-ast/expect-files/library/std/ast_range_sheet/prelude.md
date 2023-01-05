@@ -1,5 +1,5 @@
 Ok(
     AstRangeSheet {
-        text_ranges: [],
+        ast_ranges: [],
     },
 )
