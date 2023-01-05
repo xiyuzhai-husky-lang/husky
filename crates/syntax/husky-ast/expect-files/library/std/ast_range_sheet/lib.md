@@ -1,30 +1,9 @@
 Ok(
     AstRangeSheet {
-        text_ranges: [
-            TokenIdxRange {
-                start: TokenIdx(
-                    0,
-                ),
-                end: TokenIdx(
-                    2,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    2,
-                ),
-                end: TokenIdx(
-                    4,
-                ),
-            },
-            TokenIdxRange {
-                start: TokenIdx(
-                    4,
-                ),
-                end: TokenIdx(
-                    6,
-                ),
-            },
+        ast_ranges: [
+            0..2,
+            2..4,
+            4..6,
         ],
     },
 )
