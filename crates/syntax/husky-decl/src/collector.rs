@@ -263,7 +263,6 @@ impl<'a> DeclCollector<'a> {
             self.db,
             Some(entity_path),
             self.token_sheet_data,
-            None,
             self.crate_prelude,
         )
     }
