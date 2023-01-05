@@ -96,7 +96,7 @@ impl SemanticToken {
             SemanticToken::XmlTagKind => ext::SemanticTokenType::FUNCTION,
             SemanticToken::WordPattern => ext::SemanticTokenType::ENUM_MEMBER,
             SemanticToken::Attribute => ext::SemanticTokenType::DECORATOR,
-            SemanticToken::WordOpr => ext::SemanticTokenType::OPERATOR,
+            SemanticToken::WordOpr => ext::SemanticTokenType::KEYWORD,
         })
     }
 

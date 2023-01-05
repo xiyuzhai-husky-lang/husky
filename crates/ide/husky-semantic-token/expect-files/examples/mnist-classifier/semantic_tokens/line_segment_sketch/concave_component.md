@@ -2216,7 +2216,7 @@ Ok(
             delta_line: 0,
             delta_start: 3,
             length: 3,
-            token_type: 6,
+            token_type: 2,
             token_modifiers_bitset: 0,
         },
         SemanticToken {
@@ -2328,7 +2328,7 @@ Ok(
             delta_line: 0,
             delta_start: 3,
             length: 3,
-            token_type: 6,
+            token_type: 2,
             token_modifiers_bitset: 0,
         },
         SemanticToken {
