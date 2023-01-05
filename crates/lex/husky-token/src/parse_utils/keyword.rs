@@ -23,11 +23,59 @@ pub struct BreakToken {
     token_idx: TokenIdx,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct ForToken {
+    token_idx: TokenIdx,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct ForextToken {
+    token_idx: TokenIdx,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct WhileToken {
+    token_idx: TokenIdx,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct DoToken {
+    token_idx: TokenIdx,
+}
+
 pub enum BasicStmtKeywordToken {
     Let(LetToken),
     Return(ReturnToken),
     Require(RequireToken),
     Break(BreakToken),
+    For(ForToken),
+    Forext(ForextToken),
+    While(WhileToken),
+    Do(DoToken),
+}
+
+impl From<DoToken> for BasicStmtKeywordToken {
+    fn from(v: DoToken) -> Self {
+        Self::Do(v)
+    }
+}
+
+impl From<WhileToken> for BasicStmtKeywordToken {
+    fn from(v: WhileToken) -> Self {
+        Self::While(v)
+    }
+}
+
+impl From<ForextToken> for BasicStmtKeywordToken {
+    fn from(v: ForextToken) -> Self {
+        Self::Forext(v)
+    }
+}
+
+impl From<ForToken> for BasicStmtKeywordToken {
+    fn from(v: ForToken) -> Self {
+        Self::For(v)
+    }
 }
 
 impl From<BreakToken> for BasicStmtKeywordToken {
@@ -75,6 +123,18 @@ where
                 }
                 TokenKind::Keyword(Keyword::Stmt(StmtKeyword::Break)) => {
                     Ok(Some(BreakToken { token_idx }.into()))
+                }
+                TokenKind::Keyword(Keyword::Stmt(StmtKeyword::For)) => {
+                    Ok(Some(ForToken { token_idx }.into()))
+                }
+                TokenKind::Keyword(Keyword::Stmt(StmtKeyword::Forext)) => {
+                    Ok(Some(ForextToken { token_idx }.into()))
+                }
+                TokenKind::Keyword(Keyword::Stmt(StmtKeyword::While)) => {
+                    Ok(Some(WhileToken { token_idx }.into()))
+                }
+                TokenKind::Keyword(Keyword::Stmt(StmtKeyword::Do)) => {
+                    Ok(Some(DoToken { token_idx }.into()))
                 }
                 TokenKind::Comment => unreachable!(),
                 TokenKind::Err(ref e) => Err(e.clone().into()),

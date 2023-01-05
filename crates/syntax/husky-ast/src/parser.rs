@@ -81,7 +81,7 @@ impl<'a> AstParser<'a> {
                     StmtKeyword::While
                     | StmtKeyword::Do
                     | StmtKeyword::For
-                    | StmtKeyword::ForExt
+                    | StmtKeyword::Forext
                     | StmtKeyword::Let
                     | StmtKeyword::Var
                     | StmtKeyword::Break

@@ -550,3 +550,54 @@ fn dotdot_token_works() {
     assert!(t(&db, "||").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
 }
+
+/// `:` at the end of line
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct EolColonToken {
+    token_idx: TokenIdx,
+}
+
+impl<'a, Context> parsec::ParseFrom<Context> for EolColonToken
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed(IgnoreComment::True) {
+            match token.kind {
+                TokenKind::Punctuation(punc) if punc == Punctuation::Colon => {
+                    match ctx.token_iter().peek() {
+                        Some(_) => Ok(None),
+                        None => Ok(Some(EolColonToken { token_idx })),
+                    }
+                }
+                TokenKind::Comment => unreachable!(),
+                TokenKind::Err(ref e) => Err(e.clone().into()),
+                TokenKind::Punctuation(_)
+                | TokenKind::Identifier(_)
+                | TokenKind::WordOpr(_)
+                | TokenKind::Literal(_)
+                | TokenKind::Attr(_)
+                | TokenKind::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+#[test]
+fn eol_colon_token_works() {
+    fn t(db: &DB, input: &str) -> TokenResult<Option<DotDotToken>> {
+        quick_parse(db, input)
+    }
+
+    let db = DB::default();
+    assert!(t(&db, ":").unwrap().is_some());
+    assert!(t(&db, ":@").unwrap().is_none());
+    assert!(t(&db, ".").unwrap().is_none());
+    assert!(t(&db, "||").unwrap().is_none());
+    assert!(t(&db, "a").unwrap().is_none());
+}

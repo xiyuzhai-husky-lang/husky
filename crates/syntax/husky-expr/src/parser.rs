@@ -1,6 +1,5 @@
 mod accept;
 mod alloc;
-mod debug;
 mod env;
 mod expr_stack;
 mod list;
@@ -20,18 +19,22 @@ use husky_token::TokenStream;
 use husky_token::{Token, TokenKind};
 use list::*;
 use resolve::*;
+use salsa::DebugWithDb;
 use std::ops::ControlFlow;
 use symbol_stack::*;
 use unfinished_expr::*;
 
-macro_rules! report_location {
-    () => {{
+#[macro_use]
+macro_rules! report {
+    ($self: expr) => {{
         p!(
-            self.parser.entity_path.debug(self.db()),
-            self.token_stream.text_range()
+            $self.stack,
+            $self.parser.entity_path.debug($self.db()),
+            $self.token_stream.text_range()
         );
     }};
 }
+use report;
 
 pub struct ExprParser<'a> {
     db: &'a dyn ExprDb,
@@ -83,7 +86,12 @@ impl<'a> ExprParser<'a> {
         ExprParseContext::new(self, token_stream)
     }
 
-    pub fn parse_block(&mut self, body: &AstIdxRange) -> Option<ExprIdx> {
+    pub fn parse_block_expr(&mut self, body: &AstIdxRange) -> Option<ExprIdx> {
+        let stmts = self.parse_block_stmts(body)?;
+        Some(self.alloc_expr(Expr::Block { stmts }))
+    }
+
+    pub fn parse_block_stmts(&mut self, body: &AstIdxRange) -> Option<StmtIdxRange> {
         if body.len() == 0 {
             return None;
         }
@@ -91,8 +99,7 @@ impl<'a> ExprParser<'a> {
             .iter()
             .filter_map(|ast| self.parse_stmt(ast))
             .collect();
-        let stmts = self.alloc_stmts(stmts);
-        Some(self.alloc_expr(Expr::Block { stmts }))
+        Some(self.alloc_stmts(stmts))
     }
 
     fn parse_stmt(&mut self, ast: &Ast) -> Option<Stmt> {
@@ -128,8 +135,21 @@ impl<'a> ExprParser<'a> {
                                 .ok_or(ExprError::MissingCondition),
                         },
                         BasicStmtKeywordToken::Break(break_token) => Stmt::Break { break_token },
+                        BasicStmtKeywordToken::For(_) => todo!(),
+                        BasicStmtKeywordToken::Forext(_) => todo!(),
+                        BasicStmtKeywordToken::While(while_token) => Stmt::While {
+                            while_token,
+                            condition: ctx
+                                .parse_expr(ExprParseEnvironment::None)
+                                .ok_or(ExprError::MissingCondition),
+                            eol_colon: ctx.parse_expected(),
+                            block: self.parse_block_stmts(body).ok_or(ExprError::MissingBlock),
+                        },
+                        BasicStmtKeywordToken::Do(_) => todo!(),
                     }),
-                    Ok(None) => Some(Stmt::Eval {}),
+                    Ok(None) => ctx
+                        .parse_expr(ExprParseEnvironment::None)
+                        .map(|expr| Stmt::Eval { expr }),
                     Err(_) => todo!(),
                 }
             }

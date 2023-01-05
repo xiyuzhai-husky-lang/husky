@@ -259,25 +259,11 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
                 .into(),
                 Bracket::Angle => todo!(),
                 Bracket::Curl => todo!(),
-                Bracket::Vertical => todo!(),
+                Bracket::Vertical => {
+                    report!(this);
+                    todo!()
+                }
             },
         })
-        // let opr = match bra {
-        //     Bracket::Par => match self.top_expr() {
-        //         TopExprRef::Finished(_) => UnfinishedListOpr::FunctionCall,
-        //         _ => UnfinishedListOpr::NewTuple,
-        //     },
-        //     Bracket::Box => UnfinishedListOpr::NewVec,
-        //     Bracket::Angle => match self.top_expr() {
-        //         TopExprRef::Unfinished(_) => todo!(),
-        //         TopExprRef::Finished(_) => todo!(),
-        //         TopExprRef::None => todo!(),
-        //     },
-        //     Bracket::Curl => todo!(),
-        //     Bracket::Vertical => todo!(),
-        // };
-        // self.set_top_expr(
-
-        // );
     }
 }
