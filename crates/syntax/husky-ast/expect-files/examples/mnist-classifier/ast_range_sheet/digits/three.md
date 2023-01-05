@@ -1,45 +1,318 @@
 Ok(
     AstRangeSheet {
         text_ranges: [
-            [11:5, 11:66),
-            [24:5, 24:49),
-            [25:5, 25:49),
-            [26:5, 26:47),
-            [27:5, 27:45),
-            [28:5, 28:44),
-            [29:5, 29:28),
-            [30:5, 30:31),
-            [31:5, 31:26),
-            [33:5, 33:47),
-            [34:5, 34:36),
-            [35:5, 35:40),
-            [36:5, 36:41),
-            [37:5, 37:58),
-            [38:5, 38:28),
-            [41:5, 41:41),
-            [42:5, 42:42),
-            [44:5, 44:22),
-            [48:5, 48:31),
-            [49:5, 49:24),
-            [50:5, 50:28),
-            [53:5, 53:31),
-            [54:5, 54:24),
-            [55:5, 55:28),
-            [58:5, 58:31),
-            [59:5, 59:24),
-            [60:5, 60:28),
-            [1:1, 1:49),
-            [2:1, 2:55),
-            [3:1, 3:65),
-            [4:1, 4:45),
-            [5:1, 5:20),
-            [6:1, 6:20),
-            [7:1, 7:53),
-            [10:1, 11:66),
-            [23:1, 44:22),
-            [47:1, 50:28),
-            [52:1, 55:28),
-            [57:1, 60:28),
+            TokenIdxRange {
+                start: TokenIdx(
+                    67,
+                ),
+                end: TokenIdx(
+                    79,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    85,
+                ),
+                end: TokenIdx(
+                    93,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    93,
+                ),
+                end: TokenIdx(
+                    101,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    101,
+                ),
+                end: TokenIdx(
+                    110,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    110,
+                ),
+                end: TokenIdx(
+                    119,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    119,
+                ),
+                end: TokenIdx(
+                    128,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    128,
+                ),
+                end: TokenIdx(
+                    132,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    132,
+                ),
+                end: TokenIdx(
+                    138,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    138,
+                ),
+                end: TokenIdx(
+                    142,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    142,
+                ),
+                end: TokenIdx(
+                    155,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    155,
+                ),
+                end: TokenIdx(
+                    164,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    164,
+                ),
+                end: TokenIdx(
+                    172,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    172,
+                ),
+                end: TokenIdx(
+                    180,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    180,
+                ),
+                end: TokenIdx(
+                    189,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    189,
+                ),
+                end: TokenIdx(
+                    193,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    193,
+                ),
+                end: TokenIdx(
+                    199,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    199,
+                ),
+                end: TokenIdx(
+                    206,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    206,
+                ),
+                end: TokenIdx(
+                    209,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    221,
+                ),
+                end: TokenIdx(
+                    229,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    229,
+                ),
+                end: TokenIdx(
+                    235,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    235,
+                ),
+                end: TokenIdx(
+                    243,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    255,
+                ),
+                end: TokenIdx(
+                    263,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    263,
+                ),
+                end: TokenIdx(
+                    269,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    269,
+                ),
+                end: TokenIdx(
+                    277,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    289,
+                ),
+                end: TokenIdx(
+                    297,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    297,
+                ),
+                end: TokenIdx(
+                    303,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    303,
+                ),
+                end: TokenIdx(
+                    311,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    0,
+                ),
+                end: TokenIdx(
+                    12,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    12,
+                ),
+                end: TokenIdx(
+                    22,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    22,
+                ),
+                end: TokenIdx(
+                    32,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    32,
+                ),
+                end: TokenIdx(
+                    42,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    42,
+                ),
+                end: TokenIdx(
+                    48,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    48,
+                ),
+                end: TokenIdx(
+                    54,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    54,
+                ),
+                end: TokenIdx(
+                    62,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    62,
+                ),
+                end: TokenIdx(
+                    79,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    79,
+                ),
+                end: TokenIdx(
+                    209,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    209,
+                ),
+                end: TokenIdx(
+                    243,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    243,
+                ),
+                end: TokenIdx(
+                    277,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    277,
+                ),
+                end: TokenIdx(
+                    311,
+                ),
+            },
         ],
     },
 )

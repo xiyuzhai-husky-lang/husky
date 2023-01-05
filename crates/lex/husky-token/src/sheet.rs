@@ -25,6 +25,43 @@ pub struct TokenIdxRange {
     end: TokenIdx,
 }
 
+pub trait HasTokenIdxRange {
+    fn token_idx_range(&self) -> TokenIdxRange;
+}
+
+impl HasTokenIdxRange for TokenIdxRange {
+    fn token_idx_range(&self) -> TokenIdxRange {
+        *self
+    }
+}
+
+impl<T> HasTokenIdxRange for [T]
+where
+    T: HasTokenIdxRange,
+{
+    fn token_idx_range(&self) -> TokenIdxRange {
+        if self.len() == 0 {
+            return TokenIdxRange {
+                start: TokenIdx(0),
+                end: TokenIdx(0),
+            };
+        }
+        TokenIdxRange {
+            start: self.first().unwrap().token_idx_range().start,
+            end: self.last().unwrap().token_idx_range().end,
+        }
+    }
+}
+
+impl From<std::ops::Range<TokenIdx>> for TokenIdxRange {
+    fn from((value): std::ops::Range<TokenIdx>) -> Self {
+        Self {
+            start: value.start,
+            end: value.end,
+        }
+    }
+}
+
 impl TokenIdxRange {
     pub(crate) fn new(start: TokenIdx, end: TokenIdx) -> Self {
         Self { start, end }
@@ -36,6 +73,10 @@ impl TokenIdxRange {
 
     pub fn end(&self) -> TokenIdx {
         self.end
+    }
+
+    pub fn set_start(&mut self, start: TokenIdx) {
+        self.start = start;
     }
 }
 

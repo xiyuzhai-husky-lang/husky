@@ -1,23 +1,142 @@
 Ok(
     AstRangeSheet {
         text_ranges: [
-            [4:5, 4:19),
-            [5:5, 5:17),
-            [7:5, 7:37),
-            [8:9, 8:22),
-            [10:5, 10:44),
-            [11:9, 11:33),
-            [12:9, 12:26),
-            [13:9, 13:29),
-            [14:13, 14:22),
-            [15:9, 15:14),
-            [16:13, 16:28),
-            [17:13, 17:33),
-            [18:17, 18:26),
-            [19:13, 19:18),
-            [20:17, 20:45),
-            [1:1, 1:21),
-            [3:1, 20:45),
+            TokenIdxRange {
+                start: TokenIdx(
+                    9,
+                ),
+                end: TokenIdx(
+                    12,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    12,
+                ),
+                end: TokenIdx(
+                    15,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    15,
+                ),
+                end: TokenIdx(
+                    22,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    22,
+                ),
+                end: TokenIdx(
+                    28,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    28,
+                ),
+                end: TokenIdx(
+                    38,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    38,
+                ),
+                end: TokenIdx(
+                    45,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    45,
+                ),
+                end: TokenIdx(
+                    53,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    53,
+                ),
+                end: TokenIdx(
+                    63,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    63,
+                ),
+                end: TokenIdx(
+                    68,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    68,
+                ),
+                end: TokenIdx(
+                    70,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    70,
+                ),
+                end: TokenIdx(
+                    78,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    78,
+                ),
+                end: TokenIdx(
+                    88,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    88,
+                ),
+                end: TokenIdx(
+                    93,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    93,
+                ),
+                end: TokenIdx(
+                    95,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    95,
+                ),
+                end: TokenIdx(
+                    111,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    0,
+                ),
+                end: TokenIdx(
+                    6,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    6,
+                ),
+                end: TokenIdx(
+                    111,
+                ),
+            },
         ],
     },
 )

@@ -1,17 +1,94 @@
 Ok(
     AstRangeSheet {
         text_ranges: [
-            [6:5, 6:29),
-            [7:5, 7:24),
-            [8:5, 8:45),
-            [1:1, 1:14),
-            [2:1, 2:7),
-            [3:1, 3:12),
-            [5:1, 8:45),
-            [10:1, 10:87),
-            [11:5, 11:7),
-            [13:1, 16:2),
-            [18:1, 21:2),
+            TokenIdxRange {
+                start: TokenIdx(
+                    12,
+                ),
+                end: TokenIdx(
+                    18,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    18,
+                ),
+                end: TokenIdx(
+                    25,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    25,
+                ),
+                end: TokenIdx(
+                    45,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    0,
+                ),
+                end: TokenIdx(
+                    2,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    2,
+                ),
+                end: TokenIdx(
+                    4,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    4,
+                ),
+                end: TokenIdx(
+                    9,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    9,
+                ),
+                end: TokenIdx(
+                    45,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    45,
+                ),
+                end: TokenIdx(
+                    83,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    83,
+                ),
+                end: TokenIdx(
+                    84,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    84,
+                ),
+                end: TokenIdx(
+                    113,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    113,
+                ),
+                end: TokenIdx(
+                    137,
+                ),
+            },
         ],
     },
 )
