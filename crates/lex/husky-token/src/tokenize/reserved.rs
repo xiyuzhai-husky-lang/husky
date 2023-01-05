@@ -33,7 +33,7 @@ pub(crate) fn reserved_words(_db: &dyn TokenDb) -> VecPairMap<&'static str, Pret
         StmtKeyword::Else,
         StmtKeyword::If,
         StmtKeyword::Match,
-        StmtKeyword::ForExt,
+        StmtKeyword::Forext,
         StmtKeyword::While,
         StmtKeyword::Do,
         StmtKeyword::Break,

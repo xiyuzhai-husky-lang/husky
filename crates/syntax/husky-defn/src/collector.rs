@@ -124,7 +124,7 @@ impl<'a> DefnCollector<'a> {
         let ast_idx = decl.ast_idx(self.db);
         let ast = &self.ast_sheet[ast_idx];
         let body = match ast {
-            Ast::Defn { body, .. } => parser.parse_block(body).ok_or(DefnError::MissingBody),
+            Ast::Defn { body, .. } => parser.parse_block_expr(body).ok_or(DefnError::MissingBody),
             _ => unreachable!(),
         };
         FunctionDefn::new(self.db, path, decl, parser.finish(), body)
@@ -136,7 +136,7 @@ impl<'a> DefnCollector<'a> {
         let ast_idx = decl.ast_idx(self.db);
         let ast = &self.ast_sheet[ast_idx];
         let body = match ast {
-            Ast::Defn { body, .. } => parser.parse_block(body).ok_or(DefnError::MissingBody),
+            Ast::Defn { body, .. } => parser.parse_block_expr(body).ok_or(DefnError::MissingBody),
             _ => unreachable!(),
         };
         FeatureDefn::new(self.db, path, decl, parser.finish(), body)

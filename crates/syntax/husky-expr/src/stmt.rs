@@ -26,7 +26,39 @@ pub enum Stmt {
     Break {
         break_token: BreakToken,
     },
-    Eval {},
+    Eval {
+        expr: ExprIdx,
+    },
+    ForBetween {
+        for_token: ForToken,
+        condition: ExprResult<ExprIdx>,
+        eol_colon: ExprResult<EolColonToken>,
+        block: ExprResult<StmtIdxRange>,
+    },
+    ForIn {
+        for_token: ForToken,
+        condition: ExprResult<ExprIdx>,
+        eol_colon: ExprResult<EolColonToken>,
+        block: ExprResult<StmtIdxRange>,
+    },
+    ForExt {
+        forext_token: ForextToken,
+        eol_colon: ExprResult<EolColonToken>,
+        block: ExprResult<StmtIdxRange>,
+    },
+    While {
+        while_token: WhileToken,
+        condition: ExprResult<ExprIdx>,
+        eol_colon: ExprResult<EolColonToken>,
+        block: ExprResult<StmtIdxRange>,
+    },
+    DoWhile {
+        do_token: DoToken,
+        while_token: WhileToken,
+        condition: ExprResult<ExprIdx>,
+        eol_colon: ExprResult<EolColonToken>,
+        block: ExprResult<StmtIdxRange>,
+    },
     IfElse {},
     Match {},
 }

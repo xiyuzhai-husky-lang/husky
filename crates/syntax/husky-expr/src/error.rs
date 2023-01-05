@@ -65,6 +65,10 @@ pub enum ExprError {
     ExpectBePattern(TokenIdx),
     #[error("unterminated list")]
     UnterminatedList,
+    #[error("expect `:` at end of line")]
+    ExpectEolColon(TokenIdx),
+    #[error("missing block")]
+    MissingBlock,
 }
 
 pub type ExprResult<T> = Result<T, ExprError>;
@@ -132,5 +136,15 @@ where
 {
     fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
         ExprError::ExpectBePattern(state)
+    }
+}
+
+impl<'a, Context> FromAbsent<EolColonToken, Context> for ExprError
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
+        ExprError::ExpectEolColon(state)
     }
 }

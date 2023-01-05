@@ -72,7 +72,10 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
                 Punctuation::DoubleVertical => todo!(),
                 Punctuation::BitNot => todo!(),
                 Punctuation::Dot => ResolvedToken::Dot(token_idx),
-                Punctuation::Colon => todo!(),
+                Punctuation::Colon => match self.peek() {
+                    Some(_) => todo!(),
+                    None => return TokenResolveResult::Break(()),
+                },
                 Punctuation::Comma => {
                     self.reduce(Precedence::ListItem);
                     match self.last_unfinished_expr() {
@@ -140,21 +143,15 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
             match opn {
                 UnfinishedExpr::Binary {
                     punctuation: BinaryOpr::ScopeResolution,
+                    lopd,
                     ..
-                } => {
-                    if let Some(previous_expr) = self.finished_expr() {
-                        match previous_expr.base_entity_path(self.db(), &self.parser.expr_arena) {
-                            BaseEntityPath::None => todo!(),
-                            BaseEntityPath::Some(_) => todo!(),
-                            BaseEntityPath::Uncertain { .. } => {
-                                todo!()
-                                // return ResolvedTokenKind::Atom(AtomExpr::Uncertain(ident))
-                            }
-                        }
-                    } else {
-                        todo!()
+                } => match lopd.base_entity_path(self.db(), &self.parser.expr_arena) {
+                    BaseEntityPath::None => todo!(),
+                    BaseEntityPath::Some(_) => todo!(),
+                    BaseEntityPath::Uncertain { .. } => {
+                        return ResolvedToken::Atom(Expr::Uncertain(ident))
                     }
-                }
+                },
                 _ => (),
             }
         }
