@@ -132,8 +132,15 @@ impl AstSheet {
         }
     }
 
-    pub fn indexed_asts<'a>(&'a self) -> impl Iterator<Item = (AstIdx, &'a Ast)> + 'a {
+    pub fn all_ast_indexed_iter<'a>(&'a self) -> impl Iterator<Item = (AstIdx, &'a Ast)> + 'a {
         self.ast_arena.indexed_iter()
+    }
+
+    pub fn indexed_iter<'a>(
+        &'a self,
+        ast_idx_range: AstIdxRange,
+    ) -> impl Iterator<Item = (AstIdx, &'a Ast)> + 'a {
+        ast_idx_range.into_iter().map(|idx| (idx, &self[idx]))
     }
 
     pub fn top_level_asts(&self) -> &AstIdxRange {

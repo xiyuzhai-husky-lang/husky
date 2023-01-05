@@ -1,6 +1,6 @@
 Ok(
     AstRangeSheet {
-        ast_ranges: [
+        ast_token_idx_ranges: [
             96..100,
             100..115,
             122..128,

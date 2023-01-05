@@ -85,7 +85,7 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
     }
 
     fn build(mut self) -> EntityTreePresheet {
-        for (ast_idx, ast) in self.ast_sheet.indexed_asts() {
+        for (ast_idx, ast) in self.ast_sheet.all_ast_indexed_iter() {
             self.process(ast_idx, ast)
         }
         EntityTreePresheet {
