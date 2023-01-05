@@ -1,13 +1,13 @@
 use crate::*;
 use husky_ast::{Ast, AstSheet};
 use husky_entity_tree::{CratePrelude, EntityTreeResult};
-use husky_token::RangedTokenSheet;
+use husky_token::{RangedTokenSheet, TokenSheetData};
 use vec_like::VecPairMap;
 
 pub(crate) struct DefnCollector<'a> {
     db: &'a dyn DefnDb,
     crate_prelude: CratePrelude<'a>,
-    token_sheet: &'a RangedTokenSheet,
+    token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     decl_sheet: &'a DeclSheet,
 }
@@ -18,7 +18,7 @@ impl<'a> DefnCollector<'a> {
         Ok(Self {
             db,
             crate_prelude,
-            token_sheet: db.token_sheet(module_path)?,
+            token_sheet_data: db.token_sheet_data(module_path)?,
             ast_sheet: db.ast_sheet(module_path)?,
             decl_sheet: db.decl_sheet(module_path)?,
         })
@@ -145,7 +145,7 @@ impl<'a> DefnCollector<'a> {
         ExprParser::new(
             self.db,
             Some(entity_path),
-            self.token_sheet,
+            self.token_sheet_data,
             Some(self.ast_sheet),
             self.crate_prelude,
         )

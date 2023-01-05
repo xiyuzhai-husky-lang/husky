@@ -14,7 +14,7 @@ impl<'a> HasParseError for TokenStream<'a> {
     type Error = TokenError;
 }
 
-impl RangedTokenSheet {
+impl TokenSheetData {
     pub fn token_group_token_stream<'a>(
         &'a self,
         token_group_idx: TokenGroupIdx,
@@ -151,14 +151,14 @@ impl<'a> TokenStream<'a> {
 #[test]
 fn next_indexed_works() {
     let db = DB::default();
-    let token_sheet = db.tokenize_snippet(Snippet::new(
+    let token_sheet_data = db.tokenize_snippet(Snippet::new(
         &db,
         "What does a rusty can of spray-on rust remover smell like?\n Irony.".into(),
     ));
-    let (token_group_idx, _) = token_sheet.token_group_iter().next().unwrap();
-    let mut token_iter = token_sheet.token_group_token_stream(token_group_idx, None);
+    let (token_group_idx, _) = token_sheet_data.token_group_iter().next().unwrap();
+    let mut token_iter = token_sheet_data.token_group_token_stream(token_group_idx, None);
     while let Some((token_idx, token)) = token_iter.next_indexed() {
-        assert_eq!(token_sheet[token_idx], token)
+        assert_eq!(token_sheet_data[token_idx], token)
     }
 }
 

@@ -1,4 +1,4 @@
-use husky_token::RangedTokenSheet;
+use husky_token::{RangedTokenSheet, TokenSheetData};
 
 use crate::*;
 
@@ -9,11 +9,13 @@ pub struct AstRangeSheet {
 
 #[salsa::tracked(jar = AstJar, return_ref)]
 pub(crate) fn ast_range_sheet(db: &dyn AstDb, module_path: ModulePath) -> VfsResult<AstRangeSheet> {
-    let token_sheet = db.token_sheet(module_path)?;
+    let ranged_token_sheet = db.ranged_token_sheet(module_path)?;
+    let token_sheet_data = ranged_token_sheet.token_sheet().data(db);
     let ast_sheet = db.ast_sheet(module_path)?;
     Ok(AstRangeSheet {
         text_ranges: AstRangeCalculator {
-            token_sheet,
+            ranged_token_sheet,
+            token_sheet_data,
             ast_sheet,
             text_ranges: Default::default(),
         }
@@ -52,7 +54,8 @@ impl<Db: AstDb> salsa::DebugWithDb<Db> for AstRangeSheet {
 }
 
 struct AstRangeCalculator<'a> {
-    token_sheet: &'a RangedTokenSheet,
+    ranged_token_sheet: &'a RangedTokenSheet,
+    token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     text_ranges: Vec<TextRange>,
 }
@@ -63,6 +66,13 @@ impl<'a> AstRangeCalculator<'a> {
             self.text_ranges.push(self.calc_ast_range(ast))
         }
         self.text_ranges
+    }
+
+    fn token_group_text_range(&self, token_group_idx: TokenGroupIdx) -> TextRange {
+        self.ranged_token_sheet.tokens_text_range(
+            self.token_sheet_data
+                .token_group_token_idx_range(token_group_idx),
+        )
     }
 
     fn calc_ast_range(&self, ast: &Ast) -> TextRange {
@@ -78,7 +88,7 @@ impl<'a> AstRangeCalculator<'a> {
             }
             | Ast::ModuleItemVariant {
                 token_group_idx, ..
-            } => self.token_sheet.token_group_text_range(*token_group_idx),
+            } => self.token_group_text_range(*token_group_idx),
             Ast::BasicStmt {
                 token_group_idx,
                 body,
@@ -102,8 +112,7 @@ impl<'a> AstRangeCalculator<'a> {
                 token_group_idx,
                 body,
             } => {
-                let token_group_text_range =
-                    self.token_sheet.token_group_text_range(*token_group_idx);
+                let token_group_text_range = self.token_group_text_range(*token_group_idx);
                 let start = token_group_text_range.start;
                 let end = match body.last() {
                     Some(last) => self.text_ranges[last.raw()].text_end(),

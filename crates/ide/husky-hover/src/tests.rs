@@ -37,11 +37,11 @@ fn hover_result_works() {
     DB::expect_test_probable_modules_debug(
         "hover_result",
         |db, module_path| -> EntityTreeResult<Vec<(TokenIdx, Option<HoverResult>)>> {
-            let token_sheet = db.token_sheet(module_path)?;
-            let len = token_sheet.tokens().len();
+            let ranged_token_sheet = db.ranged_token_sheet(module_path)?;
+            let len = ranged_token_sheet.len();
             let step = (len / N).max(1);
             let mut hover_results = vec![];
-            for token_idx in token_sheet.token_index_iter() {
+            for token_idx in ranged_token_sheet.token_index_iter() {
                 // only push some of them, but all of them have to be computed
                 let hover_result = calc_hover_result(db, module_path, token_idx)?;
                 if token_idx.raw() % step == 0 {

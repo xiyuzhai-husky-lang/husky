@@ -16,7 +16,7 @@ impl std::ops::Index<TokenIdx> for TokenInfoSheet {
 }
 
 impl TokenInfoSheet {
-    pub(crate) fn new(token_sheet: &RangedTokenSheet) -> Self {
+    pub(crate) fn new(token_sheet: &TokenSheetData) -> Self {
         TokenInfoSheet {
             token_infos: (0..token_sheet.len())
                 .into_iter()
@@ -32,9 +32,17 @@ impl TokenInfoSheet {
 
     pub fn informative_tokens<'a>(
         &'a self,
-        token_sheet: &'a RangedTokenSheet,
+        ranged_token_sheet: &'a RangedTokenSheet,
+        token_sheet_data: &'a TokenSheetData,
     ) -> impl Iterator<Item = (&'a TokenInfo, (&'a TextRange, &'a Token))> + 'a {
-        assert_eq!(self.token_infos.len(), token_sheet.tokens().len());
-        std::iter::zip(self.token_infos.iter(), token_sheet.ranged_token_iter())
+        assert_eq!(self.token_infos.len(), ranged_token_sheet.len());
+        assert_eq!(self.token_infos.len(), token_sheet_data.len());
+        std::iter::zip(
+            self.token_infos.iter(),
+            std::iter::zip(
+                ranged_token_sheet.token_ranges().iter(),
+                token_sheet_data.tokens().iter(),
+            ),
+        )
     }
 }

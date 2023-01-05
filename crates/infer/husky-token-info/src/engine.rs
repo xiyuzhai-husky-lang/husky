@@ -5,7 +5,7 @@ use husky_expr::*;
 
 pub(crate) struct TokenInfoInferEngine<'a> {
     db: &'a dyn TokenInfoDb,
-    token_sheet: &'a RangedTokenSheet,
+    token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     defn_sheet: &'a DefnSheet,
     sheet: TokenInfoSheet,
@@ -13,13 +13,13 @@ pub(crate) struct TokenInfoInferEngine<'a> {
 
 impl<'a> TokenInfoInferEngine<'a> {
     pub(crate) fn new(db: &'a dyn TokenInfoDb, module_path: ModulePath) -> EntityTreeResult<Self> {
-        let token_sheet = &db.token_sheet(module_path)?;
+        let token_sheet_data = &db.token_sheet_data(module_path)?;
         Ok(Self {
             db,
-            token_sheet,
+            token_sheet_data,
             defn_sheet: db.defn_sheet(module_path)?,
             ast_sheet: db.ast_sheet(module_path)?,
-            sheet: TokenInfoSheet::new(token_sheet),
+            sheet: TokenInfoSheet::new(token_sheet_data),
         })
     }
 
@@ -69,7 +69,7 @@ impl<'a> TokenInfoInferEngine<'a> {
     fn visit_expr_sheet(&mut self, expr_sheet: ExprSheet) {
         ExprSheetTokenInfoInferEngine {
             db: self.db,
-            token_sheet: self.token_sheet,
+            token_sheet_data: self.token_sheet_data,
             ast_sheet: self.ast_sheet,
             sheet: &mut self.sheet,
             expr_arena: expr_sheet.expr_arena(self.db),
@@ -160,7 +160,7 @@ impl<'a> TokenInfoInferEngine<'a> {
 
 struct ExprSheetTokenInfoInferEngine<'a> {
     db: &'a dyn TokenInfoDb,
-    token_sheet: &'a RangedTokenSheet,
+    token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     expr_arena: &'a ExprArena,
     pattern_expr_arena: &'a PatternExprArena,

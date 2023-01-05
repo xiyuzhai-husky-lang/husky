@@ -11,7 +11,7 @@ def
 output
 
 ```husky
-RangedTokenSheet {
+TokenSheetData {
     tokens: [
         Keyword(
             Paradigm(
@@ -22,10 +22,9 @@ RangedTokenSheet {
     group_starts: [
         0,
     ],
-    token_ranges: [
-        [1:1, 1:4),
+    indents: [
+        0,
     ],
-    comments: [],
 }
 ```
 
@@ -40,7 +39,7 @@ func
 output
 
 ```husky
-RangedTokenSheet {
+TokenSheetData {
     tokens: [
         Keyword(
             Paradigm(
@@ -51,10 +50,9 @@ RangedTokenSheet {
     group_starts: [
         0,
     ],
-    token_ranges: [
-        [1:1, 1:5),
+    indents: [
+        0,
     ],
-    comments: [],
 }
 ```
 
@@ -69,7 +67,7 @@ proc
 output
 
 ```husky
-RangedTokenSheet {
+TokenSheetData {
     tokens: [
         Keyword(
             Paradigm(
@@ -80,10 +78,9 @@ RangedTokenSheet {
     group_starts: [
         0,
     ],
-    token_ranges: [
-        [1:1, 1:5),
+    indents: [
+        0,
     ],
-    comments: [],
 }
 ```
 
@@ -98,7 +95,7 @@ trait
 output
 
 ```husky
-RangedTokenSheet {
+TokenSheetData {
     tokens: [
         Keyword(
             Trait,
@@ -107,9 +104,8 @@ RangedTokenSheet {
     group_starts: [
         0,
     ],
-    token_ranges: [
-        [1:1, 1:6),
+    indents: [
+        0,
     ],
-    comments: [],
 }
 ```

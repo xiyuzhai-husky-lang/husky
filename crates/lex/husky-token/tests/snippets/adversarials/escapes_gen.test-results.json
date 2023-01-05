@@ -1,6 +1,6 @@
 [
   {
     "input": "\"\\a\"",
-    "output": "RangedTokenSheet {\n    tokens: [\n        Err(\n            UnexpectedCharAfterBackslash,\n        ),\n    ],\n    group_starts: [\n        0,\n    ],\n    token_ranges: [\n        [1:1, 1:5),\n    ],\n    comments: [],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        Err(\n            UnexpectedCharAfterBackslash,\n        ),\n    ],\n    group_starts: [\n        0,\n    ],\n    indents: [\n        0,\n    ],\n}"
   }
 ]

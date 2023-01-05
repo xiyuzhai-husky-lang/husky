@@ -38,7 +38,7 @@ use report;
 pub struct ExprParser<'a> {
     db: &'a dyn ExprDb,
     entity_path: Option<EntityPath>,
-    token_sheet: &'a RangedTokenSheet,
+    token_sheet_data: &'a TokenSheetData,
     ast_sheet: Option<&'a AstSheet>,
     symbol_stack: SymbolStack<'a>,
     expr_arena: ExprArena,
@@ -51,14 +51,14 @@ impl<'a> ExprParser<'a> {
     pub fn new(
         db: &'a dyn ExprDb,
         entity_path: Option<EntityPath>,
-        token_sheet: &'a RangedTokenSheet,
+        token_sheet_data: &'a TokenSheetData,
         ast_sheet: Option<&'a AstSheet>,
         crate_prelude: CratePrelude<'a>,
     ) -> Self {
         Self {
             db,
             entity_path,
-            token_sheet,
+            token_sheet_data,
             ast_sheet,
             symbol_stack: SymbolStack::new(crate_prelude),
             expr_arena: Default::default(),
@@ -108,7 +108,7 @@ impl<'a> ExprParser<'a> {
                 body,
             } => {
                 let token_stream = self
-                    .token_sheet
+                    .token_sheet_data
                     .token_group_token_stream(*token_group_idx, None);
                 let mut ctx = self.ctx(token_stream);
                 match ctx.parse::<BasicStmtKeywordToken>() {
@@ -223,11 +223,11 @@ pub fn parse_expr<'a>(
     db: &'a dyn ExprDb,
     entity_path: Option<EntityPath>,
     crate_prelude: CratePrelude<'a>,
-    token_sheet: &'a RangedTokenSheet,
+    token_sheet_data: &'a TokenSheetData,
     token_iter: TokenStream<'a>,
     env: ExprParseEnvironment,
 ) -> (ExprSheet, Option<ExprIdx>) {
-    let mut expr_parser = ExprParser::new(db, entity_path, token_sheet, None, crate_prelude);
+    let mut expr_parser = ExprParser::new(db, entity_path, token_sheet_data, None, crate_prelude);
     let expr = expr_parser.ctx(token_iter).parse_expr(env);
     (expr_parser.finish(), expr)
 }

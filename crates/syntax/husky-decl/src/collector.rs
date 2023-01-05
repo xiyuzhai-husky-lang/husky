@@ -9,7 +9,7 @@ use husky_print_utils::p;
 use husky_symbol::{LocalSymbolSheet, SymbolContext};
 use husky_token::{
     IdentifierToken, LeftAngleBracketToken, LeftBoxBracketToken, LeftCurlyBraceToken, Punctuation,
-    RangedTokenSheet, RightCurlyBraceToken, TokenGroupIdx, TokenIdx,
+    RangedTokenSheet, RightCurlyBraceToken, TokenGroupIdx, TokenIdx, TokenSheetData,
 };
 use parsec::{parse_separated_list, ParseContext, ParseFrom};
 use salsa::DebugWithDb;
@@ -18,7 +18,7 @@ use vec_like::VecPairMap;
 pub(crate) struct DeclCollector<'a> {
     db: &'a dyn DeclDb,
     crate_prelude: CratePrelude<'a>,
-    token_sheet: &'a RangedTokenSheet,
+    token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     entity_tree_sheet: &'a EntityTreeSheet,
 }
@@ -29,7 +29,7 @@ impl<'a> DeclCollector<'a> {
         Ok(Self {
             db,
             crate_prelude,
-            token_sheet: db.token_sheet(module_path)?,
+            token_sheet_data: db.token_sheet_data(module_path)?,
             ast_sheet: db.ast_sheet(module_path)?,
             entity_tree_sheet: db.entity_tree_sheet(module_path)?,
         })
@@ -168,7 +168,7 @@ impl<'a> DeclCollector<'a> {
     ) -> DeclResult<Decl> {
         let mut parser = self.expr_parser(path.into());
         let mut ctx = parser.ctx(
-            self.token_sheet
+            self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
         let implicit_parameters = ctx.parse()?;
@@ -187,7 +187,7 @@ impl<'a> DeclCollector<'a> {
     ) -> DeclResult<Decl> {
         let mut parser = self.expr_parser(path.into());
         let mut ctx = parser.ctx(
-            self.token_sheet
+            self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
         let implicit_parameters = ctx.parse()?;
@@ -210,7 +210,7 @@ impl<'a> DeclCollector<'a> {
     ) -> DeclResult<Decl> {
         let mut parser = self.expr_parser(path.into());
         let mut ctx = parser.ctx(
-            self.token_sheet
+            self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
         let implicit_parameters = ctx.parse()?;
@@ -230,7 +230,7 @@ impl<'a> DeclCollector<'a> {
     ) -> DeclResult<Decl> {
         let mut parser = self.expr_parser(path.into());
         let mut ctx = parser.ctx(
-            self.token_sheet
+            self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
         let implicit_parameters = ctx.parse()?;
@@ -262,7 +262,7 @@ impl<'a> DeclCollector<'a> {
         ExprParser::new(
             self.db,
             Some(entity_path),
-            self.token_sheet,
+            self.token_sheet_data,
             None,
             self.crate_prelude,
         )
@@ -277,12 +277,12 @@ impl<'a> DeclCollector<'a> {
         saved_stream_state: TokenIdx,
     ) -> DeclResult<Decl> {
         let mut token_iter = self
-            .token_sheet
+            .token_sheet_data
             .token_group_token_stream(token_group_idx, Some(saved_stream_state));
 
         let mut parser = self.expr_parser(path.into());
         let mut ctx = parser.ctx(
-            self.token_sheet
+            self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
         let implicit_parameters = ctx.parse()?;
@@ -302,12 +302,12 @@ impl<'a> DeclCollector<'a> {
         saved_stream_state: TokenIdx,
     ) -> DeclResult<Decl> {
         let mut token_iter = self
-            .token_sheet
+            .token_sheet_data
             .token_group_token_stream(token_group_idx, Some(saved_stream_state));
 
         let mut parser = self.expr_parser(path.into());
         let mut ctx = parser.ctx(
-            self.token_sheet
+            self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
         let implicit_parameters = ctx.parse()?;
@@ -346,7 +346,7 @@ impl<'a> DeclCollector<'a> {
     ) -> Result<Decl, DeclError> {
         let mut parser = self.expr_parser(path.into());
         let mut ctx = parser.ctx(
-            self.token_sheet
+            self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
         Ok(Decl::Form(
@@ -363,7 +363,7 @@ impl<'a> DeclCollector<'a> {
     ) -> Result<Decl, DeclError> {
         let mut parser = self.expr_parser(path.into());
         let mut ctx = parser.ctx(
-            self.token_sheet
+            self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
         let implicit_parameter_decl_list = ctx.parse()?;

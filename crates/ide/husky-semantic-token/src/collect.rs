@@ -4,10 +4,11 @@ pub(crate) fn collect_semantic_tokens(
     db: &dyn SemanticTokenDb,
     module_path: ModulePath,
 ) -> EntityTreeResult<Vec<RangedSemanticToken>> {
-    let token_sheet = db.token_sheet(module_path)?;
+    let ranged_token_sheet = db.ranged_token_sheet(module_path)?;
+    let token_sheet_data = db.token_sheet_data(module_path)?;
     let token_infer_sheet = db.token_info_sheet(module_path)?;
     Ok(token_infer_sheet
-        .informative_tokens(token_sheet)
+        .informative_tokens(ranged_token_sheet, token_sheet_data)
         .filter_map(|(info, (range, token))| {
             let semantic_token = match info {
                 TokenInfo::None => match token {
