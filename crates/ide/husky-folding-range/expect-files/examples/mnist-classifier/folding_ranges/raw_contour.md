@@ -209,13 +209,143 @@ Ok(
             ),
         },
         FoldingRange {
+            start_line: 211,
+            start_character: Some(
+                20,
+            ),
+            end_line: 219,
+            end_character: Some(
+                41,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 209,
+            start_character: Some(
+                16,
+            ),
+            end_line: 241,
+            end_character: Some(
+                53,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 245,
+            start_character: Some(
+                20,
+            ),
+            end_line: 248,
+            end_character: Some(
+                48,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 249,
+            start_character: Some(
+                20,
+            ),
+            end_line: 252,
+            end_character: Some(
+                46,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 253,
+            start_character: Some(
+                20,
+            ),
+            end_line: 254,
+            end_character: Some(
+                33,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 255,
+            start_character: Some(
+                20,
+            ),
+            end_line: 256,
+            end_character: Some(
+                33,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 244,
+            start_character: Some(
+                16,
+            ),
+            end_line: 256,
+            end_character: Some(
+                33,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 260,
+            start_character: Some(
+                16,
+            ),
+            end_line: 261,
+            end_character: Some(
+                36,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 262,
+            start_character: Some(
+                12,
+            ),
+            end_line: 263,
+            end_character: Some(
+                31,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 199,
+            start_character: Some(
+                12,
+            ),
+            end_line: 261,
+            end_character: Some(
+                36,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
             start_line: 177,
             start_character: Some(
                 8,
             ),
-            end_line: 180,
+            end_line: 264,
             end_character: Some(
-                52,
+                48,
             ),
             kind: Some(
                 Region,
@@ -239,9 +369,9 @@ Ok(
             start_character: Some(
                 4,
             ),
-            end_line: 183,
+            end_line: 264,
             end_character: Some(
-                42,
+                48,
             ),
             kind: Some(
                 Region,
@@ -369,9 +499,9 @@ Ok(
             start_character: Some(
                 0,
             ),
-            end_line: 185,
+            end_line: 265,
             end_character: Some(
-                84,
+                17,
             ),
             kind: Some(
                 Region,

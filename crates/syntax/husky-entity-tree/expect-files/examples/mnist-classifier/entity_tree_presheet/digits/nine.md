@@ -7,7 +7,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::digits::nine`,
                 ),
-                ast_idx: 36,
+                ast_idx: 44,
                 path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Feature`),
             },
             ModuleItem {
@@ -15,7 +15,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::digits::nine`,
                 ),
-                ast_idx: 37,
+                ast_idx: 45,
                 path: FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Feature`),
             },
             ModuleItem {
@@ -23,14 +23,30 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::digits::nine`,
                 ),
-                ast_idx: 38,
+                ast_idx: 46,
                 path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+            },
+            ModuleItem {
+                ident: `downmost`,
+                accessibility: PubicUnder(
+                    `mnist_classifier::digits::nine`,
+                ),
+                ast_idx: 47,
+                path: FormPath(`mnist_classifier::digits::nine::downmost`, `Function`),
+            },
+            ModuleItem {
+                ident: `big_cc`,
+                accessibility: PubicUnder(
+                    `mnist_classifier::digits::nine`,
+                ),
+                ast_idx: 48,
+                path: FormPath(`mnist_classifier::digits::nine::big_cc`, `Function`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(
             [
                 EntityUseTracker {
-                    ast_idx: 27,
+                    ast_idx: 35,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -50,7 +66,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 28,
+                    ast_idx: 36,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -70,7 +86,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 29,
+                    ast_idx: 37,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -90,7 +106,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 30,
+                    ast_idx: 38,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -110,7 +126,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 31,
+                    ast_idx: 39,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -130,7 +146,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 32,
+                    ast_idx: 40,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -150,7 +166,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 33,
+                    ast_idx: 41,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -170,7 +186,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 34,
+                    ast_idx: 42,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -190,7 +206,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 35,
+                    ast_idx: 43,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {

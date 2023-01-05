@@ -20,6 +20,22 @@ Ok(
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
+                        17,
+                    ),
+                    body: ArenaIdxRange(
+                        2..2,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        18,
+                    ),
+                    body: ArenaIdxRange(
+                        2..2,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
                         9,
                     ),
                     body: ArenaIdxRange(
@@ -44,10 +60,58 @@ Ok(
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
+                        14,
+                    ),
+                    body: ArenaIdxRange(
+                        2..2,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        15,
+                    ),
+                    body: ArenaIdxRange(
+                        2..2,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        16,
+                    ),
+                    body: ArenaIdxRange(
+                        2..4,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        19,
+                    ),
+                    body: ArenaIdxRange(
+                        4..4,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
                         8,
                     ),
                     body: ArenaIdxRange(
-                        2..5,
+                        4..11,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        21,
+                    ),
+                    body: ArenaIdxRange(
+                        12..12,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        20,
+                    ),
+                    body: ArenaIdxRange(
+                        12..13,
                     ),
                 },
                 Stmt {
@@ -83,59 +147,13 @@ Ok(
                     ),
                 },
                 IfElseStmts {
-                    if_stmt: 5,
+                    if_stmt: 11,
                     elif_stmts: ArenaIdxRange(
-                        6..6,
+                        12..12,
                     ),
-                    else_stmt: None,
-                },
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        15,
+                    else_stmt: Some(
+                        13,
                     ),
-                    error: ExcessiveIndent,
-                },
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        16,
-                    ),
-                    error: ExcessiveIndent,
-                },
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        17,
-                    ),
-                    error: ExcessiveIndent,
-                },
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        18,
-                    ),
-                    error: ExcessiveIndent,
-                },
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        19,
-                    ),
-                    error: ExcessiveIndent,
-                },
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        20,
-                    ),
-                    error: ExcessiveIndent,
-                },
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        21,
-                    ),
-                    error: StandaloneElse,
-                },
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        22,
-                    ),
-                    error: ExcessiveIndent,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
@@ -184,7 +202,7 @@ Ok(
                         3,
                     ),
                     body: ArenaIdxRange(
-                        6..19,
+                        14..19,
                     ),
                     accessibility: PublicUnder(
                         ModulePath(

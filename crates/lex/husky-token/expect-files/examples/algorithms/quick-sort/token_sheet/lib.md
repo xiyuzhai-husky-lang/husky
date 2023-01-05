@@ -1729,9 +1729,11 @@ Ok(
             ),
             Literal(
                 String(
-                    StringLiteral {
-                        data: "beach",
-                    },
+                    StringLiteral(
+                        Id {
+                            value: 3,
+                        },
+                    ),
                 ),
             ),
             Punctuation(
@@ -1739,9 +1741,11 @@ Ok(
             ),
             Literal(
                 String(
-                    StringLiteral {
-                        data: "hotel",
-                    },
+                    StringLiteral(
+                        Id {
+                            value: 4,
+                        },
+                    ),
                 ),
             ),
             Punctuation(
@@ -1749,9 +1753,11 @@ Ok(
             ),
             Literal(
                 String(
-                    StringLiteral {
-                        data: "airplane",
-                    },
+                    StringLiteral(
+                        Id {
+                            value: 5,
+                        },
+                    ),
                 ),
             ),
             Punctuation(
@@ -1759,9 +1765,11 @@ Ok(
             ),
             Literal(
                 String(
-                    StringLiteral {
-                        data: "car",
-                    },
+                    StringLiteral(
+                        Id {
+                            value: 6,
+                        },
+                    ),
                 ),
             ),
             Punctuation(
@@ -1769,9 +1777,11 @@ Ok(
             ),
             Literal(
                 String(
-                    StringLiteral {
-                        data: "house",
-                    },
+                    StringLiteral(
+                        Id {
+                            value: 7,
+                        },
+                    ),
                 ),
             ),
             Punctuation(
@@ -1779,9 +1789,11 @@ Ok(
             ),
             Literal(
                 String(
-                    StringLiteral {
-                        data: "art",
-                    },
+                    StringLiteral(
+                        Id {
+                            value: 8,
+                        },
+                    ),
                 ),
             ),
             Punctuation(
@@ -1845,9 +1857,11 @@ Ok(
             ),
             Literal(
                 String(
-                    StringLiteral {
-                        data: "airplane",
-                    },
+                    StringLiteral(
+                        Id {
+                            value: 9,
+                        },
+                    ),
                 ),
             ),
             Punctuation(
@@ -1855,9 +1869,11 @@ Ok(
             ),
             Literal(
                 String(
-                    StringLiteral {
-                        data: "art",
-                    },
+                    StringLiteral(
+                        Id {
+                            value: 10,
+                        },
+                    ),
                 ),
             ),
             Punctuation(
@@ -1865,9 +1881,11 @@ Ok(
             ),
             Literal(
                 String(
-                    StringLiteral {
-                        data: "beach",
-                    },
+                    StringLiteral(
+                        Id {
+                            value: 11,
+                        },
+                    ),
                 ),
             ),
             Punctuation(
@@ -1875,9 +1893,11 @@ Ok(
             ),
             Literal(
                 String(
-                    StringLiteral {
-                        data: "car",
-                    },
+                    StringLiteral(
+                        Id {
+                            value: 12,
+                        },
+                    ),
                 ),
             ),
             Punctuation(
@@ -1885,9 +1905,11 @@ Ok(
             ),
             Literal(
                 String(
-                    StringLiteral {
-                        data: "hotel",
-                    },
+                    StringLiteral(
+                        Id {
+                            value: 13,
+                        },
+                    ),
                 ),
             ),
             Punctuation(
@@ -1895,9 +1917,11 @@ Ok(
             ),
             Literal(
                 String(
-                    StringLiteral {
-                        data: "house",
-                    },
+                    StringLiteral(
+                        Id {
+                            value: 14,
+                        },
+                    ),
                 ),
             ),
             Punctuation(
@@ -1905,6 +1929,43 @@ Ok(
                     Box,
                 ),
             ),
+        ],
+        group_starts: [
+            0,
+            18,
+            26,
+            40,
+            65,
+            70,
+            81,
+            91,
+            101,
+            128,
+            134,
+            141,
+            146,
+            149,
+            152,
+            165,
+            168,
+            171,
+            188,
+            191,
+            196,
+            197,
+            199,
+            211,
+            223,
+            224,
+            226,
+            229,
+            255,
+            259,
+            284,
+            286,
+            289,
+            306,
+            310,
         ],
         token_ranges: [
             [1:1, 1:4),
@@ -2234,42 +2295,6 @@ Ok(
             [40:65, 40:72),
             [40:72, 40:73),
         ],
-        group_starts: [
-            0,
-            18,
-            26,
-            40,
-            65,
-            70,
-            81,
-            91,
-            101,
-            128,
-            134,
-            141,
-            146,
-            149,
-            152,
-            165,
-            168,
-            171,
-            188,
-            191,
-            196,
-            197,
-            199,
-            211,
-            223,
-            224,
-            226,
-            229,
-            255,
-            259,
-            284,
-            286,
-            289,
-            306,
-            310,
-        ],
+        comments: [],
     },
 )

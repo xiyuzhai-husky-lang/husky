@@ -8,10 +8,12 @@ pub(crate) struct Tokenizer<'lex> {
     tokens: Vec<Token>,
     token_ranges: Vec<TextRange>,
     line: TextLine,
+    comments: Vec<Comment>,
 }
 
 enum TokenizerAction {
     Push((Token, TextRange)),
+    Comment(TextRange),
     ReplaceLast((Token, TextRange)),
     NewLine,
 }
@@ -23,11 +25,12 @@ impl<'token> Tokenizer<'token> {
             tokens: vec![],
             token_ranges: vec![],
             line: Default::default(),
+            comments: vec![],
         }
     }
 
     pub fn finish(self) -> RangedTokenSheet {
-        RangedTokenSheet::new(self.tokens, self.token_ranges)
+        RangedTokenSheet::new(self.tokens, self.token_ranges, self.comments)
     }
 
     pub(crate) fn push_tokens(&mut self, iter: impl Iterator<Item = RangedPretoken>) {
@@ -42,6 +45,11 @@ impl<'token> Tokenizer<'token> {
                     todo!()
                 }
                 TokenizerAction::NewLine => self.line = self.line.to_next_line(),
+                TokenizerAction::Comment(range) => self.comments.push(Comment::new(
+                    CommentKind::Todo,
+                    TokenIdx(self.tokens.len()),
+                    range,
+                )),
             }
         }
     }
@@ -71,7 +79,7 @@ impl<'token> Tokenizer<'token> {
                 }
                 AmbiguousPretoken::For => todo!(),
             },
-            Pretoken::Comment => TokenizerAction::Push((Token::Comment, ranged_pretoken.range)),
+            Pretoken::Comment => TokenizerAction::Comment(ranged_pretoken.range),
             Pretoken::Err(e) => TokenizerAction::Push((Token::Err(e), ranged_pretoken.range)),
         }
     }

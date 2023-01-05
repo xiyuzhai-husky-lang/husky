@@ -318,6 +318,144 @@ Ok(
                         22,
                     ),
                 },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        35,
+                    ),
+                    body: ArenaIdxRange(
+                        25..25,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        36,
+                    ),
+                    body: ArenaIdxRange(
+                        25..25,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        45,
+                    ),
+                    body: ArenaIdxRange(
+                        27..27,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        44,
+                    ),
+                    body: ArenaIdxRange(
+                        27..28,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        47,
+                    ),
+                    body: ArenaIdxRange(
+                        29..29,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        46,
+                    ),
+                    body: ArenaIdxRange(
+                        29..30,
+                    ),
+                },
+                IfElseStmts {
+                    if_stmt: 28,
+                    elif_stmts: ArenaIdxRange(
+                        29..29,
+                    ),
+                    else_stmt: Some(
+                        30,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        43,
+                    ),
+                    body: ArenaIdxRange(
+                        31..32,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        49,
+                    ),
+                    body: ArenaIdxRange(
+                        33..33,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        50,
+                    ),
+                    body: ArenaIdxRange(
+                        33..33,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        48,
+                    ),
+                    body: ArenaIdxRange(
+                        33..35,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        38,
+                    ),
+                    body: ArenaIdxRange(
+                        27..27,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        39,
+                    ),
+                    body: ArenaIdxRange(
+                        27..27,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        40,
+                    ),
+                    body: ArenaIdxRange(
+                        27..27,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        41,
+                    ),
+                    body: ArenaIdxRange(
+                        27..27,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        42,
+                    ),
+                    body: ArenaIdxRange(
+                        27..27,
+                    ),
+                },
+                IfElseStmts {
+                    if_stmt: 32,
+                    elif_stmts: ArenaIdxRange(
+                        33..33,
+                    ),
+                    else_stmt: Some(
+                        35,
+                    ),
+                },
                 Defn {
                     token_group_idx: TokenGroupIdx(
                         15,
@@ -512,6 +650,602 @@ Ok(
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
+                        34,
+                    ),
+                    body: ArenaIdxRange(
+                        25..27,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeImplItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `rotation_direction_to`,
+                        token_idx: TokenIdx(
+                            359,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: Block,
+                    saved_stream_state: TokenIdx(
+                        360,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        37,
+                    ),
+                    body: ArenaIdxRange(
+                        36..42,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeImplItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `angle_to`,
+                        token_idx: TokenIdx(
+                            382,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: Block,
+                    saved_stream_state: TokenIdx(
+                        383,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        54,
+                    ),
+                    body: ArenaIdxRange(
+                        50..50,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        55,
+                    ),
+                    body: ArenaIdxRange(
+                        50..50,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        56,
+                    ),
+                    body: ArenaIdxRange(
+                        50..50,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        57,
+                    ),
+                    body: ArenaIdxRange(
+                        50..50,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        58,
+                    ),
+                    body: ArenaIdxRange(
+                        50..50,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        60,
+                    ),
+                    body: ArenaIdxRange(
+                        55..55,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        61,
+                    ),
+                    body: ArenaIdxRange(
+                        55..55,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        53,
+                    ),
+                    body: ArenaIdxRange(
+                        50..55,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeImplItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `relative_range`,
+                        token_idx: TokenIdx(
+                            494,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: Block,
+                    saved_stream_state: TokenIdx(
+                        495,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        59,
+                    ),
+                    body: ArenaIdxRange(
+                        55..57,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeImplItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `relative_point`,
+                        token_idx: TokenIdx(
+                            542,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: Block,
+                    saved_stream_state: TokenIdx(
+                        543,
+                    ),
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        63,
+                    ),
+                    error: ExpectDecoratorOrEntityKeyword,
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        64,
+                    ),
+                    error: ExpectDecoratorOrEntityKeyword,
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        68,
+                    ),
+                    body: ArenaIdxRange(
+                        61..61,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        70,
+                    ),
+                    body: ArenaIdxRange(
+                        62..62,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        72,
+                    ),
+                    body: ArenaIdxRange(
+                        63..63,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        74,
+                    ),
+                    body: ArenaIdxRange(
+                        64..64,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        76,
+                    ),
+                    body: ArenaIdxRange(
+                        65..65,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        78,
+                    ),
+                    body: ArenaIdxRange(
+                        66..66,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        67,
+                    ),
+                    body: ArenaIdxRange(
+                        61..62,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeImplItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `relative_bounding_box`,
+                        token_idx: TokenIdx(
+                            582,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: Block,
+                    saved_stream_state: TokenIdx(
+                        583,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        69,
+                    ),
+                    body: ArenaIdxRange(
+                        62..63,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeImplItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `relative_point`,
+                        token_idx: TokenIdx(
+                            613,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: Block,
+                    saved_stream_state: TokenIdx(
+                        614,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        71,
+                    ),
+                    body: ArenaIdxRange(
+                        63..64,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeImplItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `xmin`,
+                        token_idx: TokenIdx(
+                            644,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: Block,
+                    saved_stream_state: TokenIdx(
+                        645,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        73,
+                    ),
+                    body: ArenaIdxRange(
+                        64..65,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeImplItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `xmax`,
+                        token_idx: TokenIdx(
+                            654,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: Block,
+                    saved_stream_state: TokenIdx(
+                        655,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        75,
+                    ),
+                    body: ArenaIdxRange(
+                        65..66,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeImplItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `ymin`,
+                        token_idx: TokenIdx(
+                            664,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: Block,
+                    saved_stream_state: TokenIdx(
+                        665,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        77,
+                    ),
+                    body: ArenaIdxRange(
+                        66..67,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeImplItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `ymax`,
+                        token_idx: TokenIdx(
+                            674,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: Block,
+                    saved_stream_state: TokenIdx(
+                        675,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        82,
+                    ),
+                    body: ArenaIdxRange(
+                        73..73,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        84,
+                    ),
+                    body: ArenaIdxRange(
+                        74..74,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        86,
+                    ),
+                    body: ArenaIdxRange(
+                        75..75,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        88,
+                    ),
+                    body: ArenaIdxRange(
+                        76..76,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        81,
+                    ),
+                    body: ArenaIdxRange(
+                        73..74,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeImplItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `xmin`,
+                        token_idx: TokenIdx(
+                            699,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: Block,
+                    saved_stream_state: TokenIdx(
+                        700,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        83,
+                    ),
+                    body: ArenaIdxRange(
+                        74..75,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeImplItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `xmax`,
+                        token_idx: TokenIdx(
+                            709,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: Block,
+                    saved_stream_state: TokenIdx(
+                        710,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        85,
+                    ),
+                    body: ArenaIdxRange(
+                        75..76,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeImplItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `ymin`,
+                        token_idx: TokenIdx(
+                            719,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: Block,
+                    saved_stream_state: TokenIdx(
+                        720,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        87,
+                    ),
+                    body: ArenaIdxRange(
+                        76..77,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeImplItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `ymax`,
+                        token_idx: TokenIdx(
+                            729,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: Block,
+                    saved_stream_state: TokenIdx(
+                        730,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
                         0,
                     ),
                     body: ArenaIdxRange(
@@ -628,19 +1362,144 @@ Ok(
                         14,
                     ),
                     body: ArenaIdxRange(
-                        25..31,
+                        42..50,
                     ),
                 },
-                Err {
+                Defn {
                     token_group_idx: TokenGroupIdx(
-                        35,
+                        51,
                     ),
-                    error: ExcessiveIndent,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                    ),
+                    entity_kind: ModuleItem {
+                        module_item_kind: Type(
+                            Struct,
+                        ),
+                        connection: Connected,
+                    },
+                    entity_path: Some(
+                        TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                    ),
+                    ident_token: IdentifierToken {
+                        ident: `ClosedRange`,
+                        token_idx: TokenIdx(
+                            479,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        480,
+                    ),
+                },
+                Impl {
+                    token_group_idx: TokenGroupIdx(
+                        52,
+                    ),
+                    body: ArenaIdxRange(
+                        57..59,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        62,
+                    ),
+                    body: ArenaIdxRange(
+                        59..61,
+                    ),
+                    accessibility: Public,
+                    entity_kind: ModuleItem {
+                        module_item_kind: Type(
+                            Struct,
+                        ),
+                        connection: Connected,
+                    },
+                    entity_path: Some(
+                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                    ),
+                    ident_token: IdentifierToken {
+                        ident: `BoundingBox`,
+                        token_idx: TokenIdx(
+                            565,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: Block,
+                    saved_stream_state: TokenIdx(
+                        566,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        65,
+                    ),
+                    body: ArenaIdxRange(
+                        61..61,
+                    ),
+                },
+                Impl {
+                    token_group_idx: TokenGroupIdx(
+                        66,
+                    ),
+                    body: ArenaIdxRange(
+                        67..73,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        79,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                    ),
+                    entity_kind: ModuleItem {
+                        module_item_kind: Type(
+                            Struct,
+                        ),
+                        connection: Connected,
+                    },
+                    entity_path: Some(
+                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                    ),
+                    ident_token: IdentifierToken {
+                        ident: `RelativeBoundingBox`,
+                        token_idx: TokenIdx(
+                            684,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        685,
+                    ),
+                },
+                Impl {
+                    token_group_idx: TokenGroupIdx(
+                        80,
+                    ),
+                    body: ArenaIdxRange(
+                        77..81,
+                    ),
                 },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            31..37,
+            81..93,
         ),
         use_expr_arena: Arena {
             data: [],

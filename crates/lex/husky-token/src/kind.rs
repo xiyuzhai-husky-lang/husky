@@ -10,7 +10,7 @@ pub use wordopr::*;
 
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Token {
     Attr(AttributeKeyword),
     Keyword(Keyword),
@@ -18,7 +18,6 @@ pub enum Token {
     Punctuation(Punctuation),
     WordOpr(WordOpr),
     Literal(Literal),
-    Comment,
     Err(TokenError),
 }
 

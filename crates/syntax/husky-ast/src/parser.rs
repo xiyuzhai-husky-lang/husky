@@ -58,9 +58,7 @@ impl<'a> AstParser<'a> {
     fn parse_ast(&mut self, context: &Context) -> Option<Ast> {
         let (token_group_idx, token_group, first_noncomment_token) = self
             .token_groups
-            .next_noncomment_token_group_of_equal_or_more_indent_with_its_first_noncomment_token(
-                context.indent(),
-            )?;
+            .next_token_group_of_equal_or_more_indent_with_its_first_token(context.indent())?;
         if token_group.indent() > context.indent() {
             return Some(Ast::Err {
                 token_group_idx,
@@ -125,7 +123,6 @@ impl<'a> AstParser<'a> {
             | Token::Identifier(_)
             | Token::WordOpr(_)
             | Token::Literal(_) => self.parse_stmt(token_group_idx, &context),
-            Token::Comment => Ast::Comment { token_group_idx },
             Token::Err(_) => todo!(),
         })
     }
@@ -151,9 +148,7 @@ impl<'a> AstParser<'a> {
         let mut elif_stmts = vec![];
         while let Some((idx, token_group, first_noncomment_token)) = self
             .token_groups
-            .peek_noncomment_token_group_of_exact_indent_with_its_first_noncomment_token(
-                context.indent(),
-            )
+            .peek_token_group_of_exact_indent_with_its_first_token(context.indent())
         {
             match first_noncomment_token {
                 Token::Keyword(Keyword::Stmt(StmtKeyword::Elif)) => {
@@ -169,9 +164,7 @@ impl<'a> AstParser<'a> {
     fn alloc_else_stmt(&mut self, context: &Context) -> Option<AstIdx> {
         let (idx, token_group, first_noncomment_token) = self
             .token_groups
-            .peek_noncomment_token_group_of_exact_indent_with_its_first_noncomment_token(
-                context.indent(),
-            )?;
+            .peek_token_group_of_exact_indent_with_its_first_token(context.indent())?;
         match first_noncomment_token {
             Token::Keyword(Keyword::Stmt(StmtKeyword::Else)) => {
                 self.token_groups.next();
@@ -203,21 +196,16 @@ impl<'a> AstParser<'a> {
 
     fn parse_case_stmts(&mut self, context: Context) -> AstIdxRange {
         let mut verticals = vec![];
-        while let Some((idx, token_group, first_noncomment)) = self
+        while let Some((idx, token_group, first)) = self
             .token_groups
-            .peek_noncomment_token_group_of_exact_indent_with_its_first_noncomment_token(
-                context.indent(),
-            )
+            .peek_token_group_of_exact_indent_with_its_first_token(context.indent())
         {
-            match first_noncomment {
+            match first {
                 Token::Punctuation(Punctuation::Vertical) => {
                     self.token_groups.next();
                     verticals.push(self.parse_stmt(idx, &context))
                 }
-                ref token => {
-                    p!(token);
-                    todo!()
-                } // break,
+                _ => break,
             }
         }
         self.alloc_asts(verticals)
@@ -226,7 +214,7 @@ impl<'a> AstParser<'a> {
     fn parse_defn_or_use(&mut self, token_group_idx: TokenGroupIdx, context: &Context) -> Ast {
         for token in &self.token_sheet[token_group_idx] {
             match token {
-                Token::Attr(_) | Token::Comment => (),
+                Token::Attr(_) => (),
                 Token::Keyword(Keyword::Use) => return self.parse_uses(token_group_idx, context),
                 Token::Keyword(_) => return self.parse_defn(context, token_group_idx),
                 Token::Identifier(_)

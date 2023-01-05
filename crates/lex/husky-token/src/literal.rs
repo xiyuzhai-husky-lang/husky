@@ -9,12 +9,10 @@ pub use float_literal::*;
 pub use integer_literal::*;
 pub use tuple_index_literal::*;
 
-
-
-
+use crate::TokenJar;
 
 /// follows mainly from <https://doc.rust-lang.org/reference/tokens.html#literals/>
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum Literal {
     Unit,
     Char(CharLiteral),
@@ -25,15 +23,9 @@ pub enum Literal {
     Bool(bool),
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
+#[salsa::tracked(jar = TokenJar)]
 pub struct StringLiteral {
     data: String,
-}
-
-impl StringLiteral {
-    pub fn new(data: String) -> Self {
-        Self { data }
-    }
 }
 
 impl Literal {

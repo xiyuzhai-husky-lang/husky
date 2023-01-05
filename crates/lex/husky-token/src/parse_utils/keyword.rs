@@ -110,7 +110,7 @@ where
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
-        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed(IgnoreComment::True) {
+        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
                 Token::Keyword(Keyword::Stmt(StmtKeyword::Let)) => {
                     Ok(Some(LetToken { token_idx }.into()))
@@ -136,7 +136,6 @@ where
                 Token::Keyword(Keyword::Stmt(StmtKeyword::Do)) => {
                     Ok(Some(DoToken { token_idx }.into()))
                 }
-                Token::Comment => unreachable!(),
                 Token::Err(ref e) => Err(e.clone().into()),
                 Token::Keyword(_)
                 | Token::Punctuation(_)

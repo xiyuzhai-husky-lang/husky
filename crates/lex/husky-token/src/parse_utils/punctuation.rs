@@ -20,13 +20,9 @@ where
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
-        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed(IgnoreComment::True) {
+        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Punctuation(punc) => Ok(Some(PunctuationToken {
-                    punc: *punc,
-                    token_idx,
-                })),
-                Token::Comment => unreachable!(),
+                Token::Punctuation(punc) => Ok(Some(PunctuationToken { punc, token_idx })),
                 Token::Err(ref e) => Err(e.clone().into()),
                 Token::Identifier(_)
                 | Token::WordOpr(_)
@@ -50,10 +46,9 @@ where
     Context: TokenParseContext<'a>,
     <Context as HasParseError>::Error: From<TokenError>,
 {
-    if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed(IgnoreComment::True) {
+    if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
         match token {
-            Token::Punctuation(punc) if punc == &target => Ok(Some(token_idx)),
-            Token::Comment => unreachable!(),
+            Token::Punctuation(punc) if punc == target => Ok(Some(token_idx)),
             Token::Err(ref e) => Err(e.clone()),
             Token::Punctuation(_)
             | Token::Identifier(_)
@@ -570,15 +565,12 @@ where
         ctx: &mut Context,
     ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
         let token_stream = ctx.token_stream_mut();
-        if let Some((token_idx, token)) = token_stream.next_indexed(IgnoreComment::True) {
+        if let Some((token_idx, token)) = token_stream.next_indexed() {
             match token {
-                Token::Punctuation(Punctuation::Colon) => {
-                    match token_stream.peek_noncomment_token() {
-                        Some(_) => Ok(None),
-                        None => Ok(Some(EolColonToken { token_idx })),
-                    }
-                }
-                Token::Comment => unreachable!(),
+                Token::Punctuation(Punctuation::Colon) => match token_stream.peek() {
+                    Some(_) => Ok(None),
+                    None => Ok(Some(EolColonToken { token_idx })),
+                },
                 Token::Err(ref e) => Err(e.clone().into()),
                 Token::Punctuation(_)
                 | Token::Identifier(_)

@@ -70,7 +70,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::connected_component`,
                         ),
-                        ast_idx: 10,
+                        ast_idx: 116,
                         path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                     },
                     ModuleItem {
@@ -78,7 +78,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::connected_component`,
                         ),
-                        ast_idx: 11,
+                        ast_idx: 117,
                         path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                     },
                     ModuleItem {
@@ -86,7 +86,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::connected_component`,
                         ),
-                        ast_idx: 12,
+                        ast_idx: 118,
                         path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
                     },
                     ModuleItem {
@@ -94,8 +94,24 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::connected_component`,
                         ),
-                        ast_idx: 14,
+                        ast_idx: 119,
                         path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                    },
+                    ModuleItem {
+                        ident: `horizontal_extend`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::connected_component`,
+                        ),
+                        ast_idx: 120,
+                        path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                    },
+                    ModuleItem {
+                        ident: `find_connected_components`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::connected_component`,
+                        ),
+                        ast_idx: 121,
+                        path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
                     },
                 ],
             },
@@ -107,7 +123,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::raw_contour`,
                         ),
-                        ast_idx: 144,
+                        ast_idx: 203,
                         path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                     },
                     ModuleItem {
@@ -115,7 +131,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::raw_contour`,
                         ),
-                        ast_idx: 146,
+                        ast_idx: 205,
                         path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                     },
                     ModuleItem {
@@ -123,7 +139,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::raw_contour`,
                         ),
-                        ast_idx: 151,
+                        ast_idx: 210,
                         path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
                     },
                     ModuleItem {
@@ -131,7 +147,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::raw_contour`,
                         ),
-                        ast_idx: 152,
+                        ast_idx: 211,
                         path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
                     },
                     ModuleItem {
@@ -139,7 +155,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::raw_contour`,
                         ),
-                        ast_idx: 153,
+                        ast_idx: 212,
                         path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
                     },
                     ModuleItem {
@@ -147,7 +163,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::raw_contour`,
                         ),
-                        ast_idx: 154,
+                        ast_idx: 213,
                         path: FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
                     },
                     ModuleItem {
@@ -155,7 +171,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::raw_contour`,
                         ),
-                        ast_idx: 155,
+                        ast_idx: 214,
                         path: FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
                     },
                     ModuleItem {
@@ -163,7 +179,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::raw_contour`,
                         ),
-                        ast_idx: 156,
+                        ast_idx: 215,
                         path: FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
                     },
                     ModuleItem {
@@ -171,7 +187,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::raw_contour`,
                         ),
-                        ast_idx: 157,
+                        ast_idx: 216,
                         path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                     },
                     ModuleItem {
@@ -179,7 +195,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::raw_contour`,
                         ),
-                        ast_idx: 158,
+                        ast_idx: 217,
                         path: FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
                     },
                     ModuleItem {
@@ -187,7 +203,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::raw_contour`,
                         ),
-                        ast_idx: 159,
+                        ast_idx: 218,
                         path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                     },
                 ],
@@ -200,7 +216,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::geom2d`,
                         ),
-                        ast_idx: 31,
+                        ast_idx: 81,
                         path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                     },
                     ModuleItem {
@@ -208,7 +224,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::geom2d`,
                         ),
-                        ast_idx: 33,
+                        ast_idx: 83,
                         path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                     },
                     ModuleItem {
@@ -216,8 +232,30 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::geom2d`,
                         ),
-                        ast_idx: 34,
+                        ast_idx: 84,
                         path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                    },
+                    ModuleItem {
+                        ident: `ClosedRange`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::geom2d`,
+                        ),
+                        ast_idx: 86,
+                        path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                    },
+                    ModuleItem {
+                        ident: `BoundingBox`,
+                        accessibility: Public,
+                        ast_idx: 88,
+                        path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                    },
+                    ModuleItem {
+                        ident: `RelativeBoundingBox`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::geom2d`,
+                        ),
+                        ast_idx: 91,
+                        path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                     },
                 ],
             },
@@ -229,7 +267,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 154,
+                        ast_idx: 159,
                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                     },
                     Module {
@@ -237,7 +275,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 155,
+                        ast_idx: 160,
                         module_path: `mnist_classifier::line_segment_sketch::convex_component`,
                     },
                     Module {
@@ -245,7 +283,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 156,
+                        ast_idx: 161,
                         module_path: `mnist_classifier::line_segment_sketch::convexity`,
                     },
                     Module {
@@ -253,7 +291,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 157,
+                        ast_idx: 162,
                         module_path: `mnist_classifier::line_segment_sketch::line_segment`,
                     },
                     ModuleItem {
@@ -261,7 +299,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 163,
+                        ast_idx: 168,
                         path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                     },
                     ModuleItem {
@@ -269,7 +307,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 165,
+                        ast_idx: 170,
                         path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                     },
                     ModuleItem {
@@ -277,7 +315,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 167,
+                        ast_idx: 172,
                         path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
                     },
                     ModuleItem {
@@ -285,7 +323,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 168,
+                        ast_idx: 173,
                         path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
                     },
                     ModuleItem {
@@ -293,7 +331,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 169,
+                        ast_idx: 174,
                         path: FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
                     },
                     ModuleItem {
@@ -301,7 +339,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 170,
+                        ast_idx: 175,
                         path: FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
                     },
                     ModuleItem {
@@ -309,7 +347,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
-                        ast_idx: 175,
+                        ast_idx: 176,
                         path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
                     },
                 ],
@@ -322,8 +360,16 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
-                        ast_idx: 7,
+                        ast_idx: 74,
                         path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                    },
+                    ModuleItem {
+                        ident: `find_concave_components`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::line_segment_sketch::concave_component`,
+                        ),
+                        ast_idx: 75,
+                        path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                     },
                 ],
             },
@@ -374,7 +420,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::fermi`,
                         ),
-                        ast_idx: 3,
+                        ast_idx: 22,
                         path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                     },
                     ModuleItem {
@@ -382,7 +428,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::fermi`,
                         ),
-                        ast_idx: 20,
+                        ast_idx: 24,
                         path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                     },
                 ],
@@ -472,7 +518,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 25,
+                        ast_idx: 33,
                         path: FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
                     },
                     ModuleItem {
@@ -480,7 +526,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 26,
+                        ast_idx: 34,
                         path: FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
                     },
                     ModuleItem {
@@ -488,7 +534,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::digits::zero`,
                         ),
-                        ast_idx: 27,
+                        ast_idx: 35,
                         path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
                     },
                 ],
@@ -546,7 +592,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::digits::six`,
                         ),
-                        ast_idx: 47,
+                        ast_idx: 57,
                         path: FormPath(`mnist_classifier::digits::six::six_match`, `Feature`),
                     },
                     ModuleItem {
@@ -554,7 +600,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::digits::six`,
                         ),
-                        ast_idx: 48,
+                        ast_idx: 58,
                         path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Feature`),
                     },
                     ModuleItem {
@@ -562,7 +608,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::digits::six`,
                         ),
-                        ast_idx: 49,
+                        ast_idx: 59,
                         path: FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
                     },
                     ModuleItem {
@@ -570,7 +616,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::digits::six`,
                         ),
-                        ast_idx: 58,
+                        ast_idx: 60,
                         path: FormPath(`mnist_classifier::digits::six::upmost`, `Function`),
                     },
                     ModuleItem {
@@ -578,7 +624,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::digits::six`,
                         ),
-                        ast_idx: 59,
+                        ast_idx: 61,
                         path: FormPath(`mnist_classifier::digits::six::bottom1`, `Function`),
                     },
                 ],
@@ -591,8 +637,40 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::digits::three`,
                         ),
-                        ast_idx: 8,
+                        ast_idx: 34,
                         path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `is_three`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::three`,
+                        ),
+                        ast_idx: 35,
+                        path: FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `uparc`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::three`,
+                        ),
+                        ast_idx: 36,
+                        path: FormPath(`mnist_classifier::digits::three::uparc`, `Function`),
+                    },
+                    ModuleItem {
+                        ident: `downarc`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::three`,
+                        ),
+                        ast_idx: 37,
+                        path: FormPath(`mnist_classifier::digits::three::downarc`, `Function`),
+                    },
+                    ModuleItem {
+                        ident: `back`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::three`,
+                        ),
+                        ast_idx: 38,
+                        path: FormPath(`mnist_classifier::digits::three::back`, `Function`),
                     },
                 ],
             },
@@ -604,7 +682,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::digits::four`,
                         ),
-                        ast_idx: 11,
+                        ast_idx: 44,
                         path: FormPath(`mnist_classifier::digits::four::left_components`, `Feature`),
                     },
                     ModuleItem {
@@ -612,7 +690,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::digits::four`,
                         ),
-                        ast_idx: 12,
+                        ast_idx: 45,
                         path: FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Function`),
                     },
                     ModuleItem {
@@ -620,7 +698,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::digits::four`,
                         ),
-                        ast_idx: 13,
+                        ast_idx: 46,
                         path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Feature`),
                     },
                     ModuleItem {
@@ -628,7 +706,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::digits::four`,
                         ),
-                        ast_idx: 14,
+                        ast_idx: 47,
                         path: FormPath(`mnist_classifier::digits::four::components_max_heights`, `Feature`),
                     },
                     ModuleItem {
@@ -636,8 +714,24 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::digits::four`,
                         ),
-                        ast_idx: 15,
+                        ast_idx: 48,
                         path: FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `displacement_downwards`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::four`,
+                        ),
+                        ast_idx: 49,
+                        path: FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Function`),
+                    },
+                    ModuleItem {
+                        ident: `cc_box_heights`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::four`,
+                        ),
+                        ast_idx: 50,
+                        path: FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Function`),
                     },
                 ],
             },
@@ -702,7 +796,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::digits::eight`,
                         ),
-                        ast_idx: 16,
+                        ast_idx: 28,
                         path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Feature`),
                     },
                     ModuleItem {
@@ -710,8 +804,16 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::digits::eight`,
                         ),
-                        ast_idx: 17,
+                        ast_idx: 29,
                         path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `big_mouth`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::eight`,
+                        ),
+                        ast_idx: 30,
+                        path: FormPath(`mnist_classifier::digits::eight::big_mouth`, `Function`),
                     },
                 ],
             },
@@ -723,7 +825,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::digits::nine`,
                         ),
-                        ast_idx: 36,
+                        ast_idx: 44,
                         path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Feature`),
                     },
                     ModuleItem {
@@ -731,7 +833,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::digits::nine`,
                         ),
-                        ast_idx: 37,
+                        ast_idx: 45,
                         path: FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Feature`),
                     },
                     ModuleItem {
@@ -739,8 +841,24 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::digits::nine`,
                         ),
-                        ast_idx: 38,
+                        ast_idx: 46,
                         path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `downmost`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::nine`,
+                        ),
+                        ast_idx: 47,
+                        path: FormPath(`mnist_classifier::digits::nine::downmost`, `Function`),
+                    },
+                    ModuleItem {
+                        ident: `big_cc`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::nine`,
+                        ),
+                        ast_idx: 48,
+                        path: FormPath(`mnist_classifier::digits::nine::big_cc`, `Function`),
                     },
                 ],
             },
@@ -752,7 +870,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::major`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 22,
                         path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                     },
                     ModuleItem {
@@ -760,7 +878,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::major`,
                         ),
-                        ast_idx: 20,
+                        ast_idx: 23,
                         path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                     },
                     ModuleItem {
@@ -768,7 +886,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::major`,
                         ),
-                        ast_idx: 21,
+                        ast_idx: 24,
                         path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                     },
                     ModuleItem {
@@ -776,8 +894,32 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::major`,
                         ),
-                        ast_idx: 22,
+                        ast_idx: 25,
                         path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `major_raw_contour`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::major`,
+                        ),
+                        ast_idx: 26,
+                        path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `major_line_segment_sketch`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::major`,
+                        ),
+                        ast_idx: 27,
+                        path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                    },
+                    ModuleItem {
+                        ident: `major_concave_components`,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::major`,
+                        ),
+                        ast_idx: 28,
+                        path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                     },
                 ],
             },

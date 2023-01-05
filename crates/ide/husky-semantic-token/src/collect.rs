@@ -17,7 +17,6 @@ pub(crate) fn collect_semantic_tokens(
                     Token::Punctuation(_) => SemanticToken::Special,
                     Token::WordOpr(_) => SemanticToken::WordOpr,
                     Token::Literal(_) => SemanticToken::Literal,
-                    Token::Comment => SemanticToken::Comment,
                     Token::Err(_) => return None,
                 },
                 TokenInfo::Entity(entity_kind) => SemanticToken::Entity(*entity_kind),

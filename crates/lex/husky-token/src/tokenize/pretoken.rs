@@ -107,15 +107,6 @@ impl Into<Pretoken> for FormKeyword {
     }
 }
 
-impl From<(Token, TextRange)> for RangedPretoken {
-    fn from((token, range): (Token, TextRange)) -> Self {
-        Self {
-            range: range,
-            token: Pretoken::Certain(token),
-        }
-    }
-}
-
 pub(crate) struct PretokenStream<'a, 'b> {
     db: &'a dyn TokenDb,
     buffer: String,
@@ -424,7 +415,9 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 c => s.push(c),
             }
         }
-        Ok(Pretoken::Literal(Literal::String(StringLiteral::new(s))))
+        Ok(Pretoken::Literal(Literal::String(StringLiteral::new(
+            self.db, s,
+        ))))
     }
 
     fn next_token_variant(&mut self) -> Option<Pretoken> {

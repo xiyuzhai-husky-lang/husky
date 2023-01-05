@@ -163,7 +163,6 @@ impl<'a> ExprParser<'a> {
             } => Some(Stmt::Match {}),
             Ast::Err { .. }
             | Ast::Use { .. }
-            | Ast::Comment { .. }
             | Ast::Decor { .. }
             | Ast::Defn { .. }
             | Ast::ModuleItemVariant { .. }
@@ -202,7 +201,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub fn parse_expr(&mut self, env: ExprParseEnvironment) -> Option<ExprIdx> {
         self.env.set(env);
         loop {
-            let Some((token_idx, token)) = self.token_stream.next_indexed(IgnoreComment::True)
+            let Some((token_idx, token)) = self.token_stream.next_indexed()
                 else {
                     break
                 };

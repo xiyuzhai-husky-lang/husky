@@ -27,9 +27,11 @@ Ok(
             ),
             Literal(
                 String(
-                    StringLiteral {
-                        data: "std::ops::Add",
-                    },
+                    StringLiteral(
+                        Id {
+                            value: 2,
+                        },
+                    ),
                 ),
             ),
             Punctuation(
@@ -161,6 +163,12 @@ Ok(
                 Semicolon,
             ),
         ],
+        group_starts: [
+            0,
+            6,
+            12,
+            15,
+        ],
         token_ranges: [
             [1:1, 1:2),
             [1:2, 1:3),
@@ -190,11 +198,6 @@ Ok(
             [5:31, 5:37),
             [5:37, 5:38),
         ],
-        group_starts: [
-            0,
-            6,
-            12,
-            15,
-        ],
+        comments: [],
     },
 )

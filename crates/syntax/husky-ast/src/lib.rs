@@ -42,9 +42,6 @@ pub enum Ast {
         ident: Identifier,
         use_expr_idx: UseExprIdx,
     },
-    Comment {
-        token_group_idx: TokenGroupIdx,
-    },
     Decor {
         token_group_idx: TokenGroupIdx,
     },
@@ -193,10 +190,6 @@ impl<Db: AstDb> salsa::DebugWithDb<Db> for Ast {
                 .field("ident", &ident.debug_with(db, include_all_fields))
                 .field("accessibility", accessibility)
                 .field("use_expr_idx", use_expr_idx)
-                .finish(),
-            Ast::Comment { token_group_idx } => f
-                .debug_struct("Comment")
-                .field("token_group_idx", token_group_idx)
                 .finish(),
             Ast::Decor { token_group_idx } => f
                 .debug_struct("Decor")

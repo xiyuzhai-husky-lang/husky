@@ -154,7 +154,6 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
                 }
             }
             Ast::Err { .. }
-            | Ast::Comment { .. }
             | Ast::Decor { .. }
             | Ast::BasicStmt { .. }
             | Ast::IfElseStmts { .. }

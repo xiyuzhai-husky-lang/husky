@@ -7,7 +7,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
-                ast_idx: 154,
+                ast_idx: 159,
                 module_path: `mnist_classifier::line_segment_sketch::concave_component`,
             },
             Module {
@@ -15,7 +15,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
-                ast_idx: 155,
+                ast_idx: 160,
                 module_path: `mnist_classifier::line_segment_sketch::convex_component`,
             },
             Module {
@@ -23,7 +23,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
-                ast_idx: 156,
+                ast_idx: 161,
                 module_path: `mnist_classifier::line_segment_sketch::convexity`,
             },
             Module {
@@ -31,7 +31,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
-                ast_idx: 157,
+                ast_idx: 162,
                 module_path: `mnist_classifier::line_segment_sketch::line_segment`,
             },
             ModuleItem {
@@ -39,7 +39,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
-                ast_idx: 163,
+                ast_idx: 168,
                 path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
             },
             ModuleItem {
@@ -47,7 +47,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
-                ast_idx: 165,
+                ast_idx: 170,
                 path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
             },
             ModuleItem {
@@ -55,7 +55,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
-                ast_idx: 167,
+                ast_idx: 172,
                 path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
             },
             ModuleItem {
@@ -63,7 +63,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
-                ast_idx: 168,
+                ast_idx: 173,
                 path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
             },
             ModuleItem {
@@ -71,7 +71,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
-                ast_idx: 169,
+                ast_idx: 174,
                 path: FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
             },
             ModuleItem {
@@ -79,7 +79,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
-                ast_idx: 170,
+                ast_idx: 175,
                 path: FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
             },
             ModuleItem {
@@ -87,14 +87,14 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
-                ast_idx: 175,
+                ast_idx: 176,
                 path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(
             [
                 EntityUseTracker {
-                    ast_idx: 158,
+                    ast_idx: 163,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -114,7 +114,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 159,
+                    ast_idx: 164,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -134,7 +134,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 160,
+                    ast_idx: 165,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -154,7 +154,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 161,
+                    ast_idx: 166,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -174,7 +174,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 162,
+                    ast_idx: 167,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {

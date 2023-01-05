@@ -73,9 +73,6 @@ impl<'a> AstRangeCalculator<'a> {
             | Ast::Use {
                 token_group_idx, ..
             }
-            | Ast::Comment {
-                token_group_idx, ..
-            }
             | Ast::Decor {
                 token_group_idx, ..
             }

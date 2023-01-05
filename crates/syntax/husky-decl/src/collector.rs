@@ -102,7 +102,6 @@ impl<'a> DeclCollector<'a> {
             Ast::Impl { .. }
             | Ast::Err { .. }
             | Ast::Use { .. }
-            | Ast::Comment { .. }
             | Ast::Decor { .. }
             | Ast::BasicStmt { .. }
             | Ast::IfElseStmts { .. }

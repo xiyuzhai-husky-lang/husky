@@ -21,12 +21,13 @@ RangedTokenSheet {
             ),
         ),
     ],
-    token_ranges: [
-        [1:1, 1:2),
-    ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:2),
+    ],
+    comments: [],
 }
 ```
 
@@ -47,12 +48,13 @@ RangedTokenSheet {
             Minus,
         ),
     ],
-    token_ranges: [
-        [1:1, 1:2),
-    ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:2),
+    ],
+    comments: [],
 }
 ```
 
@@ -77,12 +79,13 @@ RangedTokenSheet {
             ),
         ),
     ],
-    token_ranges: [
-        [1:1, 1:2),
-    ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:2),
+    ],
+    comments: [],
 }
 ```
 
@@ -107,12 +110,13 @@ RangedTokenSheet {
             ),
         ),
     ],
-    token_ranges: [
-        [1:1, 1:2),
-    ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:2),
+    ],
+    comments: [],
 }
 ```
 
@@ -137,12 +141,13 @@ RangedTokenSheet {
             ),
         ),
     ],
-    token_ranges: [
-        [1:1, 1:3),
-    ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:3),
+    ],
+    comments: [],
 }
 ```
 
@@ -163,12 +168,13 @@ RangedTokenSheet {
             Vertical,
         ),
     ],
-    token_ranges: [
-        [1:1, 1:2),
-    ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:2),
+    ],
+    comments: [],
 }
 ```
 
@@ -189,12 +195,13 @@ RangedTokenSheet {
             DoubleVertical,
         ),
     ],
-    token_ranges: [
-        [1:1, 1:3),
-    ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:3),
+    ],
+    comments: [],
 }
 ```
 
@@ -219,12 +226,13 @@ RangedTokenSheet {
             ),
         ),
     ],
-    token_ranges: [
-        [1:1, 1:3),
-    ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:3),
+    ],
+    comments: [],
 }
 ```
 
@@ -249,12 +257,13 @@ RangedTokenSheet {
             ),
         ),
     ],
-    token_ranges: [
-        [1:1, 1:3),
-    ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:3),
+    ],
+    comments: [],
 }
 ```
 
@@ -279,12 +288,13 @@ RangedTokenSheet {
             ),
         ),
     ],
-    token_ranges: [
-        [1:1, 1:3),
-    ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:3),
+    ],
+    comments: [],
 }
 ```
 
@@ -305,12 +315,13 @@ RangedTokenSheet {
             RAngle,
         ),
     ],
-    token_ranges: [
-        [1:1, 1:2),
-    ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:2),
+    ],
+    comments: [],
 }
 ```
 
@@ -335,12 +346,13 @@ RangedTokenSheet {
             ),
         ),
     ],
-    token_ranges: [
-        [1:1, 1:3),
-    ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:3),
+    ],
+    comments: [],
 }
 ```
 
@@ -361,12 +373,13 @@ RangedTokenSheet {
             LAngle,
         ),
     ],
-    token_ranges: [
-        [1:1, 1:2),
-    ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:2),
+    ],
+    comments: [],
 }
 ```
 
@@ -391,11 +404,12 @@ RangedTokenSheet {
             ),
         ),
     ],
-    token_ranges: [
-        [1:1, 1:3),
-    ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:3),
+    ],
+    comments: [],
 }
 ```

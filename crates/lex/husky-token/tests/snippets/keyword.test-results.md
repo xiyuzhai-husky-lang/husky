@@ -19,12 +19,13 @@ RangedTokenSheet {
             ),
         ),
     ],
-    token_ranges: [
-        [1:1, 1:4),
-    ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:4),
+    ],
+    comments: [],
 }
 ```
 
@@ -47,12 +48,13 @@ RangedTokenSheet {
             ),
         ),
     ],
-    token_ranges: [
-        [1:1, 1:5),
-    ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:5),
+    ],
+    comments: [],
 }
 ```
 
@@ -75,12 +77,13 @@ RangedTokenSheet {
             ),
         ),
     ],
-    token_ranges: [
-        [1:1, 1:5),
-    ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:5),
+    ],
+    comments: [],
 }
 ```
 
@@ -101,11 +104,12 @@ RangedTokenSheet {
             Trait,
         ),
     ],
-    token_ranges: [
-        [1:1, 1:6),
-    ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:6),
+    ],
+    comments: [],
 }
 ```
