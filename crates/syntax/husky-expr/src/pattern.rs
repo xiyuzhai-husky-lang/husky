@@ -1,4 +1,4 @@
-use crate::{ExprError, ExprParseContext, ExprSheet};
+use super::*;
 use husky_entity_path::EntityPath;
 use husky_symbol::SymbolContext;
 use husky_token::{AtToken, DotDotToken, IdentifierToken, TokenStream};
@@ -53,7 +53,52 @@ pub enum LiteralData {
 #[derive(Debug, PartialEq, Eq)]
 pub enum PatternOpn {}
 
-pub type PatternExprArena = Arena<PatternExpr>;
+#[derive(Debug, Default, PartialEq, Eq)]
+pub struct PatternExprSheet {
+    arena: PatternExprArena,
+    pattern_variables: Vec<IdentPairMap<PatternSymbolIdx>>,
+    pattern_variable_arena: PatternSymbolArena,
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub enum PatternSymbol {
+    Atom(PatternExprIdx),
+}
+
+pub type PatternSymbolArena = Arena<PatternSymbol>;
+pub type PatternSymbolIdx = ArenaIdx<PatternSymbol>;
+
+impl PatternExprSheet {
+    pub fn alloc_one(&mut self, expr: PatternExpr) -> PatternExprIdx {
+        let expr_idx = self.arena.alloc_one(expr);
+        match self.arena[expr_idx] {
+            PatternExpr::Literal(_) => todo!(),
+            PatternExpr::ParameterIdentifier { ident_token } => todo!(),
+            PatternExpr::LetVariableIdentifier { ident_token } => todo!(),
+            PatternExpr::Entity(_) => todo!(),
+            PatternExpr::Tuple { name, fields } => todo!(),
+            PatternExpr::Struct { name, fields } => todo!(),
+            PatternExpr::OneOf { options } => todo!(),
+            PatternExpr::Binding {
+                ident_token,
+                asperand_token,
+                src,
+            } => todo!(),
+            PatternExpr::Range {
+                start,
+                dot_dot_token,
+                end,
+            } => todo!(),
+        }
+        todo!()
+    }
+
+    pub fn pattern_exprs(&self) -> &[PatternExpr] {
+        self.arena.data()
+    }
+}
+
+pub(crate) type PatternExprArena = Arena<PatternExpr>;
 pub type PatternExprIdx = ArenaIdx<PatternExpr>;
 pub type PatternExprIdxRange = ArenaIdxRange<PatternExpr>;
 
@@ -102,6 +147,7 @@ impl ParameterPattern {
 #[derive(Debug, PartialEq, Eq)]
 pub struct LetVariablePattern {
     pattern_expr_idx: PatternExprIdx,
+    variables: Vec<VariableIdx>,
 }
 
 impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for LetVariablePattern {
@@ -113,6 +159,7 @@ impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for LetVariablePattern {
             Ok(Some(LetVariablePattern {
                 pattern_expr_idx: ctx
                     .alloc_pattern_expr(PatternExpr::LetVariableIdentifier { ident_token }),
+                variables: todo!(),
             }))
         } else {
             Ok(None)

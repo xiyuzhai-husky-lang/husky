@@ -75,10 +75,7 @@ where
 }
 
 #[derive(PartialEq, Eq, Clone, Hash, Serialize, Deserialize)]
-pub struct VecMap<V>
-where
-    V: AsVecMapEntry,
-{
+pub struct VecMap<V> {
     entries: Vec<V>,
 }
 
@@ -340,11 +337,7 @@ where
     }
 }
 
-impl<K, V> Default for VecMap<V>
-where
-    K: PartialEq + Eq + Copy + std::fmt::Debug,
-    V: AsVecMapEntry<K = K>,
-{
+impl<V> Default for VecMap<V> {
     fn default() -> Self {
         Self { entries: vec![] }
     }

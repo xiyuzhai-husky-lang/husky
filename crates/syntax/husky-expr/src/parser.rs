@@ -5,7 +5,7 @@ mod env;
 mod expr_stack;
 mod list;
 mod resolve;
-mod symbol_stack;
+mod symbol;
 mod unfinished_expr;
 
 pub use block::*;
@@ -23,7 +23,7 @@ use parsec::ParseContext;
 use resolve::*;
 use salsa::DebugWithDb;
 use std::ops::ControlFlow;
-use symbol_stack::*;
+use symbol::*;
 use unfinished_expr::*;
 
 #[macro_use]
@@ -44,7 +44,7 @@ pub struct ExprParser<'a> {
     symbol_stack: SymbolStack<'a>,
     expr_arena: ExprArena,
     entity_path_expr_arena: EntityPathExprArena,
-    pattern_expr_arena: PatternExprArena,
+    pattern_expr_arena: PatternExprSheet,
     stmt_arena: StmtArena,
 }
 
