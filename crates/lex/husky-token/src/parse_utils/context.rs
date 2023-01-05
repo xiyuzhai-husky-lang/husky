@@ -11,7 +11,7 @@ where
         self.borrow()
     }
 
-    fn token_iter_mut(&mut self) -> &mut TokenStream<'a> {
+    fn token_stream_mut(&mut self) -> &mut TokenStream<'a> {
         self.borrow_mut()
     }
 }

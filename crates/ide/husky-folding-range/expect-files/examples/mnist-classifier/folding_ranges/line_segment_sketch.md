@@ -274,32 +274,6 @@ Ok(
             ),
         },
         FoldingRange {
-            start_line: 146,
-            start_character: Some(
-                4,
-            ),
-            end_line: 147,
-            end_character: Some(
-                20,
-            ),
-            kind: Some(
-                Region,
-            ),
-        },
-        FoldingRange {
-            start_line: 148,
-            start_character: Some(
-                4,
-            ),
-            end_line: 149,
-            end_character: Some(
-                21,
-            ),
-            kind: Some(
-                Region,
-            ),
-        },
-        FoldingRange {
             start_line: 113,
             start_character: Some(
                 4,
@@ -499,9 +473,9 @@ Ok(
             start_character: Some(
                 0,
             ),
-            end_line: 149,
+            end_line: 144,
             end_character: Some(
-                21,
+                17,
             ),
             kind: Some(
                 Region,

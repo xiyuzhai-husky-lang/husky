@@ -49,42 +49,6 @@ Ok(
                     ),
                 ),
             ),
-            (
-                FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
-                Ok(
-                    Form(
-                        Feature(
-                            FeatureDecl {
-                                path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
-                            },
-                        ),
-                    ),
-                ),
-            ),
-            (
-                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
-                Ok(
-                    Form(
-                        Feature(
-                            FeatureDecl {
-                                path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
-                            },
-                        ),
-                    ),
-                ),
-            ),
-            (
-                FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
-                Ok(
-                    Form(
-                        Feature(
-                            FeatureDecl {
-                                path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
-                            },
-                        ),
-                    ),
-                ),
-            ),
         ],
     },
 )

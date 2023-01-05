@@ -5,7 +5,7 @@ use husky_entity_taxonomy::{
 };
 use husky_opn_syntax::{BinaryOpr, Bracket};
 use husky_print_utils::p;
-use husky_token::{FormKeyword, TokenParseContext, TypeKeyword};
+use husky_token::{FormKeyword, IgnoreComment, TokenParseContext, TypeKeyword};
 use parsec::{ParseContext, ParseFrom};
 use salsa::DebugWithDb;
 
@@ -57,14 +57,20 @@ impl<'a> AstParser<'a> {
             let body = self.parse_asts(ctx.subcontext(ast_ctx_kind));
             match body.last() {
                 Some(_) => (body, DefnBodyKind::Block),
-                None => match self.token_groups.peek_with_exact_indent(ctx.indent()) {
-                    Some((_token_group_idx, token_group)) => match token_group.first().kind {
-                        TokenKind::Punctuation(Punctuation::Vertical) => (
-                            self.parse_enum_variants(ctx.subcontext(ast_ctx_kind)),
-                            DefnBodyKind::EnumVariants,
-                        ),
-                        _ => (Default::default(), DefnBodyKind::None),
-                    },
+                None => match self
+                    .token_groups
+                    .peek_noncomment_token_group_of_exact_indent_with_its_first_noncomment_token(
+                        ctx.indent(),
+                    ) {
+                    Some((_token_group_idx, token_group, first_noncomment_token)) => {
+                        match first_noncomment_token.kind {
+                            TokenKind::Punctuation(Punctuation::Vertical) => (
+                                self.parse_enum_variants(ctx.subcontext(ast_ctx_kind)),
+                                DefnBodyKind::EnumVariants,
+                            ),
+                            _ => (Default::default(), DefnBodyKind::None),
+                        }
+                    }
                     None => (Default::default(), DefnBodyKind::None),
                 },
             }
@@ -85,10 +91,13 @@ impl<'a> AstParser<'a> {
 
     fn parse_enum_variants(&mut self, context: Context) -> AstIdxRange {
         let mut verticals = vec![];
-        while let Some((idx, token_group)) =
-            self.token_groups.peek_with_exact_indent(context.indent())
+        while let Some((idx, token_group, first_noncomment_token)) = self
+            .token_groups
+            .peek_noncomment_token_group_of_exact_indent_with_its_first_noncomment_token(
+                context.indent(),
+            )
         {
-            match token_group.first().kind {
+            match first_noncomment_token.kind {
                 TokenKind::Punctuation(Punctuation::Vertical) => {
                     self.token_groups.next();
                     verticals.push(self.parse_enum_variant(idx, &context))
@@ -135,7 +144,7 @@ impl<'a> BasicAuxAstParser<'a> {
                 Keyword::Config(_) => todo!(),
                 Keyword::Paradigm(kw) => {
                     let trai_item_kind: TraitItemKind = if let Some(token) =
-                        self.token_iter().peek()
+                        self.token_stream_mut().peek_noncomment_token()
                     {
                         match token.kind {
                             TokenKind::Punctuation(special_token) => match special_token {
@@ -208,7 +217,8 @@ impl<'a> BasicAuxAstParser<'a> {
             AstContextKind::InsideTypeImpl => match kw {
                 Keyword::Config(_) => todo!(),
                 Keyword::Paradigm(kw) => {
-                    let type_item_kind: TypeItemKind = if let Some(token) = self.token_iter().peek()
+                    let type_item_kind: TypeItemKind = if let Some(token) =
+                        self.token_stream_mut().peek_noncomment_token()
                     {
                         match token.kind {
                             TokenKind::Punctuation(special_token) => match special_token {
@@ -253,7 +263,9 @@ impl<'a> BasicAuxAstParser<'a> {
             AstContextKind::InsideTraitImpl => match kw {
                 Keyword::Config(_) => todo!(),
                 Keyword::Paradigm(kw) => {
-                    let form_kind = if let Some(token) = self.token_iter().peek() {
+                    let form_kind = if let Some(token) =
+                        self.token_stream_mut().peek_noncomment_token()
+                    {
                         match token.kind {
                             TokenKind::Punctuation(special_token) => match special_token {
                                 Punctuation::Bra(Bracket::Par) | Punctuation::LAngle => match kw {
@@ -297,7 +309,9 @@ impl<'a> BasicAuxAstParser<'a> {
             AstContextKind::InsideModule => match kw {
                 Keyword::Config(_) => todo!(),
                 Keyword::Paradigm(kw) => {
-                    let form_kind = if let Some(token) = self.token_iter().peek() {
+                    let form_kind = if let Some(token) =
+                        self.token_stream_mut().peek_noncomment_token()
+                    {
                         match token.kind {
                             TokenKind::Punctuation(special_token) => match special_token {
                                 Punctuation::Bra(Bracket::Par) | Punctuation::LAngle => match kw {

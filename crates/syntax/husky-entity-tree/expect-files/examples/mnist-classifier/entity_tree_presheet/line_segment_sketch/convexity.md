@@ -7,14 +7,14 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch::convexity`,
                 ),
-                ast_idx: 23,
+                ast_idx: 22,
                 path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(
             [
                 EntityUseTracker {
-                    ast_idx: 20,
+                    ast_idx: 19,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -34,7 +34,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 21,
+                    ast_idx: 20,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -54,7 +54,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 22,
+                    ast_idx: 21,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {

@@ -217,120 +217,6 @@ Ok(
                     ),
                     else_stmt: None,
                 },
-                Comment {
-                    token_group_idx: TokenGroupIdx(
-                        38,
-                    ),
-                },
-                Comment {
-                    token_group_idx: TokenGroupIdx(
-                        39,
-                    ),
-                },
-                Comment {
-                    token_group_idx: TokenGroupIdx(
-                        40,
-                    ),
-                },
-                Comment {
-                    token_group_idx: TokenGroupIdx(
-                        41,
-                    ),
-                },
-                Comment {
-                    token_group_idx: TokenGroupIdx(
-                        42,
-                    ),
-                },
-                Comment {
-                    token_group_idx: TokenGroupIdx(
-                        43,
-                    ),
-                },
-                Comment {
-                    token_group_idx: TokenGroupIdx(
-                        44,
-                    ),
-                },
-                Comment {
-                    token_group_idx: TokenGroupIdx(
-                        45,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        46,
-                    ),
-                    body: ArenaIdxRange(
-                        17..17,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        48,
-                    ),
-                    body: ArenaIdxRange(
-                        36..36,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        49,
-                    ),
-                    body: ArenaIdxRange(
-                        36..36,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        50,
-                    ),
-                    body: ArenaIdxRange(
-                        36..36,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        52,
-                    ),
-                    body: ArenaIdxRange(
-                        39..39,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        53,
-                    ),
-                    body: ArenaIdxRange(
-                        39..39,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        54,
-                    ),
-                    body: ArenaIdxRange(
-                        39..39,
-                    ),
-                },
-                Comment {
-                    token_group_idx: TokenGroupIdx(
-                        55,
-                    ),
-                },
-                Comment {
-                    token_group_idx: TokenGroupIdx(
-                        56,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        57,
-                    ),
-                    body: ArenaIdxRange(
-                        39..39,
-                    ),
-                },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         0,
@@ -532,7 +418,7 @@ Ok(
                         13,
                     ),
                     body: ArenaIdxRange(
-                        17..36,
+                        17..27,
                     ),
                     accessibility: PublicUnder(
                         ModulePath(
@@ -562,80 +448,10 @@ Ok(
                         102,
                     ),
                 },
-                Defn {
-                    token_group_idx: TokenGroupIdx(
-                        47,
-                    ),
-                    body: ArenaIdxRange(
-                        36..39,
-                    ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 18,
-                            },
-                        ),
-                    ),
-                    entity_kind: ModuleItem {
-                        module_item_kind: Form(
-                            Function,
-                        ),
-                        connection: Connected,
-                    },
-                    entity_path: Some(
-                        FormPath(`mnist_classifier::digits::nine::downmost`, `Function`),
-                    ),
-                    ident_token: IdentifierToken {
-                        ident: `downmost`,
-                        token_idx: TokenIdx(
-                            281,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: Block,
-                    saved_stream_state: TokenIdx(
-                        282,
-                    ),
-                },
-                Defn {
-                    token_group_idx: TokenGroupIdx(
-                        51,
-                    ),
-                    body: ArenaIdxRange(
-                        39..45,
-                    ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 18,
-                            },
-                        ),
-                    ),
-                    entity_kind: ModuleItem {
-                        module_item_kind: Form(
-                            Function,
-                        ),
-                        connection: Connected,
-                    },
-                    entity_path: Some(
-                        FormPath(`mnist_classifier::digits::nine::big_cc`, `Function`),
-                    ),
-                    ident_token: IdentifierToken {
-                        ident: `big_cc`,
-                        token_idx: TokenIdx(
-                            309,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: Block,
-                    saved_stream_state: TokenIdx(
-                        310,
-                    ),
-                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            45..59,
+            27..39,
         ),
         use_expr_arena: Arena {
             data: [

@@ -51,26 +51,6 @@ Ok(
                     ),
                 ),
             ),
-            (
-                FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Function`),
-                Form(
-                    Function(
-                        FunctionDefn {
-                            path: FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Function`),
-                        },
-                    ),
-                ),
-            ),
-            (
-                FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Function`),
-                Form(
-                    Function(
-                        FunctionDefn {
-                            path: FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Function`),
-                        },
-                    ),
-                ),
-            ),
         ],
     },
 )

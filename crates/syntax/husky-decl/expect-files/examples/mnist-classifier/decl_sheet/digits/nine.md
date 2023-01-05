@@ -37,30 +37,6 @@ Ok(
                     ),
                 ),
             ),
-            (
-                FormPath(`mnist_classifier::digits::nine::downmost`, `Function`),
-                Ok(
-                    Form(
-                        Function(
-                            FunctionDecl {
-                                path: FormPath(`mnist_classifier::digits::nine::downmost`, `Function`),
-                            },
-                        ),
-                    ),
-                ),
-            ),
-            (
-                FormPath(`mnist_classifier::digits::nine::big_cc`, `Function`),
-                Ok(
-                    Form(
-                        Function(
-                            FunctionDecl {
-                                path: FormPath(`mnist_classifier::digits::nine::big_cc`, `Function`),
-                            },
-                        ),
-                    ),
-                ),
-            ),
         ],
     },
 )

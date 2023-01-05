@@ -47,30 +47,6 @@ Ok(
                     ),
                 ),
             ),
-            (
-                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
-                Ok(
-                    Form(
-                        Function(
-                            FunctionDecl {
-                                path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
-                            },
-                        ),
-                    ),
-                ),
-            ),
-            (
-                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
-                Ok(
-                    Form(
-                        Function(
-                            FunctionDecl {
-                                path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
-                            },
-                        ),
-                    ),
-                ),
-            ),
         ],
     },
 )

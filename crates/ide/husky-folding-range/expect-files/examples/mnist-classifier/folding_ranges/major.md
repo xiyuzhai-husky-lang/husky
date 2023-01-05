@@ -91,44 +91,5 @@ Ok(
                 Region,
             ),
         },
-        FoldingRange {
-            start_line: 28,
-            start_character: Some(
-                0,
-            ),
-            end_line: 29,
-            end_character: Some(
-                45,
-            ),
-            kind: Some(
-                Region,
-            ),
-        },
-        FoldingRange {
-            start_line: 31,
-            start_character: Some(
-                0,
-            ),
-            end_line: 32,
-            end_character: Some(
-                41,
-            ),
-            kind: Some(
-                Region,
-            ),
-        },
-        FoldingRange {
-            start_line: 34,
-            start_character: Some(
-                0,
-            ),
-            end_line: 35,
-            end_character: Some(
-                48,
-            ),
-            kind: Some(
-                Region,
-            ),
-        },
     ],
 )

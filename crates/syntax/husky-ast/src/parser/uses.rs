@@ -1,5 +1,5 @@
 use husky_opn_syntax::{BinaryOpr, BinaryPureClosedOpr, Bracket};
-use husky_token::{TokenParseContext, TokenStream};
+use husky_token::{IgnoreComment, TokenParseContext, TokenStream};
 use parsec::{HasParseError, StreamWrapper};
 
 use super::*;
@@ -95,7 +95,7 @@ impl<'b> EntityUseExprParser<'b> {
                 _ => continue,
             }
         }
-        let ident = match token_iter.peek() {
+        let ident = match token_iter.peek_noncomment_token() {
             Some(token) => match token.kind {
                 TokenKind::Attr(_) => todo!(),
                 TokenKind::Keyword(_) => todo!(),

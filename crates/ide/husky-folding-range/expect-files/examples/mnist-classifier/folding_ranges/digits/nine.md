@@ -44,35 +44,9 @@ Ok(
             start_character: Some(
                 0,
             ),
-            end_line: 57,
+            end_line: 45,
             end_character: Some(
-                20,
-            ),
-            kind: Some(
-                Region,
-            ),
-        },
-        FoldingRange {
-            start_line: 59,
-            start_character: Some(
-                0,
-            ),
-            end_line: 62,
-            end_character: Some(
-                8,
-            ),
-            kind: Some(
-                Region,
-            ),
-        },
-        FoldingRange {
-            start_line: 64,
-            start_character: Some(
-                0,
-            ),
-            end_line: 70,
-            end_character: Some(
-                35,
+                24,
             ),
             kind: Some(
                 Region,

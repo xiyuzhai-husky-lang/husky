@@ -113,27 +113,33 @@ impl<'a> TokenGroupIter<'a> {
         Some((
             TokenGroupIdx(idx),
             TokenGroup {
+                base: start,
                 tokens: &self.tokens[start..end],
             },
         ))
     }
 
-    pub fn peek_with_exact_indent(&self, indent: u32) -> Option<(TokenGroupIdx, TokenGroup<'a>)> {
+    pub fn peek_noncomment_token_group_of_exact_indent_with_its_first_noncomment_token(
+        &self,
+        indent: u32,
+    ) -> Option<(TokenGroupIdx, TokenGroup<'a>, &'a Token)> {
         let (idx, token_group) = self.peek()?;
         if token_group.indent() != indent {
             return None;
         }
-        Some((idx, token_group))
+        let first_noncomment = token_group.first_noncomment_token()?;
+        Some((idx, token_group, first_noncomment))
     }
 
-    pub fn next_with_equal_or_more_indent(
+    pub fn next_noncomment_token_group_of_equal_or_more_indent_with_its_first_noncomment_token(
         &mut self,
         indent: u32,
-    ) -> Option<(TokenGroupIdx, TokenGroup<'a>)> {
-        let (idx, group) = self.peek()?;
-        if group.indent() >= indent {
+    ) -> Option<(TokenGroupIdx, TokenGroup<'a>, &'a Token)> {
+        let (idx, token_group) = self.peek()?;
+        if token_group.indent() >= indent {
             self.current += 1;
-            Some((idx, group))
+            let first_noncomment = token_group.first_noncomment_token()?;
+            Some((idx, token_group, first_noncomment))
         } else {
             None
         }
@@ -151,12 +157,30 @@ impl<'a> Iterator for TokenGroupIter<'a> {
 }
 
 pub struct TokenGroup<'a> {
+    base: usize,
     tokens: &'a [Token],
 }
 
 impl<'a> TokenGroup<'a> {
     pub fn first(&self) -> &'a Token {
         self.tokens.first().unwrap()
+    }
+
+    fn first_noncomment_token_idx(&self) -> Option<TokenIdx> {
+        self.tokens
+            .iter()
+            .position(|token| match token.kind {
+                TokenKind::Comment => false,
+                _ => true,
+            })
+            .map(|i| TokenIdx(self.base + i))
+    }
+
+    fn first_noncomment_token(&self) -> Option<&'a Token> {
+        self.tokens.iter().find(|token| match token.kind {
+            TokenKind::Comment => false,
+            _ => true,
+        })
     }
 
     pub fn last(&self) -> &'a Token {

@@ -25,18 +25,6 @@ Ok(
                     ),
                 ),
             ),
-            (
-                FormPath(`mnist_classifier::digits::eight::big_mouth`, `Function`),
-                Ok(
-                    Form(
-                        Function(
-                            FunctionDecl {
-                                path: FormPath(`mnist_classifier::digits::eight::big_mouth`, `Function`),
-                            },
-                        ),
-                    ),
-                ),
-            ),
         ],
     },
 )

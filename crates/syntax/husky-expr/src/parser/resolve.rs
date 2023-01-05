@@ -72,7 +72,7 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
                 Punctuation::DoubleVertical => todo!(),
                 Punctuation::BitNot => todo!(),
                 Punctuation::Dot => ResolvedToken::Dot(token_idx),
-                Punctuation::Colon => match self.peek() {
+                Punctuation::Colon => match self.peek_noncomment_token() {
                     Some(_) => todo!(),
                     None => return TokenResolveResult::Break(()),
                 },
