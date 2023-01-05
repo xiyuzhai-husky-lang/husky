@@ -11,18 +11,18 @@ input
 output
 
 ```husky
-TokenSheet {
+RangedTokenSheet {
     tokens: [
-        Token {
-            range: [1:1, 1:7),
-            kind: Literal(
-                String(
-                    StringLiteral {
-                        data: "haha",
-                    },
-                ),
+        Literal(
+            String(
+                StringLiteral {
+                    data: "haha",
+                },
             ),
-        },
+        ),
+    ],
+    token_ranges: [
+        [1:1, 1:7),
     ],
     group_starts: [
         0,
@@ -41,18 +41,18 @@ input
 output
 
 ```husky
-TokenSheet {
+RangedTokenSheet {
     tokens: [
-        Token {
-            range: [1:1, 1:5),
-            kind: Literal(
-                String(
-                    StringLiteral {
-                        data: "\n",
-                    },
-                ),
+        Literal(
+            String(
+                StringLiteral {
+                    data: "\n",
+                },
             ),
-        },
+        ),
+    ],
+    token_ranges: [
+        [1:1, 1:5),
     ],
     group_starts: [
         0,
@@ -71,18 +71,18 @@ input
 output
 
 ```husky
-TokenSheet {
+RangedTokenSheet {
     tokens: [
-        Token {
-            range: [1:1, 1:5),
-            kind: Literal(
-                String(
-                    StringLiteral {
-                        data: "\t",
-                    },
-                ),
+        Literal(
+            String(
+                StringLiteral {
+                    data: "\t",
+                },
             ),
-        },
+        ),
+    ],
+    token_ranges: [
+        [1:1, 1:5),
     ],
     group_starts: [
         0,
@@ -101,18 +101,18 @@ input
 output
 
 ```husky
-TokenSheet {
+RangedTokenSheet {
     tokens: [
-        Token {
-            range: [1:1, 1:5),
-            kind: Literal(
-                String(
-                    StringLiteral {
-                        data: "\\",
-                    },
-                ),
+        Literal(
+            String(
+                StringLiteral {
+                    data: "\\",
+                },
             ),
-        },
+        ),
+    ],
+    token_ranges: [
+        [1:1, 1:5),
     ],
     group_starts: [
         0,
@@ -131,18 +131,18 @@ input
 output
 
 ```husky
-TokenSheet {
+RangedTokenSheet {
     tokens: [
-        Token {
-            range: [1:1, 1:5),
-            kind: Literal(
-                String(
-                    StringLiteral {
-                        data: "\"",
-                    },
-                ),
+        Literal(
+            String(
+                StringLiteral {
+                    data: "\"",
+                },
             ),
-        },
+        ),
+    ],
+    token_ranges: [
+        [1:1, 1:5),
     ],
     group_starts: [
         0,
@@ -161,18 +161,18 @@ input
 output
 
 ```husky
-TokenSheet {
+RangedTokenSheet {
     tokens: [
-        Token {
-            range: [1:1, 1:5),
-            kind: Literal(
-                String(
-                    StringLiteral {
-                        data: "\r",
-                    },
-                ),
+        Literal(
+            String(
+                StringLiteral {
+                    data: "\r",
+                },
             ),
-        },
+        ),
+    ],
+    token_ranges: [
+        [1:1, 1:5),
     ],
     group_starts: [
         0,

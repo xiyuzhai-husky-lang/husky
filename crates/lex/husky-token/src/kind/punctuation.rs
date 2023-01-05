@@ -1,6 +1,6 @@
 use husky_opn_syntax::{BinaryOpr, Bracket, SuffixOpr};
 
-use crate::{Convexity, TokenKind};
+use crate::{Convexity, Token};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Punctuation {
@@ -259,8 +259,8 @@ macro_rules! is_special {
     }};
 }
 
-impl const From<Punctuation> for TokenKind {
+impl const From<Punctuation> for Token {
     fn from(special: Punctuation) -> Self {
-        TokenKind::Punctuation(special)
+        Token::Punctuation(special)
     }
 }

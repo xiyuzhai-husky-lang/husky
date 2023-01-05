@@ -1,18 +1,18 @@
 [
   {
     "input": "def",
-    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:4),\n            kind: Keyword(\n                Paradigm(\n                    Def,\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
+    "output": "RangedTokenSheet {\n    tokens: [\n        Keyword(\n            Paradigm(\n                Def,\n            ),\n        ),\n    ],\n    token_ranges: [\n        [1:1, 1:4),\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "func",
-    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:5),\n            kind: Keyword(\n                Paradigm(\n                    Func,\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
+    "output": "RangedTokenSheet {\n    tokens: [\n        Keyword(\n            Paradigm(\n                Func,\n            ),\n        ),\n    ],\n    token_ranges: [\n        [1:1, 1:5),\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "proc",
-    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:5),\n            kind: Keyword(\n                Paradigm(\n                    Proc,\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
+    "output": "RangedTokenSheet {\n    tokens: [\n        Keyword(\n            Paradigm(\n                Proc,\n            ),\n        ),\n    ],\n    token_ranges: [\n        [1:1, 1:5),\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "trait",
-    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:6),\n            kind: Keyword(\n                Trait,\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
+    "output": "RangedTokenSheet {\n    tokens: [\n        Keyword(\n            Trait,\n        ),\n    ],\n    token_ranges: [\n        [1:1, 1:6),\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   }
 ]

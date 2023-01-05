@@ -1,102 +1,80 @@
 Ok(
-    TokenSheet {
+    RangedTokenSheet {
         tokens: [
-            Token {
-                range: [1:1, 1:4),
-                kind: Attr(
-                    Pub,
+            Attr(
+                Pub,
+            ),
+            Keyword(
+                Type(
+                    Type,
                 ),
-            },
-            Token {
-                range: [1:5, 1:9),
-                kind: Keyword(
-                    Type(
-                        Type,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 6,
+                        },
                     ),
                 ),
-            },
-            Token {
-                range: [1:10, 1:14),
-                kind: Identifier(
-                    Identifier(
-                        Word(
-                            Id {
-                                value: 6,
-                            },
-                        ),
+            ),
+            Punctuation(
+                Semicolon,
+            ),
+            Attr(
+                Pub,
+            ),
+            Keyword(
+                Type(
+                    Structure,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 7,
+                        },
                     ),
                 ),
-            },
-            Token {
-                range: [1:14, 1:15),
-                kind: Punctuation(
-                    Semicolon,
+            ),
+            Punctuation(
+                Semicolon,
+            ),
+            Attr(
+                Pub,
+            ),
+            Keyword(
+                Type(
+                    Structure,
                 ),
-            },
-            Token {
-                range: [3:1, 3:4),
-                kind: Attr(
-                    Pub,
-                ),
-            },
-            Token {
-                range: [3:5, 3:14),
-                kind: Keyword(
-                    Type(
-                        Structure,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 8,
+                        },
                     ),
                 ),
-            },
-            Token {
-                range: [3:15, 3:20),
-                kind: Identifier(
-                    Identifier(
-                        Word(
-                            Id {
-                                value: 7,
-                            },
-                        ),
-                    ),
-                ),
-            },
-            Token {
-                range: [3:20, 3:21),
-                kind: Punctuation(
-                    Semicolon,
-                ),
-            },
-            Token {
-                range: [5:1, 5:4),
-                kind: Attr(
-                    Pub,
-                ),
-            },
-            Token {
-                range: [5:5, 5:14),
-                kind: Keyword(
-                    Type(
-                        Structure,
-                    ),
-                ),
-            },
-            Token {
-                range: [5:15, 5:21),
-                kind: Identifier(
-                    Identifier(
-                        Word(
-                            Id {
-                                value: 8,
-                            },
-                        ),
-                    ),
-                ),
-            },
-            Token {
-                range: [5:21, 5:22),
-                kind: Punctuation(
-                    Semicolon,
-                ),
-            },
+            ),
+            Punctuation(
+                Semicolon,
+            ),
+        ],
+        token_ranges: [
+            [1:1, 1:4),
+            [1:5, 1:9),
+            [1:10, 1:14),
+            [1:14, 1:15),
+            [3:1, 3:4),
+            [3:5, 3:14),
+            [3:15, 3:20),
+            [3:20, 3:21),
+            [5:1, 5:4),
+            [5:5, 5:14),
+            [5:15, 5:21),
+            [5:21, 5:22),
         ],
         group_starts: [
             0,

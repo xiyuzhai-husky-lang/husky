@@ -1,4 +1,4 @@
-use husky_token::TokenSheet;
+use husky_token::RangedTokenSheet;
 
 use crate::*;
 
@@ -52,7 +52,7 @@ impl<Db: AstDb> salsa::DebugWithDb<Db> for AstRangeSheet {
 }
 
 struct AstRangeCalculator<'a> {
-    token_sheet: &'a TokenSheet,
+    token_sheet: &'a RangedTokenSheet,
     ast_sheet: &'a AstSheet,
     text_ranges: Vec<TextRange>,
 }
@@ -81,7 +81,7 @@ impl<'a> AstRangeCalculator<'a> {
             }
             | Ast::ModuleItemVariant {
                 token_group_idx, ..
-            } => self.token_sheet[*token_group_idx].text_range(),
+            } => self.token_sheet.token_group_text_range(*token_group_idx),
             Ast::BasicStmt {
                 token_group_idx,
                 body,
@@ -105,16 +105,12 @@ impl<'a> AstRangeCalculator<'a> {
                 token_group_idx,
                 body,
             } => {
-                let start = self.token_sheet[*token_group_idx]
-                    .first()
-                    .unwrap()
-                    .text_start();
+                let token_group_text_range =
+                    self.token_sheet.token_group_text_range(*token_group_idx);
+                let start = token_group_text_range.start;
                 let end = match body.last() {
                     Some(last) => self.text_ranges[last.raw()].text_end(),
-                    None => self.token_sheet[*token_group_idx]
-                        .last()
-                        .unwrap()
-                        .text_end(),
+                    None => token_group_text_range.end,
                 };
                 (start..end).into()
             }

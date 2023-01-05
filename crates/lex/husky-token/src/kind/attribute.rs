@@ -36,8 +36,8 @@ impl AttributeKeyword {
     }
 }
 
-impl const Into<TokenKind> for AttributeKeyword {
-    fn into(self) -> TokenKind {
-        TokenKind::Attr(self)
+impl const Into<Token> for AttributeKeyword {
+    fn into(self) -> Token {
+        Token::Attr(self)
     }
 }

@@ -5,7 +5,7 @@ use husky_expr::*;
 
 pub(crate) struct TokenInfoInferEngine<'a> {
     db: &'a dyn TokenInfoDb,
-    token_sheet: &'a TokenSheet,
+    token_sheet: &'a RangedTokenSheet,
     ast_sheet: &'a AstSheet,
     defn_sheet: &'a DefnSheet,
     sheet: TokenInfoSheet,
@@ -160,7 +160,7 @@ impl<'a> TokenInfoInferEngine<'a> {
 
 struct ExprSheetTokenInfoInferEngine<'a> {
     db: &'a dyn TokenInfoDb,
-    token_sheet: &'a TokenSheet,
+    token_sheet: &'a RangedTokenSheet,
     ast_sheet: &'a AstSheet,
     expr_arena: &'a ExprArena,
     pattern_expr_arena: &'a PatternExprArena,

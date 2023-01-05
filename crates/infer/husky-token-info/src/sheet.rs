@@ -1,3 +1,5 @@
+use husky_text::TextRange;
+
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -14,7 +16,7 @@ impl std::ops::Index<TokenIdx> for TokenInfoSheet {
 }
 
 impl TokenInfoSheet {
-    pub(crate) fn new(token_sheet: &TokenSheet) -> Self {
+    pub(crate) fn new(token_sheet: &RangedTokenSheet) -> Self {
         TokenInfoSheet {
             token_infos: (0..token_sheet.len())
                 .into_iter()
@@ -30,9 +32,9 @@ impl TokenInfoSheet {
 
     pub fn informative_tokens<'a>(
         &'a self,
-        token_sheet: &'a TokenSheet,
-    ) -> impl Iterator<Item = (&'a TokenInfo, &'a Token)> + 'a {
+        token_sheet: &'a RangedTokenSheet,
+    ) -> impl Iterator<Item = (&'a TokenInfo, (&'a TextRange, &'a Token))> + 'a {
         assert_eq!(self.token_infos.len(), token_sheet.tokens().len());
-        std::iter::zip(self.token_infos.iter(), token_sheet.tokens().iter())
+        std::iter::zip(self.token_infos.iter(), token_sheet.ranged_token_iter())
     }
 }

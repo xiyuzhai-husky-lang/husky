@@ -1,58 +1,58 @@
 [
   {
     "input": "+",
-    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:2),\n            kind: Punctuation(\n                Binary(\n                    PureClosed(\n                        Add,\n                    ),\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
+    "output": "RangedTokenSheet {\n    tokens: [\n        Punctuation(\n            Binary(\n                PureClosed(\n                    Add,\n                ),\n            ),\n        ),\n    ],\n    token_ranges: [\n        [1:1, 1:2),\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "-",
-    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:2),\n            kind: Punctuation(\n                Minus,\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
+    "output": "RangedTokenSheet {\n    tokens: [\n        Punctuation(\n            Minus,\n        ),\n    ],\n    token_ranges: [\n        [1:1, 1:2),\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "*",
-    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:2),\n            kind: Punctuation(\n                Binary(\n                    PureClosed(\n                        Mul,\n                    ),\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
+    "output": "RangedTokenSheet {\n    tokens: [\n        Punctuation(\n            Binary(\n                PureClosed(\n                    Mul,\n                ),\n            ),\n        ),\n    ],\n    token_ranges: [\n        [1:1, 1:2),\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "/",
-    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:2),\n            kind: Punctuation(\n                Binary(\n                    PureClosed(\n                        Div,\n                    ),\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
+    "output": "RangedTokenSheet {\n    tokens: [\n        Punctuation(\n            Binary(\n                PureClosed(\n                    Div,\n                ),\n            ),\n        ),\n    ],\n    token_ranges: [\n        [1:1, 1:2),\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "**",
-    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:3),\n            kind: Punctuation(\n                Binary(\n                    PureClosed(\n                        Power,\n                    ),\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
+    "output": "RangedTokenSheet {\n    tokens: [\n        Punctuation(\n            Binary(\n                PureClosed(\n                    Power,\n                ),\n            ),\n        ),\n    ],\n    token_ranges: [\n        [1:1, 1:3),\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "|",
-    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:2),\n            kind: Punctuation(\n                Vertical,\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
+    "output": "RangedTokenSheet {\n    tokens: [\n        Punctuation(\n            Vertical,\n        ),\n    ],\n    token_ranges: [\n        [1:1, 1:2),\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "||",
-    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:3),\n            kind: Punctuation(\n                DoubleVertical,\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
+    "output": "RangedTokenSheet {\n    tokens: [\n        Punctuation(\n            DoubleVertical,\n        ),\n    ],\n    token_ranges: [\n        [1:1, 1:3),\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "&&",
-    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:3),\n            kind: Punctuation(\n                Binary(\n                    ShortcuitLogic(\n                        And,\n                    ),\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
+    "output": "RangedTokenSheet {\n    tokens: [\n        Punctuation(\n            Binary(\n                ShortcuitLogic(\n                    And,\n                ),\n            ),\n        ),\n    ],\n    token_ranges: [\n        [1:1, 1:3),\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "==",
-    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:3),\n            kind: Punctuation(\n                Binary(\n                    Comparison(\n                        Eq,\n                    ),\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
+    "output": "RangedTokenSheet {\n    tokens: [\n        Punctuation(\n            Binary(\n                Comparison(\n                    Eq,\n                ),\n            ),\n        ),\n    ],\n    token_ranges: [\n        [1:1, 1:3),\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "!=",
-    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:3),\n            kind: Punctuation(\n                Binary(\n                    Comparison(\n                        Neq,\n                    ),\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
+    "output": "RangedTokenSheet {\n    tokens: [\n        Punctuation(\n            Binary(\n                Comparison(\n                    Neq,\n                ),\n            ),\n        ),\n    ],\n    token_ranges: [\n        [1:1, 1:3),\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": ">",
-    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:2),\n            kind: Punctuation(\n                RAngle,\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
+    "output": "RangedTokenSheet {\n    tokens: [\n        Punctuation(\n            RAngle,\n        ),\n    ],\n    token_ranges: [\n        [1:1, 1:2),\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": ">=",
-    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:3),\n            kind: Punctuation(\n                Binary(\n                    Comparison(\n                        Geq,\n                    ),\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
+    "output": "RangedTokenSheet {\n    tokens: [\n        Punctuation(\n            Binary(\n                Comparison(\n                    Geq,\n                ),\n            ),\n        ),\n    ],\n    token_ranges: [\n        [1:1, 1:3),\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "<",
-    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:2),\n            kind: Punctuation(\n                LAngle,\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
+    "output": "RangedTokenSheet {\n    tokens: [\n        Punctuation(\n            LAngle,\n        ),\n    ],\n    token_ranges: [\n        [1:1, 1:2),\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   },
   {
     "input": "<=",
-    "output": "TokenSheet {\n    tokens: [\n        Token {\n            range: [1:1, 1:3),\n            kind: Punctuation(\n                Binary(\n                    Comparison(\n                        Leq,\n                    ),\n                ),\n            ),\n        },\n    ],\n    group_starts: [\n        0,\n    ],\n}"
+    "output": "RangedTokenSheet {\n    tokens: [\n        Punctuation(\n            Binary(\n                Comparison(\n                    Leq,\n                ),\n            ),\n        ),\n    ],\n    token_ranges: [\n        [1:1, 1:3),\n    ],\n    group_starts: [\n        0,\n    ],\n}"
   }
 ]

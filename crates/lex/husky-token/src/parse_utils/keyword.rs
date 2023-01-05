@@ -111,39 +111,39 @@ where
         ctx: &mut Context,
     ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed(IgnoreComment::True) {
-            match token.kind {
-                TokenKind::Keyword(Keyword::Stmt(StmtKeyword::Let)) => {
+            match token {
+                Token::Keyword(Keyword::Stmt(StmtKeyword::Let)) => {
                     Ok(Some(LetToken { token_idx }.into()))
                 }
-                TokenKind::Keyword(Keyword::Stmt(StmtKeyword::Return)) => {
+                Token::Keyword(Keyword::Stmt(StmtKeyword::Return)) => {
                     Ok(Some(ReturnToken { token_idx }.into()))
                 }
-                TokenKind::Keyword(Keyword::Stmt(StmtKeyword::Require)) => {
+                Token::Keyword(Keyword::Stmt(StmtKeyword::Require)) => {
                     Ok(Some(RequireToken { token_idx }.into()))
                 }
-                TokenKind::Keyword(Keyword::Stmt(StmtKeyword::Break)) => {
+                Token::Keyword(Keyword::Stmt(StmtKeyword::Break)) => {
                     Ok(Some(BreakToken { token_idx }.into()))
                 }
-                TokenKind::Keyword(Keyword::Stmt(StmtKeyword::For)) => {
+                Token::Keyword(Keyword::Stmt(StmtKeyword::For)) => {
                     Ok(Some(ForToken { token_idx }.into()))
                 }
-                TokenKind::Keyword(Keyword::Stmt(StmtKeyword::Forext)) => {
+                Token::Keyword(Keyword::Stmt(StmtKeyword::Forext)) => {
                     Ok(Some(ForextToken { token_idx }.into()))
                 }
-                TokenKind::Keyword(Keyword::Stmt(StmtKeyword::While)) => {
+                Token::Keyword(Keyword::Stmt(StmtKeyword::While)) => {
                     Ok(Some(WhileToken { token_idx }.into()))
                 }
-                TokenKind::Keyword(Keyword::Stmt(StmtKeyword::Do)) => {
+                Token::Keyword(Keyword::Stmt(StmtKeyword::Do)) => {
                     Ok(Some(DoToken { token_idx }.into()))
                 }
-                TokenKind::Comment => unreachable!(),
-                TokenKind::Err(ref e) => Err(e.clone().into()),
-                TokenKind::Keyword(_)
-                | TokenKind::Punctuation(_)
-                | TokenKind::Identifier(_)
-                | TokenKind::WordOpr(_)
-                | TokenKind::Literal(_)
-                | TokenKind::Attr(_) => Ok(None),
+                Token::Comment => unreachable!(),
+                Token::Err(ref e) => Err(e.clone().into()),
+                Token::Keyword(_)
+                | Token::Punctuation(_)
+                | Token::Identifier(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Attr(_) => Ok(None),
             }
         } else {
             Ok(None)

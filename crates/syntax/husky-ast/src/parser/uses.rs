@@ -90,26 +90,26 @@ impl<'b> EntityUseExprParser<'b> {
         arena: &'b mut UseExprArena,
     ) -> (Identifier, Self) {
         while let Some(token) = token_iter.next() {
-            match token.kind {
-                TokenKind::Keyword(Keyword::Use) => break,
+            match token {
+                Token::Keyword(Keyword::Use) => break,
                 _ => continue,
             }
         }
         let ident = match token_iter.peek_noncomment_token() {
-            Some(token) => match token.kind {
-                TokenKind::Attr(_) => todo!(),
-                TokenKind::Keyword(_) => todo!(),
-                TokenKind::Identifier(ident) => ident,
-                TokenKind::Punctuation(_) => todo!(),
-                TokenKind::WordOpr(_) => todo!(),
-                TokenKind::Literal(_) => todo!(),
-                TokenKind::Comment => todo!(),
-                TokenKind::Err(_) => todo!(),
+            Some(token) => match token {
+                Token::Attr(_) => todo!(),
+                Token::Keyword(_) => todo!(),
+                Token::Identifier(ident) => ident,
+                Token::Punctuation(_) => todo!(),
+                Token::WordOpr(_) => todo!(),
+                Token::Literal(_) => todo!(),
+                Token::Comment => todo!(),
+                Token::Err(_) => todo!(),
             },
             None => todo!(),
         };
         (
-            ident,
+            *ident,
             Self {
                 token_iter,
                 arena,
@@ -126,17 +126,17 @@ impl<'b> EntityUseExprParser<'b> {
 
     fn parse_step_inner(&mut self) -> Option<UseExpr> {
         let token = self.token_iter.next()?;
-        Some(match token.kind {
-            TokenKind::Identifier(ident) => {
+        Some(match token {
+            Token::Identifier(ident) => {
                 let Some(next_token) = self.token_iter.next() else  {
-                    return Some(UseExpr::One { ident })
+                    return Some(UseExpr::One { ident: *ident })
                 };
-                match next_token.kind {
-                    TokenKind::Punctuation(Punctuation::Binary(BinaryOpr::ScopeResolution)) => {}
-                    TokenKind::Punctuation(Punctuation::Comma)
-                    | TokenKind::Punctuation(Punctuation::Ket(Bracket::Curl)) => {
+                match next_token {
+                    Token::Punctuation(Punctuation::Binary(BinaryOpr::ScopeResolution)) => {}
+                    Token::Punctuation(Punctuation::Comma)
+                    | Token::Punctuation(Punctuation::Ket(Bracket::Curl)) => {
                         self.token_iter.step_back();
-                        return Some(UseExpr::One { ident });
+                        return Some(UseExpr::One { ident: *ident });
                     }
                     _ => return Some(UseExpr::Err(EntityUseExprError::ExpectScopeResolution)),
                 }
@@ -146,13 +146,13 @@ impl<'b> EntityUseExprParser<'b> {
                     ))
                 };
                 UseExpr::ScopeResolution {
-                    parent: ident,
+                    parent: *ident,
                     child,
                 }
             }
-            TokenKind::Punctuation(Punctuation::Bra(Bracket::Curl)) => self.parse_multiple(),
+            Token::Punctuation(Punctuation::Bra(Bracket::Curl)) => self.parse_multiple(),
             // ad hoc; todo: change this to SpecialToken::Star
-            TokenKind::Punctuation(Punctuation::Binary(BinaryOpr::PureClosed(
+            Token::Punctuation(Punctuation::Binary(BinaryOpr::PureClosed(
                 BinaryPureClosedOpr::Mul,
             ))) => UseExpr::All {},
             _ => UseExpr::Err(EntityUseExprError::ExpectSomething),
@@ -167,9 +167,9 @@ impl<'b> EntityUseExprParser<'b> {
                 None => todo!(),
             }
             match self.token_iter.next() {
-                Some(token) => match token.kind {
-                    TokenKind::Punctuation(Punctuation::Comma) => continue,
-                    TokenKind::Punctuation(Punctuation::Ket(Bracket::Curl)) => break,
+                Some(token) => match token {
+                    Token::Punctuation(Punctuation::Comma) => continue,
+                    Token::Punctuation(Punctuation::Ket(Bracket::Curl)) => break,
                     _ => todo!(),
                 },
                 None => exprs.push(todo!()),

@@ -1,108 +1,86 @@
 Ok(
-    TokenSheet {
+    RangedTokenSheet {
         tokens: [
-            Token {
-                range: [1:1, 1:5),
-                kind: Keyword(
-                    Config(
-                        Task,
+            Keyword(
+                Config(
+                    Task,
+                ),
+            ),
+            Punctuation(
+                Colon,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 56,
+                        },
                     ),
                 ),
-            },
-            Token {
-                range: [1:5, 1:6),
-                kind: Punctuation(
-                    Colon,
+            ),
+            Punctuation(
+                Binary(
+                    ScopeResolution,
                 ),
-            },
-            Token {
-                range: [2:5, 2:13),
-                kind: Identifier(
-                    Identifier(
-                        Word(
-                            Id {
-                                value: 56,
-                            },
-                        ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 57,
+                        },
                     ),
                 ),
-            },
-            Token {
-                range: [2:13, 2:15),
-                kind: Punctuation(
-                    Binary(
-                        ScopeResolution,
+            ),
+            Punctuation(
+                Binary(
+                    ScopeResolution,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 58,
+                        },
                     ),
                 ),
-            },
-            Token {
-                range: [2:15, 2:21),
-                kind: Identifier(
-                    Identifier(
-                        Word(
-                            Id {
-                                value: 57,
-                            },
-                        ),
-                    ),
+            ),
+            Punctuation(
+                Bra(
+                    Par,
                 ),
-            },
-            Token {
-                range: [2:21, 2:23),
-                kind: Punctuation(
-                    Binary(
-                        ScopeResolution,
-                    ),
+            ),
+            Punctuation(
+                Ket(
+                    Par,
                 ),
-            },
-            Token {
-                range: [2:23, 2:40),
-                kind: Identifier(
-                    Identifier(
-                        Word(
-                            Id {
-                                value: 58,
-                            },
-                        ),
-                    ),
+            ),
+            Keyword(
+                Main,
+            ),
+            Punctuation(
+                Colon,
+            ),
+            Literal(
+                Integer(
+                    Unspecified,
                 ),
-            },
-            Token {
-                range: [2:40, 2:41),
-                kind: Punctuation(
-                    Bra(
-                        Par,
-                    ),
-                ),
-            },
-            Token {
-                range: [2:41, 2:42),
-                kind: Punctuation(
-                    Ket(
-                        Par,
-                    ),
-                ),
-            },
-            Token {
-                range: [4:1, 4:5),
-                kind: Keyword(
-                    Main,
-                ),
-            },
-            Token {
-                range: [4:5, 4:6),
-                kind: Punctuation(
-                    Colon,
-                ),
-            },
-            Token {
-                range: [5:5, 5:6),
-                kind: Literal(
-                    Integer(
-                        Unspecified,
-                    ),
-                ),
-            },
+            ),
+        ],
+        token_ranges: [
+            [1:1, 1:5),
+            [1:5, 1:6),
+            [2:5, 2:13),
+            [2:13, 2:15),
+            [2:15, 2:21),
+            [2:21, 2:23),
+            [2:23, 2:40),
+            [2:40, 2:41),
+            [2:41, 2:42),
+            [4:1, 4:5),
+            [4:5, 4:6),
+            [5:5, 5:6),
         ],
         group_starts: [
             0,

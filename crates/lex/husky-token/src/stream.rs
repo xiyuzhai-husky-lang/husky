@@ -14,7 +14,7 @@ impl<'a> HasParseError for TokenStream<'a> {
     type Error = TokenError;
 }
 
-impl TokenSheet {
+impl RangedTokenSheet {
     pub fn token_group_token_stream<'a>(
         &'a self,
         token_group_idx: TokenGroupIdx,
@@ -57,24 +57,8 @@ impl<'a> TokenStream<'a> {
         self.next_relative >= self.tokens.len()
     }
 
-    pub fn text_start(&self) -> TextPosition {
-        if self.next_relative < self.tokens.len() {
-            self.tokens[self.next_relative].range.start
-        } else {
-            self.tokens.last().unwrap().range.end
-        }
-    }
-
-    pub fn text_end(&self) -> TextPosition {
-        self.tokens[self.next_relative - 1].range.end
-    }
-
     pub fn token_position(&self) -> usize {
         self.next_relative
-    }
-
-    pub fn text_range(&self) -> TextRange {
-        self.tokens.text_range()
     }
 
     pub fn save_state(&self) -> TokenIdx {
@@ -83,11 +67,11 @@ impl<'a> TokenStream<'a> {
 
     pub fn try_get_one_token_with_indexed<S>(
         &mut self,
-        f: impl Fn(&TokenKind) -> Option<S>,
+        f: impl Fn(&Token) -> Option<S>,
         ignore_comment: IgnoreComment,
     ) -> Option<(TokenIdx, S)> {
         let (token_idx, token) = self.next_indexed(ignore_comment)?;
-        if let Some(s) = f(&token.kind) {
+        if let Some(s) = f(&token) {
             Some((token_idx, s))
         } else {
             self.go_back();
@@ -95,12 +79,9 @@ impl<'a> TokenStream<'a> {
         }
     }
 
-    pub fn try_eat_with(
-        &mut self,
-        predicate: impl FnOnce(&TokenKind) -> bool,
-    ) -> Option<&'a Token> {
+    pub fn try_eat_with(&mut self, predicate: impl FnOnce(&Token) -> bool) -> Option<&'a Token> {
         let token = self.peek_noncomment_token()?;
-        if predicate(&token.kind) {
+        if predicate(&token) {
             self.next();
             Some(token)
         } else {
@@ -109,13 +90,13 @@ impl<'a> TokenStream<'a> {
     }
 
     pub fn try_eat_special(&mut self, punc: Punctuation) -> Option<&'a Token> {
-        self.try_eat_with(|token_kind| token_kind == &TokenKind::Punctuation(punc))
+        self.try_eat_with(|token_kind| token_kind == &Token::Punctuation(punc))
     }
 
     pub fn eat_comments(&mut self) {
         while let Some(token) = self.peek_raw() {
-            match token.kind {
-                TokenKind::Comment => {
+            match token {
+                Token::Comment => {
                     self.next();
                 }
                 _ => break,
@@ -138,8 +119,8 @@ impl<'a> TokenStream<'a> {
                 while self.next_relative < self.tokens.len() {
                     let next = self.next_relative;
                     self.next_relative += 1;
-                    match self.tokens[next].kind {
-                        TokenKind::Comment => continue,
+                    match self.tokens[next] {
+                        Token::Comment => continue,
                         _ => return Some((TokenIdx(self.base + next), &self.tokens[next])),
                     }
                 }
@@ -176,19 +157,10 @@ impl<'a> TokenStream<'a> {
         self.peek_raw()
     }
 
-    pub fn next_range(&self) -> TextRange {
-        if self.next_relative < self.tokens.len() {
-            self.tokens[self.next_relative].range
-        } else {
-            let last_token_range = self.tokens.last().unwrap().range;
-            (last_token_range.end..(last_token_range.end.to_right(4))).into()
-        }
-    }
-
     pub fn peek_next_bra(&mut self) -> Option<Bracket> {
         if self.next_relative < self.tokens.len() {
-            match self.tokens[self.next_relative].kind {
-                TokenKind::Punctuation(special) => special.opt_bra(),
+            match self.tokens[self.next_relative] {
+                Token::Punctuation(special) => special.opt_bra(),
                 _ => None,
             }
         } else {
@@ -198,8 +170,8 @@ impl<'a> TokenStream<'a> {
 
     pub fn is_next_ident(&mut self) -> bool {
         match self.peek_noncomment_token() {
-            Some(token) => match token.kind {
-                TokenKind::Identifier(_) => true,
+            Some(token) => match token {
+                Token::Identifier(_) => true,
                 _ => false,
             },
             None => false,

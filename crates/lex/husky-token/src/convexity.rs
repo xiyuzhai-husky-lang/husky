@@ -1,4 +1,4 @@
-use crate::{Punctuation, Token, TokenKind};
+use crate::{Punctuation, Token};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Convexity {
@@ -26,24 +26,24 @@ impl Convexity {
 
 impl Token {
     pub fn left_convexity(&self) -> Option<Convexity> {
-        match self.kind {
-            TokenKind::Attr(_) => todo!(),
-            TokenKind::Keyword(_) => todo!(),
-            TokenKind::Identifier(_) => Some(Convexity::Convex),
-            TokenKind::Punctuation(punc) => punc.left_convexity(),
-            TokenKind::WordOpr(_) => todo!(),
-            TokenKind::Literal(_) => Some(Convexity::Convex),
-            TokenKind::Comment => todo!(),
-            TokenKind::Err(_) => unreachable!(),
+        match self {
+            Token::Attr(_) => todo!(),
+            Token::Keyword(_) => todo!(),
+            Token::Identifier(_) => Some(Convexity::Convex),
+            Token::Punctuation(punc) => punc.left_convexity(),
+            Token::WordOpr(_) => todo!(),
+            Token::Literal(_) => Some(Convexity::Convex),
+            Token::Comment => todo!(),
+            Token::Err(_) => unreachable!(),
         }
     }
 
     pub fn right_convexity(&self) -> Convexity {
-        match self.kind {
-            TokenKind::Attr(_) => todo!(),
-            TokenKind::Keyword(_) => Convexity::Concave,
-            TokenKind::Identifier(_) => Convexity::Convex,
-            TokenKind::Punctuation(special) => match special {
+        match self {
+            Token::Attr(_) => todo!(),
+            Token::Keyword(_) => Convexity::Concave,
+            Token::Identifier(_) => Convexity::Convex,
+            Token::Punctuation(special) => match special {
                 Punctuation::Binary(_) => Convexity::Concave,
                 Punctuation::Suffix(_) => todo!(),
                 Punctuation::Bra(_) => Convexity::Concave,
@@ -68,10 +68,10 @@ impl Token {
                 Punctuation::Question => todo!(),
                 Punctuation::DotDot => todo!(),
             },
-            TokenKind::WordOpr(_) => todo!(),
-            TokenKind::Literal(_) => Convexity::Convex,
-            TokenKind::Comment => todo!(),
-            TokenKind::Err(_) => unreachable!(),
+            Token::WordOpr(_) => todo!(),
+            Token::Literal(_) => Convexity::Convex,
+            Token::Comment => todo!(),
+            Token::Err(_) => unreachable!(),
         }
     }
 }

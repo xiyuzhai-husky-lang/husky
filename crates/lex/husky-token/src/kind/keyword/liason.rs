@@ -25,9 +25,9 @@ impl const Into<Keyword> for LiasonKeyword {
 //     IllFormedLiteral(LiteralToken),
 // }
 
-impl const Into<TokenKind> for LiasonKeyword {
-    fn into(self) -> TokenKind {
-        TokenKind::Keyword(self.into())
+impl const Into<Token> for LiasonKeyword {
+    fn into(self) -> Token {
+        Token::Keyword(self.into())
     }
 }
 
