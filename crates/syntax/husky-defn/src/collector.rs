@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ast::{Ast, AstSheet};
+use husky_ast::{Ast, AstRangeSheet, AstSheet};
 use husky_entity_tree::{CratePrelude, EntityTreeResult};
 use husky_token::{RangedTokenSheet, TokenSheetData};
 use vec_like::VecPairMap;
@@ -9,6 +9,7 @@ pub(crate) struct DefnCollector<'a> {
     crate_prelude: CratePrelude<'a>,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
+    ast_range_sheet: &'a AstRangeSheet,
     decl_sheet: &'a DeclSheet,
 }
 
@@ -20,6 +21,7 @@ impl<'a> DefnCollector<'a> {
             crate_prelude,
             token_sheet_data: db.token_sheet_data(module_path)?,
             ast_sheet: db.ast_sheet(module_path)?,
+            ast_range_sheet: db.ast_range_sheet(module_path)?,
             decl_sheet: db.decl_sheet(module_path)?,
         })
     }
@@ -63,49 +65,49 @@ impl<'a> DefnCollector<'a> {
 
     fn parse_trai_defn(&self, decl: TraitDecl) -> TraitDefn {
         let path = decl.path(self.db);
-        let mut parser = self.expr_parser(path.into());
+        let mut parser = self.block_expr_parser(path.into());
         TraitDefn::new(self.db, path, decl, parser.finish())
     }
 
     fn parse_enum_ty_defn(&self, decl: EnumTypeDecl) -> EnumTypeDefn {
         let path = decl.path(self.db);
-        let mut parser = self.expr_parser(path.into());
+        let mut parser = self.block_expr_parser(path.into());
         EnumTypeDefn::new(self.db, path, decl, parser.finish())
     }
 
     fn parse_props_struct_ty_defn(&self, decl: PropsStructTypeDecl) -> PropsStructTypeDefn {
         let path = decl.path(self.db);
-        let mut parser = self.expr_parser(path.into());
+        let mut parser = self.block_expr_parser(path.into());
         PropsStructTypeDefn::new(self.db, path, decl, parser.finish())
     }
 
     fn parse_tuple_struct_ty_defn(&self, decl: TupleStructTypeDecl) -> TupleStructTypeDefn {
         let path = decl.path(self.db);
-        let mut parser = self.expr_parser(path.into());
+        let mut parser = self.block_expr_parser(path.into());
         TupleStructTypeDefn::new(self.db, path, decl, parser.finish())
     }
 
     fn parse_unit_struct_ty_defn(&self, decl: UnitStructTypeDecl) -> UnitStructTypeDefn {
         let path = decl.path(self.db);
-        let mut parser = self.expr_parser(path.into());
+        let mut parser = self.block_expr_parser(path.into());
         UnitStructTypeDefn::new(self.db, path, decl, parser.finish())
     }
 
     fn parse_inductive_ty_defn(&self, decl: InductiveTypeDecl) -> InductiveTypeDefn {
         let path = decl.path(self.db);
-        let mut parser = self.expr_parser(path.into());
+        let mut parser = self.block_expr_parser(path.into());
         InductiveTypeDefn::new(self.db, path, decl, parser.finish())
     }
 
     fn parse_structure_ty_defn(&self, decl: StructureTypeDecl) -> StructureTypeDefn {
         let path = decl.path(self.db);
-        let mut parser = self.expr_parser(path.into());
+        let mut parser = self.block_expr_parser(path.into());
         StructureTypeDefn::new(self.db, path, decl, parser.finish())
     }
 
     fn parse_alien_ty_defn(&self, decl: AlienTypeDecl) -> AlienTypeDefn {
         let path = decl.path(self.db);
-        let mut parser = self.expr_parser(path.into());
+        let mut parser = self.block_expr_parser(path.into());
         AlienTypeDefn::new(self.db, path, decl, parser.finish())
     }
 
@@ -120,7 +122,7 @@ impl<'a> DefnCollector<'a> {
 
     fn parse_function_defn(&self, decl: FunctionDecl) -> FunctionDefn {
         let path = decl.path(self.db);
-        let mut parser = self.expr_parser(path.into());
+        let mut parser = self.block_expr_parser(path.into());
         let ast_idx = decl.ast_idx(self.db);
         let ast = &self.ast_sheet[ast_idx];
         let body = match ast {
@@ -132,7 +134,7 @@ impl<'a> DefnCollector<'a> {
 
     fn parse_feature_defn(&self, decl: FeatureDecl) -> FeatureDefn {
         let path = decl.path(self.db);
-        let mut parser = self.expr_parser(path.into());
+        let mut parser = self.block_expr_parser(path.into());
         let ast_idx = decl.ast_idx(self.db);
         let ast = &self.ast_sheet[ast_idx];
         let body = match ast {
@@ -141,13 +143,13 @@ impl<'a> DefnCollector<'a> {
         };
         FeatureDefn::new(self.db, path, decl, parser.finish(), body)
     }
-    fn expr_parser(&self, entity_path: EntityPath) -> ExprParser<'a> {
-        ExprParser::new(
+    fn block_expr_parser(&self, entity_path: EntityPath) -> BlockExprParser<'a> {
+        let parser = ExprParser::new(
             self.db,
             Some(entity_path),
             self.token_sheet_data,
-            Some(self.ast_sheet),
             self.crate_prelude,
-        )
+        );
+        BlockExprParser::new(parser, self.ast_sheet, self.ast_range_sheet)
     }
 }
