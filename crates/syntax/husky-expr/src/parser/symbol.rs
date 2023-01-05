@@ -19,3 +19,6 @@ impl<'a> SymbolStack<'a> {
         }
     }
 }
+
+#[derive(Debug)]
+pub struct VariableIdx {}

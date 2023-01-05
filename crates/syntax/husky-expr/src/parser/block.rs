@@ -25,16 +25,41 @@ impl<'a> BlockExprParser<'a> {
     pub fn new(
         expr_parser: ExprParser<'a>,
         ast_sheet: &'a AstSheet,
-        ast_range_sheet: &'a AstTokenIdxRangeSheet,
+        ast_token_idx_range_sheet: &'a AstTokenIdxRangeSheet,
     ) -> Self {
         Self {
             expr_parser,
             ast_sheet,
-            ast_token_idx_range_sheet: ast_range_sheet,
+            ast_token_idx_range_sheet,
         }
     }
 
-    fn parse_stmt(&mut self, ast: &Ast, ast_range: TokenIdxRange) -> Option<Stmt> {
+    pub fn parse_block_stmts(&mut self, body: AstIdxRange) -> Option<StmtIdxRange> {
+        if body.len() == 0 {
+            return None;
+        }
+        let block_end = self.ast_token_idx_range_sheet[body.end()].end();
+        let stmts = self
+            .ast_sheet
+            .indexed_iter(body)
+            .filter_map(|(idx, ast)| {
+                self.parse_stmt(ast, self.ast_token_idx_range_sheet[idx], block_end)
+            })
+            .collect();
+        Some(self.alloc_stmts(stmts))
+    }
+
+    pub fn parse_block_expr(&mut self, body: AstIdxRange) -> Option<ExprIdx> {
+        let stmts = self.parse_block_stmts(body)?;
+        Some(self.alloc_expr(Expr::Block { stmts }))
+    }
+
+    fn parse_stmt(
+        &mut self,
+        ast: &Ast,
+        ast_range: TokenIdxRange,
+        block_end: TokenIdxRangeEnd,
+    ) -> Option<Stmt> {
         match ast {
             Ast::BasicStmt {
                 token_group_idx,
@@ -103,23 +128,6 @@ impl<'a> BlockExprParser<'a> {
             | Ast::Main { .. }
             | Ast::Config { .. } => None,
         }
-    }
-
-    pub fn parse_block_stmts(&mut self, body: AstIdxRange) -> Option<StmtIdxRange> {
-        if body.len() == 0 {
-            return None;
-        }
-        let stmts = self
-            .ast_sheet
-            .indexed_iter(body)
-            .filter_map(|(idx, ast)| self.parse_stmt(ast, self.ast_token_idx_range_sheet[idx]))
-            .collect();
-        Some(self.alloc_stmts(stmts))
-    }
-
-    pub fn parse_block_expr(&mut self, body: AstIdxRange) -> Option<ExprIdx> {
-        let stmts = self.parse_block_stmts(body)?;
-        Some(self.alloc_expr(Expr::Block { stmts }))
     }
 
     pub fn finish(self) -> ExprSheet {

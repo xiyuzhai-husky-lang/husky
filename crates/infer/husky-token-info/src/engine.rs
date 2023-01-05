@@ -163,7 +163,7 @@ struct ExprSheetTokenInfoInferEngine<'a> {
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     expr_arena: &'a ExprArena,
-    pattern_expr_arena: &'a PatternExprArena,
+    pattern_expr_arena: &'a PatternExprSheet,
     entity_path_expr_arena: &'a EntityPathExprArena,
     stmt_arena: &'a StmtArena,
     sheet: &'a mut TokenInfoSheet,
@@ -231,7 +231,7 @@ impl<'a> ExprSheetTokenInfoInferEngine<'a> {
         for expr in self.expr_arena.data() {
             self.visit_expr(expr)
         }
-        for pattern_expr in self.pattern_expr_arena.data() {
+        for pattern_expr in self.pattern_expr_arena.pattern_exprs() {
             self.visit_pattern_expr(pattern_expr)
         }
     }
