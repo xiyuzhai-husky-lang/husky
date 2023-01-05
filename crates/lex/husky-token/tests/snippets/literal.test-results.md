@@ -11,7 +11,7 @@ input
 output
 
 ```husky
-RangedTokenSheet {
+TokenSheetData {
     tokens: [
         Literal(
             String(
@@ -26,10 +26,9 @@ RangedTokenSheet {
     group_starts: [
         0,
     ],
-    token_ranges: [
-        [1:1, 1:7),
+    indents: [
+        0,
     ],
-    comments: [],
 }
 ```
 
@@ -44,7 +43,7 @@ input
 output
 
 ```husky
-RangedTokenSheet {
+TokenSheetData {
     tokens: [
         Literal(
             String(
@@ -59,10 +58,9 @@ RangedTokenSheet {
     group_starts: [
         0,
     ],
-    token_ranges: [
-        [1:1, 1:5),
+    indents: [
+        0,
     ],
-    comments: [],
 }
 ```
 
@@ -77,7 +75,7 @@ input
 output
 
 ```husky
-RangedTokenSheet {
+TokenSheetData {
     tokens: [
         Literal(
             String(
@@ -92,10 +90,9 @@ RangedTokenSheet {
     group_starts: [
         0,
     ],
-    token_ranges: [
-        [1:1, 1:5),
+    indents: [
+        0,
     ],
-    comments: [],
 }
 ```
 
@@ -110,7 +107,7 @@ input
 output
 
 ```husky
-RangedTokenSheet {
+TokenSheetData {
     tokens: [
         Literal(
             String(
@@ -125,10 +122,9 @@ RangedTokenSheet {
     group_starts: [
         0,
     ],
-    token_ranges: [
-        [1:1, 1:5),
+    indents: [
+        0,
     ],
-    comments: [],
 }
 ```
 
@@ -143,7 +139,7 @@ input
 output
 
 ```husky
-RangedTokenSheet {
+TokenSheetData {
     tokens: [
         Literal(
             String(
@@ -158,10 +154,9 @@ RangedTokenSheet {
     group_starts: [
         0,
     ],
-    token_ranges: [
-        [1:1, 1:5),
+    indents: [
+        0,
     ],
-    comments: [],
 }
 ```
 
@@ -176,7 +171,7 @@ input
 output
 
 ```husky
-RangedTokenSheet {
+TokenSheetData {
     tokens: [
         Literal(
             String(
@@ -191,9 +186,8 @@ RangedTokenSheet {
     group_starts: [
         0,
     ],
-    token_ranges: [
-        [1:1, 1:5),
+    indents: [
+        0,
     ],
-    comments: [],
 }
 ```

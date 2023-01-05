@@ -30,8 +30,8 @@ where
         module_path: ModulePath,
         pos: TextPosition,
     ) -> EntityTreeResult<Option<HoverResult>> {
-        let token_sheet = self.token_sheet(module_path)?;
-        let Some(token_idx) = token_sheet.search_token_by_position(pos)
+        let ranged_token_sheet = self.ranged_token_sheet(module_path)?;
+        let Some(token_idx) = ranged_token_sheet.search_token_by_position(pos)
                 else { return Ok(None) };
         calc_hover_result(self, module_path, token_idx)
     }

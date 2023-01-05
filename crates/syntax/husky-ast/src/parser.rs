@@ -8,13 +8,14 @@ use context::*;
 use husky_print_utils::p;
 use husky_token::{
     ConnectionKeyword, Keyword, Punctuation, RangedTokenSheet, StmtKeyword, Token, TokenGroupIter,
+    TokenSheetData,
 };
 use utils::*;
 
 pub(crate) struct AstParser<'a> {
     db: &'a dyn AstDb,
     module_path: ModulePath,
-    token_sheet: &'a RangedTokenSheet,
+    token_sheet: &'a TokenSheetData,
     token_groups: TokenGroupIter<'a>,
     ast_arena: AstArena,
     use_expr_arena: UseExprArena,
@@ -22,7 +23,7 @@ pub(crate) struct AstParser<'a> {
 
 impl<'a> AstParser<'a> {
     pub(crate) fn new(db: &'a dyn AstDb, module_path: ModulePath) -> VfsResult<Self> {
-        let token_sheet = &db.token_sheet(module_path)?;
+        let token_sheet = db.token_sheet_data(module_path)?;
         Ok(Self {
             db,
             module_path,

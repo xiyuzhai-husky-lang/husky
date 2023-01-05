@@ -30,14 +30,15 @@ impl<'a> HoverResultCalculator<'a> {
         module_path: ModulePath,
         token_idx: TokenIdx,
     ) -> EntityTreeResult<Self> {
-        let token_sheet = db.token_sheet(module_path)?;
+        let ranged_token_sheet = db.ranged_token_sheet(module_path)?;
+        let token_sheet_data = db.token_sheet_data(module_path)?;
         let token_info_sheet = db.token_info_sheet(module_path)?;
         Ok(Self {
             db,
             module_path,
             token_idx,
-            token: &token_sheet[token_idx],
-            token_range: token_sheet.token_range(token_idx),
+            token: &token_sheet_data[token_idx],
+            token_range: ranged_token_sheet.token_range(token_idx),
             token_info: &token_info_sheet[token_idx],
             markdown_content: String::new(),
             actions: vec![],

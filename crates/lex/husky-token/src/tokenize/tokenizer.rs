@@ -30,7 +30,7 @@ impl<'token> Tokenizer<'token> {
     }
 
     pub fn finish(self) -> RangedTokenSheet {
-        RangedTokenSheet::new(self.tokens, self.token_ranges, self.comments)
+        RangedTokenSheet::new(self.db, self.tokens, self.token_ranges, self.comments)
     }
 
     pub(crate) fn push_tokens(&mut self, iter: impl Iterator<Item = RangedPretoken>) {

@@ -11,7 +11,7 @@ input
 output
 
 ```husky
-RangedTokenSheet {
+TokenSheetData {
     tokens: [
         Err(
             UnexpectedCharAfterBackslash,
@@ -20,9 +20,8 @@ RangedTokenSheet {
     group_starts: [
         0,
     ],
-    token_ranges: [
-        [1:1, 1:5),
+    indents: [
+        0,
     ],
-    comments: [],
 }
 ```
