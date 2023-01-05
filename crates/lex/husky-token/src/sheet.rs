@@ -50,7 +50,7 @@ pub struct RangedTokenSheet {
 #[salsa::tracked(jar = TokenJar)]
 pub struct TokenSheet {
     #[return_ref]
-    pub data: TokenSheetData,
+    pub(crate) data: TokenSheetData,
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -127,22 +127,26 @@ impl RangedTokenSheet {
         self.token_ranges[start..end].text_range()
     }
 
-    // todo: change this to pub(crate)
-    pub fn token_sheet(&self) -> TokenSheet {
-        self.token_sheet
-    }
-
     pub fn token_ranges(&self) -> &[TextRange] {
         self.token_ranges.as_ref()
+    }
+
+    pub(crate) fn token_sheet(&self) -> TokenSheet {
+        self.token_sheet
     }
 }
 
 #[salsa::tracked(jar = TokenJar, return_ref)]
-pub(crate) fn token_sheet(
+pub(crate) fn ranged_token_sheet(
     db: &dyn TokenDb,
     module_path: ModulePath,
 ) -> VfsResult<RangedTokenSheet> {
     Ok(tokenize::tokenize(db, db.module_content(module_path)?))
+}
+
+#[salsa::tracked(jar = TokenJar)]
+pub(crate) fn token_sheet(db: &dyn TokenDb, module_path: ModulePath) -> VfsResult<TokenSheet> {
+    Ok(ranged_token_sheet(db, module_path).as_ref()?.token_sheet)
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

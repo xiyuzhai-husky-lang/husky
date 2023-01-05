@@ -38,6 +38,7 @@ pub struct TokenJar(
     TokenSheet,
     StringLiteral,
     Snippet,
+    ranged_token_sheet,
     token_sheet,
     reserved_words,
     tokenize_snippet,

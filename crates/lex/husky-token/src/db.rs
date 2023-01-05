@@ -15,14 +15,11 @@ where
     T: DbWithJar<TokenJar> + VfsDb,
 {
     fn token_sheet_data(&self, module_path: ModulePath) -> VfsResult<&TokenSheetData> {
-        Ok(self
-            .ranged_token_sheet(module_path)?
-            .token_sheet()
-            .data(self))
+        Ok(token_sheet(self, module_path)?.data(self))
     }
 
     fn ranged_token_sheet(&self, module_path: ModulePath) -> VfsResult<&RangedTokenSheet> {
-        Ok(token_sheet(self, module_path).as_ref()?)
+        Ok(ranged_token_sheet(self, module_path).as_ref()?)
     }
 
     fn tokenize_snippet(&self, snippet: Snippet) -> &TokenSheetData {
