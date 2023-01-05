@@ -1,10 +1,38 @@
 Ok(
     AstRangeSheet {
         text_ranges: [
-            [3:5, 3:17),
-            [5:5, 5:38),
-            [1:1, 1:29),
-            [2:1, 5:38),
+            TokenIdxRange {
+                start: TokenIdx(
+                    12,
+                ),
+                end: TokenIdx(
+                    15,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    15,
+                ),
+                end: TokenIdx(
+                    27,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    0,
+                ),
+                end: TokenIdx(
+                    6,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    6,
+                ),
+                end: TokenIdx(
+                    27,
+                ),
+            },
         ],
     },
 )

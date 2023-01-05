@@ -1,5 +1,4 @@
-use husky_text::TextRange;
-use husky_token::{IdentifierToken, TokenError, TokenIdx, TokenParseContext};
+use husky_token::{IdentifierToken, TokenError, TokenIdx, TokenIdxRange, TokenParseContext};
 use parsec::{FromAbsent, HasParseError};
 use thiserror::Error;
 
@@ -20,7 +19,7 @@ pub enum AstError {
     #[error("expect identifier")]
     ExpectIdentifier(TokenIdx),
     #[error("expect `(` or decorator or identifier")]
-    ExpectParBraOrDecoratorOrIdentifier(Option<TextRange>),
+    ExpectParBraOrDecoratorOrIdentifier(Option<TokenIdxRange>),
     #[error("expect nothing")]
     ExpectNothing,
     #[error("token error")]

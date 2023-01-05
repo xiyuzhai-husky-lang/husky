@@ -1,8 +1,22 @@
 Ok(
     AstRangeSheet {
         text_ranges: [
-            [1:1, 1:24),
-            [2:1, 2:22),
+            TokenIdxRange {
+                start: TokenIdx(
+                    0,
+                ),
+                end: TokenIdx(
+                    7,
+                ),
+            },
+            TokenIdxRange {
+                start: TokenIdx(
+                    7,
+                ),
+                end: TokenIdx(
+                    14,
+                ),
+            },
         ],
     },
 )

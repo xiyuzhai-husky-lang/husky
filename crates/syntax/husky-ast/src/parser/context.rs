@@ -2,7 +2,6 @@ use husky_entity_path::*;
 use husky_entity_taxonomy::{
     AssociatedItemKind, EntityKind, ModuleItemKind, TraitItemKind, TypeItemKind, TypeKind,
 };
-use husky_text::TextRange;
 
 use crate::INDENT_INCR;
 

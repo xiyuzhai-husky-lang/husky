@@ -17,7 +17,6 @@ pub use use_expr::*;
 
 use husky_entity_path::{EntityPath, VariantPath};
 use husky_entity_taxonomy::EntityKind;
-use husky_text::*;
 use husky_token::{IdentifierToken, TokenGroupIdx, TokenIdx};
 use husky_vfs::*;
 

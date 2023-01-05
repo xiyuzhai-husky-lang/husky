@@ -1,15 +1,18 @@
 use crate::*;
 use husky_ast::{Ast, AstIdx, AstRangeSheet, AstSheet};
 
+use husky_token::RangedTokenSheet;
 use lsp_types::FoldingRangeKind;
 
 pub(crate) fn calc_folding_ranges(
     ast_sheet: &AstSheet,
     ast_range_sheet: &AstRangeSheet,
+    ranged_token_sheet: &RangedTokenSheet,
 ) -> Vec<FoldingRange> {
     FoldingRangeCalculator {
         ast_range_sheet,
         ast_sheet,
+        ranged_token_sheet,
     }
     .calc_all()
 }
@@ -17,6 +20,7 @@ pub(crate) fn calc_folding_ranges(
 struct FoldingRangeCalculator<'a> {
     ast_sheet: &'a AstSheet,
     ast_range_sheet: &'a AstRangeSheet,
+    ranged_token_sheet: &'a RangedTokenSheet,
 }
 
 impl<'a> FoldingRangeCalculator<'a> {
@@ -28,7 +32,7 @@ impl<'a> FoldingRangeCalculator<'a> {
     }
 
     fn calc_ast(&self, ast_idx: AstIdx, ast: &Ast) -> Option<FoldingRange> {
-        let (text_range, kind) = match ast {
+        let (ast_range, kind) = match ast {
             Ast::Err { .. }
             | Ast::Use { .. }
             | Ast::Decor { .. }
@@ -43,6 +47,7 @@ impl<'a> FoldingRangeCalculator<'a> {
                 .last()
                 .map(|_| (self.ast_range_sheet[ast_idx], FoldingRangeKind::Region)),
         }?;
+        let text_range = self.ranged_token_sheet.tokens_text_range(ast_range);
         Some(FoldingRange {
             start_line: text_range.start.i(),
             start_character: Some(text_range.start.j()),
