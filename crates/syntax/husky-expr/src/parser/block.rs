@@ -1,10 +1,10 @@
 use super::*;
-use husky_ast::AstRangeSheet;
+use husky_ast::AstTokenIdxRangeSheet;
 
 pub struct BlockExprParser<'a> {
     expr_parser: ExprParser<'a>,
     ast_sheet: &'a AstSheet,
-    ast_range_sheet: &'a AstRangeSheet,
+    ast_token_idx_range_sheet: &'a AstTokenIdxRangeSheet,
 }
 
 impl<'a> std::ops::Deref for BlockExprParser<'a> {
@@ -25,16 +25,16 @@ impl<'a> BlockExprParser<'a> {
     pub fn new(
         expr_parser: ExprParser<'a>,
         ast_sheet: &'a AstSheet,
-        ast_range_sheet: &'a AstRangeSheet,
+        ast_range_sheet: &'a AstTokenIdxRangeSheet,
     ) -> Self {
         Self {
             expr_parser,
             ast_sheet,
-            ast_range_sheet,
+            ast_token_idx_range_sheet: ast_range_sheet,
         }
     }
 
-    fn parse_stmt(&mut self, ast: &Ast) -> Option<Stmt> {
+    fn parse_stmt(&mut self, ast: &Ast, ast_range: TokenIdxRange) -> Option<Stmt> {
         match ast {
             Ast::BasicStmt {
                 token_group_idx,
@@ -75,7 +75,7 @@ impl<'a> BlockExprParser<'a> {
                                 .parse_expr(ExprParseEnvironment::None)
                                 .ok_or(ExprError::MissingCondition),
                             eol_colon: ctx.parse_expected(),
-                            block: self.parse_block_stmts(body).ok_or(ExprError::MissingBlock),
+                            block: self.parse_block_stmts(*body).ok_or(ExprError::MissingBlock),
                         },
                         BasicStmtKeywordToken::Do(_) => todo!(),
                     }),
@@ -105,18 +105,19 @@ impl<'a> BlockExprParser<'a> {
         }
     }
 
-    pub fn parse_block_stmts(&mut self, body: &AstIdxRange) -> Option<StmtIdxRange> {
+    pub fn parse_block_stmts(&mut self, body: AstIdxRange) -> Option<StmtIdxRange> {
         if body.len() == 0 {
             return None;
         }
-        let stmts = self.ast_sheet[body]
-            .iter()
-            .filter_map(|ast| self.parse_stmt(ast))
+        let stmts = self
+            .ast_sheet
+            .indexed_iter(body)
+            .filter_map(|(idx, ast)| self.parse_stmt(ast, self.ast_token_idx_range_sheet[idx]))
             .collect();
         Some(self.alloc_stmts(stmts))
     }
 
-    pub fn parse_block_expr(&mut self, body: &AstIdxRange) -> Option<ExprIdx> {
+    pub fn parse_block_expr(&mut self, body: AstIdxRange) -> Option<ExprIdx> {
         let stmts = self.parse_block_stmts(body)?;
         Some(self.alloc_expr(Expr::Block { stmts }))
     }

@@ -3,16 +3,19 @@ use husky_token::{HasTokenIdxRange, RangedTokenSheet, TokenIdxRange, TokenSheetD
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct AstRangeSheet {
-    ast_ranges: Vec<TokenIdxRange>,
+pub struct AstTokenIdxRangeSheet {
+    ast_token_idx_ranges: Vec<TokenIdxRange>,
 }
 
 #[salsa::tracked(jar = AstJar, return_ref)]
-pub(crate) fn ast_range_sheet(db: &dyn AstDb, module_path: ModulePath) -> VfsResult<AstRangeSheet> {
+pub(crate) fn ast_range_sheet(
+    db: &dyn AstDb,
+    module_path: ModulePath,
+) -> VfsResult<AstTokenIdxRangeSheet> {
     let token_sheet_data = db.token_sheet_data(module_path)?;
     let ast_sheet = db.ast_sheet(module_path)?;
-    Ok(AstRangeSheet {
-        ast_ranges: AstRangeCalculator {
+    Ok(AstTokenIdxRangeSheet {
+        ast_token_idx_ranges: AstRangeCalculator {
             token_sheet_data,
             ast_sheet,
             ast_ranges: Default::default(),
@@ -30,15 +33,15 @@ fn ast_range_sheet_works() {
     );
 }
 
-impl std::ops::Index<AstIdx> for AstRangeSheet {
+impl std::ops::Index<AstIdx> for AstTokenIdxRangeSheet {
     type Output = TokenIdxRange;
 
     fn index(&self, index: AstIdx) -> &Self::Output {
-        &self.ast_ranges[index.raw()]
+        &self.ast_token_idx_ranges[index.raw()]
     }
 }
 
-impl<Db: AstDb> salsa::DebugWithDb<Db> for AstRangeSheet {
+impl<Db: AstDb> salsa::DebugWithDb<Db> for AstTokenIdxRangeSheet {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -46,7 +49,7 @@ impl<Db: AstDb> salsa::DebugWithDb<Db> for AstRangeSheet {
         _include_all_fields: bool,
     ) -> std::fmt::Result {
         f.debug_struct("AstRangeSheet")
-            .field("ast_ranges", &self.ast_ranges)
+            .field("ast_token_idx_ranges", &self.ast_token_idx_ranges)
             .finish()
     }
 }

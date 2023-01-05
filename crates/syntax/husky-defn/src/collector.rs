@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ast::{Ast, AstRangeSheet, AstSheet};
+use husky_ast::{Ast, AstSheet, AstTokenIdxRangeSheet};
 use husky_entity_tree::{CratePrelude, EntityTreeResult};
 use husky_token::{RangedTokenSheet, TokenSheetData};
 use vec_like::VecPairMap;
@@ -9,7 +9,7 @@ pub(crate) struct DefnCollector<'a> {
     crate_prelude: CratePrelude<'a>,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
-    ast_range_sheet: &'a AstRangeSheet,
+    ast_range_sheet: &'a AstTokenIdxRangeSheet,
     decl_sheet: &'a DeclSheet,
 }
 
@@ -126,7 +126,7 @@ impl<'a> DefnCollector<'a> {
         let ast_idx = decl.ast_idx(self.db);
         let ast = &self.ast_sheet[ast_idx];
         let body = match ast {
-            Ast::Defn { body, .. } => parser.parse_block_expr(body).ok_or(DefnError::MissingBody),
+            Ast::Defn { body, .. } => parser.parse_block_expr(*body).ok_or(DefnError::MissingBody),
             _ => unreachable!(),
         };
         FunctionDefn::new(self.db, path, decl, parser.finish(), body)
@@ -138,7 +138,7 @@ impl<'a> DefnCollector<'a> {
         let ast_idx = decl.ast_idx(self.db);
         let ast = &self.ast_sheet[ast_idx];
         let body = match ast {
-            Ast::Defn { body, .. } => parser.parse_block_expr(body).ok_or(DefnError::MissingBody),
+            Ast::Defn { body, .. } => parser.parse_block_expr(*body).ok_or(DefnError::MissingBody),
             _ => unreachable!(),
         };
         FeatureDefn::new(self.db, path, decl, parser.finish(), body)

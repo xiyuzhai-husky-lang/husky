@@ -42,7 +42,7 @@ impl<T> Arena<T> {
         let start = ArenaIdx::new(self.data.len());
         self.data.extend(items);
         let end = ArenaIdx::new(self.data.len());
-        ArenaIdxRange(start..end)
+        ArenaIdxRange { start, end }
     }
 
     pub fn alloc_one(&mut self, item: T) -> ArenaIdx<T> {
@@ -76,22 +76,33 @@ pub fn len<T>(range: &ArenaIdxRange<T>) -> usize {
     range.len()
 }
 
-pub struct ArenaIdxRange<T>(core::ops::Range<ArenaIdx<T>>);
+pub struct ArenaIdxRange<T> {
+    start: ArenaIdx<T>,
+    end: ArenaIdx<T>,
+}
 
 impl<T> std::fmt::Debug for ArenaIdxRange<T> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_tuple("ArenaIdxRange").field(&self.0).finish()
+        f.debug_tuple("ArenaIdxRange")
+            .field(&(self.start..self.end))
+            .finish()
     }
 }
 
 impl<T> Clone for ArenaIdxRange<T> {
     fn clone(&self) -> Self {
-        Self(self.0.clone())
+        Self {
+            start: self.start,
+            end: self.end,
+        }
     }
 }
+
+impl<T> Copy for ArenaIdxRange<T> {}
+
 impl<T> PartialEq for ArenaIdxRange<T> {
     fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
+        self.start == other.start && self.end == other.end
     }
 }
 impl<T> Eq for ArenaIdxRange<T> {}
@@ -102,7 +113,7 @@ impl<T> IntoIterator for ArenaIdxRange<T> {
     type IntoIter = <core::ops::Range<ArenaIdx<T>> as IntoIterator>::IntoIter;
 
     fn into_iter(self) -> Self::IntoIter {
-        self.0.into_iter()
+        self.to_range().into_iter()
     }
 }
 
@@ -112,47 +123,55 @@ impl<T> IntoIterator for &ArenaIdxRange<T> {
     type IntoIter = <core::ops::Range<ArenaIdx<T>> as IntoIterator>::IntoIter;
 
     fn into_iter(self) -> Self::IntoIter {
-        self.0.clone().into_iter()
+        self.to_range().clone().into_iter()
     }
 }
 
 impl<T> Default for ArenaIdxRange<T> {
     fn default() -> Self {
-        Self(
-            ArenaIdx {
-                raw: 0,
-                phantom: PhantomData,
-            }..ArenaIdx {
+        Self {
+            start: ArenaIdx {
                 raw: 0,
                 phantom: PhantomData,
             },
-        )
+            end: ArenaIdx {
+                raw: 0,
+                phantom: PhantomData,
+            },
+        }
     }
 }
 
 impl<T> ArenaIdxRange<T> {
+    pub fn to_range(&self) -> std::ops::Range<ArenaIdx<T>> {
+        self.start..self.end
+    }
+
     pub fn len(&self) -> usize {
-        self.0.end.raw - self.0.start.raw
+        self.end.raw - self.start.raw
     }
 
     pub fn start(&self) -> ArenaIdx<T> {
-        self.0.start
+        self.start
     }
 
     pub fn end(&self) -> ArenaIdx<T> {
-        self.0.end
+        self.end
     }
 
     pub fn last(&self) -> Option<ArenaIdx<T>> {
-        if self.0.start < self.0.end {
-            Some(self.0.end - 1)
+        if self.start < self.end {
+            Some(self.end - 1)
         } else {
             None
         }
     }
 
     pub fn new_single(idx: ArenaIdx<T>) -> Self {
-        Self(idx..(idx + 1))
+        Self {
+            start: idx,
+            end: idx + 1,
+        }
     }
 }
 
@@ -323,7 +342,7 @@ impl<T> core::ops::Index<ArenaIdxRange<T>> for Arena<T> {
     type Output = [T];
 
     fn index(&self, idx: ArenaIdxRange<T>) -> &Self::Output {
-        &self.data[idx.0.start.raw..idx.0.end.raw]
+        &self.data[idx.start.raw..idx.end.raw]
     }
 }
 
@@ -331,6 +350,6 @@ impl<T> core::ops::Index<&ArenaIdxRange<T>> for Arena<T> {
     type Output = [T];
 
     fn index(&self, idx: &ArenaIdxRange<T>) -> &Self::Output {
-        &self.data[idx.0.start.raw..idx.0.end.raw]
+        &self.data[idx.start.raw..idx.end.raw]
     }
 }

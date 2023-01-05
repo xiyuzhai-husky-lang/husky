@@ -1,12 +1,12 @@
 use crate::*;
-use husky_ast::{Ast, AstIdx, AstRangeSheet, AstSheet};
+use husky_ast::{Ast, AstIdx, AstSheet, AstTokenIdxRangeSheet};
 
 use husky_token::RangedTokenSheet;
 use lsp_types::FoldingRangeKind;
 
 pub(crate) fn calc_folding_ranges(
     ast_sheet: &AstSheet,
-    ast_range_sheet: &AstRangeSheet,
+    ast_range_sheet: &AstTokenIdxRangeSheet,
     ranged_token_sheet: &RangedTokenSheet,
 ) -> Vec<FoldingRange> {
     FoldingRangeCalculator {
@@ -19,14 +19,14 @@ pub(crate) fn calc_folding_ranges(
 
 struct FoldingRangeCalculator<'a> {
     ast_sheet: &'a AstSheet,
-    ast_range_sheet: &'a AstRangeSheet,
+    ast_range_sheet: &'a AstTokenIdxRangeSheet,
     ranged_token_sheet: &'a RangedTokenSheet,
 }
 
 impl<'a> FoldingRangeCalculator<'a> {
     fn calc_all(self) -> Vec<FoldingRange> {
         self.ast_sheet
-            .indexed_asts()
+            .all_ast_indexed_iter()
             .filter_map(|(idx, ast)| self.calc_ast(idx, ast))
             .collect()
     }
