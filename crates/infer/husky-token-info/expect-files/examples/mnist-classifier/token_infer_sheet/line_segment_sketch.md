@@ -1046,7 +1046,6 @@ Ok(
             None,
             None,
             None,
-            None,
             Entity(
                 ModuleItem {
                     module_item_kind: Form(

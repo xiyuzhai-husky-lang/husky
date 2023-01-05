@@ -21,6 +21,16 @@ Ok(
                     ),
                 ),
             ),
+            (
+                FormPath(`mnist_classifier::digits::eight::big_mouth`, `Function`),
+                Form(
+                    Function(
+                        FunctionDefn {
+                            path: FormPath(`mnist_classifier::digits::eight::big_mouth`, `Function`),
+                        },
+                    ),
+                ),
+            ),
         ],
     },
 )

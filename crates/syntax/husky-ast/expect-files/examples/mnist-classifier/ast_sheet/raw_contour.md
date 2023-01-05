@@ -1132,6 +1132,345 @@ Ok(
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
+                        163,
+                    ),
+                    body: ArenaIdxRange(
+                        129..129,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        164,
+                    ),
+                    body: ArenaIdxRange(
+                        129..129,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        165,
+                    ),
+                    body: ArenaIdxRange(
+                        129..129,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        166,
+                    ),
+                    body: ArenaIdxRange(
+                        129..129,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        162,
+                    ),
+                    body: ArenaIdxRange(
+                        129..133,
+                    ),
+                },
+                IfElseStmts {
+                    if_stmt: 133,
+                    elif_stmts: ArenaIdxRange(
+                        134..134,
+                    ),
+                    else_stmt: None,
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        167,
+                    ),
+                    error: StandaloneElif,
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        168,
+                    ),
+                    error: ExcessiveIndent,
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        169,
+                    ),
+                    error: ExcessiveIndent,
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        170,
+                    ),
+                    error: ExcessiveIndent,
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        171,
+                    ),
+                    error: StandaloneElif,
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        172,
+                    ),
+                    error: ExcessiveIndent,
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        173,
+                    ),
+                    error: ExcessiveIndent,
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        174,
+                    ),
+                    error: ExcessiveIndent,
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        175,
+                    ),
+                    error: StandaloneElse,
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        176,
+                    ),
+                    error: ExcessiveIndent,
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        177,
+                    ),
+                    error: ExcessiveIndent,
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        178,
+                    ),
+                    error: ExcessiveIndent,
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        179,
+                    ),
+                    body: ArenaIdxRange(
+                        134..134,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        180,
+                    ),
+                    body: ArenaIdxRange(
+                        134..134,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        181,
+                    ),
+                    body: ArenaIdxRange(
+                        134..134,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        161,
+                    ),
+                    body: ArenaIdxRange(
+                        134..150,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        184,
+                    ),
+                    body: ArenaIdxRange(
+                        151..151,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        185,
+                    ),
+                    body: ArenaIdxRange(
+                        151..151,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        186,
+                    ),
+                    body: ArenaIdxRange(
+                        151..151,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        188,
+                    ),
+                    body: ArenaIdxRange(
+                        154..154,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        189,
+                    ),
+                    body: ArenaIdxRange(
+                        154..154,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        190,
+                    ),
+                    body: ArenaIdxRange(
+                        154..154,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        192,
+                    ),
+                    body: ArenaIdxRange(
+                        157..157,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        194,
+                    ),
+                    body: ArenaIdxRange(
+                        158..158,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        183,
+                    ),
+                    body: ArenaIdxRange(
+                        151..154,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        187,
+                    ),
+                    body: ArenaIdxRange(
+                        154..157,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        191,
+                    ),
+                    body: ArenaIdxRange(
+                        157..158,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        193,
+                    ),
+                    body: ArenaIdxRange(
+                        158..159,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        182,
+                    ),
+                    body: ArenaIdxRange(
+                        159..163,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        197,
+                    ),
+                    body: ArenaIdxRange(
+                        164..164,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        196,
+                    ),
+                    body: ArenaIdxRange(
+                        164..165,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        158,
+                    ),
+                    body: ArenaIdxRange(
+                        129..129,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        159,
+                    ),
+                    body: ArenaIdxRange(
+                        129..129,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        160,
+                    ),
+                    body: ArenaIdxRange(
+                        129..129,
+                    ),
+                },
+                IfElseStmts {
+                    if_stmt: 150,
+                    elif_stmts: ArenaIdxRange(
+                        151..151,
+                    ),
+                    else_stmt: None,
+                },
+                MatchStmts {
+                    pattern_stmt: 163,
+                    case_stmts: ArenaIdxRange(
+                        164..164,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        195,
+                    ),
+                    body: ArenaIdxRange(
+                        164..164,
+                    ),
+                },
+                IfElseStmts {
+                    if_stmt: 165,
+                    elif_stmts: ArenaIdxRange(
+                        166..166,
+                    ),
+                    else_stmt: None,
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        199,
+                    ),
+                    body: ArenaIdxRange(
+                        173..173,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        198,
+                    ),
+                    body: ArenaIdxRange(
+                        173..174,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
                         142,
                     ),
                     body: ArenaIdxRange(
@@ -1156,23 +1495,130 @@ Ok(
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
-                        141,
+                        145,
                     ),
                     body: ArenaIdxRange(
-                        129..132,
+                        129..129,
                     ),
                 },
-                Err {
+                Stmt {
                     token_group_idx: TokenGroupIdx(
                         146,
                     ),
-                    error: ExcessiveIndent,
+                    body: ArenaIdxRange(
+                        129..129,
+                    ),
                 },
-                Err {
+                Stmt {
                     token_group_idx: TokenGroupIdx(
                         147,
                     ),
-                    error: ExcessiveIndent,
+                    body: ArenaIdxRange(
+                        129..129,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        148,
+                    ),
+                    body: ArenaIdxRange(
+                        129..129,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        149,
+                    ),
+                    body: ArenaIdxRange(
+                        129..129,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        150,
+                    ),
+                    body: ArenaIdxRange(
+                        129..129,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        151,
+                    ),
+                    body: ArenaIdxRange(
+                        129..129,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        152,
+                    ),
+                    body: ArenaIdxRange(
+                        129..129,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        153,
+                    ),
+                    body: ArenaIdxRange(
+                        129..129,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        154,
+                    ),
+                    body: ArenaIdxRange(
+                        129..129,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        155,
+                    ),
+                    body: ArenaIdxRange(
+                        129..129,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        156,
+                    ),
+                    body: ArenaIdxRange(
+                        129..129,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        157,
+                    ),
+                    body: ArenaIdxRange(
+                        166..173,
+                    ),
+                },
+                IfElseStmts {
+                    if_stmt: 174,
+                    elif_stmts: ArenaIdxRange(
+                        175..175,
+                    ),
+                    else_stmt: None,
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        200,
+                    ),
+                    body: ArenaIdxRange(
+                        175..175,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        141,
+                    ),
+                    body: ArenaIdxRange(
+                        175..193,
+                    ),
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -1203,14 +1649,16 @@ Ok(
                         140,
                     ),
                     body: ArenaIdxRange(
-                        132..135,
+                        193..194,
                     ),
                 },
-                Err {
+                Stmt {
                     token_group_idx: TokenGroupIdx(
-                        149,
+                        201,
                     ),
-                    error: ExcessiveIndent,
+                    body: ArenaIdxRange(
+                        194..194,
+                    ),
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
@@ -1663,7 +2111,7 @@ Ok(
                         131,
                     ),
                     body: ArenaIdxRange(
-                        135..140,
+                        194..199,
                     ),
                     accessibility: PublicUnder(
                         ModulePath(
@@ -1693,46 +2141,10 @@ Ok(
                         960,
                     ),
                 },
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        151,
-                    ),
-                    error: ExcessiveIndent,
-                },
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        152,
-                    ),
-                    error: ExcessiveIndent,
-                },
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        153,
-                    ),
-                    error: ExcessiveIndent,
-                },
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        154,
-                    ),
-                    error: ExcessiveIndent,
-                },
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        155,
-                    ),
-                    error: ExcessiveIndent,
-                },
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        156,
-                    ),
-                    error: ExcessiveIndent,
-                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            140..166,
+            199..219,
         ),
         use_expr_arena: Arena {
             data: [

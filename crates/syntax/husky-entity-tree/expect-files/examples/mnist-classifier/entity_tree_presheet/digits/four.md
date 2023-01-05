@@ -7,7 +7,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::digits::four`,
                 ),
-                ast_idx: 11,
+                ast_idx: 44,
                 path: FormPath(`mnist_classifier::digits::four::left_components`, `Feature`),
             },
             ModuleItem {
@@ -15,7 +15,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::digits::four`,
                 ),
-                ast_idx: 12,
+                ast_idx: 45,
                 path: FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Function`),
             },
             ModuleItem {
@@ -23,7 +23,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::digits::four`,
                 ),
-                ast_idx: 13,
+                ast_idx: 46,
                 path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Feature`),
             },
             ModuleItem {
@@ -31,7 +31,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::digits::four`,
                 ),
-                ast_idx: 14,
+                ast_idx: 47,
                 path: FormPath(`mnist_classifier::digits::four::components_max_heights`, `Feature`),
             },
             ModuleItem {
@@ -39,14 +39,30 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::digits::four`,
                 ),
-                ast_idx: 15,
+                ast_idx: 48,
                 path: FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
+            },
+            ModuleItem {
+                ident: `displacement_downwards`,
+                accessibility: PubicUnder(
+                    `mnist_classifier::digits::four`,
+                ),
+                ast_idx: 49,
+                path: FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Function`),
+            },
+            ModuleItem {
+                ident: `cc_box_heights`,
+                accessibility: PubicUnder(
+                    `mnist_classifier::digits::four`,
+                ),
+                ast_idx: 50,
+                path: FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Function`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(
             [
                 EntityUseTracker {
-                    ast_idx: 4,
+                    ast_idx: 37,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -66,7 +82,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 5,
+                    ast_idx: 38,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -86,7 +102,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 6,
+                    ast_idx: 39,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -106,7 +122,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 7,
+                    ast_idx: 40,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -126,7 +142,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 8,
+                    ast_idx: 41,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -146,7 +162,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 9,
+                    ast_idx: 42,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -166,7 +182,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 10,
+                    ast_idx: 43,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {

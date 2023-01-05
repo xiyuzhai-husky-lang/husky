@@ -37,6 +37,42 @@ Ok(
                     ),
                 ),
             ),
+            (
+                TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                Err(
+                    Expr(
+                        ExpectIdentifier(
+                            TokenIdx(
+                                489,
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            (
+                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                Err(
+                    Expr(
+                        ExpectIdentifier(
+                            TokenIdx(
+                                567,
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            (
+                TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                Err(
+                    Expr(
+                        ExpectIdentifier(
+                            TokenIdx(
+                                694,
+                            ),
+                        ),
+                    ),
+                ),
+            ),
         ],
     },
 )

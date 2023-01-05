@@ -7,7 +7,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::fermi`,
                 ),
-                ast_idx: 3,
+                ast_idx: 22,
                 path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
             },
             ModuleItem {
@@ -15,14 +15,14 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::fermi`,
                 ),
-                ast_idx: 20,
+                ast_idx: 24,
                 path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(
             [
                 EntityUseTracker {
-                    ast_idx: 2,
+                    ast_idx: 21,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {

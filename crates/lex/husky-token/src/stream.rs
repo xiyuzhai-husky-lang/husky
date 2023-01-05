@@ -46,12 +46,6 @@ impl<'a> Iterator for TokenStream<'a> {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
-pub enum IgnoreComment {
-    True,
-    False,
-}
-
 impl<'a> TokenStream<'a> {
     pub fn is_empty(&self) -> bool {
         self.next_relative >= self.tokens.len()
@@ -68,9 +62,8 @@ impl<'a> TokenStream<'a> {
     pub fn try_get_one_token_with_indexed<S>(
         &mut self,
         f: impl Fn(&Token) -> Option<S>,
-        ignore_comment: IgnoreComment,
     ) -> Option<(TokenIdx, S)> {
-        let (token_idx, token) = self.next_indexed(ignore_comment)?;
+        let (token_idx, token) = self.next_indexed()?;
         if let Some(s) = f(&token) {
             Some((token_idx, s))
         } else {
@@ -80,7 +73,7 @@ impl<'a> TokenStream<'a> {
     }
 
     pub fn try_eat_with(&mut self, predicate: impl FnOnce(&Token) -> bool) -> Option<&'a Token> {
-        let token = self.peek_noncomment_token()?;
+        let token = self.peek()?;
         if predicate(&token) {
             self.next();
             Some(token)
@@ -93,17 +86,6 @@ impl<'a> TokenStream<'a> {
         self.try_eat_with(|token_kind| token_kind == &Token::Punctuation(punc))
     }
 
-    pub fn eat_comments(&mut self) {
-        while let Some(token) = self.peek_raw() {
-            match token {
-                Token::Comment => {
-                    self.next();
-                }
-                _ => break,
-            }
-        }
-    }
-
     pub fn go_back(&mut self) {
         assert!(self.next_relative > 0);
         self.next_relative -= 1;
@@ -113,28 +95,13 @@ impl<'a> TokenStream<'a> {
         self.next_relative = state.raw() - self.base;
     }
 
-    pub fn next_indexed(&mut self, ignore_comment: IgnoreComment) -> Option<(TokenIdx, &'a Token)> {
-        match ignore_comment {
-            IgnoreComment::True => {
-                while self.next_relative < self.tokens.len() {
-                    let next = self.next_relative;
-                    self.next_relative += 1;
-                    match self.tokens[next] {
-                        Token::Comment => continue,
-                        _ => return Some((TokenIdx(self.base + next), &self.tokens[next])),
-                    }
-                }
-                None
-            }
-            IgnoreComment::False => {
-                if self.next_relative < self.tokens.len() {
-                    let next = self.next_relative;
-                    self.next_relative += 1;
-                    Some((TokenIdx(self.base + next), &self.tokens[next]))
-                } else {
-                    None
-                }
-            }
+    pub fn next_indexed(&mut self) -> Option<(TokenIdx, Token)> {
+        if self.next_relative < self.tokens.len() {
+            let next = self.next_relative;
+            self.next_relative += 1;
+            Some((TokenIdx(self.base + next), self.tokens[next]))
+        } else {
+            None
         }
     }
 
@@ -151,9 +118,7 @@ impl<'a> TokenStream<'a> {
         }
     }
 
-    /// this will eat all comments and stop at first noncomment
-    pub fn peek_noncomment_token(&mut self) -> Option<&'a Token> {
-        self.eat_comments();
+    pub fn peek(&mut self) -> Option<&'a Token> {
         self.peek_raw()
     }
 
@@ -169,7 +134,7 @@ impl<'a> TokenStream<'a> {
     }
 
     pub fn is_next_ident(&mut self) -> bool {
-        match self.peek_noncomment_token() {
+        match self.peek() {
             Some(token) => match token {
                 Token::Identifier(_) => true,
                 _ => false,
@@ -192,8 +157,8 @@ fn next_indexed_works() {
     ));
     let (token_group_idx, _) = token_sheet.token_group_iter().next().unwrap();
     let mut token_iter = token_sheet.token_group_token_stream(token_group_idx, None);
-    while let Some((token_idx, token)) = token_iter.next_indexed(IgnoreComment::False) {
-        assert_eq!(&token_sheet[token_idx], token)
+    while let Some((token_idx, token)) = token_iter.next_indexed() {
+        assert_eq!(token_sheet[token_idx], token)
     }
 }
 

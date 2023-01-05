@@ -48,13 +48,9 @@ where
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
-        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed(IgnoreComment::True) {
+        if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
-                Token::Identifier(ident) => Ok(Some(IdentifierToken {
-                    ident: *ident,
-                    token_idx,
-                })),
-                Token::Comment => unreachable!(),
+                Token::Identifier(ident) => Ok(Some(IdentifierToken { ident, token_idx })),
                 Token::Err(ref e) => Err(e.clone().into()),
                 Token::Punctuation(_)
                 | Token::WordOpr(_)

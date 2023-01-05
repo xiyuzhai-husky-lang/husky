@@ -7,7 +7,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::raw_contour`,
                 ),
-                ast_idx: 144,
+                ast_idx: 203,
                 path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
             },
             ModuleItem {
@@ -15,7 +15,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::raw_contour`,
                 ),
-                ast_idx: 146,
+                ast_idx: 205,
                 path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
             },
             ModuleItem {
@@ -23,7 +23,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::raw_contour`,
                 ),
-                ast_idx: 151,
+                ast_idx: 210,
                 path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
             },
             ModuleItem {
@@ -31,7 +31,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::raw_contour`,
                 ),
-                ast_idx: 152,
+                ast_idx: 211,
                 path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
             },
             ModuleItem {
@@ -39,7 +39,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::raw_contour`,
                 ),
-                ast_idx: 153,
+                ast_idx: 212,
                 path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
             },
             ModuleItem {
@@ -47,7 +47,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::raw_contour`,
                 ),
-                ast_idx: 154,
+                ast_idx: 213,
                 path: FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
             },
             ModuleItem {
@@ -55,7 +55,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::raw_contour`,
                 ),
-                ast_idx: 155,
+                ast_idx: 214,
                 path: FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
             },
             ModuleItem {
@@ -63,7 +63,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::raw_contour`,
                 ),
-                ast_idx: 156,
+                ast_idx: 215,
                 path: FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
             },
             ModuleItem {
@@ -71,7 +71,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::raw_contour`,
                 ),
-                ast_idx: 157,
+                ast_idx: 216,
                 path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
             },
             ModuleItem {
@@ -79,7 +79,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::raw_contour`,
                 ),
-                ast_idx: 158,
+                ast_idx: 217,
                 path: FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
             },
             ModuleItem {
@@ -87,14 +87,14 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::raw_contour`,
                 ),
-                ast_idx: 159,
+                ast_idx: 218,
                 path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(
             [
                 EntityUseTracker {
-                    ast_idx: 140,
+                    ast_idx: 199,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -114,7 +114,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 141,
+                    ast_idx: 200,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -134,7 +134,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 142,
+                    ast_idx: 201,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -154,7 +154,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 143,
+                    ast_idx: 202,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {

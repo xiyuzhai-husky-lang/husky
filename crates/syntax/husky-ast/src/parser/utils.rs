@@ -13,13 +13,13 @@ where
     fn module_path(&self) -> ModulePath;
 
     fn parse_accessibility(&mut self) -> AstResult<Accessibility> {
-        Ok(match self.borrow_mut().peek_noncomment_token().unwrap() {
+        let token_stream = &mut self.borrow_mut();
+        Ok(match token_stream.peek().unwrap() {
             Token::Attr(decor) => match decor {
                 AttributeKeyword::Pub => {
-                    self.borrow_mut().next();
-                    match self
-                        .borrow_mut()
-                        .peek_noncomment_token()
+                    token_stream.next();
+                    match token_stream
+                        .peek()
                         .ok_or(AstError::ExpectParBraOrDecoratorOrIdentifier(None))?
                     {
                         Token::Punctuation(Punctuation::Bra(Bracket::Par)) => todo!(),
@@ -38,45 +38,11 @@ where
     fn take_entity_kind_keyword(&mut self) -> AstResult<Keyword> {
         let (idx, token) = self
             .borrow_mut()
-            .next_indexed(IgnoreComment::True)
+            .next_indexed()
             .ok_or(AstError::ExpectEntityKeyword)?;
         Ok(match token {
             Token::Attr(_) => self.take_entity_kind_keyword()?,
-            Token::Keyword(kw) => *kw,
-            // match kw {
-            //     Keyword::Paradigm(_) | Keyword::Visual => match self.ast_parent() {
-            //         AstContextInside::Trait { .. } | AstContextInside::Impl => {
-            //             EntityKind::AssociatedItem
-            //         }
-            //         AstContextInside::Form | AstContextInside::Module => {
-            //             EntityKind::ModuleItem(ModuleItemKind::Form)
-            //         }
-            //         AstContextInside::MatchStmt => todo!(),
-            //         AstContextInside::NoChild => todo!(),
-            //         AstContextInside::EnumLikeType { module_item_path } => todo!(),
-            //         AstContextInside::OtherType { module_item_path } => todo!(),
-            //     },
-            //     Keyword::Type(ty_kw) => {
-            //         let ty_kind = match ty_kw {
-            //             TypeKeyword::Type => TypeKind::Form,
-            //             TypeKeyword::Struct => TypeKind::Struct,
-            //             TypeKeyword::Enum => TypeKind::Enum,
-            //             TypeKeyword::Record => TypeKind::Record,
-            //             TypeKeyword::Structure => TypeKind::Structure,
-            //             TypeKeyword::Inductive => TypeKind::Inductive,
-            //         };
-            //         EntityKind::ModuleItem(ModuleItemKind::Type(ty_kind))
-            //     }
-            //     Keyword::Trait => EntityKind::ModuleItem(ModuleItemKind::Trait),
-            //     Keyword::Mod => EntityKind::Module,
-            //     Keyword::Impl | Keyword::End(_) => return Err(AstError::ExpectEntityKeyword),
-            //     Keyword::Config(_)
-            //     | Keyword::Stmt(_)
-            //     | Keyword::Liason(_)
-            //     | Keyword::Main
-            //     | Keyword::Use => unreachable!(),
-            // },
-            Token::Comment => todo!(),
+            Token::Keyword(kw) => kw,
             _ => return Err(AstError::ExpectEntityKeyword),
         })
     }
@@ -84,7 +50,7 @@ where
     fn parse_is_generic(&mut self) -> bool {
         let Some (token) = &self
             .token_stream_mut()
-            .peek_noncomment_token() else { return false };
+            .peek() else { return false };
         match token {
             Token::Punctuation(Punctuation::LAngle) => true,
             _ => false,

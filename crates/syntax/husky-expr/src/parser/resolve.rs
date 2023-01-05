@@ -11,29 +11,29 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
     pub(crate) fn resolve_token(
         &mut self,
         token_idx: TokenIdx,
-        token: &Token,
+        token: Token,
     ) -> TokenResolveResult<ResolvedToken> {
         TokenResolveResult::Continue(match token {
             Token::Attr(_) => todo!(),
             Token::Keyword(keyword) => {
                 ResolvedToken::Atom(Expr::Err(ExprError::UnexpectedKeyword(token_idx)))
             }
-            Token::Identifier(ident) => self.resolve_ident(*ident),
+            Token::Identifier(ident) => self.resolve_ident(ident),
             Token::Punctuation(punc) => match punc {
-                Punctuation::Binary(binary) => ResolvedToken::BinaryOpr(token_idx, *binary),
-                Punctuation::Bra(bra) => ResolvedToken::Bra(token_idx, *bra),
+                Punctuation::Binary(binary) => ResolvedToken::BinaryOpr(token_idx, binary),
+                Punctuation::Bra(bra) => ResolvedToken::Bra(token_idx, bra),
                 Punctuation::Ket(ket) => match self.last_bra() {
                     Some(bra) => {
-                        if bra != *ket {
+                        if bra != ket {
                             p!(bra, ket);
                             p!(self.unfinished_exprs());
                             todo!()
                         }
-                        ResolvedToken::Ket(token_idx, *ket)
+                        ResolvedToken::Ket(token_idx, ket)
                     }
                     None => return TokenResolveResult::Break(()),
                 },
-                Punctuation::Suffix(suffix) => ResolvedToken::SuffixOpr(token_idx, *suffix),
+                Punctuation::Suffix(suffix) => ResolvedToken::SuffixOpr(token_idx, suffix),
                 Punctuation::LAngle => match self.top_expr() {
                     TopExprRef::Unfinished(_) => todo!(),
                     TopExprRef::Finished(expr) => {
@@ -72,7 +72,7 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
                 Punctuation::DoubleVertical => todo!(),
                 Punctuation::BitNot => todo!(),
                 Punctuation::Dot => ResolvedToken::Dot(token_idx),
-                Punctuation::Colon => match self.peek_noncomment_token() {
+                Punctuation::Colon => match self.peek() {
                     Some(_) => todo!(),
                     None => return TokenResolveResult::Break(()),
                 },
@@ -131,7 +131,6 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
                 WordOpr::Be => ResolvedToken::Be(token_idx),
             },
             Token::Literal(_) => ResolvedToken::Atom(Expr::Literal(token_idx)),
-            Token::Comment => unreachable!(),
             Token::Err(ref error) => ResolvedToken::Atom(Expr::Err(error.clone().into())),
         })
     }

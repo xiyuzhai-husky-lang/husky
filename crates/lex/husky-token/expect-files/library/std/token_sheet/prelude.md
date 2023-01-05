@@ -1,7 +1,8 @@
 Ok(
     RangedTokenSheet {
         tokens: [],
-        token_ranges: [],
         group_starts: [],
+        token_ranges: [],
+        comments: [],
     },
 )

@@ -2,7 +2,7 @@ use crate::*;
 
 use thiserror::Error;
 
-#[derive(Debug, Error, PartialEq, Eq, Clone)]
+#[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
 pub enum TokenError {
     #[error("incomplet string literal")]
     IncompleteStringLiteral,

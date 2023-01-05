@@ -134,7 +134,6 @@ Ok(
             None,
             None,
             None,
-            None,
             Entity(
                 ModuleItem {
                     module_item_kind: Form(
@@ -192,8 +191,7 @@ Ok(
             None,
             None,
             None,
-            None,
-            None,
+            Method,
             None,
             None,
             None,

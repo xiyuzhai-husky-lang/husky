@@ -15,18 +15,21 @@ RangedTokenSheet {
     tokens: [
         Literal(
             String(
-                StringLiteral {
-                    data: "haha",
-                },
+                StringLiteral(
+                    Id {
+                        value: 1,
+                    },
+                ),
             ),
         ),
-    ],
-    token_ranges: [
-        [1:1, 1:7),
     ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:7),
+    ],
+    comments: [],
 }
 ```
 
@@ -45,18 +48,21 @@ RangedTokenSheet {
     tokens: [
         Literal(
             String(
-                StringLiteral {
-                    data: "\n",
-                },
+                StringLiteral(
+                    Id {
+                        value: 1,
+                    },
+                ),
             ),
         ),
-    ],
-    token_ranges: [
-        [1:1, 1:5),
     ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:5),
+    ],
+    comments: [],
 }
 ```
 
@@ -75,18 +81,21 @@ RangedTokenSheet {
     tokens: [
         Literal(
             String(
-                StringLiteral {
-                    data: "\t",
-                },
+                StringLiteral(
+                    Id {
+                        value: 1,
+                    },
+                ),
             ),
         ),
-    ],
-    token_ranges: [
-        [1:1, 1:5),
     ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:5),
+    ],
+    comments: [],
 }
 ```
 
@@ -105,18 +114,21 @@ RangedTokenSheet {
     tokens: [
         Literal(
             String(
-                StringLiteral {
-                    data: "\\",
-                },
+                StringLiteral(
+                    Id {
+                        value: 1,
+                    },
+                ),
             ),
         ),
-    ],
-    token_ranges: [
-        [1:1, 1:5),
     ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:5),
+    ],
+    comments: [],
 }
 ```
 
@@ -135,18 +147,21 @@ RangedTokenSheet {
     tokens: [
         Literal(
             String(
-                StringLiteral {
-                    data: "\"",
-                },
+                StringLiteral(
+                    Id {
+                        value: 1,
+                    },
+                ),
             ),
         ),
-    ],
-    token_ranges: [
-        [1:1, 1:5),
     ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:5),
+    ],
+    comments: [],
 }
 ```
 
@@ -165,17 +180,20 @@ RangedTokenSheet {
     tokens: [
         Literal(
             String(
-                StringLiteral {
-                    data: "\r",
-                },
+                StringLiteral(
+                    Id {
+                        value: 1,
+                    },
+                ),
             ),
         ),
-    ],
-    token_ranges: [
-        [1:1, 1:5),
     ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:5),
+    ],
+    comments: [],
 }
 ```

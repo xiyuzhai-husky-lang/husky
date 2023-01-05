@@ -490,18 +490,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "",
+                                value: "This is a paradigm",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 51,
-                                    character: 4,
+                                    line: 59,
+                                    character: 0,
                                 },
                                 end: Position {
-                                    line: 51,
-                                    character: 29,
+                                    line: 59,
+                                    character: 4,
                                 },
                             },
                         ),
@@ -526,12 +526,12 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 59,
-                                    character: 40,
+                                    line: 60,
+                                    character: 24,
                                 },
                                 end: Position {
-                                    line: 59,
-                                    character: 41,
+                                    line: 60,
+                                    character: 25,
                                 },
                             },
                         ),
@@ -556,12 +556,12 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 62,
-                                    character: 6,
+                                    line: 64,
+                                    character: 17,
                                 },
                                 end: Position {
-                                    line: 62,
-                                    character: 7,
+                                    line: 64,
+                                    character: 33,
                                 },
                             },
                         ),
@@ -586,12 +586,12 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 65,
-                                    character: 9,
+                                    line: 66,
+                                    character: 17,
                                 },
                                 end: Position {
-                                    line: 65,
-                                    character: 10,
+                                    line: 66,
+                                    character: 18,
                                 },
                             },
                         ),
@@ -616,12 +616,12 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 67,
-                                    character: 42,
+                                    line: 70,
+                                    character: 33,
                                 },
                                 end: Position {
-                                    line: 67,
-                                    character: 43,
+                                    line: 70,
+                                    character: 34,
                                 },
                             },
                         ),

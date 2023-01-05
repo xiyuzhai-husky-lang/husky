@@ -33,7 +33,6 @@ impl Token {
             Token::Punctuation(punc) => punc.left_convexity(),
             Token::WordOpr(_) => todo!(),
             Token::Literal(_) => Some(Convexity::Convex),
-            Token::Comment => todo!(),
             Token::Err(_) => unreachable!(),
         }
     }
@@ -70,7 +69,6 @@ impl Token {
             },
             Token::WordOpr(_) => todo!(),
             Token::Literal(_) => Convexity::Convex,
-            Token::Comment => todo!(),
             Token::Err(_) => unreachable!(),
         }
     }

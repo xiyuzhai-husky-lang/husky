@@ -7,7 +7,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::connected_component`,
                 ),
-                ast_idx: 10,
+                ast_idx: 116,
                 path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
             },
             ModuleItem {
@@ -15,7 +15,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::connected_component`,
                 ),
-                ast_idx: 11,
+                ast_idx: 117,
                 path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
             },
             ModuleItem {
@@ -23,7 +23,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::connected_component`,
                 ),
-                ast_idx: 12,
+                ast_idx: 118,
                 path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
             },
             ModuleItem {
@@ -31,14 +31,30 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::connected_component`,
                 ),
-                ast_idx: 14,
+                ast_idx: 119,
                 path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+            },
+            ModuleItem {
+                ident: `horizontal_extend`,
+                accessibility: PubicUnder(
+                    `mnist_classifier::connected_component`,
+                ),
+                ast_idx: 120,
+                path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+            },
+            ModuleItem {
+                ident: `find_connected_components`,
+                accessibility: PubicUnder(
+                    `mnist_classifier::connected_component`,
+                ),
+                ast_idx: 121,
+                path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
             },
         ],
         entity_use_roots: EntityUseExprTrackers(
             [
                 EntityUseTracker {
-                    ast_idx: 8,
+                    ast_idx: 114,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -58,7 +74,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 9,
+                    ast_idx: 115,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {

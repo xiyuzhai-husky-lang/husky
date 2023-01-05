@@ -497,11 +497,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 37,
-                                    character: 12,
+                                    character: 37,
                                 },
                                 end: Position {
                                     line: 37,
-                                    character: 37,
+                                    character: 38,
                                 },
                             },
                         ),
@@ -527,11 +527,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 38,
-                                    character: 43,
+                                    character: 52,
                                 },
                                 end: Position {
                                     line: 38,
-                                    character: 52,
+                                    character: 53,
                                 },
                             },
                         ),
@@ -557,11 +557,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 39,
-                                    character: 37,
+                                    character: 39,
                                 },
                                 end: Position {
                                     line: 39,
-                                    character: 38,
+                                    character: 40,
                                 },
                             },
                         ),
@@ -587,11 +587,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 40,
-                                    character: 46,
+                                    character: 47,
                                 },
                                 end: Position {
                                     line: 40,
-                                    character: 47,
+                                    character: 51,
                                 },
                             },
                         ),
@@ -617,41 +617,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 42,
-                                    character: 10,
+                                    character: 13,
                                 },
                                 end: Position {
                                     line: 42,
-                                    character: 11,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                294,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 45,
                                     character: 14,
-                                },
-                                end: Position {
-                                    line: 45,
-                                    character: 16,
                                 },
                             },
                         ),

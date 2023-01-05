@@ -34,7 +34,13 @@ use tests::*;
 use tokenize::*;
 
 #[salsa::jar(db = TokenDb)]
-pub struct TokenJar(Snippet, token_sheet, reserved_words, tokenize_snippet);
+pub struct TokenJar(
+    StringLiteral,
+    Snippet,
+    token_sheet,
+    reserved_words,
+    tokenize_snippet,
+);
 
 impl Token {
     // pub fn new(i: u32, start: u32, end: u32, kind: Token) -> Token {

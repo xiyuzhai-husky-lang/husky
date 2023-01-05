@@ -17,11 +17,12 @@ RangedTokenSheet {
             UnexpectedCharAfterBackslash,
         ),
     ],
-    token_ranges: [
-        [1:1, 1:5),
-    ],
     group_starts: [
         0,
     ],
+    token_ranges: [
+        [1:1, 1:5),
+    ],
+    comments: [],
 }
 ```
