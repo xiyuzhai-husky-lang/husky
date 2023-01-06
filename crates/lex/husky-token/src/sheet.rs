@@ -13,6 +13,14 @@ impl TokenIdx {
     }
 }
 
+impl std::ops::Add<usize> for TokenIdx {
+    type Output = Self;
+
+    fn add(self, rhs: usize) -> Self::Output {
+        Self(self.0 + rhs)
+    }
+}
+
 impl std::ops::Index<TokenIdx> for TokenSheetData {
     type Output = Token;
 
@@ -132,6 +140,14 @@ impl Comment {
             range,
         }
     }
+
+    pub fn next_token_idx(&self) -> TokenIdx {
+        self.next_token_idx
+    }
+
+    pub fn range(&self) -> TextRange {
+        self.range
+    }
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -156,6 +172,16 @@ impl RangedTokenSheet {
         (0..tokens.len())
             .into_iter()
             .map(|i| (&self.token_ranges[i], &tokens[i]))
+    }
+
+    pub fn indexed_ranged_token_iter<'a>(
+        &'a self,
+        db: &'a dyn TokenDb,
+    ) -> impl Iterator<Item = (TokenIdx, &'a TextRange, &'a Token)> + 'a {
+        let tokens = self.tokens(db);
+        (0..tokens.len())
+            .into_iter()
+            .map(|i| (TokenIdx(i), &self.token_ranges[i], &tokens[i]))
     }
 
     pub fn token_index_iter<'a>(&'a self) -> impl Iterator<Item = TokenIdx> + 'a {
@@ -190,6 +216,10 @@ impl RangedTokenSheet {
 
     pub(crate) fn token_sheet(&self) -> TokenSheet {
         self.token_sheet
+    }
+
+    pub fn comments(&self) -> &[Comment] {
+        self.comments.as_ref()
     }
 }
 
