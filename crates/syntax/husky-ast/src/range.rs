@@ -84,7 +84,7 @@ impl<'a> AstRangeCalculator<'a> {
             } => self
                 .token_sheet_data
                 .token_group_token_idx_range(*token_group_idx),
-            Ast::BasicStmt {
+            Ast::BasicStmtOrBranch {
                 token_group_idx,
                 body,
                 ..
@@ -118,9 +118,9 @@ impl<'a> AstRangeCalculator<'a> {
                 (start, end).into()
             }
             Ast::IfElseStmts {
-                if_stmt,
-                elif_stmts,
-                else_stmt,
+                if_branch: if_stmt,
+                elif_branches: elif_stmts,
+                else_branch: else_stmt,
             } => {
                 let if_stmt_token_idx_range = self.ast_ranges[if_stmt.raw()].token_idx_range();
                 let start = if_stmt_token_idx_range.start();

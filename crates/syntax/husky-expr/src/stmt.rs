@@ -59,6 +59,61 @@ pub enum Stmt {
         eol_colon: ExprResult<EolColonToken>,
         block: ExprResult<StmtIdxRange>,
     },
-    IfElse {},
+    IfElse {
+        if_branch: IfBranch,
+        elif_branches: Vec<ElifBranch>,
+        else_branch: Option<ElseBranch>,
+    },
     Match {},
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct IfBranch {
+    pub if_token: IfToken,
+    pub condition: ExprResult<ExprIdx>,
+    pub eol_colon: ExprResult<EolColonToken>,
+    pub block: ExprResult<StmtIdxRange>,
+}
+
+impl IfBranch {
+    pub fn condition(&self) -> Result<&ArenaIdx<Expr>, &ExprError> {
+        self.condition.as_ref()
+    }
+
+    pub fn eol_colon(&self) -> Result<&EolColonToken, &ExprError> {
+        self.eol_colon.as_ref()
+    }
+
+    pub fn block(&self) -> Result<&ArenaIdxRange<Stmt>, &ExprError> {
+        self.block.as_ref()
+    }
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct ElifBranch {
+    pub elif_token: ElifToken,
+    pub condition: ExprResult<ExprIdx>,
+    pub eol_colon: ExprResult<EolColonToken>,
+    pub block: ExprResult<StmtIdxRange>,
+}
+
+impl ElifBranch {
+    pub fn condition(&self) -> Result<&ArenaIdx<Expr>, &ExprError> {
+        self.condition.as_ref()
+    }
+
+    pub fn eol_colon(&self) -> Result<&EolColonToken, &ExprError> {
+        self.eol_colon.as_ref()
+    }
+
+    pub fn block(&self) -> Result<&ArenaIdxRange<Stmt>, &ExprError> {
+        self.block.as_ref()
+    }
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct ElseBranch {
+    pub else_token: ElseToken,
+    pub eol_colon: ExprResult<EolColonToken>,
+    pub block: ExprResult<StmtIdxRange>,
 }

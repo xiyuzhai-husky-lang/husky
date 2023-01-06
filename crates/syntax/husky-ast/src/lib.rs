@@ -44,14 +44,14 @@ pub enum Ast {
     Decor {
         token_group_idx: TokenGroupIdx,
     },
-    BasicStmt {
+    BasicStmtOrBranch {
         token_group_idx: TokenGroupIdx,
         body: AstIdxRange,
     },
     IfElseStmts {
-        if_stmt: AstIdx,
-        elif_stmts: AstIdxRange,
-        else_stmt: Option<AstIdx>,
+        if_branch: AstIdx,
+        elif_branches: AstIdxRange,
+        else_branch: Option<AstIdx>,
     },
     MatchStmts {
         pattern_stmt: AstIdx,
@@ -201,7 +201,7 @@ impl<Db: AstDb> salsa::DebugWithDb<Db> for Ast {
                 .debug_struct("Decor")
                 .field("token_group_idx", token_group_idx)
                 .finish(),
-            Ast::BasicStmt {
+            Ast::BasicStmtOrBranch {
                 token_group_idx,
                 body,
             } => f
@@ -210,9 +210,9 @@ impl<Db: AstDb> salsa::DebugWithDb<Db> for Ast {
                 .field("body", body)
                 .finish(),
             Ast::IfElseStmts {
-                if_stmt,
-                elif_stmts,
-                else_stmt,
+                if_branch: if_stmt,
+                elif_branches: elif_stmts,
+                else_branch: else_stmt,
             } => f
                 .debug_struct("IfElseStmts")
                 .field("if_stmt", if_stmt)

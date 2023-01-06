@@ -884,25 +884,53 @@ Ok(
             None,
             None,
             None,
+            Variable {
+                variable_idx: Some(
+                    0,
+                ),
+            },
+            None,
+            None,
+            None,
+            Variable {
+                variable_idx: Some(
+                    1,
+                ),
+            },
+            None,
+            Variable {
+                variable_idx: Some(
+                    0,
+                ),
+            },
+            None,
+            Variable {
+                variable_idx: Some(
+                    3,
+                ),
+            },
+            None,
+            None,
+            Variable {
+                variable_idx: Some(
+                    4,
+                ),
+            },
+            None,
+            Variable {
+                variable_idx: Some(
+                    2,
+                ),
+            },
             None,
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Variable {
+                variable_idx: Some(
+                    0,
+                ),
+            },
             None,
             None,
             None,
@@ -963,16 +991,36 @@ Ok(
             None,
             None,
             None,
+            Variable {
+                variable_idx: Some(
+                    3,
+                ),
+            },
+            None,
+            Variable {
+                variable_idx: Some(
+                    2,
+                ),
+            },
+            None,
+            Variable {
+                variable_idx: Some(
+                    5,
+                ),
+            },
             None,
             None,
+            Variable {
+                variable_idx: Some(
+                    6,
+                ),
+            },
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Variable {
+                variable_idx: Some(
+                    4,
+                ),
+            },
             None,
             None,
             None,

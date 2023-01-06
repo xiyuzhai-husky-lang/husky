@@ -139,9 +139,9 @@ impl<'a> AstParser<'a> {
 
     fn parse_if_else_stmts(&mut self, idx: TokenGroupIdx, context: &Context) -> Ast {
         Ast::IfElseStmts {
-            if_stmt: self.alloc_stmt(idx, &context),
-            elif_stmts: self.alloc_elif_stmts(context.subcontext(AstContextKind::InsideForm)),
-            else_stmt: self.alloc_else_stmt(&context),
+            if_branch: self.alloc_stmt(idx, &context),
+            elif_branches: self.alloc_elif_stmts(context.subcontext(AstContextKind::InsideForm)),
+            else_branch: self.alloc_else_stmt(&context),
         }
     }
 
@@ -189,7 +189,7 @@ impl<'a> AstParser<'a> {
 
     fn parse_stmt(&mut self, token_group_idx: TokenGroupIdx, context: &Context) -> Ast {
         let body = self.parse_asts(context.subcontext(AstContextKind::InsideForm));
-        Ast::BasicStmt {
+        Ast::BasicStmtOrBranch {
             token_group_idx,
             body,
         }

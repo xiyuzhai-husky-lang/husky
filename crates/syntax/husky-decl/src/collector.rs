@@ -102,7 +102,7 @@ impl<'a> DeclCollector<'a> {
             | Ast::Err { .. }
             | Ast::Use { .. }
             | Ast::Decor { .. }
-            | Ast::BasicStmt { .. }
+            | Ast::BasicStmtOrBranch { .. }
             | Ast::IfElseStmts { .. }
             | Ast::MatchStmts { .. }
             | Ast::ModuleItemVariant { .. }
