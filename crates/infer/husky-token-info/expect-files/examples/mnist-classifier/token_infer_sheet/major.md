@@ -59,12 +59,16 @@ Ok(
             None,
             None,
             None,
+            Variable {
+                variable_idx: None,
+            },
             None,
             None,
             None,
             None,
-            None,
-            None,
+            Variable {
+                variable_idx: None,
+            },
             None,
             None,
             None,
@@ -101,7 +105,11 @@ Ok(
             None,
             None,
             None,
-            None,
+            Variable {
+                variable_idx: Some(
+                    2,
+                ),
+            },
             None,
             None,
             Entity(
@@ -117,7 +125,9 @@ Ok(
             None,
             None,
             None,
-            None,
+            Variable {
+                variable_idx: None,
+            },
             None,
             None,
             None,
@@ -129,7 +139,11 @@ Ok(
             None,
             None,
             None,
-            None,
+            Variable {
+                variable_idx: Some(
+                    0,
+                ),
+            },
             None,
             None,
             None,
@@ -138,7 +152,11 @@ Ok(
             None,
             Field,
             None,
-            None,
+            Variable {
+                variable_idx: Some(
+                    0,
+                ),
+            },
             None,
             None,
             None,

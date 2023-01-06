@@ -11,7 +11,10 @@ pub enum PatternExpr {
     /// example: `1`
     Literal(LiteralData),
     /// example: `a`
-    Identifier { ident_token: IdentifierToken },
+    Identifier {
+        ident_token: IdentifierToken,
+        liason: PatternLiason,
+    },
     /// example: `A::B`
     Entity(EntityPath),
     /// example: `(a, b)`
@@ -39,6 +42,12 @@ pub enum PatternExpr {
         dot_dot_token: DotDotToken,
         end: PatternExprIdx,
     },
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum PatternLiason {
+    None,
+    Mut,
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -73,7 +82,10 @@ fn collect_symbols(
 ) -> IdentPairMap<PatternSymbolIdx> {
     match pattern_expr {
         PatternExpr::Literal(_) => Default::default(),
-        PatternExpr::Identifier { ident_token } => [(
+        PatternExpr::Identifier {
+            ident_token,
+            liason,
+        } => [(
             ident_token.ident(),
             pattern_symbol_arena.alloc_one(PatternSymbol::Atom(pattern_expr_idx)),
         )]
@@ -160,7 +172,10 @@ impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for ParameterPattern {
         if let Some(ident_token) = ctx.parse::<IdentifierToken>()? {
             Ok(Some(ParameterPattern {
                 pattern_expr_idx: ctx.alloc_pattern_expr(
-                    PatternExpr::Identifier { ident_token },
+                    PatternExpr::Identifier {
+                        ident_token,
+                        liason: PatternLiason::None,
+                    },
                     PatternInfo::Parameter,
                 ),
             }))
@@ -235,8 +250,13 @@ impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for BePattern {
         // ad hoc
         if let Some(ident_token) = ctx.parse::<IdentifierToken>()? {
             Ok(Some(BePattern {
-                pattern_expr_idx: ctx
-                    .alloc_pattern_expr(PatternExpr::Identifier { ident_token }, PatternInfo::Be),
+                pattern_expr_idx: ctx.alloc_pattern_expr(
+                    PatternExpr::Identifier {
+                        ident_token,
+                        liason: PatternLiason::None,
+                    },
+                    PatternInfo::Be,
+                ),
             }))
         } else {
             Ok(None)

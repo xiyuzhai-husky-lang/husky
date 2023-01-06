@@ -149,14 +149,23 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         &mut self,
         env: PatternInfo,
     ) -> ExprResult<Option<PatternExprIdx>> {
-        if let Some(ident_token) = self.parse::<IdentifierToken>()? {
-            let pattern_expr_idx =
-                self.alloc_pattern_expr(PatternExpr::Identifier { ident_token }, env);
-            // let variables = symbols
-            //     .iter()
-            //     .map(|(ident, _)| (*ident, self.define_variable(*ident, todo!())))
-            //     .collect();
-            Ok(Some(pattern_expr_idx))
+        if let Some(mut_token) = self.parse::<MutToken>()? {
+            let ident_token = self.parse_expected::<IdentifierToken>()?;
+            Ok(Some(self.alloc_pattern_expr(
+                PatternExpr::Identifier {
+                    ident_token,
+                    liason: PatternLiason::None,
+                },
+                env,
+            )))
+        } else if let Some(ident_token) = self.parse::<IdentifierToken>()? {
+            Ok(Some(self.alloc_pattern_expr(
+                PatternExpr::Identifier {
+                    ident_token,
+                    liason: PatternLiason::None,
+                },
+                env,
+            )))
         } else {
             Ok(None)
         }
