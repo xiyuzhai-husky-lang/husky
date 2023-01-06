@@ -430,7 +430,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 448;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 366,\n            },\n        ),\n    ),\n);\n\ntoken_info = Variable {\n    expr_sheet: ExprSheet(\n        Id {\n            value: 69,\n        },\n    ),\n    variable_idx: 2,\n};\n\nVariable {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 361,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        165,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                552,\n            ),\n        ),\n    ),\n    kind: Let {\n        pattern_symbol: 2,\n    },\n}\n",
+                                value: "\ntoken_idx = 448;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 366,\n            },\n        ),\n    ),\n);\n\ntoken_info = Variable {\n    variable_sheet: VariableSheet(\n        Id {\n            value: 22,\n        },\n    ),\n    variable_idx: 2,\n};\n\nVariable {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 361,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        165,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                552,\n            ),\n        ),\n    ),\n    kind: Let {\n        pattern_symbol: 2,\n    },\n}\n",
                             },
                         ),
                         range: Some(

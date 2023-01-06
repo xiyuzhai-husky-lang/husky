@@ -1,10 +1,16 @@
 use crate::*;
 
-#[derive(Default, Debug, PartialEq, Eq)]
+#[salsa::tracked(jar = ExprJar)]
 pub struct VariableSheet {
+    #[return_ref]
+    pub data: VariableSheetData,
+}
+
+#[derive(Default, Debug, PartialEq, Eq)]
+pub struct VariableSheetData {
     arena: VariableArena,
 }
-impl VariableSheet {
+impl VariableSheetData {
     #[inline(always)]
     pub(crate) fn define_variables(&mut self, variables: Vec<Variable>) -> ArenaIdxRange<Variable> {
         self.arena.alloc_batch(variables)
@@ -36,7 +42,7 @@ pub type VariableArena = Arena<Variable>;
 pub type VariableIdx = ArenaIdx<Variable>;
 pub type VariableIdxRange = ArenaIdxRange<Variable>;
 
-impl std::ops::Index<VariableIdx> for VariableSheet {
+impl std::ops::Index<VariableIdx> for VariableSheetData {
     type Output = Variable;
 
     fn index(&self, index: VariableIdx) -> &Self::Output {

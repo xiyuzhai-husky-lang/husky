@@ -130,9 +130,9 @@ Ok(
             None,
             None,
             Variable {
-                expr_sheet: ExprSheet(
+                variable_sheet: VariableSheet(
                     Id {
-                        value: 37,
+                        value: 7,
                     },
                 ),
                 variable_idx: 0,

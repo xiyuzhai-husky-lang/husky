@@ -1,6 +1,6 @@
 use husky_entity_path::EntityPath;
 use husky_entity_taxonomy::EntityKind;
-use husky_expr::{ExprSheet, VariableIdx};
+use husky_expr::{ExprSheet, VariableIdx, VariableSheet};
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum TokenInfo {
@@ -9,7 +9,7 @@ pub enum TokenInfo {
     ImplicitParameter,
     Parameter,
     Variable {
-        expr_sheet: ExprSheet,
+        variable_sheet: VariableSheet,
         variable_idx: VariableIdx,
     },
     Field,

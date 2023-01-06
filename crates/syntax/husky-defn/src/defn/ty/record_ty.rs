@@ -4,6 +4,5 @@ use crate::*;
 pub struct RecordTypeDefn {
     #[id]
     pub path: TypePath,
-    pub expr_sheet: ExprSheet,
     pub decl: RecordTypeDecl,
 }

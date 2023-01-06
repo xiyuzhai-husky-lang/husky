@@ -240,9 +240,9 @@ Ok(
             None,
             None,
             Variable {
-                expr_sheet: ExprSheet(
+                variable_sheet: VariableSheet(
                     Id {
-                        value: 25,
+                        value: 1,
                     },
                 ),
                 variable_idx: 0,
@@ -273,9 +273,9 @@ Ok(
             None,
             None,
             Variable {
-                expr_sheet: ExprSheet(
+                variable_sheet: VariableSheet(
                     Id {
-                        value: 25,
+                        value: 1,
                     },
                 ),
                 variable_idx: 0,
@@ -283,9 +283,9 @@ Ok(
             None,
             None,
             Variable {
-                expr_sheet: ExprSheet(
+                variable_sheet: VariableSheet(
                     Id {
-                        value: 25,
+                        value: 1,
                     },
                 ),
                 variable_idx: 0,
@@ -328,9 +328,9 @@ Ok(
             None,
             None,
             Variable {
-                expr_sheet: ExprSheet(
+                variable_sheet: VariableSheet(
                     Id {
-                        value: 26,
+                        value: 2,
                     },
                 ),
                 variable_idx: 0,
@@ -352,9 +352,9 @@ Ok(
             None,
             None,
             Variable {
-                expr_sheet: ExprSheet(
+                variable_sheet: VariableSheet(
                     Id {
-                        value: 26,
+                        value: 2,
                     },
                 ),
                 variable_idx: 0,
@@ -362,9 +362,9 @@ Ok(
             None,
             None,
             Variable {
-                expr_sheet: ExprSheet(
+                variable_sheet: VariableSheet(
                     Id {
-                        value: 26,
+                        value: 2,
                     },
                 ),
                 variable_idx: 0,

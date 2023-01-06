@@ -31,7 +31,7 @@ use precedence::*;
 use snippet::*;
 
 #[salsa::jar(db = ExprDb)]
-pub struct ExprJar(ExprSheet, parse_expr_from_snippet);
+pub struct ExprJar(ExprSheet, VariableSheet, parse_expr_from_snippet);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum BaseEntityPath {

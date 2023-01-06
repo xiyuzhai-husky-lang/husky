@@ -4,7 +4,7 @@ use husky_defn::*;
 use husky_entity_path::EntityPath;
 use husky_expr::*;
 
-pub(crate) struct TokenInfoInferEngine<'a> {
+pub(crate) struct InferEngine<'a> {
     db: &'a dyn TokenInfoDb,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
@@ -12,7 +12,7 @@ pub(crate) struct TokenInfoInferEngine<'a> {
     sheet: TokenInfoSheet,
 }
 
-impl<'a> TokenInfoInferEngine<'a> {
+impl<'a> InferEngine<'a> {
     pub(crate) fn new(db: &'a dyn TokenInfoDb, module_path: ModulePath) -> EntityTreeResult<Self> {
         let token_sheet_data = &db.token_sheet_data(module_path)?;
         Ok(Self {
@@ -27,8 +27,7 @@ impl<'a> TokenInfoInferEngine<'a> {
     pub(crate) fn visit_all(mut self) -> TokenInfoSheet {
         for defn in self.defn_sheet.defns() {
             let decl = defn.decl(self.db);
-            self.visit_expr_sheet(decl.expr_sheet(self.db));
-            self.visit_expr_sheet(defn.expr_sheet(self.db));
+            self.visit_expr_sheet(decl.expr_sheet(self.db), None);
             let ast_idx = defn.ast_idx(self.db);
             match self.ast_sheet[ast_idx] {
                 Ast::Defn {
@@ -67,8 +66,8 @@ impl<'a> TokenInfoInferEngine<'a> {
         self.sheet
     }
 
-    fn visit_expr_sheet(&mut self, expr_sheet: ExprSheet) {
-        ExprSheetTokenInfoInferEngine {
+    fn visit_expr_sheet(&mut self, expr_sheet: ExprSheet, variable_sheet: Option<VariableSheet>) {
+        AuxInferEngine {
             db: self.db,
             token_sheet_data: self.token_sheet_data,
             ast_sheet: self.ast_sheet,
@@ -77,8 +76,8 @@ impl<'a> TokenInfoInferEngine<'a> {
             pattern_expr_sheet: expr_sheet.pattern_expr_arena(self.db),
             entity_path_expr_arena: expr_sheet.entity_path_expr_arena(self.db),
             stmt_arena: expr_sheet.stmt_arena(self.db),
-            variable_sheet: expr_sheet.variable_sheet(self.db),
             expr_sheet,
+            variable_sheet,
         }
         .visit_all()
     }
@@ -142,12 +141,11 @@ impl<'a> TokenInfoInferEngine<'a> {
     }
 
     fn visit_function(&mut self, defn: FunctionDefn) {
-        // todo!()
+        self.visit_expr_sheet(defn.expr_sheet(self.db), Some(defn.variable_sheet(self.db)))
     }
 
     fn visit_feature(&mut self, defn: FeatureDefn) {
-        let decl = defn.decl(self.db);
-        // todo!()
+        self.visit_expr_sheet(defn.expr_sheet(self.db), Some(defn.variable_sheet(self.db)))
     }
 
     fn visit_morphism(&mut self, defn: MorphismDefn) {
@@ -161,7 +159,7 @@ impl<'a> TokenInfoInferEngine<'a> {
     }
 }
 
-struct ExprSheetTokenInfoInferEngine<'a> {
+struct AuxInferEngine<'a> {
     db: &'a dyn TokenInfoDb,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
@@ -169,18 +167,20 @@ struct ExprSheetTokenInfoInferEngine<'a> {
     pattern_expr_sheet: &'a PatternExprSheet,
     entity_path_expr_arena: &'a EntityPathExprArena,
     stmt_arena: &'a StmtArena,
-    variable_sheet: &'a VariableSheet,
     sheet: &'a mut TokenInfoSheet,
     expr_sheet: ExprSheet,
+    variable_sheet: Option<VariableSheet>,
 }
 
-impl<'a> ExprSheetTokenInfoInferEngine<'a> {
+impl<'a> AuxInferEngine<'a> {
     fn visit_all(mut self) {
         for expr in self.expr_arena.data() {
             self.visit_expr(expr)
         }
-        for (variable_idx, variable) in self.variable_sheet.index_variable_iter() {
-            self.visit_variable(variable_idx, variable)
+        if let Some(variable_sheet) = self.variable_sheet {
+            for (variable_idx, variable) in variable_sheet.data(self.db).index_variable_iter() {
+                self.visit_variable(variable_idx, variable)
+            }
         }
     }
 
@@ -193,7 +193,7 @@ impl<'a> ExprSheetTokenInfoInferEngine<'a> {
                 *token_idx,
                 TokenInfo::Variable {
                     variable_idx: *variable_idx,
-                    expr_sheet: self.expr_sheet,
+                    variable_sheet: self.variable_sheet.unwrap(),
                 },
             ),
             Expr::Field { ident_token, .. } => {
@@ -232,7 +232,7 @@ impl<'a> ExprSheetTokenInfoInferEngine<'a> {
                         } => self.sheet.add(
                             ident_token.token_idx(),
                             TokenInfo::Variable {
-                                expr_sheet: self.expr_sheet,
+                                variable_sheet: self.variable_sheet.unwrap(),
                                 variable_idx,
                             },
                         ),
