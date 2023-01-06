@@ -29,7 +29,7 @@ pub enum Stmt {
     Eval {
         expr: ExprIdx,
     },
-    ForBetween {
+    For {
         for_token: ForToken,
         condition: ExprResult<ExprIdx>,
         eol_colon: ExprResult<EolColonToken>,

@@ -259,7 +259,9 @@ impl<'a> BasicAuxAstParser<'a> {
             AstContextKind::InsideTraitImpl => match kw {
                 Keyword::Config(_) => todo!(),
                 Keyword::Paradigm(kw) => {
-                    let form_kind = if let Some(token) = self.token_stream_mut().peek() {
+                    let trait_item_kind: TraitItemKind = if let Some(token) =
+                        self.token_stream_mut().peek()
+                    {
                         match token {
                             Token::Punctuation(special_token) => match special_token {
                                 Punctuation::Bra(Bracket::Par) | Punctuation::LAngle => match kw {
@@ -267,13 +269,14 @@ impl<'a> BasicAuxAstParser<'a> {
                                     FormKeyword::Func
                                     | FormKeyword::Proc
                                     | FormKeyword::Fn
-                                    | FormKeyword::Function => FormKind::Function,
+                                    | FormKeyword::Function => TraitItemKind::Method,
                                     FormKeyword::Theorem => todo!(),
                                     FormKeyword::Lemma => todo!(),
                                     FormKeyword::Proposition => todo!(),
                                 },
                                 Punctuation::Binary(BinaryOpr::Curry) | Punctuation::Colon => {
-                                    FormKind::Feature
+                                    todo!()
+                                    // TraitItemKind::Memo
                                 }
                                 unexpected_special_token => {
                                     todo!("unexpected_special_token = {unexpected_special_token:?}")
@@ -285,7 +288,7 @@ impl<'a> BasicAuxAstParser<'a> {
                         todo!()
                     };
                     EntityKind::AssociatedItem {
-                        associated_item_kind: AssociatedItemKind::TraitImplItem(todo!()),
+                        associated_item_kind: AssociatedItemKind::TraitImplItem(trait_item_kind),
                     }
                 }
                 Keyword::Type(_) => todo!(),

@@ -69,7 +69,7 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
                 Punctuation::Minus => ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Minus),
                 Punctuation::Exclamation => ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Not),
                 Punctuation::DoubleVertical => todo!(),
-                Punctuation::BitNot => todo!(),
+                Punctuation::BitNot => ResolvedToken::PrefixOpr(token_idx, PrefixOpr::BitNot),
                 Punctuation::Dot => ResolvedToken::Dot(token_idx),
                 Punctuation::Colon => match self.peek() {
                     Some(_) => todo!(),

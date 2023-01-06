@@ -92,8 +92,25 @@ impl<'a> BlockExprParser<'a> {
                                 .ok_or(ExprError::MissingCondition),
                         },
                         BasicStmtKeywordToken::Break(break_token) => Stmt::Break { break_token },
-                        BasicStmtKeywordToken::For(_) => todo!(),
-                        BasicStmtKeywordToken::Forext(_) => todo!(),
+                        BasicStmtKeywordToken::For(for_token) => {
+                            // ad hoc
+                            Stmt::For {
+                                for_token,
+                                condition: ctx
+                                    .parse_expr(ExprParseEnvironment::None)
+                                    .ok_or(ExprError::MissingCondition),
+                                eol_colon: ctx.parse_expected(),
+                                block: self.parse_block_stmts(*body).ok_or(ExprError::MissingBlock),
+                            }
+                        }
+                        BasicStmtKeywordToken::ForExt(forext_token) => Stmt::ForExt {
+                            forext_token,
+                            // condition: ctx
+                            //     .parse_expr(ExprParseEnvironment::None)
+                            //     .ok_or(ExprError::MissingCondition),
+                            eol_colon: ctx.parse_expected(),
+                            block: self.parse_block_stmts(*body).ok_or(ExprError::MissingBlock),
+                        },
                         BasicStmtKeywordToken::While(while_token) => Stmt::While {
                             while_token,
                             condition: ctx
@@ -102,7 +119,19 @@ impl<'a> BlockExprParser<'a> {
                             eol_colon: ctx.parse_expected(),
                             block: self.parse_block_stmts(*body).ok_or(ExprError::MissingBlock),
                         },
-                        BasicStmtKeywordToken::Do(_) => todo!(),
+                        BasicStmtKeywordToken::Do(do_token) => match ctx.parse::<WhileToken>() {
+                            Ok(Some(while_token)) => Stmt::DoWhile {
+                                do_token,
+                                while_token,
+                                condition: ctx
+                                    .parse_expr(ExprParseEnvironment::None)
+                                    .ok_or(ExprError::MissingCondition),
+                                eol_colon: ctx.parse_expected(),
+                                block: self.parse_block_stmts(*body).ok_or(ExprError::MissingBlock),
+                            },
+                            Ok(None) => todo!(),
+                            Err(_) => todo!(),
+                        },
                     }),
                     Ok(None) => ctx
                         .parse_expr(ExprParseEnvironment::None)

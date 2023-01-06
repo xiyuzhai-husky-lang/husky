@@ -49,7 +49,7 @@ pub enum BasicStmtKeywordToken {
     Require(RequireToken),
     Break(BreakToken),
     For(ForToken),
-    Forext(ForextToken),
+    ForExt(ForextToken),
     While(WhileToken),
     Do(DoToken),
 }
@@ -68,7 +68,7 @@ impl From<WhileToken> for BasicStmtKeywordToken {
 
 impl From<ForextToken> for BasicStmtKeywordToken {
     fn from(v: ForextToken) -> Self {
-        Self::Forext(v)
+        Self::ForExt(v)
     }
 }
 
@@ -102,6 +102,33 @@ impl From<LetToken> for BasicStmtKeywordToken {
     }
 }
 
+impl<'a, Context> parsec::ParseFrom<Context> for WhileToken
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+            match token {
+                Token::Keyword(Keyword::Stmt(StmtKeyword::While)) => {
+                    Ok(Some(WhileToken { token_idx }))
+                }
+                Token::Err(ref e) => Err(e.clone().into()),
+                Token::Punctuation(_)
+                | Token::Identifier(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Attr(_)
+                | Token::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
 impl<'a, Context> parsec::ParseFrom<Context> for BasicStmtKeywordToken
 where
     Context: TokenParseContext<'a>,
@@ -127,7 +154,7 @@ where
                 Token::Keyword(Keyword::Stmt(StmtKeyword::For)) => {
                     Ok(Some(ForToken { token_idx }.into()))
                 }
-                Token::Keyword(Keyword::Stmt(StmtKeyword::Forext)) => {
+                Token::Keyword(Keyword::Stmt(StmtKeyword::ForExt)) => {
                     Ok(Some(ForextToken { token_idx }.into()))
                 }
                 Token::Keyword(Keyword::Stmt(StmtKeyword::While)) => {

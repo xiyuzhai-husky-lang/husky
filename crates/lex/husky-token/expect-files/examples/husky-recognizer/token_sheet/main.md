@@ -13,6 +13,20 @@ Ok(
                 Identifier(
                     Word(
                         Id {
+                            value: 55,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Binary(
+                    ScopeResolution,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
                             value: 56,
                         },
                     ),
@@ -28,20 +42,6 @@ Ok(
                     Word(
                         Id {
                             value: 57,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 58,
                         },
                     ),
                 ),
