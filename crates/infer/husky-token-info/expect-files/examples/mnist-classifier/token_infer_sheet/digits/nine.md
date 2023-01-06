@@ -131,14 +131,9 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 60,
-                    },
-                ),
-                variable_idx: None,
-            },
+            None,
+            None,
+            None,
             None,
             None,
             None,
@@ -148,16 +143,7 @@ Ok(
                         value: 60,
                     },
                 ),
-                variable_idx: None,
-            },
-            None,
-            Variable {
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 60,
-                    },
-                ),
-                variable_idx: None,
+                variable_idx: 0,
             },
             None,
             None,
@@ -170,9 +156,7 @@ Ok(
                         value: 60,
                     },
                 ),
-                variable_idx: Some(
-                    0,
-                ),
+                variable_idx: 0,
             },
             None,
             Field,
@@ -180,14 +164,7 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 60,
-                    },
-                ),
-                variable_idx: None,
-            },
+            None,
             None,
             Variable {
                 expr_sheet: ExprSheet(
@@ -195,7 +172,7 @@ Ok(
                         value: 60,
                     },
                 ),
-                variable_idx: None,
+                variable_idx: 1,
             },
             None,
             None,
@@ -211,9 +188,18 @@ Ok(
                         value: 60,
                     },
                 ),
-                variable_idx: Some(
-                    0,
+                variable_idx: 0,
+            },
+            None,
+            None,
+            None,
+            Variable {
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 60,
+                    },
                 ),
+                variable_idx: 2,
             },
             None,
             Variable {
@@ -222,27 +208,7 @@ Ok(
                         value: 60,
                     },
                 ),
-                variable_idx: None,
-            },
-            None,
-            Variable {
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 60,
-                    },
-                ),
-                variable_idx: None,
-            },
-            None,
-            Variable {
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 60,
-                    },
-                ),
-                variable_idx: Some(
-                    1,
-                ),
+                variable_idx: 1,
             },
             None,
             Method,
@@ -257,7 +223,7 @@ Ok(
                         value: 60,
                     },
                 ),
-                variable_idx: None,
+                variable_idx: 3,
             },
             None,
             None,
@@ -274,9 +240,7 @@ Ok(
                         value: 60,
                     },
                 ),
-                variable_idx: Some(
-                    0,
-                ),
+                variable_idx: 0,
             },
             None,
             None,
@@ -287,9 +251,7 @@ Ok(
                         value: 60,
                     },
                 ),
-                variable_idx: Some(
-                    3,
-                ),
+                variable_idx: 3,
             },
             None,
             Field,
@@ -297,14 +259,7 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 60,
-                    },
-                ),
-                variable_idx: None,
-            },
+            None,
             None,
             None,
             None,
@@ -321,7 +276,7 @@ Ok(
                         value: 60,
                     },
                 ),
-                variable_idx: None,
+                variable_idx: 4,
             },
             None,
             None,
@@ -337,19 +292,10 @@ Ok(
                         value: 60,
                     },
                 ),
-                variable_idx: Some(
-                    0,
-                ),
+                variable_idx: 0,
             },
             None,
-            Variable {
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 60,
-                    },
-                ),
-                variable_idx: None,
-            },
+            None,
             None,
             None,
             None,
@@ -363,7 +309,7 @@ Ok(
                         value: 60,
                     },
                 ),
-                variable_idx: None,
+                variable_idx: 5,
             },
             None,
             None,
@@ -380,7 +326,7 @@ Ok(
                         value: 60,
                     },
                 ),
-                variable_idx: None,
+                variable_idx: 6,
             },
             None,
             None,
@@ -396,10 +342,10 @@ Ok(
                         value: 60,
                     },
                 ),
-                variable_idx: Some(
-                    0,
-                ),
+                variable_idx: 0,
             },
+            None,
+            None,
             None,
             Variable {
                 expr_sheet: ExprSheet(
@@ -407,18 +353,7 @@ Ok(
                         value: 60,
                     },
                 ),
-                variable_idx: None,
-            },
-            None,
-            Variable {
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 60,
-                    },
-                ),
-                variable_idx: Some(
-                    0,
-                ),
+                variable_idx: 0,
             },
             None,
             Method,
@@ -435,9 +370,7 @@ Ok(
                         value: 60,
                     },
                 ),
-                variable_idx: Some(
-                    0,
-                ),
+                variable_idx: 0,
             },
             None,
             None,
@@ -457,7 +390,7 @@ Ok(
                         value: 60,
                     },
                 ),
-                variable_idx: None,
+                variable_idx: 7,
             },
             None,
             None,
@@ -473,9 +406,7 @@ Ok(
                         value: 60,
                     },
                 ),
-                variable_idx: Some(
-                    0,
-                ),
+                variable_idx: 0,
             },
             None,
             None,
@@ -486,9 +417,7 @@ Ok(
                         value: 60,
                     },
                 ),
-                variable_idx: Some(
-                    0,
-                ),
+                variable_idx: 0,
             },
             None,
             None,
@@ -508,7 +437,7 @@ Ok(
                 },
             ),
             None,
-            Parameter,
+            None,
             None,
             None,
             None,
@@ -543,7 +472,7 @@ Ok(
                 },
             ),
             None,
-            Parameter,
+            None,
             None,
             None,
             None,

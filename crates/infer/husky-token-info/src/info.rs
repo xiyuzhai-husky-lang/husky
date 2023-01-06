@@ -10,7 +10,7 @@ pub enum TokenInfo {
     Parameter,
     Variable {
         expr_sheet: ExprSheet,
-        variable_idx: Option<VariableIdx>,
+        variable_idx: VariableIdx,
     },
     Field,
     Method,

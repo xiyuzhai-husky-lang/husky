@@ -123,14 +123,7 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 92,
-                    },
-                ),
-                variable_idx: None,
-            },
+            None,
             None,
             Variable {
                 expr_sheet: ExprSheet(
@@ -138,7 +131,7 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: None,
+                variable_idx: 0,
             },
             None,
             None,
@@ -154,10 +147,10 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: Some(
-                    0,
-                ),
+                variable_idx: 0,
             },
+            None,
+            None,
             None,
             Variable {
                 expr_sheet: ExprSheet(
@@ -165,16 +158,7 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: None,
-            },
-            None,
-            Variable {
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 92,
-                    },
-                ),
-                variable_idx: None,
+                variable_idx: 1,
             },
             None,
             None,
@@ -187,7 +171,7 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: None,
+                variable_idx: 2,
             },
             None,
             None,
@@ -204,9 +188,7 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: Some(
-                    1,
-                ),
+                variable_idx: 1,
             },
             None,
             Field,
@@ -214,14 +196,7 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 92,
-                    },
-                ),
-                variable_idx: None,
-            },
+            None,
             None,
             None,
             None,
@@ -247,7 +222,7 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: None,
+                variable_idx: 3,
             },
             None,
             None,
@@ -263,7 +238,7 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: None,
+                variable_idx: 4,
             },
             None,
             Variable {
@@ -272,9 +247,7 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: Some(
-                    1,
-                ),
+                variable_idx: 1,
             },
             None,
             Method,
@@ -287,7 +260,7 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: None,
+                variable_idx: 5,
             },
             None,
             Variable {
@@ -296,9 +269,7 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: Some(
-                    1,
-                ),
+                variable_idx: 1,
             },
             None,
             Field,
@@ -309,7 +280,7 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: None,
+                variable_idx: 6,
             },
             None,
             Variable {
@@ -318,9 +289,7 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: Some(
-                    6,
-                ),
+                variable_idx: 6,
             },
             None,
             Method,
@@ -335,7 +304,7 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: None,
+                variable_idx: 7,
             },
             None,
             None,
@@ -354,19 +323,10 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: Some(
-                    4,
-                ),
+                variable_idx: 4,
             },
             None,
-            Variable {
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 92,
-                    },
-                ),
-                variable_idx: None,
-            },
+            None,
             None,
             None,
             Variable {
@@ -375,9 +335,7 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: Some(
-                    2,
-                ),
+                variable_idx: 2,
             },
             None,
             None,
@@ -400,9 +358,7 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: Some(
-                    1,
-                ),
+                variable_idx: 1,
             },
             None,
             None,
@@ -416,7 +372,7 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: None,
+                variable_idx: 8,
             },
             None,
             None,
@@ -431,9 +387,7 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: Some(
-                    8,
-                ),
+                variable_idx: 8,
             },
             None,
             Method,
@@ -454,9 +408,7 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: Some(
-                    2,
-                ),
+                variable_idx: 2,
             },
             None,
             None,
@@ -467,9 +419,7 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: Some(
-                    6,
-                ),
+                variable_idx: 6,
             },
             None,
             None,
@@ -488,9 +438,7 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: Some(
-                    0,
-                ),
+                variable_idx: 0,
             },
             None,
             None,
@@ -536,9 +484,7 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: Some(
-                    7,
-                ),
+                variable_idx: 7,
             },
             None,
             Field,
@@ -560,9 +506,7 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: Some(
-                    7,
-                ),
+                variable_idx: 7,
             },
             None,
             Field,
@@ -570,14 +514,7 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 92,
-                    },
-                ),
-                variable_idx: None,
-            },
+            None,
             None,
             None,
             Variable {
@@ -586,9 +523,7 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: Some(
-                    7,
-                ),
+                variable_idx: 7,
             },
             None,
             Field,
@@ -610,9 +545,7 @@ Ok(
                         value: 92,
                     },
                 ),
-                variable_idx: Some(
-                    6,
-                ),
+                variable_idx: 6,
             },
             None,
             None,
@@ -629,7 +562,7 @@ Ok(
                 },
             ),
             None,
-            Parameter,
+            None,
             None,
             None,
             None,
@@ -645,7 +578,7 @@ Ok(
                         value: 93,
                     },
                 ),
-                variable_idx: None,
+                variable_idx: 0,
             },
             None,
             None,
@@ -660,9 +593,7 @@ Ok(
                         value: 93,
                     },
                 ),
-                variable_idx: Some(
-                    0,
-                ),
+                variable_idx: 0,
             },
             None,
             Field,
@@ -674,9 +605,7 @@ Ok(
                         value: 93,
                     },
                 ),
-                variable_idx: Some(
-                    0,
-                ),
+                variable_idx: 0,
             },
             None,
             Field,
@@ -690,7 +619,7 @@ Ok(
                 },
             ),
             None,
-            Parameter,
+            None,
             None,
             None,
             None,
@@ -706,7 +635,7 @@ Ok(
                         value: 94,
                     },
                 ),
-                variable_idx: None,
+                variable_idx: 0,
             },
             None,
             None,
@@ -715,6 +644,14 @@ Ok(
             None,
             None,
             None,
+            Variable {
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 94,
+                    },
+                ),
+                variable_idx: 0,
+            },
             None,
             None,
             None,
@@ -723,12 +660,25 @@ Ok(
             None,
             None,
             None,
-            None,
-            None,
+            Variable {
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 94,
+                    },
+                ),
+                variable_idx: 0,
+            },
             None,
             Field,
             None,
-            None,
+            Variable {
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 94,
+                    },
+                ),
+                variable_idx: 0,
+            },
             None,
             Field,
             None,
@@ -755,7 +705,7 @@ Ok(
                         value: 94,
                     },
                 ),
-                variable_idx: None,
+                variable_idx: 1,
             },
             None,
             None,
@@ -773,7 +723,14 @@ Ok(
             None,
             None,
             None,
-            None,
+            Variable {
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 94,
+                    },
+                ),
+                variable_idx: 0,
+            },
             None,
             Field,
             None,

@@ -94,10 +94,7 @@ impl<'a> HoverResultCalculator<'a> {
                 expr_sheet,
             } => {
                 let variable_sheet = expr_sheet.variable_sheet(self.db);
-                format!(
-                    "{:#?}",
-                    variable_idx.map(|variable_idx| &variable_sheet[variable_idx])
-                )
+                format!("{:#?}", variable_sheet[*variable_idx])
             }
             TokenInfo::Field => format!(""),
             TokenInfo::Method => format!(""),

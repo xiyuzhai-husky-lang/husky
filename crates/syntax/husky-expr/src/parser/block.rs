@@ -38,7 +38,7 @@ impl<'a> BlockExprParser<'a> {
         if body.len() == 0 {
             return None;
         }
-        let block_end = self.ast_token_idx_range_sheet[body.end()].end();
+        let block_end = self.ast_token_idx_range_sheet[body.end() - 1].end();
         let stmts = self
             .ast_sheet
             .indexed_iter(body)

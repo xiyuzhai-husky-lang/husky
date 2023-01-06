@@ -550,7 +550,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 522;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 182,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 522;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 182,\n            },\n        ),\n    ),\n);\n\ntoken_info = Variable {\n    expr_sheet: ExprSheet(\n        Id {\n            value: 114,\n        },\n    ),\n    variable_idx: 1,\n};\n\nVariable {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 278,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        493,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                592,\n            ),\n        ),\n    ),\n    kind: Let {\n        pattern_symbol: 1,\n    },\n}\n",
                             },
                         ),
                         range: Some(
