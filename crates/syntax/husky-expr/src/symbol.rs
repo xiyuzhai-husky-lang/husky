@@ -29,6 +29,10 @@ impl<'a> SymbolSheet<'a> {
     pub(crate) fn define_variables(&mut self, variables: Vec<Variable>) -> ArenaIdxRange<Variable> {
         self.variable_sheet.define_variables(variables)
     }
+
+    pub fn variable_sheet(self) -> VariableSheet {
+        self.variable_sheet
+    }
 }
 
 pub enum Symbol {

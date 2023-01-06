@@ -1,6 +1,7 @@
 use crate::*;
 use husky_ast::{Ast, AstSheet};
 use husky_defn::*;
+use husky_entity_path::EntityPath;
 use husky_expr::*;
 
 pub(crate) struct TokenInfoInferEngine<'a> {
@@ -76,6 +77,7 @@ impl<'a> TokenInfoInferEngine<'a> {
             pattern_expr_sheet: expr_sheet.pattern_expr_arena(self.db),
             entity_path_expr_arena: expr_sheet.entity_path_expr_arena(self.db),
             stmt_arena: expr_sheet.stmt_arena(self.db),
+            expr_sheet,
         }
         .visit_all()
     }
@@ -167,6 +169,7 @@ struct ExprSheetTokenInfoInferEngine<'a> {
     entity_path_expr_arena: &'a EntityPathExprArena,
     stmt_arena: &'a StmtArena,
     sheet: &'a mut TokenInfoSheet,
+    expr_sheet: ExprSheet,
 }
 
 impl<'a> ExprSheetTokenInfoInferEngine<'a> {
@@ -179,6 +182,7 @@ impl<'a> ExprSheetTokenInfoInferEngine<'a> {
                 *token_idx,
                 TokenInfo::Variable {
                     variable_idx: Some(*variable_idx),
+                    expr_sheet: self.expr_sheet,
                 },
             ),
             Expr::Field { ident_token, .. } => {
@@ -216,14 +220,17 @@ impl<'a> ExprSheetTokenInfoInferEngine<'a> {
                     PatternInfo::Let => TokenInfo::Variable {
                         // ad hoc
                         variable_idx: None,
+                        expr_sheet: self.expr_sheet,
                     },
                     PatternInfo::Match => TokenInfo::Variable {
                         // ad hoc
                         variable_idx: None,
+                        expr_sheet: self.expr_sheet,
                     },
                     PatternInfo::Be => TokenInfo::Variable {
                         // ad hoc
                         variable_idx: None,
+                        expr_sheet: self.expr_sheet,
                     },
                 };
                 self.sheet.add(ident_token.token_idx(), info)

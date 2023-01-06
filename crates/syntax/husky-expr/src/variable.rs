@@ -1,6 +1,6 @@
 use crate::*;
 
-#[derive(Default)]
+#[derive(Default, Debug, PartialEq, Eq)]
 pub struct VariableSheet {
     arena: VariableArena,
 }
@@ -30,6 +30,15 @@ pub type VariableArena = Arena<Variable>;
 pub type VariableIdx = ArenaIdx<Variable>;
 pub type VariableIdxRange = ArenaIdxRange<Variable>;
 
+impl std::ops::Index<VariableIdx> for VariableSheet {
+    type Output = Variable;
+
+    fn index(&self, index: VariableIdx) -> &Self::Output {
+        &self.arena[index]
+    }
+}
+
+#[derive(Debug, PartialEq, Eq)]
 pub struct Variable {
     ident: Identifier,
     access_start: TokenIdx,
