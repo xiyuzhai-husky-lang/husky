@@ -1,3 +1,4 @@
+#![feature(trait_upcasting)]
 mod calc;
 mod config;
 mod db;
@@ -19,5 +20,5 @@ pub struct HoverJar(HoverConfig, hover_config);
 
 #[salsa::tracked(jar = HoverJar)]
 pub(crate) fn hover_config(db: &dyn HoverDb) -> HoverConfig {
-    HoverConfig::new(db)
+    HoverConfig::new(db, HoverConfigData { debug: true })
 }

@@ -136,6 +136,11 @@ Ok(
             None,
             None,
             Variable {
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 110,
+                    },
+                ),
                 variable_idx: None,
             },
             None,
@@ -167,6 +172,11 @@ Ok(
             None,
             None,
             Variable {
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 110,
+                    },
+                ),
                 variable_idx: None,
             },
             None,
@@ -248,6 +258,11 @@ Ok(
             None,
             None,
             Variable {
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 110,
+                    },
+                ),
                 variable_idx: None,
             },
             None,
@@ -261,6 +276,11 @@ Ok(
             None,
             None,
             Variable {
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 110,
+                    },
+                ),
                 variable_idx: None,
             },
             None,

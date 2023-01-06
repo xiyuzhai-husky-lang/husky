@@ -22,6 +22,7 @@ struct HoverResultCalculator<'a> {
     token_info: &'a TokenInfo,
     markdown_content: String,
     actions: Vec<CommandLinkGroup>,
+    hover_config_data: &'a HoverConfigData,
 }
 
 impl<'a> HoverResultCalculator<'a> {
@@ -42,11 +43,15 @@ impl<'a> HoverResultCalculator<'a> {
             token_info: &token_info_sheet[token_idx],
             markdown_content: String::new(),
             actions: vec![],
+            hover_config_data: db.hover_config().data(db),
         })
     }
 
     fn gen_content(mut self) -> Option<HoverResult> {
-        self.markdown_content += &self.gen_content_aux();
+        self.markdown_content += &self.content();
+        if self.hover_config_data.debug {
+            self.markdown_content += &self.debug_content()
+        }
         Some(self.finish())
     }
 
@@ -71,10 +76,45 @@ impl<'a> HoverResultCalculator<'a> {
         }
     }
 
-    fn gen_content_aux(&self) -> std::borrow::Cow<'static, str> {
+    fn content(&self) -> std::borrow::Cow<'static, str> {
         match self.token {
             Token::Keyword(kw) => self.gen_keyword_content(*kw).into(),
             _ => "".into(),
         }
+    }
+
+    fn debug_content(&self) -> String {
+        let additional_debug_content: String = match self.token_info {
+            TokenInfo::None => format!(""),
+            TokenInfo::Entity(_) => format!(""),
+            TokenInfo::ImplicitParameter => format!(""),
+            TokenInfo::Parameter => format!(""),
+            TokenInfo::Variable {
+                variable_idx,
+                expr_sheet,
+            } => {
+                let variable_sheet = expr_sheet.variable_sheet(self.db);
+                format!(
+                    "{:#?}",
+                    variable_idx.map(|variable_idx| &variable_sheet[variable_idx])
+                )
+            }
+            TokenInfo::Field => format!(""),
+            TokenInfo::Method => format!(""),
+        };
+        format!(
+            r#"
+token_idx = {};
+
+token = {:#?};
+
+token_info = {:#?};
+
+{additional_debug_content}
+"#,
+            self.token_idx.raw(),
+            self.token,
+            self.token_info,
+        )
     }
 }

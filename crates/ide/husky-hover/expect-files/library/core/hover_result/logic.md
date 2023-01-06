@@ -10,7 +10,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "",
+                                value: "\ntoken_idx = 0;\n\ntoken = Attr(\n    Pub,\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -40,7 +40,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "",
+                                value: "\ntoken_idx = 2;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 19,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    ModuleItem {\n        module_item_kind: Type(\n            Structure,\n        ),\n        connection: Connected,\n    },\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -70,7 +70,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "",
+                                value: "\ntoken_idx = 4;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 20,\n            },\n        ),\n    ),\n);\n\ntoken_info = ImplicitParameter;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -100,7 +100,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "",
+                                value: "\ntoken_idx = 6;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 21,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -130,7 +130,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "",
+                                value: "\ntoken_idx = 8;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 22,\n            },\n        ),\n    ),\n);\n\ntoken_info = ImplicitParameter;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -160,7 +160,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "",
+                                value: "\ntoken_idx = 10;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 21,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -190,7 +190,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "",
+                                value: "\ntoken_idx = 12;\n\ntoken = Punctuation(\n    Bra(\n        Curl,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -220,7 +220,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "",
+                                value: "\ntoken_idx = 14;\n\ntoken = Punctuation(\n    Colon,\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -250,7 +250,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "",
+                                value: "\ntoken_idx = 16;\n\ntoken = Punctuation(\n    Comma,\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "",
+                                value: "\ntoken_idx = 18;\n\ntoken = Punctuation(\n    Colon,\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "",
+                                value: "\ntoken_idx = 20;\n\ntoken = Punctuation(\n    Comma,\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -340,7 +340,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "",
+                                value: "\ntoken_idx = 22;\n\ntoken = Attr(\n    Pub,\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -370,7 +370,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "",
+                                value: "\ntoken_idx = 24;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 25,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    ModuleItem {\n        module_item_kind: Type(\n            Inductive,\n        ),\n        connection: Connected,\n    },\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -400,7 +400,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "",
+                                value: "\ntoken_idx = 26;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 20,\n            },\n        ),\n    ),\n);\n\ntoken_info = ImplicitParameter;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -430,7 +430,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "",
+                                value: "\ntoken_idx = 28;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 21,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -460,7 +460,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "",
+                                value: "\ntoken_idx = 30;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 22,\n            },\n        ),\n    ),\n);\n\ntoken_info = ImplicitParameter;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -490,7 +490,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "",
+                                value: "\ntoken_idx = 32;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 21,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -520,7 +520,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "",
+                                value: "\ntoken_idx = 34;\n\ntoken = Punctuation(\n    Vertical,\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -550,7 +550,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "",
+                                value: "\ntoken_idx = 36;\n\ntoken = Punctuation(\n    Bra(\n        Par,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -580,7 +580,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "",
+                                value: "\ntoken_idx = 38;\n\ntoken = Punctuation(\n    Ket(\n        Par,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -610,7 +610,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "",
+                                value: "\ntoken_idx = 40;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 27,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -640,7 +640,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "",
+                                value: "\ntoken_idx = 42;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 22,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(

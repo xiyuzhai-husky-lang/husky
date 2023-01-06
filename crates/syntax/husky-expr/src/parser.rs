@@ -72,6 +72,7 @@ impl<'a> ExprParser<'a> {
             self.entity_path_expr_arena,
             self.pattern_expr_sheet,
             self.stmt_arena,
+            self.symbol_sheet.variable_sheet(),
         )
     }
 

@@ -1,7 +1,15 @@
 use crate::*;
 
 #[salsa::input(jar = HoverJar)]
-pub struct HoverConfig {}
+pub struct HoverConfig {
+    #[return_ref]
+    pub data: HoverConfigData,
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct HoverConfigData {
+    pub debug: bool,
+}
 
 impl HoverConfig {
     pub fn hover_action_config(&self) -> &HoverActionsConfig {

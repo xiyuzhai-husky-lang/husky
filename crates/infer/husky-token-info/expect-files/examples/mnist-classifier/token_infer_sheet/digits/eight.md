@@ -116,28 +116,53 @@ Ok(
             None,
             None,
             Variable {
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 37,
+                    },
+                ),
                 variable_idx: None,
             },
             None,
             None,
             None,
             Variable {
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 37,
+                    },
+                ),
                 variable_idx: None,
             },
             None,
             None,
             None,
             Variable {
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 37,
+                    },
+                ),
                 variable_idx: None,
             },
             None,
             None,
             None,
             Variable {
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 37,
+                    },
+                ),
                 variable_idx: None,
             },
             None,
             Variable {
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 37,
+                    },
+                ),
                 variable_idx: None,
             },
             None,
@@ -159,6 +184,11 @@ Ok(
             None,
             None,
             Variable {
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 37,
+                    },
+                ),
                 variable_idx: None,
             },
             None,
@@ -173,6 +203,11 @@ Ok(
             None,
             None,
             Variable {
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 37,
+                    },
+                ),
                 variable_idx: None,
             },
             None,

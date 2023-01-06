@@ -10,6 +10,7 @@ salsa = { path = "../../abstraction/salsa" }
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 husky-text = { path = "../../lex/husky-text" }
@@ -23,6 +24,5 @@ husky-defn = { path = "../../syntax/husky-defn" }
 [dev-dependencies]
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # infer
 husky-manifest = { path = "../../infer/husky-manifest" }
