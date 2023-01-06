@@ -1093,7 +1093,14 @@ Ok(
             token_modifiers_bitset: 0,
         },
         SemanticToken {
-            delta_line: 2,
+            delta_line: 1,
+            delta_start: 4,
+            length: 54,
+            token_type: 0,
+            token_modifiers_bitset: 0,
+        },
+        SemanticToken {
+            delta_line: 1,
             delta_start: 4,
             length: 7,
             token_type: 2,
@@ -1408,7 +1415,14 @@ Ok(
             token_modifiers_bitset: 0,
         },
         SemanticToken {
-            delta_line: 2,
+            delta_line: 1,
+            delta_start: 4,
+            length: 24,
+            token_type: 0,
+            token_modifiers_bitset: 0,
+        },
+        SemanticToken {
+            delta_line: 1,
             delta_start: 10,
             length: 1,
             token_type: 6,

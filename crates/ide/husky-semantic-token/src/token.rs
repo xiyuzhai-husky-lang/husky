@@ -8,6 +8,12 @@ pub struct RangedSemanticToken {
     pub range: TextRange,
 }
 
+impl PartialOrd for RangedSemanticToken {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        self.range.start.partial_cmp(&other.range.start)
+    }
+}
+
 impl RangedSemanticToken {
     pub fn new(token: SemanticToken, range: TextRange) -> Self {
         Self {
