@@ -10,6 +10,4 @@ pub struct ExprSheet {
     pub pattern_expr_arena: PatternExprSheet,
     #[return_ref]
     pub stmt_arena: StmtArena,
-    #[return_ref]
-    pub variable_sheet: VariableSheet,
 }

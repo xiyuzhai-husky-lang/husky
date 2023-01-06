@@ -76,18 +76,6 @@ impl TypeDefn {
             TypeDefn::Foreign(defn) => defn.path(db),
         }
     }
-    pub fn expr_sheet(self, db: &dyn DefnDb) -> ExprSheet {
-        match self {
-            TypeDefn::Enum(defn) => defn.expr_sheet(db),
-            TypeDefn::Inductive(defn) => defn.expr_sheet(db),
-            TypeDefn::Record(defn) => defn.expr_sheet(db),
-            TypeDefn::UnitStruct(defn) => defn.expr_sheet(db),
-            TypeDefn::TupleStruct(defn) => defn.expr_sheet(db),
-            TypeDefn::PropsStruct(defn) => defn.expr_sheet(db),
-            TypeDefn::Structure(defn) => defn.expr_sheet(db),
-            TypeDefn::Foreign(defn) => defn.expr_sheet(db),
-        }
-    }
 }
 
 impl From<EnumTypeDefn> for TypeDefn {

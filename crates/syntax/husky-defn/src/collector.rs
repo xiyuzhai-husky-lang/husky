@@ -65,50 +65,42 @@ impl<'a> DefnCollector<'a> {
 
     fn parse_trai_defn(&self, decl: TraitDecl) -> TraitDefn {
         let path = decl.path(self.db);
-        let mut parser = self.block_expr_parser(path.into());
-        TraitDefn::new(self.db, path, decl, parser.finish())
+        TraitDefn::new(self.db, path, decl)
     }
 
     fn parse_enum_ty_defn(&self, decl: EnumTypeDecl) -> EnumTypeDefn {
         let path = decl.path(self.db);
-        let mut parser = self.block_expr_parser(path.into());
-        EnumTypeDefn::new(self.db, path, decl, parser.finish())
+        EnumTypeDefn::new(self.db, path, decl)
     }
 
     fn parse_props_struct_ty_defn(&self, decl: PropsStructTypeDecl) -> PropsStructTypeDefn {
         let path = decl.path(self.db);
-        let mut parser = self.block_expr_parser(path.into());
-        PropsStructTypeDefn::new(self.db, path, decl, parser.finish())
+        PropsStructTypeDefn::new(self.db, path, decl)
     }
 
     fn parse_tuple_struct_ty_defn(&self, decl: TupleStructTypeDecl) -> TupleStructTypeDefn {
         let path = decl.path(self.db);
-        let mut parser = self.block_expr_parser(path.into());
-        TupleStructTypeDefn::new(self.db, path, decl, parser.finish())
+        TupleStructTypeDefn::new(self.db, path, decl)
     }
 
     fn parse_unit_struct_ty_defn(&self, decl: UnitStructTypeDecl) -> UnitStructTypeDefn {
         let path = decl.path(self.db);
-        let mut parser = self.block_expr_parser(path.into());
-        UnitStructTypeDefn::new(self.db, path, decl, parser.finish())
+        UnitStructTypeDefn::new(self.db, path, decl)
     }
 
     fn parse_inductive_ty_defn(&self, decl: InductiveTypeDecl) -> InductiveTypeDefn {
         let path = decl.path(self.db);
-        let mut parser = self.block_expr_parser(path.into());
-        InductiveTypeDefn::new(self.db, path, decl, parser.finish())
+        InductiveTypeDefn::new(self.db, path, decl)
     }
 
     fn parse_structure_ty_defn(&self, decl: StructureTypeDecl) -> StructureTypeDefn {
         let path = decl.path(self.db);
-        let mut parser = self.block_expr_parser(path.into());
-        StructureTypeDefn::new(self.db, path, decl, parser.finish())
+        StructureTypeDefn::new(self.db, path, decl)
     }
 
     fn parse_alien_ty_defn(&self, decl: AlienTypeDecl) -> AlienTypeDefn {
         let path = decl.path(self.db);
-        let mut parser = self.block_expr_parser(path.into());
-        AlienTypeDefn::new(self.db, path, decl, parser.finish())
+        AlienTypeDefn::new(self.db, path, decl)
     }
 
     fn parse_form_defn(&self, decl: FormDecl) -> FormDefn {
@@ -129,7 +121,8 @@ impl<'a> DefnCollector<'a> {
             Ast::Defn { body, .. } => parser.parse_block_expr(*body).ok_or(DefnError::MissingBody),
             _ => unreachable!(),
         };
-        FunctionDefn::new(self.db, path, decl, parser.finish(), body)
+        let (variable_sheet, expr_sheet) = parser.finish();
+        FunctionDefn::new(self.db, path, decl, variable_sheet, expr_sheet, body)
     }
 
     fn parse_feature_defn(&self, decl: FeatureDecl) -> FeatureDefn {
@@ -141,7 +134,8 @@ impl<'a> DefnCollector<'a> {
             Ast::Defn { body, .. } => parser.parse_block_expr(*body).ok_or(DefnError::MissingBody),
             _ => unreachable!(),
         };
-        FeatureDefn::new(self.db, path, decl, parser.finish(), body)
+        let (variable_sheet, expr_sheet) = parser.finish();
+        FeatureDefn::new(self.db, path, decl, variable_sheet, expr_sheet, body)
     }
     fn block_expr_parser(&self, entity_path: EntityPath) -> BlockExprParser<'a> {
         let parser = ExprParser::new(

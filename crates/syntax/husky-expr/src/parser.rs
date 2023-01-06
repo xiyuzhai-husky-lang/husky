@@ -72,7 +72,19 @@ impl<'a> ExprParser<'a> {
             self.entity_path_expr_arena,
             self.pattern_expr_sheet,
             self.stmt_arena,
-            self.symbol_sheet.variable_sheet(),
+        )
+    }
+
+    pub fn finish_with_variable_sheet(self) -> (VariableSheet, ExprSheet) {
+        (
+            VariableSheet::new(self.db, self.symbol_sheet.variable_sheet_data()),
+            ExprSheet::new(
+                self.db,
+                self.expr_arena,
+                self.entity_path_expr_arena,
+                self.pattern_expr_sheet,
+                self.stmt_arena,
+            ),
         )
     }
 

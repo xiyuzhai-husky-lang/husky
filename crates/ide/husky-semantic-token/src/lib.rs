@@ -2,6 +2,7 @@
 mod collect;
 mod convert;
 mod db;
+mod ext;
 mod specs;
 #[cfg(test)]
 mod tests;
@@ -14,12 +15,10 @@ use collect::*;
 use convert::*;
 use husky_entity_tree::EntityTreeResult;
 use husky_token::*;
+use husky_token::{Keyword, StmtKeyword};
 use husky_token_info::*;
 use husky_vfs::*;
 use token::*;
-
-use husky_token::{Keyword, StmtKeyword};
-mod ext;
 
 #[salsa::jar(db = SemanticTokenDb)]
 pub struct SemanticTokenJar(semantic_tokens, semantic_tokens_ext);

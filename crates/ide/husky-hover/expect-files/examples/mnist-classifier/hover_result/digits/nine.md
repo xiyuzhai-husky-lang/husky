@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 153;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 404,\n            },\n        ),\n    ),\n);\n\ntoken_info = Variable {\n    expr_sheet: ExprSheet(\n        Id {\n            value: 60,\n        },\n    ),\n    variable_idx: 3,\n};\n\nVariable {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 404,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        154,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                272,\n            ),\n        ),\n    ),\n    kind: Let {\n        pattern_symbol: 7,\n    },\n}\n",
+                                value: "\ntoken_idx = 153;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 404,\n            },\n        ),\n    ),\n);\n\ntoken_info = Variable {\n    variable_sheet: VariableSheet(\n        Id {\n            value: 18,\n        },\n    ),\n    variable_idx: 3,\n};\n\nVariable {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 404,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        154,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                272,\n            ),\n        ),\n    ),\n    kind: Let {\n        pattern_symbol: 7,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -370,7 +370,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 204;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 404,\n            },\n        ),\n    ),\n);\n\ntoken_info = Variable {\n    expr_sheet: ExprSheet(\n        Id {\n            value: 60,\n        },\n    ),\n    variable_idx: 5,\n};\n\nVariable {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 404,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        205,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                269,\n            ),\n        ),\n    ),\n    kind: Let {\n        pattern_symbol: 11,\n    },\n}\n",
+                                value: "\ntoken_idx = 204;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 404,\n            },\n        ),\n    ),\n);\n\ntoken_info = Variable {\n    variable_sheet: VariableSheet(\n        Id {\n            value: 18,\n        },\n    ),\n    variable_idx: 5,\n};\n\nVariable {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 404,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        205,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                269,\n            ),\n        ),\n    ),\n    kind: Let {\n        pattern_symbol: 11,\n    },\n}\n",
                             },
                         ),
                         range: Some(

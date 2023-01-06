@@ -243,7 +243,7 @@ impl<'a> BlockExprParser<'a> {
         }
     }
 
-    pub fn finish(self) -> ExprSheet {
-        self.expr_parser.finish()
+    pub fn finish(self) -> (VariableSheet, ExprSheet) {
+        self.expr_parser.finish_with_variable_sheet()
     }
 }

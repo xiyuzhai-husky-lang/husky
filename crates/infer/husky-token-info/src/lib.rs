@@ -25,5 +25,5 @@ fn token_info_sheet(
     db: &dyn TokenInfoDb,
     module_path: ModulePath,
 ) -> EntityTreeResult<TokenInfoSheet> {
-    Ok(TokenInfoInferEngine::new(db, module_path)?.visit_all())
+    Ok(InferEngine::new(db, module_path)?.visit_all())
 }
