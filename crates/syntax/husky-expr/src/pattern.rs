@@ -53,7 +53,7 @@ pub enum PatternOpn {}
 #[derive(Debug, Default, PartialEq, Eq)]
 pub struct PatternExprSheet {
     arena: PatternExprArena,
-    pattern_environments: Vec<PatternEnvironment>,
+    pattern_infos: Vec<PatternInfo>,
     pattern_symbol_maps: Vec<IdentPairMap<PatternSymbolIdx>>,
     pattern_symbol_arena: PatternSymbolArena,
 }
@@ -96,10 +96,10 @@ fn collect_symbols(
 }
 
 impl PatternExprSheet {
-    pub fn alloc_one(&mut self, expr: PatternExpr, env: PatternEnvironment) -> PatternExprIdx {
+    pub fn alloc_one(&mut self, expr: PatternExpr, env: PatternInfo) -> PatternExprIdx {
         let expr_idx = self.arena.alloc_one(expr);
-        assert_eq!(expr_idx.raw(), self.pattern_environments.len());
-        self.pattern_environments.push(env);
+        assert_eq!(expr_idx.raw(), self.pattern_infos.len());
+        self.pattern_infos.push(env);
         let expr = &self.arena[expr_idx];
         assert_eq!(expr_idx.raw(), self.pattern_symbol_maps.len());
         self.pattern_symbol_maps.push(collect_symbols(
@@ -123,8 +123,8 @@ impl PatternExprSheet {
         &self.pattern_symbol_maps[pattern_expr_idx.raw()]
     }
 
-    pub fn pattern_env(&self, pattern_expr_idx: ArenaIdx<PatternExpr>) -> PatternEnvironment {
-        self.pattern_environments[pattern_expr_idx.raw()]
+    pub fn pattern_info(&self, pattern_expr_idx: ArenaIdx<PatternExpr>) -> PatternInfo {
+        self.pattern_infos[pattern_expr_idx.raw()]
     }
 }
 
@@ -161,7 +161,7 @@ impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for ParameterPattern {
             Ok(Some(ParameterPattern {
                 pattern_expr_idx: ctx.alloc_pattern_expr(
                     PatternExpr::Identifier { ident_token },
-                    PatternEnvironment::Parameter,
+                    PatternInfo::Parameter,
                 ),
             }))
         } else {
@@ -182,28 +182,37 @@ pub struct LetVariablePattern {
     variables: VariableIdxRange,
 }
 
-impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for LetVariablePattern {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> Result<Option<Self>, ExprError> {
-        // ad hoc
-        if let Some(pattern_expr_idx) = ctx.parse_pattern_expr(PatternEnvironment::Let)? {
-            let symbols = ctx
+impl<'a, 'b> ExprParseContext<'a, 'b> {
+    pub(crate) fn parse_let_variable_pattern(
+        &mut self,
+        access_end: TokenIdxRangeEnd,
+    ) -> ExprResult<LetVariablePattern> {
+        let state = self.save_state();
+        if let Some(pattern_expr_idx) = self.parse_pattern_expr(PatternInfo::Let)? {
+            let symbols = self
                 .pattern_expr_sheet()
                 .pattern_symbol_map(pattern_expr_idx);
+            let access_start = self.token_stream().next_index();
             let variables = symbols
                 .iter()
-                .map(|(ident, pattern_symbol)| Variable::Let {
-                    pattern_symbol: *pattern_symbol,
+                .map(|(ident, pattern_symbol)| {
+                    Variable::new(
+                        *ident,
+                        access_start,
+                        Some(access_end),
+                        VariableKind::Let {
+                            pattern_symbol: *pattern_symbol,
+                        },
+                    )
                 })
                 .collect();
-            let variables = ctx.define_variables(variables);
-            Ok(Some(LetVariablePattern {
+            let variables = self.define_variables(variables);
+            Ok(LetVariablePattern {
                 pattern_expr_idx,
                 variables,
-            }))
+            })
         } else {
-            Ok(None)
+            Err(ExprError::ExpectLetVariablePattern(state))
         }
     }
 }
@@ -226,10 +235,8 @@ impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for BePattern {
         // ad hoc
         if let Some(ident_token) = ctx.parse::<IdentifierToken>()? {
             Ok(Some(BePattern {
-                pattern_expr_idx: ctx.alloc_pattern_expr(
-                    PatternExpr::Identifier { ident_token },
-                    PatternEnvironment::Be,
-                ),
+                pattern_expr_idx: ctx
+                    .alloc_pattern_expr(PatternExpr::Identifier { ident_token }, PatternInfo::Be),
             }))
         } else {
             Ok(None)
@@ -244,7 +251,7 @@ impl BePattern {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum PatternEnvironment {
+pub enum PatternInfo {
     Parameter,
     Let,
     Match,

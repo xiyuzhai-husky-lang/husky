@@ -175,7 +175,12 @@ impl<'a> ExprSheetTokenInfoInferEngine<'a> {
             Expr::Variable {
                 token_idx,
                 variable_idx,
-            } => todo!(),
+            } => self.sheet.add(
+                *token_idx,
+                TokenInfo::Variable {
+                    variable_idx: Some(*variable_idx),
+                },
+            ),
             Expr::Field { ident_token, .. } => {
                 self.sheet.add(ident_token.token_idx(), TokenInfo::Field)
             }
@@ -205,12 +210,21 @@ impl<'a> ExprSheetTokenInfoInferEngine<'a> {
         match pattern_expr {
             PatternExpr::Literal(_) => todo!(),
             PatternExpr::Identifier { ident_token } => {
-                let env = self.pattern_expr_sheet.pattern_env(pattern_expr_idx);
+                let env = self.pattern_expr_sheet.pattern_info(pattern_expr_idx);
                 let info = match env {
-                    PatternEnvironment::Parameter => TokenInfo::Parameter,
-                    PatternEnvironment::Let => TokenInfo::Variable,
-                    PatternEnvironment::Match => TokenInfo::Variable,
-                    PatternEnvironment::Be => TokenInfo::Variable,
+                    PatternInfo::Parameter => TokenInfo::Parameter,
+                    PatternInfo::Let => TokenInfo::Variable {
+                        // ad hoc
+                        variable_idx: None,
+                    },
+                    PatternInfo::Match => TokenInfo::Variable {
+                        // ad hoc
+                        variable_idx: None,
+                    },
+                    PatternInfo::Be => TokenInfo::Variable {
+                        // ad hoc
+                        variable_idx: None,
+                    },
                 };
                 self.sheet.add(ident_token.token_idx(), info)
             }

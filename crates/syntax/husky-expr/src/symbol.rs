@@ -1,25 +1,37 @@
 use crate::*;
 use husky_entity_tree::CratePrelude;
 
-pub struct SymbolStack<'a> {
+pub struct SymbolSheet<'a> {
     crate_prelude: CratePrelude<'a>,
+    variable_sheet: VariableSheet,
 }
 
-impl<'a> SymbolStack<'a> {
+impl<'a> SymbolSheet<'a> {
     pub fn new(crate_prelude: CratePrelude<'a>) -> Self {
-        Self { crate_prelude }
+        Self {
+            crate_prelude,
+            variable_sheet: Default::default(),
+        }
     }
 
-    pub(crate) fn resolve_ident(&self, ident: Identifier) -> Option<Symbol> {
+    pub(crate) fn resolve_ident(&self, token_idx: TokenIdx, ident: Identifier) -> Option<Symbol> {
         // ad hoc
-        if let Some(symbol) = self.crate_prelude.resolve_ident(ident) {
-            return Some(Symbol::Entity(symbol.entity_path()));
+        if let Some(variable) = self.variable_sheet.resolve_ident(token_idx, ident) {
+            Some(Symbol::Variable(variable))
+        } else if let Some(entity_symbol) = self.crate_prelude.resolve_ident(ident) {
+            Some(Symbol::Entity(entity_symbol.entity_path()))
         } else {
             None
         }
     }
+
+    #[inline(always)]
+    pub(crate) fn define_variables(&mut self, variables: Vec<Variable>) -> ArenaIdxRange<Variable> {
+        self.variable_sheet.define_variables(variables)
+    }
 }
 
 pub enum Symbol {
+    Variable(VariableIdx),
     Entity(EntityPath),
 }

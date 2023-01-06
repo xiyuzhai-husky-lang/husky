@@ -1,4 +1,5 @@
 use husky_entity_taxonomy::EntityKind;
+use husky_expr::VariableIdx;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum TokenInfo {
@@ -6,7 +7,7 @@ pub enum TokenInfo {
     Entity(EntityKind),
     ImplicitParameter,
     Parameter,
-    Variable,
+    Variable { variable_idx: Option<VariableIdx> },
     Field,
     Method,
 }

@@ -95,6 +95,10 @@ impl<'a> TokenStream<'a> {
         self.next_relative = state.raw() - self.base;
     }
 
+    pub fn next_index(&self) -> TokenIdx {
+        TokenIdx(self.base + self.next_relative)
+    }
+
     pub fn next_indexed(&mut self) -> Option<(TokenIdx, Token)> {
         if self.next_relative < self.tokens.len() {
             let next = self.next_relative;

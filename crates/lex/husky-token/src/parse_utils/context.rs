@@ -7,7 +7,7 @@ pub trait TokenParseContext<'a>:
 where
     <Self as HasParseError>::Error: From<TokenError>,
 {
-    fn token_iter(&self) -> &TokenStream<'a> {
+    fn token_stream(&self) -> &TokenStream<'a> {
         self.borrow()
     }
 

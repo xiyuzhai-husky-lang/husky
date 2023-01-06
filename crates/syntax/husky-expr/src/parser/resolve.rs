@@ -17,7 +17,7 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
             Token::Keyword(keyword) => {
                 ResolvedToken::Atom(Expr::Err(ExprError::UnexpectedKeyword(token_idx)))
             }
-            Token::Identifier(ident) => self.resolve_ident(ident),
+            Token::Identifier(ident) => self.resolve_ident(token_idx, ident),
             Token::Punctuation(punc) => match punc {
                 Punctuation::Binary(binary) => ResolvedToken::BinaryOpr(token_idx, binary),
                 Punctuation::Bra(bra) => ResolvedToken::Bra(token_idx, bra),
@@ -136,7 +136,7 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
 }
 
 impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
-    fn resolve_ident(&self, ident: Identifier) -> ResolvedToken {
+    fn resolve_ident(&self, token_idx: TokenIdx, ident: Identifier) -> ResolvedToken {
         if let Some(opn) = self.last_unfinished_expr() {
             match opn {
                 UnfinishedExpr::Binary {
@@ -153,11 +153,20 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
                 _ => (),
             }
         }
-        match self.parser.symbol_stack.resolve_ident(ident) {
-            Some(symbol) => todo!(),
-            // symbol.into(),
-            None => ResolvedToken::Atom(Expr::Unrecognized(ident)),
-        }
+        ResolvedToken::Atom(
+            match self.parser.symbol_sheet.resolve_ident(token_idx, ident) {
+                Some(symbol) => match symbol {
+                    Symbol::Variable(variable_idx) => Expr::Variable {
+                        token_idx,
+                        variable_idx,
+                    },
+                    Symbol::Entity(entity_path) => todo!(),
+                    //  Expr::EntityPath(entity_path),
+                },
+                // symbol.into(),
+                None => Expr::Unrecognized(ident),
+            },
+        )
     }
 }
 
