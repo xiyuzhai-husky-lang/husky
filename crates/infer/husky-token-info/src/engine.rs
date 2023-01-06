@@ -209,7 +209,7 @@ impl<'a> ExprSheetTokenInfoInferEngine<'a> {
     fn visit_pattern_expr(&mut self, pattern_expr_idx: PatternExprIdx, pattern_expr: &PatternExpr) {
         match pattern_expr {
             PatternExpr::Literal(_) => todo!(),
-            PatternExpr::Identifier { ident_token } => {
+            PatternExpr::Identifier { ident_token, .. } => {
                 let env = self.pattern_expr_sheet.pattern_info(pattern_expr_idx);
                 let info = match env {
                     PatternInfo::Parameter => TokenInfo::Parameter,
