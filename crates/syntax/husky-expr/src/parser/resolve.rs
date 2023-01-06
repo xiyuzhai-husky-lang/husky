@@ -99,8 +99,7 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
                     },
                 },
                 Punctuation::DoubleExclamation => todo!(),
-                Punctuation::Semicolon => todo!(),
-                // return TokenResolveResult::Break(()),
+                Punctuation::Semicolon => return TokenResolveResult::Break(()),
                 Punctuation::XmlKet => todo!(),
                 Punctuation::At => todo!(),
                 Punctuation::Question => match self.finished_expr() {

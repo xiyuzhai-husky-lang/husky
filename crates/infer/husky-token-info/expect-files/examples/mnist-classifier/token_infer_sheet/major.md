@@ -94,12 +94,24 @@ Ok(
             None,
             None,
             None,
+            Variable {
+                variable_idx: Some(
+                    1,
+                ),
+            },
+            None,
+            Variable {
+                variable_idx: Some(
+                    1,
+                ),
+            },
             None,
             None,
-            None,
-            None,
-            None,
-            None,
+            Variable {
+                variable_idx: Some(
+                    2,
+                ),
+            },
             None,
             None,
             None,

@@ -213,3 +213,115 @@ where
         }
     }
 }
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct IfToken {
+    token_idx: TokenIdx,
+}
+
+impl IfToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
+impl<'a, Context> parsec::ParseFrom<Context> for IfToken
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+            match token {
+                Token::Keyword(Keyword::Stmt(StmtKeyword::If)) => Ok(Some(IfToken { token_idx })),
+                Token::Err(ref e) => Err(e.clone().into()),
+                Token::Punctuation(_)
+                | Token::Identifier(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Attr(_)
+                | Token::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct ElifToken {
+    token_idx: TokenIdx,
+}
+
+impl ElifToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
+impl<'a, Context> parsec::ParseFrom<Context> for ElifToken
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+            match token {
+                Token::Keyword(Keyword::Stmt(StmtKeyword::Elif)) => {
+                    Ok(Some(ElifToken { token_idx }))
+                }
+                Token::Err(ref e) => Err(e.clone().into()),
+                Token::Punctuation(_)
+                | Token::Identifier(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Attr(_)
+                | Token::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct ElseToken {
+    token_idx: TokenIdx,
+}
+
+impl ElseToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
+impl<'a, Context> parsec::ParseFrom<Context> for ElseToken
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+            match token {
+                Token::Keyword(Keyword::Stmt(StmtKeyword::Else)) => {
+                    Ok(Some(ElseToken { token_idx }))
+                }
+                Token::Err(ref e) => Err(e.clone().into()),
+                Token::Punctuation(_)
+                | Token::Identifier(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Attr(_)
+                | Token::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
