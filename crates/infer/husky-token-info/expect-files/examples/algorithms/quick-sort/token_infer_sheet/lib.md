@@ -245,7 +245,7 @@ Ok(
                         value: 25,
                     },
                 ),
-                variable_idx: None,
+                variable_idx: 0,
             },
             None,
             None,
@@ -278,9 +278,7 @@ Ok(
                         value: 25,
                     },
                 ),
-                variable_idx: Some(
-                    0,
-                ),
+                variable_idx: 0,
             },
             None,
             None,
@@ -290,9 +288,7 @@ Ok(
                         value: 25,
                     },
                 ),
-                variable_idx: Some(
-                    0,
-                ),
+                variable_idx: 0,
             },
             None,
             None,
@@ -337,7 +333,7 @@ Ok(
                         value: 26,
                     },
                 ),
-                variable_idx: None,
+                variable_idx: 0,
             },
             None,
             None,
@@ -355,10 +351,24 @@ Ok(
             None,
             None,
             None,
+            Variable {
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 26,
+                    },
+                ),
+                variable_idx: 0,
+            },
             None,
             None,
-            None,
-            None,
+            Variable {
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 26,
+                    },
+                ),
+                variable_idx: 0,
+            },
             None,
             None,
             None,

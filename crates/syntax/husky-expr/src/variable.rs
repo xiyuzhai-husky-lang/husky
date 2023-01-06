@@ -24,6 +24,12 @@ impl VariableSheet {
             variable.ident == ident && accessible
         })
     }
+
+    pub fn index_variable_iter<'a>(
+        &'a self,
+    ) -> impl Iterator<Item = (VariableIdx, &'a Variable)> + 'a {
+        self.arena.indexed_iter()
+    }
 }
 
 pub type VariableArena = Arena<Variable>;
@@ -60,6 +66,10 @@ impl Variable {
             access_end,
             kind,
         }
+    }
+
+    pub fn kind(&self) -> VariableKind {
+        self.kind
     }
 }
 

@@ -115,25 +115,17 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 37,
-                    },
-                ),
-                variable_idx: None,
-            },
             None,
             None,
             None,
-            Variable {
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 37,
-                    },
-                ),
-                variable_idx: None,
-            },
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
             None,
             None,
             None,
@@ -143,27 +135,7 @@ Ok(
                         value: 37,
                     },
                 ),
-                variable_idx: None,
-            },
-            None,
-            None,
-            None,
-            Variable {
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 37,
-                    },
-                ),
-                variable_idx: None,
-            },
-            None,
-            Variable {
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 37,
-                    },
-                ),
-                variable_idx: None,
+                variable_idx: 0,
             },
             None,
             None,
@@ -183,14 +155,7 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 37,
-                    },
-                ),
-                variable_idx: None,
-            },
+            None,
             None,
             None,
             None,
@@ -202,14 +167,7 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 37,
-                    },
-                ),
-                variable_idx: None,
-            },
+            None,
             None,
             None,
             None,
@@ -228,7 +186,7 @@ Ok(
                 },
             ),
             None,
-            Parameter,
+            None,
             None,
             None,
             None,

@@ -67,6 +67,22 @@ pub struct PatternExprSheet {
     pattern_symbol_arena: PatternSymbolArena,
 }
 
+impl std::ops::Index<PatternExprIdx> for PatternExprSheet {
+    type Output = PatternExpr;
+
+    fn index(&self, index: PatternExprIdx) -> &Self::Output {
+        &self.arena[index]
+    }
+}
+
+impl std::ops::Index<PatternSymbolIdx> for PatternExprSheet {
+    type Output = PatternSymbol;
+
+    fn index(&self, index: PatternSymbolIdx) -> &Self::Output {
+        &self.pattern_symbol_arena[index]
+    }
+}
+
 #[derive(Debug, PartialEq, Eq)]
 pub enum PatternSymbol {
     Atom(PatternExprIdx),

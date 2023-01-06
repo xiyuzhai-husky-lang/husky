@@ -77,6 +77,7 @@ impl<'a> TokenInfoInferEngine<'a> {
             pattern_expr_sheet: expr_sheet.pattern_expr_arena(self.db),
             entity_path_expr_arena: expr_sheet.entity_path_expr_arena(self.db),
             stmt_arena: expr_sheet.stmt_arena(self.db),
+            variable_sheet: expr_sheet.variable_sheet(self.db),
             expr_sheet,
         }
         .visit_all()
@@ -168,11 +169,21 @@ struct ExprSheetTokenInfoInferEngine<'a> {
     pattern_expr_sheet: &'a PatternExprSheet,
     entity_path_expr_arena: &'a EntityPathExprArena,
     stmt_arena: &'a StmtArena,
+    variable_sheet: &'a VariableSheet,
     sheet: &'a mut TokenInfoSheet,
     expr_sheet: ExprSheet,
 }
 
 impl<'a> ExprSheetTokenInfoInferEngine<'a> {
+    fn visit_all(mut self) {
+        for expr in self.expr_arena.data() {
+            self.visit_expr(expr)
+        }
+        for (variable_idx, variable) in self.variable_sheet.index_variable_iter() {
+            self.visit_variable(variable_idx, variable)
+        }
+    }
+
     fn visit_expr(&mut self, expr: &Expr) {
         match expr {
             Expr::Variable {
@@ -181,7 +192,7 @@ impl<'a> ExprSheetTokenInfoInferEngine<'a> {
             } => self.sheet.add(
                 *token_idx,
                 TokenInfo::Variable {
-                    variable_idx: Some(*variable_idx),
+                    variable_idx: *variable_idx,
                     expr_sheet: self.expr_sheet,
                 },
             ),
@@ -210,58 +221,72 @@ impl<'a> ExprSheetTokenInfoInferEngine<'a> {
         }
     }
 
-    fn visit_pattern_expr(&mut self, pattern_expr_idx: PatternExprIdx, pattern_expr: &PatternExpr) {
-        match pattern_expr {
-            PatternExpr::Literal(_) => todo!(),
-            PatternExpr::Identifier { ident_token, .. } => {
-                let env = self.pattern_expr_sheet.pattern_info(pattern_expr_idx);
-                let info = match env {
-                    PatternInfo::Parameter => TokenInfo::Parameter,
-                    PatternInfo::Let => TokenInfo::Variable {
-                        // ad hoc
-                        variable_idx: None,
-                        expr_sheet: self.expr_sheet,
-                    },
-                    PatternInfo::Match => TokenInfo::Variable {
-                        // ad hoc
-                        variable_idx: None,
-                        expr_sheet: self.expr_sheet,
-                    },
-                    PatternInfo::Be => TokenInfo::Variable {
-                        // ad hoc
-                        variable_idx: None,
-                        expr_sheet: self.expr_sheet,
-                    },
-                };
-                self.sheet.add(ident_token.token_idx(), info)
-            }
-            // TokenInfo::Parameter),
-            // PatternExpr::Identifier { ident_token } => {
-            //     self.sheet.add(ident_token.token_idx(), TokenInfo::Variable)
-            // }
-            PatternExpr::Entity(_) => todo!(),
-            PatternExpr::Tuple { name, fields } => todo!(),
-            PatternExpr::Struct { name, fields } => todo!(),
-            PatternExpr::OneOf { options } => todo!(),
-            PatternExpr::Binding {
-                ident_token,
-                asperand_token,
-                src,
-            } => todo!(),
-            PatternExpr::Range {
-                start,
-                dot_dot_token,
-                end,
-            } => todo!(),
+    fn visit_variable(&mut self, variable_idx: VariableIdx, variable: &Variable) {
+        match variable.kind() {
+            VariableKind::Let { pattern_symbol } => match self.pattern_expr_sheet[pattern_symbol] {
+                PatternSymbol::Atom(pattern_expr_idx) => {
+                    match self.pattern_expr_sheet[pattern_expr_idx] {
+                        PatternExpr::Identifier {
+                            ident_token,
+                            liason,
+                        } => self.sheet.add(
+                            ident_token.token_idx(),
+                            TokenInfo::Variable {
+                                expr_sheet: self.expr_sheet,
+                                variable_idx,
+                            },
+                        ),
+                        _ => unreachable!(),
+                    }
+                }
+            },
+            VariableKind::Lambda => todo!(),
         }
     }
 
-    fn visit_all(mut self) {
-        for expr in self.expr_arena.data() {
-            self.visit_expr(expr)
-        }
-        for (idx, pattern_expr) in self.pattern_expr_sheet.pattern_exprs() {
-            self.visit_pattern_expr(idx, pattern_expr)
-        }
-    }
+    // fn visit_pattern_expr(&mut self, pattern_expr_idx: PatternExprIdx, pattern_expr: &PatternExpr) {
+    //     match pattern_expr {
+    //         PatternExpr::Literal(_) => todo!(),
+    //         PatternExpr::Identifier { ident_token, .. } => {
+    //             let env = self.pattern_expr_sheet.pattern_info(pattern_expr_idx);
+    //             let info = match env {
+    //                 PatternInfo::Parameter => TokenInfo::Parameter,
+    //                 PatternInfo::Let => TokenInfo::Variable {
+    //                     // ad hoc
+    //                     variable_idx: None,
+    //                     expr_sheet: self.expr_sheet,
+    //                 },
+    //                 PatternInfo::Match => TokenInfo::Variable {
+    //                     // ad hoc
+    //                     variable_idx: None,
+    //                     expr_sheet: self.expr_sheet,
+    //                 },
+    //                 PatternInfo::Be => TokenInfo::Variable {
+    //                     // ad hoc
+    //                     variable_idx: None,
+    //                     expr_sheet: self.expr_sheet,
+    //                 },
+    //             };
+    //             self.sheet.add(ident_token.token_idx(), info)
+    //         }
+    //         // TokenInfo::Parameter),
+    //         // PatternExpr::Identifier { ident_token } => {
+    //         //     self.sheet.add(ident_token.token_idx(), TokenInfo::Variable)
+    //         // }
+    //         PatternExpr::Entity(_) => todo!(),
+    //         PatternExpr::Tuple { name, fields } => todo!(),
+    //         PatternExpr::Struct { name, fields } => todo!(),
+    //         PatternExpr::OneOf { options } => todo!(),
+    //         PatternExpr::Binding {
+    //             ident_token,
+    //             asperand_token,
+    //             src,
+    //         } => todo!(),
+    //         PatternExpr::Range {
+    //             start,
+    //             dot_dot_token,
+    //             end,
+    //         } => todo!(),
+    //     }
+    // }
 }
