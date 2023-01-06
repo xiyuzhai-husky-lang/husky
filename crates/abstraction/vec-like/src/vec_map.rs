@@ -311,6 +311,17 @@ where
     }
 }
 
+impl<K, Entry, const N: usize> From<[Entry; N]> for VecMap<Entry>
+where
+    K: PartialEq + Eq + Copy + std::fmt::Debug,
+    Entry: AsVecMapEntry<K = K> + std::fmt::Debug,
+{
+    fn from(value: [Entry; N]) -> Self {
+        let iter: std::array::IntoIter<_, N> = value.into_iter();
+        Self::from_iter(iter)
+    }
+}
+
 impl<K, Entry> FromIterator<Entry> for VecMap<Entry>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,

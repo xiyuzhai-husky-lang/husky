@@ -14,7 +14,6 @@ pub use sheet::*;
 use context::*;
 use husky_expr::*;
 use husky_opn_syntax::*;
-use husky_symbol::Symbol;
 use husky_term::*;
 use husky_term_pattern::*;
 use husky_token::*;

@@ -4,7 +4,6 @@ pub use error::*;
 
 use crate::*;
 use husky_expr::{Expr, ExprIdx};
-use husky_symbol::Symbol;
 use husky_term::Term;
 use wild_utils::arb_ref;
 

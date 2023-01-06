@@ -6,7 +6,6 @@ use husky_entity_tree::{CratePrelude, EntitySymbol, EntityTreeSheet};
 use husky_expr::{parse_expr, ExprSheet};
 use husky_opn_syntax::BinaryOpr;
 use husky_print_utils::p;
-use husky_symbol::{LocalSymbolSheet, SymbolContext};
 use husky_token::{
     IdentifierToken, LeftAngleBracketToken, LeftBoxBracketToken, LeftCurlyBraceToken, Punctuation,
     RangedTokenSheet, RightCurlyBraceToken, TokenGroupIdx, TokenIdx, TokenSheetData,

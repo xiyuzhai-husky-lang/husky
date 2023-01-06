@@ -1,6 +1,5 @@
 use super::*;
 use husky_entity_path::EntityPath;
-use husky_symbol::SymbolContext;
 use husky_token::{AtToken, DotDotToken, IdentifierToken, TokenStream};
 use husky_word::Identifier;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
@@ -12,9 +11,7 @@ pub enum PatternExpr {
     /// example: `1`
     Literal(LiteralData),
     /// example: `a`
-    ParameterIdentifier { ident_token: IdentifierToken },
-    /// example: `a`
-    LetVariableIdentifier { ident_token: IdentifierToken },
+    Identifier { ident_token: IdentifierToken },
     /// example: `A::B`
     Entity(EntityPath),
     /// example: `(a, b)`
@@ -56,8 +53,9 @@ pub enum PatternOpn {}
 #[derive(Debug, Default, PartialEq, Eq)]
 pub struct PatternExprSheet {
     arena: PatternExprArena,
-    pattern_variables: Vec<IdentPairMap<PatternSymbolIdx>>,
-    pattern_variable_arena: PatternSymbolArena,
+    pattern_environments: Vec<PatternEnvironment>,
+    pattern_symbol_maps: Vec<IdentPairMap<PatternSymbolIdx>>,
+    pattern_symbol_arena: PatternSymbolArena,
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -68,33 +66,65 @@ pub enum PatternSymbol {
 pub type PatternSymbolArena = Arena<PatternSymbol>;
 pub type PatternSymbolIdx = ArenaIdx<PatternSymbol>;
 
+fn collect_symbols(
+    pattern_expr_idx: PatternExprIdx,
+    pattern_expr: &PatternExpr,
+    pattern_symbol_arena: &mut PatternSymbolArena,
+) -> IdentPairMap<PatternSymbolIdx> {
+    match pattern_expr {
+        PatternExpr::Literal(_) => Default::default(),
+        PatternExpr::Identifier { ident_token } => [(
+            ident_token.ident(),
+            pattern_symbol_arena.alloc_one(PatternSymbol::Atom(pattern_expr_idx)),
+        )]
+        .into(),
+        PatternExpr::Entity(_) => todo!(),
+        PatternExpr::Tuple { name, fields } => todo!(),
+        PatternExpr::Struct { name, fields } => todo!(),
+        PatternExpr::OneOf { options } => todo!(),
+        PatternExpr::Binding {
+            ident_token,
+            asperand_token,
+            src,
+        } => todo!(),
+        PatternExpr::Range {
+            start,
+            dot_dot_token,
+            end,
+        } => todo!(),
+    }
+}
+
 impl PatternExprSheet {
-    pub fn alloc_one(&mut self, expr: PatternExpr) -> PatternExprIdx {
+    pub fn alloc_one(&mut self, expr: PatternExpr, env: PatternEnvironment) -> PatternExprIdx {
         let expr_idx = self.arena.alloc_one(expr);
-        match self.arena[expr_idx] {
-            PatternExpr::Literal(_) => todo!(),
-            PatternExpr::ParameterIdentifier { ident_token } => todo!(),
-            PatternExpr::LetVariableIdentifier { ident_token } => todo!(),
-            PatternExpr::Entity(_) => todo!(),
-            PatternExpr::Tuple { name, fields } => todo!(),
-            PatternExpr::Struct { name, fields } => todo!(),
-            PatternExpr::OneOf { options } => todo!(),
-            PatternExpr::Binding {
-                ident_token,
-                asperand_token,
-                src,
-            } => todo!(),
-            PatternExpr::Range {
-                start,
-                dot_dot_token,
-                end,
-            } => todo!(),
-        }
-        todo!()
+        assert_eq!(expr_idx.raw(), self.pattern_environments.len());
+        self.pattern_environments.push(env);
+        let expr = &self.arena[expr_idx];
+        assert_eq!(expr_idx.raw(), self.pattern_symbol_maps.len());
+        self.pattern_symbol_maps.push(collect_symbols(
+            expr_idx,
+            expr,
+            &mut self.pattern_symbol_arena,
+        ));
+        expr_idx
     }
 
-    pub fn pattern_exprs(&self) -> &[PatternExpr] {
-        self.arena.data()
+    pub fn pattern_exprs<'a>(
+        &'a self,
+    ) -> impl Iterator<Item = (PatternExprIdx, &'a PatternExpr)> + 'a {
+        self.arena.indexed_iter()
+    }
+
+    pub fn pattern_symbol_map(
+        &self,
+        pattern_expr_idx: ArenaIdx<PatternExpr>,
+    ) -> &IdentPairMap<PatternSymbolIdx> {
+        &self.pattern_symbol_maps[pattern_expr_idx.raw()]
+    }
+
+    pub fn pattern_env(&self, pattern_expr_idx: ArenaIdx<PatternExpr>) -> PatternEnvironment {
+        self.pattern_environments[pattern_expr_idx.raw()]
     }
 }
 
@@ -129,8 +159,10 @@ impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for ParameterPattern {
         // ad hoc
         if let Some(ident_token) = ctx.parse::<IdentifierToken>()? {
             Ok(Some(ParameterPattern {
-                pattern_expr_idx: ctx
-                    .alloc_pattern_expr(PatternExpr::ParameterIdentifier { ident_token }),
+                pattern_expr_idx: ctx.alloc_pattern_expr(
+                    PatternExpr::Identifier { ident_token },
+                    PatternEnvironment::Parameter,
+                ),
             }))
         } else {
             Ok(None)
@@ -147,7 +179,7 @@ impl ParameterPattern {
 #[derive(Debug, PartialEq, Eq)]
 pub struct LetVariablePattern {
     pattern_expr_idx: PatternExprIdx,
-    variables: Vec<VariableIdx>,
+    variables: VariableIdxRange,
 }
 
 impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for LetVariablePattern {
@@ -155,11 +187,20 @@ impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for LetVariablePattern {
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
         // ad hoc
-        if let Some(ident_token) = ctx.parse::<IdentifierToken>()? {
+        if let Some(pattern_expr_idx) = ctx.parse_pattern_expr(PatternEnvironment::Let)? {
+            let symbols = ctx
+                .pattern_expr_sheet()
+                .pattern_symbol_map(pattern_expr_idx);
+            let variables = symbols
+                .iter()
+                .map(|(ident, pattern_symbol)| Variable::Let {
+                    pattern_symbol: *pattern_symbol,
+                })
+                .collect();
+            let variables = ctx.define_variables(variables);
             Ok(Some(LetVariablePattern {
-                pattern_expr_idx: ctx
-                    .alloc_pattern_expr(PatternExpr::LetVariableIdentifier { ident_token }),
-                variables: todo!(),
+                pattern_expr_idx,
+                variables,
             }))
         } else {
             Ok(None)
@@ -185,8 +226,10 @@ impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for BePattern {
         // ad hoc
         if let Some(ident_token) = ctx.parse::<IdentifierToken>()? {
             Ok(Some(BePattern {
-                pattern_expr_idx: ctx
-                    .alloc_pattern_expr(PatternExpr::LetVariableIdentifier { ident_token }),
+                pattern_expr_idx: ctx.alloc_pattern_expr(
+                    PatternExpr::Identifier { ident_token },
+                    PatternEnvironment::Be,
+                ),
             }))
         } else {
             Ok(None)
@@ -198,4 +241,12 @@ impl BePattern {
     pub fn pattern_expr_idx(&self) -> ArenaIdx<PatternExpr> {
         self.pattern_expr_idx
     }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum PatternEnvironment {
+    Parameter,
+    Let,
+    Match,
+    Be,
 }

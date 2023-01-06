@@ -22,7 +22,11 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         self.parser.alloc_expr(expr)
     }
 
-    pub(crate) fn alloc_pattern_expr(&mut self, expr: PatternExpr) -> PatternExprIdx {
-        self.parser.pattern_expr_arena.alloc_one(expr)
+    pub(crate) fn alloc_pattern_expr(
+        &mut self,
+        expr: PatternExpr,
+        env: PatternEnvironment,
+    ) -> PatternExprIdx {
+        self.parser.pattern_expr_sheet.alloc_one(expr, env)
     }
 }

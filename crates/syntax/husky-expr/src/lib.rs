@@ -8,6 +8,7 @@ mod precedence;
 mod sheet;
 mod snippet;
 mod stmt;
+mod symbol;
 #[cfg(test)]
 mod tests;
 mod variable;
@@ -23,7 +24,6 @@ pub use variable::*;
 
 use husky_entity_path::EntityPath;
 use husky_opn_syntax::*;
-use husky_symbol::VariableIdx;
 use husky_text::*;
 use husky_token::*;
 use husky_word::*;

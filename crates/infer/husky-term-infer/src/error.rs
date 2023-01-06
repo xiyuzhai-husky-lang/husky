@@ -1,5 +1,4 @@
 use crate::*;
-use husky_symbol::Symbol;
 use husky_term::TermError;
 use husky_word::Identifier;
 use thiserror::Error;
