@@ -199,8 +199,6 @@ impl RangedTokenSheet {
             Ok(i) => i,
             Err(e) => (e > 0).then(|| e - 1)?,
         };
-        assert!(self.token_ranges[index].start <= pos);
-        assert!(self.token_ranges[index + 1].start > pos);
         (self.token_ranges[index].end > pos).then(|| TokenIdx(index))
     }
 
