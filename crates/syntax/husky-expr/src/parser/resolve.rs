@@ -1,6 +1,5 @@
 use super::*;
 use husky_print_utils::p;
-use husky_symbol::Symbol;
 use husky_token::Punctuation;
 use salsa::DebugWithDb;
 use std::ops::ControlFlow;

@@ -1,5 +1,5 @@
-use super::*;
-use husky_symbol::Symbol;
+use crate::*;
+use husky_entity_tree::CratePrelude;
 
 pub struct SymbolStack<'a> {
     crate_prelude: CratePrelude<'a>,
@@ -20,5 +20,6 @@ impl<'a> SymbolStack<'a> {
     }
 }
 
-#[derive(Debug)]
-pub struct VariableIdx {}
+pub enum Symbol {
+    Entity(EntityPath),
+}

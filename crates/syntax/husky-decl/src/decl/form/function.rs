@@ -1,5 +1,3 @@
-use husky_symbol::LocalSymbolSheet;
-
 use crate::*;
 
 #[salsa::tracked(jar = DeclJar)]

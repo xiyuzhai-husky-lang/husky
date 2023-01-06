@@ -1,7 +1,6 @@
 use crate::*;
 use husky_expr::{ExprIdx, ExprIdxRange};
 use husky_print_utils::p;
-use husky_symbol::Symbol;
 use husky_term::Term;
 
 impl<'a> InferContext<'a> {

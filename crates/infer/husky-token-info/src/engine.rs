@@ -73,7 +73,7 @@ impl<'a> TokenInfoInferEngine<'a> {
             ast_sheet: self.ast_sheet,
             sheet: &mut self.sheet,
             expr_arena: expr_sheet.expr_arena(self.db),
-            pattern_expr_arena: expr_sheet.pattern_expr_arena(self.db),
+            pattern_expr_sheet: expr_sheet.pattern_expr_arena(self.db),
             entity_path_expr_arena: expr_sheet.entity_path_expr_arena(self.db),
             stmt_arena: expr_sheet.stmt_arena(self.db),
         }
@@ -163,7 +163,7 @@ struct ExprSheetTokenInfoInferEngine<'a> {
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     expr_arena: &'a ExprArena,
-    pattern_expr_arena: &'a PatternExprSheet,
+    pattern_expr_sheet: &'a PatternExprSheet,
     entity_path_expr_arena: &'a EntityPathExprArena,
     stmt_arena: &'a StmtArena,
     sheet: &'a mut TokenInfoSheet,
@@ -201,15 +201,23 @@ impl<'a> ExprSheetTokenInfoInferEngine<'a> {
         }
     }
 
-    fn visit_pattern_expr(&mut self, pattern_expr: &PatternExpr) {
+    fn visit_pattern_expr(&mut self, pattern_expr_idx: PatternExprIdx, pattern_expr: &PatternExpr) {
         match pattern_expr {
             PatternExpr::Literal(_) => todo!(),
-            PatternExpr::ParameterIdentifier { ident_token } => self
-                .sheet
-                .add(ident_token.token_idx(), TokenInfo::Parameter),
-            PatternExpr::LetVariableIdentifier { ident_token } => {
-                self.sheet.add(ident_token.token_idx(), TokenInfo::Variable)
+            PatternExpr::Identifier { ident_token } => {
+                let env = self.pattern_expr_sheet.pattern_env(pattern_expr_idx);
+                let info = match env {
+                    PatternEnvironment::Parameter => TokenInfo::Parameter,
+                    PatternEnvironment::Let => TokenInfo::Variable,
+                    PatternEnvironment::Match => TokenInfo::Variable,
+                    PatternEnvironment::Be => TokenInfo::Variable,
+                };
+                self.sheet.add(ident_token.token_idx(), info)
             }
+            // TokenInfo::Parameter),
+            // PatternExpr::Identifier { ident_token } => {
+            //     self.sheet.add(ident_token.token_idx(), TokenInfo::Variable)
+            // }
             PatternExpr::Entity(_) => todo!(),
             PatternExpr::Tuple { name, fields } => todo!(),
             PatternExpr::Struct { name, fields } => todo!(),
@@ -231,8 +239,8 @@ impl<'a> ExprSheetTokenInfoInferEngine<'a> {
         for expr in self.expr_arena.data() {
             self.visit_expr(expr)
         }
-        for pattern_expr in self.pattern_expr_arena.pattern_exprs() {
-            self.visit_pattern_expr(pattern_expr)
+        for (idx, pattern_expr) in self.pattern_expr_sheet.pattern_exprs() {
+            self.visit_pattern_expr(idx, pattern_expr)
         }
     }
 }

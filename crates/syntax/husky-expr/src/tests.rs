@@ -3,7 +3,6 @@ use husky_ast::AstJar;
 use husky_entity_path::EntityPathJar;
 use husky_entity_tree::*;
 use husky_manifest::ManifestJar;
-use husky_symbol::{LocalSymbolSheet, SymbolContext};
 use husky_token::TokenJar;
 use husky_vfs::*;
 use husky_word::WordJar;

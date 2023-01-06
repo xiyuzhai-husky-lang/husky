@@ -4,7 +4,6 @@ use husky_entity_path::{EntityPath, EntityPathDb, EntityPathJar, EntityPathMenu}
 use husky_entity_tree::EntityTreeJar;
 use husky_expr::{ExprIdx, ExprSheet};
 use husky_manifest::ManifestJar;
-use husky_symbol::{Symbol, SymbolContext};
 use husky_term::{
     Decl, Term, TermDb, TermError, TermJar, TermMenu, TermResult, TermResultArc, TyDecl,
 };
@@ -31,7 +30,6 @@ pub(crate) struct TermInferTestsDb {
     storage: salsa::Storage<Self>,
     entity_tys: HashMap<EntityPath, Term>,
     decls: HashMap<EntityPath, Arc<Decl>>,
-    prelude_symbols: Vec<Symbol>,
 }
 
 impl salsa::Database for TermInferTestsDb {}
@@ -48,7 +46,6 @@ impl TermInferTestsDb {
             storage: Default::default(),
             entity_tys: Default::default(),
             decls: Default::default(),
-            prelude_symbols: Default::default(),
         }
     }
 

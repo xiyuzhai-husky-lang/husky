@@ -17,7 +17,6 @@ husky-token = { path = "../../lex/husky-token" }
 # syntax
 husky-expr = { path = "../../syntax/husky-expr" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
-husky-symbol = { path = "../../syntax/husky-symbol" }
 husky-ast = { path = "../../syntax/husky-ast" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
@@ -39,7 +38,6 @@ husky-word = { path = "../../kernel/husky-word" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
 # syntax
 husky-expr = { path = "../../syntax/husky-expr" }
-husky-symbol = { path = "../../syntax/husky-symbol" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }

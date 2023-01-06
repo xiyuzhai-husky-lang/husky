@@ -5,7 +5,6 @@ mod env;
 mod expr_stack;
 mod list;
 mod resolve;
-mod symbol;
 mod unfinished_expr;
 
 pub use block::*;
@@ -15,7 +14,6 @@ use crate::*;
 use expr_stack::*;
 use husky_ast::{Ast, AstIdxRange, AstSheet};
 use husky_entity_tree::{CratePrelude, EntityTreeDb};
-use husky_symbol::SymbolContext;
 use husky_token::Token;
 use husky_token::TokenStream;
 use list::*;
@@ -44,8 +42,9 @@ pub struct ExprParser<'a> {
     symbol_stack: SymbolStack<'a>,
     expr_arena: ExprArena,
     entity_path_expr_arena: EntityPathExprArena,
-    pattern_expr_arena: PatternExprSheet,
+    pattern_expr_sheet: PatternExprSheet,
     stmt_arena: StmtArena,
+    variable_arena: VariableArena,
 }
 
 impl<'a> ExprParser<'a> {
@@ -62,8 +61,9 @@ impl<'a> ExprParser<'a> {
             symbol_stack: SymbolStack::new(crate_prelude),
             expr_arena: Default::default(),
             entity_path_expr_arena: Default::default(),
-            pattern_expr_arena: Default::default(),
+            pattern_expr_sheet: Default::default(),
             stmt_arena: Default::default(),
+            variable_arena: Default::default(),
         }
     }
 
@@ -72,7 +72,7 @@ impl<'a> ExprParser<'a> {
             self.db,
             self.expr_arena,
             self.entity_path_expr_arena,
-            self.pattern_expr_arena,
+            self.pattern_expr_sheet,
             self.stmt_arena,
         )
     }
@@ -82,6 +82,14 @@ impl<'a> ExprParser<'a> {
         'a: 'b,
     {
         ExprParseContext::new(self, token_stream)
+    }
+
+    pub(crate) fn pattern_expr_sheet(&self) -> &PatternExprSheet {
+        &self.pattern_expr_sheet
+    }
+
+    fn define_variables(&mut self, variables: Vec<Variable>) -> VariableIdxRange {
+        self.variable_arena.alloc_batch(variables)
     }
 }
 
@@ -128,6 +136,31 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         self.reduce(Precedence::None);
         self.env.unset();
         self.finish_batch()
+    }
+
+    pub(crate) fn pattern_expr_sheet(&self) -> &PatternExprSheet {
+        self.parser.pattern_expr_sheet()
+    }
+
+    pub(crate) fn define_variables(&mut self, variables: Vec<Variable>) -> VariableIdxRange {
+        self.parser.define_variables(variables)
+    }
+
+    pub(crate) fn parse_pattern_expr(
+        &mut self,
+        env: PatternEnvironment,
+    ) -> ExprResult<Option<PatternExprIdx>> {
+        if let Some(ident_token) = self.parse::<IdentifierToken>()? {
+            let pattern_expr_idx =
+                self.alloc_pattern_expr(PatternExpr::Identifier { ident_token }, env);
+            // let variables = symbols
+            //     .iter()
+            //     .map(|(ident, _)| (*ident, self.define_variable(*ident, todo!())))
+            //     .collect();
+            Ok(Some(pattern_expr_idx))
+        } else {
+            Ok(None)
+        }
     }
 }
 
