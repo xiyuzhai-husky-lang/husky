@@ -70,6 +70,17 @@ impl<T> Arena<T> {
             )
         })
     }
+
+    pub fn find_rev(&self, f: impl Fn(&T) -> bool) -> Option<ArenaIdx<T>> {
+        self.data
+            .iter()
+            .rev()
+            .position(|t| f(t))
+            .map(|raw| ArenaIdx {
+                raw,
+                phantom: PhantomData,
+            })
+    }
 }
 
 pub fn len<T>(range: &ArenaIdxRange<T>) -> usize {

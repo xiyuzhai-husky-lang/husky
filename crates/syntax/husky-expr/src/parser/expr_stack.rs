@@ -48,7 +48,7 @@ impl Expr {
             Expr::Variable {
                 token_idx,
                 variable_idx,
-            } => todo!(),
+            } => BaseEntityPath::None,
             Expr::Uncertain(_) => todo!(),
             Expr::BinaryOpn {
                 lopd,

@@ -39,12 +39,11 @@ pub struct ExprParser<'a> {
     db: &'a dyn ExprDb,
     entity_path: Option<EntityPath>,
     token_sheet_data: &'a TokenSheetData,
-    symbol_stack: SymbolStack<'a>,
+    symbol_sheet: SymbolSheet<'a>,
     expr_arena: ExprArena,
     entity_path_expr_arena: EntityPathExprArena,
     pattern_expr_sheet: PatternExprSheet,
     stmt_arena: StmtArena,
-    variable_arena: VariableArena,
 }
 
 impl<'a> ExprParser<'a> {
@@ -58,12 +57,11 @@ impl<'a> ExprParser<'a> {
             db,
             entity_path,
             token_sheet_data,
-            symbol_stack: SymbolStack::new(crate_prelude),
+            symbol_sheet: SymbolSheet::new(crate_prelude),
             expr_arena: Default::default(),
             entity_path_expr_arena: Default::default(),
             pattern_expr_sheet: Default::default(),
             stmt_arena: Default::default(),
-            variable_arena: Default::default(),
         }
     }
 
@@ -88,8 +86,9 @@ impl<'a> ExprParser<'a> {
         &self.pattern_expr_sheet
     }
 
+    #[inline(always)]
     fn define_variables(&mut self, variables: Vec<Variable>) -> VariableIdxRange {
-        self.variable_arena.alloc_batch(variables)
+        self.symbol_sheet.define_variables(variables)
     }
 }
 
@@ -148,7 +147,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
     pub(crate) fn parse_pattern_expr(
         &mut self,
-        env: PatternEnvironment,
+        env: PatternInfo,
     ) -> ExprResult<Option<PatternExprIdx>> {
         if let Some(ident_token) = self.parse::<IdentifierToken>()? {
             let pattern_expr_idx =

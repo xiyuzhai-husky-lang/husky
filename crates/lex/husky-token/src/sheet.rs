@@ -37,6 +37,12 @@ pub struct TokenIdxRangeStart(TokenIdx);
 #[derive(Debug, Hash, PartialOrd, Ord, PartialEq, Eq, Clone, Copy)]
 pub struct TokenIdxRangeEnd(TokenIdx);
 
+impl TokenIdxRangeEnd {
+    pub fn token_idx(self) -> TokenIdx {
+        self.0
+    }
+}
+
 pub trait HasTokenIdxRange {
     fn token_idx_range(&self) -> TokenIdxRange;
 }

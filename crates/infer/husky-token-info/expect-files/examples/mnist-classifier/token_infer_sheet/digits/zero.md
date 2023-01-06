@@ -135,7 +135,9 @@ Ok(
             None,
             None,
             None,
-            Variable,
+            Variable {
+                variable_idx: None,
+            },
             None,
             None,
             None,
@@ -243,7 +245,9 @@ Ok(
             None,
             None,
             None,
-            Variable,
+            Variable {
+                variable_idx: None,
+            },
             None,
             None,
             None,
@@ -254,7 +258,9 @@ Ok(
             None,
             None,
             None,
-            Variable,
+            Variable {
+                variable_idx: None,
+            },
             None,
             None,
             None,
