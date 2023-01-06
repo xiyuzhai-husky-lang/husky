@@ -61,6 +61,8 @@ pub enum ExprError {
     MissingResult,
     #[error("missing condition")]
     MissingCondition,
+    #[error("expect for expr")]
+    MissingForExpr,
     #[error("expect be pattern")]
     ExpectBePattern(TokenIdx),
     #[error("unterminated list")]

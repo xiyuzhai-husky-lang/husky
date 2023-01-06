@@ -8,35 +8,21 @@ Ok(
                 Identifier(
                     Word(
                         Id {
+                            value: 84,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Binary(
+                    ScopeResolution,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
                             value: 85,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 86,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 101,
                         },
                     ),
                 ),
@@ -64,7 +50,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 79,
+                            value: 99,
                         },
                     ),
                 ),
@@ -78,13 +64,41 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 82,
+                            value: 78,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Binary(
+                    ScopeResolution,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 81,
                         },
                     ),
                 ),
             ),
             Keyword(
                 Use,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 84,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Binary(
+                    ScopeResolution,
+                ),
             ),
             Identifier(
                 Identifier(
@@ -118,7 +132,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 87,
+                            value: 178,
                         },
                     ),
                 ),
@@ -137,22 +151,22 @@ Ok(
                     ),
                 ),
             ),
-            Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+            Keyword(
+                Use,
             ),
             Identifier(
                 Identifier(
                     Word(
                         Id {
-                            value: 180,
+                            value: 84,
                         },
                     ),
                 ),
             ),
-            Keyword(
-                Use,
+            Punctuation(
+                Binary(
+                    ScopeResolution,
+                ),
             ),
             Identifier(
                 Identifier(
@@ -186,7 +200,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 87,
+                            value: 180,
                         },
                     ),
                 ),
@@ -205,22 +219,22 @@ Ok(
                     ),
                 ),
             ),
-            Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+            Keyword(
+                Use,
             ),
             Identifier(
                 Identifier(
                     Word(
                         Id {
-                            value: 182,
+                            value: 84,
                         },
                     ),
                 ),
             ),
-            Keyword(
-                Use,
+            Punctuation(
+                Binary(
+                    ScopeResolution,
+                ),
             ),
             Identifier(
                 Identifier(
@@ -254,7 +268,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 87,
+                            value: 161,
                         },
                     ),
                 ),
@@ -273,20 +287,6 @@ Ok(
                     ),
                 ),
             ),
-            Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 163,
-                        },
-                    ),
-                ),
-            ),
             Keyword(
                 Use,
             ),
@@ -294,7 +294,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 32,
+                            value: 31,
                         },
                     ),
                 ),
@@ -308,7 +308,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 77,
+                            value: 76,
                         },
                     ),
                 ),
@@ -332,7 +332,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 32,
+                            value: 31,
                         },
                     ),
                 ),
@@ -346,7 +346,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 70,
+                            value: 69,
                         },
                     ),
                 ),
@@ -370,7 +370,21 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 32,
+                            value: 31,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Binary(
+                    ScopeResolution,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 71,
                         },
                     ),
                 ),
@@ -385,20 +399,6 @@ Ok(
                     Word(
                         Id {
                             value: 72,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 73,
                         },
                     ),
                 ),
@@ -424,7 +424,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 253,
+                            value: 252,
                         },
                     ),
                 ),
@@ -438,7 +438,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 165,
+                            value: 164,
                         },
                     ),
                 ),
@@ -450,7 +450,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 166,
+                            value: 165,
                         },
                     ),
                 ),
@@ -464,7 +464,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 160,
+                            value: 159,
                         },
                     ),
                 ),
@@ -476,6 +476,18 @@ Ok(
                 Bra(
                     Box,
                 ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 253,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Comma,
             ),
             Identifier(
                 Identifier(
@@ -499,18 +511,6 @@ Ok(
                 ),
             ),
             Punctuation(
-                Comma,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 256,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
                 Ket(
                     Box,
                 ),
@@ -529,7 +529,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 95,
+                            value: 94,
                         },
                     ),
                 ),
@@ -546,7 +546,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 82,
+                            value: 81,
                         },
                     ),
                 ),
@@ -563,7 +563,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 160,
+                            value: 159,
                         },
                     ),
                 ),
@@ -575,7 +575,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 124,
+                            value: 123,
                         },
                     ),
                 ),
@@ -611,7 +611,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 160,
+                            value: 159,
                         },
                     ),
                 ),
@@ -623,7 +623,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 124,
+                            value: 123,
                         },
                     ),
                 ),
@@ -659,6 +659,63 @@ Ok(
                 Identifier(
                     Word(
                         Id {
+                            value: 253,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Binary(
+                    Assign(
+                        None,
+                    ),
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 252,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 107,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Bra(
+                    Box,
+                ),
+            ),
+            Literal(
+                Integer(
+                    Unspecified,
+                ),
+            ),
+            Punctuation(
+                Ket(
+                    Box,
+                ),
+            ),
+            Keyword(
+                Stmt(
+                    Let,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
                             value: 254,
                         },
                     ),
@@ -675,7 +732,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 253,
+                            value: 252,
                         },
                     ),
                 ),
@@ -687,7 +744,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 108,
+                            value: 107,
                         },
                     ),
                 ),
@@ -732,7 +789,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 253,
+                            value: 252,
                         },
                     ),
                 ),
@@ -744,7 +801,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 108,
+                            value: 107,
                         },
                     ),
                 ),
@@ -762,6 +819,92 @@ Ok(
             Punctuation(
                 Ket(
                     Box,
+                ),
+            ),
+            Keyword(
+                Stmt(
+                    Require,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 253,
+                        },
+                    ),
+                ),
+            ),
+            WordOpr(
+                Be,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 190,
+                        },
+                    ),
+                ),
+            ),
+            Keyword(
+                Stmt(
+                    Require,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 253,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 196,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                RAngle,
+            ),
+            Literal(
+                Float(
+                    Unspecified,
+                ),
+            ),
+            Keyword(
+                Stmt(
+                    Require,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 254,
+                        },
+                    ),
+                ),
+            ),
+            WordOpr(
+                Be,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 190,
+                        },
+                    ),
                 ),
             ),
             Keyword(
@@ -801,150 +944,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 108,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Bra(
-                    Box,
-                ),
-            ),
-            Literal(
-                Integer(
-                    Unspecified,
-                ),
-            ),
-            Punctuation(
-                Ket(
-                    Box,
-                ),
-            ),
-            Keyword(
-                Stmt(
-                    Require,
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 254,
-                        },
-                    ),
-                ),
-            ),
-            WordOpr(
-                Be,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 191,
-                        },
-                    ),
-                ),
-            ),
-            Keyword(
-                Stmt(
-                    Require,
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 254,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Dot,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 197,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                RAngle,
-            ),
-            Literal(
-                Float(
-                    Unspecified,
-                ),
-            ),
-            Keyword(
-                Stmt(
-                    Require,
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 255,
-                        },
-                    ),
-                ),
-            ),
-            WordOpr(
-                Be,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 191,
-                        },
-                    ),
-                ),
-            ),
-            Keyword(
-                Stmt(
-                    Let,
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 257,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Binary(
-                    Assign(
-                        None,
-                    ),
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 254,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Dot,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 235,
+                            value: 234,
                         },
                     ),
                 ),
@@ -966,7 +966,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 233,
+                            value: 232,
                         },
                     ),
                 ),
@@ -980,7 +980,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 49,
+                            value: 48,
                         },
                     ),
                 ),
@@ -999,7 +999,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 257,
+                            value: 256,
                         },
                     ),
                 ),
@@ -1019,7 +1019,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 257,
+                            value: 256,
                         },
                     ),
                 ),
@@ -1044,7 +1044,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 258,
+                            value: 257,
                         },
                     ),
                 ),
@@ -1060,59 +1060,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 254,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Dot,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 178,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Bra(
-                    Par,
-                ),
-            ),
-            Punctuation(
-                Ket(
-                    Par,
-                ),
-            ),
-            Keyword(
-                Stmt(
-                    Let,
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 259,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Binary(
-                    Assign(
-                        None,
-                    ),
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 255,
+                            value: 253,
                         },
                     ),
                 ),
@@ -1148,7 +1096,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 260,
+                            value: 258,
                         },
                     ),
                 ),
@@ -1164,7 +1112,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 258,
+                            value: 254,
                         },
                     ),
                 ),
@@ -1176,7 +1124,59 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 261,
+                            value: 176,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Bra(
+                    Par,
+                ),
+            ),
+            Punctuation(
+                Ket(
+                    Par,
+                ),
+            ),
+            Keyword(
+                Stmt(
+                    Let,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 259,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Binary(
+                    Assign(
+                        None,
+                    ),
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 257,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 260,
                         },
                     ),
                 ),
@@ -1190,7 +1190,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 259,
+                            value: 258,
                         },
                     ),
                 ),
@@ -1209,7 +1209,41 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 260,
+                            value: 259,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                LAngle,
+            ),
+            Literal(
+                Float(
+                    Unspecified,
+                ),
+            ),
+            Keyword(
+                Stmt(
+                    Require,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 252,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 196,
                         },
                     ),
                 ),
@@ -1243,41 +1277,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 197,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                LAngle,
-            ),
-            Literal(
-                Float(
-                    Unspecified,
-                ),
-            ),
-            Keyword(
-                Stmt(
-                    Require,
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 254,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Dot,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 199,
+                            value: 198,
                         },
                     ),
                 ),
@@ -1297,7 +1297,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 82,
+                            value: 81,
                         },
                     ),
                 ),
@@ -1311,9 +1311,417 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 262,
+                            value: 261,
                         },
                     ),
+                ),
+            ),
+            Keyword(
+                Paradigm(
+                    Func,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 254,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Bra(
+                    Par,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 170,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Colon,
+            ),
+            Punctuation(
+                Ambersand,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 171,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Ket(
+                    Par,
+                ),
+            ),
+            Punctuation(
+                Binary(
+                    Curry,
+                ),
+            ),
+            Punctuation(
+                Question,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 111,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Colon,
+            ),
+            Keyword(
+                Stmt(
+                    Let,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 199,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Binary(
+                    Assign(
+                        None,
+                    ),
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 170,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 193,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Bra(
+                    Par,
+                ),
+            ),
+            Punctuation(
+                Ket(
+                    Par,
+                ),
+            ),
+            Keyword(
+                Stmt(
+                    Require,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 199,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 146,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Binary(
+                    Comparison(
+                        Leq,
+                    ),
+                ),
+            ),
+            Literal(
+                Float(
+                    Unspecified,
+                ),
+            ),
+            Punctuation(
+                Minus,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 170,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 249,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 200,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Bra(
+                    Par,
+                ),
+            ),
+            Punctuation(
+                Ket(
+                    Par,
+                ),
+            ),
+            Keyword(
+                Paradigm(
+                    Func,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 253,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Bra(
+                    Par,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 170,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Colon,
+            ),
+            Punctuation(
+                Ambersand,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 171,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Ket(
+                    Par,
+                ),
+            ),
+            Punctuation(
+                Binary(
+                    Curry,
+                ),
+            ),
+            Punctuation(
+                Question,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 111,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Colon,
+            ),
+            Keyword(
+                Stmt(
+                    Let,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 199,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Binary(
+                    Assign(
+                        None,
+                    ),
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 170,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 193,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Bra(
+                    Par,
+                ),
+            ),
+            Punctuation(
+                Ket(
+                    Par,
+                ),
+            ),
+            Keyword(
+                Stmt(
+                    Require,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 199,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 146,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Binary(
+                    Comparison(
+                        Leq,
+                    ),
+                ),
+            ),
+            Literal(
+                Float(
+                    Unspecified,
+                ),
+            ),
+            Punctuation(
+                Minus,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 170,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 249,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 200,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Bra(
+                    Par,
+                ),
+            ),
+            Punctuation(
+                Ket(
+                    Par,
                 ),
             ),
             Keyword(
@@ -1339,7 +1747,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 171,
+                            value: 170,
                         },
                     ),
                 ),
@@ -1354,7 +1762,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 172,
+                            value: 171,
                         },
                     ),
                 ),
@@ -1376,7 +1784,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 112,
+                            value: 111,
                         },
                     ),
                 ),
@@ -1393,7 +1801,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 200,
+                            value: 199,
                         },
                     ),
                 ),
@@ -1409,7 +1817,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 171,
+                            value: 170,
                         },
                     ),
                 ),
@@ -1421,7 +1829,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 194,
+                            value: 193,
                         },
                     ),
                 ),
@@ -1445,7 +1853,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 200,
+                            value: 199,
                         },
                     ),
                 ),
@@ -1457,415 +1865,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 147,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Binary(
-                    Comparison(
-                        Leq,
-                    ),
-                ),
-            ),
-            Literal(
-                Float(
-                    Unspecified,
-                ),
-            ),
-            Punctuation(
-                Minus,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 171,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Dot,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 250,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Dot,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 201,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Bra(
-                    Par,
-                ),
-            ),
-            Punctuation(
-                Ket(
-                    Par,
-                ),
-            ),
-            Keyword(
-                Paradigm(
-                    Func,
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 254,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Bra(
-                    Par,
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 171,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Colon,
-            ),
-            Punctuation(
-                Ambersand,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 172,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Ket(
-                    Par,
-                ),
-            ),
-            Punctuation(
-                Binary(
-                    Curry,
-                ),
-            ),
-            Punctuation(
-                Question,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 112,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Colon,
-            ),
-            Keyword(
-                Stmt(
-                    Let,
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 200,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Binary(
-                    Assign(
-                        None,
-                    ),
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 171,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Dot,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 194,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Bra(
-                    Par,
-                ),
-            ),
-            Punctuation(
-                Ket(
-                    Par,
-                ),
-            ),
-            Keyword(
-                Stmt(
-                    Require,
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 200,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Dot,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 147,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Binary(
-                    Comparison(
-                        Leq,
-                    ),
-                ),
-            ),
-            Literal(
-                Float(
-                    Unspecified,
-                ),
-            ),
-            Punctuation(
-                Minus,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 171,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Dot,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 250,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Dot,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 201,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Bra(
-                    Par,
-                ),
-            ),
-            Punctuation(
-                Ket(
-                    Par,
-                ),
-            ),
-            Keyword(
-                Paradigm(
-                    Func,
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 256,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Bra(
-                    Par,
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 171,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Colon,
-            ),
-            Punctuation(
-                Ambersand,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 172,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Ket(
-                    Par,
-                ),
-            ),
-            Punctuation(
-                Binary(
-                    Curry,
-                ),
-            ),
-            Punctuation(
-                Question,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 112,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Colon,
-            ),
-            Keyword(
-                Stmt(
-                    Let,
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 200,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Binary(
-                    Assign(
-                        None,
-                    ),
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 171,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Dot,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 194,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Bra(
-                    Par,
-                ),
-            ),
-            Punctuation(
-                Ket(
-                    Par,
-                ),
-            ),
-            Keyword(
-                Stmt(
-                    Require,
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 200,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Dot,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 147,
+                            value: 146,
                         },
                     ),
                 ),
@@ -1889,7 +1889,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 171,
+                            value: 170,
                         },
                     ),
                 ),
@@ -1901,7 +1901,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 250,
+                            value: 249,
                         },
                     ),
                 ),
@@ -1913,7 +1913,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 201,
+                            value: 200,
                         },
                     ),
                 ),

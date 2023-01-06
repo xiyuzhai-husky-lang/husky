@@ -37,7 +37,7 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TraitImplItem(
                             Method,
                         ),
                     },
@@ -89,7 +89,7 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TraitImplItem(
                             Method,
                         ),
                     },
@@ -147,7 +147,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TraitImplItem(
                             Method,
                         ),
                     },
@@ -199,7 +199,7 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TraitImplItem(
                             Method,
                         ),
                     },

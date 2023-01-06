@@ -110,7 +110,7 @@ impl SemanticToken {
                     | StmtKeyword::Else
                     | StmtKeyword::Match
                     | StmtKeyword::For
-                    | StmtKeyword::Forext
+                    | StmtKeyword::ForExt
                     | StmtKeyword::While
                     | StmtKeyword::Do
                     | StmtKeyword::Break

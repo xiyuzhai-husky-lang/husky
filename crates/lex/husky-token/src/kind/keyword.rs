@@ -44,9 +44,16 @@ pub enum Keyword {
     End(EndKeyword),
 }
 
+impl From<ConnectionKeyword> for Keyword {
+    fn from(v: ConnectionKeyword) -> Self {
+        Self::Connection(v)
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum ConnectionKeyword {
     For,
+    Where,
 }
 
 impl std::fmt::Display for Keyword {

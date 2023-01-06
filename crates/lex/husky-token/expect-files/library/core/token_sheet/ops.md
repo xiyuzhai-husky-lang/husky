@@ -64,7 +64,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 29,
+                            value: 28,
                         },
                     ),
                 ),
@@ -84,7 +84,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 30,
+                            value: 29,
                         },
                     ),
                 ),
@@ -98,7 +98,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 24,
+                            value: 23,
                         },
                     ),
                 ),
@@ -112,7 +112,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 25,
+                            value: 24,
                         },
                     ),
                 ),
@@ -124,7 +124,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 29,
+                            value: 28,
                         },
                     ),
                 ),
@@ -143,7 +143,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 31,
+                            value: 30,
                         },
                     ),
                 ),
@@ -157,7 +157,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 30,
+                            value: 29,
                         },
                     ),
                 ),

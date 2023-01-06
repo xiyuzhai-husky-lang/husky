@@ -68,7 +68,12 @@ impl AstContextKind {
                     }
                     TraitItemKind::AssociatedType => AstContextKind::InsideNoChild,
                 },
-                AssociatedItemKind::TraitImplItem(_) => todo!(),
+                AssociatedItemKind::TraitImplItem(trait_item_kind) => match trait_item_kind {
+                    // ad hoc
+                    // todo: should check whether ends with ';' or ':'
+                    TraitItemKind::Method => AstContextKind::InsideForm,
+                    TraitItemKind::AssociatedType => todo!(),
+                },
             },
             EntityKind::Variant => todo!(),
         }

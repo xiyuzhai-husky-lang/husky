@@ -29,6 +29,12 @@ pub(crate) enum Pretoken {
     Err(TokenError),
 }
 
+impl From<AmbiguousPretoken> for Pretoken {
+    fn from(v: AmbiguousPretoken) -> Self {
+        Self::Ambiguous(v)
+    }
+}
+
 impl Into<Pretoken> for IntegerLiteral {
     fn into(self) -> Pretoken {
         Pretoken::Certain(Token::Literal(Literal::Integer(self)))
@@ -45,6 +51,15 @@ impl Into<Pretoken> for FloatLiteral {
 pub enum AmbiguousPretoken {
     SubOrMinus,
     For,
+}
+
+impl AmbiguousPretoken {
+    pub fn as_str(self) -> &'static str {
+        match self {
+            AmbiguousPretoken::SubOrMinus => todo!(),
+            AmbiguousPretoken::For => "for",
+        }
+    }
 }
 
 impl From<Token> for Pretoken {
