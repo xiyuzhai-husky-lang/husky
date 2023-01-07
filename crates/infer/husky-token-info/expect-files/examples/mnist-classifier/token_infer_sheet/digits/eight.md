@@ -133,7 +133,7 @@ Ok(
                 local_symbol_idx: 0,
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 26,
+                        value: 27,
                     },
                 ),
                 local_symbol_kind: LetVariable {

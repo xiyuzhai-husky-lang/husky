@@ -18,9 +18,11 @@ func hole_tmpl(ct: &RawContour) -> ?f32:
     // ad hoc
     len + 0.0
 
-struct ConnectedComponent:
+struct ConnectedComponent {
     mask: BinaryImage28
+}
 
+impl ConnectedComponent:
     func raw_contours -> []RawContour:
         find_raw_contours(this)
     
