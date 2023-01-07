@@ -85,7 +85,7 @@ Ok(
             token_modifiers_bitset: 0,
         },
         SemanticToken {
-            delta_line: 3,
+            delta_line: 2,
             delta_start: 0,
             length: 3,
             token_type: 2,
@@ -155,7 +155,7 @@ Ok(
             token_modifiers_bitset: 0,
         },
         SemanticToken {
-            delta_line: 3,
+            delta_line: 1,
             delta_start: 0,
             length: 3,
             token_type: 2,

@@ -14,11 +14,11 @@ Ok(
             ),
         },
         FoldingRange {
-            start_line: 22,
+            start_line: 19,
             start_character: Some(
                 0,
             ),
-            end_line: 32,
+            end_line: 29,
             end_character: Some(
                 20,
             ),

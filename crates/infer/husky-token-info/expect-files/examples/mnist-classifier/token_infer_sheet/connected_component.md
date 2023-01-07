@@ -67,15 +67,46 @@ Ok(
             None,
             None,
             None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 20,
+                    },
+                ),
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+            },
             None,
             None,
             None,
             Field,
             None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 20,
+                    },
+                ),
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+            },
             None,
             None,
-            None,
-            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 20,
+                    },
+                ),
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+            },
             None,
             None,
             None,
