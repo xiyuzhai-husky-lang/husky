@@ -79,6 +79,16 @@ impl EntityPath {
             _ => None,
         }
     }
+
+    pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
+        match self {
+            EntityPath::Module(path) => path,
+            EntityPath::ModuleItem(path) => path.module_path(db),
+            EntityPath::GenericParameter(_) => todo!(),
+            EntityPath::AssociatedItem(_) => todo!(),
+            EntityPath::Variant(_) => todo!(),
+        }
+    }
 }
 
 impl<Db> salsa::DebugWithDb<Db> for EntityPath

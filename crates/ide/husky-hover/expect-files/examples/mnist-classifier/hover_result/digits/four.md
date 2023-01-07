@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 162;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 402,\n            },\n        ),\n    ),\n);\n\ntoken_info = Variable {\n    variable_sheet: VariableSheet(\n        Id {\n            value: 13,\n        },\n    ),\n    variable_idx: 1,\n};\n\nVariable {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 402,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        163,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                304,\n            ),\n        ),\n    ),\n    kind: Let {\n        pattern_symbol: 4,\n    },\n}\n",
+                                value: "\ntoken_idx = 162;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 402,\n            },\n        ),\n    ),\n);\n\ntoken_info = LocalSymbol {\n    local_symbol_idx: 1,\n    expr_sheet: ExprSheet(\n        Id {\n            value: 39,\n        },\n    ),\n    local_symbol_kind: LetVariable {\n        pattern_symbol: 4,\n    },\n};\n\nLocalSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 402,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        163,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                304,\n            ),\n        ),\n    ),\n    kind: LetVariable {\n        pattern_symbol: 4,\n    },\n}\n",
                             },
                         ),
                         range: Some(

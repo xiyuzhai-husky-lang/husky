@@ -5,5 +5,5 @@ pub struct FeatureDecl {
     #[id]
     pub path: FormPath,
     pub ast_idx: AstIdx,
-    pub expr_sheet: ModuleItemDeclExprSheet,
+    pub expr_sheet: ExprSheet,
 }

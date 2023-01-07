@@ -44,7 +44,7 @@ impl Defn {
     pub fn implicit_parameters(self, db: &dyn DefnDb) -> &[ImplicitParameterDecl] {
         self.decl(db).implicit_parameters(db)
     }
-    pub fn expr_sheet(self, db: &dyn DefnDb) -> Option<DefnExprSheet> {
+    pub fn expr_sheet(self, db: &dyn DefnDb) -> Option<ExprSheet> {
         match self {
             Defn::Type(_) | Defn::Trait(_) => None,
             Defn::Form(defn) => Some(defn.expr_sheet(db).into()),

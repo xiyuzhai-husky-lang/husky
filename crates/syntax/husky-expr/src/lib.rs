@@ -11,7 +11,6 @@ mod stmt;
 mod symbol;
 #[cfg(test)]
 mod tests;
-mod variable;
 
 pub use db::*;
 pub use entity_path::*;
@@ -21,7 +20,6 @@ pub use pattern::*;
 pub use sheet::*;
 pub use stmt::*;
 pub use symbol::*;
-pub use variable::*;
 
 use husky_entity_path::EntityPath;
 use husky_opn_syntax::*;
@@ -32,16 +30,7 @@ use precedence::*;
 use snippet::*;
 
 #[salsa::jar(db = ExprDb)]
-pub struct ExprJar(
-    ModuleItemDeclExprSheet,
-    VariantDeclExprSheet,
-    AssociatedItemDeclExprSheet,
-    ModuleItemDefnExprSheet,
-    AssociatedItemDefnExprSheet,
-    SnippetExprSheet,
-    VariableSheet,
-    parse_expr_from_snippet,
-);
+pub struct ExprJar(ExprSheet, parse_expr_from_snippet);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum BaseEntityPath {
@@ -76,9 +65,16 @@ impl BaseEntityPathInclination {
 pub enum Expr {
     Literal(TokenIdx),
     EntityPath(EntityPathExprIdx),
-    Variable {
+    LocalSymbol {
+        ident: Identifier,
         token_idx: TokenIdx,
-        variable_idx: VariableIdx,
+        local_symbol_idx: LocalSymbolIdx,
+        local_symbol_kind: LocalSymbolKind,
+    },
+    InheritedSymbol {
+        ident: Identifier,
+        token_idx: TokenIdx,
+        inherited_symbol_idx: InheritedSymbolIdx,
     },
     Uncertain(Identifier),
     Unrecognized(Identifier),

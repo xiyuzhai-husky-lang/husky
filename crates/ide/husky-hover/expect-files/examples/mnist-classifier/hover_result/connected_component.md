@@ -490,7 +490,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 656;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 148,\n            },\n        ),\n    ),\n);\n\ntoken_info = Variable {\n    variable_sheet: VariableSheet(\n        Id {\n            value: 5,\n        },\n    ),\n    variable_idx: 2,\n};\n\nVariable {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 148,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        657,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                836,\n            ),\n        ),\n    ),\n    kind: Let {\n        pattern_symbol: 2,\n    },\n}\n",
+                                value: "\ntoken_idx = 656;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 148,\n            },\n        ),\n    ),\n);\n\ntoken_info = LocalSymbol {\n    local_symbol_idx: 2,\n    expr_sheet: ExprSheet(\n        Id {\n            value: 21,\n        },\n    ),\n    local_symbol_kind: LetVariable {\n        pattern_symbol: 2,\n    },\n};\n\nLocalSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 148,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        657,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                836,\n            ),\n        ),\n    ),\n    kind: LetVariable {\n        pattern_symbol: 2,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -520,7 +520,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 697;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 159,\n            },\n        ),\n    ),\n);\n\ntoken_info = Variable {\n    variable_sheet: VariableSheet(\n        Id {\n            value: 5,\n        },\n    ),\n    variable_idx: 0,\n};\n\nVariable {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 154,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        629,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                838,\n            ),\n        ),\n    ),\n    kind: Let {\n        pattern_symbol: 0,\n    },\n}\n",
+                                value: "\ntoken_idx = 697;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 159,\n            },\n        ),\n    ),\n);\n\ntoken_info = LocalSymbol {\n    local_symbol_idx: 0,\n    expr_sheet: ExprSheet(\n        Id {\n            value: 21,\n        },\n    ),\n    local_symbol_kind: LetVariable {\n        pattern_symbol: 0,\n    },\n};\n\nLocalSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 154,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        629,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                838,\n            ),\n        ),\n    ),\n    kind: LetVariable {\n        pattern_symbol: 0,\n    },\n}\n",
                             },
                         ),
                         range: Some(

@@ -13,7 +13,7 @@ pub use env::*;
 use crate::*;
 use expr_stack::*;
 use husky_ast::{Ast, AstIdxRange, AstSheet};
-use husky_entity_tree::{CratePrelude, EntityTreeDb};
+use husky_entity_tree::{CratePrelude, EntityTreeDb, ModulePrelude, PreludeResult};
 use husky_token::Token;
 use husky_token::TokenStream;
 use list::*;
@@ -35,34 +35,29 @@ macro_rules! report {
 }
 use report;
 
-pub struct ExprParser<'a, S: SymbolContextMut> {
+pub struct ExprParser<'a> {
     db: &'a dyn ExprDb,
     entity_path: Option<EntityPath>,
     token_sheet_data: &'a TokenSheetData,
-    symbol_context: S,
+    symbol_context: SymbolContextMut<'a>,
     expr_arena: ExprArena,
     entity_path_expr_arena: EntityPathExprArena,
     pattern_expr_sheet: PatternExprSheet,
     stmt_arena: StmtArena,
 }
 
-pub type ModuleItemDeclExprParser<'a> = ExprParser<'a, ModuleItemDeclSymbolContextMut>;
-
-impl<'a, S> ExprParser<'a, S>
-where
-    S: SymbolContextMut,
-{
+impl<'a> ExprParser<'a> {
     pub fn new(
         db: &'a dyn ExprDb,
         entity_path: Option<EntityPath>,
         token_sheet_data: &'a TokenSheetData,
-        symbol_context: S,
+        module_prelude: ModulePrelude<'a>,
     ) -> Self {
         Self {
             db,
             entity_path,
             token_sheet_data,
-            symbol_context,
+            symbol_context: SymbolContextMut::new(module_prelude),
             expr_arena: Default::default(),
             entity_path_expr_arena: Default::default(),
             pattern_expr_sheet: Default::default(),
@@ -70,7 +65,7 @@ where
         }
     }
 
-    pub fn finish(self) -> S::ExprSheet {
+    pub fn finish(self) -> ExprSheet {
         self.symbol_context.into_expr_sheet(
             self.db,
             self.expr_arena,
@@ -80,7 +75,7 @@ where
         )
     }
 
-    pub fn ctx<'b>(&'b mut self, token_stream: TokenStream<'a>) -> ExprParseContext<'a, 'b, S>
+    pub fn ctx<'b>(&'b mut self, token_stream: TokenStream<'a>) -> ExprParseContext<'a, 'b>
     where
         'a: 'b,
     {
@@ -92,29 +87,20 @@ where
     }
 
     #[inline(always)]
-    fn define_variables(&mut self, variables: Vec<Variable>) -> VariableIdxRange
-    where
-        S: BlockSymbolContextMut,
-    {
+    fn define_variables(&mut self, variables: Vec<LocalSymbol>) -> LocalSymbolIdxRange {
         self.symbol_context.define_variables(variables)
     }
 }
 
-pub struct ExprParseContext<'a, 'b, S>
-where
-    S: SymbolContextMut,
-{
-    parser: &'b mut ExprParser<'a, S>,
+pub struct ExprParseContext<'a, 'b> {
+    parser: &'b mut ExprParser<'a>,
     env: ExprParseEnvironmentPlace,
     token_stream: TokenStream<'a>,
     stack: ExprStack,
 }
 
-impl<'a, 'b, S> ExprParseContext<'a, 'b, S>
-where
-    S: SymbolContextMut,
-{
-    fn new(parser: &'b mut ExprParser<'a, S>, token_stream: TokenStream<'a>) -> Self {
+impl<'a, 'b> ExprParseContext<'a, 'b> {
+    fn new(parser: &'b mut ExprParser<'a>, token_stream: TokenStream<'a>) -> Self {
         Self {
             parser,
             env: Default::default(),
@@ -155,10 +141,7 @@ where
         self.parser.pattern_expr_sheet()
     }
 
-    pub(crate) fn define_variables(&mut self, variables: Vec<Variable>) -> VariableIdxRange
-    where
-        S: BlockSymbolContextMut,
-    {
+    pub(crate) fn define_variables(&mut self, variables: Vec<LocalSymbol>) -> LocalSymbolIdxRange {
         self.parser.define_variables(variables)
     }
 
@@ -189,48 +172,33 @@ where
     }
 }
 
-impl<'a, 'b, S> parsec::HasParseError for ExprParseContext<'a, 'b, S>
-where
-    S: SymbolContextMut,
-{
+impl<'a, 'b> parsec::HasParseError for ExprParseContext<'a, 'b> {
     type Error = ExprError;
 }
 
-impl<'a, 'b, S> std::ops::Deref for ExprParseContext<'a, 'b, S>
-where
-    S: SymbolContextMut,
-{
+impl<'a, 'b> std::ops::Deref for ExprParseContext<'a, 'b> {
     type Target = TokenStream<'a>;
     fn deref(&self) -> &Self::Target {
         &self.token_stream
     }
 }
 
-impl<'a, 'b, S> std::ops::DerefMut for ExprParseContext<'a, 'b, S>
-where
-    S: SymbolContextMut,
-{
+impl<'a, 'b> std::ops::DerefMut for ExprParseContext<'a, 'b> {
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.token_stream
     }
 }
 
-impl<'a, 'b, S> std::borrow::Borrow<TokenStream<'a>> for ExprParseContext<'a, 'b, S>
-where
-    S: SymbolContextMut,
-{
+impl<'a, 'b> std::borrow::Borrow<TokenStream<'a>> for ExprParseContext<'a, 'b> {
     fn borrow(&self) -> &TokenStream<'a> {
         &self.token_stream
     }
 }
 
-impl<'a, 'b, S> std::borrow::BorrowMut<TokenStream<'a>> for ExprParseContext<'a, 'b, S>
-where
-    S: SymbolContextMut,
-{
+impl<'a, 'b> std::borrow::BorrowMut<TokenStream<'a>> for ExprParseContext<'a, 'b> {
     fn borrow_mut(&mut self) -> &mut TokenStream<'a> {
         &mut self.token_stream
     }
 }
 
-impl<'a, 'b, S> parsec::StreamWrapper for ExprParseContext<'a, 'b, S> where S: SymbolContextMut {}
+impl<'a, 'b> parsec::StreamWrapper for ExprParseContext<'a, 'b> {}

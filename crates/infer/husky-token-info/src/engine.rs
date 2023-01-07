@@ -9,6 +9,7 @@ pub(crate) struct InferEngine<'a> {
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     defn_sheet: &'a DefnSheet,
+    module_prelude: ModulePrelude<'a>,
     sheet: TokenInfoSheet,
 }
 
@@ -21,6 +22,7 @@ impl<'a> InferEngine<'a> {
             defn_sheet: db.defn_sheet(module_path)?,
             ast_sheet: db.ast_sheet(module_path)?,
             sheet: TokenInfoSheet::new(token_sheet_data),
+            module_prelude: db.module_prelude(module_path)?,
         })
     }
 
@@ -74,7 +76,7 @@ impl<'a> InferEngine<'a> {
             token_sheet_data: self.token_sheet_data,
             ast_sheet: self.ast_sheet,
             sheet: &mut self.sheet,
-            symbol_context: todo!(),
+            symbol_context: SymbolContext::new(self.db, self.module_prelude, expr_sheet),
             expr_sheet,
         }
         .visit_all()
@@ -157,7 +159,7 @@ struct AuxInferEngine<'a> {
     db: &'a dyn TokenInfoDb,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
-    symbol_context: &'a dyn SymbolContext,
+    symbol_context: SymbolContext<'a>,
     sheet: &'a mut TokenInfoSheet,
     expr_sheet: ExprSheet,
 }
@@ -167,23 +169,34 @@ impl<'a> AuxInferEngine<'a> {
         for expr in self.symbol_context.exprs() {
             self.visit_expr(expr)
         }
-        todo!()
-        // if let Some(variable_sheet) = self.variable_sheet {
-        //     for (variable_idx, variable) in variable_sheet.data(self.db).index_variable_iter() {
-        //         self.visit_variable(variable_idx, variable)
-        //     }
-        // }
+        for (local_symbol_idx, local_symbol) in self.symbol_context.indexed_local_symbol_iter() {
+            self.visit_local_symbol(local_symbol_idx, local_symbol)
+        }
     }
 
     fn visit_expr(&mut self, expr: &Expr) {
         match expr {
-            Expr::Variable {
+            Expr::LocalSymbol {
                 token_idx,
-                variable_idx,
+                local_symbol_idx,
+                local_symbol_kind,
+                ..
             } => self.sheet.add(
                 *token_idx,
-                TokenInfo::Variable {
-                    variable_idx: *variable_idx,
+                TokenInfo::LocalSymbol {
+                    local_symbol_idx: *local_symbol_idx,
+                    expr_sheet: self.expr_sheet,
+                    local_symbol_kind: *local_symbol_kind,
+                },
+            ),
+            Expr::InheritedSymbol {
+                token_idx,
+                inherited_symbol_idx,
+                ..
+            } => self.sheet.add(
+                *token_idx,
+                TokenInfo::InheritedSymbol {
+                    inherited_symbol_idx: *inherited_symbol_idx,
                     expr_sheet: self.expr_sheet,
                 },
             ),
@@ -212,28 +225,30 @@ impl<'a> AuxInferEngine<'a> {
         }
     }
 
-    fn visit_variable(&mut self, variable_idx: VariableIdx, variable: &Variable) {
-        todo!()
-        // match variable.kind() {
-        //     VariableKind::Let { pattern_symbol } => match self.pattern_expr_sheet[pattern_symbol] {
-        //         PatternSymbol::Atom(pattern_expr_idx) => {
-        //             match self.pattern_expr_sheet[pattern_expr_idx] {
-        //                 PatternExpr::Identifier {
-        //                     ident_token,
-        //                     liason,
-        //                 } => self.sheet.add(
-        //                     ident_token.token_idx(),
-        //                     TokenInfo::Variable {
-        //                         variable_sheet: self.variable_sheet.unwrap(),
-        //                         variable_idx,
-        //                     },
-        //                 ),
-        //                 _ => unreachable!(),
-        //             }
-        //         }
-        //     },
-        //     VariableKind::Lambda => todo!(),
-        // }
+    fn visit_local_symbol(&mut self, local_symbol_idx: LocalSymbolIdx, local_symbol: &LocalSymbol) {
+        let local_symbol_kind = local_symbol.kind();
+        match local_symbol_kind {
+            LocalSymbolKind::LetVariable { pattern_symbol } => {
+                match self.symbol_context[pattern_symbol] {
+                    PatternSymbol::Atom(pattern_expr_idx) => {
+                        match self.symbol_context[pattern_expr_idx] {
+                            PatternExpr::Identifier {
+                                ident_token,
+                                liason,
+                            } => self.sheet.add(
+                                ident_token.token_idx(),
+                                TokenInfo::LocalSymbol {
+                                    local_symbol_idx,
+                                    expr_sheet: self.expr_sheet,
+                                    local_symbol_kind,
+                                },
+                            ),
+                            _ => unreachable!(),
+                        }
+                    }
+                }
+            }
+        }
     }
 
     // fn visit_pattern_expr(&mut self, pattern_expr_idx: PatternExprIdx, pattern_expr: &PatternExpr) {

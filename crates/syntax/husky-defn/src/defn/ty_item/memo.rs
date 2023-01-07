@@ -4,6 +4,6 @@ use crate::*;
 pub struct TypeMemoDefn {
     #[id]
     pub entity_path: EntityPath,
-    pub expr_sheet: AssociatedItemDefnExprSheet,
+    pub expr_sheet: ExprSheet,
     pub decl: TypeMemoDecl,
 }

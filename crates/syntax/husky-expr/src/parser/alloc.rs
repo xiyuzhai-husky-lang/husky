@@ -1,9 +1,6 @@
 use super::*;
 
-impl<'a, S> ExprParser<'a, S>
-where
-    S: SymbolContextMut,
-{
+impl<'a> ExprParser<'a> {
     pub(crate) fn alloc_expr(&mut self, expr: Expr) -> ExprIdx {
         self.expr_arena.alloc_one(expr)
     }
@@ -13,10 +10,7 @@ where
     }
 }
 
-impl<'a, 'b, S> ExprParseContext<'a, 'b, S>
-where
-    S: SymbolContextMut,
-{
+impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(crate) fn alloc_expr_batch(
         &mut self,
         exprs: impl IntoIterator<Item = Expr>,

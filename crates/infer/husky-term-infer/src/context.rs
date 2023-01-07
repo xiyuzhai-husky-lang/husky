@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_path::EntityPath;
-use husky_expr::{DeclExprSheet, DefnExprSheet, Expr, ExprIdx};
+use husky_expr::{Expr, ExprIdx};
 use husky_term::{Term, TermAtom, TermContext, TermData, TermMenu};
 use husky_word::WordDb;
 

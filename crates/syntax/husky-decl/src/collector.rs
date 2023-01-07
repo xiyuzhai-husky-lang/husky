@@ -2,7 +2,7 @@ use crate::*;
 use husky_ast::{Ast, AstIdx, AstIdxRange, AstSheet};
 use husky_entity_path::EntityPath;
 use husky_entity_taxonomy::{EntityKind, FormKind, ModuleItemKind, TypeKind};
-use husky_entity_tree::{CratePrelude, EntitySymbol, EntityTreeSheet};
+use husky_entity_tree::{CratePrelude, EntitySymbol, EntityTreeSheet, ModulePrelude};
 use husky_opn_syntax::BinaryOpr;
 use husky_print_utils::p;
 use husky_token::{
@@ -15,7 +15,7 @@ use vec_like::VecPairMap;
 
 pub(crate) struct DeclCollector<'a> {
     db: &'a dyn DeclDb,
-    crate_prelude: CratePrelude<'a>,
+    module_prelude: ModulePrelude<'a>,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     entity_tree_sheet: &'a EntityTreeSheet,
@@ -23,10 +23,10 @@ pub(crate) struct DeclCollector<'a> {
 
 impl<'a> DeclCollector<'a> {
     pub(crate) fn new(db: &'a dyn DeclDb, module_path: ModulePath) -> EntityTreeResult<Self> {
-        let crate_prelude = db.crate_prelude(module_path.crate_path(db))?;
+        let module_prelude = db.module_prelude(module_path)?;
         Ok(Self {
             db,
-            crate_prelude,
+            module_prelude,
             token_sheet_data: db.token_sheet_data(module_path)?,
             ast_sheet: db.ast_sheet(module_path)?,
             entity_tree_sheet: db.entity_tree_sheet(module_path)?,
@@ -256,17 +256,13 @@ impl<'a> DeclCollector<'a> {
         }
     }
 
-    fn module_item_decl_expr_parser(
-        &self,
-        entity_path: EntityPath,
-    ) -> ModuleItemDeclExprParser<'a> {
-        todo!()
-        // ModuleItemDeclExprParser::new(
-        //     self.db,
-        //     Some(entity_path),
-        //     self.token_sheet_data,
-        //     self.crate_prelude,
-        // )
+    fn module_item_decl_expr_parser(&self, entity_path: EntityPath) -> ExprParser<'a> {
+        ExprParser::new(
+            self.db,
+            Some(entity_path),
+            self.token_sheet_data,
+            self.module_prelude,
+        )
     }
 
     fn parse_structure_type_decl(

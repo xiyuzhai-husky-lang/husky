@@ -180,12 +180,9 @@ pub struct ParameterPattern {
     pattern_expr_idx: PatternExprIdx,
 }
 
-impl<'a, 'b, S> ParseFrom<ExprParseContext<'a, 'b, S>> for ParameterPattern
-where
-    S: SymbolContextMut,
-{
+impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ParameterPattern {
     fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b, S>,
+        ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
         // ad hoc
         if let Some(ident_token) = ctx.parse::<IdentifierToken>()? {
@@ -213,20 +210,14 @@ impl ParameterPattern {
 #[derive(Debug, PartialEq, Eq)]
 pub struct LetVariablePattern {
     pattern_expr_idx: PatternExprIdx,
-    variables: VariableIdxRange,
+    variables: LocalSymbolIdxRange,
 }
 
-impl<'a, 'b, S> ExprParseContext<'a, 'b, S>
-where
-    S: SymbolContextMut,
-{
+impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(crate) fn parse_let_variable_pattern(
         &mut self,
         access_end: TokenIdxRangeEnd,
-    ) -> ExprResult<LetVariablePattern>
-    where
-        S: BlockSymbolContextMut,
-    {
+    ) -> ExprResult<LetVariablePattern> {
         let state = self.save_state();
         if let Some(pattern_expr_idx) = self.parse_pattern_expr(PatternInfo::Let)? {
             let symbols = self
@@ -236,11 +227,11 @@ where
             let variables = symbols
                 .iter()
                 .map(|(ident, pattern_symbol)| {
-                    Variable::new(
+                    LocalSymbol::new(
                         *ident,
                         access_start,
                         Some(access_end),
-                        VariableKind::Let {
+                        LocalSymbolKind::LetVariable {
                             pattern_symbol: *pattern_symbol,
                         },
                     )
@@ -268,12 +259,9 @@ pub struct BePattern {
     pattern_expr_idx: PatternExprIdx,
 }
 
-impl<'a, 'b, S> ParseFrom<ExprParseContext<'a, 'b, S>> for BePattern
-where
-    S: SymbolContextMut,
-{
+impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for BePattern {
     fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b, S>,
+        ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
         // ad hoc
         if let Some(ident_token) = ctx.parse::<IdentifierToken>()? {

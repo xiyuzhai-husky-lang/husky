@@ -5,7 +5,7 @@ pub struct ValueDecl {
     #[id]
     pub path: FormPath,
     pub ast_idx: AstIdx,
-    pub expr_sheet: ModuleItemDeclExprSheet,
+    pub expr_sheet: ExprSheet,
     #[return_ref]
     pub implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
 }

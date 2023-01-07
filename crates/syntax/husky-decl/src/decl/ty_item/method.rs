@@ -5,5 +5,5 @@ pub struct TypeMethodDecl {
     #[id]
     pub entity_path: EntityPath,
     pub ast_idx: AstIdx,
-    pub expr_sheet: AssociatedItemDeclExprSheet,
+    pub expr_sheet: ExprSheet,
 }
