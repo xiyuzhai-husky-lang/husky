@@ -1,3 +1,5 @@
+use husky_expr::LocalSymbolKind;
+
 use crate::*;
 
 pub(crate) fn collect_semantic_tokens(
@@ -35,7 +37,14 @@ fn token_to_semantic_token(
         TokenInfo::Entity(entity_kind) => SemanticToken::Entity(*entity_kind),
         TokenInfo::ImplicitParameter => SemanticToken::ImplicitParameter,
         TokenInfo::Parameter => SemanticToken::Parameter,
-        TokenInfo::Variable { .. } => SemanticToken::Variable,
+        TokenInfo::LocalSymbol {
+            local_symbol_kind, ..
+        } => match local_symbol_kind {
+            LocalSymbolKind::LetVariable { .. } => SemanticToken::Variable,
+        },
+        // SemanticToken::Variable,
+        TokenInfo::InheritedSymbol { .. } => todo!(),
+        // SemanticToken::Variable,
         TokenInfo::Field => SemanticToken::Field,
         TokenInfo::Method => SemanticToken::Method,
     };

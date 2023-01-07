@@ -129,13 +129,16 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 0,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 7,
+                        value: 26,
                     },
                 ),
-                variable_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 4,
+                },
             },
             None,
             None,

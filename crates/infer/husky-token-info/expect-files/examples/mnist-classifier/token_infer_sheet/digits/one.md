@@ -112,13 +112,16 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 0,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
             },
             None,
             None,
@@ -129,13 +132,16 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 0,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
             },
             None,
             None,
@@ -184,13 +190,16 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 1,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
             },
             None,
             None,
@@ -200,13 +209,16 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 2,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 2,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
             },
             None,
             None,
@@ -216,13 +228,16 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 3,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 3,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 3,
+                },
             },
             None,
             None,
@@ -232,13 +247,16 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 2,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 2,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
             },
             None,
             None,
@@ -282,35 +300,44 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 4,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 4,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 5,
+                },
             },
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 3,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 3,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 3,
+                },
             },
             None,
             Field,
             None,
             Field,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 3,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 3,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 3,
+                },
             },
             None,
             Field,
@@ -384,73 +411,47 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 2,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 2,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
             },
             None,
             None,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 2,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 2,
-            },
-            None,
-            Field,
-            None,
-            Field,
-            None,
-            Variable {
-                variable_sheet: VariableSheet(
-                    Id {
-                        value: 22,
-                    },
-                ),
-                variable_idx: 2,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
             },
             None,
             Field,
             None,
             Field,
             None,
-            None,
-            None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 2,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 5,
-            },
-            None,
-            Variable {
-                variable_sheet: VariableSheet(
-                    Id {
-                        value: 22,
-                    },
-                ),
-                variable_idx: 3,
-            },
-            None,
-            Field,
-            None,
-            Variable {
-                variable_sheet: VariableSheet(
-                    Id {
-                        value: 22,
-                    },
-                ),
-                variable_idx: 3,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
             },
             None,
             Field,
@@ -459,36 +460,89 @@ Ok(
             None,
             None,
             None,
-            None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 5,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 6,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 7,
+                },
             },
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 3,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 3,
+                },
+            },
+            None,
+            Field,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 3,
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 58,
+                    },
+                ),
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 3,
+                },
+            },
+            None,
+            Field,
+            None,
+            Field,
+            None,
+            None,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 6,
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 58,
+                    },
+                ),
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 8,
+                },
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 58,
+                    },
+                ),
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
             },
             None,
             Method,
             None,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 0,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
             },
             None,
             Field,
@@ -502,262 +556,47 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 4,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 4,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 5,
+                },
             },
             None,
             Field,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 4,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 4,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 5,
+                },
             },
             None,
             Field,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 4,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 4,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 5,
+                },
             },
             None,
             Field,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Variable {
-                variable_sheet: VariableSheet(
-                    Id {
-                        value: 22,
-                    },
-                ),
-                variable_idx: 0,
-            },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            Variable {
-                variable_sheet: VariableSheet(
-                    Id {
-                        value: 22,
-                    },
-                ),
-                variable_idx: 0,
-            },
-            None,
-            Field,
-            None,
-            Variable {
-                variable_sheet: VariableSheet(
-                    Id {
-                        value: 22,
-                    },
-                ),
-                variable_idx: 0,
-            },
-            None,
-            Field,
-            None,
-            None,
-            None,
-            Variable {
-                variable_sheet: VariableSheet(
-                    Id {
-                        value: 22,
-                    },
-                ),
-                variable_idx: 3,
-            },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Field,
-            None,
-            None,
-            None,
-            None,
-            Field,
-            None,
-            None,
-            None,
-            Field,
-            None,
-            None,
-            None,
-            None,
-            Field,
-            None,
-            None,
-            None,
-            Field,
-            None,
-            None,
-            None,
-            None,
-            Field,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Variable {
-                variable_sheet: VariableSheet(
-                    Id {
-                        value: 22,
-                    },
-                ),
-                variable_idx: 2,
-            },
-            None,
-            None,
-            None,
-            Variable {
-                variable_sheet: VariableSheet(
-                    Id {
-                        value: 22,
-                    },
-                ),
-                variable_idx: 7,
-            },
-            None,
-            Variable {
-                variable_sheet: VariableSheet(
-                    Id {
-                        value: 22,
-                    },
-                ),
-                variable_idx: 6,
-            },
-            None,
-            Field,
-            None,
-            Variable {
-                variable_sheet: VariableSheet(
-                    Id {
-                        value: 22,
-                    },
-                ),
-                variable_idx: 6,
-            },
-            None,
-            Field,
-            None,
-            Field,
-            None,
-            None,
-            Variable {
-                variable_sheet: VariableSheet(
-                    Id {
-                        value: 22,
-                    },
-                ),
-                variable_idx: 8,
-            },
-            None,
-            Variable {
-                variable_sheet: VariableSheet(
-                    Id {
-                        value: 22,
-                    },
-                ),
-                variable_idx: 1,
-            },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            Variable {
-                variable_sheet: VariableSheet(
-                    Id {
-                        value: 22,
-                    },
-                ),
-                variable_idx: 9,
-            },
-            None,
-            Variable {
-                variable_sheet: VariableSheet(
-                    Id {
-                        value: 22,
-                    },
-                ),
-                variable_idx: 8,
-            },
-            None,
-            Field,
-            None,
-            Variable {
-                variable_sheet: VariableSheet(
-                    Id {
-                        value: 22,
-                    },
-                ),
-                variable_idx: 8,
-            },
-            None,
-            Field,
-            None,
-            Field,
-            None,
-            None,
-            None,
-            None,
-            Variable {
-                variable_sheet: VariableSheet(
-                    Id {
-                        value: 22,
-                    },
-                ),
-                variable_idx: 10,
-            },
-            None,
-            Variable {
-                variable_sheet: VariableSheet(
-                    Id {
-                        value: 22,
-                    },
-                ),
-                variable_idx: 1,
-            },
             None,
             Method,
             None,
@@ -770,140 +609,448 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 2,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+            },
+            None,
+            Method,
+            None,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 58,
+                    },
+                ),
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
             },
             None,
             Field,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 0,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
             },
             None,
             Field,
             None,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 3,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 6,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 3,
+                },
             },
             None,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 2,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 11,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
+            },
+            None,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 7,
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 58,
+                    },
+                ),
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 10,
+                },
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 6,
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 58,
+                    },
+                ),
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 8,
+                },
+            },
+            None,
+            Field,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 6,
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 58,
+                    },
+                ),
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 8,
+                },
+            },
+            None,
+            Field,
+            None,
+            Field,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 8,
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 58,
+                    },
+                ),
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 11,
+                },
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 58,
+                    },
+                ),
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
+            },
+            None,
+            Method,
+            None,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 9,
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 58,
+                    },
+                ),
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 12,
+                },
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 8,
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 58,
+                    },
+                ),
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 11,
+                },
+            },
+            None,
+            Field,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 8,
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 58,
+                    },
+                ),
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 11,
+                },
+            },
+            None,
+            Field,
+            None,
+            Field,
+            None,
+            None,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 10,
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 58,
+                    },
+                ),
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 13,
+                },
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 58,
+                    },
+                ),
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
+            },
+            None,
+            Method,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 2,
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 58,
+                    },
+                ),
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
+            },
+            None,
+            Field,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 58,
+                    },
+                ),
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+            },
+            None,
+            Field,
+            None,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 6,
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 58,
+                    },
+                ),
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 8,
+                },
+            },
+            None,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 11,
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 58,
+                    },
+                ),
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 14,
+                },
             },
             None,
             None,
             None,
             Field,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 12,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 12,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 15,
+                },
             },
             None,
             None,
             None,
             Field,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 13,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 13,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 16,
+                },
             },
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 2,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 2,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
             },
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 1,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
             },
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 14,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 14,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 17,
+                },
             },
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 1,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
             },
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 3,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 3,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 3,
+                },
             },
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 1,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
             },
             None,
             None,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 1,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 22,
+                        value: 58,
                     },
                 ),
-                variable_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
             },
             None,
             None,
@@ -930,13 +1077,16 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 0,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 23,
+                        value: 59,
                     },
                 ),
-                variable_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
             },
             None,
             None,
@@ -945,25 +1095,31 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 0,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 23,
+                        value: 59,
                     },
                 ),
-                variable_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
             },
             None,
             Field,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 0,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 23,
+                        value: 59,
                     },
                 ),
-                variable_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
             },
             None,
             Field,
@@ -987,13 +1143,16 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 0,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 24,
+                        value: 60,
                     },
                 ),
-                variable_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
             },
             None,
             None,
@@ -1002,13 +1161,16 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 0,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 24,
+                        value: 60,
                     },
                 ),
-                variable_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
             },
             None,
             Field,
@@ -1042,13 +1204,16 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 0,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 25,
+                        value: 61,
                     },
                 ),
-                variable_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
             },
             None,
             None,
@@ -1057,50 +1222,62 @@ Ok(
             None,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 0,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 25,
+                        value: 61,
                     },
                 ),
-                variable_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
             },
             None,
             None,
             None,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 0,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 25,
+                        value: 61,
                     },
                 ),
-                variable_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
             },
             None,
             None,
             None,
             None,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 0,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 25,
+                        value: 61,
                     },
                 ),
-                variable_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
             },
             None,
             Field,
             None,
-            Variable {
-                variable_sheet: VariableSheet(
+            LocalSymbol {
+                local_symbol_idx: 0,
+                expr_sheet: ExprSheet(
                     Id {
-                        value: 25,
+                        value: 61,
                     },
                 ),
-                variable_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
             },
             None,
             Field,

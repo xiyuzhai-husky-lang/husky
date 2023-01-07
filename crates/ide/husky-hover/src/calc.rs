@@ -1,5 +1,5 @@
 use husky_entity_tree::EntityTreeResult;
-use husky_expr::VariableSheetData;
+use husky_expr::SymbolSheet;
 use husky_text::TextRange;
 use husky_token::Token;
 use husky_token_info::TokenInfo;
@@ -90,13 +90,17 @@ impl<'a> HoverResultCalculator<'a> {
             TokenInfo::Entity(_) => format!(""),
             TokenInfo::ImplicitParameter => format!(""),
             TokenInfo::Parameter => format!(""),
-            TokenInfo::Variable {
-                variable_idx,
+            TokenInfo::LocalSymbol {
+                local_symbol_idx,
                 expr_sheet,
+                ..
             } => {
-                todo!()
-                // format!("{:#?}", variable_sheet.data(self.db)[*variable_idx])
+                format!("{:#?}", expr_sheet.symbol_sheet(self.db)[*local_symbol_idx])
             }
+            TokenInfo::InheritedSymbol {
+                inherited_symbol_idx,
+                expr_sheet,
+            } => todo!(),
             TokenInfo::Field => format!(""),
             TokenInfo::Method => format!(""),
         };

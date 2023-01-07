@@ -1,41 +1,29 @@
 use super::*;
 use husky_ast::{AstIdx, AstTokenIdxRangeSheet};
 
-pub struct BlockExprParser<'a, S>
-where
-    S: BlockSymbolContextMut,
-{
-    expr_parser: ExprParser<'a, S>,
+pub struct BlockExprParser<'a> {
+    expr_parser: ExprParser<'a>,
     ast_sheet: &'a AstSheet,
     ast_token_idx_range_sheet: &'a AstTokenIdxRangeSheet,
 }
 
-impl<'a, S> std::ops::Deref for BlockExprParser<'a, S>
-where
-    S: BlockSymbolContextMut,
-{
-    type Target = ExprParser<'a, S>;
+impl<'a> std::ops::Deref for BlockExprParser<'a> {
+    type Target = ExprParser<'a>;
 
     fn deref(&self) -> &Self::Target {
         &self.expr_parser
     }
 }
 
-impl<'a, S> std::ops::DerefMut for BlockExprParser<'a, S>
-where
-    S: BlockSymbolContextMut,
-{
+impl<'a> std::ops::DerefMut for BlockExprParser<'a> {
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.expr_parser
     }
 }
 
-impl<'a, S> BlockExprParser<'a, S>
-where
-    S: BlockSymbolContextMut,
-{
+impl<'a> BlockExprParser<'a> {
     pub fn new(
-        expr_parser: ExprParser<'a, S>,
+        expr_parser: ExprParser<'a>,
         ast_sheet: &'a AstSheet,
         ast_token_idx_range_sheet: &'a AstTokenIdxRangeSheet,
     ) -> Self {
@@ -255,7 +243,7 @@ where
         }
     }
 
-    pub fn finish(self) -> S::ExprSheet {
+    pub fn finish(self) -> ExprSheet {
         self.expr_parser.finish()
     }
 }

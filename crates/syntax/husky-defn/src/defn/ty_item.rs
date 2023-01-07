@@ -30,7 +30,7 @@ impl TypeItemDefn {
     pub fn path(self, db: &dyn DefnDb) -> AssociatedItemPath {
         todo!()
     }
-    pub fn expr_sheet(self, db: &dyn DefnDb) -> AssociatedItemDefnExprSheet {
+    pub fn expr_sheet(self, db: &dyn DefnDb) -> ExprSheet {
         todo!()
     }
 }

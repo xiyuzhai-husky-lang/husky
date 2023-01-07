@@ -1,12 +1,12 @@
 use crate::*;
 use husky_ast::{Ast, AstSheet, AstTokenIdxRangeSheet};
-use husky_entity_tree::{CratePrelude, EntityTreeResult};
+use husky_entity_tree::{CratePrelude, EntityTreeResult, ModulePrelude};
 use husky_token::{RangedTokenSheet, TokenSheetData};
 use vec_like::VecPairMap;
 
 pub(crate) struct DefnCollector<'a> {
     db: &'a dyn DefnDb,
-    crate_prelude: CratePrelude<'a>,
+    module_prelude: ModulePrelude<'a>,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     ast_range_sheet: &'a AstTokenIdxRangeSheet,
@@ -15,10 +15,10 @@ pub(crate) struct DefnCollector<'a> {
 
 impl<'a> DefnCollector<'a> {
     pub(crate) fn new(db: &'a dyn DefnDb, module_path: ModulePath) -> EntityTreeResult<Self> {
-        let crate_prelude = db.crate_prelude(module_path.crate_path(db))?;
+        let module_prelude = db.module_prelude(module_path)?;
         Ok(Self {
             db,
-            crate_prelude,
+            module_prelude,
             token_sheet_data: db.token_sheet_data(module_path)?,
             ast_sheet: db.ast_sheet(module_path)?,
             ast_range_sheet: db.ast_range_sheet(module_path)?,
@@ -137,17 +137,13 @@ impl<'a> DefnCollector<'a> {
         let expr_sheet = parser.finish();
         FeatureDefn::new(self.db, path, decl, expr_sheet, body)
     }
-    fn module_item_block_expr_parser(
-        &self,
-        entity_path: EntityPath,
-    ) -> BlockExprParser<'a, ModuleItemDefnSymbolContextMut> {
-        todo!()
-        // let parser = ExprParser::new(
-        //     self.db,
-        //     Some(entity_path),
-        //     self.token_sheet_data,
-        //     self.crate_prelude,
-        // );
-        // BlockExprParser::new(parser, self.ast_sheet, self.ast_range_sheet)
+    fn module_item_block_expr_parser(&self, entity_path: EntityPath) -> BlockExprParser<'a> {
+        let parser = ExprParser::new(
+            self.db,
+            Some(entity_path),
+            self.token_sheet_data,
+            self.module_prelude,
+        );
+        BlockExprParser::new(parser, self.ast_sheet, self.ast_range_sheet)
     }
 }

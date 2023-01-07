@@ -45,10 +45,7 @@ impl Expr {
         match self {
             Expr::Literal(_) => BaseEntityPath::None,
             Expr::EntityPath(_) => todo!(),
-            Expr::Variable {
-                token_idx,
-                variable_idx,
-            } => BaseEntityPath::None,
+            Expr::InheritedSymbol { .. } | Expr::LocalSymbol { .. } => BaseEntityPath::None,
             Expr::Uncertain(_) => todo!(),
             Expr::BinaryOpn {
                 lopd,
@@ -104,10 +101,7 @@ impl Expr {
     }
 }
 
-impl<'a, 'b, S> ExprParseContext<'a, 'b, S>
-where
-    S: SymbolContextMut,
-{
+impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(super) fn finished_expr(&self) -> Option<&Expr> {
         self.stack.finished_expr.as_ref()
     }

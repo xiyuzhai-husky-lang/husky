@@ -6,10 +6,7 @@ use std::ops::ControlFlow;
 
 pub type TokenResolveResult<T> = ControlFlow<(), T>;
 
-impl<'a, 'b, S> ExprParseContext<'a, 'b, S>
-where
-    S: SymbolContextMut,
-{
+impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(crate) fn resolve_token(
         &mut self,
         token_idx: TokenIdx,
@@ -137,10 +134,7 @@ where
     }
 }
 
-impl<'a, 'b, S> ExprParseContext<'a, 'b, S>
-where
-    S: SymbolContextMut,
-{
+impl<'a, 'b> ExprParseContext<'a, 'b> {
     fn resolve_ident(&self, token_idx: TokenIdx, ident: Identifier) -> ResolvedToken {
         if let Some(opn) = self.last_unfinished_expr() {
             match opn {
@@ -161,14 +155,24 @@ where
         ResolvedToken::Atom(
             match self.parser.symbol_context.resolve_ident(token_idx, ident) {
                 Some(symbol) => match symbol {
-                    Symbol::Variable(variable_idx) => Expr::Variable {
-                        token_idx,
-                        variable_idx,
-                    },
+                    // Symbol::Variable(variable_idx) => Expr::Variable {
+                    //     token_idx,
+                    //     symbol_idx: variable_idx,
+                    // },
                     Symbol::Entity(entity_path) => todo!(),
+                    Symbol::Inherited(inherited_symbol_idx) => Expr::InheritedSymbol {
+                        ident,
+                        token_idx,
+                        inherited_symbol_idx,
+                    },
+                    Symbol::Local(local_symbol_idx, local_symbol_kind) => Expr::LocalSymbol {
+                        ident,
+                        token_idx,
+                        local_symbol_idx,
+                        local_symbol_kind,
+                    },
                     //  Expr::EntityPath(entity_path),
                 },
-                // symbol.into(),
                 None => Expr::Unrecognized(ident),
             },
         )

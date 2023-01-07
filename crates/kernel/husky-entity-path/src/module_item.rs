@@ -17,6 +17,16 @@ pub enum ModuleItemPath {
     Form(FormPath),
 }
 
+impl ModuleItemPath {
+    pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
+        match self {
+            ModuleItemPath::Type(path) => path.module_path(db),
+            ModuleItemPath::Trait(path) => path.module_path(db),
+            ModuleItemPath::Form(path) => path.module_path(db),
+        }
+    }
+}
+
 impl From<FormPath> for ModuleItemPath {
     fn from(v: FormPath) -> Self {
         Self::Form(v)

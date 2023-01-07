@@ -20,6 +20,7 @@ husky-token-info = { path = "../../infer/husky-token-info" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 # syntax
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-expr = { path = "../../syntax/husky-expr" }
 husky-decl = { path = "../../syntax/husky-decl" }
 husky-defn = { path = "../../syntax/husky-defn" }
 

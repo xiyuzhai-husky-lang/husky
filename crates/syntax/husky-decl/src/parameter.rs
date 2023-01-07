@@ -24,12 +24,9 @@ impl ImplicitParameterDecl {
     }
 }
 
-impl<'a, 'b, S> ParseFrom<ExprParseContext<'a, 'b, S>> for ImplicitParameterDecl
-where
-    S: SymbolContextMut,
-{
+impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDecl {
     fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b, S>,
+        ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
         let Some(ident) = ctx.parse::<IdentifierToken>()? else {
             return Ok(None)
@@ -49,12 +46,9 @@ where
     }
 }
 
-impl<'a, 'b, S> ParseFrom<ExprParseContext<'a, 'b, S>> for ImplicitParameterDeclList
-where
-    S: SymbolContextMut,
-{
+impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclList {
     fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b, S>,
+        ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
         let Some(langle) = ctx.parse::<LeftAngleBracketToken>()? else {
             return Ok(None)
@@ -120,12 +114,9 @@ pub struct ParameterDeclList {
     rpar: RightParenthesisToken,
 }
 
-impl<'a, 'b, S> ParseFrom<ExprParseContext<'a, 'b, S>> for ParameterDecl
-where
-    S: SymbolContextMut,
-{
+impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ParameterDecl {
     fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b, S>,
+        ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
         let Some(pattern) = ctx.parse::<ParameterPattern >()? else {
             return Ok(None)
@@ -139,12 +130,9 @@ where
     }
 }
 
-impl<'a, 'b, S> ParseFrom<ExprParseContext<'a, 'b, S>> for ParameterDeclList
-where
-    S: SymbolContextMut,
-{
+impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ParameterDeclList {
     fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b, S>,
+        ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
         let Some(lpar) = ctx.parse::<LeftParenthesisToken>()? else {
             todo!()
