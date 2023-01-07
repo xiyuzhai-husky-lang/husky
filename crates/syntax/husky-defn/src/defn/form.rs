@@ -38,7 +38,7 @@ impl FormDefn {
             FormDefn::Value(defn) => defn.path(db),
         }
     }
-    pub fn expr_sheet(self, db: &dyn DefnDb) -> ExprSheet {
+    pub fn expr_sheet(self, db: &dyn DefnDb) -> ModuleItemDefnExprSheet {
         match self {
             FormDefn::Function(defn) => defn.expr_sheet(db),
             FormDefn::Feature(defn) => defn.expr_sheet(db),

@@ -30,7 +30,10 @@ impl ExprParseEnvironmentPlace {
     }
 }
 
-impl<'a, 'b> ExprParseContext<'a, 'b> {
+impl<'a, 'b, S> ExprParseContext<'a, 'b, S>
+where
+    S: SymbolContextMut,
+{
     pub(super) fn env(&self) -> ExprParseEnvironment {
         self.env.0
     }

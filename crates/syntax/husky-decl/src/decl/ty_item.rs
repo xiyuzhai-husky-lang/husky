@@ -43,7 +43,7 @@ impl TypeItemDecl {
         }
     }
 
-    pub fn expr_sheet(self, db: &dyn DeclDb) -> ExprSheet {
+    pub fn expr_sheet(self, db: &dyn DeclDb) -> AssociatedItemDeclExprSheet {
         match self {
             TypeItemDecl::Function(_) => todo!(),
             TypeItemDecl::Method(_) => todo!(),

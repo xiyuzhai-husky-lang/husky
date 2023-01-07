@@ -44,13 +44,13 @@ impl Defn {
     pub fn implicit_parameters(self, db: &dyn DefnDb) -> &[ImplicitParameterDecl] {
         self.decl(db).implicit_parameters(db)
     }
-    pub fn expr_sheet(self, db: &dyn DefnDb) -> Option<ExprSheet> {
+    pub fn expr_sheet(self, db: &dyn DefnDb) -> Option<DefnExprSheet> {
         match self {
             Defn::Type(_) | Defn::Trait(_) => None,
-            Defn::Form(defn) => defn.expr_sheet(db).into(),
-            Defn::TypeItem(defn) => defn.expr_sheet(db).into(),
-            Defn::TraitItem(defn) => defn.expr_sheet(db).into(),
-            Defn::Variant(defn) => defn.expr_sheet(db).into(),
+            Defn::Form(defn) => Some(defn.expr_sheet(db).into()),
+            Defn::TypeItem(defn) => Some(defn.expr_sheet(db).into()),
+            Defn::TraitItem(defn) => Some(defn.expr_sheet(db).into()),
+            Defn::Variant(defn) => None,
         }
     }
 }

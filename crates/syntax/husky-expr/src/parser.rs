@@ -35,29 +35,34 @@ macro_rules! report {
 }
 use report;
 
-pub struct ExprParser<'a> {
+pub struct ExprParser<'a, S: SymbolContextMut> {
     db: &'a dyn ExprDb,
     entity_path: Option<EntityPath>,
     token_sheet_data: &'a TokenSheetData,
-    symbol_sheet: SymbolSheet<'a>,
+    symbol_context: S,
     expr_arena: ExprArena,
     entity_path_expr_arena: EntityPathExprArena,
     pattern_expr_sheet: PatternExprSheet,
     stmt_arena: StmtArena,
 }
 
-impl<'a> ExprParser<'a> {
+pub type ModuleItemDeclExprParser<'a> = ExprParser<'a, ModuleItemDeclSymbolContextMut>;
+
+impl<'a, S> ExprParser<'a, S>
+where
+    S: SymbolContextMut,
+{
     pub fn new(
         db: &'a dyn ExprDb,
         entity_path: Option<EntityPath>,
         token_sheet_data: &'a TokenSheetData,
-        crate_prelude: CratePrelude<'a>,
+        symbol_context: S,
     ) -> Self {
         Self {
             db,
             entity_path,
             token_sheet_data,
-            symbol_sheet: SymbolSheet::new(crate_prelude),
+            symbol_context,
             expr_arena: Default::default(),
             entity_path_expr_arena: Default::default(),
             pattern_expr_sheet: Default::default(),
@@ -65,8 +70,8 @@ impl<'a> ExprParser<'a> {
         }
     }
 
-    pub fn finish(self) -> ExprSheet {
-        ExprSheet::new(
+    pub fn finish(self) -> S::ExprSheet {
+        self.symbol_context.into_expr_sheet(
             self.db,
             self.expr_arena,
             self.entity_path_expr_arena,
@@ -75,20 +80,7 @@ impl<'a> ExprParser<'a> {
         )
     }
 
-    pub fn finish_with_variable_sheet(self) -> (VariableSheet, ExprSheet) {
-        (
-            VariableSheet::new(self.db, self.symbol_sheet.variable_sheet_data()),
-            ExprSheet::new(
-                self.db,
-                self.expr_arena,
-                self.entity_path_expr_arena,
-                self.pattern_expr_sheet,
-                self.stmt_arena,
-            ),
-        )
-    }
-
-    pub fn ctx<'b>(&'b mut self, token_stream: TokenStream<'a>) -> ExprParseContext<'a, 'b>
+    pub fn ctx<'b>(&'b mut self, token_stream: TokenStream<'a>) -> ExprParseContext<'a, 'b, S>
     where
         'a: 'b,
     {
@@ -100,20 +92,29 @@ impl<'a> ExprParser<'a> {
     }
 
     #[inline(always)]
-    fn define_variables(&mut self, variables: Vec<Variable>) -> VariableIdxRange {
-        self.symbol_sheet.define_variables(variables)
+    fn define_variables(&mut self, variables: Vec<Variable>) -> VariableIdxRange
+    where
+        S: BlockSymbolContextMut,
+    {
+        self.symbol_context.define_variables(variables)
     }
 }
 
-pub struct ExprParseContext<'a, 'b> {
-    parser: &'b mut ExprParser<'a>,
+pub struct ExprParseContext<'a, 'b, S>
+where
+    S: SymbolContextMut,
+{
+    parser: &'b mut ExprParser<'a, S>,
     env: ExprParseEnvironmentPlace,
     token_stream: TokenStream<'a>,
     stack: ExprStack,
 }
 
-impl<'a, 'b> ExprParseContext<'a, 'b> {
-    fn new(parser: &'b mut ExprParser<'a>, token_stream: TokenStream<'a>) -> Self {
+impl<'a, 'b, S> ExprParseContext<'a, 'b, S>
+where
+    S: SymbolContextMut,
+{
+    fn new(parser: &'b mut ExprParser<'a, S>, token_stream: TokenStream<'a>) -> Self {
         Self {
             parser,
             env: Default::default(),
@@ -154,7 +155,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         self.parser.pattern_expr_sheet()
     }
 
-    pub(crate) fn define_variables(&mut self, variables: Vec<Variable>) -> VariableIdxRange {
+    pub(crate) fn define_variables(&mut self, variables: Vec<Variable>) -> VariableIdxRange
+    where
+        S: BlockSymbolContextMut,
+    {
         self.parser.define_variables(variables)
     }
 
@@ -185,46 +189,48 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     }
 }
 
-pub fn parse_expr<'a>(
-    db: &'a dyn ExprDb,
-    entity_path: Option<EntityPath>,
-    crate_prelude: CratePrelude<'a>,
-    token_sheet_data: &'a TokenSheetData,
-    token_iter: TokenStream<'a>,
-    env: ExprParseEnvironment,
-) -> (ExprSheet, Option<ExprIdx>) {
-    let mut expr_parser = ExprParser::new(db, entity_path, token_sheet_data, crate_prelude);
-    let expr = expr_parser.ctx(token_iter).parse_expr(env);
-    (expr_parser.finish(), expr)
-}
-
-impl<'a, 'b> parsec::HasParseError for ExprParseContext<'a, 'b> {
+impl<'a, 'b, S> parsec::HasParseError for ExprParseContext<'a, 'b, S>
+where
+    S: SymbolContextMut,
+{
     type Error = ExprError;
 }
 
-impl<'a, 'b> std::ops::Deref for ExprParseContext<'a, 'b> {
+impl<'a, 'b, S> std::ops::Deref for ExprParseContext<'a, 'b, S>
+where
+    S: SymbolContextMut,
+{
     type Target = TokenStream<'a>;
     fn deref(&self) -> &Self::Target {
         &self.token_stream
     }
 }
 
-impl<'a, 'b> std::ops::DerefMut for ExprParseContext<'a, 'b> {
+impl<'a, 'b, S> std::ops::DerefMut for ExprParseContext<'a, 'b, S>
+where
+    S: SymbolContextMut,
+{
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.token_stream
     }
 }
 
-impl<'a, 'b> std::borrow::Borrow<TokenStream<'a>> for ExprParseContext<'a, 'b> {
+impl<'a, 'b, S> std::borrow::Borrow<TokenStream<'a>> for ExprParseContext<'a, 'b, S>
+where
+    S: SymbolContextMut,
+{
     fn borrow(&self) -> &TokenStream<'a> {
         &self.token_stream
     }
 }
 
-impl<'a, 'b> std::borrow::BorrowMut<TokenStream<'a>> for ExprParseContext<'a, 'b> {
+impl<'a, 'b, S> std::borrow::BorrowMut<TokenStream<'a>> for ExprParseContext<'a, 'b, S>
+where
+    S: SymbolContextMut,
+{
     fn borrow_mut(&mut self) -> &mut TokenStream<'a> {
         &mut self.token_stream
     }
 }
 
-impl<'a, 'b, 'c> parsec::StreamWrapper for ExprParseContext<'a, 'b> {}
+impl<'a, 'b, S> parsec::StreamWrapper for ExprParseContext<'a, 'b, S> where S: SymbolContextMut {}

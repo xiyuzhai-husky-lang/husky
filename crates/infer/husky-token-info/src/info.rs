@@ -9,8 +9,8 @@ pub enum TokenInfo {
     ImplicitParameter,
     Parameter,
     Variable {
-        variable_sheet: VariableSheet,
         variable_idx: VariableIdx,
+        expr_sheet: ExprSheet,
     },
     Field,
     Method,

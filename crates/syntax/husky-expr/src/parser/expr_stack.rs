@@ -104,7 +104,10 @@ impl Expr {
     }
 }
 
-impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
+impl<'a, 'b, S> ExprParseContext<'a, 'b, S>
+where
+    S: SymbolContextMut,
+{
     pub(super) fn finished_expr(&self) -> Option<&Expr> {
         self.stack.finished_expr.as_ref()
     }

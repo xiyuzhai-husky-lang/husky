@@ -92,9 +92,10 @@ impl<'a> HoverResultCalculator<'a> {
             TokenInfo::Parameter => format!(""),
             TokenInfo::Variable {
                 variable_idx,
-                variable_sheet,
+                expr_sheet,
             } => {
-                format!("{:#?}", variable_sheet.data(self.db)[*variable_idx])
+                todo!()
+                // format!("{:#?}", variable_sheet.data(self.db)[*variable_idx])
             }
             TokenInfo::Field => format!(""),
             TokenInfo::Method => format!(""),

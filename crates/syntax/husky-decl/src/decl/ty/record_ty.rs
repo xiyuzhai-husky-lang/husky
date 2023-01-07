@@ -5,7 +5,7 @@ pub struct RecordTypeDecl {
     #[id]
     pub path: TypePath,
     pub ast_idx: AstIdx,
-    pub expr_sheet: ExprSheet,
+    pub expr_sheet: ModuleItemDeclExprSheet,
     #[return_ref]
     pub implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
 }

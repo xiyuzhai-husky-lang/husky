@@ -5,5 +5,5 @@ pub struct TypeAliasDecl {
     #[id]
     pub path: FormPath,
     pub ast_idx: AstIdx,
-    pub expr_sheet: ExprSheet,
+    pub expr_sheet: ModuleItemDeclExprSheet,
 }

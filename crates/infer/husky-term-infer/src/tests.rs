@@ -3,7 +3,6 @@ mod db;
 use crate::*;
 use db::*;
 use husky_expect_test_snippets_utils::expect_test_snippets;
-use husky_expr::parse_expr;
 use husky_print_utils::epin;
 use husky_term::TermDb;
 use husky_token::*;

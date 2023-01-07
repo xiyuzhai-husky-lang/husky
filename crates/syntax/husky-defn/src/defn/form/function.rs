@@ -5,7 +5,12 @@ pub struct FunctionDefn {
     #[id]
     pub path: FormPath,
     pub decl: FunctionDecl,
-    pub variable_sheet: VariableSheet,
-    pub expr_sheet: ExprSheet,
+    pub expr_sheet: ModuleItemDefnExprSheet,
     pub body: DefnResult<ExprIdx>,
+}
+
+impl FunctionDefn {
+    pub fn symbol_context(self, db: &dyn DeclDb) -> &dyn SymbolContext {
+        todo!()
+    }
 }

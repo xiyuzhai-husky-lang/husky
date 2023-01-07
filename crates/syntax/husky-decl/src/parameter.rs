@@ -24,9 +24,12 @@ impl ImplicitParameterDecl {
     }
 }
 
-impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDecl {
+impl<'a, 'b, S> ParseFrom<ExprParseContext<'a, 'b, S>> for ImplicitParameterDecl
+where
+    S: SymbolContextMut,
+{
     fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b>,
+        ctx: &mut ExprParseContext<'a, 'b, S>,
     ) -> Result<Option<Self>, ExprError> {
         let Some(ident) = ctx.parse::<IdentifierToken>()? else {
             return Ok(None)
@@ -46,9 +49,12 @@ impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDecl {
     }
 }
 
-impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclList {
+impl<'a, 'b, S> ParseFrom<ExprParseContext<'a, 'b, S>> for ImplicitParameterDeclList
+where
+    S: SymbolContextMut,
+{
     fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b>,
+        ctx: &mut ExprParseContext<'a, 'b, S>,
     ) -> Result<Option<Self>, ExprError> {
         let Some(langle) = ctx.parse::<LeftAngleBracketToken>()? else {
             return Ok(None)
@@ -114,9 +120,12 @@ pub struct ParameterDeclList {
     rpar: RightParenthesisToken,
 }
 
-impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for ParameterDecl {
+impl<'a, 'b, S> ParseFrom<ExprParseContext<'a, 'b, S>> for ParameterDecl
+where
+    S: SymbolContextMut,
+{
     fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b>,
+        ctx: &mut ExprParseContext<'a, 'b, S>,
     ) -> Result<Option<Self>, ExprError> {
         let Some(pattern) = ctx.parse::<ParameterPattern >()? else {
             return Ok(None)
@@ -130,9 +139,12 @@ impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for ParameterDecl {
     }
 }
 
-impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for ParameterDeclList {
+impl<'a, 'b, S> ParseFrom<ExprParseContext<'a, 'b, S>> for ParameterDeclList
+where
+    S: SymbolContextMut,
+{
     fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b>,
+        ctx: &mut ExprParseContext<'a, 'b, S>,
     ) -> Result<Option<Self>, ExprError> {
         let Some(lpar) = ctx.parse::<LeftParenthesisToken>()? else {
             todo!()

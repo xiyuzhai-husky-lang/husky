@@ -160,9 +160,9 @@ pub(crate) type PatternExprArena = Arena<PatternExpr>;
 pub type PatternExprIdx = ArenaIdx<PatternExpr>;
 pub type PatternExprIdxRange = ArenaIdxRange<PatternExpr>;
 
-// impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for PatternExprIdx {
+// impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b,S >> for PatternExprIdx {
 //     fn parse_from_without_guaranteed_rollback(
-//         ctx: &mut ExprParseContext<'a, 'b>,
+//         ctx: &mut ExprParseContext<'a, 'b,S >,
 //     ) -> Result<Option<Self>, ExprError> {
 //         // ad hoc
 //         if let Some(ident_token) = ctx.parse::<IdentifierToken>()? {
@@ -180,9 +180,12 @@ pub struct ParameterPattern {
     pattern_expr_idx: PatternExprIdx,
 }
 
-impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for ParameterPattern {
+impl<'a, 'b, S> ParseFrom<ExprParseContext<'a, 'b, S>> for ParameterPattern
+where
+    S: SymbolContextMut,
+{
     fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b>,
+        ctx: &mut ExprParseContext<'a, 'b, S>,
     ) -> Result<Option<Self>, ExprError> {
         // ad hoc
         if let Some(ident_token) = ctx.parse::<IdentifierToken>()? {
@@ -213,11 +216,17 @@ pub struct LetVariablePattern {
     variables: VariableIdxRange,
 }
 
-impl<'a, 'b> ExprParseContext<'a, 'b> {
+impl<'a, 'b, S> ExprParseContext<'a, 'b, S>
+where
+    S: SymbolContextMut,
+{
     pub(crate) fn parse_let_variable_pattern(
         &mut self,
         access_end: TokenIdxRangeEnd,
-    ) -> ExprResult<LetVariablePattern> {
+    ) -> ExprResult<LetVariablePattern>
+    where
+        S: BlockSymbolContextMut,
+    {
         let state = self.save_state();
         if let Some(pattern_expr_idx) = self.parse_pattern_expr(PatternInfo::Let)? {
             let symbols = self
@@ -259,9 +268,12 @@ pub struct BePattern {
     pattern_expr_idx: PatternExprIdx,
 }
 
-impl<'a, 'b, 'c> ParseFrom<ExprParseContext<'a, 'b>> for BePattern {
+impl<'a, 'b, S> ParseFrom<ExprParseContext<'a, 'b, S>> for BePattern
+where
+    S: SymbolContextMut,
+{
     fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b>,
+        ctx: &mut ExprParseContext<'a, 'b, S>,
     ) -> Result<Option<Self>, ExprError> {
         // ad hoc
         if let Some(ident_token) = ctx.parse::<IdentifierToken>()? {

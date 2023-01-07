@@ -42,17 +42,18 @@ impl Upcast<dyn TermDb> for DB {
 impl Database for DB {}
 
 impl DB {
-    pub(crate) fn new_sheet(&self, sheet: ExprSheet) -> TermPatternInferSheet {
-        TermPatternInferSheet::new_test(sheet, Default::default())
-    }
-
-    pub(super) fn parse_expr_from_text(&self, _text: &str) -> (ExprSheet, ExprIdx) {
-        // use husky_tokenize::TokenizeDb;
-
-        // let tokens = self.tokenize_line(text);
-        // let mut arena = ExprArena::default();
+    pub(crate) fn new_sheet(&self) -> TermPatternInferSheet {
         todo!()
-        // let expr = parse_expr(&mut symbol_ctx, &mut arena, &tokens);
-        // (arena, expr)
+        // TermPatternInferSheet::new_test(sheet, Default::default())
     }
+
+    // pub(super) fn parse_expr_from_text(&self, _text: &str) -> (ExprSheet, ExprIdx) {
+    //     // use husky_tokenize::TokenizeDb;
+
+    //     // let tokens = self.tokenize_line(text);
+    //     // let mut arena = ExprArena::default();
+    //     todo!()
+    //     // let expr = parse_expr(&mut symbol_ctx, &mut arena, &tokens);
+    //     // (arena, expr)
+    // }
 }

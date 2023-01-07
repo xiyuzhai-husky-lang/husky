@@ -47,15 +47,19 @@ impl Decl {
         }
     }
 
-    pub fn expr_sheet(self, db: &dyn DeclDb) -> ExprSheet {
+    pub fn expr_sheet(self, db: &dyn DeclDb) -> DeclExprSheet {
         match self {
-            Decl::Type(decl) => decl.expr_sheet(db),
-            Decl::Form(decl) => decl.expr_sheet(db),
-            Decl::Trait(decl) => decl.expr_sheet(db),
-            Decl::TypeItem(decl) => decl.expr_sheet(db),
-            Decl::TraitItem(decl) => decl.expr_sheet(db),
+            Decl::Type(decl) => decl.expr_sheet(db).into(),
+            Decl::Form(decl) => decl.expr_sheet(db).into(),
+            Decl::Trait(decl) => decl.expr_sheet(db).into(),
+            Decl::TypeItem(decl) => decl.expr_sheet(db).into(),
+            Decl::TraitItem(decl) => decl.expr_sheet(db).into(),
             Decl::Variant(decl) => todo!(),
         }
+    }
+
+    pub fn symbol_context(self, db: &dyn DeclDb) -> &dyn SymbolContext {
+        todo!()
     }
 }
 

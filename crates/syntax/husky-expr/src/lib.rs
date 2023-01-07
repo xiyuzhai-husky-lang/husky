@@ -20,6 +20,7 @@ pub use parser::*;
 pub use pattern::*;
 pub use sheet::*;
 pub use stmt::*;
+pub use symbol::*;
 pub use variable::*;
 
 use husky_entity_path::EntityPath;
@@ -31,7 +32,16 @@ use precedence::*;
 use snippet::*;
 
 #[salsa::jar(db = ExprDb)]
-pub struct ExprJar(ExprSheet, VariableSheet, parse_expr_from_snippet);
+pub struct ExprJar(
+    ModuleItemDeclExprSheet,
+    VariantDeclExprSheet,
+    AssociatedItemDeclExprSheet,
+    ModuleItemDefnExprSheet,
+    AssociatedItemDefnExprSheet,
+    SnippetExprSheet,
+    VariableSheet,
+    parse_expr_from_snippet,
+);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum BaseEntityPath {
