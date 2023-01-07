@@ -3,7 +3,10 @@ use parsec::ParseContext;
 
 use super::*;
 
-impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
+impl<'a, 'b, S> ExprParseContext<'a, 'b, S>
+where
+    S: SymbolContextMut,
+{
     pub(crate) fn accept_token(&mut self, token: ResolvedToken) {
         match token {
             ResolvedToken::Atom(atom) => self.accept_atom(atom),

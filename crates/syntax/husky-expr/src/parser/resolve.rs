@@ -6,7 +6,10 @@ use std::ops::ControlFlow;
 
 pub type TokenResolveResult<T> = ControlFlow<(), T>;
 
-impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
+impl<'a, 'b, S> ExprParseContext<'a, 'b, S>
+where
+    S: SymbolContextMut,
+{
     pub(crate) fn resolve_token(
         &mut self,
         token_idx: TokenIdx,
@@ -134,7 +137,10 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
     }
 }
 
-impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
+impl<'a, 'b, S> ExprParseContext<'a, 'b, S>
+where
+    S: SymbolContextMut,
+{
     fn resolve_ident(&self, token_idx: TokenIdx, ident: Identifier) -> ResolvedToken {
         if let Some(opn) = self.last_unfinished_expr() {
             match opn {
@@ -153,7 +159,7 @@ impl<'a, 'b, 'c> ExprParseContext<'a, 'b> {
             }
         }
         ResolvedToken::Atom(
-            match self.parser.symbol_sheet.resolve_ident(token_idx, ident) {
+            match self.parser.symbol_context.resolve_ident(token_idx, ident) {
                 Some(symbol) => match symbol {
                     Symbol::Variable(variable_idx) => Expr::Variable {
                         token_idx,

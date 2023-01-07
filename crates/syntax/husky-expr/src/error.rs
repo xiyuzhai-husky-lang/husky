@@ -75,8 +75,11 @@ pub enum ExprError {
 
 pub type ExprResult<T> = Result<T, ExprError>;
 
-impl<'a, 'b, 'c> FromAbsent<RightCurlyBraceToken, ExprParseContext<'a, 'b>> for ExprError {
-    fn new_absent_error(state: <ExprParseContext<'a, 'b> as HasParseState>::State) -> Self {
+impl<'a, 'b, S> FromAbsent<RightCurlyBraceToken, ExprParseContext<'a, 'b, S>> for ExprError
+where
+    S: SymbolContextMut,
+{
+    fn new_absent_error(state: <ExprParseContext<'a, 'b, S> as HasParseState>::State) -> Self {
         ExprError::ExpectRightCurlyBrace(state)
     }
 }

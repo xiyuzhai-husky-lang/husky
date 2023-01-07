@@ -2,7 +2,7 @@ use super::*;
 use husky_ast::AstJar;
 use husky_entity_path::{EntityPath, EntityPathDb, EntityPathJar, EntityPathMenu};
 use husky_entity_tree::EntityTreeJar;
-use husky_expr::{ExprIdx, ExprSheet};
+use husky_expr::ExprIdx;
 use husky_manifest::ManifestJar;
 use husky_term::{
     Decl, Term, TermDb, TermError, TermJar, TermMenu, TermResult, TermResultArc, TyDecl,
@@ -49,15 +49,15 @@ impl TermInferTestsDb {
         }
     }
 
-    pub(super) fn parse_expr_from_text(&self, text: &str) -> (ExprSheet, ExprIdx) {
-        todo!()
-        // use husky_tokenize::TokenizeDb;
-        // let tokens = self.tokenize_line(text);
-        // let mut arena = ExprArena::default();
-        // let mut ctx = self.new_symbol_ctx();
-        // let expr = parse_expr(self, &tokens, &mut ctx, &mut arena);
-        // (arena, expr)
-    }
+    // pub(super) fn parse_expr_from_text(&self, text: &str) -> (ExprSheet, ExprIdx) {
+    //     todo!()
+    //     // use husky_tokenize::TokenizeDb;
+    //     // let tokens = self.tokenize_line(text);
+    //     // let mut arena = ExprArena::default();
+    //     // let mut ctx = self.new_symbol_ctx();
+    //     // let expr = parse_expr(self, &tokens, &mut ctx, &mut arena);
+    //     // (arena, expr)
+    // }
 }
 
 impl TyInferQueries for TermInferTestsDb {

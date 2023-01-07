@@ -27,7 +27,9 @@ impl<'a> InferEngine<'a> {
     pub(crate) fn visit_all(mut self) -> TokenInfoSheet {
         for defn in self.defn_sheet.defns() {
             let decl = defn.decl(self.db);
-            self.visit_expr_sheet(decl.expr_sheet(self.db), None);
+            self.visit_expr_sheet(decl.expr_sheet(self.db).into());
+            defn.expr_sheet(self.db)
+                .map(|expr_sheet| self.visit_expr_sheet(expr_sheet.into()));
             let ast_idx = defn.ast_idx(self.db);
             match self.ast_sheet[ast_idx] {
                 Ast::Defn {
@@ -66,18 +68,14 @@ impl<'a> InferEngine<'a> {
         self.sheet
     }
 
-    fn visit_expr_sheet(&mut self, expr_sheet: ExprSheet, variable_sheet: Option<VariableSheet>) {
+    fn visit_expr_sheet(&mut self, expr_sheet: ExprSheet) {
         AuxInferEngine {
             db: self.db,
             token_sheet_data: self.token_sheet_data,
             ast_sheet: self.ast_sheet,
             sheet: &mut self.sheet,
-            expr_arena: expr_sheet.expr_arena(self.db),
-            pattern_expr_sheet: expr_sheet.pattern_expr_arena(self.db),
-            entity_path_expr_arena: expr_sheet.entity_path_expr_arena(self.db),
-            stmt_arena: expr_sheet.stmt_arena(self.db),
+            symbol_context: todo!(),
             expr_sheet,
-            variable_sheet,
         }
         .visit_all()
     }
@@ -140,13 +138,9 @@ impl<'a> InferEngine<'a> {
         }
     }
 
-    fn visit_function(&mut self, defn: FunctionDefn) {
-        self.visit_expr_sheet(defn.expr_sheet(self.db), Some(defn.variable_sheet(self.db)))
-    }
+    fn visit_function(&mut self, defn: FunctionDefn) {}
 
-    fn visit_feature(&mut self, defn: FeatureDefn) {
-        self.visit_expr_sheet(defn.expr_sheet(self.db), Some(defn.variable_sheet(self.db)))
-    }
+    fn visit_feature(&mut self, defn: FeatureDefn) {}
 
     fn visit_morphism(&mut self, defn: MorphismDefn) {
         let decl = defn.decl(self.db);
@@ -163,25 +157,22 @@ struct AuxInferEngine<'a> {
     db: &'a dyn TokenInfoDb,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
-    expr_arena: &'a ExprArena,
-    pattern_expr_sheet: &'a PatternExprSheet,
-    entity_path_expr_arena: &'a EntityPathExprArena,
-    stmt_arena: &'a StmtArena,
+    symbol_context: &'a dyn SymbolContext,
     sheet: &'a mut TokenInfoSheet,
     expr_sheet: ExprSheet,
-    variable_sheet: Option<VariableSheet>,
 }
 
 impl<'a> AuxInferEngine<'a> {
     fn visit_all(mut self) {
-        for expr in self.expr_arena.data() {
+        for expr in self.symbol_context.exprs() {
             self.visit_expr(expr)
         }
-        if let Some(variable_sheet) = self.variable_sheet {
-            for (variable_idx, variable) in variable_sheet.data(self.db).index_variable_iter() {
-                self.visit_variable(variable_idx, variable)
-            }
-        }
+        todo!()
+        // if let Some(variable_sheet) = self.variable_sheet {
+        //     for (variable_idx, variable) in variable_sheet.data(self.db).index_variable_iter() {
+        //         self.visit_variable(variable_idx, variable)
+        //     }
+        // }
     }
 
     fn visit_expr(&mut self, expr: &Expr) {
@@ -193,7 +184,7 @@ impl<'a> AuxInferEngine<'a> {
                 *token_idx,
                 TokenInfo::Variable {
                     variable_idx: *variable_idx,
-                    variable_sheet: self.variable_sheet.unwrap(),
+                    expr_sheet: self.expr_sheet,
                 },
             ),
             Expr::Field { ident_token, .. } => {
@@ -222,26 +213,27 @@ impl<'a> AuxInferEngine<'a> {
     }
 
     fn visit_variable(&mut self, variable_idx: VariableIdx, variable: &Variable) {
-        match variable.kind() {
-            VariableKind::Let { pattern_symbol } => match self.pattern_expr_sheet[pattern_symbol] {
-                PatternSymbol::Atom(pattern_expr_idx) => {
-                    match self.pattern_expr_sheet[pattern_expr_idx] {
-                        PatternExpr::Identifier {
-                            ident_token,
-                            liason,
-                        } => self.sheet.add(
-                            ident_token.token_idx(),
-                            TokenInfo::Variable {
-                                variable_sheet: self.variable_sheet.unwrap(),
-                                variable_idx,
-                            },
-                        ),
-                        _ => unreachable!(),
-                    }
-                }
-            },
-            VariableKind::Lambda => todo!(),
-        }
+        todo!()
+        // match variable.kind() {
+        //     VariableKind::Let { pattern_symbol } => match self.pattern_expr_sheet[pattern_symbol] {
+        //         PatternSymbol::Atom(pattern_expr_idx) => {
+        //             match self.pattern_expr_sheet[pattern_expr_idx] {
+        //                 PatternExpr::Identifier {
+        //                     ident_token,
+        //                     liason,
+        //                 } => self.sheet.add(
+        //                     ident_token.token_idx(),
+        //                     TokenInfo::Variable {
+        //                         variable_sheet: self.variable_sheet.unwrap(),
+        //                         variable_idx,
+        //                     },
+        //                 ),
+        //                 _ => unreachable!(),
+        //             }
+        //         }
+        //     },
+        //     VariableKind::Lambda => todo!(),
+        // }
     }
 
     // fn visit_pattern_expr(&mut self, pattern_expr_idx: PatternExprIdx, pattern_expr: &PatternExpr) {

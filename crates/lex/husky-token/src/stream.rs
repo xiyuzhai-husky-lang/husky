@@ -155,7 +155,7 @@ impl<'a> TokenStream<'a> {
 #[test]
 fn next_indexed_works() {
     let db = DB::default();
-    let token_sheet_data = db.tokenize_snippet(Snippet::new(
+    let token_sheet_data = db.snippet_token_sheet_data(Snippet::new(
         &db,
         "What does a rusty can of spray-on rust remover smell like?\n Irony.".into(),
     ));

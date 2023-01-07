@@ -24,7 +24,7 @@ pub(crate) struct DB {
 
 impl salsa::Database for DB {}
 
-pub(crate) fn t<'a>(db: &'a DB, input: &str) -> &'a (ExprSheet, Option<ExprIdx>) {
+pub(crate) fn t<'a>(db: &'a DB, input: &str) -> &'a (SnippetExprSheet, Option<ExprIdx>) {
     let toolchain = db.dev_toolchain().unwrap();
     let path_menu = db.path_menu(toolchain).unwrap();
     let snippet = Snippet::new(db, input.to_owned());

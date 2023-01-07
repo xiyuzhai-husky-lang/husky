@@ -3,7 +3,6 @@ use husky_ast::{Ast, AstIdx, AstIdxRange, AstSheet};
 use husky_entity_path::EntityPath;
 use husky_entity_taxonomy::{EntityKind, FormKind, ModuleItemKind, TypeKind};
 use husky_entity_tree::{CratePrelude, EntitySymbol, EntityTreeSheet};
-use husky_expr::{parse_expr, ExprSheet};
 use husky_opn_syntax::BinaryOpr;
 use husky_print_utils::p;
 use husky_token::{
@@ -165,7 +164,7 @@ impl<'a> DeclCollector<'a> {
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<Decl> {
-        let mut parser = self.expr_parser(path.into());
+        let mut parser = self.module_item_decl_expr_parser(path.into());
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
@@ -184,7 +183,7 @@ impl<'a> DeclCollector<'a> {
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<Decl> {
-        let mut parser = self.expr_parser(path.into());
+        let mut parser = self.module_item_decl_expr_parser(path.into());
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
@@ -207,7 +206,7 @@ impl<'a> DeclCollector<'a> {
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<Decl> {
-        let mut parser = self.expr_parser(path.into());
+        let mut parser = self.module_item_decl_expr_parser(path.into());
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
@@ -227,7 +226,7 @@ impl<'a> DeclCollector<'a> {
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<Decl> {
-        let mut parser = self.expr_parser(path.into());
+        let mut parser = self.module_item_decl_expr_parser(path.into());
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
@@ -257,13 +256,17 @@ impl<'a> DeclCollector<'a> {
         }
     }
 
-    fn expr_parser(&self, entity_path: EntityPath) -> ExprParser<'a> {
-        ExprParser::new(
-            self.db,
-            Some(entity_path),
-            self.token_sheet_data,
-            self.crate_prelude,
-        )
+    fn module_item_decl_expr_parser(
+        &self,
+        entity_path: EntityPath,
+    ) -> ModuleItemDeclExprParser<'a> {
+        todo!()
+        // ModuleItemDeclExprParser::new(
+        //     self.db,
+        //     Some(entity_path),
+        //     self.token_sheet_data,
+        //     self.crate_prelude,
+        // )
     }
 
     fn parse_structure_type_decl(
@@ -278,7 +281,7 @@ impl<'a> DeclCollector<'a> {
             .token_sheet_data
             .token_group_token_stream(token_group_idx, Some(saved_stream_state));
 
-        let mut parser = self.expr_parser(path.into());
+        let mut parser = self.module_item_decl_expr_parser(path.into());
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
@@ -303,7 +306,7 @@ impl<'a> DeclCollector<'a> {
             .token_sheet_data
             .token_group_token_stream(token_group_idx, Some(saved_stream_state));
 
-        let mut parser = self.expr_parser(path.into());
+        let mut parser = self.module_item_decl_expr_parser(path.into());
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
@@ -342,7 +345,7 @@ impl<'a> DeclCollector<'a> {
         saved_stream_state: TokenIdx,
         path: FormPath,
     ) -> Result<Decl, DeclError> {
-        let mut parser = self.expr_parser(path.into());
+        let mut parser = self.module_item_decl_expr_parser(path.into());
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
@@ -359,7 +362,7 @@ impl<'a> DeclCollector<'a> {
         saved_stream_state: TokenIdx,
         path: FormPath,
     ) -> Result<Decl, DeclError> {
-        let mut parser = self.expr_parser(path.into());
+        let mut parser = self.module_item_decl_expr_parser(path.into());
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),

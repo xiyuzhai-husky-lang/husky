@@ -4,5 +4,5 @@ use crate::*;
 pub struct UnitVariantDecl {
     #[id]
     pub path: VariantPath,
-    pub expr_sheet: ExprSheet,
+    pub expr_sheet: VariantDeclExprSheet,
 }

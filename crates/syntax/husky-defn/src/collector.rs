@@ -114,36 +114,40 @@ impl<'a> DefnCollector<'a> {
 
     fn parse_function_defn(&self, decl: FunctionDecl) -> FunctionDefn {
         let path = decl.path(self.db);
-        let mut parser = self.block_expr_parser(path.into());
+        let mut parser = self.module_item_block_expr_parser(path.into());
         let ast_idx = decl.ast_idx(self.db);
         let ast = &self.ast_sheet[ast_idx];
         let body = match ast {
             Ast::Defn { body, .. } => parser.parse_block_expr(*body).ok_or(DefnError::MissingBody),
             _ => unreachable!(),
         };
-        let (variable_sheet, expr_sheet) = parser.finish();
-        FunctionDefn::new(self.db, path, decl, variable_sheet, expr_sheet, body)
+        let expr_sheet = parser.finish();
+        FunctionDefn::new(self.db, path, decl, expr_sheet, body)
     }
 
     fn parse_feature_defn(&self, decl: FeatureDecl) -> FeatureDefn {
         let path = decl.path(self.db);
-        let mut parser = self.block_expr_parser(path.into());
+        let mut parser = self.module_item_block_expr_parser(path.into());
         let ast_idx = decl.ast_idx(self.db);
         let ast = &self.ast_sheet[ast_idx];
         let body = match ast {
             Ast::Defn { body, .. } => parser.parse_block_expr(*body).ok_or(DefnError::MissingBody),
             _ => unreachable!(),
         };
-        let (variable_sheet, expr_sheet) = parser.finish();
-        FeatureDefn::new(self.db, path, decl, variable_sheet, expr_sheet, body)
+        let expr_sheet = parser.finish();
+        FeatureDefn::new(self.db, path, decl, expr_sheet, body)
     }
-    fn block_expr_parser(&self, entity_path: EntityPath) -> BlockExprParser<'a> {
-        let parser = ExprParser::new(
-            self.db,
-            Some(entity_path),
-            self.token_sheet_data,
-            self.crate_prelude,
-        );
-        BlockExprParser::new(parser, self.ast_sheet, self.ast_range_sheet)
+    fn module_item_block_expr_parser(
+        &self,
+        entity_path: EntityPath,
+    ) -> BlockExprParser<'a, ModuleItemDefnSymbolContextMut> {
+        todo!()
+        // let parser = ExprParser::new(
+        //     self.db,
+        //     Some(entity_path),
+        //     self.token_sheet_data,
+        //     self.crate_prelude,
+        // );
+        // BlockExprParser::new(parser, self.ast_sheet, self.ast_range_sheet)
     }
 }
