@@ -39,10 +39,12 @@ Ok(
             ),
             (
                 TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                Err(
-                    ExpectLCurlOrLParOrSemicolon(
-                        TokenIdx(
-                            72,
+                Ok(
+                    Type(
+                        PropsStruct(
+                            PropsStructTypeDecl {
+                                path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                            },
                         ),
                     ),
                 ),

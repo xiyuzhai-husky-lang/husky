@@ -12,6 +12,16 @@ Ok(
                 ),
             ),
             (
+                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                Type(
+                    PropsStruct(
+                        PropsStructTypeDefn {
+                            path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                        },
+                    ),
+                ),
+            ),
+            (
                 FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
                 Form(
                     Function(

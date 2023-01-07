@@ -70,7 +70,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::connected_component`,
                         ),
-                        ast_idx: 116,
+                        ast_idx: 120,
                         path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                     },
                     ModuleItem {
@@ -78,7 +78,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::connected_component`,
                         ),
-                        ast_idx: 117,
+                        ast_idx: 121,
                         path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                     },
                     ModuleItem {
@@ -86,7 +86,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::connected_component`,
                         ),
-                        ast_idx: 118,
+                        ast_idx: 122,
                         path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
                     },
                     ModuleItem {
@@ -94,7 +94,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::connected_component`,
                         ),
-                        ast_idx: 119,
+                        ast_idx: 123,
                         path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                     },
                     ModuleItem {
@@ -102,7 +102,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::connected_component`,
                         ),
-                        ast_idx: 120,
+                        ast_idx: 125,
                         path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
                     },
                     ModuleItem {
@@ -110,7 +110,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::connected_component`,
                         ),
-                        ast_idx: 121,
+                        ast_idx: 126,
                         path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
                     },
                 ],
