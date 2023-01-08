@@ -46,7 +46,7 @@ inductive SpecialToken
   | Semicolon          -- ;
   | XmlKet             -- />
   | At                 -- @
-  | QuestionMark       -- ?
+  | Question       -- ?
   deriving DecidableEq
 
 namespace SpecialToken
@@ -96,7 +96,7 @@ namespace SpecialToken
     | Semicolon => "SpecialToken::Semicolon"
     | XmlKet => "SpecialToken::XmlKet"
     | At => "SpecialToken::At"
-    | QuestionMark => "SpecialToken::QuestionMark"
+    | Question => "SpecialToken::Question"
 
 instance : Enumerable SpecialToken where
   enumeration := [
@@ -145,7 +145,7 @@ instance : Enumerable SpecialToken where
     Semicolon,
     XmlKet,
     At,
-    QuestionMark
+    Question
   ]
   hvalid := by
     apply And.intro
@@ -199,5 +199,5 @@ def huskyCode : SpecialToken -> String
   | Semicolon => ";"
   | XmlKet => "/>"
   | At => "@"
-  | QuestionMark => "?"
+  | Question => "?"
 end SpecialToken
