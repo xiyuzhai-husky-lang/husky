@@ -873,17 +873,20 @@ Ok(
             Punctuation(
                 Colon,
             ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 289,
-                        },
-                    ),
+            Punctuation(
+                Bra(
+                    Box,
                 ),
             ),
             Punctuation(
-                LAngle,
+                Ket(
+                    Box,
+                ),
+            ),
+            Punctuation(
+                Bra(
+                    Par,
+                ),
             ),
             Punctuation(
                 Bra(
@@ -925,7 +928,9 @@ Ok(
                 ),
             ),
             Punctuation(
-                RAngle,
+                Ket(
+                    Par,
+                ),
             ),
             Punctuation(
                 Ket(
@@ -1127,7 +1132,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 290,
+                            value: 289,
                         },
                     ),
                 ),
@@ -1223,7 +1228,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 290,
+                            value: 289,
                         },
                     ),
                 ),
@@ -1304,12 +1309,12 @@ Ok(
             113,
             130,
             132,
-            158,
-            167,
-            178,
-            187,
-            194,
-            205,
+            159,
+            168,
+            179,
+            188,
+            195,
+            206,
         ],
         indents: [
             0,

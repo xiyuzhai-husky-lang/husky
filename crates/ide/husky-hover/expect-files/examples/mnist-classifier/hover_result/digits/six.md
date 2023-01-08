@@ -220,7 +220,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 161;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 375,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 161;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 374,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -250,7 +250,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 184;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 377,\n            },\n        ),\n    ),\n);\n\ntoken_info = LocalSymbol {\n    local_symbol_idx: 6,\n    expr_sheet: ExprSheet(\n        Id {\n            value: 88,\n        },\n    ),\n    local_symbol_kind: LetVariable {\n        pattern_symbol: 9,\n    },\n};\n\nLocalSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 383,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        183,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                282,\n            ),\n        ),\n    ),\n    kind: LetVariable {\n        pattern_symbol: 9,\n    },\n}\n",
+                                value: "\ntoken_idx = 184;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 376,\n            },\n        ),\n    ),\n);\n\ntoken_info = LocalSymbol {\n    local_symbol_idx: 6,\n    expr_sheet: ExprSheet(\n        Id {\n            value: 88,\n        },\n    ),\n    local_symbol_kind: LetVariable {\n        pattern_symbol: 9,\n    },\n};\n\nLocalSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 382,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        183,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                282,\n            ),\n        ),\n    ),\n    kind: LetVariable {\n        pattern_symbol: 9,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 230;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 379,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 230;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 378,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
