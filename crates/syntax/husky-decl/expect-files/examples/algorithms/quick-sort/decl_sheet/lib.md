@@ -3,36 +3,36 @@ Ok(
         decls: [
             (
                 FormPath(`quick_sort::quick_sort`, `Function`),
-                Err(
-                    Expr(
-                        ExpectRightParenthesis(
-                            TokenIdx(
-                                9,
-                            ),
+                Ok(
+                    Form(
+                        Function(
+                            FunctionDecl {
+                                path: FormPath(`quick_sort::quick_sort`, `Function`),
+                            },
                         ),
                     ),
                 ),
             ),
             (
                 FormPath(`quick_sort::quick_sort_aux`, `Function`),
-                Err(
-                    Expr(
-                        ExpectRightParenthesis(
-                            TokenIdx(
-                                48,
-                            ),
+                Ok(
+                    Form(
+                        Function(
+                            FunctionDecl {
+                                path: FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                            },
                         ),
                     ),
                 ),
             ),
             (
                 FormPath(`quick_sort::partition`, `Function`),
-                Err(
-                    Expr(
-                        ExpectRightParenthesis(
-                            TokenIdx(
-                                109,
-                            ),
+                Ok(
+                    Form(
+                        Function(
+                            FunctionDecl {
+                                path: FormPath(`quick_sort::partition`, `Function`),
+                            },
                         ),
                     ),
                 ),

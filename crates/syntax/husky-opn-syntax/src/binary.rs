@@ -15,6 +15,7 @@ pub enum BinaryOpr {
     ScopeResolution, // ::
     Curry,           // ->
     As,              // as
+    IsOf,            // :
 }
 
 impl From<Option<BinaryPureClosedOpr>> for BinaryOpr {
@@ -64,6 +65,7 @@ impl BinaryOpr {
             BinaryOpr::ScopeResolution => "::",
             BinaryOpr::Curry => "->",
             BinaryOpr::As => todo!(),
+            BinaryOpr::IsOf => todo!(),
         }
     }
 
@@ -91,9 +93,10 @@ impl BinaryOpr {
                     " = "
                 }
             }
-            BinaryOpr::ScopeResolution => todo!(),
+            BinaryOpr::ScopeResolution => " :: ",
             BinaryOpr::Curry => " -> ",
-            BinaryOpr::As => todo!(),
+            BinaryOpr::As => " as ",
+            BinaryOpr::IsOf => " : ",
         }
     }
 }

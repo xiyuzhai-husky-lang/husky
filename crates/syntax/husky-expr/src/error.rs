@@ -65,6 +65,8 @@ pub enum ExprError {
     MissingForExpr,
     #[error("expect be pattern")]
     ExpectBePattern(TokenIdx),
+    #[error("expect paramter pattern")]
+    ExpectParameterPattern(TokenIdx),
     #[error("unterminated list")]
     UnterminatedList,
     #[error("expect `:` at end of line")]

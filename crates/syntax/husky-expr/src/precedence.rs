@@ -16,6 +16,7 @@ pub(crate) enum Precedence {
     And = 1008,
     Or = 1007,
     As = 1003,
+    Is = 1002,
     Curry = 105,
     Application = 54,
     Be = 23,
@@ -62,6 +63,7 @@ impl From<BinaryOpr> for Precedence {
             BinaryOpr::ScopeResolution => Precedence::ScopeResolution,
             BinaryOpr::Curry => Precedence::Curry,
             BinaryOpr::As => Precedence::As,
+            BinaryOpr::IsOf => Precedence::Is,
         }
     }
 }

@@ -51,13 +51,13 @@ impl<'a> ExprParser<'a> {
         db: &'a dyn ExprDb,
         entity_path: Option<EntityPath>,
         token_sheet_data: &'a TokenSheetData,
-        module_prelude: ModulePrelude<'a>,
+        symbol_context: SymbolContextMut<'a>,
     ) -> Self {
         Self {
             db,
             entity_path,
             token_sheet_data,
-            symbol_context: SymbolContextMut::new(module_prelude),
+            symbol_context,
             expr_arena: Default::default(),
             entity_path_expr_arena: Default::default(),
             pattern_expr_sheet: Default::default(),
@@ -145,10 +145,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         self.parser.define_variables(variables)
     }
 
-    pub(crate) fn parse_pattern_expr(
-        &mut self,
-        env: PatternInfo,
-    ) -> ExprResult<Option<PatternExprIdx>> {
+    pub fn parse_pattern_expr(&mut self, env: PatternInfo) -> ExprResult<Option<PatternExprIdx>> {
         if let Some(mut_token) = self.parse::<MutToken>()? {
             let ident_token = self.parse_expected::<IdentifierToken>()?;
             Ok(Some(self.alloc_pattern_expr(

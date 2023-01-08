@@ -178,22 +178,35 @@ pub type PatternExprIdxRange = ArenaIdxRange<PatternExpr>;
 #[derive(Debug, PartialEq, Eq)]
 pub struct ParameterPattern {
     pattern_expr_idx: PatternExprIdx,
+    variables: LocalSymbolIdxRange,
 }
 
 impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ParameterPattern {
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
-        // ad hoc
-        if let Some(ident_token) = ctx.parse::<IdentifierToken>()? {
+        if let Some(pattern_expr_idx) = ctx.parse_pattern_expr(PatternInfo::Let)? {
+            let symbols = ctx
+                .pattern_expr_sheet()
+                .pattern_symbol_map(pattern_expr_idx);
+            let access_start = ctx.save_state();
+            let variables = symbols
+                .iter()
+                .map(|(ident, pattern_symbol)| {
+                    LocalSymbol::new(
+                        *ident,
+                        access_start,
+                        None,
+                        LocalSymbolKind::Parameter {
+                            pattern_symbol: *pattern_symbol,
+                        },
+                    )
+                })
+                .collect();
+            let variables = ctx.define_variables(variables);
             Ok(Some(ParameterPattern {
-                pattern_expr_idx: ctx.alloc_pattern_expr(
-                    PatternExpr::Identifier {
-                        ident_token,
-                        liason: PatternLiason::None,
-                    },
-                    PatternInfo::Parameter,
-                ),
+                pattern_expr_idx,
+                variables,
             }))
         } else {
             Ok(None)
@@ -223,7 +236,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             let symbols = self
                 .pattern_expr_sheet()
                 .pattern_symbol_map(pattern_expr_idx);
-            let access_start = self.token_stream().next_index();
+            let access_start = self.save_state();
             let variables = symbols
                 .iter()
                 .map(|(ident, pattern_symbol)| {

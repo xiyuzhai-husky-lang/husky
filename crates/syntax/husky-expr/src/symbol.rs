@@ -50,6 +50,7 @@ impl LocalSymbol {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LocalSymbolKind {
+    Parameter { pattern_symbol: PatternSymbolIdx },
     LetVariable { pattern_symbol: PatternSymbolIdx },
 }
 

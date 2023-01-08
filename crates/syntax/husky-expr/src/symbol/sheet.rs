@@ -33,7 +33,7 @@ impl SymbolSheet {
             .find_rev_indexed(|symbol| {
                 let accessible = match symbol.access_end {
                     Some(access_end) => access_end.token_idx() > token_idx,
-                    None => todo!(),
+                    None => true,
                 };
                 symbol.ident == ident && accessible
             })

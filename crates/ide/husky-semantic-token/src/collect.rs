@@ -41,6 +41,7 @@ fn token_to_semantic_token(
             local_symbol_kind, ..
         } => match local_symbol_kind {
             LocalSymbolKind::LetVariable { .. } => SemanticToken::Variable,
+            LocalSymbolKind::Parameter { .. } => SemanticToken::Parameter,
         },
         // SemanticToken::Variable,
         TokenInfo::InheritedSymbol { .. } => todo!(),

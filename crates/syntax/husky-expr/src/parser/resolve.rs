@@ -72,7 +72,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 Punctuation::BitNot => ResolvedToken::PrefixOpr(token_idx, PrefixOpr::BitNot),
                 Punctuation::Dot => ResolvedToken::Dot(token_idx),
                 Punctuation::Colon => match self.peek() {
-                    Some(_) => todo!(),
+                    Some(_) => ResolvedToken::BinaryOpr(token_idx, BinaryOpr::IsOf),
                     None => return TokenResolveResult::Break(()),
                 },
                 Punctuation::Comma => {

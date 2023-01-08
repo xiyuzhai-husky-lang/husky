@@ -142,7 +142,7 @@ impl<'a> DefnCollector<'a> {
             self.db,
             Some(entity_path),
             self.token_sheet_data,
-            self.module_prelude,
+            SymbolContextMut::new(self.module_prelude),
         );
         BlockExprParser::new(parser, self.ast_sheet, self.ast_range_sheet)
     }

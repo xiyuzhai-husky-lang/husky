@@ -228,7 +228,8 @@ impl<'a> AuxInferEngine<'a> {
     fn visit_local_symbol(&mut self, local_symbol_idx: LocalSymbolIdx, local_symbol: &LocalSymbol) {
         let local_symbol_kind = local_symbol.kind();
         match local_symbol_kind {
-            LocalSymbolKind::LetVariable { pattern_symbol } => {
+            LocalSymbolKind::LetVariable { pattern_symbol }
+            | LocalSymbolKind::Parameter { pattern_symbol } => {
                 match self.symbol_context[pattern_symbol] {
                     PatternSymbol::Atom(pattern_expr_idx) => {
                         match self.symbol_context[pattern_expr_idx] {

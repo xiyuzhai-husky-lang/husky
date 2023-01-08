@@ -219,7 +219,14 @@ Ok(
         },
         SemanticToken {
             delta_line: 0,
-            delta_start: 3,
+            delta_start: 1,
+            length: 2,
+            token_type: 20,
+            token_modifiers_bitset: 0,
+        },
+        SemanticToken {
+            delta_line: 0,
+            delta_start: 2,
             length: 1,
             token_type: 6,
             token_modifiers_bitset: 0,
@@ -2473,7 +2480,14 @@ Ok(
         },
         SemanticToken {
             delta_line: 0,
-            delta_start: 2,
+            delta_start: 1,
+            length: 1,
+            token_type: 20,
+            token_modifiers_bitset: 0,
+        },
+        SemanticToken {
+            delta_line: 0,
+            delta_start: 1,
             length: 1,
             token_type: 6,
             token_modifiers_bitset: 0,
@@ -2487,7 +2501,14 @@ Ok(
         },
         SemanticToken {
             delta_line: 0,
-            delta_start: 3,
+            delta_start: 2,
+            length: 1,
+            token_type: 20,
+            token_modifiers_bitset: 0,
+        },
+        SemanticToken {
+            delta_line: 0,
+            delta_start: 1,
             length: 1,
             token_type: 6,
             token_modifiers_bitset: 0,
@@ -3012,7 +3033,14 @@ Ok(
         },
         SemanticToken {
             delta_line: 0,
-            delta_start: 4,
+            delta_start: 1,
+            length: 3,
+            token_type: 20,
+            token_modifiers_bitset: 0,
+        },
+        SemanticToken {
+            delta_line: 0,
+            delta_start: 3,
             length: 1,
             token_type: 6,
             token_modifiers_bitset: 0,
