@@ -248,7 +248,7 @@ macro_rules! special_token {
         SpecialToken::At
     }};
     ("?") => {{
-        SpecialToken::QuestionMark
+        SpecialToken::Question
     }};
 }
 

@@ -103,16 +103,20 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 Punctuation::XmlKet => todo!(),
                 Punctuation::At => todo!(),
                 Punctuation::Question => match self.finished_expr() {
-                    Some(_) => ResolvedToken::SuffixOpr(token_idx, SuffixOpr::Unveil),
-                    None => ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Option),
+                    Some(Expr::NewList { .. }) | None => {
+                        ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Option)
+                    }
+                    Some(expr) => ResolvedToken::SuffixOpr(token_idx, SuffixOpr::Unveil),
                 },
                 Punctuation::PoundSign => todo!(),
                 Punctuation::Ambersand => match self.finished_expr() {
+                    Some(Expr::NewList { .. }) | None => {
+                        ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Ref)
+                    }
                     Some(_) => ResolvedToken::BinaryOpr(
                         token_idx,
                         BinaryOpr::PureClosed(BinaryPureClosedOpr::BitOr),
                     ),
-                    None => ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Ref),
                 },
                 Punctuation::DotDot => todo!(),
             },
