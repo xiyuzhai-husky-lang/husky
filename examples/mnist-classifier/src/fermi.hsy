@@ -27,7 +27,7 @@ impl FermiMatchResult:
 
 proc fermi_match(
     concave_components: &[]ConcaveComponent,
-    templates: Vec<(&ConcaveComponent) -> ?f32>
+    templates: []((&ConcaveComponent) -> ?f32)
 ) -> FermiMatchResult:
     let mut others = concave_components.collect_refs()
     let mut matches = []?&ConcaveComponent()
