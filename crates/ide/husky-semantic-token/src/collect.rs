@@ -1,3 +1,4 @@
+use husky_entity_taxonomy::{EntityKind, ModuleItemConnection, ModuleItemKind, TypeKind};
 use husky_expr::{InheritedSymbolKind, LocalSymbolKind};
 
 use crate::*;
@@ -53,6 +54,12 @@ fn token_to_semantic_token(
         // SemanticToken::Variable,
         TokenInfo::Field => SemanticToken::Field,
         TokenInfo::Method => SemanticToken::Method,
+        TokenInfo::BoxColon | TokenInfo::BoxPrefix => {
+            SemanticToken::Entity(EntityKind::ModuleItem {
+                module_item_kind: ModuleItemKind::Type(TypeKind::Foreign),
+                connection: ModuleItemConnection::Connected,
+            })
+        }
     };
     Some(RangedSemanticToken {
         semantic_token,

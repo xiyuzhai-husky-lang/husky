@@ -286,6 +286,12 @@ pub struct RightBoxBracketToken {
     token_idx: TokenIdx,
 }
 
+impl RightBoxBracketToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
 impl<'a, Context> parsec::ParseFrom<Context> for RightBoxBracketToken
 where
     Context: TokenParseContext<'a>,

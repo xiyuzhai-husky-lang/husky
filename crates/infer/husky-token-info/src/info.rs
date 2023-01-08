@@ -22,6 +22,8 @@ pub enum TokenInfo {
     },
     Field,
     Method,
+    BoxColon,
+    BoxPrefix,
 }
 
 impl Default for TokenInfo {

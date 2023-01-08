@@ -1,4 +1,5 @@
 #![feature(trait_upcasting)]
+mod context;
 mod db;
 mod entity_path;
 mod error;
@@ -12,6 +13,7 @@ mod symbol;
 #[cfg(test)]
 mod tests;
 
+pub use context::*;
 pub use db::*;
 pub use entity_path::*;
 pub use error::*;

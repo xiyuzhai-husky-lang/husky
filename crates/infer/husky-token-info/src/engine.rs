@@ -76,7 +76,7 @@ impl<'a> InferEngine<'a> {
             token_sheet_data: self.token_sheet_data,
             ast_sheet: self.ast_sheet,
             sheet: &mut self.sheet,
-            symbol_context: SymbolContext::new(self.db, self.module_prelude, expr_sheet),
+            symbol_context: ExprContext::new(self.db, self.module_prelude, expr_sheet),
             expr_sheet,
         }
         .visit_all()
@@ -159,7 +159,7 @@ struct AuxInferEngine<'a> {
     db: &'a dyn TokenInfoDb,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
-    symbol_context: SymbolContext<'a>,
+    symbol_context: ExprContext<'a>,
     sheet: &'a mut TokenInfoSheet,
     expr_sheet: ExprSheet,
 }
@@ -216,7 +216,6 @@ impl<'a> AuxInferEngine<'a> {
             | Expr::PrefixOpn { .. }
             | Expr::SuffixOpn { .. }
             | Expr::TemplateInstantiation { .. }
-            | Expr::Application { .. }
             | Expr::NewTuple { .. }
             | Expr::NewBoxList { .. }
             | Expr::Bracketed(_)
@@ -225,6 +224,28 @@ impl<'a> AuxInferEngine<'a> {
             | Expr::FunctionCall { .. }
             | Expr::Be { .. } => (),
             Expr::BoxColon { .. } => (),
+            Expr::Application { function, .. } => match self.symbol_context[*function] {
+                Expr::NewBoxList {
+                    caller: None,
+                    lbox_token_idx,
+                    items,
+                    rbox_token_idx,
+                } => {
+                    self.sheet.add(lbox_token_idx, TokenInfo::BoxPrefix);
+                    self.sheet.add(rbox_token_idx, TokenInfo::BoxPrefix)
+                }
+                Expr::BoxColon {
+                    caller: None,
+                    lbox_token_idx,
+                    colon_token_idx,
+                    rbox_token,
+                } => {
+                    self.sheet.add(lbox_token_idx, TokenInfo::BoxColon);
+                    self.sheet.add(colon_token_idx, TokenInfo::BoxColon);
+                    self.sheet.add(rbox_token.token_idx(), TokenInfo::BoxColon)
+                }
+                _ => (),
+            },
         }
     }
 

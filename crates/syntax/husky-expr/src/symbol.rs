@@ -1,8 +1,6 @@
-mod context;
 mod context_mut;
 mod sheet;
 
-pub use context::*;
 pub use context_mut::*;
 pub use sheet::*;
 
