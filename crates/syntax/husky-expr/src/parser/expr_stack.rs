@@ -75,11 +75,7 @@ impl Expr {
                 items,
                 rpar_token_idx,
             } => todo!(),
-            Expr::NewList {
-                lbox_token_idx,
-                items,
-                rbox_token_idx,
-            } => BaseEntityPath::None,
+            Expr::NewBoxList { .. } => BaseEntityPath::None,
             Expr::Bracketed(expr) => arena[expr].base_entity_path(db, arena),
             Expr::Unrecognized(ident) => BaseEntityPath::Uncertain {
                 inclination: BaseEntityPathInclination::from_case(ident.case(db)),
@@ -97,6 +93,7 @@ impl Expr {
                 be_token_idx,
                 target,
             } => todo!(),
+            Expr::BoxColon { .. } => todo!(),
         }
     }
 }

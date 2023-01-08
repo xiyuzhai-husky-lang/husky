@@ -3,7 +3,9 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 pub(super) enum UnfinishedListOpr {
     NewTuple,
-    NewVec,
+    NewBoxList {
+        caller: Option<ExprIdx>,
+    },
     NewLambdaHead,
     FunctionInstantiation {},
     FunctionCall {

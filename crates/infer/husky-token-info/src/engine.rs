@@ -218,12 +218,13 @@ impl<'a> AuxInferEngine<'a> {
             | Expr::TemplateInstantiation { .. }
             | Expr::Application { .. }
             | Expr::NewTuple { .. }
-            | Expr::NewList { .. }
+            | Expr::NewBoxList { .. }
             | Expr::Bracketed(_)
             | Expr::Err(_)
             | Expr::Block { .. }
             | Expr::FunctionCall { .. }
             | Expr::Be { .. } => (),
+            Expr::BoxColon { .. } => (),
         }
     }
 

@@ -15,6 +15,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             ResolvedToken::Dot(token_idx) => self.accept_dot_opr(token_idx),
             ResolvedToken::ListItem(token_idx) => self.accept_list_item(token_idx),
             ResolvedToken::Be(token_idx) => self.accept_be_pattern(token_idx),
+            ResolvedToken::BoxColon {
+                colon_token_idx,
+                rbox_token,
+            } => self.accept_box_colon(colon_token_idx, rbox_token),
         }
     }
 
@@ -42,7 +46,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             rpar_token_idx: ket_token_idx,
                         }
                         .into(),
-                        UnfinishedListOpr::NewVec => Expr::NewList {
+                        UnfinishedListOpr::NewBoxList { caller } => Expr::NewBoxList {
+                            caller,
                             lbox_token_idx: bra_token_idx,
                             items,
                             rbox_token_idx: ket_token_idx,
@@ -212,58 +217,70 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         self.set_top_expr(unfinished_expr.into())
     }
 
-    pub(super) fn accept_list_start(&mut self, bra: Bracket, bra_token_idx: TokenIdx) {
-        self.replace_top_expr(|this, finished_expr| match finished_expr {
-            Some(expr) => {
-                let expr = this.alloc_expr(expr);
-                match bra {
-                    Bracket::Par => UnfinishedExpr::List {
-                        opr: UnfinishedListOpr::FunctionCall { function: expr },
-                        bra,
-                        bra_token_idx,
-                        items: vec![],
-                    }
-                    .into(),
-                    Bracket::Box => UnfinishedExpr::List {
-                        opr: UnfinishedListOpr::NewVec,
-                        bra,
-                        bra_token_idx,
-                        items: vec![],
-                    }
-                    .into(),
-                    Bracket::Angle => UnfinishedExpr::List {
-                        opr: UnfinishedListOpr::TemplateInstantiation { template: expr },
-                        bra,
-                        bra_token_idx,
-                        items: vec![],
-                    }
-                    .into(),
-                    Bracket::Curl => todo!(),
-                    Bracket::Vertical => todo!(),
-                }
+    fn accept_box_colon(&mut self, colon_token_idx: TokenIdx, rbox_token: RightBoxBracketToken) {
+        assert!(self.finished_expr().is_none());
+        let unfinished_expr = self.take_last_unfinished_expr().unwrap();
+        match unfinished_expr {
+            UnfinishedExpr::List {
+                opr: UnfinishedListOpr::NewBoxList { caller },
+                bra,
+                bra_token_idx,
+                items,
+            } => {
+                assert!(items.is_empty());
+                self.set_top_expr(TopExpr::Finished(Expr::BoxColon {
+                    caller,
+                    lbox_token_idx: bra_token_idx,
+                    colon_token_idx,
+                    rbox_token,
+                }))
             }
-            None => match bra {
-                Bracket::Par => UnfinishedExpr::List {
-                    opr: UnfinishedListOpr::NewTuple,
-                    bra,
-                    bra_token_idx,
-                    items: vec![],
-                }
-                .into(),
+            _ => unreachable!(),
+        }
+    }
+
+    pub(super) fn accept_list_start(&mut self, bra: Bracket, bra_token_idx: TokenIdx) {
+        self.replace_top_expr(|this, finished_expr| {
+            let finished_expr = finished_expr.map(|expr| this.alloc_expr(expr));
+            match bra {
+                Bracket::Par => match finished_expr {
+                    Some(function) => UnfinishedExpr::List {
+                        opr: UnfinishedListOpr::FunctionCall { function },
+                        bra,
+                        bra_token_idx,
+                        items: vec![],
+                    }
+                    .into(),
+                    None => UnfinishedExpr::List {
+                        opr: UnfinishedListOpr::NewTuple,
+                        bra,
+                        bra_token_idx,
+                        items: vec![],
+                    }
+                    .into(),
+                },
                 Bracket::Box => UnfinishedExpr::List {
-                    opr: UnfinishedListOpr::NewVec,
+                    opr: UnfinishedListOpr::NewBoxList {
+                        caller: finished_expr,
+                    },
                     bra,
                     bra_token_idx,
                     items: vec![],
                 }
                 .into(),
-                Bracket::Angle => todo!(),
+                Bracket::Angle => match finished_expr {
+                    Some(template) => UnfinishedExpr::List {
+                        opr: UnfinishedListOpr::TemplateInstantiation { template },
+                        bra,
+                        bra_token_idx,
+                        items: vec![],
+                    }
+                    .into(),
+                    None => todo!(),
+                },
                 Bracket::Curl => todo!(),
-                Bracket::Vertical => {
-                    report!(this);
-                    todo!()
-                }
-            },
+                Bracket::Vertical => todo!(),
+            }
         })
     }
 }
