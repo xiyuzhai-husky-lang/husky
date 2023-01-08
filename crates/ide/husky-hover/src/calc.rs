@@ -100,7 +100,13 @@ impl<'a> HoverResultCalculator<'a> {
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx,
                 expr_sheet,
-            } => todo!(),
+                ..
+            } => {
+                format!(
+                    "{:#?}",
+                    expr_sheet.symbol_sheet(self.db)[*inherited_symbol_idx]
+                )
+            }
             TokenInfo::Field => format!(""),
             TokenInfo::Method => format!(""),
         };

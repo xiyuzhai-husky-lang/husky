@@ -192,12 +192,14 @@ impl<'a> AuxInferEngine<'a> {
             Expr::InheritedSymbol {
                 token_idx,
                 inherited_symbol_idx,
+                inherited_symbol_kind,
                 ..
             } => self.sheet.add(
                 *token_idx,
                 TokenInfo::InheritedSymbol {
                     inherited_symbol_idx: *inherited_symbol_idx,
                     expr_sheet: self.expr_sheet,
+                    inherited_symbol_kind: *inherited_symbol_kind,
                 },
             ),
             Expr::Field { ident_token, .. } => {

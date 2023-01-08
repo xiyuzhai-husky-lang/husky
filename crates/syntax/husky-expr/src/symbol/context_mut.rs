@@ -6,23 +6,21 @@ pub struct SymbolContextMut<'a> {
 }
 
 impl<'a> SymbolContextMut<'a> {
-    pub fn new(module_prelude: ModulePrelude<'a>) -> Self {
+    pub fn new(
+        module_prelude: ModulePrelude<'a>,
+        parent_symbol_sheet: Option<&SymbolSheet>,
+    ) -> Self {
         Self {
             module_prelude,
-            symbol_sheet: SymbolSheet::new(),
+            symbol_sheet: SymbolSheet::new(parent_symbol_sheet),
         }
     }
 
     pub(crate) fn resolve_ident(&self, token_idx: TokenIdx, ident: Identifier) -> Option<Symbol> {
-        self.symbol_sheet
+        self.symbol_sheet.resolve_ident(token_idx, ident).or(self
+            .module_prelude
             .resolve_ident(token_idx, ident)
-            .map(|(local_symbol_idx, local_symbol_kind)| {
-                Symbol::Local(local_symbol_idx, local_symbol_kind)
-            })
-            .or(self
-                .module_prelude
-                .resolve_ident(token_idx, ident)
-                .map(|e| Symbol::Entity(e.entity_path())))
+            .map(|e| Symbol::Entity(e.entity_path())))
     }
 
     fn exprs(&self) -> &[Expr] {

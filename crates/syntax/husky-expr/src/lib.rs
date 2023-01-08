@@ -65,16 +65,17 @@ impl BaseEntityPathInclination {
 pub enum Expr {
     Literal(TokenIdx),
     EntityPath(EntityPathExprIdx),
+    InheritedSymbol {
+        ident: Identifier,
+        token_idx: TokenIdx,
+        inherited_symbol_idx: InheritedSymbolIdx,
+        inherited_symbol_kind: InheritedSymbolKind,
+    },
     LocalSymbol {
         ident: Identifier,
         token_idx: TokenIdx,
         local_symbol_idx: LocalSymbolIdx,
         local_symbol_kind: LocalSymbolKind,
-    },
-    InheritedSymbol {
-        ident: Identifier,
-        token_idx: TokenIdx,
-        inherited_symbol_idx: InheritedSymbolIdx,
     },
     Uncertain(Identifier),
     Unrecognized(Identifier),

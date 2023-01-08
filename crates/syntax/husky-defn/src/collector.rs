@@ -114,7 +114,10 @@ impl<'a> DefnCollector<'a> {
 
     fn parse_function_defn(&self, decl: FunctionDecl) -> FunctionDefn {
         let path = decl.path(self.db);
-        let mut parser = self.module_item_block_expr_parser(path.into());
+        let mut parser = self.module_item_block_expr_parser(
+            path.into(),
+            Some(decl.expr_sheet(self.db).symbol_sheet(self.db)),
+        );
         let ast_idx = decl.ast_idx(self.db);
         let ast = &self.ast_sheet[ast_idx];
         let body = match ast {
@@ -127,7 +130,7 @@ impl<'a> DefnCollector<'a> {
 
     fn parse_feature_defn(&self, decl: FeatureDecl) -> FeatureDefn {
         let path = decl.path(self.db);
-        let mut parser = self.module_item_block_expr_parser(path.into());
+        let mut parser = self.module_item_block_expr_parser(path.into(), None);
         let ast_idx = decl.ast_idx(self.db);
         let ast = &self.ast_sheet[ast_idx];
         let body = match ast {
@@ -137,12 +140,16 @@ impl<'a> DefnCollector<'a> {
         let expr_sheet = parser.finish();
         FeatureDefn::new(self.db, path, decl, expr_sheet, body)
     }
-    fn module_item_block_expr_parser(&self, entity_path: EntityPath) -> BlockExprParser<'a> {
+    fn module_item_block_expr_parser(
+        &self,
+        entity_path: EntityPath,
+        decl_symbol_sheet: Option<&SymbolSheet>,
+    ) -> BlockExprParser<'a> {
         let parser = ExprParser::new(
             self.db,
             Some(entity_path),
             self.token_sheet_data,
-            SymbolContextMut::new(self.module_prelude),
+            SymbolContextMut::new(self.module_prelude, decl_symbol_sheet),
         );
         BlockExprParser::new(parser, self.ast_sheet, self.ast_range_sheet)
     }
