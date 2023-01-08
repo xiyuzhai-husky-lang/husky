@@ -370,7 +370,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 192;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 52,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 192;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 52,\n            },\n        ),\n    ),\n);\n\ntoken_info = LocalSymbol {\n    local_symbol_idx: 1,\n    expr_sheet: ExprSheet(\n        Id {\n            value: 19,\n        },\n    ),\n    local_symbol_kind: LetVariable {\n        pattern_symbol: 1,\n    },\n};\n\nLocalSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 52,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        137,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                224,\n            ),\n        ),\n    ),\n    kind: LetVariable {\n        pattern_symbol: 1,\n    },\n}\n",
                             },
                         ),
                         range: Some(

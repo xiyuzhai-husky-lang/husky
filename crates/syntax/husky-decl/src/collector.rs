@@ -261,7 +261,7 @@ impl<'a> DeclCollector<'a> {
             self.db,
             Some(entity_path),
             self.token_sheet_data,
-            self.module_prelude,
+            SymbolContextMut::new(self.module_prelude),
         )
     }
 
