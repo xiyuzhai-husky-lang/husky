@@ -112,7 +112,7 @@ impl<'a> TermPatternInferContext<'a> {
             BinaryOpr::ScopeResolution => todo!(),
             BinaryOpr::Curry => todo!(),
             BinaryOpr::As => todo!(),
-            BinaryOpr::IsOf => todo!(),
+            BinaryOpr::Is => todo!(),
         }
     }
 

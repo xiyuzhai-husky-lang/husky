@@ -71,10 +71,33 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 Punctuation::DoubleVertical => todo!(),
                 Punctuation::BitNot => ResolvedToken::PrefixOpr(token_idx, PrefixOpr::BitNot),
                 Punctuation::Dot => ResolvedToken::Dot(token_idx),
-                Punctuation::Colon => match self.peek() {
-                    Some(_) => ResolvedToken::BinaryOpr(token_idx, BinaryOpr::IsOf),
-                    None => return TokenResolveResult::Break(()),
+                Punctuation::Colon => match self.last_unfinished_expr() {
+                    Some(UnfinishedExpr::List {
+                        opr: UnfinishedListOpr::NewBoxList { .. },
+                        items,
+                        ..
+                    }) => {
+                        if items.len() == 0 {
+                            match self.parse::<RightBoxBracketToken>() {
+                                Ok(Some(rbox_token)) => ResolvedToken::BoxColon {
+                                    colon_token_idx: token_idx,
+                                    rbox_token,
+                                },
+                                Ok(None) => todo!(),
+                                Err(_) => todo!(),
+                            }
+                        } else {
+                            todo!()
+                        }
+                    }
+                    _ => match self.peek() {
+                        // not end of token group
+                        Some(_) => ResolvedToken::BinaryOpr(token_idx, BinaryOpr::Is),
+                        // end of token group
+                        None => return TokenResolveResult::Break(()),
+                    },
                 },
+
                 Punctuation::Comma => {
                     self.reduce(Precedence::ListItem);
                     match self.last_unfinished_expr() {
@@ -103,14 +126,14 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 Punctuation::XmlKet => todo!(),
                 Punctuation::At => todo!(),
                 Punctuation::Question => match self.finished_expr() {
-                    Some(Expr::NewList { .. }) | None => {
+                    Some(Expr::NewBoxList { .. }) | None => {
                         ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Option)
                     }
                     Some(expr) => ResolvedToken::SuffixOpr(token_idx, SuffixOpr::Unveil),
                 },
                 Punctuation::PoundSign => todo!(),
                 Punctuation::Ambersand => match self.finished_expr() {
-                    Some(Expr::NewList { .. }) | None => {
+                    Some(Expr::NewBoxList { .. }) | None => {
                         ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Ref)
                     }
                     Some(_) => ResolvedToken::BinaryOpr(
@@ -197,4 +220,8 @@ pub(crate) enum ResolvedToken {
     Dot(TokenIdx),
     ListItem(TokenIdx),
     Be(TokenIdx),
+    BoxColon {
+        colon_token_idx: TokenIdx,
+        rbox_token: RightBoxBracketToken,
+    },
 }

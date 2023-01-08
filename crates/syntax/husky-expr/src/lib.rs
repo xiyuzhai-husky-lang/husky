@@ -134,10 +134,17 @@ pub enum Expr {
         items: ExprIdxRange,
         rpar_token_idx: TokenIdx,
     },
-    NewList {
+    NewBoxList {
+        caller: Option<ExprIdx>,
         lbox_token_idx: TokenIdx,
         items: ExprIdxRange,
         rbox_token_idx: TokenIdx,
+    },
+    BoxColon {
+        caller: Option<ExprIdx>,
+        lbox_token_idx: TokenIdx,
+        colon_token_idx: TokenIdx,
+        rbox_token: RightBoxBracketToken,
     },
     Bracketed(ExprIdx),
     Block {
