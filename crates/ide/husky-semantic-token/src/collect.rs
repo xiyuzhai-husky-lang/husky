@@ -1,4 +1,4 @@
-use husky_expr::LocalSymbolKind;
+use husky_expr::{InheritedSymbolKind, LocalSymbolKind};
 
 use crate::*;
 
@@ -44,7 +44,12 @@ fn token_to_semantic_token(
             LocalSymbolKind::Parameter { .. } => SemanticToken::Parameter,
         },
         // SemanticToken::Variable,
-        TokenInfo::InheritedSymbol { .. } => todo!(),
+        TokenInfo::InheritedSymbol {
+            inherited_symbol_kind,
+            ..
+        } => match inherited_symbol_kind {
+            InheritedSymbolKind::Parameter { .. } => SemanticToken::Parameter,
+        },
         // SemanticToken::Variable,
         TokenInfo::Field => SemanticToken::Field,
         TokenInfo::Method => SemanticToken::Method,

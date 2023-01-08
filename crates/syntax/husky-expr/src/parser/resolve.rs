@@ -160,11 +160,14 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     //     symbol_idx: variable_idx,
                     // },
                     Symbol::Entity(entity_path) => todo!(),
-                    Symbol::Inherited(inherited_symbol_idx) => Expr::InheritedSymbol {
-                        ident,
-                        token_idx,
-                        inherited_symbol_idx,
-                    },
+                    Symbol::Inherited(inherited_symbol_idx, inherited_symbol_kind) => {
+                        Expr::InheritedSymbol {
+                            ident,
+                            token_idx,
+                            inherited_symbol_idx,
+                            inherited_symbol_kind,
+                        }
+                    }
                     Symbol::Local(local_symbol_idx, local_symbol_kind) => Expr::LocalSymbol {
                         ident,
                         token_idx,

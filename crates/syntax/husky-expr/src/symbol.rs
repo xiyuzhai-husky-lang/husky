@@ -12,12 +12,22 @@ use husky_entity_tree::{CratePrelude, ModulePrelude, PreludeResult};
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Symbol {
     Entity(EntityPath),
-    Inherited(InheritedSymbolIdx),
+    Inherited(InheritedSymbolIdx, InheritedSymbolKind),
     Local(LocalSymbolIdx, LocalSymbolKind),
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum InheritedSymbol {}
+pub struct InheritedSymbol {
+    ident: Identifier,
+    kind: InheritedSymbolKind,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum InheritedSymbolKind {
+    Parameter {
+        original_local_symbol_idx: LocalSymbolIdx,
+    },
+}
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct LocalSymbol {
