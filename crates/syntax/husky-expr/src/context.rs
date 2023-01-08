@@ -1,7 +1,8 @@
-use super::*;
+use crate::*;
+use husky_entity_tree::ModulePrelude;
 
 #[derive(Debug, Clone)]
-pub struct SymbolContext<'a> {
+pub struct ExprContext<'a> {
     module_prelude: ModulePrelude<'a>,
     expr_arena: &'a ExprArena,
     entity_path_expr_arena: &'a EntityPathExprArena,
@@ -10,7 +11,7 @@ pub struct SymbolContext<'a> {
     symbol_sheet: &'a SymbolSheet,
 }
 
-impl<'a> SymbolContext<'a> {
+impl<'a> ExprContext<'a> {
     pub fn new(
         db: &'a dyn ExprDb,
         module_prelude: ModulePrelude<'a>,
@@ -37,7 +38,7 @@ impl<'a> SymbolContext<'a> {
     }
 }
 
-impl<'a> std::ops::Index<PatternSymbolIdx> for SymbolContext<'a> {
+impl<'a> std::ops::Index<PatternSymbolIdx> for ExprContext<'a> {
     type Output = PatternSymbol;
 
     fn index(&self, index: PatternSymbolIdx) -> &Self::Output {
@@ -45,10 +46,18 @@ impl<'a> std::ops::Index<PatternSymbolIdx> for SymbolContext<'a> {
     }
 }
 
-impl<'a> std::ops::Index<PatternExprIdx> for SymbolContext<'a> {
+impl<'a> std::ops::Index<PatternExprIdx> for ExprContext<'a> {
     type Output = PatternExpr;
 
     fn index(&self, index: PatternExprIdx) -> &Self::Output {
         &self.pattern_expr_sheet[index]
+    }
+}
+
+impl<'a> std::ops::Index<ExprIdx> for ExprContext<'a> {
+    type Output = Expr;
+
+    fn index(&self, index: ExprIdx) -> &Self::Output {
+        &self.expr_arena[index]
     }
 }
