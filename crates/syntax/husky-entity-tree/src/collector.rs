@@ -62,7 +62,7 @@ impl<'a> EntityTreeCollector<'a> {
         })
     }
 
-    pub(crate) fn collect_all(mut self) -> EntityTreeBundle {
+    pub(crate) fn collect_all(mut self) -> CrateEntityTree {
         loop {
             let actions = self.collect_possible_actions();
             if actions.len() == 0 {
@@ -73,7 +73,7 @@ impl<'a> EntityTreeCollector<'a> {
             }
         }
         let impl_blockss = self.collect_impl_blockss();
-        EntityTreeBundle::new(
+        CrateEntityTree::new(
             std::iter::zip(self.presheets.into_iter(), impl_blockss.into_iter())
                 .map(|(presheet, impl_blocks)| presheet.into_sheet(impl_blocks))
                 .collect(),

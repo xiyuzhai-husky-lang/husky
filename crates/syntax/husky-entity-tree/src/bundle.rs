@@ -27,7 +27,7 @@ pub type EntityTreeBundleResult<T> = Result<T, EntityTreeBundleError>;
 pub(crate) fn entity_tree_bundle(
     db: &dyn EntityTreeDb,
     crate_path: CratePath,
-) -> EntityTreeBundleResult<EntityTreeBundle> {
+) -> EntityTreeBundleResult<CrateEntityTree> {
     Ok(EntityTreeCollector::new(db, crate_path)?.collect_all())
 }
 
@@ -44,15 +44,15 @@ fn entity_tree_bundle_works() {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct EntityTreeBundle {
-    sheets: VecMap<EntityTreeSheet>,
+pub struct CrateEntityTree {
+    sheets: VecMap<ModuleEntityTree>,
     principal_entity_path_expr_arena: PrincipalEntityPathExprArena,
     impl_block_arena: ImplBlockArena,
 }
 
-impl EntityTreeBundle {
+impl CrateEntityTree {
     pub(crate) fn new(
-        sheets: VecMap<EntityTreeSheet>,
+        sheets: VecMap<ModuleEntityTree>,
         principal_entity_path_expr_arena: PrincipalEntityPathExprArena,
         impl_block_arena: ImplBlockArena,
     ) -> Self {
@@ -63,16 +63,16 @@ impl EntityTreeBundle {
         }
     }
 
-    pub fn sheets(&self) -> &[EntityTreeSheet] {
+    pub fn sheets(&self) -> &[ModuleEntityTree] {
         &self.sheets
     }
 
-    pub(crate) fn get_sheet(&self, module_path: ModulePath) -> Option<&EntityTreeSheet> {
+    pub(crate) fn get_sheet(&self, module_path: ModulePath) -> Option<&ModuleEntityTree> {
         self.sheets.get_entry(module_path)
     }
 }
 
-impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntityTreeBundle {
+impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for CrateEntityTree {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -85,7 +85,7 @@ impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntityTreeBundle {
     }
 }
 
-impl<Db: EntityTreeDb> salsa::DebugWithDb<Db> for EntityTreeBundle {
+impl<Db: EntityTreeDb> salsa::DebugWithDb<Db> for CrateEntityTree {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,

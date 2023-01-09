@@ -20,11 +20,9 @@ pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + AstDb + EntityPathDb + Manife
     ) -> &EntityTreeResult<EntityKind>;
     fn submodules(&self, module_path: ModulePath) -> VfsResult<&[ModulePath]>;
     fn all_modules_within_crate(&self, crate_path: CratePath) -> &[ModulePath];
-    fn entity_tree_bundle(
-        &self,
-        crate_path: CratePath,
-    ) -> EntityTreeBundleResult<&EntityTreeBundle>;
-    fn entity_tree_sheet(&self, module_path: ModulePath) -> EntityTreeResult<&EntityTreeSheet>;
+    fn entity_tree_bundle(&self, crate_path: CratePath)
+        -> EntityTreeBundleResult<&CrateEntityTree>;
+    fn entity_tree_sheet(&self, module_path: ModulePath) -> EntityTreeResult<&ModuleEntityTree>;
     fn module_prelude<'a>(&'a self, module_path: ModulePath)
         -> EntityTreeResult<ModulePrelude<'a>>;
     fn subentity_path(
@@ -62,13 +60,13 @@ where
     fn entity_tree_bundle(
         &self,
         crate_path: CratePath,
-    ) -> EntityTreeBundleResult<&EntityTreeBundle> {
+    ) -> EntityTreeBundleResult<&CrateEntityTree> {
         Ok(entity_tree_bundle(self, crate_path)
             .as_ref()
             .map_err(|e| e.clone())?)
     }
 
-    fn entity_tree_sheet(&self, module_path: ModulePath) -> EntityTreeResult<&EntityTreeSheet> {
+    fn entity_tree_sheet(&self, module_path: ModulePath) -> EntityTreeResult<&ModuleEntityTree> {
         entity_tree_sheet(self, module_path)
     }
 
