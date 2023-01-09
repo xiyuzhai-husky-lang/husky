@@ -13,6 +13,7 @@ pub(crate) struct EntityTreeCollector<'a> {
     opt_universal_prelude: Option<&'a [EntitySymbol]>,
     crate_specific_prelude: &'a [EntitySymbol],
     impl_block_arena: ImplBlockArena,
+    principal_entity_path_expr_arena: PrincipalEntityPathExprArena,
 }
 
 impl<'a> EntityTreeCollector<'a> {
@@ -57,6 +58,7 @@ impl<'a> EntityTreeCollector<'a> {
                 .as_ref()
                 .map_err(|e| e.clone())?,
             impl_block_arena: Default::default(),
+            principal_entity_path_expr_arena: Default::default(),
         })
     }
 
@@ -75,6 +77,8 @@ impl<'a> EntityTreeCollector<'a> {
             std::iter::zip(self.presheets.into_iter(), impl_blockss.into_iter())
                 .map(|(presheet, impl_blocks)| presheet.into_sheet(impl_blocks))
                 .collect(),
+            self.principal_entity_path_expr_arena,
+            self.impl_block_arena,
         )
     }
 
@@ -89,12 +93,20 @@ impl<'a> EntityTreeCollector<'a> {
                     Ast::Impl {
                         token_group_idx,
                         body,
-                    } => Some(ImplBlock::parse_from_token_group(crate_prelude(
-                        self.opt_universal_prelude,
-                        self.core_prelude_module,
-                        &self.presheets,
-                        self.crate_specific_prelude,
-                    ))),
+                    } => Some(ImplBlock::parse_from_token_group(
+                        crate_prelude(
+                            self.opt_universal_prelude,
+                            self.core_prelude_module,
+                            &self.presheets,
+                            self.crate_specific_prelude,
+                        ),
+                        ast_idx,
+                        self.db
+                            .token_sheet_data(module_path)
+                            .unwrap()
+                            .token_group_token_stream(*token_group_idx, None),
+                        &mut self.principal_entity_path_expr_arena,
+                    )),
                     _ => None,
                 })
                 .collect::<Vec<_>>();
