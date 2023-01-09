@@ -14,9 +14,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -28,9 +26,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Punctuation(
                 Binary(
@@ -52,9 +48,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -66,9 +60,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Punctuation(
                 Binary(
@@ -90,9 +82,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -104,9 +94,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Punctuation(
                 Binary(
@@ -128,9 +116,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Punctuation(
                 Bra(
@@ -304,9 +290,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -3190,9 +3174,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -3231,9 +3213,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -3303,9 +3283,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -3388,9 +3366,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -3437,9 +3413,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -3478,9 +3452,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -3602,9 +3574,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -3643,9 +3613,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -4421,9 +4389,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -4470,9 +4436,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -4586,9 +4550,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -4627,9 +4589,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -4697,9 +4657,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -4730,9 +4688,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -4756,9 +4712,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -4789,9 +4743,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -4861,9 +4813,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -4993,9 +4943,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -5063,9 +5011,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -5096,9 +5042,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -5122,9 +5066,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -5155,9 +5097,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -5310,9 +5250,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -5351,9 +5289,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -7846,9 +7782,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -8067,9 +8001,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -8305,9 +8237,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -8441,9 +8371,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -8647,9 +8575,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -8812,9 +8738,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -8965,9 +8889,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
@@ -9037,9 +8959,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(

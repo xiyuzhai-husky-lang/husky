@@ -4,7 +4,7 @@ use husky_manifest::ManifestError;
 use husky_vfs::{ModulePath, ToolchainError, VfsError};
 use thiserror::Error;
 
-use crate::{EntityTreeBundleError, EntityTreeDb, PreludeError};
+use crate::{EntityTreeCrateBundleError, EntityTreeDb, PreludeError};
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum EntityTreeError {
@@ -28,8 +28,10 @@ pub enum EntityTreeError {
     Toolchain(#[from] ToolchainError),
     #[error("from prelude error {0}")]
     Prelude(#[from] PreludeError),
+    #[error("no subentity")]
+    NoSubentity,
     #[error("from bundle {0}")]
-    Bundle(#[from] EntityTreeBundleError),
+    CrateBundle(#[from] EntityTreeCrateBundleError),
 }
 
 // impl From<&EntityTreeError> for EntityTreeError {

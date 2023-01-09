@@ -149,9 +149,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Identifier(
                 Identifier(
