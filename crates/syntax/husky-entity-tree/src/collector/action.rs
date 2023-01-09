@@ -17,14 +17,12 @@ impl<'a> EntityTreeCollector<'a> {
             self.db,
             module_path,
             presheet.module_symbols(),
-            self.crate_prelude(),
+            crate_prelude(
+                self.opt_universal_prelude,
+                self.core_prelude_module,
+                &self.presheets,
+                self.crate_specific_prelude,
+            ),
         )
-    }
-
-    fn crate_prelude<'b>(&'b self) -> CratePrelude<'b> {
-        let universal_prelude = self
-            .opt_universal_prelude
-            .unwrap_or_else(|| self.presheets[self.core_prelude_module].module_symbols());
-        CratePrelude::new(universal_prelude, self.crate_specific_prelude)
     }
 }

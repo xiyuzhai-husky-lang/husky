@@ -17,3 +17,7 @@ impl AsVecMapEntry for AssociatedItem {
         todo!()
     }
 }
+
+pub type AssociatedItemArena = Arena<AssociatedItem>;
+pub type AssociatedItemIdx = ArenaIdx<AssociatedItem>;
+pub type AssociatedItemIdxRange = ArenaIdxRange<AssociatedItem>;

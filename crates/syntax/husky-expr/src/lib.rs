@@ -1,7 +1,8 @@
+#![feature(result_flattening)]
 #![feature(trait_upcasting)]
 mod context;
 mod db;
-mod entity_path;
+mod entity_path_expr;
 mod error;
 mod parser;
 mod pattern;
@@ -15,8 +16,9 @@ mod tests;
 
 pub use context::*;
 pub use db::*;
-pub use entity_path::*;
+pub use entity_path_expr::*;
 pub use error::*;
+use husky_entity_tree::EntityTreeResult;
 pub use parser::*;
 pub use pattern::*;
 pub use sheet::*;
@@ -41,6 +43,7 @@ pub enum BaseEntityPath {
     Uncertain {
         inclination: BaseEntityPathInclination,
     },
+    Err,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -66,7 +69,10 @@ impl BaseEntityPathInclination {
 #[derive(Debug, PartialEq, Eq)]
 pub enum Expr {
     Literal(TokenIdx),
-    EntityPath(EntityPathExprIdx),
+    EntityPath {
+        entity_path_expr: EntityPathExprIdx,
+        entity_path: ExprResult<EntityPath>,
+    },
     InheritedSymbol {
         ident: Identifier,
         token_idx: TokenIdx,

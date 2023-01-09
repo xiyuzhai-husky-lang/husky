@@ -209,7 +209,7 @@ impl<'a> AuxInferEngine<'a> {
                 self.sheet.add(ident_token.token_idx(), TokenInfo::Method)
             }
             Expr::Literal(_)
-            | Expr::EntityPath(_)
+            | Expr::EntityPath { .. }
             | Expr::Uncertain(_)
             | Expr::Unrecognized(_)
             | Expr::BinaryOpn { .. }

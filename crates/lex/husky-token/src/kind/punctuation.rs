@@ -17,6 +17,7 @@ pub enum Punctuation {
     Dot,               // .
     DotDot,            // `.`
     Colon,             // `:`
+    DoubleColon,       // `::`
     Comma,             // `,`
     Ambersand,         // `&`
     Vertical,          // `|`
@@ -60,6 +61,7 @@ impl Punctuation {
             Punctuation::Dot => ".",
             Punctuation::DotDot => "..",
             Punctuation::Colon => ":",
+            Punctuation::DoubleColon => "::",
             Punctuation::Comma => ",",
             Punctuation::Ambersand => todo!(),
             Punctuation::Vertical => "|",
@@ -96,6 +98,7 @@ impl Punctuation {
             Punctuation::Dot => todo!(),
             Punctuation::DotDot => todo!(),
             Punctuation::Colon => todo!(),
+            Punctuation::DoubleColon => todo!(),
             Punctuation::Comma => todo!(),
             Punctuation::Ambersand => todo!(),
             Punctuation::Vertical => todo!(),

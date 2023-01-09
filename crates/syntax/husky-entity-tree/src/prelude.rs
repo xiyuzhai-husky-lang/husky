@@ -18,11 +18,12 @@ pub type PreludeResult<T> = Result<T, PreludeError>;
 pub(crate) fn module_prelude<'a>(
     db: &'a dyn EntityTreeDb,
     module_path: ModulePath,
-) -> PreludeResult<ModulePrelude<'a>> {
-    Ok(ModulePrelude::new(crate_prelude(
-        db,
-        module_path.crate_path(db),
-    )?))
+) -> EntityTreeResult<ModulePrelude<'a>> {
+    let entity_tree_sheet = db.entity_tree_sheet(module_path)?;
+    Ok(ModulePrelude {
+        crate_prelude: crate_prelude(db, module_path.crate_path(db))?,
+        module_symbols: entity_tree_sheet.module_symbols(),
+    })
 }
 
 fn crate_prelude<'a>(
@@ -90,26 +91,30 @@ impl<'a> CratePrelude<'a> {
     }
 
     pub(crate) fn resolve_ident(&self, ident: Identifier) -> Option<&'a EntitySymbol> {
-        self.universal_prelude
+        self.crate_specific_prelude
             .get_entry(ident)
-            .or_else(|| self.crate_specific_prelude.get_entry(ident))
+            .or_else(|| self.universal_prelude.get_entry(ident))
     }
 }
 
 #[derive(Debug, Clone, Copy)]
 pub struct ModulePrelude<'a> {
     crate_prelude: CratePrelude<'a>,
-    // todo
+    module_symbols: &'a [EntitySymbol],
 }
 
 impl<'a> ModulePrelude<'a> {
-    fn new(crate_prelude: CratePrelude<'a>) -> Self {
-        Self { crate_prelude }
+    pub fn new(crate_prelude: CratePrelude<'a>, module_symbols: &'a [EntitySymbol]) -> Self {
+        Self {
+            crate_prelude,
+            module_symbols,
+        }
     }
 
     pub fn new_default(db: &'a dyn EntityTreeDb, crate_path: CratePath) -> PreludeResult<Self> {
         Ok(Self {
             crate_prelude: crate_prelude(db, crate_path)?,
+            module_symbols: todo!(),
         })
     }
 
@@ -118,6 +123,8 @@ impl<'a> ModulePrelude<'a> {
         token_idx: TokenIdx,
         ident: Identifier,
     ) -> Option<&'a EntitySymbol> {
-        self.crate_prelude.resolve_ident(ident)
+        self.module_symbols
+            .get_entry(ident)
+            .or_else(|| self.crate_prelude.resolve_ident(ident))
     }
 }

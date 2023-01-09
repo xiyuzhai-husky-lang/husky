@@ -604,3 +604,52 @@ fn eol_colon_token_works() {
     assert!(t(&db, "||").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
 }
+
+/// `::`
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct ScopeResolutionToken {
+    token_idx: TokenIdx,
+}
+
+impl<'a, Context> parsec::ParseFrom<Context> for ScopeResolutionToken
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+        let token_stream = ctx.token_stream_mut();
+        if let Some((token_idx, token)) = token_stream.next_indexed() {
+            match token {
+                Token::Punctuation(Punctuation::DoubleColon) => {
+                    Ok(Some(ScopeResolutionToken { token_idx }))
+                }
+                Token::Err(ref e) => Err(e.clone().into()),
+                Token::Punctuation(_)
+                | Token::Identifier(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Attr(_)
+                | Token::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+#[test]
+fn scope_resolution_token_works() {
+    fn t(db: &DB, input: &str) -> TokenResult<Option<ScopeResolutionToken>> {
+        quick_parse(db, input)
+    }
+
+    let db = DB::default();
+    assert!(t(&db, "::").unwrap().is_some());
+    assert!(t(&db, "::@").unwrap().is_some());
+    assert!(t(&db, ":@").unwrap().is_none());
+    assert!(t(&db, ".").unwrap().is_none());
+    assert!(t(&db, "||").unwrap().is_none());
+    assert!(t(&db, "a").unwrap().is_none());
+}

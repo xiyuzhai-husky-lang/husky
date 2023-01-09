@@ -32,7 +32,7 @@ impl EntityTreePresheet {
         {
             if !entity_use_tracker.is_unresolved() {
                 let ident = entity_use_tracker.ident();
-                if let Some(node) = ctx.get(ident) {
+                if let Some(node) = ctx.resolve_ident(ident) {
                     actions.push(PresheetAction::ResolveEntityUse {
                         module_path: self.module_path,
                         entity_use_tracker_idx,

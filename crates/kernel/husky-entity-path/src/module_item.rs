@@ -25,6 +25,10 @@ impl ModuleItemPath {
             ModuleItemPath::Form(path) => path.module_path(db),
         }
     }
+
+    pub fn crate_path(self, db: &dyn EntityPathDb) -> CratePath {
+        self.module_path(db).crate_path(db)
+    }
 }
 
 impl From<FormPath> for ModuleItemPath {

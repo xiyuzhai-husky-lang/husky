@@ -1,4 +1,5 @@
 use crate::*;
+use husky_entity_tree::EntityTreeError;
 use husky_opn_syntax::Bracket;
 use husky_token::*;
 use parsec::*;
@@ -28,6 +29,8 @@ pub enum ExprError {
         ket: Bracket,
         ket_token_idx: TokenIdx,
     },
+    #[error("entity tree")]
+    EntityTree(#[from] EntityTreeError),
     #[error("expect identifier after dot")]
     ExpectIdentifierAfterDot,
     #[error("token error {0}")]

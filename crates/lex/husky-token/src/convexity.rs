@@ -55,6 +55,7 @@ impl Token {
                 Punctuation::BitNot => todo!(),
                 Punctuation::Dot => Convexity::Concave,
                 Punctuation::Colon => Convexity::Any,
+                Punctuation::DoubleColon => todo!(),
                 Punctuation::Comma => Convexity::Concave,
                 Punctuation::Vertical => todo!(),
                 Punctuation::Exclamation => todo!(),

@@ -47,6 +47,7 @@ where
 
 pub trait ParseContext: HasParseError + HasParseState {
     fn parse<P: ParseFrom<Self>>(&mut self) -> Result<Option<P>, Self::Error>;
+    fn try_parse<P: ParseFrom<Self>>(&mut self) -> Option<P>;
     fn parse_expected<P: ParseFrom<Self>>(&mut self) -> Result<P, Self::Error>
     where
         Self::Error: FromAbsent<P, Self>;
@@ -64,7 +65,11 @@ where
     Context: HasParseError + HasParseState,
 {
     fn parse<P: ParseFrom<Self>>(&mut self) -> Result<Option<P>, Self::Error> {
-        P::parse_from_with_rollback(self)
+        P::parse_from_with_rollback_when_no_error(self)
+    }
+
+    fn try_parse<P: ParseFrom<Self>>(&mut self) -> Option<P> {
+        P::try_parse_from_with_rollback(self)
     }
 
     fn parse_expected<P: ParseFrom<Self>>(&mut self) -> Result<P, Self::Error>
@@ -72,7 +77,7 @@ where
         Self::Error: FromAbsent<P, Self>,
     {
         let saved_state = self.save_state();
-        match P::parse_from_with_rollback(self)? {
+        match P::parse_from_with_rollback_when_no_error(self)? {
             Some(output) => Ok(output),
             None => Err(<Self::Error as FromAbsent<P, Context>>::new_absent_error(
                 saved_state,
@@ -81,7 +86,7 @@ where
     }
 
     fn parse_into<P: ParseFrom<Self>>(mut self) -> Result<(Option<P>, Self), Self::Error> {
-        let optional = P::parse_from_with_rollback(&mut self)?;
+        let optional = P::parse_from_with_rollback_when_no_error(&mut self)?;
         Ok((optional, self))
     }
 }
