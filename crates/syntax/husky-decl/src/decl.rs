@@ -1,24 +1,27 @@
 mod form;
+mod impl_block;
 mod trai;
 mod trai_item;
 mod ty;
 mod ty_item;
 mod variant;
 
-use crate::*;
-
 pub use form::*;
+pub use impl_block::*;
 pub use trai::*;
 pub use trai_item::*;
 pub use ty::*;
 pub use ty_item::*;
 pub use variant::*;
 
+use crate::*;
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum Decl {
     Type(TypeDecl),
     Form(FormDecl),
     Trait(TraitDecl),
+    ImplBlock(ImplBlockDecl),
     TypeItem(TypeItemDecl),
     TraitItem(TraitItemDecl),
     Variant(VariantDecl),
@@ -30,6 +33,7 @@ impl Decl {
             Decl::Type(decl) => decl.ast_idx(db),
             Decl::Form(decl) => decl.ast_idx(db),
             Decl::Trait(decl) => decl.ast_idx(db),
+            Decl::ImplBlock(decl) => decl.ast_idx(db),
             Decl::TypeItem(decl) => decl.ast_idx(db),
             Decl::TraitItem(decl) => decl.ast_idx(db),
             Decl::Variant(decl) => decl.ast_idx(db),
@@ -41,6 +45,7 @@ impl Decl {
             Decl::Type(decl) => decl.implicit_parameters(db),
             Decl::Form(decl) => decl.implicit_parameters(db),
             Decl::Trait(decl) => decl.implicit_parameters(db),
+            Decl::ImplBlock(decl) => decl.implicit_parameters(db),
             Decl::TypeItem(decl) => decl.implicit_parameters(db),
             Decl::TraitItem(decl) => decl.implicit_parameters(db),
             Decl::Variant(decl) => &[],
@@ -52,6 +57,7 @@ impl Decl {
             Decl::Type(decl) => decl.expr_sheet(db).into(),
             Decl::Form(decl) => decl.expr_sheet(db).into(),
             Decl::Trait(decl) => decl.expr_sheet(db).into(),
+            Decl::ImplBlock(decl) => decl.expr_sheet(db).into(),
             Decl::TypeItem(decl) => decl.expr_sheet(db).into(),
             Decl::TraitItem(decl) => decl.expr_sheet(db).into(),
             Decl::Variant(decl) => todo!(),
@@ -112,6 +118,10 @@ impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for Decl {
                 .finish(),
             Decl::Variant(decl) => f
                 .debug_tuple("Variant")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            Decl::ImplBlock(decl) => f
+                .debug_tuple("ImplBlock")
                 .field(&decl.debug_with(db, include_all_fields))
                 .finish(),
             Decl::TypeItem(decl) => f

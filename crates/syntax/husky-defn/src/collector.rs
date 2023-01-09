@@ -22,7 +22,7 @@ impl<'a> DefnCollector<'a> {
             token_sheet_data: db.token_sheet_data(module_path)?,
             ast_sheet: db.ast_sheet(module_path)?,
             ast_range_sheet: db.ast_range_sheet(module_path)?,
-            decl_sheet: db.decl_sheet(module_path)?,
+            decl_sheet: db.module_decl_sheet(module_path)?,
         })
     }
 
@@ -43,6 +43,7 @@ impl<'a> DefnCollector<'a> {
             Decl::Type(decl) => self.parse_ty_defn(decl).into(),
             Decl::Form(decl) => self.parse_form_defn(decl).into(),
             Decl::Trait(decl) => self.parse_trai_defn(decl).into(),
+            Decl::ImplBlock(_) => todo!(),
             Decl::TypeItem(_) => todo!(),
             Decl::TraitItem(_) => todo!(),
             Decl::Variant(_) => todo!(),

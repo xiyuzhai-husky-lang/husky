@@ -67,6 +67,20 @@ impl EntityTreeSheet {
         &self.module_symbols
     }
 
+    pub fn module_item_iter<'a>(&'a self) -> impl Iterator<Item = &'a ModuleItem> + 'a {
+        self.module_symbols
+            .iter()
+            .filter_map(|module_symbol| module_symbol.module_item())
+    }
+
+    pub fn module_item_path_iter<'a>(&'a self) -> impl Iterator<Item = ModuleItemPath> + 'a {
+        self.module_symbols.iter().filter_map(|module_symbol| {
+            module_symbol
+                .module_item()
+                .map(|module_item| module_item.path())
+        })
+    }
+
     pub fn module_path(&self) -> ModulePath {
         self.module_path
     }

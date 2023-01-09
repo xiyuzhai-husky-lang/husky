@@ -40,24 +40,13 @@ pub enum EntityTreeError {
 
 pub type EntityTreeResult<T> = Result<T, EntityTreeError>;
 
-impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntityTreeError {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EntityTreeDb,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        <Self as std::fmt::Debug>::fmt(self, f)
-    }
-}
-
-impl<Db: EntityTreeDb> salsa::DebugWithDb<Db> for EntityTreeError {
+impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreeError {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
         include_all_fields: bool,
     ) -> std::fmt::Result {
-        self.fmt(f, db as &dyn EntityTreeDb, include_all_fields)
+        <Self as std::fmt::Debug>::fmt(self, f)
     }
 }

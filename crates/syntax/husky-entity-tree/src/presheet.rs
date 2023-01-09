@@ -5,7 +5,7 @@ mod use_all_tracker;
 pub(crate) use action::*;
 use husky_print_utils::p;
 
-use crate::*;
+use crate::{ModuleItem, *};
 use entity_use_tracker::*;
 use husky_text::TextRange;
 use use_all_tracker::*;
@@ -133,12 +133,9 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
                             module_path: *module_path,
                             ast_idx,
                         },
-                        EntityPath::ModuleItem(module_item_path) => EntitySymbol::ModuleItem {
-                            ident,
-                            accessibility: *accessibility,
-                            ast_idx,
-                            path: *module_item_path,
-                        },
+                        EntityPath::ModuleItem(module_item_path) => EntitySymbol::ModuleItem(
+                            ModuleItem::new(ident, *accessibility, *module_item_path, ast_idx),
+                        ),
                         EntityPath::AssociatedItem(_) | EntityPath::Variant(_) => return,
                         EntityPath::GenericParameter(_) => todo!(),
                     };
