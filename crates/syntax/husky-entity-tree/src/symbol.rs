@@ -2,6 +2,46 @@ use crate::*;
 use husky_token::TokenAccessibility;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
+pub struct ModuleItem {
+    ident: Identifier,
+    accessibility: Accessibility,
+    path: ModuleItemPath,
+    ast_idx: AstIdx,
+}
+
+impl ModuleItem {
+    pub(crate) fn new(
+        ident: Identifier,
+        accessibility: Accessibility,
+        path: ModuleItemPath,
+        ast_idx: AstIdx,
+    ) -> Self {
+        Self {
+            ident,
+            accessibility,
+            path,
+            ast_idx,
+        }
+    }
+
+    pub fn ident(&self) -> Identifier {
+        self.ident
+    }
+
+    pub fn accessibility(&self) -> Accessibility {
+        self.accessibility
+    }
+
+    pub fn path(&self) -> ModuleItemPath {
+        self.path
+    }
+
+    pub fn ast_idx(&self) -> ArenaIdx<Ast> {
+        self.ast_idx
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum EntitySymbol {
     CrateRoot {
         ident: Identifier,
@@ -13,12 +53,7 @@ pub enum EntitySymbol {
         module_path: ModulePath,
         ast_idx: AstIdx,
     },
-    ModuleItem {
-        ident: Identifier,
-        accessibility: Accessibility,
-        path: ModuleItemPath,
-        ast_idx: AstIdx,
-    },
+    ModuleItem(ModuleItem),
     EntityUse {
         ident: Identifier,
         accessibility: Accessibility,
@@ -33,7 +68,7 @@ impl EntitySymbol {
         match self {
             EntitySymbol::CrateRoot { module_path, .. } => Accessibility::PublicUnder(*module_path),
             EntitySymbol::Submodule { accessibility, .. }
-            | EntitySymbol::ModuleItem { accessibility, .. }
+            | EntitySymbol::ModuleItem(ModuleItem { accessibility, .. })
             | EntitySymbol::EntityUse { accessibility, .. } => *accessibility,
         }
     }
@@ -42,7 +77,7 @@ impl EntitySymbol {
         match self {
             EntitySymbol::CrateRoot { .. } => None,
             EntitySymbol::Submodule { ast_idx, .. }
-            | EntitySymbol::ModuleItem { ast_idx, .. }
+            | EntitySymbol::ModuleItem(ModuleItem { ast_idx, .. })
             | EntitySymbol::EntityUse { ast_idx, .. } => Some(*ast_idx),
         }
     }
@@ -63,8 +98,15 @@ impl EntitySymbol {
         match self {
             EntitySymbol::CrateRoot { module_path, .. }
             | EntitySymbol::Submodule { module_path, .. } => (*module_path).into(),
-            EntitySymbol::ModuleItem { path, .. } => (*path).into(),
+            EntitySymbol::ModuleItem(ModuleItem { path, .. }) => (*path).into(),
             EntitySymbol::EntityUse { path, .. } => *path,
+        }
+    }
+
+    pub(crate) fn module_item(&self) -> Option<&ModuleItem> {
+        match self {
+            EntitySymbol::ModuleItem(module_item) => Some(module_item),
+            _ => None,
         }
     }
 }
@@ -79,7 +121,7 @@ impl AsVecMapEntry for EntitySymbol {
         match self {
             EntitySymbol::CrateRoot { ident, .. }
             | EntitySymbol::Submodule { ident, .. }
-            | EntitySymbol::ModuleItem { ident, .. }
+            | EntitySymbol::ModuleItem(ModuleItem { ident, .. })
             | EntitySymbol::EntityUse { ident, .. } => *ident,
         }
     }
@@ -88,7 +130,7 @@ impl AsVecMapEntry for EntitySymbol {
         match self {
             EntitySymbol::CrateRoot { ident, .. }
             | EntitySymbol::Submodule { ident, .. }
-            | EntitySymbol::ModuleItem { ident, .. }
+            | EntitySymbol::ModuleItem(ModuleItem { ident, .. })
             | EntitySymbol::EntityUse { ident, .. } => ident,
         }
     }
@@ -128,12 +170,12 @@ impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntitySymbol {
                     &module_path.debug_with(db as &dyn VfsDb, include_all_fields),
                 )
                 .finish(),
-            EntitySymbol::ModuleItem {
+            EntitySymbol::ModuleItem(ModuleItem {
                 ident,
                 accessibility,
                 ast_idx,
                 path,
-            } => f
+            }) => f
                 .debug_struct("ModuleItem")
                 .field(
                     "ident",

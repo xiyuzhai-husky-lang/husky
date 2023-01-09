@@ -2,7 +2,7 @@ use crate::*;
 use husky_ast::{Ast, AstIdx, AstIdxRange, AstSheet};
 use husky_entity_path::EntityPath;
 use husky_entity_taxonomy::{EntityKind, FormKind, ModuleItemKind, TypeKind};
-use husky_entity_tree::{CratePrelude, EntitySymbol, EntityTreeSheet, ModulePrelude};
+use husky_entity_tree::{CratePrelude, EntitySymbol, EntityTreeSheet, ModuleItem, ModulePrelude};
 use husky_opn_syntax::BinaryOpr;
 use husky_print_utils::p;
 use husky_token::{
@@ -13,7 +13,30 @@ use parsec::{parse_separated_list, ParseContext, ParseFrom};
 use salsa::DebugWithDb;
 use vec_like::VecPairMap;
 
-pub(crate) struct DeclCollector<'a> {
+pub(crate) fn module_item_decl(db: &dyn DeclDb, path: ModuleItemPath) -> EntityTreeResult<Decl> {
+    Ok(match path {
+        ModuleItemPath::Type(path) => type_decl(db, path)?.into(),
+        ModuleItemPath::Trait(path) => trait_decl(db, path)?.into(),
+        ModuleItemPath::Form(path) => form_decl(db, path)?.into(),
+    })
+}
+
+#[salsa::tracked(jar = DeclJar)]
+pub(crate) fn type_decl(db: &dyn DeclDb, path: TypePath) -> EntityTreeResult<TypeDecl> {
+    todo!()
+}
+
+#[salsa::tracked(jar = DeclJar)]
+pub(crate) fn form_decl(db: &dyn DeclDb, path: FormPath) -> EntityTreeResult<FormDecl> {
+    todo!()
+}
+
+#[salsa::tracked(jar = DeclJar)]
+pub(crate) fn trait_decl(db: &dyn DeclDb, path: TraitPath) -> EntityTreeResult<TraitDecl> {
+    todo!()
+}
+
+pub(crate) struct DeclParser<'a> {
     db: &'a dyn DeclDb,
     module_prelude: ModulePrelude<'a>,
     token_sheet_data: &'a TokenSheetData,
@@ -21,39 +44,19 @@ pub(crate) struct DeclCollector<'a> {
     entity_tree_sheet: &'a EntityTreeSheet,
 }
 
-impl<'a> DeclCollector<'a> {
-    pub(crate) fn new(db: &'a dyn DeclDb, module_path: ModulePath) -> EntityTreeResult<Self> {
-        let module_prelude = db.module_prelude(module_path)?;
+impl<'a> DeclParser<'a> {
+    pub(crate) fn new(db: &'a dyn DeclDb, path: ModulePath) -> EntityTreeResult<Self> {
+        let module_prelude = db.module_prelude(path)?;
         Ok(Self {
             db,
             module_prelude,
-            token_sheet_data: db.token_sheet_data(module_path)?,
-            ast_sheet: db.ast_sheet(module_path)?,
-            entity_tree_sheet: db.entity_tree_sheet(module_path)?,
+            token_sheet_data: db.token_sheet_data(path)?,
+            ast_sheet: db.ast_sheet(path)?,
+            entity_tree_sheet: db.entity_tree_sheet(path)?,
         })
     }
 
-    pub(crate) fn collect_all(mut self) -> DeclSheet {
-        let mut decls: VecPairMap<EntityPath, DeclResult<Decl>> = Default::default();
-        for entity_symbol in self.entity_tree_sheet.module_symbols().iter() {
-            match entity_symbol {
-                EntitySymbol::CrateRoot { .. } => unreachable!(),
-                EntitySymbol::Submodule { .. } | EntitySymbol::EntityUse { .. } => (),
-                EntitySymbol::ModuleItem {
-                    ident,
-                    accessibility,
-                    path,
-                    ast_idx,
-                } => decls.insert(((*path).into(), self.parse_decl(*ast_idx, (*path).into()))),
-            }
-        }
-        for impl_block in self.entity_tree_sheet.impl_blocks() {
-            todo!()
-        }
-        DeclSheet::new(decls)
-    }
-
-    fn parse_decl(&mut self, ast_idx: AstIdx, entity_path: EntityPath) -> DeclResult<Decl> {
+    fn parse_decl(&self, ast_idx: AstIdx, entity_path: EntityPath) -> DeclResult<Decl> {
         match self.ast_sheet[ast_idx] {
             Ast::Defn {
                 token_group_idx,
@@ -111,7 +114,7 @@ impl<'a> DeclCollector<'a> {
     }
 
     fn parse_ty_decl(
-        &mut self,
+        &self,
         ast_idx: AstIdx,
         type_kind: TypeKind,
         path: TypePath,
@@ -314,7 +317,7 @@ impl<'a> DeclCollector<'a> {
     }
 
     fn parse_form_decl(
-        &mut self,
+        &self,
         ast_idx: AstIdx,
         path: FormPath,
         entity_kind: EntityKind,

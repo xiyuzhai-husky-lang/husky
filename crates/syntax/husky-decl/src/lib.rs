@@ -1,9 +1,9 @@
 #![feature(trait_upcasting)]
-mod collector;
 mod db;
 mod decl;
 mod error;
 mod parameter;
+mod parse;
 mod sheet;
 #[cfg(test)]
 mod tests;
@@ -14,16 +14,19 @@ pub use error::*;
 pub use parameter::*;
 pub use sheet::*;
 
-use collector::*;
 use husky_ast::AstIdx;
 use husky_entity_path::*;
 use husky_entity_tree::EntityTreeResult;
 use husky_expr::*;
 use husky_vfs::{ModulePath, VfsResult};
+use parse::*;
 
 #[salsa::jar(db = DeclDb)]
 pub struct DeclJar(
-    decl_sheet,
+    type_decl,
+    trait_decl,
+    form_decl,
+    module_decl_sheet,
     // type
     EnumTypeDecl,
     UnitStructTypeDecl,
@@ -40,6 +43,9 @@ pub struct DeclJar(
     FunctionDecl,
     MorphismDecl,
     TypeAliasDecl,
+    // impl block
+    TypeImplBlockDecl,
+    TypeAsTraitImplBlockDecl,
     // trait
     TraitDecl,
     // type item
@@ -60,8 +66,8 @@ pub struct DeclJar(
 );
 
 #[salsa::tracked(jar = DeclJar, return_ref)]
-fn decl_sheet(db: &dyn DeclDb, module_path: ModulePath) -> EntityTreeResult<DeclSheet> {
-    Ok(DeclCollector::new(db, module_path)?.collect_all())
+fn module_decl_sheet(db: &dyn DeclDb, path: ModulePath) -> EntityTreeResult<DeclSheet> {
+    DeclSheet::collect_from_module(db, path)
 }
 
 #[test]
@@ -69,5 +75,5 @@ fn decl_sheet_works() {
     use husky_vfs::VfsTestSupport;
     use tests::*;
 
-    DB::expect_test_probable_modules_debug_result_with_db("decl_sheet", DeclDb::decl_sheet);
+    DB::expect_test_probable_modules_debug_result_with_db("decl_sheet", DeclDb::module_decl_sheet);
 }
