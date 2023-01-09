@@ -309,7 +309,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 },
                 ':' => match self.peek_char() {
                     Some('=') => self.pass_two(Punctuation::DeriveAssign),
-                    Some(':') => self.pass_two(Punctuation::Binary(BinaryOpr::ScopeResolution)),
+                    Some(':') => self.pass_two(Punctuation::DoubleColon),
                     _ => Punctuation::Colon,
                 },
                 '(' => Punctuation::Bra(Bracket::Par),

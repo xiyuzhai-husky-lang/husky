@@ -12,10 +12,10 @@ pub enum BinaryOpr {
     Comparison(BinaryComparisonOpr),
     ShortcuitLogic(BinaryShortcuitLogicOpr),
     Assign(Option<BinaryPureClosedOpr>),
-    ScopeResolution, // ::
-    Curry,           // ->
-    As,              // as
-    Is,              // :
+    ScopeResolution,
+    Curry, // ->
+    As,    // as
+    Is,    // :
 }
 
 impl From<Option<BinaryPureClosedOpr>> for BinaryOpr {
@@ -62,10 +62,10 @@ impl BinaryOpr {
             },
             BinaryOpr::Comparison(cmp_opr) => cmp_opr.husky_code(),
             BinaryOpr::ShortcuitLogic(logic_opr) => logic_opr.husky_code(),
-            BinaryOpr::ScopeResolution => "::",
             BinaryOpr::Curry => "->",
             BinaryOpr::As => todo!(),
             BinaryOpr::Is => todo!(),
+            BinaryOpr::ScopeResolution => todo!(),
         }
     }
 
@@ -93,10 +93,10 @@ impl BinaryOpr {
                     " = "
                 }
             }
-            BinaryOpr::ScopeResolution => " :: ",
             BinaryOpr::Curry => " -> ",
             BinaryOpr::As => " as ",
             BinaryOpr::Is => " : ",
+            BinaryOpr::ScopeResolution => todo!(),
         }
     }
 }

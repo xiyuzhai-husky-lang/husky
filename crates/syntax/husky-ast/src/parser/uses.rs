@@ -131,7 +131,7 @@ impl<'b> EntityUseExprParser<'b> {
                     return Some(UseExpr::One { ident: *ident })
                 };
                 match next_token {
-                    Token::Punctuation(Punctuation::Binary(BinaryOpr::ScopeResolution)) => {}
+                    Token::Punctuation(Punctuation::DoubleColon) => {}
                     Token::Punctuation(Punctuation::Comma)
                     | Token::Punctuation(Punctuation::Ket(Bracket::Curl)) => {
                         self.token_iter.step_back();

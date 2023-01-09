@@ -27,7 +27,6 @@ impl SymbolSheet {
     }
 
     pub(crate) fn resolve_ident(&self, token_idx: TokenIdx, ident: Identifier) -> Option<Symbol> {
-        // ad hoc
         self.local_symbol_arena
             .find_rev_indexed(|symbol| {
                 let accessible = match symbol.access_end {
@@ -39,12 +38,13 @@ impl SymbolSheet {
             .map(|(local_symbol_idx, local_symbol)| {
                 Symbol::Local(local_symbol_idx, local_symbol.kind)
             })
-            .or(self
-                .inherited_symbol_arena
-                .find_rev_indexed(|symbol| symbol.ident == ident)
-                .map(|(inherited_symbol_idx, inherited_symbol)| {
-                    Symbol::Inherited(inherited_symbol_idx, inherited_symbol.kind)
-                }))
+            .or_else(|| {
+                self.inherited_symbol_arena
+                    .find_rev_indexed(|symbol| symbol.ident == ident)
+                    .map(|(inherited_symbol_idx, inherited_symbol)| {
+                        Symbol::Inherited(inherited_symbol_idx, inherited_symbol.kind)
+                    })
+            })
     }
 
     pub fn indexed_inherited_symbol_iter<'a>(

@@ -54,6 +54,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                     )
                                 }
                             },
+                            BaseEntityPath::Err => todo!(),
                         }
                     }
                     TopExprRef::None => todo!(),
@@ -142,6 +143,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     ),
                 },
                 Punctuation::DotDot => todo!(),
+                Punctuation::DoubleColon => {
+                    ResolvedToken::BinaryOpr(token_idx, BinaryOpr::ScopeResolution)
+                }
             },
             Token::WordOpr(opr) => match opr {
                 WordOpr::And => ResolvedToken::BinaryOpr(
@@ -162,7 +166,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 }
 
 impl<'a, 'b> ExprParseContext<'a, 'b> {
-    fn resolve_ident(&self, token_idx: TokenIdx, ident: Identifier) -> ResolvedToken {
+    fn resolve_ident(&mut self, token_idx: TokenIdx, ident: Identifier) -> ResolvedToken {
         if let Some(opn) = self.last_unfinished_expr() {
             match opn {
                 UnfinishedExpr::Binary {
@@ -171,10 +175,18 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     ..
                 } => match lopd.base_entity_path(self.db(), &self.parser.expr_arena) {
                     BaseEntityPath::None => todo!(),
-                    BaseEntityPath::Some(_) => todo!(),
+                    BaseEntityPath::Some(_) => {
+                        p!(
+                            lopd,
+                            ident.debug(self.parser.db),
+                            self.parser.entity_path.debug(self.parser.db)
+                        );
+                        todo!()
+                    }
                     BaseEntityPath::Uncertain { .. } => {
                         return ResolvedToken::Atom(Expr::Uncertain(ident))
                     }
+                    BaseEntityPath::Err => todo!(),
                 },
                 _ => (),
             }
@@ -186,7 +198,14 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     //     token_idx,
                     //     symbol_idx: variable_idx,
                     // },
-                    Symbol::Entity(entity_path) => todo!(),
+                    Symbol::Entity(entity_path) => {
+                        let (entity_path_expr, entity_path) =
+                            self.parse_entity_path_expr(token_idx, ident, entity_path);
+                        Expr::EntityPath {
+                            entity_path_expr,
+                            entity_path,
+                        }
+                    }
                     Symbol::Inherited(inherited_symbol_idx, inherited_symbol_kind) => {
                         Expr::InheritedSymbol {
                             ident,

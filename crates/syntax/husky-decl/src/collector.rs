@@ -47,7 +47,7 @@ impl<'a> DeclCollector<'a> {
                 } => decls.insert(((*path).into(), self.parse_decl(*ast_idx, (*path).into()))),
             }
         }
-        for associated_item in self.entity_tree_sheet.associated_items().iter() {
+        for impl_block in self.entity_tree_sheet.impl_blocks() {
             todo!()
         }
         DeclSheet::new(decls)

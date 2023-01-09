@@ -1,6 +1,7 @@
 mod accept;
 mod alloc;
 mod block;
+mod debug;
 mod env;
 mod expr_stack;
 mod list;
@@ -9,6 +10,7 @@ mod unfinished_expr;
 
 pub use block::*;
 pub use env::*;
+use husky_print_utils::p;
 
 use crate::*;
 use expr_stack::*;
@@ -165,6 +167,55 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             )))
         } else {
             Ok(None)
+        }
+    }
+
+    fn parse_entity_path_expr(
+        &mut self,
+        token_idx: TokenIdx,
+        ident: Identifier,
+        entity_path: EntityPath,
+    ) -> (EntityPathExprIdx, ExprResult<EntityPath>) {
+        let root = self.alloc_entity_path_expr(EntityPathExpr::Root {
+            token_idx,
+            ident,
+            entity_path,
+        });
+        match self.try_parse::<ScopeResolutionToken>() {
+            Some(scope_resolution_token) => {
+                self.parse_subentity_path_expr(root, Ok(entity_path), scope_resolution_token)
+            }
+            None => (root, Ok(entity_path)),
+        }
+    }
+
+    fn parse_subentity_path_expr(
+        &mut self,
+        parent: EntityPathExprIdx,
+        parent_path: ExprResult<EntityPath>,
+        scope_resolution_token: ScopeResolutionToken,
+    ) -> (EntityPathExprIdx, ExprResult<EntityPath>) {
+        let ident_token = self.parse_expected::<IdentifierToken>();
+        let ident: ExprResult<Identifier> = match ident_token {
+            Ok(ident_token) => Ok(ident_token.ident()),
+            Err(_) => todo!(),
+        };
+        let expr = EntityPathExpr::Subentity {
+            parent,
+            scope_resolution_token,
+            ident_token,
+        };
+        let expr = self.alloc_entity_path_expr(expr);
+        let path: ExprResult<EntityPath> = parent_path
+            .map(|parent_path| -> ExprResult<EntityPath> {
+                Ok(self.parser.db.subentity_path(parent_path, ident?)?)
+            })
+            .flatten();
+        match self.try_parse::<ScopeResolutionToken>() {
+            Some(scope_resolution_token) => {
+                self.parse_subentity_path_expr(expr, path, scope_resolution_token)
+            }
+            None => (expr, path),
         }
     }
 }

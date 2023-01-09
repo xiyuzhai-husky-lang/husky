@@ -3,11 +3,14 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq)]
 pub enum EntityPathExpr {
     Root {
-        ident: IdentifierToken,
+        token_idx: TokenIdx,
+        ident: Identifier,
+        entity_path: EntityPath,
     },
     Subentity {
         parent: EntityPathExprIdx,
-        ident: IdentifierToken,
+        scope_resolution_token: ScopeResolutionToken,
+        ident_token: ExprResult<IdentifierToken>,
     },
 }
 
