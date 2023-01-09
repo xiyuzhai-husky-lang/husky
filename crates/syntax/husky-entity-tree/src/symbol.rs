@@ -103,7 +103,7 @@ impl EntitySymbol {
         }
     }
 
-    pub(crate) fn module_item(&self) -> Option<&ModuleItem> {
+    pub fn module_item(&self) -> Option<&ModuleItem> {
         match self {
             EntitySymbol::ModuleItem(module_item) => Some(module_item),
             _ => None,
