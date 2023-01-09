@@ -46,11 +46,21 @@ fn entity_tree_bundle_works() {
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityTreeBundle {
     sheets: VecMap<EntityTreeSheet>,
+    principal_entity_path_expr_arena: PrincipalEntityPathExprArena,
+    impl_block_arena: ImplBlockArena,
 }
 
 impl EntityTreeBundle {
-    pub fn new(sheets: VecMap<EntityTreeSheet>) -> Self {
-        Self { sheets }
+    pub(crate) fn new(
+        sheets: VecMap<EntityTreeSheet>,
+        principal_entity_path_expr_arena: PrincipalEntityPathExprArena,
+        impl_block_arena: ImplBlockArena,
+    ) -> Self {
+        Self {
+            sheets,
+            principal_entity_path_expr_arena,
+            impl_block_arena,
+        }
     }
 
     pub fn sheets(&self) -> &[EntityTreeSheet] {

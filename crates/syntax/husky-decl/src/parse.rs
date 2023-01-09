@@ -2,13 +2,17 @@ use crate::*;
 use husky_ast::{Ast, AstIdx, AstIdxRange, AstSheet};
 use husky_entity_path::EntityPath;
 use husky_entity_taxonomy::{EntityKind, FormKind, ModuleItemKind, TypeKind};
-use husky_entity_tree::{CratePrelude, EntitySymbol, EntityTreeSheet, ModuleItem, ModulePrelude};
+use husky_entity_tree::{
+    CratePrelude, EntitySymbol, EntityTreeBundle, EntityTreeSheet, ImplBlockIdx, ModuleItem,
+    ModulePrelude,
+};
 use husky_opn_syntax::BinaryOpr;
 use husky_print_utils::p;
 use husky_token::{
     IdentifierToken, LeftAngleBracketToken, LeftBoxBracketToken, LeftCurlyBraceToken, Punctuation,
     RangedTokenSheet, RightCurlyBraceToken, TokenGroupIdx, TokenIdx, TokenSheetData,
 };
+use husky_vfs::CratePath;
 use parsec::{parse_separated_list, ParseContext, ParseFrom};
 use salsa::DebugWithDb;
 use vec_like::VecPairMap;
@@ -37,12 +41,22 @@ pub(crate) fn trait_decl(db: &dyn DeclDb, path: TraitPath) -> DeclResult<TraitDe
     todo!()
 }
 
+#[salsa::tracked(jar = DeclJar)]
+pub(crate) fn impl_block_decl(
+    db: &dyn DeclDb,
+    crate_path: CratePath,
+    impl_block_idx: ImplBlockIdx,
+) -> DeclResult<ImplBlockDecl> {
+    todo!()
+}
+
 pub(crate) struct DeclParser<'a> {
     db: &'a dyn DeclDb,
     module_prelude: ModulePrelude<'a>,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     entity_tree_sheet: &'a EntityTreeSheet,
+    entity_tree_bundle: &'a EntityTreeBundle,
 }
 
 impl<'a> DeclParser<'a> {
@@ -54,6 +68,7 @@ impl<'a> DeclParser<'a> {
             token_sheet_data: db.token_sheet_data(path)?,
             ast_sheet: db.ast_sheet(path)?,
             entity_tree_sheet: db.entity_tree_sheet(path)?,
+            entity_tree_bundle: db.entity_tree_bundle(path.crate_path(db))?,
         })
     }
 

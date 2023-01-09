@@ -23,11 +23,9 @@ use parse::*;
 
 #[salsa::jar(db = DeclDb)]
 pub struct DeclJar(
-    type_decl,
-    trait_decl,
-    form_decl,
     module_decl_sheet,
     // type
+    type_decl,
     EnumTypeDecl,
     UnitStructTypeDecl,
     TupleStructTypeDecl,
@@ -37,17 +35,20 @@ pub struct DeclJar(
     StructureTypeDecl,
     AlienTypeDecl,
     UnionTypeDecl,
+    // trait
+    trait_decl,
+    TraitDecl,
     // form
+    form_decl,
     ValueDecl,
     FeatureDecl,
     FunctionDecl,
     MorphismDecl,
     TypeAliasDecl,
     // impl block
+    impl_block_decl,
     TypeImplBlockDecl,
     TypeAsTraitImplBlockDecl,
-    // trait
-    TraitDecl,
     // type item
     TypeAssociatedFunctionDecl,
     TypeMethodDecl,

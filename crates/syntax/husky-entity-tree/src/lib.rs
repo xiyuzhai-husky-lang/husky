@@ -25,6 +25,7 @@ pub use error::EntityTreeError;
 pub use error::*;
 pub use impl_block::*;
 pub use prelude::*;
+pub use principal_entity_path_expr::*;
 pub use sheet::*;
 pub use submodule::*;
 pub use symbol::*;

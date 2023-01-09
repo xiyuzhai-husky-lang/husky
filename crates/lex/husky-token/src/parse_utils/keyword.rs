@@ -325,3 +325,39 @@ where
         }
     }
 }
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct ImplToken {
+    token_idx: TokenIdx,
+}
+
+impl ImplToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
+impl<'a, Context> parsec::ParseFrom<Context> for ImplToken
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+            match token {
+                Token::Keyword(Keyword::Impl) => Ok(Some(ImplToken { token_idx })),
+                Token::Err(ref e) => Err(e.clone().into()),
+                Token::Punctuation(_)
+                | Token::Identifier(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Attr(_)
+                | Token::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}

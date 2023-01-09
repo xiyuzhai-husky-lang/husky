@@ -1,5 +1,5 @@
 use crate::*;
-use husky_token::{IdentifierToken, ScopeResolutionToken, TokenIdx};
+use husky_token::{IdentifierToken, ScopeResolutionToken, TokenIdx, TokenStream};
 use parsec::{ParseContext, ParseFrom};
 use thiserror::Error;
 
@@ -8,6 +8,7 @@ pub trait AllocPrincipalEntityPathExpr {
     // fn entity_path_expr_arena_mut(&mut self) -> &mut EntityPathExprArena;
 }
 
+#[derive(Debug, PartialEq, Eq)]
 pub enum PrincipalEntityPathExpr {
     Root {
         token_idx: TokenIdx,
@@ -17,33 +18,31 @@ pub enum PrincipalEntityPathExpr {
     Subentity {
         parent: PrincipalEntityPathExprIdx,
         scope_resolution_token: ScopeResolutionToken,
-        ident_token: PrincipalEntityPathExprResult<IdentifierToken>,
+        ident_token: IdentifierToken,
     },
 }
 pub type PrincipalEntityPathExprArena = Arena<PrincipalEntityPathExpr>;
 pub type PrincipalEntityPathExprIdx = ArenaIdx<PrincipalEntityPathExpr>;
 pub type PrincipalEntityPathExprIdxRange = ArenaIdxRange<PrincipalEntityPathExpr>;
 
-#[derive(Debug, Error)]
+#[derive(Debug, Error, PartialEq, Eq)]
 pub enum PrincipalEntityPathExprError {}
 
 pub type PrincipalEntityPathExprResult<T> = Result<T, PrincipalEntityPathExprError>;
 
-impl<Context> ParseFrom<Context> for PrincipalEntityPathExpr
-where
-    Context: ParseContext + ?Sized,
-{
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, <Context>::Error> {
+impl PrincipalEntityPathExpr {
+    pub(crate) fn parse_from_token_stream<'a>(
+        token_stream: &mut TokenStream<'a>,
+        princiapl_entity_path_expr_arena: &mut PrincipalEntityPathExprArena,
+    ) -> PrincipalEntityPathExprResult<(PrincipalEntityPathExprIdx, EntityPath)> {
+        // let ident_token = token_stream.parse_expected::<IdentifierToken>()?;
+        todo!()
+    }
+
+    pub(crate) fn parse_subentity_from_token_stream<'a>(
+        token_stream: &mut TokenStream<'a>,
+        princiapl_entity_path_expr_arena: &mut PrincipalEntityPathExprArena,
+    ) -> PrincipalEntityPathExprResult<(PrincipalEntityPathExprIdx, EntityPath)> {
         todo!()
     }
 }
-
-// pub enum EntityPathExpr {
-//     Root {},
-//     Subentity,
-// }
-// pub type EntityPathExprArena = Arena<EntityPathExpr>;
-// pub type EntityPathExprIdx = ArenaIdx<EntityPathExpr>;
-// pub type EntityPathExprIdxRange = ArenaIdxRange<EntityPathExpr>;
