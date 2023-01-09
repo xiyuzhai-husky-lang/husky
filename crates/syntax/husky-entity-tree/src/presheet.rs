@@ -50,8 +50,8 @@ impl EntityTreePresheet {
         &self.module_symbols
     }
 
-    pub(crate) fn into_sheet(self, impl_blocks: ImplBlockIdxRange) -> ModuleEntityTree {
-        ModuleEntityTree::new(self.module_path, self.module_symbols, impl_blocks)
+    pub(crate) fn into_sheet(self, impl_blocks: ImplBlockIdxRange) -> EntityTreeModuleSheet {
+        EntityTreeModuleSheet::new(self.module_path, self.module_symbols, impl_blocks)
     }
 }
 

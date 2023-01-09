@@ -14,9 +14,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                Binary(
-                    ScopeResolution,
-                ),
+                DoubleColon,
             ),
             Punctuation(
                 Binary(

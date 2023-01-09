@@ -40,7 +40,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 32;\n\ntoken = Punctuation(\n    Binary(\n        ScopeResolution,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 32;\n\ntoken = Punctuation(\n    DoubleColon,\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(

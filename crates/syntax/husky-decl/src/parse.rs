@@ -3,8 +3,8 @@ use husky_ast::{Ast, AstIdx, AstIdxRange, AstSheet};
 use husky_entity_path::EntityPath;
 use husky_entity_taxonomy::{EntityKind, FormKind, ModuleItemKind, TypeKind};
 use husky_entity_tree::{
-    CrateEntityTree, CratePrelude, EntitySymbol, ImplBlockIdx, ModuleEntityTree, ModuleItem,
-    ModulePrelude,
+    CratePrelude, EntitySymbol, EntityTreeCrateBundle, EntityTreeModuleSheet, ImplBlockIdx,
+    ModuleItem, ModulePrelude,
 };
 use husky_opn_syntax::BinaryOpr;
 use husky_print_utils::p;
@@ -57,8 +57,8 @@ pub(crate) struct DeclParser<'a> {
     module_prelude: ModulePrelude<'a>,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
-    module_entity_tree: &'a ModuleEntityTree,
-    crate_entity_tree: &'a CrateEntityTree,
+    module_entity_tree: &'a EntityTreeModuleSheet,
+    entity_tree_crate_bundle: &'a EntityTreeCrateBundle,
 }
 
 impl<'a> DeclParser<'a> {
@@ -70,7 +70,7 @@ impl<'a> DeclParser<'a> {
             token_sheet_data: db.token_sheet_data(path)?,
             ast_sheet: db.ast_sheet(path)?,
             module_entity_tree: db.entity_tree_sheet(path)?,
-            crate_entity_tree: db.entity_tree_bundle(path.crate_path(db))?,
+            entity_tree_crate_bundle: db.entity_tree_crate_bundle(path.crate_path(db))?,
         })
     }
 

@@ -12,15 +12,16 @@ pub(crate) struct EntityTreeCollector<'a> {
     // can't use `crate_prelude` here because it might not be available
     opt_universal_prelude: Option<&'a [EntitySymbol]>,
     crate_specific_prelude: &'a [EntitySymbol],
-    impl_block_arena: ImplBlockArena,
     principal_entity_path_expr_arena: PrincipalEntityPathExprArena,
+    impl_block_arena: ImplBlockArena,
+    associated_item_arena: AssociatedItemArena,
 }
 
 impl<'a> EntityTreeCollector<'a> {
     pub(crate) fn new(
         db: &'a dyn EntityTreeDb,
         crate_path: CratePath,
-    ) -> EntityTreeBundleResult<Self> {
+    ) -> EntityTreeCrateBundleResult<Self> {
         let all_modules = db.all_modules_within_crate(crate_path);
         for i in 0..all_modules.len() {
             for j in (i + 1)..all_modules.len() {
@@ -40,7 +41,7 @@ impl<'a> EntityTreeCollector<'a> {
         let universal_prelude: Option<&'a [EntitySymbol]> = {
             if crate_path != path_menu.core_library() {
                 Some(
-                    entity_tree_sheet(db, core_prelude_module)
+                    module_entity_tree(db, core_prelude_module)
                         .map_err(|e| PreludeError::CorePreludeEntityTreeSheet(Box::new(e)))?
                         .module_symbols(),
                 )
@@ -57,12 +58,13 @@ impl<'a> EntityTreeCollector<'a> {
             crate_specific_prelude: crate_specific_prelude(db, crate_path)
                 .as_ref()
                 .map_err(|e| e.clone())?,
-            impl_block_arena: Default::default(),
             principal_entity_path_expr_arena: Default::default(),
+            impl_block_arena: Default::default(),
+            associated_item_arena: Default::default(),
         })
     }
 
-    pub(crate) fn collect_all(mut self) -> CrateEntityTree {
+    pub(crate) fn collect_all(mut self) -> EntityTreeCrateBundle {
         loop {
             let actions = self.collect_possible_actions();
             if actions.len() == 0 {
@@ -73,12 +75,14 @@ impl<'a> EntityTreeCollector<'a> {
             }
         }
         let impl_blockss = self.collect_impl_blockss();
-        CrateEntityTree::new(
+        // todo: collect associated items
+        EntityTreeCrateBundle::new(
             std::iter::zip(self.presheets.into_iter(), impl_blockss.into_iter())
                 .map(|(presheet, impl_blocks)| presheet.into_sheet(impl_blocks))
                 .collect(),
             self.principal_entity_path_expr_arena,
             self.impl_block_arena,
+            self.associated_item_arena,
         )
     }
 

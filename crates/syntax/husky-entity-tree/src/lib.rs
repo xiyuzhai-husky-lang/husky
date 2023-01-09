@@ -1,15 +1,15 @@
 #![feature(trait_upcasting)]
 mod associated_item;
-mod bundle;
 mod collector;
 mod context;
+mod crate_bundle;
 mod db;
 mod error;
 mod impl_block;
+mod module_sheet;
 mod prelude;
 mod presheet;
 mod principal_entity_path_expr;
-mod sheet;
 mod subentity;
 mod submodule;
 mod symbol;
@@ -19,14 +19,14 @@ mod utils;
 
 pub use associated_item::*;
 pub use associated_item::*;
-pub use bundle::*;
+pub use crate_bundle::*;
 pub use db::EntityTreeDb;
 pub use error::EntityTreeError;
 pub use error::*;
 pub use impl_block::*;
+pub use module_sheet::*;
 pub use prelude::*;
 pub use principal_entity_path_expr::*;
-pub use sheet::*;
 pub use submodule::*;
 pub use symbol::*;
 
@@ -50,9 +50,11 @@ use vec_like::{AsVecMapEntry, VecMap};
 #[salsa::jar(db = EntityTreeDb)]
 pub struct EntityTreeJar(
     entity_tree_presheet,
-    entity_tree_bundle,
+    entity_tree_crate_bundle,
     submodules,
     module_subentity_path,
     all_modules_within_crate,
     crate_specific_prelude,
+    ty_impl_blocks,
+    ty_associated_items,
 );

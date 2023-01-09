@@ -34,7 +34,7 @@ fn crate_prelude<'a>(
     let path_menu = db.path_menu(toolchain)?;
     let core_prelude_module = path_menu.core_prelude();
     Ok(CratePrelude::new(
-        entity_tree_sheet(db, core_prelude_module)
+        module_entity_tree(db, core_prelude_module)
             .map_err(|e| PreludeError::CorePreludeEntityTreeSheet(Box::new(e.clone())))?
             .module_symbols(),
         crate_specific_prelude(db, crate_path)
@@ -114,7 +114,7 @@ impl<'a> ModulePrelude<'a> {
     pub fn new_default(db: &'a dyn EntityTreeDb, crate_path: CratePath) -> PreludeResult<Self> {
         Ok(Self {
             crate_prelude: crate_prelude(db, crate_path)?,
-            module_symbols: todo!(),
+            module_symbols: &[],
         })
     }
 

@@ -1,7 +1,25 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct AssociatedItem {}
+pub struct AssociatedItem {
+    impl_block_idx: ImplBlockIdx,
+    impl_block_kind: ImplBlockKind,
+    ident: Identifier,
+}
+
+impl AssociatedItem {
+    pub fn impl_block_idx(&self) -> ImplBlockIdx {
+        self.impl_block_idx
+    }
+
+    pub fn impl_block_kind(&self) -> ImplBlockKind {
+        self.impl_block_kind
+    }
+
+    pub fn ident(&self) -> Identifier {
+        self.ident
+    }
+}
 
 impl AsVecMapEntry for AssociatedItem {
     type K = AssociatedItemPath;

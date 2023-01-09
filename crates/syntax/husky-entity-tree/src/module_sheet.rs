@@ -7,13 +7,13 @@ use vec_like::AsVecMapEntry;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct ModuleEntityTree {
+pub struct EntityTreeModuleSheet {
     module_path: ModulePath,
     module_symbols: VecMap<EntitySymbol>,
     impl_blocks: ImplBlockIdxRange,
 }
 
-impl vec_like::AsVecMapEntry for ModuleEntityTree {
+impl vec_like::AsVecMapEntry for EntityTreeModuleSheet {
     type K = ModulePath;
 
     fn key(&self) -> Self::K
@@ -28,7 +28,7 @@ impl vec_like::AsVecMapEntry for ModuleEntityTree {
     }
 }
 
-impl ModuleEntityTree {
+impl EntityTreeModuleSheet {
     pub(crate) fn new(
         module_path: ModulePath,
         module_symbols: VecMap<EntitySymbol>,
@@ -90,12 +90,12 @@ impl ModuleEntityTree {
     }
 }
 
-pub(crate) fn entity_tree_sheet(
+pub(crate) fn module_entity_tree(
     db: &dyn EntityTreeDb,
     module_path: ModulePath,
-) -> EntityTreeResult<&ModuleEntityTree> {
+) -> EntityTreeResult<&EntityTreeModuleSheet> {
     let crate_path = module_path.crate_path(db);
-    let entity_tree_bundle = entity_tree_bundle(db, crate_path)
+    let entity_tree_bundle = entity_tree_crate_bundle(db, crate_path)
         .as_ref()
         .map_err(|e| e.clone())?;
     entity_tree_bundle
@@ -103,7 +103,7 @@ pub(crate) fn entity_tree_sheet(
         .ok_or_else(|| EntityTreeError::InvalidModulePath(module_path))
 }
 
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for ModuleEntityTree {
+impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreeModuleSheet {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,

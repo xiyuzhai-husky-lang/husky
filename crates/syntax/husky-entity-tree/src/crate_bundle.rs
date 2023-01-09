@@ -3,14 +3,14 @@ use thiserror::Error;
 use vec_like::{VecMap, VecPairMap};
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
-pub enum EntityTreeBundleError {
+pub enum EntityTreeCrateBundleError {
     #[error("from toolchain error")]
     Toolchain(#[from] ToolchainError),
     #[error("from prelude error")]
     Prelude(#[from] PreludeError),
 }
 
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreeBundleError {
+impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreeCrateBundleError {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -21,22 +21,22 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreeBundleError
     }
 }
 
-pub type EntityTreeBundleResult<T> = Result<T, EntityTreeBundleError>;
+pub type EntityTreeCrateBundleResult<T> = Result<T, EntityTreeCrateBundleError>;
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn entity_tree_bundle(
+pub(crate) fn entity_tree_crate_bundle(
     db: &dyn EntityTreeDb,
     crate_path: CratePath,
-) -> EntityTreeBundleResult<CrateEntityTree> {
+) -> EntityTreeCrateBundleResult<EntityTreeCrateBundle> {
     Ok(EntityTreeCollector::new(db, crate_path)?.collect_all())
 }
 
 #[test]
-fn entity_tree_bundle_works() {
+fn entity_tree_crate_bundle_works() {
     DB::expect_test_crates_debug_result_with_db(
         "entity_tree_bundle",
-        |db, crate_path| -> EntityTreeBundleResult<_> {
-            Ok(entity_tree_bundle(db, crate_path)
+        |db, crate_path| -> EntityTreeCrateBundleResult<_> {
+            Ok(entity_tree_crate_bundle(db, crate_path)
                 .as_ref()
                 .map_err(|e| e.clone())?)
         },
@@ -44,35 +44,50 @@ fn entity_tree_bundle_works() {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct CrateEntityTree {
-    sheets: VecMap<ModuleEntityTree>,
+pub struct EntityTreeCrateBundle {
+    sheets: VecMap<EntityTreeModuleSheet>,
     principal_entity_path_expr_arena: PrincipalEntityPathExprArena,
     impl_block_arena: ImplBlockArena,
+    associated_item_arena: AssociatedItemArena,
 }
 
-impl CrateEntityTree {
+impl EntityTreeCrateBundle {
     pub(crate) fn new(
-        sheets: VecMap<ModuleEntityTree>,
+        sheets: VecMap<EntityTreeModuleSheet>,
         principal_entity_path_expr_arena: PrincipalEntityPathExprArena,
         impl_block_arena: ImplBlockArena,
+        associated_item_arena: AssociatedItemArena,
     ) -> Self {
         Self {
             sheets,
             principal_entity_path_expr_arena,
             impl_block_arena,
+            associated_item_arena,
         }
     }
 
-    pub fn sheets(&self) -> &[ModuleEntityTree] {
+    pub fn sheets(&self) -> &[EntityTreeModuleSheet] {
         &self.sheets
     }
 
-    pub(crate) fn get_sheet(&self, module_path: ModulePath) -> Option<&ModuleEntityTree> {
+    pub(crate) fn get_sheet(&self, module_path: ModulePath) -> Option<&EntityTreeModuleSheet> {
         self.sheets.get_entry(module_path)
+    }
+
+    pub fn impl_block_indexed_iter<'a>(
+        &'a self,
+    ) -> impl Iterator<Item = (ImplBlockIdx, &'a ImplBlock)> + 'a {
+        self.impl_block_arena.indexed_iter()
+    }
+
+    pub fn associated_item_indexed_iter<'a>(
+        &'a self,
+    ) -> impl Iterator<Item = (AssociatedItemIdx, &'a AssociatedItem)> + 'a {
+        self.associated_item_arena.indexed_iter()
     }
 }
 
-impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for CrateEntityTree {
+impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntityTreeCrateBundle {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -85,7 +100,7 @@ impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for CrateEntityTree {
     }
 }
 
-impl<Db: EntityTreeDb> salsa::DebugWithDb<Db> for CrateEntityTree {
+impl<Db: EntityTreeDb> salsa::DebugWithDb<Db> for EntityTreeCrateBundle {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
