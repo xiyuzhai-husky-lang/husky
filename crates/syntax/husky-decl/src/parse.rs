@@ -13,7 +13,7 @@ use parsec::{parse_separated_list, ParseContext, ParseFrom};
 use salsa::DebugWithDb;
 use vec_like::VecPairMap;
 
-pub(crate) fn module_item_decl(db: &dyn DeclDb, path: ModuleItemPath) -> EntityTreeResult<Decl> {
+pub(crate) fn module_item_decl(db: &dyn DeclDb, path: ModuleItemPath) -> DeclResult<Decl> {
     Ok(match path {
         ModuleItemPath::Type(path) => type_decl(db, path)?.into(),
         ModuleItemPath::Trait(path) => trait_decl(db, path)?.into(),
@@ -22,17 +22,18 @@ pub(crate) fn module_item_decl(db: &dyn DeclDb, path: ModuleItemPath) -> EntityT
 }
 
 #[salsa::tracked(jar = DeclJar)]
-pub(crate) fn type_decl(db: &dyn DeclDb, path: TypePath) -> EntityTreeResult<TypeDecl> {
+pub(crate) fn type_decl(db: &dyn DeclDb, path: TypePath) -> DeclResult<TypeDecl> {
+    let parser = DeclParser::new(db, path.module_path(db))?;
+    parser.parse_ty_decl(path)
+}
+
+#[salsa::tracked(jar = DeclJar)]
+pub(crate) fn form_decl(db: &dyn DeclDb, path: FormPath) -> DeclResult<FormDecl> {
     todo!()
 }
 
 #[salsa::tracked(jar = DeclJar)]
-pub(crate) fn form_decl(db: &dyn DeclDb, path: FormPath) -> EntityTreeResult<FormDecl> {
-    todo!()
-}
-
-#[salsa::tracked(jar = DeclJar)]
-pub(crate) fn trait_decl(db: &dyn DeclDb, path: TraitPath) -> EntityTreeResult<TraitDecl> {
+pub(crate) fn trait_decl(db: &dyn DeclDb, path: TraitPath) -> DeclResult<TraitDecl> {
     todo!()
 }
 
@@ -56,64 +57,87 @@ impl<'a> DeclParser<'a> {
         })
     }
 
-    fn parse_decl(&self, ast_idx: AstIdx, entity_path: EntityPath) -> DeclResult<Decl> {
+    // fn parse_decl(&self, ast_idx: AstIdx, entity_path: EntityPath) -> DeclResult<Decl> {
+    //     match self.ast_sheet[ast_idx] {
+    //         Ast::Defn {
+    //             token_group_idx,
+    //             ref body,
+    //             accessibility,
+    //             entity_kind,
+    //             is_generic,
+    //             body_kind,
+    //             saved_stream_state,
+    //             ..
+    //         } => match entity_path {
+    //             EntityPath::Module(_) => todo!(),
+    //             EntityPath::ModuleItem(path) => match path {
+    //                 ModuleItemPath::Type(path) => self.parse_ty_decl_aux(
+    //                     ast_idx,
+    //                     path.type_kind(self.db),
+    //                     path,
+    //                     entity_kind,
+    //                     token_group_idx,
+    //                     body,
+    //                     saved_stream_state,
+    //                 ),
+    //                 ModuleItemPath::Trait(path) => self.parse_trai_decl(
+    //                     ast_idx,
+    //                     path,
+    //                     token_group_idx,
+    //                     body,
+    //                     saved_stream_state,
+    //                 ),
+    //                 ModuleItemPath::Form(path) => self.parse_form_decl(
+    //                     ast_idx,
+    //                     path,
+    //                     entity_kind,
+    //                     token_group_idx,
+    //                     body,
+    //                     saved_stream_state,
+    //                 ),
+    //             },
+    //             EntityPath::GenericParameter(_) => todo!(),
+    //             EntityPath::AssociatedItem(_) => todo!(),
+    //             EntityPath::Variant(_) => todo!(),
+    //         },
+    //         Ast::Impl { .. }
+    //         | Ast::Err { .. }
+    //         | Ast::Use { .. }
+    //         | Ast::Decor { .. }
+    //         | Ast::BasicStmtOrBranch { .. }
+    //         | Ast::IfElseStmts { .. }
+    //         | Ast::MatchStmts { .. }
+    //         | Ast::ModuleItemVariant { .. }
+    //         | Ast::Main { .. }
+    //         | Ast::Config { .. } => unreachable!(),
+    //     }
+    // }
+
+    fn parse_ty_decl(&self, path: TypePath) -> DeclResult<TypeDecl> {
+        let ast_idx: AstIdx = todo!();
         match self.ast_sheet[ast_idx] {
             Ast::Defn {
                 token_group_idx,
                 ref body,
                 accessibility,
                 entity_kind,
-                entity_path: _,
                 is_generic,
                 body_kind,
                 saved_stream_state,
                 ..
-            } => match entity_path {
-                EntityPath::Module(_) => todo!(),
-                EntityPath::ModuleItem(path) => match path {
-                    ModuleItemPath::Type(path) => self.parse_ty_decl(
-                        ast_idx,
-                        path.type_kind(self.db),
-                        path,
-                        entity_kind,
-                        token_group_idx,
-                        body,
-                        saved_stream_state,
-                    ),
-                    ModuleItemPath::Trait(path) => self.parse_trai_decl(
-                        ast_idx,
-                        path,
-                        token_group_idx,
-                        body,
-                        saved_stream_state,
-                    ),
-                    ModuleItemPath::Form(path) => self.parse_form_decl(
-                        ast_idx,
-                        path,
-                        entity_kind,
-                        token_group_idx,
-                        body,
-                        saved_stream_state,
-                    ),
-                },
-                EntityPath::GenericParameter(_) => todo!(),
-                EntityPath::AssociatedItem(_) => todo!(),
-                EntityPath::Variant(_) => todo!(),
-            },
-            Ast::Impl { .. }
-            | Ast::Err { .. }
-            | Ast::Use { .. }
-            | Ast::Decor { .. }
-            | Ast::BasicStmtOrBranch { .. }
-            | Ast::IfElseStmts { .. }
-            | Ast::MatchStmts { .. }
-            | Ast::ModuleItemVariant { .. }
-            | Ast::Main { .. }
-            | Ast::Config { .. } => unreachable!(),
+            } => self.parse_ty_decl_aux(
+                ast_idx,
+                path.type_kind(self.db),
+                path,
+                entity_kind,
+                token_group_idx,
+                body,
+                saved_stream_state,
+            ),
+            _ => unreachable!(),
         }
     }
-
-    fn parse_ty_decl(
+    fn parse_ty_decl_aux(
         &self,
         ast_idx: AstIdx,
         type_kind: TypeKind,
@@ -122,7 +146,7 @@ impl<'a> DeclParser<'a> {
         token_group_idx: TokenGroupIdx,
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
-    ) -> Result<Decl, DeclError> {
+    ) -> DeclResult<TypeDecl> {
         match type_kind {
             TypeKind::Enum => {
                 self.parse_enum_type_decl(ast_idx, path, token_group_idx, body, saved_stream_state)
@@ -166,16 +190,14 @@ impl<'a> DeclParser<'a> {
         token_group_idx: TokenGroupIdx,
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
-    ) -> DeclResult<Decl> {
+    ) -> DeclResult<TypeDecl> {
         let mut parser = self.module_item_decl_expr_parser(path.into());
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
         let implicit_parameters = ctx.parse()?;
-        Ok(Decl::Type(
-            EnumTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters).into(),
-        ))
+        Ok(EnumTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters).into())
     }
 
     fn parse_trai_decl(
@@ -208,17 +230,17 @@ impl<'a> DeclParser<'a> {
         token_group_idx: TokenGroupIdx,
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
-    ) -> DeclResult<Decl> {
+    ) -> DeclResult<TypeDecl> {
         let mut parser = self.module_item_decl_expr_parser(path.into());
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
         let implicit_parameters = ctx.parse()?;
-        Ok(Decl::Type(
+        Ok(
             InductiveTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters)
                 .into(),
-        ))
+        )
     }
 
     fn parse_struct_type_decl(
@@ -228,7 +250,7 @@ impl<'a> DeclParser<'a> {
         token_group_idx: TokenGroupIdx,
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
-    ) -> DeclResult<Decl> {
+    ) -> DeclResult<TypeDecl> {
         let mut parser = self.module_item_decl_expr_parser(path.into());
         let mut ctx = parser.ctx(
             self.token_sheet_data
@@ -238,20 +260,18 @@ impl<'a> DeclParser<'a> {
         if let Some(lcurl) = ctx.parse::<LeftCurlyBraceToken>()? {
             let (fields, separators) = parse_separated_list(&mut ctx)?;
             let rcurl: RightCurlyBraceToken = ctx.parse_expected()?;
-            Ok(Decl::Type(
-                PropsStructTypeDecl::new(
-                    self.db,
-                    path,
-                    ast_idx,
-                    parser.finish(),
-                    implicit_parameters,
-                    lcurl,
-                    fields,
-                    separators,
-                    rcurl,
-                )
-                .into(),
-            ))
+            Ok(PropsStructTypeDecl::new(
+                self.db,
+                path,
+                ast_idx,
+                parser.finish(),
+                implicit_parameters,
+                lcurl,
+                fields,
+                separators,
+                rcurl,
+            )
+            .into())
         } else if let Some(lbox) = ctx.parse::<LeftBoxBracketToken>()? {
             todo!()
         } else {
@@ -275,7 +295,7 @@ impl<'a> DeclParser<'a> {
         token_group_idx: TokenGroupIdx,
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
-    ) -> DeclResult<Decl> {
+    ) -> DeclResult<TypeDecl> {
         let mut token_iter = self
             .token_sheet_data
             .token_group_token_stream(token_group_idx, Some(saved_stream_state));
@@ -286,10 +306,10 @@ impl<'a> DeclParser<'a> {
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
         let implicit_parameters = ctx.parse()?;
-        Ok(Decl::Type(
+        Ok(
             StructureTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters)
                 .into(),
-        ))
+        )
     }
 
     // get declaration from tokens
@@ -300,7 +320,7 @@ impl<'a> DeclParser<'a> {
         token_group_idx: TokenGroupIdx,
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
-    ) -> DeclResult<Decl> {
+    ) -> DeclResult<TypeDecl> {
         let mut token_iter = self
             .token_sheet_data
             .token_group_token_stream(token_group_idx, Some(saved_stream_state));
@@ -311,9 +331,7 @@ impl<'a> DeclParser<'a> {
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
         let implicit_parameters = ctx.parse()?;
-        Ok(Decl::Type(
-            AlienTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters).into(),
-        ))
+        Ok(AlienTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters).into())
     }
 
     fn parse_form_decl(
