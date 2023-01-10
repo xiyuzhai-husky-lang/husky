@@ -54,14 +54,26 @@ impl From<TypeAssociatedFunctionDefn> for TypeItemDefn {
 
 impl TypeItemDefn {
     pub fn decl(self, db: &dyn DefnDb) -> TypeItemDecl {
-        todo!()
+        match self {
+            TypeItemDefn::Function(defn) => defn.decl(db).into(),
+            TypeItemDefn::Method(defn) => defn.decl(db).into(),
+            TypeItemDefn::AlienType(defn) => defn.decl(db).into(),
+            TypeItemDefn::Value(defn) => defn.decl(db).into(),
+            TypeItemDefn::Memo(defn) => defn.decl(db).into(),
+        }
     }
 
     pub fn path(self, db: &dyn DefnDb) -> AssociatedItemPath {
         todo!()
     }
-    pub fn expr_sheet(self, db: &dyn DefnDb) -> ExprSheet {
-        todo!()
+    pub fn expr_sheet(self, db: &dyn DefnDb) -> Option<ExprSheet> {
+        match self {
+            TypeItemDefn::Function(defn) => defn.expr_sheet(db).into(),
+            TypeItemDefn::Method(defn) => defn.expr_sheet(db).into(),
+            TypeItemDefn::AlienType(defn) => defn.expr_sheet(db).into(),
+            TypeItemDefn::Value(defn) => defn.expr_sheet(db).into(),
+            TypeItemDefn::Memo(defn) => defn.expr_sheet(db).into(),
+        }
     }
 }
 

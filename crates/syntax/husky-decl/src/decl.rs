@@ -76,7 +76,7 @@ impl Decl {
             Decl::Form(decl) => Some(decl.path(db).into()),
             Decl::Trait(decl) => Some(decl.path(db).into()),
             Decl::ImplBlock(decl) => None,
-            Decl::AssociatedItem(decl) => Some(decl.path(db).into()),
+            Decl::AssociatedItem(decl) => decl.path(db).map(|path| path.into()),
             Decl::Variant(decl) => todo!(),
         }
     }

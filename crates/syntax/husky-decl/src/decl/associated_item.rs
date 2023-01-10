@@ -63,7 +63,7 @@ impl AssociatedItemDecl {
         match self {
             AssociatedItemDecl::TypeItem(decl) => decl.ast_idx(db),
             AssociatedItemDecl::TraitItem(decl) => decl.ast_idx(db),
-            AssociatedItemDecl::TypeAsTraitItem(_) => todo!(),
+            AssociatedItemDecl::TypeAsTraitItem(decl) => decl.ast_idx(db),
         }
     }
 
@@ -79,15 +79,15 @@ impl AssociatedItemDecl {
         match self {
             AssociatedItemDecl::TypeItem(decl) => decl.expr_sheet(db),
             AssociatedItemDecl::TraitItem(decl) => decl.expr_sheet(db),
-            AssociatedItemDecl::TypeAsTraitItem(_) => todo!(),
+            AssociatedItemDecl::TypeAsTraitItem(decl) => decl.expr_sheet(db),
         }
     }
 
-    pub fn path(self, db: &dyn DeclDb) -> AssociatedItemPath {
+    pub fn path(self, db: &dyn DeclDb) -> Option<AssociatedItemPath> {
         match self {
-            AssociatedItemDecl::TypeItem(decl) => decl.path(db).into(),
-            AssociatedItemDecl::TraitItem(decl) => decl.path(db).into(),
-            AssociatedItemDecl::TypeAsTraitItem(_) => todo!(),
+            AssociatedItemDecl::TypeItem(decl) => decl.path(db).map(|path| path.into()),
+            AssociatedItemDecl::TraitItem(decl) => Some(decl.path(db).into()),
+            AssociatedItemDecl::TypeAsTraitItem(decl) => decl.path(db).map(|path| path.into()),
         }
     }
 }

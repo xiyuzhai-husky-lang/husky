@@ -47,7 +47,7 @@ impl<'a> InferEngine<'a> {
                 } => {
                     self.sheet.add(
                         ident_token.token_idx(),
-                        TokenInfo::Entity(decl.path(self.db).unwrap()),
+                        TokenInfo::Entity(decl.path(self.db), Some(entity_kind)),
                     );
                     if is_generic {
                         for implicit_parameter in defn.implicit_parameters(self.db) {
@@ -65,7 +65,7 @@ impl<'a> InferEngine<'a> {
                 Defn::Type(defn) => self.visit_ty(defn),
                 Defn::Trait(defn) => self.visit_trai(defn),
                 Defn::Form(defn) => self.visit_form(defn),
-                Defn::AssociatedItem(_) => todo!(),
+                Defn::AssociatedItem(defn) => self.visit_associated_item(defn),
                 Defn::Variant(_) => todo!(),
                 Defn::ImplBlock(_) => (),
             }
@@ -154,6 +154,26 @@ impl<'a> InferEngine<'a> {
 
     fn visit_value(&mut self, defn: ValueDefn) {
         let decl = defn.decl(self.db);
+        // todo!()
+    }
+
+    fn visit_associated_item(&mut self, defn: AssociatedItemDefn) {
+        match defn {
+            AssociatedItemDefn::TypeItem(defn) => self.visit_ty_item(defn),
+            AssociatedItemDefn::TraitItem(defn) => self.visit_trai_item(defn),
+            AssociatedItemDefn::TypeAsTraitItem(defn) => self.visit_ty_as_trai_item(defn),
+        }
+    }
+
+    fn visit_ty_item(&self, defn: TypeItemDefn) {
+        // todo!()
+    }
+
+    fn visit_trai_item(&self, defn: TraitItemDefn) {
+        // todo!()
+    }
+
+    fn visit_ty_as_trai_item(&self, defn: TypeAsTraitItemDefn) {
         // todo!()
     }
 }
@@ -261,14 +281,17 @@ impl<'a> AuxInferEngine<'a> {
                 entity_path,
                 token_idx,
                 ..
-            } => self.sheet.add(*token_idx, TokenInfo::Entity(*entity_path)),
+            } => self
+                .sheet
+                .add(*token_idx, TokenInfo::Entity(Some(*entity_path), None)),
             EntityPathExpr::Subentity {
                 entity_path: Ok(entity_path),
                 ident_token: Ok(ident_token),
                 ..
-            } => self
-                .sheet
-                .add(ident_token.token_idx(), TokenInfo::Entity(*entity_path)),
+            } => self.sheet.add(
+                ident_token.token_idx(),
+                TokenInfo::Entity(Some(*entity_path), None),
+            ),
             EntityPathExpr::Subentity { .. } => (),
         }
     }

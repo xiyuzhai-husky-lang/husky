@@ -36,7 +36,15 @@ fn token_to_semantic_token(
             Token::Literal(_) => SemanticToken::Literal,
             Token::Err(_) => return None,
         },
-        TokenInfo::Entity(path) => SemanticToken::Entity(path.entity_kind(db)),
+        TokenInfo::Entity(path, kind) => {
+            if let Some(path) = path {
+                SemanticToken::Entity(path.entity_kind(db))
+            } else if let Some(kind) = kind {
+                SemanticToken::Entity(*kind)
+            } else {
+                return None;
+            }
+        }
         TokenInfo::ImplicitParameter => SemanticToken::ImplicitParameter,
         TokenInfo::Parameter => SemanticToken::Parameter,
         TokenInfo::LocalSymbol {

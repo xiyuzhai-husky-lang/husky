@@ -64,17 +64,17 @@ impl TypeAsTraitItemDecl {
 
     pub fn expr_sheet(self, db: &dyn DeclDb) -> ExprSheet {
         match self {
-            TypeAsTraitItemDecl::Function(_) => todo!(),
-            TypeAsTraitItemDecl::Method(_) => todo!(),
-            TypeAsTraitItemDecl::AlienType(_) => todo!(),
-            TypeAsTraitItemDecl::Value(_) => todo!(),
+            TypeAsTraitItemDecl::Function(decl) => decl.expr_sheet(db),
+            TypeAsTraitItemDecl::Method(decl) => decl.expr_sheet(db),
+            TypeAsTraitItemDecl::AlienType(decl) => decl.expr_sheet(db),
+            TypeAsTraitItemDecl::Value(decl) => decl.expr_sheet(db),
         }
     }
 
-    pub fn path(self, db: &dyn DeclDb) -> TraitItemPath {
+    pub fn path(self, db: &dyn DeclDb) -> Option<TypeAsTraitItemPath> {
         match self {
             TypeAsTraitItemDecl::Function(_) => todo!(),
-            TypeAsTraitItemDecl::Method(_) => todo!(),
+            TypeAsTraitItemDecl::Method(decl) => decl.path(db),
             TypeAsTraitItemDecl::AlienType(_) => todo!(),
             TypeAsTraitItemDecl::Value(_) => todo!(),
         }

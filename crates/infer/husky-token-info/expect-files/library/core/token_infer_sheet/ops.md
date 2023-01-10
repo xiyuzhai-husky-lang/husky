@@ -11,14 +11,22 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem(
-                    Trait(
-                        TraitPath(
-                            Id {
-                                value: 1,
-                            },
+                Some(
+                    ModuleItem(
+                        Trait(
+                            TraitPath(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
                         ),
                     ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Trait,
+                        connection: Connected,
+                    },
                 ),
             ),
             None,

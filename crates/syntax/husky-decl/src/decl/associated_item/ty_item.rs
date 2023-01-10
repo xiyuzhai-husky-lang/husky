@@ -75,21 +75,21 @@ impl TypeItemDecl {
 
     pub fn expr_sheet(self, db: &dyn DeclDb) -> ExprSheet {
         match self {
-            TypeItemDecl::Function(_) => todo!(),
-            TypeItemDecl::Method(_) => todo!(),
-            TypeItemDecl::AlienType(_) => todo!(),
-            TypeItemDecl::Value(_) => todo!(),
-            TypeItemDecl::Memo(_) => todo!(),
+            TypeItemDecl::Function(defn) => defn.expr_sheet(db),
+            TypeItemDecl::Method(defn) => defn.expr_sheet(db),
+            TypeItemDecl::AlienType(defn) => defn.expr_sheet(db),
+            TypeItemDecl::Value(defn) => defn.expr_sheet(db),
+            TypeItemDecl::Memo(defn) => defn.expr_sheet(db),
         }
     }
 
-    pub fn path(self, db: &dyn DeclDb) -> TypeItemPath {
+    pub fn path(self, db: &dyn DeclDb) -> Option<TypeItemPath> {
         match self {
             TypeItemDecl::Function(_) => todo!(),
-            TypeItemDecl::Method(_) => todo!(),
+            TypeItemDecl::Method(defn) => defn.path(db),
             TypeItemDecl::AlienType(_) => todo!(),
             TypeItemDecl::Value(_) => todo!(),
-            TypeItemDecl::Memo(_) => todo!(),
+            TypeItemDecl::Memo(defn) => defn.path(db),
         }
     }
 }

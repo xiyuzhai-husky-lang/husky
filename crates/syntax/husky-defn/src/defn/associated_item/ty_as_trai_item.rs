@@ -45,14 +45,24 @@ impl From<TypeAsTraitAssociatedFunctionDefn> for TypeAsTraitItemDefn {
 
 impl TypeAsTraitItemDefn {
     pub fn decl(self, db: &dyn DefnDb) -> TypeAsTraitItemDecl {
-        todo!()
+        match self {
+            TypeAsTraitItemDefn::Function(defn) => defn.decl(db).into(),
+            TypeAsTraitItemDefn::Method(defn) => defn.decl(db).into(),
+            TypeAsTraitItemDefn::AlienType(defn) => defn.decl(db).into(),
+            TypeAsTraitItemDefn::Value(defn) => defn.decl(db).into(),
+        }
     }
 
     pub fn path(self, db: &dyn DefnDb) -> TypeAsTraitItemPath {
         todo!()
     }
     pub fn expr_sheet(self, db: &dyn DefnDb) -> ExprSheet {
-        todo!()
+        match self {
+            TypeAsTraitItemDefn::Function(defn) => defn.expr_sheet(db),
+            TypeAsTraitItemDefn::Method(defn) => defn.expr_sheet(db),
+            TypeAsTraitItemDefn::AlienType(defn) => defn.expr_sheet(db),
+            TypeAsTraitItemDefn::Value(defn) => defn.expr_sheet(db),
+        }
     }
 }
 
