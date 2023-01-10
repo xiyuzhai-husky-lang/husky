@@ -1,5 +1,26 @@
 Ok(
     DefnSheet {
-        defns: [],
+        defns: [
+            ImplBlock(
+                TypeImplBlock(
+                    TypeImplBlockDecl,
+                ),
+            ),
+            ImplBlock(
+                TypeImplBlock(
+                    TypeImplBlockDecl,
+                ),
+            ),
+            ImplBlock(
+                TypeImplBlock(
+                    TypeImplBlockDecl,
+                ),
+            ),
+            ImplBlock(
+                TypeImplBlock(
+                    TypeImplBlockDecl,
+                ),
+            ),
+        ],
     },
 )

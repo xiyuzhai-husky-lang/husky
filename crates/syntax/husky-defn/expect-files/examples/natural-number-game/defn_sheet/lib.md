@@ -22,6 +22,11 @@ Ok(
                     },
                 ),
             ),
+            ImplBlock(
+                TypeImplBlock(
+                    TypeImplBlockDecl,
+                ),
+            ),
         ],
     },
 )

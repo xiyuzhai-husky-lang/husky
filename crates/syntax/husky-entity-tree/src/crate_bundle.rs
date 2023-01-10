@@ -47,7 +47,7 @@ fn entity_tree_crate_bundle_works() {
 pub struct EntityTreeCrateBundle {
     sheets: VecMap<EntityTreeModuleSheet>,
     principal_entity_path_expr_arena: PrincipalPathExprArena,
-    impl_block_arena: ImplBlockArena,
+    impl_blocks: Vec<ImplBlock>,
     associated_item_arena: AssociatedItemArena,
 }
 
@@ -55,13 +55,13 @@ impl EntityTreeCrateBundle {
     pub(crate) fn new(
         sheets: VecMap<EntityTreeModuleSheet>,
         principal_entity_path_expr_arena: PrincipalPathExprArena,
-        impl_block_arena: ImplBlockArena,
+        impl_blocks: Vec<ImplBlock>,
         associated_item_arena: AssociatedItemArena,
     ) -> Self {
         Self {
             sheets,
             principal_entity_path_expr_arena,
-            impl_block_arena,
+            impl_blocks,
             associated_item_arena,
         }
     }
@@ -74,10 +74,8 @@ impl EntityTreeCrateBundle {
         self.sheets.get_entry(module_path)
     }
 
-    pub fn impl_block_indexed_iter<'a>(
-        &'a self,
-    ) -> impl Iterator<Item = (ImplBlockIdx, &'a ImplBlock)> + 'a {
-        self.impl_block_arena.indexed_iter()
+    pub fn impl_block_iter<'a>(&'a self) -> impl Iterator<Item = ImplBlock> + 'a {
+        self.impl_blocks.iter().map(|v| *v)
     }
 
     pub fn associated_item_indexed_iter<'a>(
@@ -116,13 +114,5 @@ impl std::ops::Index<AssociatedItemIdx> for EntityTreeCrateBundle {
 
     fn index(&self, index: AssociatedItemIdx) -> &Self::Output {
         &self.associated_item_arena[index]
-    }
-}
-
-impl std::ops::Index<ImplBlockIdx> for EntityTreeCrateBundle {
-    type Output = ImplBlock;
-
-    fn index(&self, index: ImplBlockIdx) -> &Self::Output {
-        &self.impl_block_arena[index]
     }
 }

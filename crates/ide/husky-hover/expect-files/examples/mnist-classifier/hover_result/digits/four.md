@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 162;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 401,\n            },\n        ),\n    ),\n);\n\ntoken_info = LocalSymbol {\n    local_symbol_idx: 1,\n    local_symbol_kind: LetVariable {\n        pattern_symbol: 4,\n    },\n    expr_sheet: ExprSheet(\n        Id {\n            value: 46,\n        },\n    ),\n};\n\nLocalSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 401,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        163,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                304,\n            ),\n        ),\n    ),\n    kind: LetVariable {\n        pattern_symbol: 4,\n    },\n}\n",
+                                value: "\ntoken_idx = 162;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 401,\n            },\n        ),\n    ),\n);\n\ntoken_info = LocalSymbol {\n    local_symbol_idx: 1,\n    local_symbol_kind: LetVariable {\n        pattern_symbol: 4,\n    },\n    expr_sheet: ExprSheet(\n        Id {\n            value: 51,\n        },\n    ),\n};\n\nLocalSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 401,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        163,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                304,\n            ),\n        ),\n    ),\n    kind: LetVariable {\n        pattern_symbol: 4,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -610,7 +610,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 360;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 164,\n            },\n        ),\n    ),\n);\n\ntoken_info = InheritedSymbol {\n    inherited_symbol_idx: 0,\n    inherited_symbol_kind: Parameter {\n        original_local_symbol_idx: 0,\n    },\n    expr_sheet: ExprSheet(\n        Id {\n            value: 48,\n        },\n    ),\n};\n\nInheritedSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 164,\n            },\n        ),\n    ),\n    kind: Parameter {\n        original_local_symbol_idx: 0,\n    },\n}\n",
+                                value: "\ntoken_idx = 360;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 164,\n            },\n        ),\n    ),\n);\n\ntoken_info = InheritedSymbol {\n    inherited_symbol_idx: 0,\n    inherited_symbol_kind: Parameter {\n        original_local_symbol_idx: 0,\n    },\n    expr_sheet: ExprSheet(\n        Id {\n            value: 53,\n        },\n    ),\n};\n\nInheritedSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 164,\n            },\n        ),\n    ),\n    kind: Parameter {\n        original_local_symbol_idx: 0,\n    },\n}\n",
                             },
                         ),
                         range: Some(

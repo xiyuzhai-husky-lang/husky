@@ -13,7 +13,7 @@ pub(crate) fn parse_expr_from_snippet(
         .token_group_token_stream(token_sheet_data.token_group_iter().next().unwrap().0, None);
     let mut expr_parser = ExprParser::new(
         db,
-        None,
+        ExprPath::None,
         token_sheet_data,
         SymbolContextMut::new(ModuleSymbolContext::new_default(db, crate_path)?, None),
     );

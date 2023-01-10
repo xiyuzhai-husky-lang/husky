@@ -1,10 +1,11 @@
 use crate::*;
-use husky_entity_tree::{EntityTreeDb, EntityTreeResult};
-use husky_vfs::{ModulePath, VfsResult};
+use husky_entity_tree::{EntityTreeDb, EntityTreeResult, ImplBlock};
+use husky_vfs::{CratePath, ModulePath, VfsResult};
 use salsa::DbWithJar;
 
 pub trait DeclDb: DbWithJar<DeclJar> + ExprDb {
     fn module_item_decl(&self, path: ModuleItemPath) -> DeclResult<Decl>;
+    fn impl_block_decl(&self, impl_block: ImplBlock) -> DeclResult<ImplBlockDecl>;
     fn module_decl_sheet(&self, path: ModulePath) -> EntityTreeResult<&DeclSheet>;
 }
 
@@ -19,5 +20,9 @@ where
         Ok(module_decl_sheet(self, path)
             .as_ref()
             .map_err(|e| e.clone())?)
+    }
+
+    fn impl_block_decl(&self, impl_block: ImplBlock) -> DeclResult<ImplBlockDecl> {
+        impl_block_decl(self, impl_block)
     }
 }

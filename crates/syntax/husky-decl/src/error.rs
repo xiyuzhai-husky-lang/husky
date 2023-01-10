@@ -18,6 +18,8 @@ pub enum DeclError {
     Vfs(#[from] VfsError),
     #[error("derived {0}")]
     Expr(#[from] ExprError),
+    #[error("impl block error")]
+    ImplBlockErr,
 }
 
 pub type DeclResult<T> = Result<T, DeclError>;

@@ -38,12 +38,9 @@ pub(crate) fn trait_decl(db: &dyn DeclDb, path: TraitPath) -> DeclResult<TraitDe
 }
 
 #[salsa::tracked(jar = DeclJar)]
-pub(crate) fn impl_block_decl(
-    db: &dyn DeclDb,
-    crate_path: CratePath,
-    impl_block_idx: ImplBlockIdx,
-) -> DeclResult<ImplBlockDecl> {
-    todo!()
+pub(crate) fn impl_block_decl(db: &dyn DeclDb, impl_block: ImplBlock) -> DeclResult<ImplBlockDecl> {
+    let parser = DeclParser::new(db, impl_block.module_path(db))?;
+    parser.parse_impl_block_decl(impl_block)
 }
 
 pub(crate) struct DeclParser<'a> {
@@ -155,7 +152,7 @@ impl<'a> DeclParser<'a> {
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeDecl> {
-        let mut parser = self.module_item_decl_expr_parser(path.into());
+        let mut parser = self.expr_parser(DeclExprPath::Entity(path.into()));
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
@@ -197,7 +194,7 @@ impl<'a> DeclParser<'a> {
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TraitDecl> {
-        let mut parser = self.module_item_decl_expr_parser(path.into());
+        let mut parser = self.expr_parser(DeclExprPath::Entity(path.into()));
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
@@ -220,7 +217,7 @@ impl<'a> DeclParser<'a> {
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeDecl> {
-        let mut parser = self.module_item_decl_expr_parser(path.into());
+        let mut parser = self.expr_parser(DeclExprPath::Entity(path.into()));
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
@@ -240,7 +237,7 @@ impl<'a> DeclParser<'a> {
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeDecl> {
-        let mut parser = self.module_item_decl_expr_parser(path.into());
+        let mut parser = self.expr_parser(DeclExprPath::Entity(path.into()));
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
@@ -268,10 +265,10 @@ impl<'a> DeclParser<'a> {
         }
     }
 
-    fn module_item_decl_expr_parser(&self, entity_path: EntityPath) -> ExprParser<'a> {
+    fn expr_parser(&self, expr_path: DeclExprPath) -> ExprParser<'a> {
         ExprParser::new(
             self.db,
-            Some(entity_path),
+            expr_path.into(),
             self.token_sheet_data,
             SymbolContextMut::new(self.module_symbol_context, None),
         )
@@ -289,7 +286,7 @@ impl<'a> DeclParser<'a> {
             .token_sheet_data
             .token_group_token_stream(token_group_idx, Some(saved_stream_state));
 
-        let mut parser = self.module_item_decl_expr_parser(path.into());
+        let mut parser = self.expr_parser(DeclExprPath::Entity(path.into()));
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
@@ -314,7 +311,7 @@ impl<'a> DeclParser<'a> {
             .token_sheet_data
             .token_group_token_stream(token_group_idx, Some(saved_stream_state));
 
-        let mut parser = self.module_item_decl_expr_parser(path.into());
+        let mut parser = self.expr_parser(DeclExprPath::Entity(path.into()));
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
@@ -383,7 +380,7 @@ impl<'a> DeclParser<'a> {
         saved_stream_state: TokenIdx,
         path: FormPath,
     ) -> Result<FormDecl, DeclError> {
-        let mut parser = self.module_item_decl_expr_parser(path.into());
+        let mut parser = self.expr_parser(DeclExprPath::Entity(path.into()));
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
@@ -398,7 +395,7 @@ impl<'a> DeclParser<'a> {
         saved_stream_state: TokenIdx,
         path: FormPath,
     ) -> Result<FormDecl, DeclError> {
-        let mut parser = self.module_item_decl_expr_parser(path.into());
+        let mut parser = self.expr_parser(DeclExprPath::Entity(path.into()));
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
@@ -416,5 +413,43 @@ impl<'a> DeclParser<'a> {
             parameter_decl_list,
         )
         .into())
+    }
+
+    fn parse_impl_block_decl(&self, impl_block: ImplBlock) -> DeclResult<ImplBlockDecl> {
+        let ast_idx = impl_block.ast_idx(self.db);
+        match self.ast_sheet[ast_idx] {
+            Ast::Impl {
+                token_group_idx,
+                body,
+            } => match impl_block.kind(self.db) {
+                ImplBlockKind::Type { ty } => Ok(self
+                    .parse_ty_impl_block_decl(ast_idx, impl_block, token_group_idx)?
+                    .into()),
+                ImplBlockKind::TypeAsTrait { ty, trai } => todo!(),
+                ImplBlockKind::Err => Err(DeclError::ImplBlockErr),
+            },
+            _ => unreachable!(),
+        }
+    }
+
+    fn parse_ty_impl_block_decl(
+        &self,
+        ast_idx: AstIdx,
+        impl_block: ImplBlock,
+        token_group_idx: TokenGroupIdx,
+    ) -> DeclResult<TypeImplBlockDecl> {
+        let mut parser = self.expr_parser(DeclExprPath::ImplBlock(impl_block));
+        let mut ctx = parser.ctx(
+            self.token_sheet_data
+                .token_group_token_stream(token_group_idx, None),
+        );
+        let impl_token = ctx.parse().unwrap().unwrap();
+        Ok(TypeImplBlockDecl::new(
+            self.db,
+            ast_idx,
+            impl_block,
+            impl_token,
+            parser.finish(),
+        ))
     }
 }

@@ -326,7 +326,7 @@ where
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct ImplToken {
     token_idx: TokenIdx,
 }

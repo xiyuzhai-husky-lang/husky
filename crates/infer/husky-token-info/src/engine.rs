@@ -58,7 +58,7 @@ impl<'a> InferEngine<'a> {
                         }
                     }
                 }
-                Ast::Impl { .. } => todo!(),
+                Ast::Impl { .. } => (),
                 _ => unreachable!(),
             }
             match defn {
@@ -68,6 +68,7 @@ impl<'a> InferEngine<'a> {
                 Defn::TypeItem(_) => todo!(),
                 Defn::TraitItem(_) => todo!(),
                 Defn::Variant(_) => todo!(),
+                Defn::ImplBlock(_) => (),
             }
         }
         self.sheet
