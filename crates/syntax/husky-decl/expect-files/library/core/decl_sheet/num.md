@@ -44,8 +44,36 @@ Ok(
                     ),
                 ),
             ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Method(
+                            TypeMethodDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 1,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
             Err(
                 ImplBlockErr,
+            ),
+            Ok(
+                AssociatedItem(
+                    TypeAsTraitItem(
+                        Method(
+                            TypeAsTraitMethodDecl {
+                                path: None,
+                            },
+                        ),
+                    ),
+                ),
             ),
             Ok(
                 ImplBlock(
@@ -54,8 +82,36 @@ Ok(
                     ),
                 ),
             ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Method(
+                            TypeMethodDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 2,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
             Err(
                 ImplBlockErr,
+            ),
+            Ok(
+                AssociatedItem(
+                    TypeAsTraitItem(
+                        Method(
+                            TypeAsTraitMethodDecl {
+                                path: None,
+                            },
+                        ),
+                    ),
+                ),
             ),
             Ok(
                 ImplBlock(
@@ -64,8 +120,36 @@ Ok(
                     ),
                 ),
             ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Method(
+                            TypeMethodDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
             Err(
                 ImplBlockErr,
+            ),
+            Ok(
+                AssociatedItem(
+                    TypeAsTraitItem(
+                        Method(
+                            TypeAsTraitMethodDecl {
+                                path: None,
+                            },
+                        ),
+                    ),
+                ),
             ),
             Ok(
                 ImplBlock(
@@ -74,8 +158,36 @@ Ok(
                     ),
                 ),
             ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Method(
+                            TypeMethodDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 4,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
             Err(
                 ImplBlockErr,
+            ),
+            Ok(
+                AssociatedItem(
+                    TypeAsTraitItem(
+                        Method(
+                            TypeAsTraitMethodDecl {
+                                path: None,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ],
     },

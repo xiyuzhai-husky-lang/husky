@@ -34,9 +34,28 @@ Ok(
                     TypeImplBlockDecl,
                 ),
             ),
-            ImplBlock(
-                TypeImplBlock(
-                    TypeImplBlockDecl,
+            AssociatedItem(
+                TypeItem(
+                    Method(
+                        TypeMethodDefn {
+                            path: Some(
+                                TypeItemPath(
+                                    Id {
+                                        value: 1,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+            AssociatedItem(
+                TypeAsTraitItem(
+                    Method(
+                        TypeAsTraitMethodDefn {
+                            path: None,
+                        },
+                    ),
                 ),
             ),
             ImplBlock(
@@ -44,9 +63,86 @@ Ok(
                     TypeImplBlockDecl,
                 ),
             ),
+            AssociatedItem(
+                TypeItem(
+                    Method(
+                        TypeMethodDefn {
+                            path: Some(
+                                TypeItemPath(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+            AssociatedItem(
+                TypeAsTraitItem(
+                    Method(
+                        TypeAsTraitMethodDefn {
+                            path: None,
+                        },
+                    ),
+                ),
+            ),
             ImplBlock(
                 TypeImplBlock(
                     TypeImplBlockDecl,
+                ),
+            ),
+            AssociatedItem(
+                TypeItem(
+                    Method(
+                        TypeMethodDefn {
+                            path: Some(
+                                TypeItemPath(
+                                    Id {
+                                        value: 3,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+            AssociatedItem(
+                TypeAsTraitItem(
+                    Method(
+                        TypeAsTraitMethodDefn {
+                            path: None,
+                        },
+                    ),
+                ),
+            ),
+            ImplBlock(
+                TypeImplBlock(
+                    TypeImplBlockDecl,
+                ),
+            ),
+            AssociatedItem(
+                TypeItem(
+                    Method(
+                        TypeMethodDefn {
+                            path: Some(
+                                TypeItemPath(
+                                    Id {
+                                        value: 4,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+            AssociatedItem(
+                TypeAsTraitItem(
+                    Method(
+                        TypeAsTraitMethodDefn {
+                            path: None,
+                        },
+                    ),
                 ),
             ),
         ],

@@ -1042,21 +1042,17 @@ Ok(
                         110..115,
                     ),
                 },
-                Stmt {
+                Err {
                     token_group_idx: TokenGroupIdx(
                         124,
                     ),
-                    body: ArenaIdxRange(
-                        118..118,
-                    ),
+                    error: ExpectNothing,
                 },
-                Stmt {
+                Err {
                     token_group_idx: TokenGroupIdx(
                         125,
                     ),
-                    body: ArenaIdxRange(
-                        118..118,
-                    ),
+                    error: ExpectNothing,
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -1794,37 +1790,29 @@ Ok(
                         371,
                     ),
                 },
-                Stmt {
+                Err {
                     token_group_idx: TokenGroupIdx(
                         41,
                     ),
-                    body: ArenaIdxRange(
-                        34..34,
-                    ),
+                    error: UnexpectedStmtInsideModule,
                 },
-                Stmt {
+                Err {
                     token_group_idx: TokenGroupIdx(
                         42,
                     ),
-                    body: ArenaIdxRange(
-                        34..34,
-                    ),
+                    error: UnexpectedStmtInsideModule,
                 },
-                Stmt {
+                Err {
                     token_group_idx: TokenGroupIdx(
                         43,
                     ),
-                    body: ArenaIdxRange(
-                        34..34,
-                    ),
+                    error: UnexpectedStmtInsideModule,
                 },
-                Stmt {
+                Err {
                     token_group_idx: TokenGroupIdx(
                         44,
                     ),
-                    body: ArenaIdxRange(
-                        34..34,
-                    ),
+                    error: UnexpectedStmtInsideModule,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(

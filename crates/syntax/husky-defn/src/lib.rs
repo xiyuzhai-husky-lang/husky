@@ -57,6 +57,11 @@ pub struct DefnJar(
     TraitMethodDefn,
     TraitAssociatedTypeDefn,
     TraitAssociatedValueDefn,
+    // type as trait item
+    TypeAsTraitAssociatedFunctionDefn,
+    TypeAsTraitMethodDefn,
+    TypeAsTraitAssociatedTypeDefn,
+    TypeAsTraitAssociatedValueDefn,
 );
 
 #[salsa::tracked(jar = DefnJar, return_ref)]

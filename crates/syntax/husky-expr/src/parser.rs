@@ -16,7 +16,8 @@ use crate::*;
 use expr_stack::*;
 use husky_ast::{Ast, AstIdxRange, AstSheet};
 use husky_entity_tree::{
-    CratePrelude, EntityTreeDb, ImplBlock, ImplBlockId, ModuleSymbolContext, PreludeResult,
+    AssociatedItem, CratePrelude, EntityTreeDb, ImplBlock, ImplBlockId, ModuleSymbolContext,
+    PreludeResult,
 };
 use husky_token::Token;
 use husky_token::TokenStream;
@@ -60,10 +61,12 @@ impl From<DeclExprPath> for ExprPath {
 pub enum DeclExprPath {
     Entity(EntityPath),
     ImplBlock(ImplBlock),
+    AssociatedItem(AssociatedItem),
 }
 
 pub enum DefnExprPath {
     Entity(EntityPath),
+    AssociatedItem(AssociatedItem),
 }
 
 impl<Db: ExprDb + ?Sized> DebugWithDb<Db> for ExprPath {

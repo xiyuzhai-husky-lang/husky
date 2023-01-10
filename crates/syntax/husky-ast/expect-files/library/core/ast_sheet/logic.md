@@ -60,21 +60,17 @@ Ok(
                         25,
                     ),
                 },
-                Stmt {
+                Err {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    error: UnexpectedStmtInsideModule,
                 },
-                Stmt {
+                Err {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    error: UnexpectedStmtInsideModule,
                 },
             ],
         },

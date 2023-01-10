@@ -1,17 +1,15 @@
+mod associated_item;
 mod form;
 mod impl_block;
 mod trai;
-mod trai_item;
 mod ty;
-mod ty_item;
 mod variant;
 
+pub use associated_item::*;
 pub use form::*;
 pub use impl_block::*;
 pub use trai::*;
-pub use trai_item::*;
 pub use ty::*;
-pub use ty_item::*;
 pub use variant::*;
 
 use crate::*;
@@ -22,9 +20,14 @@ pub enum Decl {
     Form(FormDecl),
     Trait(TraitDecl),
     ImplBlock(ImplBlockDecl),
-    TypeItem(TypeItemDecl),
-    TraitItem(TraitItemDecl),
+    AssociatedItem(AssociatedItemDecl),
     Variant(VariantDecl),
+}
+
+impl From<AssociatedItemDecl> for Decl {
+    fn from(v: AssociatedItemDecl) -> Self {
+        Self::AssociatedItem(v)
+    }
 }
 
 impl From<ImplBlockDecl> for Decl {
@@ -40,8 +43,7 @@ impl Decl {
             Decl::Form(decl) => decl.ast_idx(db),
             Decl::Trait(decl) => decl.ast_idx(db),
             Decl::ImplBlock(decl) => decl.ast_idx(db),
-            Decl::TypeItem(decl) => decl.ast_idx(db),
-            Decl::TraitItem(decl) => decl.ast_idx(db),
+            Decl::AssociatedItem(decl) => decl.ast_idx(db),
             Decl::Variant(decl) => decl.ast_idx(db),
         }
     }
@@ -52,8 +54,7 @@ impl Decl {
             Decl::Form(decl) => decl.implicit_parameters(db),
             Decl::Trait(decl) => decl.implicit_parameters(db),
             Decl::ImplBlock(decl) => decl.implicit_parameters(db),
-            Decl::TypeItem(decl) => decl.implicit_parameters(db),
-            Decl::TraitItem(decl) => decl.implicit_parameters(db),
+            Decl::AssociatedItem(decl) => decl.implicit_parameters(db),
             Decl::Variant(decl) => &[],
         }
     }
@@ -64,8 +65,7 @@ impl Decl {
             Decl::Form(decl) => decl.expr_sheet(db).into(),
             Decl::Trait(decl) => decl.expr_sheet(db).into(),
             Decl::ImplBlock(decl) => decl.expr_sheet(db).into(),
-            Decl::TypeItem(decl) => decl.expr_sheet(db).into(),
-            Decl::TraitItem(decl) => decl.expr_sheet(db).into(),
+            Decl::AssociatedItem(decl) => decl.expr_sheet(db).into(),
             Decl::Variant(decl) => todo!(),
         }
     }
@@ -76,8 +76,7 @@ impl Decl {
             Decl::Form(decl) => Some(decl.path(db).into()),
             Decl::Trait(decl) => Some(decl.path(db).into()),
             Decl::ImplBlock(decl) => None,
-            Decl::TypeItem(decl) => Some(decl.path(db).into()),
-            Decl::TraitItem(decl) => Some(decl.path(db).into()),
+            Decl::AssociatedItem(decl) => Some(decl.path(db).into()),
             Decl::Variant(decl) => todo!(),
         }
     }
@@ -103,13 +102,13 @@ impl From<TypeDecl> for Decl {
 
 impl From<TraitItemDecl> for Decl {
     fn from(v: TraitItemDecl) -> Self {
-        Self::TraitItem(v)
+        Self::AssociatedItem(v.into())
     }
 }
 
 impl From<TypeItemDecl> for Decl {
     fn from(v: TypeItemDecl) -> Self {
-        Self::TypeItem(v)
+        Self::AssociatedItem(v.into())
     }
 }
 
@@ -142,12 +141,8 @@ impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for Decl {
                 .debug_tuple("ImplBlock")
                 .field(&decl.debug_with(db, include_all_fields))
                 .finish(),
-            Decl::TypeItem(decl) => f
-                .debug_tuple("TypeItem")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            Decl::TraitItem(decl) => f
-                .debug_tuple("TraitItem")
+            Decl::AssociatedItem(decl) => f
+                .debug_tuple("AssociatedItem")
                 .field(&decl.debug_with(db, include_all_fields))
                 .finish(),
         }

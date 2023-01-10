@@ -72,9 +72,94 @@ Ok(
                 ),
             ),
             Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Method(
+                            TypeMethodDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 41,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Method(
+                            TypeMethodDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 42,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            Ok(
                 ImplBlock(
                     TypeImplBlock(
                         TypeImplBlockDecl,
+                    ),
+                ),
+            ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Memo(
+                            TypeMemoDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 43,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Memo(
+                            TypeMemoDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 44,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Method(
+                            TypeMethodDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 45,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                 ),
             ),

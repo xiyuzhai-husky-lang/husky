@@ -1,15 +1,13 @@
+mod associated_item;
 mod form;
 mod trai;
-mod trai_item;
 mod ty;
-mod ty_item;
 mod variant;
 
+pub use associated_item::*;
 pub use form::*;
 pub use trai::*;
-pub use trai_item::*;
 pub use ty::*;
-pub use ty_item::*;
 pub use variant::*;
 
 use crate::*;
@@ -22,8 +20,13 @@ pub enum Defn {
     Form(FormDefn),
     Variant(VariantDefn),
     ImplBlock(ImplBlockDecl),
-    TypeItem(TypeItemDefn),
-    TraitItem(TraitItemDefn),
+    AssociatedItem(AssociatedItemDefn),
+}
+
+impl From<AssociatedItemDefn> for Defn {
+    fn from(v: AssociatedItemDefn) -> Self {
+        Self::AssociatedItem(v)
+    }
 }
 
 impl Defn {
@@ -34,8 +37,7 @@ impl Defn {
             Defn::Form(defn) => defn.decl(db).into(),
             Defn::Variant(defn) => defn.decl(db).into(),
             Defn::ImplBlock(decl) => decl.into(),
-            Defn::TypeItem(defn) => defn.decl(db).into(),
-            Defn::TraitItem(defn) => defn.decl(db).into(),
+            Defn::AssociatedItem(defn) => defn.decl(db).into(),
         }
     }
 
@@ -49,24 +51,11 @@ impl Defn {
     pub fn expr_sheet(self, db: &dyn DefnDb) -> Option<ExprSheet> {
         match self {
             Defn::Type(_) | Defn::Trait(_) => None,
-            Defn::Form(defn) => Some(defn.expr_sheet(db).into()),
-            Defn::TypeItem(defn) => Some(defn.expr_sheet(db).into()),
-            Defn::TraitItem(defn) => Some(defn.expr_sheet(db).into()),
+            Defn::Form(defn) => Some(defn.expr_sheet(db)),
+            Defn::AssociatedItem(defn) => defn.expr_sheet(db),
             Defn::Variant(defn) => None,
             Defn::ImplBlock(_) => None,
         }
-    }
-}
-
-impl From<TraitItemDefn> for Defn {
-    fn from(v: TraitItemDefn) -> Self {
-        Self::TraitItem(v)
-    }
-}
-
-impl From<TypeItemDefn> for Defn {
-    fn from(v: TypeItemDefn) -> Self {
-        Self::TypeItem(v)
     }
 }
 
@@ -94,8 +83,7 @@ impl Defn {
             Defn::Type(defn) => Some(defn.path(db).into()),
             Defn::Trait(defn) => Some(defn.path(db).into()),
             Defn::Form(defn) => Some(defn.path(db).into()),
-            Defn::TypeItem(defn) => Some(defn.path(db).into()),
-            Defn::TraitItem(defn) => Some(defn.path(db).into()),
+            Defn::AssociatedItem(defn) => defn.path(db).map(|path| path.into()),
             Defn::Variant(defn) => Some(defn.path(db).into()),
             Defn::ImplBlock(_) => None,
         }
@@ -127,16 +115,12 @@ impl<Db: DefnDb + ?Sized> salsa::DebugWithDb<Db> for Defn {
                 .debug_tuple("Variant")
                 .field(&decl.debug_with(db, include_all_fields))
                 .finish(),
-            Defn::TypeItem(decl) => f
-                .debug_tuple("TypeItem")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            Defn::TraitItem(decl) => f
-                .debug_tuple("TraitItem")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
             Defn::ImplBlock(decl) => f
                 .debug_tuple("ImplBlock")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            Defn::AssociatedItem(decl) => f
+                .debug_tuple("AssociatedItem")
                 .field(&decl.debug_with(db, include_all_fields))
                 .finish(),
         }

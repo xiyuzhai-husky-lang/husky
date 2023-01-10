@@ -36,9 +36,8 @@ pub(crate) fn subentity_path(
                         Ok(ty_associated_items) => ty_associated_items,
                         Err(_) => todo!(),
                     };
-                    if let Some((_, associated_item_idx)) = ty_associated_items.get_entry(ident) {
-                        let associated_item = &entity_tree_crate_bundle[*associated_item_idx];
-                        Ok(match associated_item.associated_item_kind() {
+                    if let Some((_, associated_item)) = ty_associated_items.get_entry(ident) {
+                        Ok(match associated_item.associated_item_kind(db) {
                             AssociatedItemKind::TypeItem(ty_item_kind) => {
                                 TypeItemPath::new(db, ty, ident, ty_item_kind).into()
                             }

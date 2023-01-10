@@ -42,8 +42,7 @@ impl<'a> DefnCollector<'a> {
             Decl::Form(decl) => self.parse_form_defn(decl).into(),
             Decl::Trait(decl) => self.parse_trai_defn(decl).into(),
             Decl::ImplBlock(decl) => Defn::ImplBlock(decl),
-            Decl::TypeItem(_) => todo!(),
-            Decl::TraitItem(_) => todo!(),
+            Decl::AssociatedItem(decl) => self.parse_associated_item_defn(decl).into(),
             Decl::Variant(_) => todo!(),
         }
     }
@@ -139,6 +138,88 @@ impl<'a> DefnCollector<'a> {
         let expr_sheet = parser.finish();
         FeatureDefn::new(self.db, path, decl, expr_sheet, body)
     }
+
+    fn parse_associated_item_defn(&self, decl: AssociatedItemDecl) -> AssociatedItemDefn {
+        match decl {
+            AssociatedItemDecl::TypeItem(decl) => self.parse_ty_item_defn(decl).into(),
+            AssociatedItemDecl::TraitItem(decl) => self.parse_trai_item_defn(decl).into(),
+            AssociatedItemDecl::TypeAsTraitItem(decl) => {
+                self.parse_ty_as_trai_item_defn(decl).into()
+            }
+        }
+    }
+
+    fn parse_ty_item_defn(&self, decl: TypeItemDecl) -> TypeItemDefn {
+        match decl {
+            TypeItemDecl::Function(_) => todo!(),
+            TypeItemDecl::Method(decl) => self.parse_ty_method_defn(decl).into(),
+            TypeItemDecl::AlienType(_) => todo!(),
+            TypeItemDecl::Value(_) => todo!(),
+            TypeItemDecl::Memo(decl) => self.parse_ty_memo_defn(decl).into(),
+        }
+    }
+
+    fn parse_ty_method_defn(&self, decl: TypeMethodDecl) -> TypeMethodDefn {
+        let path = decl.path(self.db);
+        let mut parser = self.expr_parser(
+            DefnExprPath::AssociatedItem(decl.associated_item(self.db)),
+            Some(decl.expr_sheet(self.db).symbol_sheet(self.db)),
+        );
+        let ast_idx = decl.ast_idx(self.db);
+        let ast = &self.ast_sheet[ast_idx];
+        let body = match ast {
+            Ast::Defn { body, .. } => parser.parse_block_expr(*body).ok_or(DefnError::MissingBody),
+            _ => unreachable!(),
+        };
+        let expr_sheet = parser.finish();
+        TypeMethodDefn::new(self.db, path, decl, expr_sheet, body)
+    }
+
+    fn parse_ty_memo_defn(&self, decl: TypeMemoDecl) -> TypeMemoDefn {
+        let path = decl.path(self.db);
+        let mut parser = self.expr_parser(
+            DefnExprPath::AssociatedItem(decl.associated_item(self.db)),
+            Some(decl.expr_sheet(self.db).symbol_sheet(self.db)),
+        );
+        let ast_idx = decl.ast_idx(self.db);
+        let ast = &self.ast_sheet[ast_idx];
+        let body = match ast {
+            Ast::Defn { body, .. } => parser.parse_block_expr(*body).ok_or(DefnError::MissingBody),
+            _ => unreachable!(),
+        };
+        let expr_sheet = parser.finish();
+        TypeMemoDefn::new(self.db, path, decl, expr_sheet, body)
+    }
+
+    fn parse_trai_item_defn(&self, decl: TraitItemDecl) -> TraitItemDefn {
+        todo!()
+    }
+
+    fn parse_ty_as_trai_item_defn(&self, decl: TypeAsTraitItemDecl) -> TypeAsTraitItemDefn {
+        match decl {
+            TypeAsTraitItemDecl::Function(_) => todo!(),
+            TypeAsTraitItemDecl::Method(decl) => self.parse_ty_as_trai_method_defn(decl).into(),
+            TypeAsTraitItemDecl::AlienType(_) => todo!(),
+            TypeAsTraitItemDecl::Value(_) => todo!(),
+        }
+    }
+
+    fn parse_ty_as_trai_method_defn(&self, decl: TypeAsTraitMethodDecl) -> TypeAsTraitMethodDefn {
+        let path = decl.path(self.db);
+        let mut parser = self.expr_parser(
+            DefnExprPath::AssociatedItem(decl.associated_item(self.db)),
+            Some(decl.expr_sheet(self.db).symbol_sheet(self.db)),
+        );
+        let ast_idx = decl.ast_idx(self.db);
+        let ast = &self.ast_sheet[ast_idx];
+        let body = match ast {
+            Ast::Defn { body, .. } => parser.parse_block_expr(*body).ok_or(DefnError::MissingBody),
+            _ => unreachable!(),
+        };
+        let expr_sheet = parser.finish();
+        TypeAsTraitMethodDefn::new(self.db, path, decl, expr_sheet, body)
+    }
+
     fn expr_parser(
         &self,
         expr_path: DefnExprPath,

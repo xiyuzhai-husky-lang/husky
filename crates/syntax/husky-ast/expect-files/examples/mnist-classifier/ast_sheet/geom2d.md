@@ -1437,13 +1437,11 @@ Ok(
                         566,
                     ),
                 },
-                Stmt {
+                Err {
                     token_group_idx: TokenGroupIdx(
                         65,
                     ),
-                    body: ArenaIdxRange(
-                        61..61,
-                    ),
+                    error: UnexpectedStmtInsideModule,
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(

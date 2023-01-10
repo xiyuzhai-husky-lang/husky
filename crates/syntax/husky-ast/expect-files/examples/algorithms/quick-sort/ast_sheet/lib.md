@@ -341,13 +341,11 @@ Ok(
                         103,
                     ),
                 },
-                Stmt {
+                Err {
                     token_group_idx: TokenGroupIdx(
                         25,
                     ),
-                    body: ArenaIdxRange(
-                        24..24,
-                    ),
+                    error: UnexpectedStmtInsideModule,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -384,13 +382,11 @@ Ok(
                         228,
                     ),
                 },
-                Stmt {
+                Err {
                     token_group_idx: TokenGroupIdx(
                         30,
                     ),
-                    body: ArenaIdxRange(
-                        27..27,
-                    ),
+                    error: UnexpectedStmtInsideModule,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(

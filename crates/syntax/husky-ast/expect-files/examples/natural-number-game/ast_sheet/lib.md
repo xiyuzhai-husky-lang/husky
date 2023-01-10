@@ -34,21 +34,17 @@ Ok(
                         14,
                     ),
                 },
-                Stmt {
+                Err {
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    error: UnexpectedStmtInsideImpl,
                 },
-                Stmt {
+                Err {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    error: UnexpectedStmtInsideImpl,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -85,21 +81,17 @@ Ok(
                         2,
                     ),
                 },
-                Stmt {
+                Err {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    error: UnexpectedStmtInsideModule,
                 },
-                Stmt {
+                Err {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    error: UnexpectedStmtInsideModule,
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(

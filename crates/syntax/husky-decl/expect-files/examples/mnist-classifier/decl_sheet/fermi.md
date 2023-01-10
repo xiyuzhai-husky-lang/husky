@@ -26,6 +26,57 @@ Ok(
                     ),
                 ),
             ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Memo(
+                            TypeMemoDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 15,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Memo(
+                            TypeMemoDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 16,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Memo(
+                            TypeMemoDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 17,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
         ],
     },
 )

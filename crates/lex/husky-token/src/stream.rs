@@ -18,8 +18,9 @@ impl TokenSheetData {
     pub fn token_group_token_stream<'a>(
         &'a self,
         token_group_idx: TokenGroupIdx,
-        state: Option<TokenIdx>,
+        state: impl Into<Option<TokenIdx>>,
     ) -> TokenStream<'a> {
+        let state: Option<TokenIdx> = state.into();
         let base = self.group_start(token_group_idx);
         let next_relative = state.map(|state| state.raw() - base).unwrap_or_default();
         let tokens = &self[token_group_idx];

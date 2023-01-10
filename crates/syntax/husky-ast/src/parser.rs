@@ -188,6 +188,30 @@ impl<'a> AstParser<'a> {
     }
 
     fn parse_stmt(&mut self, token_group_idx: TokenGroupIdx, context: &Context) -> Ast {
+        match context.kind() {
+            AstContextKind::InsideTrait { module_item_path } => todo!(),
+            AstContextKind::InsideEnumLikeType { module_item_path } => todo!(),
+            AstContextKind::InsideForm => (),
+            AstContextKind::InsideTypeImpl | AstContextKind::InsideTraitImpl => {
+                return Ast::Err {
+                    token_group_idx,
+                    error: AstError::UnexpectedStmtInsideImpl,
+                }
+            }
+            AstContextKind::InsideModule => {
+                return Ast::Err {
+                    token_group_idx,
+                    error: AstError::UnexpectedStmtInsideModule,
+                }
+            }
+            AstContextKind::InsideMatchStmt => (),
+            AstContextKind::InsideNoChild => {
+                return Ast::Err {
+                    token_group_idx,
+                    error: AstError::ExpectNothing,
+                }
+            }
+        }
         let body = self.parse_asts(context.subcontext(AstContextKind::InsideForm));
         Ast::BasicStmtOrBranch {
             token_group_idx,

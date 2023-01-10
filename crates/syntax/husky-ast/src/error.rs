@@ -24,6 +24,10 @@ pub enum AstError {
     ExpectNothing,
     #[error("token error")]
     Token(#[from] TokenError),
+    #[error("unexpect stmt inside module")]
+    UnexpectedStmtInsideModule,
+    #[error("unexpect stmt inside impl")]
+    UnexpectedStmtInsideImpl,
 }
 
 impl<'a, Context> FromAbsent<IdentifierToken, Context> for AstError
