@@ -4,16 +4,16 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct DefnSheet {
-    defns: VecPairMap<EntityPath, Defn>,
+    defns: Vec<Defn>,
 }
 
 impl DefnSheet {
-    pub fn new(defns: VecPairMap<EntityPath, Defn>) -> Self {
+    pub fn new(defns: Vec<Defn>) -> Self {
         Self { defns }
     }
 
     pub fn defns<'a>(&'a self) -> impl Iterator<Item = Defn> + 'a {
-        self.defns.iter().map(|(_, defn)| *defn)
+        self.defns.iter().map(|defn| *defn)
     }
 }
 
@@ -26,7 +26,7 @@ impl<Db: DefnDb + ?Sized> salsa::DebugWithDb<Db> for DefnSheet {
     ) -> std::fmt::Result {
         let db = <Db as DbWithJar<DefnJar>>::as_jar_db(db);
         f.debug_struct("DefnSheet")
-            .field("defns", &(&self.defns.data()).debug(db))
+            .field("defns", &self.defns.debug(db))
             .finish()
     }
 }
