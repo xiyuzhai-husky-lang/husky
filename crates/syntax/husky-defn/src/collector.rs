@@ -27,12 +27,10 @@ impl<'a> DefnCollector<'a> {
     }
 
     pub(crate) fn collect_all(mut self) -> DefnSheet {
-        let mut defns: VecPairMap<EntityPath, Defn> = Default::default();
-        for (entity_path, decl) in self.decl_sheet.decls().iter() {
+        let mut defns: Vec<Defn> = Default::default();
+        for decl in self.decl_sheet.decls().iter() {
             if let Ok(decl) = decl {
-                defns
-                    .insert_new((*entity_path, self.parse_defn(*decl)))
-                    .unwrap()
+                defns.push(self.parse_defn(*decl))
             }
         }
         DefnSheet::new(defns)
