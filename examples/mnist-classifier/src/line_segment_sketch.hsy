@@ -33,7 +33,7 @@ struct LineSegmentSketch {
 
 impl LineSegmentSketch:
     func concave_components -> []ConcaveComponent:
-        find_concave_components(this)
+        find_concave_components(self)
     
     proc bounding_box -> BoundingBox:
         let start_point = strokes[0].start

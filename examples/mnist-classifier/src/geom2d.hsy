@@ -8,16 +8,16 @@ impl Point2d:
         Point2d((29 - shift) as f32, (29 - i) as f32)
 
     func vector() -> Vector2d:
-        Vector2d(this.x, this.y)
+        Vector2d(x, y)
 
     func to(other: Point2d) -> Vector2d:
-        Vector2d(other.x - this.x, other.y - this.y)
+        Vector2d(other.x - x, other.y - y)
 
     func norm() -> f32:
-        (this.x * this.x + this.y * this.y).sqrt()
+        (x * x + y * y).sqrt()
 
     func dist(other: Point2d) -> f32:
-        this.to(other).norm()
+        to(other).norm()
 
 struct RelativePoint2d {
     x: f32,
@@ -31,19 +31,19 @@ struct Vector2d {
 
 impl Vector2d:
     func point() -> Point2d:
-        Point2d(this.x, this.y)
+        Point2d(x, y)
 
     func to(other: Vector2d) -> Vector2d:
-        Vector2d(other.x - this.x, other.y - this.y)
+        Vector2d(other.x - x, other.y - y)
 
     func norm() -> f32:
-        (this.x * this.x + this.y * this.y).sqrt()
+        (x * x + y * y).sqrt()
 
     func dot(other: Vector2d) -> f32:
-        this.x * other.x + this.y * other.y
+        x * other.x + y * other.y
 
     func cross(other: Vector2d) -> f32:
-        this.x * other.y - this.y * other.x
+        x * other.y - y * other.x
 
     func angle(is_branch_cut_positive: bool) -> f32:
         let cos_value = (this.x/this.norm()).min(1.)
@@ -60,8 +60,7 @@ impl Vector2d:
         // +1: counterclockwise
         // -1: clockwise
         // 0: no moving or 180 degree turn
-        cross = this.cross(other)
-        cross.sgnx()
+        cross(other).sgnx()
 
     func angle_to(other: Vector2d, is_branch_cut_positive: bool) -> f32:
         this_norm = this.norm()
