@@ -170,7 +170,17 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             None,
             None,

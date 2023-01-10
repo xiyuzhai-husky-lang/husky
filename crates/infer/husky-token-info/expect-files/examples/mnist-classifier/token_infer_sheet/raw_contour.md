@@ -53,7 +53,17 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 13,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             None,
             None,
