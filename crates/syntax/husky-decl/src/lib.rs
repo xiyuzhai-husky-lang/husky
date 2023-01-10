@@ -49,6 +49,12 @@ pub struct DeclJar(
     impl_block_decl,
     TypeImplBlockDecl,
     TypeAsTraitImplBlockDecl,
+    // variant
+    UnitVariantDecl,
+    PropsVariantDecl,
+    TupleVariantDecl,
+    // associated items
+    associated_item_decl,
     // type item
     TypeAssociatedFunctionDecl,
     TypeMethodDecl,
@@ -60,10 +66,11 @@ pub struct DeclJar(
     TraitMethodDecl,
     TraitAssociatedTypeDecl,
     TraitAssociatedValueDecl,
-    // variant
-    UnitVariantDecl,
-    PropsVariantDecl,
-    TupleVariantDecl,
+    // type as trait item
+    TypeAsTraitAssociatedFunctionDecl,
+    TypeAsTraitMethodDecl,
+    TypeAsTraitAssociatedTypeDecl,
+    TypeAsTraitAssociatedValueDecl,
 );
 
 #[salsa::tracked(jar = DeclJar, return_ref)]

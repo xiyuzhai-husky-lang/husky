@@ -135,8 +135,7 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ParameterDeclList {
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
         let Some(lpar) = ctx.parse::<LeftParenthesisToken>()? else {
-            todo!()
-            // return Ok(None)
+            return Ok(None)
         };
         let (decls, commas) = parse_separated_list(ctx)?;
         let rpar = ctx.parse_expected::<RightParenthesisToken>()?;

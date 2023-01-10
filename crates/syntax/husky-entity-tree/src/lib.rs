@@ -50,6 +50,7 @@ use vec_like::{AsVecMapEntry, VecMap};
 #[salsa::jar(db = EntityTreeDb)]
 pub struct EntityTreeJar(
     ImplBlock,
+    AssociatedItem,
     entity_tree_presheet,
     entity_tree_crate_bundle,
     submodules,
@@ -58,4 +59,5 @@ pub struct EntityTreeJar(
     crate_specific_prelude,
     ty_impl_blocks,
     ty_associated_items,
+    impl_block_associated_items,
 );

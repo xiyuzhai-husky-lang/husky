@@ -65,8 +65,7 @@ impl<'a> InferEngine<'a> {
                 Defn::Type(defn) => self.visit_ty(defn),
                 Defn::Trait(defn) => self.visit_trai(defn),
                 Defn::Form(defn) => self.visit_form(defn),
-                Defn::TypeItem(_) => todo!(),
-                Defn::TraitItem(_) => todo!(),
+                Defn::AssociatedItem(_) => todo!(),
                 Defn::Variant(_) => todo!(),
                 Defn::ImplBlock(_) => (),
             }

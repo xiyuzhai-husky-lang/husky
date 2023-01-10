@@ -48,7 +48,6 @@ pub struct EntityTreeCrateBundle {
     sheets: VecMap<EntityTreeModuleSheet>,
     principal_entity_path_expr_arena: PrincipalPathExprArena,
     impl_blocks: Vec<ImplBlock>,
-    associated_item_arena: AssociatedItemArena,
 }
 
 impl EntityTreeCrateBundle {
@@ -56,13 +55,11 @@ impl EntityTreeCrateBundle {
         sheets: VecMap<EntityTreeModuleSheet>,
         principal_entity_path_expr_arena: PrincipalPathExprArena,
         impl_blocks: Vec<ImplBlock>,
-        associated_item_arena: AssociatedItemArena,
     ) -> Self {
         Self {
             sheets,
             principal_entity_path_expr_arena,
             impl_blocks,
-            associated_item_arena,
         }
     }
 
@@ -76,12 +73,6 @@ impl EntityTreeCrateBundle {
 
     pub fn impl_block_iter<'a>(&'a self) -> impl Iterator<Item = ImplBlock> + 'a {
         self.impl_blocks.iter().map(|v| *v)
-    }
-
-    pub fn associated_item_indexed_iter<'a>(
-        &'a self,
-    ) -> impl Iterator<Item = (AssociatedItemIdx, &'a AssociatedItem)> + 'a {
-        self.associated_item_arena.indexed_iter()
     }
 }
 
@@ -106,13 +97,5 @@ impl<Db: EntityTreeDb> salsa::DebugWithDb<Db> for EntityTreeCrateBundle {
         include_all_fields: bool,
     ) -> std::fmt::Result {
         self.fmt(f, db as &dyn EntityTreeDb, include_all_fields)
-    }
-}
-
-impl std::ops::Index<AssociatedItemIdx> for EntityTreeCrateBundle {
-    type Output = AssociatedItem;
-
-    fn index(&self, index: AssociatedItemIdx) -> &Self::Output {
-        &self.associated_item_arena[index]
     }
 }

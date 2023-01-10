@@ -43,6 +43,15 @@ pub(crate) fn impl_block_decl(db: &dyn DeclDb, impl_block: ImplBlock) -> DeclRes
     parser.parse_impl_block_decl(impl_block)
 }
 
+#[salsa::tracked(jar = DeclJar)]
+pub(crate) fn associated_item_decl(
+    db: &dyn DeclDb,
+    associated_item: AssociatedItem,
+) -> DeclResult<AssociatedItemDecl> {
+    let parser = DeclParser::new(db, associated_item.module_path(db))?;
+    parser.parse_associated_item_decl(associated_item)
+}
+
 pub(crate) struct DeclParser<'a> {
     db: &'a dyn DeclDb,
     module_symbol_context: ModuleSymbolContext<'a>,
@@ -423,7 +432,7 @@ impl<'a> DeclParser<'a> {
                 body,
             } => match impl_block.kind(self.db) {
                 ImplBlockKind::Type { ty } => Ok(self
-                    .parse_ty_impl_block_decl(ast_idx, impl_block, token_group_idx)?
+                    .parse_ty_impl_block_decl(ast_idx, token_group_idx, impl_block)?
                     .into()),
                 ImplBlockKind::TypeAsTrait { ty, trai } => todo!(),
                 ImplBlockKind::Err => Err(DeclError::ImplBlockErr),
@@ -435,8 +444,8 @@ impl<'a> DeclParser<'a> {
     fn parse_ty_impl_block_decl(
         &self,
         ast_idx: AstIdx,
-        impl_block: ImplBlock,
         token_group_idx: TokenGroupIdx,
+        impl_block: ImplBlock,
     ) -> DeclResult<TypeImplBlockDecl> {
         let mut parser = self.expr_parser(DeclExprPath::ImplBlock(impl_block));
         let mut ctx = parser.ctx(
@@ -455,5 +464,153 @@ impl<'a> DeclParser<'a> {
             eol_colon,
             parser.finish(),
         ))
+    }
+
+    fn parse_associated_item_decl(
+        &self,
+        associated_item: AssociatedItem,
+    ) -> DeclResult<AssociatedItemDecl> {
+        let ast_idx = associated_item.ast_idx(self.db);
+        Ok(match self.ast_sheet[ast_idx] {
+            Ast::Defn {
+                token_group_idx,
+                body,
+                accessibility,
+                entity_kind:
+                    EntityKind::AssociatedItem {
+                        associated_item_kind,
+                    },
+                entity_path,
+                ident_token,
+                is_generic,
+                body_kind,
+                saved_stream_state,
+            } => match associated_item_kind {
+                AssociatedItemKind::TraitItem(_) => todo!(),
+                AssociatedItemKind::TypeItem(ty_item_kind) => {
+                    AssociatedItemDecl::TypeItem(match ty_item_kind {
+                        TypeItemKind::Method => self
+                            .parse_ty_method_decl(
+                                ast_idx,
+                                token_group_idx,
+                                associated_item,
+                                saved_stream_state,
+                            )?
+                            .into(),
+                        TypeItemKind::AssociatedFunction => todo!(),
+                        TypeItemKind::Memo => self
+                            .parse_ty_memo_decl(
+                                ast_idx,
+                                token_group_idx,
+                                associated_item,
+                                saved_stream_state,
+                            )?
+                            .into(),
+                    })
+                }
+                AssociatedItemKind::TypeAsTraitItem(ty_as_trai_item_kind) => {
+                    AssociatedItemDecl::TypeAsTraitItem(match ty_as_trai_item_kind {
+                        TraitItemKind::Method => self
+                            .parse_ty_as_trai_method_decl(
+                                ast_idx,
+                                token_group_idx,
+                                associated_item,
+                                saved_stream_state,
+                            )?
+                            .into(),
+                        TraitItemKind::AssociatedType => todo!(),
+                    })
+                }
+            },
+            _ => unreachable!(),
+        })
+    }
+
+    fn parse_ty_method_decl(
+        &self,
+        ast_idx: AstIdx,
+        token_group_idx: TokenGroupIdx,
+        associated_item: AssociatedItem,
+        saved_stream_state: TokenIdx,
+    ) -> DeclResult<TypeMethodDecl> {
+        let mut parser = self.expr_parser(DeclExprPath::AssociatedItem(associated_item));
+        let mut ctx = parser.ctx(
+            self.token_sheet_data
+                .token_group_token_stream(token_group_idx, saved_stream_state),
+        );
+        let implicit_parameter_decl_list = ctx.parse()?;
+        let path = match associated_item.path(self.db) {
+            Some(AssociatedItemPath::TypeItem(path)) => Some(path),
+            None => None,
+            _ => unreachable!(),
+        };
+        let Some(parameter_decl_list) = ctx.parse()? else {
+            p!(path.debug(self.db));
+            todo!()
+        };
+        Ok(TypeMethodDecl::new(
+            self.db,
+            path,
+            associated_item,
+            ast_idx,
+            parser.finish(),
+            implicit_parameter_decl_list,
+            parameter_decl_list,
+        )
+        .into())
+    }
+
+    fn parse_ty_memo_decl(
+        &self,
+        ast_idx: AstIdx,
+        token_group_idx: TokenGroupIdx,
+        associated_item: AssociatedItem,
+        saved_stream_state: TokenIdx,
+    ) -> DeclResult<TypeMemoDecl> {
+        let mut parser = self.expr_parser(DeclExprPath::AssociatedItem(associated_item));
+        let mut ctx = parser.ctx(
+            self.token_sheet_data
+                .token_group_token_stream(token_group_idx, saved_stream_state),
+        );
+        let path = match associated_item.path(self.db) {
+            Some(AssociatedItemPath::TypeItem(path)) => Some(path),
+            None => None,
+            _ => unreachable!(),
+        };
+        Ok(TypeMemoDecl::new(self.db, path, associated_item, ast_idx, parser.finish()).into())
+    }
+
+    fn parse_ty_as_trai_method_decl(
+        &self,
+        ast_idx: AstIdx,
+        token_group_idx: TokenGroupIdx,
+        associated_item: AssociatedItem,
+        saved_stream_state: TokenIdx,
+    ) -> DeclResult<TypeAsTraitMethodDecl> {
+        let mut parser = self.expr_parser(DeclExprPath::AssociatedItem(associated_item));
+        let mut ctx = parser.ctx(
+            self.token_sheet_data
+                .token_group_token_stream(token_group_idx, saved_stream_state),
+        );
+        let implicit_parameter_decl_list = ctx.parse()?;
+        let path = match associated_item.path(self.db) {
+            Some(AssociatedItemPath::TypeAsTraitItem(path)) => Some(path),
+            None => None,
+            _ => unreachable!(),
+        };
+        let Some(parameter_decl_list) = ctx.parse()? else {
+            p!(path.debug(self.db));
+            todo!()
+        };
+        Ok(TypeAsTraitMethodDecl::new(
+            self.db,
+            path,
+            associated_item,
+            ast_idx,
+            parser.finish(),
+            implicit_parameter_decl_list,
+            parameter_decl_list,
+        )
+        .into())
     }
 }

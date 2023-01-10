@@ -105,6 +105,91 @@ Ok(
                     ),
                 ),
             ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Memo(
+                            TypeMemoDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 46,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Memo(
+                            TypeMemoDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 47,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Memo(
+                            TypeMemoDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 48,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Memo(
+                            TypeMemoDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 49,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Method(
+                            TypeMethodDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 50,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
         ],
     },
 )

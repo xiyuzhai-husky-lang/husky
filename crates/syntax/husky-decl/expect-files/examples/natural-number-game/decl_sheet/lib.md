@@ -35,6 +35,23 @@ Ok(
                     ),
                 ),
             ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Memo(
+                            TypeMemoDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 51,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
         ],
     },
 )

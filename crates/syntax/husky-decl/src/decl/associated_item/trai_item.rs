@@ -8,7 +8,7 @@ pub use assoc_val::*;
 pub use function::*;
 pub use method::*;
 
-use crate::*;
+use super::*;
 use husky_ast::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

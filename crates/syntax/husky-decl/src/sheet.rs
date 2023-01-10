@@ -14,10 +14,15 @@ impl DeclSheet {
         for path in entity_tree_sheet.module_item_path_iter() {
             decls.push(db.module_item_decl(path))
         }
-        // self.parse_decl(*ast_idx, (*path).into()))
         for impl_block in entity_tree_sheet.impl_blocks() {
-            decls.push(db.impl_block_decl(*impl_block).map(|decl| decl.into()))
-            // todo!()
+            let impl_block = *impl_block;
+            decls.push(db.impl_block_decl(impl_block).map(|decl| decl.into()));
+            for (_, associated_item) in db.impl_block_associated_items(impl_block).iter() {
+                decls.push(
+                    db.associated_item_decl(*associated_item)
+                        .map(|decl| decl.into()),
+                )
+            }
         }
         Ok(DeclSheet::new(decls))
     }

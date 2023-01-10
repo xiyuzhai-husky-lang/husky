@@ -22,6 +22,36 @@ pub enum TypeItemDecl {
     Memo(TypeMemoDecl),
 }
 
+impl From<TypeMemoDecl> for TypeItemDecl {
+    fn from(v: TypeMemoDecl) -> Self {
+        Self::Memo(v)
+    }
+}
+
+impl From<TypeAssociatedFunctionDecl> for TypeItemDecl {
+    fn from(v: TypeAssociatedFunctionDecl) -> Self {
+        Self::Function(v)
+    }
+}
+
+impl From<TypeAssociatedValueDecl> for TypeItemDecl {
+    fn from(v: TypeAssociatedValueDecl) -> Self {
+        Self::Value(v)
+    }
+}
+
+impl From<TypeAssociatedTypeDecl> for TypeItemDecl {
+    fn from(v: TypeAssociatedTypeDecl) -> Self {
+        Self::AlienType(v)
+    }
+}
+
+impl From<TypeMethodDecl> for TypeItemDecl {
+    fn from(v: TypeMethodDecl) -> Self {
+        Self::Method(v)
+    }
+}
+
 impl TypeItemDecl {
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
@@ -71,6 +101,28 @@ impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for TypeItemDecl {
         db: &Db,
         include_all_fields: bool,
     ) -> std::fmt::Result {
-        todo!()
+        let db = <Db as salsa::DbWithJar<DeclJar>>::as_jar_db(db);
+        match self {
+            TypeItemDecl::Function(decl) => f
+                .debug_tuple("Function")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            TypeItemDecl::Method(decl) => f
+                .debug_tuple("Method")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            TypeItemDecl::AlienType(decl) => f
+                .debug_tuple("AlienType")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            TypeItemDecl::Value(decl) => f
+                .debug_tuple("Value")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            TypeItemDecl::Memo(decl) => f
+                .debug_tuple("Memo")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+        }
     }
 }

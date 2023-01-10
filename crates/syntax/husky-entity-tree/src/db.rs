@@ -7,6 +7,7 @@ use husky_entity_taxonomy::EntityKind;
 use husky_manifest::ManifestDb;
 use husky_vfs::*;
 
+use husky_word::IdentPairMap;
 use salsa::DbWithJar;
 
 pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + AstDb + EntityPathDb + ManifestDb {
@@ -37,6 +38,7 @@ pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + AstDb + EntityPathDb + Manife
         parent: EntityPath,
         identifier: Identifier,
     ) -> EntityTreeResult<EntityPath>;
+    fn impl_block_associated_items(&self, impl_block: ImplBlock) -> &IdentPairMap<AssociatedItem>;
 }
 
 impl<T> EntityTreeDb for T
@@ -93,5 +95,9 @@ where
         identifier: Identifier,
     ) -> EntityTreeResult<EntityPath> {
         subentity_path(self, parent, identifier)
+    }
+
+    fn impl_block_associated_items(&self, impl_block: ImplBlock) -> &IdentPairMap<AssociatedItem> {
+        impl_block_associated_items(self, impl_block)
     }
 }

@@ -1,7 +1,7 @@
 use crate::*;
 
 #[salsa::tracked(jar = DeclJar)]
-pub struct TypeAssociatedFunctionDecl {
+pub struct TypeAsTraitAssociatedFunctionDecl {
     #[id]
     pub entity_path: EntityPath,
     pub ast_idx: AstIdx,

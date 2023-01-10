@@ -2,21 +2,17 @@ Ok(
     AstSheet {
         arena: Arena {
             data: [
-                Stmt {
+                Err {
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    error: ExpectNothing,
                 },
-                Stmt {
+                Err {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    error: ExpectNothing,
                 },
                 Err {
                     token_group_idx: TokenGroupIdx(

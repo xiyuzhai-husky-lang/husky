@@ -22,6 +22,7 @@ pub enum ImplBlockVariant {
     TypeAsTrait { ty: TypePath, trai: TraitPath },
     Err(ImplBlockError),
 }
+
 impl ImplBlockVariant {
     pub fn kind(&self) -> ImplBlockKind {
         match self {
@@ -38,11 +39,61 @@ pub struct ImplBlockId {
     impl_block_kind: ImplBlockKind,
 }
 
+impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for ImplBlockId {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
+        f.debug_struct("ImplBlockId")
+            .field(
+                "module_path",
+                &self.module_path.debug_with(db, include_all_fields),
+            )
+            .field(
+                "impl_block_kind",
+                &self.impl_block_kind.debug_with(db, include_all_fields),
+            )
+            .finish()
+    }
+}
+
+impl ImplBlockId {
+    pub fn module_path(&self) -> ModulePath {
+        self.module_path
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum ImplBlockKind {
     Type { ty: TypePath },
     TypeAsTrait { ty: TypePath, trai: TraitPath },
     Err,
+}
+
+impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for ImplBlockKind {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
+        match self {
+            ImplBlockKind::Type { ty } => f
+                .debug_struct("Type")
+                .field("ty", &ty.debug_with(db, include_all_fields))
+                .finish(),
+            ImplBlockKind::TypeAsTrait { ty, trai } => f
+                .debug_struct("TypeAsTrait")
+                .field("ty", &ty.debug_with(db, include_all_fields))
+                .field("trai", &trai.debug_with(db, include_all_fields))
+                .finish(),
+            ImplBlockKind::Err => f.write_str("Err"),
+        }
+    }
 }
 
 impl ImplBlock {
@@ -179,14 +230,15 @@ pub(crate) fn ty_impl_blocks(
 pub(crate) fn ty_associated_items(
     db: &dyn EntityTreeDb,
     ty: TypePath,
-) -> EntityTreeCrateBundleResult<IdentPairMap<AssociatedItemIdx>> {
+) -> EntityTreeCrateBundleResult<IdentPairMap<AssociatedItem>> {
     let crate_path = ty.module_path(db).crate_path(db);
     let entity_tree_crate_bundle = db.entity_tree_crate_bundle(crate_path)?;
-    Ok(entity_tree_crate_bundle
-        .associated_item_indexed_iter()
-        .filter_map(|(idx, associated_item)| {
-            (associated_item.impl_block().kind(db) == ImplBlockKind::Type { ty })
-                .then_some((associated_item.ident(), idx))
-        })
-        .collect())
+    todo!()
+    // Ok(entity_tree_crate_bundle
+    //     .associated_item_indexed_iter()
+    //     .filter_map(|(idx, associated_item)| {
+    //         (associated_item.impl_block().kind(db) == ImplBlockKind::Type { ty })
+    //             .then_some((associated_item.ident(), idx))
+    //     })
+    //     .collect())
 }

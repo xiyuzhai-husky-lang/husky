@@ -20,6 +20,51 @@ Ok(
                     TypeImplBlockDecl,
                 ),
             ),
+            AssociatedItem(
+                TypeItem(
+                    Memo(
+                        TypeMemoDefn {
+                            path: Some(
+                                TypeItemPath(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+            AssociatedItem(
+                TypeItem(
+                    Memo(
+                        TypeMemoDefn {
+                            path: Some(
+                                TypeItemPath(
+                                    Id {
+                                        value: 16,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+            AssociatedItem(
+                TypeItem(
+                    Memo(
+                        TypeMemoDefn {
+                            path: Some(
+                                TypeItemPath(
+                                    Id {
+                                        value: 17,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
         ],
     },
 )

@@ -14,7 +14,6 @@ pub(crate) struct EntityTreeCollector<'a> {
     crate_specific_prelude: &'a [EntitySymbol],
     principal_entity_path_expr_arena: PrincipalPathExprArena,
     impl_blocks: Vec<ImplBlock>,
-    associated_item_arena: AssociatedItemArena,
 }
 
 impl<'a> EntityTreeCollector<'a> {
@@ -60,7 +59,6 @@ impl<'a> EntityTreeCollector<'a> {
                 .map_err(|e| e.clone())?,
             principal_entity_path_expr_arena: Default::default(),
             impl_blocks: Default::default(),
-            associated_item_arena: Default::default(),
         })
     }
 
@@ -75,9 +73,6 @@ impl<'a> EntityTreeCollector<'a> {
             }
         }
         let impl_blockss = self.collect_impl_blockss();
-        for idx in self.impl_blocks.clone() {
-            self.collect_associated_items(idx)
-        }
         let sheets = std::iter::zip(self.presheets.into_iter(), impl_blockss.into_iter())
             .map(|(presheet, impl_blocks)| presheet.into_sheet(impl_blocks))
             .collect();
@@ -85,7 +80,6 @@ impl<'a> EntityTreeCollector<'a> {
             sheets,
             self.principal_entity_path_expr_arena,
             self.impl_blocks,
-            self.associated_item_arena,
         )
     }
 
@@ -130,43 +124,6 @@ impl<'a> EntityTreeCollector<'a> {
             impl_blockss.push(impl_blocks);
         }
         impl_blockss
-    }
-
-    fn collect_associated_items(&mut self, impl_block: ImplBlock) {
-        let body = impl_block.body(self.db);
-        let ast_sheet = self.db.ast_sheet(impl_block.module_path(self.db)).unwrap();
-        let associated_items = self
-            .associated_item_arena
-            .alloc_batch(body.into_iter().filter_map(|ast_idx| {
-                let ast = &ast_sheet[ast_idx];
-                match ast {
-                    Ast::Defn {
-                        token_group_idx,
-                        body,
-                        accessibility,
-                        entity_kind,
-                        entity_path,
-                        ident_token,
-                        is_generic,
-                        ..
-                    } => {
-                        let associated_item_kind = match entity_kind {
-                            EntityKind::AssociatedItem {
-                                associated_item_kind,
-                            } => *associated_item_kind,
-                            _ => unreachable!(),
-                        };
-                        Some(AssociatedItem::new(
-                            impl_block,
-                            ident_token.ident(),
-                            associated_item_kind,
-                            *accessibility,
-                            *is_generic,
-                        ))
-                    }
-                    _ => None,
-                }
-            }));
     }
 
     fn exec(&mut self, action: PresheetAction) {

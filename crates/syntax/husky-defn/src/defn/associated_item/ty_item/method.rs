@@ -3,7 +3,8 @@ use crate::*;
 #[salsa::tracked(jar = DefnJar)]
 pub struct TypeMethodDefn {
     #[id]
-    pub entity_path: EntityPath,
-    pub expr_sheet: ExprSheet,
+    pub path: Option<TypeItemPath>,
     pub decl: TypeMethodDecl,
+    pub expr_sheet: ExprSheet,
+    pub body: DefnResult<ExprIdx>,
 }
