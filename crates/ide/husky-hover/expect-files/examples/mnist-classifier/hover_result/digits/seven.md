@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 180;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 410,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    ModuleItem {\n        module_item_kind: Form(\n            Function,\n        ),\n        connection: Connected,\n    },\n);\n\n\n",
+                                value: "\ntoken_idx = 180;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 410,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    ModuleItem(\n        Form(\n            FormPath(\n                Id {\n                    value: 54,\n                },\n            ),\n        ),\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -400,7 +400,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 234;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 98,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    ModuleItem {\n        module_item_kind: Form(\n            Feature,\n        ),\n        connection: Connected,\n    },\n);\n\n\n",
+                                value: "\ntoken_idx = 234;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 98,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    ModuleItem(\n        Form(\n            FormPath(\n                Id {\n                    value: 55,\n                },\n            ),\n        ),\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -580,7 +580,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 342;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 408,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 342;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 408,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    ModuleItem(\n        Form(\n            FormPath(\n                Id {\n                    value: 52,\n                },\n            ),\n        ),\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(

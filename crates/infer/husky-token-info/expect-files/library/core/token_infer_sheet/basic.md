@@ -4,34 +4,43 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Type(
-                        Foreign,
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Type(
-                        Structure,
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 2,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Type(
-                        Structure,
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 3,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
         ],

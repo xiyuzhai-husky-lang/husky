@@ -472,12 +472,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Function,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 22,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             LocalSymbol {
@@ -516,7 +519,17 @@ Ok(
             None,
             BoxPrefix,
             BoxPrefix,
-            None,
+            Entity(
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 24,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             None,
             None,
@@ -824,7 +837,17 @@ Ok(
             None,
             Method,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 24,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,

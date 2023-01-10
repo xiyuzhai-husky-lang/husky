@@ -81,12 +81,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Feature,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 56,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             None,
@@ -96,17 +99,30 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 58,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Feature,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 57,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             None,
@@ -181,12 +197,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Function,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 58,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             LocalSymbol {

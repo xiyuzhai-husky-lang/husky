@@ -11,12 +11,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Type(
-                        Foreign,
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 6,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             None,
@@ -63,12 +66,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Type(
-                        Foreign,
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 7,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             None,
@@ -115,12 +121,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Type(
-                        Foreign,
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 8,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             None,
@@ -165,12 +174,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Type(
-                        Foreign,
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 9,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             None,

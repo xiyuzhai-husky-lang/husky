@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_taxonomy::{AssociatedItemKind, EntityKind, FormKind, ModuleItemKind};
+use husky_entity_taxonomy::*;
 use husky_text::TextRange;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -72,7 +72,11 @@ impl SemanticToken {
                 EntityKind::AssociatedItem {
                     associated_item_kind,
                 } => match associated_item_kind {
-                    AssociatedItemKind::TypeItem(_) => todo!(),
+                    AssociatedItemKind::TypeItem(ty_item_kind) => match ty_item_kind {
+                        TypeItemKind::Method => ext::SemanticTokenType::METHOD,
+                        TypeItemKind::AssociatedFunction => ext::SemanticTokenType::FUNCTION,
+                        TypeItemKind::Memo => todo!(),
+                    },
                     AssociatedItemKind::TraitItem(_) => todo!(),
                     AssociatedItemKind::TypeAsTraitItem(_) => todo!(),
                 },

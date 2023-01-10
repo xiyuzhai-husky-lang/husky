@@ -29,6 +29,23 @@ impl ModuleItemPath {
     pub fn crate_path(self, db: &dyn EntityPathDb) -> CratePath {
         self.module_path(db).crate_path(db)
     }
+
+    pub(crate) fn entity_kind(self, db: &dyn EntityPathDb) -> EntityKind {
+        match self {
+            ModuleItemPath::Type(path) => EntityKind::ModuleItem {
+                module_item_kind: ModuleItemKind::Type(path.ty_kind(db)),
+                connection: path.connection(db),
+            },
+            ModuleItemPath::Trait(path) => EntityKind::ModuleItem {
+                module_item_kind: ModuleItemKind::Trait,
+                connection: path.connection(db),
+            },
+            ModuleItemPath::Form(path) => EntityKind::ModuleItem {
+                module_item_kind: ModuleItemKind::Form(path.form_kind(db)),
+                connection: path.connection(db),
+            },
+        }
+    }
 }
 
 impl From<FormPath> for ModuleItemPath {

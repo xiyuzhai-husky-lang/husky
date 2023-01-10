@@ -63,6 +63,18 @@ impl Decl {
             Decl::Variant(decl) => todo!(),
         }
     }
+
+    pub fn path(self, db: &dyn DeclDb) -> Option<EntityPath> {
+        match self {
+            Decl::Type(decl) => Some(decl.path(db).into()),
+            Decl::Form(decl) => Some(decl.path(db).into()),
+            Decl::Trait(decl) => Some(decl.path(db).into()),
+            Decl::ImplBlock(decl) => None,
+            Decl::TypeItem(decl) => Some(decl.path(db).into()),
+            Decl::TraitItem(decl) => Some(decl.path(db).into()),
+            Decl::Variant(decl) => todo!(),
+        }
+    }
 }
 
 impl From<TraitDecl> for Decl {

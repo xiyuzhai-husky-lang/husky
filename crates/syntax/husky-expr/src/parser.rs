@@ -200,17 +200,18 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             Ok(ident_token) => Ok(ident_token.ident()),
             Err(_) => todo!(),
         };
-        let expr = EntityPathExpr::Subentity {
-            parent,
-            scope_resolution_token,
-            ident_token,
-        };
-        let expr = self.alloc_entity_path_expr(expr);
         let path: ExprResult<EntityPath> = parent_path
             .map(|parent_path| -> ExprResult<EntityPath> {
                 Ok(self.parser.db.subentity_path(parent_path, ident?)?)
             })
             .flatten();
+        let expr = EntityPathExpr::Subentity {
+            parent,
+            scope_resolution_token,
+            ident_token,
+            entity_path: path.clone(),
+        };
+        let expr = self.alloc_entity_path_expr(expr);
         match self.try_parse::<ScopeResolutionToken>() {
             Some(scope_resolution_token) => {
                 self.parse_subentity_path_expr(expr, path, scope_resolution_token)

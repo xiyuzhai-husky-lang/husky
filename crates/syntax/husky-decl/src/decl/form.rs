@@ -48,6 +48,15 @@ impl FormDecl {
             FormDecl::Value(decl) => decl.expr_sheet(db),
         }
     }
+
+    pub fn path(self, db: &dyn DeclDb) -> FormPath {
+        match self {
+            FormDecl::Function(decl) => decl.path(db),
+            FormDecl::Feature(decl) => decl.path(db),
+            FormDecl::Morphism(decl) => decl.path(db),
+            FormDecl::Value(decl) => decl.path(db),
+        }
+    }
 }
 
 impl From<ValueDecl> for FormDecl {
@@ -73,8 +82,6 @@ impl From<FunctionDecl> for FormDecl {
         Self::Function(v)
     }
 }
-
-impl FormDecl {}
 
 impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for FormDecl {
     fn fmt(

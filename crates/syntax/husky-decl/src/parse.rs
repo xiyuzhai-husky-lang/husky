@@ -91,7 +91,7 @@ impl<'a> DeclParser<'a> {
                 ..
             } => self.parse_ty_decl_aux(
                 ast_idx,
-                path.type_kind(self.db),
+                path.ty_kind(self.db),
                 path,
                 entity_kind,
                 token_group_idx,

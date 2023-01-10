@@ -52,6 +52,16 @@ impl TypeItemDecl {
             TypeItemDecl::Memo(_) => todo!(),
         }
     }
+
+    pub fn path(self, db: &dyn DeclDb) -> TypeItemPath {
+        match self {
+            TypeItemDecl::Function(_) => todo!(),
+            TypeItemDecl::Method(_) => todo!(),
+            TypeItemDecl::AlienType(_) => todo!(),
+            TypeItemDecl::Value(_) => todo!(),
+            TypeItemDecl::Memo(_) => todo!(),
+        }
+    }
 }
 
 impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for TypeItemDecl {

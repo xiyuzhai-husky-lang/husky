@@ -4,12 +4,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Function,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             ImplicitParameter,
@@ -64,7 +67,17 @@ Ok(
             Method,
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 2,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
@@ -100,12 +113,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Function,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 2,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             ImplicitParameter,
@@ -198,7 +214,17 @@ Ok(
                 ),
             },
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 3,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 2,
@@ -236,7 +262,17 @@ Ok(
                 ),
             },
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 2,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 2,
@@ -276,7 +312,17 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 2,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 2,
@@ -318,12 +364,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Function,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 3,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             ImplicitParameter,
@@ -760,12 +809,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Feature,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 4,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             None,
@@ -804,7 +856,17 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             LocalSymbol {
                 local_symbol_idx: 0,
@@ -857,12 +919,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Feature,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 5,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             None,
@@ -892,7 +957,17 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             LocalSymbol {
                 local_symbol_idx: 0,

@@ -27,6 +27,10 @@ impl<'a> ExprContext<'a> {
         }
     }
 
+    pub fn entity_path_exprs(&self) -> &'a [EntityPathExpr] {
+        self.entity_path_expr_arena.data()
+    }
+
     pub fn exprs(&self) -> &'a [Expr] {
         self.expr_arena.data()
     }

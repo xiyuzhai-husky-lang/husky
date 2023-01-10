@@ -84,6 +84,15 @@ impl EntityPath {
             EntityPath::Variant(_) => todo!(),
         }
     }
+
+    pub fn entity_kind(self, db: &dyn EntityPathDb) -> EntityKind {
+        match self {
+            EntityPath::Module(path) => todo!(),
+            EntityPath::ModuleItem(path) => path.entity_kind(db),
+            EntityPath::AssociatedItem(path) => path.entity_kind(db),
+            EntityPath::Variant(_) => todo!(),
+        }
+    }
 }
 
 impl<Db> salsa::DebugWithDb<Db> for EntityPath

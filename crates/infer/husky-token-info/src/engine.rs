@@ -45,8 +45,10 @@ impl<'a> InferEngine<'a> {
                     body_kind,
                     saved_stream_state,
                 } => {
-                    self.sheet
-                        .add(ident_token.token_idx(), TokenInfo::Entity(entity_kind));
+                    self.sheet.add(
+                        ident_token.token_idx(),
+                        TokenInfo::Entity(decl.path(self.db).unwrap()),
+                    );
                     if is_generic {
                         for implicit_parameter in defn.implicit_parameters(self.db) {
                             self.sheet.add(
@@ -56,6 +58,7 @@ impl<'a> InferEngine<'a> {
                         }
                     }
                 }
+                Ast::Impl { .. } => todo!(),
                 _ => unreachable!(),
             }
             match defn {
@@ -169,6 +172,9 @@ impl<'a> AuxInferEngine<'a> {
         for expr in self.symbol_context.exprs() {
             self.visit_expr(expr)
         }
+        for entity_path_expr in self.symbol_context.entity_path_exprs() {
+            self.visit_entity_path_expr(entity_path_expr)
+        }
         for (local_symbol_idx, local_symbol) in self.symbol_context.indexed_local_symbol_iter() {
             self.visit_local_symbol(local_symbol_idx, local_symbol)
         }
@@ -246,6 +252,24 @@ impl<'a> AuxInferEngine<'a> {
                 }
                 _ => (),
             },
+        }
+    }
+
+    fn visit_entity_path_expr(&mut self, entity_path_expr: &EntityPathExpr) {
+        match entity_path_expr {
+            EntityPathExpr::Root {
+                entity_path,
+                token_idx,
+                ..
+            } => self.sheet.add(*token_idx, TokenInfo::Entity(*entity_path)),
+            EntityPathExpr::Subentity {
+                entity_path: Ok(entity_path),
+                ident_token: Ok(ident_token),
+                ..
+            } => self
+                .sheet
+                .add(ident_token.token_idx(), TokenInfo::Entity(*entity_path)),
+            EntityPathExpr::Subentity { .. } => (),
         }
     }
 

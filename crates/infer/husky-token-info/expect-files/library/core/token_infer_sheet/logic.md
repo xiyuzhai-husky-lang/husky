@@ -4,12 +4,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Type(
-                        Structure,
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 4,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             ImplicitParameter,
@@ -33,12 +36,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Type(
-                        Inductive,
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 5,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             ImplicitParameter,

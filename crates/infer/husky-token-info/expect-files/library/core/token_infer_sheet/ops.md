@@ -11,10 +11,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Trait,
-                    connection: Connected,
-                },
+                ModuleItem(
+                    Trait(
+                        TraitPath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                ),
             ),
             None,
             ImplicitParameter,
