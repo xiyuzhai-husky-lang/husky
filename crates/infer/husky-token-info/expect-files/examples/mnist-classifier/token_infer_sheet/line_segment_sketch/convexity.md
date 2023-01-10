@@ -21,12 +21,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Function,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 23,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             LocalSymbol {

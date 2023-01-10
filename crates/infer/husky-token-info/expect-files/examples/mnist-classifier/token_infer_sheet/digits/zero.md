@@ -67,12 +67,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Feature,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 25,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             None,
@@ -82,17 +85,30 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Function,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             LocalSymbol {
@@ -151,12 +167,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Feature,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             None,
@@ -179,7 +198,17 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 25,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             Field,
             None,
@@ -187,7 +216,17 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 25,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             Field,
             None,
@@ -205,7 +244,17 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 25,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             Field,
             None,

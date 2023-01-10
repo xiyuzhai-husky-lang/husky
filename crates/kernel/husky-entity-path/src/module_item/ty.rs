@@ -6,7 +6,7 @@ pub struct TypePath {
     pub module_path: ModulePath,
     pub ident: Identifier,
     pub connection: ModuleItemConnection,
-    pub type_kind: TypeKind,
+    pub ty_kind: TypeKind,
 }
 
 impl TypePath {
@@ -32,7 +32,7 @@ impl<Db: EntityPathDb + ?Sized> salsa::DebugWithDb<Db> for TypePath {
         f.write_str("TypePath(`")?;
         self.show_aux(f, db)?;
         f.write_str("`, `")?;
-        self.type_kind(db).fmt(f)?;
+        self.ty_kind(db).fmt(f)?;
         f.write_str("`)")
     }
 }

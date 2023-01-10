@@ -250,7 +250,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 600;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 207,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    ModuleItem {\n        module_item_kind: Form(\n            Function,\n        ),\n        connection: Connected,\n    },\n);\n\n\n",
+                                value: "\ntoken_idx = 600;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 207,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    ModuleItem(\n        Form(\n            FormPath(\n                Id {\n                    value: 13,\n                },\n            ),\n        ),\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(

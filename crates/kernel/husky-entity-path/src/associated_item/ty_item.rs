@@ -4,10 +4,5 @@ use super::*;
 pub struct TypeItemPath {
     pub ty_path: TypePath,
     pub ident: Identifier,
-}
-
-impl Into<EntityPath> for TypeItemPath {
-    fn into(self) -> EntityPath {
-        EntityPath::AssociatedItem(self.into())
-    }
+    pub ty_item_kind: TypeItemKind,
 }

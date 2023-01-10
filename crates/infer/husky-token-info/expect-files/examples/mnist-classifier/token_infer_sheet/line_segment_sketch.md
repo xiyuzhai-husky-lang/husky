@@ -329,12 +329,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Function,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 17,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             LocalSymbol {
@@ -713,12 +716,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Function,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 18,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             LocalSymbol {
@@ -1024,12 +1030,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Function,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 19,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             LocalSymbol {
@@ -1395,7 +1404,17 @@ Ok(
                 ),
             },
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 17,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             LocalSymbol {
                 local_symbol_idx: 3,
@@ -1435,7 +1454,17 @@ Ok(
                 ),
             },
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 18,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             LocalSymbol {
                 local_symbol_idx: 4,
@@ -1671,7 +1700,17 @@ Ok(
                 ),
             },
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 17,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             LocalSymbol {
                 local_symbol_idx: 7,
@@ -1710,7 +1749,17 @@ Ok(
                 ),
             },
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 18,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             LocalSymbol {
                 local_symbol_idx: 8,
@@ -1944,12 +1993,15 @@ Ok(
             },
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Function,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 20,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             LocalSymbol {
@@ -2320,7 +2372,17 @@ Ok(
                 ),
             },
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 17,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             LocalSymbol {
                 local_symbol_idx: 2,
@@ -2360,7 +2422,17 @@ Ok(
                 ),
             },
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 18,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             LocalSymbol {
                 local_symbol_idx: 3,
@@ -2591,7 +2663,17 @@ Ok(
                 ),
             },
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 17,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             LocalSymbol {
                 local_symbol_idx: 2,
@@ -2630,7 +2712,17 @@ Ok(
                 ),
             },
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 18,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             LocalSymbol {
                 local_symbol_idx: 3,
@@ -2947,12 +3039,15 @@ Ok(
             },
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Function,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 21,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             LocalSymbol {
@@ -3005,7 +3100,17 @@ Ok(
             None,
             BoxPrefix,
             BoxPrefix,
-            None,
+            Entity(
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 22,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             None,
             None,
@@ -3106,7 +3211,17 @@ Ok(
                 ),
             },
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 19,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
@@ -3157,9 +3272,29 @@ Ok(
                 ),
             },
             None,
+            Entity(
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 22,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
-            None,
-            None,
+            Entity(
+                AssociatedItem(
+                    TypeItem(
+                        TypeItemPath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
@@ -3400,9 +3535,29 @@ Ok(
             None,
             None,
             None,
+            Entity(
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 22,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
-            None,
-            None,
+            Entity(
+                AssociatedItem(
+                    TypeItem(
+                        TypeItemPath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
@@ -3486,7 +3641,17 @@ Ok(
                 ),
             },
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 20,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
@@ -3550,9 +3715,29 @@ Ok(
                 ),
             },
             None,
+            Entity(
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 22,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
-            None,
-            None,
+            Entity(
+                AssociatedItem(
+                    TypeItem(
+                        TypeItemPath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
@@ -3901,9 +4086,29 @@ Ok(
                 ),
             },
             None,
+            Entity(
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 22,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
-            None,
-            None,
+            Entity(
+                AssociatedItem(
+                    TypeItem(
+                        TypeItemPath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
@@ -4241,9 +4446,29 @@ Ok(
             None,
             None,
             None,
+            Entity(
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 22,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
-            None,
-            None,
+            Entity(
+                AssociatedItem(
+                    TypeItem(
+                        TypeItemPath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,

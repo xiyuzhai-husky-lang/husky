@@ -49,12 +49,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Function,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 6,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             LocalSymbol {
@@ -131,12 +134,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Type(
-                        Struct,
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             None,
@@ -598,12 +604,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Function,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 7,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             LocalSymbol {
@@ -913,12 +922,15 @@ Ok(
             },
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Function,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 8,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             LocalSymbol {
@@ -956,7 +968,17 @@ Ok(
             None,
             BoxPrefix,
             BoxPrefix,
-            None,
+            Entity(
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             None,
             None,
@@ -1096,7 +1118,17 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 7,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             LocalSymbol {
                 local_symbol_idx: 2,
@@ -1252,7 +1284,17 @@ Ok(
                 ),
             },
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 7,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
@@ -1464,7 +1506,17 @@ Ok(
                 ),
             },
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 7,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
@@ -1645,7 +1697,17 @@ Ok(
             None,
             Method,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             LocalSymbol {
                 local_symbol_idx: 6,

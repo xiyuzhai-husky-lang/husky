@@ -77,12 +77,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Feature,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 59,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             None,
@@ -92,17 +95,30 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 62,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Feature,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 60,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             None,
@@ -112,17 +128,30 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 63,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Feature,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 61,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             None,
@@ -184,7 +213,17 @@ Ok(
                 ),
             },
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 59,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             Field,
             None,
@@ -309,7 +348,17 @@ Ok(
                 ),
             },
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 60,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             Field,
             None,
@@ -330,7 +379,17 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 60,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             None,
             None,
@@ -368,7 +427,17 @@ Ok(
                 ),
             },
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 60,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             Field,
             None,
@@ -426,7 +495,17 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 60,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             None,
             None,
@@ -486,12 +565,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Function,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 62,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             LocalSymbol {
@@ -541,12 +623,15 @@ Ok(
             Field,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Function,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 63,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             LocalSymbol {

@@ -76,6 +76,24 @@ impl TypeDecl {
             TypeDecl::Union(decl) => decl.expr_sheet(db),
         }
     }
+
+    pub fn path(self, db: &dyn DeclDb) -> TypePath {
+        match self {
+            TypeDecl::Enum(decl) => decl.path(db),
+            TypeDecl::Inductive(decl) => decl.path(db),
+            TypeDecl::Record(decl) => decl.path(db),
+            TypeDecl::UnitStruct(decl) => decl.path(db),
+            TypeDecl::PropsStruct(decl) => decl.path(db),
+            TypeDecl::TupleStruct(decl) => decl.path(db),
+            TypeDecl::Structure(decl) => decl.path(db),
+            TypeDecl::Foreign(decl) => decl.path(db),
+            TypeDecl::Union(decl) => decl.path(db),
+        }
+    }
+
+    pub fn entity_path(self, db: &dyn DeclDb) -> EntityPath {
+        self.path(db).into()
+    }
 }
 
 impl From<EnumTypeDecl> for TypeDecl {
@@ -123,26 +141,6 @@ impl From<StructureTypeDecl> for TypeDecl {
 impl From<AlienTypeDecl> for TypeDecl {
     fn from(v: AlienTypeDecl) -> Self {
         Self::Foreign(v)
-    }
-}
-
-impl TypeDecl {
-    fn path(self, db: &dyn DeclDb) -> TypePath {
-        match self {
-            TypeDecl::Enum(decl) => decl.path(db),
-            TypeDecl::Inductive(decl) => decl.path(db),
-            TypeDecl::Record(decl) => decl.path(db),
-            TypeDecl::UnitStruct(decl) => decl.path(db),
-            TypeDecl::PropsStruct(decl) => decl.path(db),
-            TypeDecl::TupleStruct(decl) => decl.path(db),
-            TypeDecl::Structure(decl) => decl.path(db),
-            TypeDecl::Foreign(decl) => decl.path(db),
-            TypeDecl::Union(decl) => decl.path(db),
-        }
-    }
-
-    pub fn entity_path(self, db: &dyn DeclDb) -> EntityPath {
-        self.path(db).into()
     }
 }
 

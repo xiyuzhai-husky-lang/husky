@@ -11,6 +11,7 @@ pub enum EntityPathExpr {
         parent: EntityPathExprIdx,
         scope_resolution_token: ScopeResolutionToken,
         ident_token: ExprResult<IdentifierToken>,
+        entity_path: ExprResult<EntityPath>,
     },
 }
 

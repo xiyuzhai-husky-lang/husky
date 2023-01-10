@@ -3,12 +3,15 @@ Ok(
         token_infos: [
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Type(
-                        Inductive,
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             None,
@@ -94,12 +97,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Type(
-                        Structure,
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 29,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             None,
@@ -130,12 +136,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Type(
-                        Structure,
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 30,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             None,

@@ -46,6 +46,15 @@ impl TraitItemDecl {
             TraitItemDecl::Value(_) => todo!(),
         }
     }
+
+    pub fn path(self, db: &dyn DeclDb) -> TraitItemPath {
+        match self {
+            TraitItemDecl::Function(_) => todo!(),
+            TraitItemDecl::Method(_) => todo!(),
+            TraitItemDecl::AlienType(_) => todo!(),
+            TraitItemDecl::Value(_) => todo!(),
+        }
+    }
 }
 
 impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for TraitItemDecl {

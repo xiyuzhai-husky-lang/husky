@@ -12,7 +12,7 @@ pub(crate) fn collect_semantic_tokens(
     let token_infer_sheet = db.token_info_sheet(module_path)?;
     let iter0 = token_infer_sheet
         .informative_ranged_token_iter(ranged_token_sheet, db)
-        .filter_map(|(info, (range, token))| token_to_semantic_token(info, token, range));
+        .filter_map(|(info, (range, token))| token_to_semantic_token(db, info, token, range));
     let iter1 = ranged_token_sheet
         .comments()
         .iter()
@@ -21,6 +21,7 @@ pub(crate) fn collect_semantic_tokens(
 }
 
 fn token_to_semantic_token(
+    db: &dyn SemanticTokenDb,
     info: &TokenInfo,
     token: &Token,
     range: &husky_text::TextRange,
@@ -35,7 +36,7 @@ fn token_to_semantic_token(
             Token::Literal(_) => SemanticToken::Literal,
             Token::Err(_) => return None,
         },
-        TokenInfo::Entity(entity_kind) => SemanticToken::Entity(*entity_kind),
+        TokenInfo::Entity(path) => SemanticToken::Entity(path.entity_kind(db)),
         TokenInfo::ImplicitParameter => SemanticToken::ImplicitParameter,
         TokenInfo::Parameter => SemanticToken::Parameter,
         TokenInfo::LocalSymbol {

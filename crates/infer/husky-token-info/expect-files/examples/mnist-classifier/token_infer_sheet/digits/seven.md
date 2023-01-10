@@ -81,12 +81,15 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Feature,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 50,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             None,
@@ -96,17 +99,30 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 51,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Function,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 51,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             LocalSymbol {
@@ -188,12 +204,15 @@ Ok(
             Field,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Feature,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 52,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             None,
@@ -203,19 +222,42 @@ Ok(
             None,
             None,
             None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 53,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
-            None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 54,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             None,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Function,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 53,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             LocalSymbol {
@@ -320,12 +362,15 @@ Ok(
             Field,
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Function,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 54,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             LocalSymbol {
@@ -471,12 +516,15 @@ Ok(
             },
             None,
             Entity(
-                ModuleItem {
-                    module_item_kind: Form(
-                        Feature,
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 55,
+                            },
+                        ),
                     ),
-                    connection: Connected,
-                },
+                ),
             ),
             None,
             None,
@@ -513,7 +561,17 @@ Ok(
                 ),
             },
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 50,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             Field,
             None,
@@ -532,7 +590,17 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 50,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             Field,
             None,
@@ -588,7 +656,17 @@ Ok(
                 ),
             },
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 50,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             Field,
             None,
@@ -695,7 +773,17 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 52,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             Field,
             None,
@@ -716,7 +804,17 @@ Ok(
                 ),
             },
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 52,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             Field,
             None,
