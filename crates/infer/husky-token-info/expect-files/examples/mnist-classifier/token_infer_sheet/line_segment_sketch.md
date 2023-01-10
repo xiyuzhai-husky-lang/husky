@@ -75,7 +75,17 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 22,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             None,
             None,
@@ -184,7 +194,17 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 23,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             None,
             None,

@@ -35,7 +35,17 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             None,
             None,

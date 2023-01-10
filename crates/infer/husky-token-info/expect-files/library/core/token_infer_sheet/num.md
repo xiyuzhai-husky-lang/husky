@@ -23,7 +23,17 @@ Ok(
             ),
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 6,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             None,
             None,
@@ -78,7 +88,17 @@ Ok(
             ),
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 7,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             None,
             None,
@@ -133,7 +153,17 @@ Ok(
             ),
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 8,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             None,
             None,
@@ -186,7 +216,17 @@ Ok(
             ),
             None,
             None,
-            None,
+            Entity(
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 9,
+                            },
+                        ),
+                    ),
+                ),
+            ),
             None,
             None,
             None,

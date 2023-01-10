@@ -444,11 +444,15 @@ impl<'a> DeclParser<'a> {
                 .token_group_token_stream(token_group_idx, None),
         );
         let impl_token = ctx.parse().unwrap().unwrap();
+        let ty = ctx.parse_expr(ExprParseEnvironment::None).unwrap();
+        let eol_colon = ctx.parse_expected();
         Ok(TypeImplBlockDecl::new(
             self.db,
             ast_idx,
             impl_block,
             impl_token,
+            ty,
+            eol_colon,
             parser.finish(),
         ))
     }
