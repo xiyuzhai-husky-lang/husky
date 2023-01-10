@@ -1,21 +1,21 @@
 Ok(
     DeclSheet {
         decls: [
-            Err(
-                Expr(
-                    ExpectIdentifier(
-                        TokenIdx(
-                            33,
-                        ),
+            Ok(
+                Type(
+                    PropsStruct(
+                        PropsStructTypeDecl {
+                            path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                        },
                     ),
                 ),
             ),
-            Err(
-                Expr(
-                    ExpectIdentifier(
-                        TokenIdx(
-                            45,
-                        ),
+            Ok(
+                Type(
+                    PropsStruct(
+                        PropsStructTypeDecl {
+                            path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                        },
                     ),
                 ),
             ),
