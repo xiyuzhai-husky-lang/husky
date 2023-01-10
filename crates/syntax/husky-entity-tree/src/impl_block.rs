@@ -233,12 +233,15 @@ pub(crate) fn ty_associated_items(
 ) -> EntityTreeCrateBundleResult<IdentPairMap<AssociatedItem>> {
     let crate_path = ty.module_path(db).crate_path(db);
     let entity_tree_crate_bundle = db.entity_tree_crate_bundle(crate_path)?;
-    todo!()
-    // Ok(entity_tree_crate_bundle
-    //     .associated_item_indexed_iter()
-    //     .filter_map(|(idx, associated_item)| {
-    //         (associated_item.impl_block().kind(db) == ImplBlockKind::Type { ty })
-    //             .then_some((associated_item.ident(), idx))
-    //     })
-    //     .collect())
+    Ok(entity_tree_crate_bundle
+        .impl_block_iter()
+        .filter_map(|impl_block| {
+            (impl_block.kind(db) == ImplBlockKind::Type { ty }).then_some({
+                db.impl_block_associated_items(impl_block)
+                    .iter()
+                    .map(|(ident, associated_item)| (*ident, *associated_item))
+            })
+        })
+        .flatten()
+        .collect())
 }

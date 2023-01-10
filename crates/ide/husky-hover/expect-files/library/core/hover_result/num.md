@@ -70,7 +70,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 16;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 20,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 16;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 20,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        AssociatedItem(\n            TypeItem(\n                TypeItemPath(\n                    Id {\n                        value: 1,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        AssociatedItem {\n            associated_item_kind: TypeItem(\n                Method,\n            ),\n        },\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -160,7 +160,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 40;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 19,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 40;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 19,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 6,\n                    },\n                ),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
                             },
                         ),
                         range: Some(

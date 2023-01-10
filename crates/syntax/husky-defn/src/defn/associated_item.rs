@@ -36,17 +36,17 @@ impl From<TypeItemDefn> for AssociatedItemDefn {
 impl AssociatedItemDefn {
     pub fn decl(self, db: &dyn DefnDb) -> AssociatedItemDecl {
         match self {
-            AssociatedItemDefn::TypeItem(_) => todo!(),
+            AssociatedItemDefn::TypeItem(defn) => defn.decl(db).into(),
             AssociatedItemDefn::TraitItem(_) => todo!(),
-            AssociatedItemDefn::TypeAsTraitItem(_) => todo!(),
+            AssociatedItemDefn::TypeAsTraitItem(defn) => defn.decl(db).into(),
         }
     }
 
     pub fn expr_sheet(self, db: &dyn DefnDb) -> Option<ExprSheet> {
         match self {
-            AssociatedItemDefn::TypeItem(_) => todo!(),
+            AssociatedItemDefn::TypeItem(defn) => defn.expr_sheet(db),
             AssociatedItemDefn::TraitItem(_) => todo!(),
-            AssociatedItemDefn::TypeAsTraitItem(_) => todo!(),
+            AssociatedItemDefn::TypeAsTraitItem(defn) => Some(defn.expr_sheet(db)),
         }
     }
 

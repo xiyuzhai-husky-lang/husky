@@ -75,10 +75,13 @@ impl SemanticToken {
                     AssociatedItemKind::TypeItem(ty_item_kind) => match ty_item_kind {
                         TypeItemKind::Method => ext::SemanticTokenType::METHOD,
                         TypeItemKind::AssociatedFunction => ext::SemanticTokenType::FUNCTION,
-                        TypeItemKind::Memo => todo!(),
+                        TypeItemKind::Memo => ext::SemanticTokenType::PROPERTY,
                     },
                     AssociatedItemKind::TraitItem(_) => todo!(),
-                    AssociatedItemKind::TypeAsTraitItem(_) => todo!(),
+                    AssociatedItemKind::TypeAsTraitItem(ty_as_trai_kind) => match ty_as_trai_kind {
+                        TraitItemKind::Method => ext::SemanticTokenType::METHOD,
+                        TraitItemKind::AssociatedType => todo!(),
+                    },
                 },
                 EntityKind::Variant => todo!(),
                 // EntityKind::Module => ext::SemanticTokenType::NAMESPACE,

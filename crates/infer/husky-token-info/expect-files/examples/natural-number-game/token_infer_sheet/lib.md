@@ -3,14 +3,24 @@ Ok(
         token_infos: [
             None,
             Entity(
-                ModuleItem(
-                    Type(
-                        TypePath(
-                            Id {
-                                value: 28,
-                            },
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
                         ),
                     ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Type(
+                            Inductive,
+                        ),
+                        connection: Connected,
+                    },
                 ),
             ),
             None,
@@ -22,99 +32,39 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem(
-                    Type(
-                        TypePath(
-                            Id {
-                                value: 28,
-                            },
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
                         ),
                     ),
                 ),
+                None,
             ),
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
             Entity(
-                ModuleItem(
-                    Type(
-                        TypePath(
-                            Id {
-                                value: 29,
-                            },
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 51,
+                                },
+                            ),
                         ),
                     ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Memo,
+                        ),
+                    },
                 ),
             ),
             None,
@@ -145,15 +95,117 @@ Ok(
             None,
             None,
             None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
             Entity(
-                ModuleItem(
-                    Type(
-                        TypePath(
-                            Id {
-                                value: 30,
-                            },
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 29,
+                                },
+                            ),
                         ),
                     ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Type(
+                            Structure,
+                        ),
+                        connection: Connected,
+                    },
+                ),
+            ),
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 30,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Type(
+                            Structure,
+                        ),
+                        connection: Connected,
+                    },
                 ),
             ),
             None,

@@ -7,7 +7,7 @@ use husky_expr::{
 #[derive(Debug, PartialEq, Eq)]
 pub enum TokenInfo {
     None,
-    Entity(EntityPath),
+    Entity(Option<EntityPath>, Option<EntityKind>),
     ImplicitParameter,
     Parameter,
     InheritedSymbol {

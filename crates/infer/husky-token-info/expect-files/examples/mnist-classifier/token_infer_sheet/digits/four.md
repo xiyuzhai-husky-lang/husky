@@ -65,14 +65,24 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 43,
-                            },
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 43,
+                                },
+                            ),
                         ),
                     ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Form(
+                            Feature,
+                        ),
+                        connection: Connected,
+                    },
                 ),
             ),
             None,
@@ -84,40 +94,56 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 44,
-                            },
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 44,
+                                },
+                            ),
                         ),
                     ),
                 ),
+                None,
             ),
             None,
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 44,
-                            },
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 44,
+                                },
+                            ),
                         ),
                     ),
                 ),
+                None,
             ),
             None,
             None,
             None,
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 44,
-                            },
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 44,
+                                },
+                            ),
                         ),
                     ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Form(
+                            Function,
+                        ),
+                        connection: Connected,
+                    },
                 ),
             ),
             None,
@@ -128,7 +154,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 43,
+                        value: 79,
                     },
                 ),
             },
@@ -147,7 +173,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 50,
+                        value: 86,
                     },
                 ),
             },
@@ -159,14 +185,24 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 45,
-                            },
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 45,
+                                },
+                            ),
                         ),
                     ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Form(
+                            Feature,
+                        ),
+                        connection: Connected,
+                    },
                 ),
             ),
             None,
@@ -178,61 +214,41 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 48,
-                            },
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 48,
+                                },
+                            ),
                         ),
                     ),
                 ),
+                None,
             ),
             None,
             None,
             None,
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 46,
-                            },
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 46,
+                                },
+                            ),
                         ),
                     ),
                 ),
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 49,
-                            },
+                Some(
+                    ModuleItem {
+                        module_item_kind: Form(
+                            Feature,
                         ),
-                    ),
-                ),
-            ),
-            None,
-            None,
-            None,
-            Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 47,
-                            },
-                        ),
-                    ),
+                        connection: Connected,
+                    },
                 ),
             ),
             None,
@@ -240,16 +256,65 @@ Ok(
             None,
             None,
             None,
+            None,
+            None,
+            None,
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 43,
-                            },
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 49,
+                                },
+                            ),
                         ),
                     ),
                 ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 47,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Form(
+                            Feature,
+                        ),
+                        connection: Connected,
+                    },
+                ),
+            ),
+            None,
+            None,
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 43,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
             ),
             None,
             Field,
@@ -260,15 +325,18 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 43,
-                            },
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 43,
+                                },
+                            ),
                         ),
                     ),
                 ),
+                None,
             ),
             None,
             Field,
@@ -285,7 +353,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 53,
+                        value: 89,
                     },
                 ),
             },
@@ -301,7 +369,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 53,
+                        value: 89,
                     },
                 ),
             },
@@ -320,21 +388,24 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 53,
+                        value: 89,
                     },
                 ),
             },
             None,
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 45,
-                            },
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 45,
+                                },
+                            ),
                         ),
                     ),
                 ),
+                None,
             ),
             None,
             Field,
@@ -349,7 +420,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 53,
+                        value: 89,
                     },
                 ),
             },
@@ -363,7 +434,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 53,
+                        value: 89,
                     },
                 ),
             },
@@ -375,7 +446,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 53,
+                        value: 89,
                     },
                 ),
             },
@@ -393,7 +464,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 53,
+                        value: 89,
                     },
                 ),
             },
@@ -413,7 +484,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 53,
+                        value: 89,
                     },
                 ),
             },
@@ -427,7 +498,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 53,
+                        value: 89,
                     },
                 ),
             },
@@ -455,21 +526,24 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 53,
+                        value: 89,
                     },
                 ),
             },
             None,
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 46,
-                            },
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 46,
+                                },
+                            ),
                         ),
                     ),
                 ),
+                None,
             ),
             None,
             Field,
@@ -484,7 +558,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 53,
+                        value: 89,
                     },
                 ),
             },
@@ -492,15 +566,18 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 46,
-                            },
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 46,
+                                },
+                            ),
                         ),
                     ),
                 ),
+                None,
             ),
             None,
             None,
@@ -514,7 +591,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 53,
+                        value: 89,
                     },
                 ),
             },
@@ -534,21 +611,24 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 53,
+                        value: 89,
                     },
                 ),
             },
             None,
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 46,
-                            },
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 46,
+                                },
+                            ),
                         ),
                     ),
                 ),
+                None,
             ),
             None,
             Field,
@@ -563,7 +643,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 53,
+                        value: 89,
                     },
                 ),
             },
@@ -577,7 +657,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 53,
+                        value: 89,
                     },
                 ),
             },
@@ -597,7 +677,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 53,
+                        value: 89,
                     },
                 ),
             },
@@ -608,15 +688,18 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 46,
-                            },
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 46,
+                                },
+                            ),
                         ),
                     ),
                 ),
+                None,
             ),
             None,
             None,
@@ -630,7 +713,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 53,
+                        value: 89,
                     },
                 ),
             },
@@ -649,7 +732,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 53,
+                        value: 89,
                     },
                 ),
             },
@@ -663,7 +746,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 53,
+                        value: 89,
                     },
                 ),
             },
@@ -677,14 +760,24 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 48,
-                            },
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 48,
+                                },
+                            ),
                         ),
                     ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Form(
+                            Function,
+                        ),
+                        connection: Connected,
+                    },
                 ),
             ),
             None,
@@ -695,7 +788,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 47,
+                        value: 83,
                     },
                 ),
             },
@@ -715,7 +808,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 54,
+                        value: 90,
                     },
                 ),
             },
@@ -727,7 +820,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 54,
+                        value: 90,
                     },
                 ),
             },
@@ -743,7 +836,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 54,
+                        value: 90,
                     },
                 ),
             },
@@ -758,7 +851,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 54,
+                        value: 90,
                     },
                 ),
             },
@@ -766,14 +859,24 @@ Ok(
             Field,
             None,
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 49,
-                            },
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 49,
+                                },
+                            ),
                         ),
                     ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Form(
+                            Function,
+                        ),
+                        connection: Connected,
+                    },
                 ),
             ),
             None,
@@ -784,7 +887,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 48,
+                        value: 84,
                     },
                 ),
             },
@@ -804,7 +907,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 55,
+                        value: 91,
                     },
                 ),
             },
@@ -816,7 +919,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 55,
+                        value: 91,
                     },
                 ),
             },
@@ -832,7 +935,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 55,
+                        value: 91,
                     },
                 ),
             },
@@ -848,7 +951,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 55,
+                        value: 91,
                     },
                 ),
             },
@@ -867,7 +970,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 55,
+                        value: 91,
                     },
                 ),
             },

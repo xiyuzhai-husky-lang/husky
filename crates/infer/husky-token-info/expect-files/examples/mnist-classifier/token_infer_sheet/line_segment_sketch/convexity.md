@@ -21,14 +21,24 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 23,
-                            },
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 23,
+                                },
+                            ),
                         ),
                     ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Form(
+                            Function,
+                        ),
+                        connection: Connected,
+                    },
                 ),
             ),
             None,
@@ -39,7 +49,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 129,
+                        value: 221,
                     },
                 ),
             },
@@ -53,7 +63,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 129,
+                        value: 221,
                     },
                 ),
             },
@@ -71,7 +81,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -83,7 +93,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -101,7 +111,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -113,7 +123,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -127,7 +137,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -139,7 +149,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -156,7 +166,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -168,7 +178,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -183,7 +193,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -198,7 +208,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -215,7 +225,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -227,7 +237,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -241,7 +251,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -254,7 +264,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -270,7 +280,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -285,7 +295,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -297,7 +307,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -312,7 +322,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -327,7 +337,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -342,7 +352,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -358,7 +368,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -373,7 +383,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -385,7 +395,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -401,7 +411,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -417,7 +427,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -429,7 +439,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -443,7 +453,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -457,7 +467,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -472,7 +482,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -487,7 +497,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -499,7 +509,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -513,7 +523,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -525,7 +535,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -540,7 +550,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -556,7 +566,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -571,7 +581,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -583,7 +593,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -599,7 +609,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -615,7 +625,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -627,7 +637,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -641,7 +651,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -655,7 +665,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -669,7 +679,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },
@@ -681,7 +691,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 130,
+                        value: 222,
                     },
                 ),
             },

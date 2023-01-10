@@ -4,14 +4,24 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem(
-                    Type(
-                        TypePath(
-                            Id {
-                                value: 4,
-                            },
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
                         ),
                     ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Type(
+                            Structure,
+                        ),
+                        connection: Connected,
+                    },
                 ),
             ),
             None,
@@ -36,14 +46,24 @@ Ok(
             None,
             None,
             Entity(
-                ModuleItem(
-                    Type(
-                        TypePath(
-                            Id {
-                                value: 5,
-                            },
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 5,
+                                },
+                            ),
                         ),
                     ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Type(
+                            Inductive,
+                        ),
+                        connection: Connected,
+                    },
                 ),
             ),
             None,
