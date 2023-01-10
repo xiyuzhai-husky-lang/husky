@@ -132,141 +132,6 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 75,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: LetVariable {
-                    pattern_symbol: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 81,
-                    },
-                ),
-            },
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_local_symbol_idx: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 81,
-                    },
-                ),
-            },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: LetVariable {
-                    pattern_symbol: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 81,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            None,
-            None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: LetVariable {
-                    pattern_symbol: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 81,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 52,
-                            },
-                        ),
-                    ),
-                ),
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 53,
-                            },
-                        ),
-                    ),
-                ),
-            ),
-            None,
-            Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 54,
-                            },
-                        ),
-                    ),
-                ),
-            ),
-            None,
-            None,
-            None,
-            Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 53,
-                            },
-                        ),
-                    ),
-                ),
-            ),
-            None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: Parameter {
-                    pattern_symbol: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
                         value: 77,
                     },
                 ),
@@ -324,6 +189,109 @@ Ok(
             None,
             None,
             None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 83,
+                    },
+                ),
+            },
+            None,
+            Field,
+            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 52,
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 53,
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 54,
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 53,
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: Parameter {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 79,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 85,
+                    },
+                ),
+            },
+            None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter {
@@ -331,7 +299,39 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 83,
+                        value: 85,
+                    },
+                ),
+            },
+            None,
+            Method,
+            None,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 85,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: Parameter {
+                    original_local_symbol_idx: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 85,
                     },
                 ),
             },
@@ -350,7 +350,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 83,
+                        value: 85,
                     },
                 ),
             },
@@ -380,7 +380,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 78,
+                        value: 80,
                     },
                 ),
             },
@@ -400,7 +400,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 84,
+                        value: 86,
                     },
                 ),
             },
@@ -412,7 +412,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 84,
+                        value: 86,
                     },
                 ),
             },
@@ -428,7 +428,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 84,
+                        value: 86,
                     },
                 ),
             },
@@ -444,7 +444,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 84,
+                        value: 86,
                     },
                 ),
             },
@@ -464,7 +464,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 84,
+                        value: 86,
                     },
                 ),
             },
@@ -476,7 +476,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 84,
+                        value: 86,
                     },
                 ),
             },
@@ -497,7 +497,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 84,
+                        value: 86,
                     },
                 ),
             },
@@ -510,7 +510,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 84,
+                        value: 86,
                     },
                 ),
             },
@@ -556,7 +556,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 85,
+                        value: 87,
                     },
                 ),
             },
@@ -582,7 +582,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 85,
+                        value: 87,
                     },
                 ),
             },
@@ -616,7 +616,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 85,
+                        value: 87,
                     },
                 ),
             },
@@ -636,7 +636,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 85,
+                        value: 87,
                     },
                 ),
             },
@@ -651,7 +651,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 85,
+                        value: 87,
                     },
                 ),
             },
@@ -684,7 +684,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 85,
+                        value: 87,
                     },
                 ),
             },
@@ -696,7 +696,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 85,
+                        value: 87,
                     },
                 ),
             },
@@ -710,7 +710,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 85,
+                        value: 87,
                     },
                 ),
             },
@@ -728,7 +728,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 85,
+                        value: 87,
                     },
                 ),
             },
@@ -743,7 +743,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 85,
+                        value: 87,
                     },
                 ),
             },
@@ -763,7 +763,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 85,
+                        value: 87,
                     },
                 ),
             },
@@ -799,7 +799,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 85,
+                        value: 87,
                     },
                 ),
             },

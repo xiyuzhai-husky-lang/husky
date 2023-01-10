@@ -1,6 +1,13 @@
 Ok(
     DefnSheet {
         defns: [
+            Type(
+                PropsStruct(
+                    PropsStructTypeDefn {
+                        path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                    },
+                ),
+            ),
             Form(
                 Function(
                     FunctionDefn {

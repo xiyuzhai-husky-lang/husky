@@ -1,57 +1,57 @@
 Ok(
     DeclSheet {
         decls: [
-            Err(
-                Expr(
-                    ExpectIdentifier(
-                        TokenIdx(
-                            11,
-                        ),
+            Ok(
+                Type(
+                    PropsStruct(
+                        PropsStructTypeDecl {
+                            path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                        },
+                    ),
+                ),
+            ),
+            Ok(
+                Type(
+                    PropsStruct(
+                        PropsStructTypeDecl {
+                            path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                        },
+                    ),
+                ),
+            ),
+            Ok(
+                Type(
+                    PropsStruct(
+                        PropsStructTypeDecl {
+                            path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                        },
+                    ),
+                ),
+            ),
+            Ok(
+                Type(
+                    PropsStruct(
+                        PropsStructTypeDecl {
+                            path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                        },
                     ),
                 ),
             ),
             Err(
                 Expr(
-                    ExpectIdentifier(
-                        TokenIdx(
-                            152,
-                        ),
-                    ),
-                ),
-            ),
-            Err(
-                Expr(
-                    ExpectIdentifier(
-                        TokenIdx(
-                            164,
-                        ),
-                    ),
-                ),
-            ),
-            Err(
-                Expr(
-                    ExpectIdentifier(
-                        TokenIdx(
-                            489,
-                        ),
-                    ),
-                ),
-            ),
-            Err(
-                Expr(
-                    ExpectIdentifier(
+                    ExpectRightCurlyBrace(
                         TokenIdx(
                             567,
                         ),
                     ),
                 ),
             ),
-            Err(
-                Expr(
-                    ExpectIdentifier(
-                        TokenIdx(
-                            694,
-                        ),
+            Ok(
+                Type(
+                    PropsStruct(
+                        PropsStructTypeDecl {
+                            path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                        },
                     ),
                 ),
             ),

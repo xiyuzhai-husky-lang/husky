@@ -1,12 +1,12 @@
 Ok(
     DeclSheet {
         decls: [
-            Err(
-                Expr(
-                    ExpectIdentifier(
-                        TokenIdx(
-                            40,
-                        ),
+            Ok(
+                Type(
+                    PropsStruct(
+                        PropsStructTypeDecl {
+                            path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                        },
                     ),
                 ),
             ),

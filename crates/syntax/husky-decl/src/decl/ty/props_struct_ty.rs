@@ -42,7 +42,9 @@ impl<'a, 'b> parsec::ParseFrom<ExprParseContext<'a, 'b>> for PropsStructFieldDec
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
-        let ident: IdentifierToken = ctx.parse_expected()?;
+        let Some(ident) = ctx.parse::<IdentifierToken>()? else {
+                return Ok(None)
+            };
         let colon: ColonToken = ctx.parse_expected()?;
         let Some(expr) = ctx.parse_expr(ExprParseEnvironment::None) else { todo!() };
         Ok(Some(PropsStructFieldDecl {

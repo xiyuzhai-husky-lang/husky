@@ -1,6 +1,20 @@
 Ok(
     DefnSheet {
         defns: [
+            Type(
+                PropsStruct(
+                    PropsStructTypeDefn {
+                        path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                    },
+                ),
+            ),
+            Type(
+                PropsStruct(
+                    PropsStructTypeDefn {
+                        path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                    },
+                ),
+            ),
             Form(
                 Function(
                     FunctionDefn {

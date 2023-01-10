@@ -74,6 +74,10 @@ pub enum ExprError {
     UnterminatedList,
     #[error("expect `:` at end of line")]
     ExpectEolColon(TokenIdx),
+    #[error("expect identifier after `mut`")]
+    ExpectIdentifierAfterMut(TokenIdx),
+    #[error("expect identifier after `::`")]
+    ExpectIdentifierAfterScopeResolution(TokenIdx),
     #[error("missing block")]
     MissingBlock,
 }
@@ -86,15 +90,15 @@ impl<'a, 'b> FromAbsent<RightCurlyBraceToken, ExprParseContext<'a, 'b>> for Expr
     }
 }
 
-impl<'a, Context> FromAbsent<IdentifierToken, Context> for ExprError
-where
-    Context: TokenParseContext<'a>,
-    <Context as HasParseError>::Error: From<TokenError>,
-{
-    fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
-        ExprError::ExpectIdentifier(state)
-    }
-}
+// impl<'a, Context> FromAbsent<IdentifierToken, Context> for ExprError
+// where
+//     Context: TokenParseContext<'a>,
+//     <Context as HasParseError>::Error: From<TokenError>,
+// {
+//     fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
+//         ExprError::ExpectIdentifier(state)
+//     }
+// }
 
 impl<'a, Context> FromAbsent<ColonToken, Context> for ExprError
 where

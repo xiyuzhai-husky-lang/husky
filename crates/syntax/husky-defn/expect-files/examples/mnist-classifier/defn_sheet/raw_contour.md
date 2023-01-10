@@ -2,6 +2,13 @@ Ok(
     DefnSheet {
         defns: [
             Type(
+                PropsStruct(
+                    PropsStructTypeDefn {
+                        path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                    },
+                ),
+            ),
+            Type(
                 Enum(
                     EnumTypeDefn {
                         path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),

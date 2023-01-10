@@ -10,12 +10,12 @@ Ok(
                     ),
                 ),
             ),
-            Err(
-                Expr(
-                    ExpectIdentifier(
-                        TokenIdx(
-                            161,
-                        ),
+            Ok(
+                Type(
+                    PropsStruct(
+                        PropsStructTypeDecl {
+                            path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                        },
                     ),
                 ),
             ),

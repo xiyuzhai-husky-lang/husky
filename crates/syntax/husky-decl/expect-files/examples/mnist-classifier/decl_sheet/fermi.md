@@ -1,12 +1,12 @@
 Ok(
     DeclSheet {
         decls: [
-            Err(
-                Expr(
-                    ExpectIdentifier(
-                        TokenIdx(
-                            22,
-                        ),
+            Ok(
+                Type(
+                    PropsStruct(
+                        PropsStructTypeDecl {
+                            path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                        },
                     ),
                 ),
             ),
