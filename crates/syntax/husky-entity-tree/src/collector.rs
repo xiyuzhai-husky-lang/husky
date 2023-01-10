@@ -135,9 +135,40 @@ impl<'a> EntityTreeCollector<'a> {
         let impl_block = &self.impl_block_arena[impl_block_idx];
         let impl_block_kind = impl_block.kind();
         let body = impl_block.body();
-        for _ in body {
-            // todo!()
-        }
+        let ast_sheet = self.db.ast_sheet(impl_block.module_path()).unwrap();
+        let associated_items = self
+            .associated_item_arena
+            .alloc_batch(body.into_iter().filter_map(|ast_idx| {
+                let ast = &ast_sheet[ast_idx];
+                match ast {
+                    Ast::Defn {
+                        token_group_idx,
+                        body,
+                        accessibility,
+                        entity_kind,
+                        entity_path,
+                        ident_token,
+                        is_generic,
+                        ..
+                    } => {
+                        let associated_item_kind = match entity_kind {
+                            EntityKind::AssociatedItem {
+                                associated_item_kind,
+                            } => *associated_item_kind,
+                            _ => unreachable!(),
+                        };
+                        Some(AssociatedItem::new(
+                            impl_block_idx,
+                            impl_block_kind,
+                            ident_token.ident(),
+                            associated_item_kind,
+                            *accessibility,
+                            *is_generic,
+                        ))
+                    }
+                    _ => None,
+                }
+            }));
     }
 
     fn exec(&mut self, action: PresheetAction) {

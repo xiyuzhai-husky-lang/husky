@@ -72,9 +72,9 @@ impl SemanticToken {
                 EntityKind::AssociatedItem {
                     associated_item_kind,
                 } => match associated_item_kind {
-                    AssociatedItemKind::TypeImplItem(_) => todo!(),
+                    AssociatedItemKind::TypeItem(_) => todo!(),
                     AssociatedItemKind::TraitItem(_) => todo!(),
-                    AssociatedItemKind::TraitImplItem(_) => todo!(),
+                    AssociatedItemKind::TypeAsTraitItem(_) => todo!(),
                 },
                 EntityKind::Variant => todo!(),
                 // EntityKind::Module => ext::SemanticTokenType::NAMESPACE,

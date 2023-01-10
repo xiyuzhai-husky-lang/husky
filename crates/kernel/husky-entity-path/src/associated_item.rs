@@ -1,32 +1,29 @@
+mod trai_item;
+mod ty_as_trai_item;
+mod ty_item;
+
+pub use trai_item::*;
+pub use ty_as_trai_item::*;
+pub use ty_item::*;
+
 use crate::*;
-
-#[salsa::interned(jar = EntityPathJar)]
-pub struct TypeItemPath {
-    pub parent_path: ModuleItemPath,
-    pub ident: Identifier,
-}
-
-#[salsa::interned(jar = EntityPathJar)]
-pub struct TraitItemPath {
-    pub parent_path: ModuleItemPath,
-    pub ident: Identifier,
-}
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum AssociatedItemPath {
-    Type(TypeItemPath),
-    Trait(TraitItemPath),
+    TypeItem(TypeItemPath),
+    TraitItem(TraitItemPath),
+    TypeAsTraitItem(TypeAsTraitItemPath),
 }
 
 impl From<TraitItemPath> for AssociatedItemPath {
     fn from(v: TraitItemPath) -> Self {
-        Self::Trait(v)
+        Self::TraitItem(v)
     }
 }
 
 impl From<TypeItemPath> for AssociatedItemPath {
     fn from(v: TypeItemPath) -> Self {
-        Self::Type(v)
+        Self::TypeItem(v)
     }
 }
 
@@ -43,19 +40,24 @@ where
         let db = <Db as salsa::DbWithJar<EntityPathJar>>::as_jar_db(db);
         if include_all_fields {
             match self {
-                AssociatedItemPath::Type(path) => f
+                AssociatedItemPath::TypeItem(path) => f
                     .debug_tuple("Type")
                     .field(&path.debug_with(db, include_all_fields))
                     .finish(),
-                AssociatedItemPath::Trait(path) => f
+                AssociatedItemPath::TraitItem(path) => f
                     .debug_tuple("Trait")
+                    .field(&path.debug_with(db, include_all_fields))
+                    .finish(),
+                AssociatedItemPath::TypeAsTraitItem(path) => f
+                    .debug_tuple("TypeAsTrait")
                     .field(&path.debug_with(db, include_all_fields))
                     .finish(),
             }
         } else {
             match self {
-                AssociatedItemPath::Type(path) => path.fmt(f, db, false),
-                AssociatedItemPath::Trait(path) => path.fmt(f, db, false),
+                AssociatedItemPath::TypeItem(path) => path.fmt(f, db, false),
+                AssociatedItemPath::TraitItem(path) => path.fmt(f, db, false),
+                AssociatedItemPath::TypeAsTraitItem(path) => path.fmt(f, db, false),
             }
         }
     }

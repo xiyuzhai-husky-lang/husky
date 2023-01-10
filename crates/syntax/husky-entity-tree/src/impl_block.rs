@@ -104,6 +104,10 @@ impl ImplBlock {
     pub(crate) fn body(&self) -> AstIdxRange {
         self.body
     }
+
+    pub fn module_path(&self) -> ModulePath {
+        self.module_path
+    }
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]

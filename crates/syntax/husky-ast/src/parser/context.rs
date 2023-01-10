@@ -55,7 +55,7 @@ impl AstContextKind {
             EntityKind::AssociatedItem {
                 associated_item_kind: item_kind,
             } => match item_kind {
-                AssociatedItemKind::TypeImplItem(ty_item_kind) => match ty_item_kind {
+                AssociatedItemKind::TypeItem(ty_item_kind) => match ty_item_kind {
                     TypeItemKind::Method
                     | TypeItemKind::AssociatedFunction
                     | TypeItemKind::Memo => AstContextKind::InsideForm,
@@ -68,7 +68,7 @@ impl AstContextKind {
                     }
                     TraitItemKind::AssociatedType => AstContextKind::InsideNoChild,
                 },
-                AssociatedItemKind::TraitImplItem(trait_item_kind) => match trait_item_kind {
+                AssociatedItemKind::TypeAsTraitItem(trait_item_kind) => match trait_item_kind {
                     // ad hoc
                     // todo: should check whether ends with ';' or ':'
                     TraitItemKind::Method => AstContextKind::InsideForm,

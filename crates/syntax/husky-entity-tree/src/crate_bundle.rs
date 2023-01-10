@@ -110,3 +110,19 @@ impl<Db: EntityTreeDb> salsa::DebugWithDb<Db> for EntityTreeCrateBundle {
         self.fmt(f, db as &dyn EntityTreeDb, include_all_fields)
     }
 }
+
+impl std::ops::Index<AssociatedItemIdx> for EntityTreeCrateBundle {
+    type Output = AssociatedItem;
+
+    fn index(&self, index: AssociatedItemIdx) -> &Self::Output {
+        &self.associated_item_arena[index]
+    }
+}
+
+impl std::ops::Index<ImplBlockIdx> for EntityTreeCrateBundle {
+    type Output = ImplBlock;
+
+    fn index(&self, index: ImplBlockIdx) -> &Self::Output {
+        &self.impl_block_arena[index]
+    }
+}
