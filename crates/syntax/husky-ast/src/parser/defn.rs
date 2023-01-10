@@ -241,7 +241,7 @@ impl<'a> BasicAuxAstParser<'a> {
                         todo!()
                     };
                     EntityKind::AssociatedItem {
-                        associated_item_kind: AssociatedItemKind::TypeImplItem(type_item_kind),
+                        associated_item_kind: AssociatedItemKind::TypeItem(type_item_kind),
                     }
                 }
                 Keyword::Type(_) => todo!(),
@@ -288,7 +288,7 @@ impl<'a> BasicAuxAstParser<'a> {
                         todo!()
                     };
                     EntityKind::AssociatedItem {
-                        associated_item_kind: AssociatedItemKind::TraitImplItem(trait_item_kind),
+                        associated_item_kind: AssociatedItemKind::TypeAsTraitItem(trait_item_kind),
                     }
                 }
                 Keyword::Type(_) => todo!(),

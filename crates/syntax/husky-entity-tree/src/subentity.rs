@@ -1,3 +1,5 @@
+use husky_entity_taxonomy::AssociatedItemKind;
+
 use crate::*;
 
 #[salsa::tracked(jar = EntityTreeJar)]
@@ -12,14 +14,14 @@ pub(crate) fn module_subentity_path(
 pub(crate) fn subentity_path(
     db: &dyn EntityTreeDb,
     parent: EntityPath,
-    identifier: Identifier,
+    ident: Identifier,
 ) -> EntityTreeResult<EntityPath> {
     match parent {
         EntityPath::Module(module_path) => {
             match db
                 .entity_tree_sheet(module_path)?
                 .module_specific_symbols()
-                .get_entry(identifier)
+                .get_entry(ident)
             {
                 Some(_) => todo!(),
                 None => todo!(),
@@ -34,8 +36,15 @@ pub(crate) fn subentity_path(
                         Ok(ty_associated_items) => ty_associated_items,
                         Err(_) => todo!(),
                     };
-                    if let Some(_) = ty_associated_items.get_entry(identifier) {
-                        todo!()
+                    if let Some((_, associated_item_idx)) = ty_associated_items.get_entry(ident) {
+                        let associated_item = &entity_tree_crate_bundle[*associated_item_idx];
+                        Ok(match associated_item.associated_item_kind() {
+                            AssociatedItemKind::TypeItem(_) => {
+                                TypeItemPath::new(db, ty, ident).into()
+                            }
+                            AssociatedItemKind::TraitItem(_) => todo!(),
+                            AssociatedItemKind::TypeAsTraitItem(_) => todo!(),
+                        })
                     } else {
                         // todo: check trait impls
                         Err(EntityTreeError::NoSubentity)
@@ -45,7 +54,6 @@ pub(crate) fn subentity_path(
                 ModuleItemPath::Form(_) => todo!(),
             }
         }
-        EntityPath::GenericParameter(_) => todo!(),
         EntityPath::AssociatedItem(_) => todo!(),
         EntityPath::Variant(_) => todo!(),
     }

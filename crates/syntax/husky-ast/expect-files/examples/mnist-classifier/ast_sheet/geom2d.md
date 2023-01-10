@@ -51,7 +51,7 @@ Ok(
                     ),
                     accessibility: Public,
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -83,7 +83,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -115,7 +115,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -147,7 +147,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -179,7 +179,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -471,7 +471,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -503,7 +503,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -535,7 +535,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -567,7 +567,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -599,7 +599,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -631,7 +631,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -663,7 +663,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -695,7 +695,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -783,7 +783,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -815,7 +815,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -907,7 +907,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -939,7 +939,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -971,7 +971,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -1003,7 +1003,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -1035,7 +1035,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -1067,7 +1067,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -1131,7 +1131,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -1163,7 +1163,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -1195,7 +1195,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },
@@ -1227,7 +1227,7 @@ Ok(
                         ),
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeImplItem(
+                        associated_item_kind: TypeItem(
                             Method,
                         ),
                     },

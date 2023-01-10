@@ -4,7 +4,6 @@ mod ancestry;
 mod associated_item;
 mod db;
 mod error;
-mod generic_parameter;
 mod menu;
 mod module_item;
 #[cfg(test)]
@@ -16,7 +15,6 @@ pub use ancestry::*;
 pub use associated_item::*;
 pub use db::*;
 pub use error::*;
-pub use generic_parameter::*;
 pub use menu::*;
 pub use module_item::*;
 pub use variant::*;
@@ -33,9 +31,9 @@ pub struct EntityPathJar(
     TypePath,
     TraitPath,
     FormPath,
-    GenericParameterPath,
     TypeItemPath,
     TraitItemPath,
+    TypeAsTraitItemPath,
     VariantPath,
     entity_path_menu,
 );
@@ -44,7 +42,6 @@ pub struct EntityPathJar(
 pub enum EntityPath {
     Module(ModulePath),
     ModuleItem(ModuleItemPath),
-    GenericParameter(GenericParameterPath),
     AssociatedItem(AssociatedItemPath),
     Variant(VariantPath),
 }
@@ -69,7 +66,6 @@ impl EntityPath {
             EntityPath::ModuleItem(_) => todo!(),
             EntityPath::AssociatedItem(_) => todo!(),
             EntityPath::Variant(_) => todo!(),
-            EntityPath::GenericParameter(_) => todo!(),
         }
     }
 
@@ -84,7 +80,6 @@ impl EntityPath {
         match self {
             EntityPath::Module(path) => path,
             EntityPath::ModuleItem(path) => path.module_path(db),
-            EntityPath::GenericParameter(_) => todo!(),
             EntityPath::AssociatedItem(_) => todo!(),
             EntityPath::Variant(_) => todo!(),
         }
@@ -112,10 +107,6 @@ where
                     .debug_tuple(" ModuleItem")
                     .field(&path.debug_with(db, include_all_fields))
                     .finish(),
-                EntityPath::GenericParameter(path) => f
-                    .debug_tuple("GenericParameter")
-                    .field(&path.debug_with(db, include_all_fields))
-                    .finish(),
                 EntityPath::AssociatedItem(path) => f
                     .debug_tuple("AssociatedItem")
                     .field(&path.debug_with(db, include_all_fields))
@@ -129,9 +120,6 @@ where
             match self {
                 EntityPath::Module(module_path) => module_path.fmt(f, db, false),
                 EntityPath::ModuleItem(module_item_path) => module_item_path.fmt(f, db, false),
-                EntityPath::GenericParameter(generic_parameter_path) => {
-                    generic_parameter_path.fmt(f, db, false)
-                }
                 EntityPath::AssociatedItem(associated_item_path) => {
                     associated_item_path.fmt(f, db, false)
                 }
