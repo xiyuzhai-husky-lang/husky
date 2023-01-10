@@ -197,11 +197,7 @@ Ok(
             None,
             None,
             None,
-            Field,
             None,
-            None,
-            None,
-            Field,
             None,
             None,
             Entity(
@@ -286,8 +282,6 @@ Ok(
             None,
             None,
             None,
-            Field,
-            None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter {
@@ -303,8 +297,6 @@ Ok(
             Field,
             None,
             None,
-            None,
-            Field,
             None,
             None,
             Entity(
@@ -335,19 +327,11 @@ Ok(
             None,
             None,
             None,
-            Field,
             None,
             None,
             None,
-            Field,
             None,
             None,
-            None,
-            Field,
-            None,
-            None,
-            None,
-            Field,
             None,
             None,
             Method,
@@ -406,8 +390,6 @@ Ok(
             None,
             None,
             None,
-            None,
-            Method,
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
@@ -548,11 +530,7 @@ Ok(
             None,
             None,
             None,
-            Field,
             None,
-            None,
-            None,
-            Field,
             None,
             None,
             Entity(
@@ -637,8 +615,6 @@ Ok(
             None,
             None,
             None,
-            Field,
-            None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter {
@@ -654,8 +630,6 @@ Ok(
             Field,
             None,
             None,
-            None,
-            Field,
             None,
             None,
             Entity(
@@ -686,19 +660,11 @@ Ok(
             None,
             None,
             None,
-            Field,
             None,
             None,
             None,
-            Field,
             None,
             None,
-            None,
-            Field,
-            None,
-            None,
-            None,
-            Field,
             None,
             None,
             Method,
@@ -758,8 +724,6 @@ Ok(
             None,
             None,
             None,
-            Field,
-            None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter {
@@ -775,8 +739,6 @@ Ok(
             Field,
             None,
             None,
-            None,
-            Field,
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
@@ -845,8 +807,6 @@ Ok(
             None,
             None,
             None,
-            Field,
-            None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter {
@@ -862,8 +822,6 @@ Ok(
             Field,
             None,
             None,
-            None,
-            Field,
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
@@ -1058,10 +1016,6 @@ Ok(
             None,
             None,
             None,
-            None,
-            None,
-            Method,
-            None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter {
@@ -1073,7 +1027,6 @@ Ok(
                     },
                 ),
             },
-            None,
             None,
             None,
             Method,
