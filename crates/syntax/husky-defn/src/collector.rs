@@ -41,7 +41,7 @@ impl<'a> DefnCollector<'a> {
             Decl::Type(decl) => self.parse_ty_defn(decl).into(),
             Decl::Form(decl) => self.parse_form_defn(decl).into(),
             Decl::Trait(decl) => self.parse_trai_defn(decl).into(),
-            Decl::ImplBlock(_) => todo!(),
+            Decl::ImplBlock(decl) => Defn::ImplBlock(decl),
             Decl::TypeItem(_) => todo!(),
             Decl::TraitItem(_) => todo!(),
             Decl::Variant(_) => todo!(),
@@ -113,8 +113,8 @@ impl<'a> DefnCollector<'a> {
 
     fn parse_function_defn(&self, decl: FunctionDecl) -> FunctionDefn {
         let path = decl.path(self.db);
-        let mut parser = self.module_item_block_expr_parser(
-            path.into(),
+        let mut parser = self.expr_parser(
+            DefnExprPath::Entity(path.into()),
             Some(decl.expr_sheet(self.db).symbol_sheet(self.db)),
         );
         let ast_idx = decl.ast_idx(self.db);
@@ -129,7 +129,7 @@ impl<'a> DefnCollector<'a> {
 
     fn parse_feature_defn(&self, decl: FeatureDecl) -> FeatureDefn {
         let path = decl.path(self.db);
-        let mut parser = self.module_item_block_expr_parser(path.into(), None);
+        let mut parser = self.expr_parser(DefnExprPath::Entity(path.into()), None);
         let ast_idx = decl.ast_idx(self.db);
         let ast = &self.ast_sheet[ast_idx];
         let body = match ast {
@@ -139,14 +139,14 @@ impl<'a> DefnCollector<'a> {
         let expr_sheet = parser.finish();
         FeatureDefn::new(self.db, path, decl, expr_sheet, body)
     }
-    fn module_item_block_expr_parser(
+    fn expr_parser(
         &self,
-        entity_path: EntityPath,
+        expr_path: DefnExprPath,
         decl_symbol_sheet: Option<&SymbolSheet>,
     ) -> BlockExprParser<'a> {
         let parser = ExprParser::new(
             self.db,
-            Some(entity_path),
+            expr_path.into(),
             self.token_sheet_data,
             SymbolContextMut::new(self.module_symbol_context, decl_symbol_sheet),
         );

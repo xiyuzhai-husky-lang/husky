@@ -8,6 +8,11 @@ Ok(
                     },
                 ),
             ),
+            ImplBlock(
+                TypeImplBlock(
+                    TypeImplBlockDecl,
+                ),
+            ),
         ],
     },
 )

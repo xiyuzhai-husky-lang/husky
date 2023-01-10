@@ -6,12 +6,14 @@ use husky_word::IdentPairMap;
 use parsec::ParseContext;
 use thiserror::Error;
 
-#[derive(Debug, PartialEq, Eq)]
+#[salsa::tracked(jar = EntityTreeJar)]
 pub struct ImplBlock {
-    module_path: ModulePath,
-    ast_idx: AstIdx,
-    body: AstIdxRange,
-    variant: ImplBlockVariant,
+    #[id]
+    pub id: ImplBlockId,
+    pub ast_idx: AstIdx,
+    pub body: AstIdxRange,
+    #[return_ref]
+    pub variant: ImplBlockVariant,
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -21,7 +23,7 @@ pub enum ImplBlockVariant {
     Err(ImplBlockError),
 }
 impl ImplBlockVariant {
-    fn kind(&self) -> ImplBlockKind {
+    pub fn kind(&self) -> ImplBlockKind {
         match self {
             ImplBlockVariant::Type { ty } => ImplBlockKind::Type { ty: *ty },
             ImplBlockVariant::TypeAsTrait { ty, trai } => todo!(),
@@ -30,19 +32,22 @@ impl ImplBlockVariant {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub struct ImplBlockId {
+    module_path: ModulePath,
+    impl_block_kind: ImplBlockKind,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum ImplBlockKind {
     Type { ty: TypePath },
-    Todo,
+    TypeAsTrait { ty: TypePath, trai: TraitPath },
     Err,
 }
 
-pub type ImplBlockArena = Arena<ImplBlock>;
-pub type ImplBlockIdx = ArenaIdx<ImplBlock>;
-pub type ImplBlockIdxRange = ArenaIdxRange<ImplBlock>;
-
 impl ImplBlock {
     pub(crate) fn parse_from_token_group<'a>(
+        db: &dyn EntityTreeDb,
         module_symbol_context: ModuleSymbolContext<'a>,
         module_path: ModulePath,
         ast_idx: AstIdx,
@@ -65,49 +70,67 @@ impl ImplBlock {
         let (expr, path) = match parser.parse_principal_entity_path_expr() {
             Ok((expr, path)) => (expr, path),
             Err(e) => {
-                return ImplBlock {
+                return new_impl_block(
+                    db,
                     module_path,
                     ast_idx,
                     body,
-                    variant: ImplBlockVariant::Err(e.into()),
-                }
+                    ImplBlockVariant::Err(e.into()),
+                );
             }
         };
         match path {
-            ModuleItemPath::Type(ty) => Self {
+            ModuleItemPath::Type(ty) => new_impl_block(
+                db,
                 module_path,
                 ast_idx,
                 body,
-                variant: ImplBlockVariant::Type { ty },
-            },
+                ImplBlockVariant::Type { ty },
+            ),
             ModuleItemPath::Trait(_) => {
                 todo!();
 
-                Self {
+                new_impl_block(
+                    db,
                     module_path,
                     ast_idx,
                     body,
-                    variant: ImplBlockVariant::TypeAsTrait {
+                    ImplBlockVariant::TypeAsTrait {
                         ty: todo!(),
                         trai: todo!(),
                     },
-                }
+                )
             }
             ModuleItemPath::Form(_) => todo!(),
         }
     }
 
-    pub(crate) fn kind(&self) -> ImplBlockKind {
-        self.variant.kind()
+    pub fn kind(&self, db: &dyn EntityTreeDb) -> ImplBlockKind {
+        self.variant(db).kind()
     }
 
-    pub(crate) fn body(&self) -> AstIdxRange {
-        self.body
+    pub fn module_path(&self, db: &dyn EntityTreeDb) -> ModulePath {
+        self.id(db).module_path
     }
+}
 
-    pub fn module_path(&self) -> ModulePath {
-        self.module_path
-    }
+fn new_impl_block(
+    db: &dyn EntityTreeDb,
+    module_path: ModulePath,
+    ast_idx: ArenaIdx<Ast>,
+    body: ArenaIdxRange<Ast>,
+    variant: ImplBlockVariant,
+) -> ImplBlock {
+    ImplBlock::new(
+        db,
+        ImplBlockId {
+            module_path,
+            impl_block_kind: variant.kind(),
+        },
+        ast_idx,
+        body,
+        variant,
+    )
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -141,13 +164,13 @@ fn ignore_implicit_parameters<'a>(token_stream: &mut TokenStream<'a>) -> ImplBlo
 pub(crate) fn ty_impl_blocks(
     db: &dyn EntityTreeDb,
     ty: TypePath,
-) -> EntityTreeCrateBundleResult<Vec<ImplBlockIdx>> {
+) -> EntityTreeCrateBundleResult<Vec<ImplBlock>> {
     let crate_path = ty.module_path(db).crate_path(db);
     let entity_tree_crate_bundle = db.entity_tree_crate_bundle(crate_path)?;
     Ok(entity_tree_crate_bundle
-        .impl_block_indexed_iter()
-        .filter_map(|(idx, impl_block)| {
-            (impl_block.variant == ImplBlockVariant::Type { ty }).then_some(idx)
+        .impl_block_iter()
+        .filter_map(|impl_block| {
+            (impl_block.variant(db) == &ImplBlockVariant::Type { ty }).then_some(impl_block)
         })
         .collect())
 }
@@ -162,7 +185,7 @@ pub(crate) fn ty_associated_items(
     Ok(entity_tree_crate_bundle
         .associated_item_indexed_iter()
         .filter_map(|(idx, associated_item)| {
-            (associated_item.impl_block_kind() == ImplBlockKind::Type { ty })
+            (associated_item.impl_block().kind(db) == ImplBlockKind::Type { ty })
                 .then_some((associated_item.ident(), idx))
         })
         .collect())

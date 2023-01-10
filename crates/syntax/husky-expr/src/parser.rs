@@ -15,7 +15,9 @@ use husky_print_utils::p;
 use crate::*;
 use expr_stack::*;
 use husky_ast::{Ast, AstIdxRange, AstSheet};
-use husky_entity_tree::{CratePrelude, EntityTreeDb, ModuleSymbolContext, PreludeResult};
+use husky_entity_tree::{
+    CratePrelude, EntityTreeDb, ImplBlock, ImplBlockId, ModuleSymbolContext, PreludeResult,
+};
 use husky_token::Token;
 use husky_token::TokenStream;
 use list::*;
@@ -37,9 +39,47 @@ macro_rules! report {
 }
 use report;
 
+pub enum ExprPath {
+    None,
+    Decl(DeclExprPath),
+    Defn(DefnExprPath),
+}
+
+impl From<DefnExprPath> for ExprPath {
+    fn from(v: DefnExprPath) -> Self {
+        Self::Defn(v)
+    }
+}
+
+impl From<DeclExprPath> for ExprPath {
+    fn from(v: DeclExprPath) -> Self {
+        Self::Decl(v)
+    }
+}
+
+pub enum DeclExprPath {
+    Entity(EntityPath),
+    ImplBlock(ImplBlock),
+}
+
+pub enum DefnExprPath {
+    Entity(EntityPath),
+}
+
+impl<Db: ExprDb + ?Sized> DebugWithDb<Db> for ExprPath {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        todo!()
+    }
+}
+
 pub struct ExprParser<'a> {
     db: &'a dyn ExprDb,
-    entity_path: Option<EntityPath>,
+    path: ExprPath,
     token_sheet_data: &'a TokenSheetData,
     symbol_context: SymbolContextMut<'a>,
     expr_arena: ExprArena,
@@ -51,13 +91,13 @@ pub struct ExprParser<'a> {
 impl<'a> ExprParser<'a> {
     pub fn new(
         db: &'a dyn ExprDb,
-        entity_path: Option<EntityPath>,
+        path: ExprPath,
         token_sheet_data: &'a TokenSheetData,
         symbol_context: SymbolContextMut<'a>,
     ) -> Self {
         Self {
             db,
-            entity_path,
+            path: path.into(),
             token_sheet_data,
             symbol_context,
             expr_arena: Default::default(),

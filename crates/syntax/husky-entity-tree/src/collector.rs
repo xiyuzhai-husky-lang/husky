@@ -13,7 +13,7 @@ pub(crate) struct EntityTreeCollector<'a> {
     opt_universal_prelude: Option<&'a [EntitySymbol]>,
     crate_specific_prelude: &'a [EntitySymbol],
     principal_entity_path_expr_arena: PrincipalPathExprArena,
-    impl_block_arena: ImplBlockArena,
+    impl_blocks: Vec<ImplBlock>,
     associated_item_arena: AssociatedItemArena,
 }
 
@@ -59,7 +59,7 @@ impl<'a> EntityTreeCollector<'a> {
                 .as_ref()
                 .map_err(|e| e.clone())?,
             principal_entity_path_expr_arena: Default::default(),
-            impl_block_arena: Default::default(),
+            impl_blocks: Default::default(),
             associated_item_arena: Default::default(),
         })
     }
@@ -75,7 +75,7 @@ impl<'a> EntityTreeCollector<'a> {
             }
         }
         let impl_blockss = self.collect_impl_blockss();
-        for idx in self.impl_block_arena.index_iter() {
+        for idx in self.impl_blocks.clone() {
             self.collect_associated_items(idx)
         }
         let sheets = std::iter::zip(self.presheets.into_iter(), impl_blockss.into_iter())
@@ -84,12 +84,12 @@ impl<'a> EntityTreeCollector<'a> {
         EntityTreeCrateBundle::new(
             sheets,
             self.principal_entity_path_expr_arena,
-            self.impl_block_arena,
+            self.impl_blocks,
             self.associated_item_arena,
         )
     }
 
-    fn collect_impl_blockss(&mut self) -> Vec<ImplBlockIdxRange> {
+    fn collect_impl_blockss(&mut self) -> Vec<Vec<ImplBlock>> {
         let mut impl_blockss = vec![];
         for presheet in self.presheets.iter() {
             let module_path = presheet.module_path();
@@ -112,6 +112,7 @@ impl<'a> EntityTreeCollector<'a> {
                             presheet.module_specific_symbols(),
                         );
                         Some(ImplBlock::parse_from_token_group(
+                            self.db,
                             module_symbol_context,
                             module_path,
                             ast_idx,
@@ -126,16 +127,14 @@ impl<'a> EntityTreeCollector<'a> {
                     _ => None,
                 })
                 .collect::<Vec<_>>();
-            impl_blockss.push(self.impl_block_arena.alloc_batch(impl_blocks));
+            impl_blockss.push(impl_blocks);
         }
         impl_blockss
     }
 
-    fn collect_associated_items(&mut self, impl_block_idx: ImplBlockIdx) {
-        let impl_block = &self.impl_block_arena[impl_block_idx];
-        let impl_block_kind = impl_block.kind();
-        let body = impl_block.body();
-        let ast_sheet = self.db.ast_sheet(impl_block.module_path()).unwrap();
+    fn collect_associated_items(&mut self, impl_block: ImplBlock) {
+        let body = impl_block.body(self.db);
+        let ast_sheet = self.db.ast_sheet(impl_block.module_path(self.db)).unwrap();
         let associated_items = self
             .associated_item_arena
             .alloc_batch(body.into_iter().filter_map(|ast_idx| {
@@ -158,8 +157,7 @@ impl<'a> EntityTreeCollector<'a> {
                             _ => unreachable!(),
                         };
                         Some(AssociatedItem::new(
-                            impl_block_idx,
-                            impl_block_kind,
+                            impl_block,
                             ident_token.ident(),
                             associated_item_kind,
                             *accessibility,

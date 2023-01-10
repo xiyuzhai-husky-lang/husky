@@ -27,6 +27,12 @@ pub enum Decl {
     Variant(VariantDecl),
 }
 
+impl From<ImplBlockDecl> for Decl {
+    fn from(v: ImplBlockDecl) -> Self {
+        Self::ImplBlock(v)
+    }
+}
+
 impl Decl {
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {

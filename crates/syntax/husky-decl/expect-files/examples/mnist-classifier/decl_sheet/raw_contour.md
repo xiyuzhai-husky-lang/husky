@@ -98,6 +98,13 @@ Ok(
                     ),
                 ),
             ),
+            Ok(
+                ImplBlock(
+                    TypeImplBlock(
+                        TypeImplBlockDecl,
+                    ),
+                ),
+            ),
         ],
     },
 )

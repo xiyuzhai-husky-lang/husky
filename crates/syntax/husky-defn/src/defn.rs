@@ -21,6 +21,7 @@ pub enum Defn {
     Trait(TraitDefn),
     Form(FormDefn),
     Variant(VariantDefn),
+    ImplBlock(ImplBlockDecl),
     TypeItem(TypeItemDefn),
     TraitItem(TraitItemDefn),
 }
@@ -31,9 +32,10 @@ impl Defn {
             Defn::Type(defn) => defn.decl(db).into(),
             Defn::Trait(defn) => defn.decl(db).into(),
             Defn::Form(defn) => defn.decl(db).into(),
+            Defn::Variant(defn) => defn.decl(db).into(),
+            Defn::ImplBlock(decl) => decl.into(),
             Defn::TypeItem(defn) => defn.decl(db).into(),
             Defn::TraitItem(defn) => defn.decl(db).into(),
-            Defn::Variant(defn) => defn.decl(db).into(),
         }
     }
 
@@ -51,6 +53,7 @@ impl Defn {
             Defn::TypeItem(defn) => Some(defn.expr_sheet(db).into()),
             Defn::TraitItem(defn) => Some(defn.expr_sheet(db).into()),
             Defn::Variant(defn) => None,
+            Defn::ImplBlock(_) => None,
         }
     }
 }
@@ -86,14 +89,15 @@ impl From<TypeDefn> for Defn {
 }
 
 impl Defn {
-    pub fn path(self, db: &dyn DefnDb) -> EntityPath {
+    pub fn path(self, db: &dyn DefnDb) -> Option<EntityPath> {
         match self {
-            Defn::Type(defn) => defn.path(db).into(),
-            Defn::Trait(defn) => defn.path(db).into(),
-            Defn::Form(defn) => defn.path(db).into(),
-            Defn::TypeItem(defn) => defn.path(db).into(),
-            Defn::TraitItem(defn) => defn.path(db).into(),
-            Defn::Variant(defn) => defn.path(db).into(),
+            Defn::Type(defn) => Some(defn.path(db).into()),
+            Defn::Trait(defn) => Some(defn.path(db).into()),
+            Defn::Form(defn) => Some(defn.path(db).into()),
+            Defn::TypeItem(defn) => Some(defn.path(db).into()),
+            Defn::TraitItem(defn) => Some(defn.path(db).into()),
+            Defn::Variant(defn) => Some(defn.path(db).into()),
+            Defn::ImplBlock(_) => None,
         }
     }
 }
@@ -129,6 +133,10 @@ impl<Db: DefnDb + ?Sized> salsa::DebugWithDb<Db> for Defn {
                 .finish(),
             Defn::TraitItem(decl) => f
                 .debug_tuple("TraitItem")
+                .field(&decl.debug_with(db, include_all_fields))
+                .finish(),
+            Defn::ImplBlock(decl) => f
+                .debug_tuple("ImplBlock")
                 .field(&decl.debug_with(db, include_all_fields))
                 .finish(),
         }

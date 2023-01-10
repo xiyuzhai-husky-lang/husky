@@ -55,6 +55,37 @@ Ok(
                     ),
                 ),
             ),
+            Ok(
+                ImplBlock(
+                    TypeImplBlock(
+                        TypeImplBlockDecl,
+                    ),
+                ),
+            ),
+            Ok(
+                ImplBlock(
+                    TypeImplBlock(
+                        TypeImplBlockDecl,
+                    ),
+                ),
+            ),
+            Err(
+                ImplBlockErr,
+            ),
+            Ok(
+                ImplBlock(
+                    TypeImplBlock(
+                        TypeImplBlockDecl,
+                    ),
+                ),
+            ),
+            Ok(
+                ImplBlock(
+                    TypeImplBlock(
+                        TypeImplBlockDecl,
+                    ),
+                ),
+            ),
         ],
     },
 )

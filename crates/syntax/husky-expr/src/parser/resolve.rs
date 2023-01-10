@@ -179,7 +179,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         p!(
                             lopd,
                             ident.debug(self.parser.db),
-                            self.parser.entity_path.debug(self.parser.db)
+                            self.parser.path.debug(self.parser.db)
                         );
                         todo!()
                     }

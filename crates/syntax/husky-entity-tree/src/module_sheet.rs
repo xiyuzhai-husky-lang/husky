@@ -10,7 +10,7 @@ use crate::*;
 pub struct EntityTreeModuleSheet {
     module_path: ModulePath,
     module_specific_symbols: VecMap<EntitySymbol>,
-    impl_blocks: ImplBlockIdxRange,
+    impl_blocks: Vec<ImplBlock>,
 }
 
 impl vec_like::AsVecMapEntry for EntityTreeModuleSheet {
@@ -32,7 +32,7 @@ impl EntityTreeModuleSheet {
     pub(crate) fn new(
         module_path: ModulePath,
         module_specific_symbols: VecMap<EntitySymbol>,
-        impl_blocks: ImplBlockIdxRange,
+        impl_blocks: Vec<ImplBlock>,
     ) -> Self {
         Self {
             module_path,
@@ -87,8 +87,8 @@ impl EntityTreeModuleSheet {
         self.module_path
     }
 
-    pub fn impl_blocks(&self) -> ImplBlockIdxRange {
-        self.impl_blocks
+    pub fn impl_blocks(&self) -> &[ImplBlock] {
+        &self.impl_blocks
     }
 }
 
