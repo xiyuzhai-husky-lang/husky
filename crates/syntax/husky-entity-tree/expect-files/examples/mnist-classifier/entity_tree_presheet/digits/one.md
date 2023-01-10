@@ -1,7 +1,7 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::digits::one`,
-        module_symbols: [
+        module_specific_symbols: [
             ModuleItem {
                 ident: `one_fermi_match`,
                 accessibility: PubicUnder(

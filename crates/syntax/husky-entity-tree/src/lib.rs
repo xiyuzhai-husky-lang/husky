@@ -9,7 +9,7 @@ mod impl_block;
 mod module_sheet;
 mod prelude;
 mod presheet;
-mod principal_entity_path_expr;
+mod principal_path;
 mod subentity;
 mod submodule;
 mod symbol;
@@ -26,7 +26,7 @@ pub use error::*;
 pub use impl_block::*;
 pub use module_sheet::*;
 pub use prelude::*;
-pub use principal_entity_path_expr::*;
+pub use principal_path::*;
 pub use submodule::*;
 pub use symbol::*;
 

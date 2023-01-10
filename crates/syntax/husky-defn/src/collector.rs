@@ -1,12 +1,12 @@
 use crate::*;
 use husky_ast::{Ast, AstSheet, AstTokenIdxRangeSheet};
-use husky_entity_tree::{CratePrelude, EntityTreeResult, ModulePrelude};
+use husky_entity_tree::{CratePrelude, EntityTreeResult, ModuleSymbolContext};
 use husky_token::{RangedTokenSheet, TokenSheetData};
 use vec_like::VecPairMap;
 
 pub(crate) struct DefnCollector<'a> {
     db: &'a dyn DefnDb,
-    module_prelude: ModulePrelude<'a>,
+    module_symbol_context: ModuleSymbolContext<'a>,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     ast_range_sheet: &'a AstTokenIdxRangeSheet,
@@ -15,10 +15,10 @@ pub(crate) struct DefnCollector<'a> {
 
 impl<'a> DefnCollector<'a> {
     pub(crate) fn new(db: &'a dyn DefnDb, module_path: ModulePath) -> EntityTreeResult<Self> {
-        let module_prelude = db.module_prelude(module_path)?;
+        let module_symbol_context = db.module_symbol_context(module_path)?;
         Ok(Self {
             db,
-            module_prelude,
+            module_symbol_context,
             token_sheet_data: db.token_sheet_data(module_path)?,
             ast_sheet: db.ast_sheet(module_path)?,
             ast_range_sheet: db.ast_range_sheet(module_path)?,
@@ -150,7 +150,7 @@ impl<'a> DefnCollector<'a> {
             self.db,
             Some(entity_path),
             self.token_sheet_data,
-            SymbolContextMut::new(self.module_prelude, decl_symbol_sheet),
+            SymbolContextMut::new(self.module_symbol_context, decl_symbol_sheet),
         );
         BlockExprParser::new(parser, self.ast_sheet, self.ast_range_sheet)
     }

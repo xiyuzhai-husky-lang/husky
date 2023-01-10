@@ -1,7 +1,7 @@
 Ok(
     EntityTreePresheet {
         module_path: `core::ops`,
-        module_symbols: [
+        module_specific_symbols: [
             ModuleItem {
                 ident: `Add`,
                 accessibility: Public,

@@ -1,7 +1,7 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::raw_contour`,
-        module_symbols: [
+        module_specific_symbols: [
             ModuleItem {
                 ident: `RawContour`,
                 accessibility: PubicUnder(

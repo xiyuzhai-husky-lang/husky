@@ -1,7 +1,7 @@
 Ok(
     EntityTreePresheet {
         module_path: `std`,
-        module_symbols: [
+        module_specific_symbols: [
             Module {
                 ident: `prelude`,
                 accessibility: PubicUnder(

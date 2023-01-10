@@ -9,7 +9,7 @@ pub(crate) struct InferEngine<'a> {
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     defn_sheet: &'a DefnSheet,
-    module_prelude: ModulePrelude<'a>,
+    module_symbol_context: ModuleSymbolContext<'a>,
     sheet: TokenInfoSheet,
 }
 
@@ -22,7 +22,7 @@ impl<'a> InferEngine<'a> {
             defn_sheet: db.defn_sheet(module_path)?,
             ast_sheet: db.ast_sheet(module_path)?,
             sheet: TokenInfoSheet::new(token_sheet_data),
-            module_prelude: db.module_prelude(module_path)?,
+            module_symbol_context: db.module_symbol_context(module_path)?,
         })
     }
 
@@ -76,7 +76,7 @@ impl<'a> InferEngine<'a> {
             token_sheet_data: self.token_sheet_data,
             ast_sheet: self.ast_sheet,
             sheet: &mut self.sheet,
-            symbol_context: ExprContext::new(self.db, self.module_prelude, expr_sheet),
+            symbol_context: ExprContext::new(self.db, self.module_symbol_context, expr_sheet),
             expr_sheet,
         }
         .visit_all()

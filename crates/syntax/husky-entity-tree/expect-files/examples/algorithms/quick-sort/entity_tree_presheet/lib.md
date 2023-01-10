@@ -1,7 +1,7 @@
 Ok(
     EntityTreePresheet {
         module_path: `quick_sort`,
-        module_symbols: [
+        module_specific_symbols: [
             ModuleItem {
                 ident: `quick_sort`,
                 accessibility: Public,

@@ -15,7 +15,7 @@ use husky_print_utils::p;
 use crate::*;
 use expr_stack::*;
 use husky_ast::{Ast, AstIdxRange, AstSheet};
-use husky_entity_tree::{CratePrelude, EntityTreeDb, ModulePrelude, PreludeResult};
+use husky_entity_tree::{CratePrelude, EntityTreeDb, ModuleSymbolContext, PreludeResult};
 use husky_token::Token;
 use husky_token::TokenStream;
 use list::*;

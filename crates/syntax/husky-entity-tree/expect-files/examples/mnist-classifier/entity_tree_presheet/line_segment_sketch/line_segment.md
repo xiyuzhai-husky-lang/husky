@@ -1,7 +1,7 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-        module_symbols: [
+        module_specific_symbols: [
             ModuleItem {
                 ident: `LineSegment`,
                 accessibility: PubicUnder(

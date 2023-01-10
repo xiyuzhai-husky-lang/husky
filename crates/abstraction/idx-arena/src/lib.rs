@@ -59,6 +59,13 @@ impl<T> Arena<T> {
         &self.data
     }
 
+    pub fn index_iter<'a>(&'a self) -> impl Iterator<Item = ArenaIdx<T>> {
+        (0..self.data.len()).map(|i| ArenaIdx {
+            raw: i,
+            phantom: PhantomData,
+        })
+    }
+
     pub fn indexed_iter<'a>(&'a self) -> impl Iterator<Item = (ArenaIdx<T>, &'a T)> + 'a {
         self.data.iter().enumerate().map(|(i, t)| {
             (

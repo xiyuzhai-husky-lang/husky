@@ -1,7 +1,7 @@
 Ok(
     EntityTreePresheet {
         module_path: `core::logic`,
-        module_symbols: [
+        module_specific_symbols: [
             ModuleItem {
                 ident: `LogicAnd`,
                 accessibility: Public,

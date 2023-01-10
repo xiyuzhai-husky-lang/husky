@@ -1,7 +1,7 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::digits::four`,
-        module_symbols: [
+        module_specific_symbols: [
             ModuleItem {
                 ident: `left_components`,
                 accessibility: PubicUnder(

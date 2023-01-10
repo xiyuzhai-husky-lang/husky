@@ -5,7 +5,7 @@ Ok(
                 module_path: `MinimalToml(
                     ExpectWordName,
                 )`,
-                module_symbols: [],
+                module_specific_symbols: [],
             },
         ],
     },

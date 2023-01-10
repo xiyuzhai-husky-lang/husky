@@ -15,18 +15,7 @@ pub enum PreludeError {
 }
 pub type PreludeResult<T> = Result<T, PreludeError>;
 
-pub(crate) fn module_prelude<'a>(
-    db: &'a dyn EntityTreeDb,
-    module_path: ModulePath,
-) -> EntityTreeResult<ModulePrelude<'a>> {
-    let entity_tree_sheet = db.entity_tree_sheet(module_path)?;
-    Ok(ModulePrelude {
-        crate_prelude: crate_prelude(db, module_path.crate_path(db))?,
-        module_symbols: entity_tree_sheet.module_symbols(),
-    })
-}
-
-fn crate_prelude<'a>(
+pub(crate) fn crate_prelude<'a>(
     db: &'a dyn EntityTreeDb,
     crate_path: CratePath,
 ) -> PreludeResult<CratePrelude<'a>> {
@@ -36,7 +25,7 @@ fn crate_prelude<'a>(
     Ok(CratePrelude::new(
         module_entity_tree(db, core_prelude_module)
             .map_err(|e| PreludeError::CorePreludeEntityTreeSheet(Box::new(e.clone())))?
-            .module_symbols(),
+            .module_specific_symbols(),
         crate_specific_prelude(db, crate_path)
             .as_ref()
             .map_err(|e| e.clone())?,
@@ -94,37 +83,5 @@ impl<'a> CratePrelude<'a> {
         self.crate_specific_prelude
             .get_entry(ident)
             .or_else(|| self.universal_prelude.get_entry(ident))
-    }
-}
-
-#[derive(Debug, Clone, Copy)]
-pub struct ModulePrelude<'a> {
-    crate_prelude: CratePrelude<'a>,
-    module_symbols: &'a [EntitySymbol],
-}
-
-impl<'a> ModulePrelude<'a> {
-    pub fn new(crate_prelude: CratePrelude<'a>, module_symbols: &'a [EntitySymbol]) -> Self {
-        Self {
-            crate_prelude,
-            module_symbols,
-        }
-    }
-
-    pub fn new_default(db: &'a dyn EntityTreeDb, crate_path: CratePath) -> PreludeResult<Self> {
-        Ok(Self {
-            crate_prelude: crate_prelude(db, crate_path)?,
-            module_symbols: &[],
-        })
-    }
-
-    pub fn resolve_ident(
-        &self,
-        token_idx: TokenIdx,
-        ident: Identifier,
-    ) -> Option<&'a EntitySymbol> {
-        self.module_symbols
-            .get_entry(ident)
-            .or_else(|| self.crate_prelude.resolve_ident(ident))
     }
 }

@@ -8,20 +8,31 @@ use thiserror::Error;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct ImplBlock {
-    kind: ImplBlockVariant,
+    module_path: ModulePath,
     ast_idx: AstIdx,
+    body: AstIdxRange,
+    variant: ImplBlockVariant,
 }
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum ImplBlockVariant {
-    Type(TypePath),
-    Todo,
+    Type { ty: TypePath },
+    TypeAsTrait { ty: TypePath, trai: TraitPath },
     Err(ImplBlockError),
+}
+impl ImplBlockVariant {
+    fn kind(&self) -> ImplBlockKind {
+        match self {
+            ImplBlockVariant::Type { ty } => ImplBlockKind::Type { ty: *ty },
+            ImplBlockVariant::TypeAsTrait { ty, trai } => todo!(),
+            ImplBlockVariant::Err(_) => ImplBlockKind::Err,
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum ImplBlockKind {
-    Type(TypePath),
+    Type { ty: TypePath },
     Todo,
     Err,
 }
@@ -32,32 +43,66 @@ pub type ImplBlockIdxRange = ArenaIdxRange<ImplBlock>;
 
 impl ImplBlock {
     pub(crate) fn parse_from_token_group<'a>(
-        crate_prelude: CratePrelude<'a>,
+        module_symbol_context: ModuleSymbolContext<'a>,
+        module_path: ModulePath,
         ast_idx: AstIdx,
+        body: AstIdxRange,
         mut token_stream: TokenStream<'a>,
-        princiapl_entity_path_expr_arena: &mut PrincipalEntityPathExprArena,
+        princiapl_entity_path_expr_arena: &mut PrincipalPathExprArena,
     ) -> Self {
-        token_stream.parse::<ImplToken>().unwrap().unwrap();
-        if let Some(_) = token_stream.try_parse::<LeftAngleBracketToken>() {
-            match ignore_implicit_parameters(&mut token_stream) {
+        let mut parser = PrincipalPathExprParser::new(
+            token_stream,
+            princiapl_entity_path_expr_arena,
+            module_symbol_context,
+        );
+        parser.parse::<ImplToken>().unwrap().unwrap();
+        if let Some(_) = parser.try_parse::<LeftAngleBracketToken>() {
+            match ignore_implicit_parameters(&mut parser) {
                 Ok(_) => (),
                 Err(e) => todo!(),
             }
         }
-        // let Ok((expr, path)) = PrincipalEntityPathExpr::parse_from_token_stream(
-        //     &mut token_stream,
-        //     princiapl_entity_path_expr_arena
-        // ) else {
-        //     todo!()
-        // };
-        // match path {
-        //     EntityPath::ModuleItem(_) => todo!(),
-        //     _ => todo!(),
-        // }
-        Self {
-            kind: ImplBlockVariant::Todo,
-            ast_idx,
+        let (expr, path) = match parser.parse_principal_entity_path_expr() {
+            Ok((expr, path)) => (expr, path),
+            Err(e) => {
+                return ImplBlock {
+                    module_path,
+                    ast_idx,
+                    body,
+                    variant: ImplBlockVariant::Err(e.into()),
+                }
+            }
+        };
+        match path {
+            ModuleItemPath::Type(ty) => Self {
+                module_path,
+                ast_idx,
+                body,
+                variant: ImplBlockVariant::Type { ty },
+            },
+            ModuleItemPath::Trait(_) => {
+                todo!();
+
+                Self {
+                    module_path,
+                    ast_idx,
+                    body,
+                    variant: ImplBlockVariant::TypeAsTrait {
+                        ty: todo!(),
+                        trai: todo!(),
+                    },
+                }
+            }
+            ModuleItemPath::Form(_) => todo!(),
         }
+    }
+
+    pub(crate) fn kind(&self) -> ImplBlockKind {
+        self.variant.kind()
+    }
+
+    pub(crate) fn body(&self) -> AstIdxRange {
+        self.body
     }
 }
 
@@ -67,6 +112,8 @@ pub enum ImplBlockError {
     UnmatchedAngleBras,
     #[error("token error")]
     Token(#[from] TokenError),
+    #[error("principal path expr error")]
+    PrincipalPath(#[from] PrincipalPathExprError),
 }
 
 pub type ImplBlockResult<T> = Result<T, ImplBlockError>;
@@ -96,7 +143,7 @@ pub(crate) fn ty_impl_blocks(
     Ok(entity_tree_crate_bundle
         .impl_block_indexed_iter()
         .filter_map(|(idx, impl_block)| {
-            (impl_block.kind == ImplBlockVariant::Type(ty)).then_some(idx)
+            (impl_block.variant == ImplBlockVariant::Type { ty }).then_some(idx)
         })
         .collect())
 }
@@ -111,7 +158,7 @@ pub(crate) fn ty_associated_items(
     Ok(entity_tree_crate_bundle
         .associated_item_indexed_iter()
         .filter_map(|(idx, associated_item)| {
-            (associated_item.impl_block_kind() == ImplBlockKind::Type(ty))
+            (associated_item.impl_block_kind() == ImplBlockKind::Type { ty })
                 .then_some((associated_item.ident(), idx))
         })
         .collect())

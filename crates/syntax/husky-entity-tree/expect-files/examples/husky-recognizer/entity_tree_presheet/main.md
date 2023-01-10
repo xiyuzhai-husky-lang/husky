@@ -3,7 +3,7 @@ Ok(
         module_path: `MinimalToml(
             ExpectWordName,
         )`,
-        module_symbols: [],
+        module_specific_symbols: [],
         entity_use_roots: EntityUseExprTrackers(
             [],
         ),

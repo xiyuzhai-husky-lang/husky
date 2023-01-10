@@ -1,7 +1,7 @@
 Ok(
     EntityTreePresheet {
         module_path: `natural_number_game`,
-        module_symbols: [
+        module_specific_symbols: [
             ModuleItem {
                 ident: `Nat`,
                 accessibility: PubicUnder(

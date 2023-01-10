@@ -1,19 +1,13 @@
 use crate::*;
-use husky_ast::{Ast, AstIdx, AstIdxRange, AstSheet};
+use husky_ast::*;
 use husky_entity_path::EntityPath;
-use husky_entity_taxonomy::{EntityKind, FormKind, ModuleItemKind, TypeKind};
-use husky_entity_tree::{
-    CratePrelude, EntitySymbol, EntityTreeCrateBundle, EntityTreeModuleSheet, ImplBlockIdx,
-    ModuleItem, ModulePrelude,
-};
+use husky_entity_taxonomy::*;
+use husky_entity_tree::*;
 use husky_opn_syntax::BinaryOpr;
 use husky_print_utils::p;
-use husky_token::{
-    IdentifierToken, LeftAngleBracketToken, LeftBoxBracketToken, LeftCurlyBraceToken, Punctuation,
-    RangedTokenSheet, RightCurlyBraceToken, TokenGroupIdx, TokenIdx, TokenSheetData,
-};
+use husky_token::*;
 use husky_vfs::CratePath;
-use parsec::{parse_separated_list, ParseContext, ParseFrom};
+use parsec::*;
 use salsa::DebugWithDb;
 use vec_like::VecPairMap;
 
@@ -54,7 +48,7 @@ pub(crate) fn impl_block_decl(
 
 pub(crate) struct DeclParser<'a> {
     db: &'a dyn DeclDb,
-    module_prelude: ModulePrelude<'a>,
+    module_symbol_context: ModuleSymbolContext<'a>,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     module_entity_tree: &'a EntityTreeModuleSheet,
@@ -63,10 +57,10 @@ pub(crate) struct DeclParser<'a> {
 
 impl<'a> DeclParser<'a> {
     pub(crate) fn new(db: &'a dyn DeclDb, path: ModulePath) -> EntityTreeResult<Self> {
-        let module_prelude = db.module_prelude(path)?;
+        let module_symbol_context = db.module_symbol_context(path)?;
         Ok(Self {
             db,
-            module_prelude,
+            module_symbol_context,
             token_sheet_data: db.token_sheet_data(path)?,
             ast_sheet: db.ast_sheet(path)?,
             module_entity_tree: db.entity_tree_sheet(path)?,
@@ -74,67 +68,11 @@ impl<'a> DeclParser<'a> {
         })
     }
 
-    // fn parse_decl(&self, ast_idx: AstIdx, entity_path: EntityPath) -> DeclResult<Decl> {
-    //     match self.ast_sheet[ast_idx] {
-    //         Ast::Defn {
-    //             token_group_idx,
-    //             ref body,
-    //             accessibility,
-    //             entity_kind,
-    //             is_generic,
-    //             body_kind,
-    //             saved_stream_state,
-    //             ..
-    //         } => match entity_path {
-    //             EntityPath::Module(_) => todo!(),
-    //             EntityPath::ModuleItem(path) => match path {
-    //                 ModuleItemPath::Type(path) => self.parse_ty_decl_aux(
-    //                     ast_idx,
-    //                     path.type_kind(self.db),
-    //                     path,
-    //                     entity_kind,
-    //                     token_group_idx,
-    //                     body,
-    //                     saved_stream_state,
-    //                 ),
-    //                 ModuleItemPath::Trait(path) => self.parse_trai_decl(
-    //                     ast_idx,
-    //                     path,
-    //                     token_group_idx,
-    //                     body,
-    //                     saved_stream_state,
-    //                 ),
-    //                 ModuleItemPath::Form(path) => self.parse_form_decl(
-    //                     ast_idx,
-    //                     path,
-    //                     entity_kind,
-    //                     token_group_idx,
-    //                     body,
-    //                     saved_stream_state,
-    //                 ),
-    //             },
-    //             EntityPath::GenericParameter(_) => todo!(),
-    //             EntityPath::AssociatedItem(_) => todo!(),
-    //             EntityPath::Variant(_) => todo!(),
-    //         },
-    //         Ast::Impl { .. }
-    //         | Ast::Err { .. }
-    //         | Ast::Use { .. }
-    //         | Ast::Decor { .. }
-    //         | Ast::BasicStmtOrBranch { .. }
-    //         | Ast::IfElseStmts { .. }
-    //         | Ast::MatchStmts { .. }
-    //         | Ast::ModuleItemVariant { .. }
-    //         | Ast::Main { .. }
-    //         | Ast::Config { .. } => unreachable!(),
-    //     }
-    // }
-
     fn parse_ty_decl(&self, path: TypePath) -> DeclResult<TypeDecl> {
         let ident = path.ident(self.db);
         let module_item = self
             .module_entity_tree
-            .module_symbols()
+            .module_specific_symbols()
             .get_entry(ident)
             .unwrap()
             .module_item()
@@ -230,7 +168,7 @@ impl<'a> DeclParser<'a> {
         let ident = path.ident(self.db);
         let module_item = self
             .module_entity_tree
-            .module_symbols()
+            .module_specific_symbols()
             .get_entry(ident)
             .unwrap()
             .module_item()
@@ -335,7 +273,7 @@ impl<'a> DeclParser<'a> {
             self.db,
             Some(entity_path),
             self.token_sheet_data,
-            SymbolContextMut::new(self.module_prelude, None),
+            SymbolContextMut::new(self.module_symbol_context, None),
         )
     }
 
@@ -389,7 +327,7 @@ impl<'a> DeclParser<'a> {
         let ident = path.ident(self.db);
         let module_item = self
             .module_entity_tree
-            .module_symbols()
+            .module_specific_symbols()
             .get_entry(ident)
             .unwrap()
             .module_item()

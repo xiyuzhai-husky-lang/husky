@@ -1,7 +1,7 @@
 Ok(
     EntityTreePresheet {
         module_path: `core`,
-        module_symbols: [
+        module_specific_symbols: [
             Module {
                 ident: `basic`,
                 accessibility: PubicUnder(

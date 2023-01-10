@@ -3,7 +3,7 @@ Ok(
         sheets: [
             EntityTreeSheet {
                 module_path: `std`,
-                module_symbols: [
+                module_specific_symbols: [
                     Module {
                         ident: `prelude`,
                         accessibility: PubicUnder(
@@ -32,15 +32,15 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `std::prelude`,
-                module_symbols: [],
+                module_specific_symbols: [],
             },
             EntityTreeSheet {
                 module_path: `std::logic`,
-                module_symbols: [],
+                module_specific_symbols: [],
             },
             EntityTreeSheet {
                 module_path: `std::ops`,
-                module_symbols: [
+                module_specific_symbols: [
                     ModuleItem {
                         ident: `Add`,
                         accessibility: PubicUnder(

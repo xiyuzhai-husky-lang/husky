@@ -3,7 +3,7 @@ Ok(
         sheets: [
             EntityTreeSheet {
                 module_path: `mnist_classifier`,
-                module_symbols: [
+                module_specific_symbols: [
                     Module {
                         ident: `connected_component`,
                         accessibility: PubicUnder(
@@ -64,7 +64,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::connected_component`,
-                module_symbols: [
+                module_specific_symbols: [
                     ModuleItem {
                         ident: `ConnectedComponentDistribution`,
                         accessibility: PubicUnder(
@@ -117,7 +117,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::raw_contour`,
-                module_symbols: [
+                module_specific_symbols: [
                     ModuleItem {
                         ident: `RawContour`,
                         accessibility: PubicUnder(
@@ -210,7 +210,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::geom2d`,
-                module_symbols: [
+                module_specific_symbols: [
                     ModuleItem {
                         ident: `Point2d`,
                         accessibility: PubicUnder(
@@ -261,7 +261,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::line_segment_sketch`,
-                module_symbols: [
+                module_specific_symbols: [
                     Module {
                         ident: `concave_component`,
                         accessibility: PubicUnder(
@@ -354,7 +354,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                module_symbols: [
+                module_specific_symbols: [
                     ModuleItem {
                         ident: `ConcaveComponent`,
                         accessibility: PubicUnder(
@@ -375,7 +375,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                module_symbols: [
+                module_specific_symbols: [
                     ModuleItem {
                         ident: `ConvexCompoent`,
                         accessibility: PubicUnder(
@@ -388,7 +388,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::line_segment_sketch::convexity`,
-                module_symbols: [
+                module_specific_symbols: [
                     ModuleItem {
                         ident: `is_convex`,
                         accessibility: PubicUnder(
@@ -401,7 +401,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                module_symbols: [
+                module_specific_symbols: [
                     ModuleItem {
                         ident: `LineSegment`,
                         accessibility: PubicUnder(
@@ -414,7 +414,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::fermi`,
-                module_symbols: [
+                module_specific_symbols: [
                     ModuleItem {
                         ident: `FermiMatchResult`,
                         accessibility: PubicUnder(
@@ -435,7 +435,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::digits`,
-                module_symbols: [
+                module_specific_symbols: [
                     Module {
                         ident: `zero`,
                         accessibility: PubicUnder(
@@ -512,7 +512,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::digits::zero`,
-                module_symbols: [
+                module_specific_symbols: [
                     ModuleItem {
                         ident: `open_one_match`,
                         accessibility: PubicUnder(
@@ -541,7 +541,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::digits::one`,
-                module_symbols: [
+                module_specific_symbols: [
                     ModuleItem {
                         ident: `one_fermi_match`,
                         accessibility: PubicUnder(
@@ -586,7 +586,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::digits::six`,
-                module_symbols: [
+                module_specific_symbols: [
                     ModuleItem {
                         ident: `six_match`,
                         accessibility: PubicUnder(
@@ -631,7 +631,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::digits::three`,
-                module_symbols: [
+                module_specific_symbols: [
                     ModuleItem {
                         ident: `three_fermi_match`,
                         accessibility: PubicUnder(
@@ -676,7 +676,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::digits::four`,
-                module_symbols: [
+                module_specific_symbols: [
                     ModuleItem {
                         ident: `left_components`,
                         accessibility: PubicUnder(
@@ -737,7 +737,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::digits::seven`,
-                module_symbols: [
+                module_specific_symbols: [
                     ModuleItem {
                         ident: `simple_seven_match`,
                         accessibility: PubicUnder(
@@ -790,7 +790,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::digits::eight`,
-                module_symbols: [
+                module_specific_symbols: [
                     ModuleItem {
                         ident: `upper_mouth_match`,
                         accessibility: PubicUnder(
@@ -819,7 +819,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::digits::nine`,
-                module_symbols: [
+                module_specific_symbols: [
                     ModuleItem {
                         ident: `nine_match`,
                         accessibility: PubicUnder(
@@ -864,7 +864,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::major`,
-                module_symbols: [
+                module_specific_symbols: [
                     ModuleItem {
                         ident: `connected_components`,
                         accessibility: PubicUnder(

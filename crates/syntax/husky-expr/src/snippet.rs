@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_tree::{CratePrelude, ModulePrelude, PreludeResult};
+use husky_entity_tree::{CratePrelude, ModuleSymbolContext, PreludeResult};
 use husky_vfs::CratePath;
 
 #[salsa::tracked(jar = ExprJar, return_ref)]
@@ -15,7 +15,7 @@ pub(crate) fn parse_expr_from_snippet(
         db,
         None,
         token_sheet_data,
-        SymbolContextMut::new(ModulePrelude::new_default(db, crate_path)?, None),
+        SymbolContextMut::new(ModuleSymbolContext::new_default(db, crate_path)?, None),
     );
     let expr = expr_parser
         .ctx(token_iter)
