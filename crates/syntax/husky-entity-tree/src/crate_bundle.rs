@@ -46,7 +46,7 @@ fn entity_tree_crate_bundle_works() {
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityTreeCrateBundle {
     sheets: VecMap<EntityTreeModuleSheet>,
-    principal_entity_path_expr_arena: PrincipalEntityPathExprArena,
+    principal_entity_path_expr_arena: PrincipalPathExprArena,
     impl_block_arena: ImplBlockArena,
     associated_item_arena: AssociatedItemArena,
 }
@@ -54,7 +54,7 @@ pub struct EntityTreeCrateBundle {
 impl EntityTreeCrateBundle {
     pub(crate) fn new(
         sheets: VecMap<EntityTreeModuleSheet>,
-        principal_entity_path_expr_arena: PrincipalEntityPathExprArena,
+        principal_entity_path_expr_arena: PrincipalPathExprArena,
         impl_block_arena: ImplBlockArena,
         associated_item_arena: AssociatedItemArena,
     ) -> Self {

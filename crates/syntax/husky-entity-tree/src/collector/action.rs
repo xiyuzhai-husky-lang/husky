@@ -16,7 +16,7 @@ impl<'a> EntityTreeCollector<'a> {
         EntitySymbolContext::new(
             self.db,
             module_path,
-            presheet.module_symbols(),
+            presheet.module_specific_symbols(),
             crate_prelude(
                 self.opt_universal_prelude,
                 self.core_prelude_module,

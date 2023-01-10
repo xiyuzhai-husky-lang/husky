@@ -1,7 +1,7 @@
 Ok(
     EntityTreePresheet {
         module_path: `core::num`,
-        module_symbols: [
+        module_specific_symbols: [
             ModuleItem {
                 ident: `i8`,
                 accessibility: Public,

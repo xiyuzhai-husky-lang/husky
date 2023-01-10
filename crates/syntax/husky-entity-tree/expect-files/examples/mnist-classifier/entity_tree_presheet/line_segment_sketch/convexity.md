@@ -1,7 +1,7 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::line_segment_sketch::convexity`,
-        module_symbols: [
+        module_specific_symbols: [
             ModuleItem {
                 ident: `is_convex`,
                 accessibility: PubicUnder(

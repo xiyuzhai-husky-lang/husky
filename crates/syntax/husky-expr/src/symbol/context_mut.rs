@@ -1,24 +1,24 @@
 use super::*;
 
 pub struct SymbolContextMut<'a> {
-    module_prelude: ModulePrelude<'a>,
+    module_symbol_context: ModuleSymbolContext<'a>,
     symbol_sheet: SymbolSheet,
 }
 
 impl<'a> SymbolContextMut<'a> {
     pub fn new(
-        module_prelude: ModulePrelude<'a>,
+        module_symbol_context: ModuleSymbolContext<'a>,
         parent_symbol_sheet: Option<&SymbolSheet>,
     ) -> Self {
         Self {
-            module_prelude,
+            module_symbol_context,
             symbol_sheet: SymbolSheet::new(parent_symbol_sheet),
         }
     }
 
     pub(crate) fn resolve_ident(&self, token_idx: TokenIdx, ident: Identifier) -> Option<Symbol> {
         self.symbol_sheet.resolve_ident(token_idx, ident).or(self
-            .module_prelude
+            .module_symbol_context
             .resolve_ident(token_idx, ident)
             .map(|e| Symbol::Entity(e.entity_path())))
     }

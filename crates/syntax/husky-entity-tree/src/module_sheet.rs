@@ -9,7 +9,7 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityTreeModuleSheet {
     module_path: ModulePath,
-    module_symbols: VecMap<EntitySymbol>,
+    module_specific_symbols: VecMap<EntitySymbol>,
     impl_blocks: ImplBlockIdxRange,
 }
 
@@ -31,12 +31,12 @@ impl vec_like::AsVecMapEntry for EntityTreeModuleSheet {
 impl EntityTreeModuleSheet {
     pub(crate) fn new(
         module_path: ModulePath,
-        module_symbols: VecMap<EntitySymbol>,
+        module_specific_symbols: VecMap<EntitySymbol>,
         impl_blocks: ImplBlockIdxRange,
     ) -> Self {
         Self {
             module_path,
-            module_symbols,
+            module_specific_symbols: module_specific_symbols,
             impl_blocks,
         }
     }
@@ -63,22 +63,24 @@ impl EntityTreeModuleSheet {
     //             )
     //         })
     // }
-    pub fn module_symbols(&self) -> &VecMap<EntitySymbol> {
-        &self.module_symbols
+    pub fn module_specific_symbols(&self) -> &VecMap<EntitySymbol> {
+        &self.module_specific_symbols
     }
 
     pub fn module_item_iter<'a>(&'a self) -> impl Iterator<Item = &'a ModuleItem> + 'a {
-        self.module_symbols
+        self.module_specific_symbols
             .iter()
             .filter_map(|module_symbol| module_symbol.module_item())
     }
 
     pub fn module_item_path_iter<'a>(&'a self) -> impl Iterator<Item = ModuleItemPath> + 'a {
-        self.module_symbols.iter().filter_map(|module_symbol| {
-            module_symbol
-                .module_item()
-                .map(|module_item| module_item.path())
-        })
+        self.module_specific_symbols
+            .iter()
+            .filter_map(|module_symbol| {
+                module_symbol
+                    .module_item()
+                    .map(|module_item| module_item.path())
+            })
     }
 
     pub fn module_path(&self) -> ModulePath {
@@ -119,8 +121,10 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreeModuleSheet
                     .debug_with(db as &dyn VfsDb, include_all_fields),
             )
             .field(
-                "module_symbols",
-                &self.module_symbols.debug_with(db, include_all_fields),
+                "module_specific_symbols",
+                &self
+                    .module_specific_symbols
+                    .debug_with(db, include_all_fields),
             )
             .finish()
     }

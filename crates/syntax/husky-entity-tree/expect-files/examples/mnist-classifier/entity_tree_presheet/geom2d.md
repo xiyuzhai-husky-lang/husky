@@ -1,7 +1,7 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::geom2d`,
-        module_symbols: [
+        module_specific_symbols: [
             ModuleItem {
                 ident: `Point2d`,
                 accessibility: PubicUnder(

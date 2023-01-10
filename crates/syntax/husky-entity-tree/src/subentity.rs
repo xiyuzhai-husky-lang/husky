@@ -18,7 +18,7 @@ pub(crate) fn subentity_path(
         EntityPath::Module(module_path) => {
             match db
                 .entity_tree_sheet(module_path)?
-                .module_symbols()
+                .module_specific_symbols()
                 .get_entry(identifier)
             {
                 Some(_) => todo!(),

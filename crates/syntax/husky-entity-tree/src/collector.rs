@@ -12,7 +12,7 @@ pub(crate) struct EntityTreeCollector<'a> {
     // can't use `crate_prelude` here because it might not be available
     opt_universal_prelude: Option<&'a [EntitySymbol]>,
     crate_specific_prelude: &'a [EntitySymbol],
-    principal_entity_path_expr_arena: PrincipalEntityPathExprArena,
+    principal_entity_path_expr_arena: PrincipalPathExprArena,
     impl_block_arena: ImplBlockArena,
     associated_item_arena: AssociatedItemArena,
 }
@@ -43,7 +43,7 @@ impl<'a> EntityTreeCollector<'a> {
                 Some(
                     module_entity_tree(db, core_prelude_module)
                         .map_err(|e| PreludeError::CorePreludeEntityTreeSheet(Box::new(e)))?
-                        .module_symbols(),
+                        .module_specific_symbols(),
                 )
             } else {
                 None
@@ -75,11 +75,14 @@ impl<'a> EntityTreeCollector<'a> {
             }
         }
         let impl_blockss = self.collect_impl_blockss();
-        // todo: collect associated items
+        for idx in self.impl_block_arena.index_iter() {
+            self.collect_associated_items(idx)
+        }
+        let sheets = std::iter::zip(self.presheets.into_iter(), impl_blockss.into_iter())
+            .map(|(presheet, impl_blocks)| presheet.into_sheet(impl_blocks))
+            .collect();
         EntityTreeCrateBundle::new(
-            std::iter::zip(self.presheets.into_iter(), impl_blockss.into_iter())
-                .map(|(presheet, impl_blocks)| presheet.into_sheet(impl_blocks))
-                .collect(),
+            sheets,
             self.principal_entity_path_expr_arena,
             self.impl_block_arena,
             self.associated_item_arena,
@@ -97,26 +100,44 @@ impl<'a> EntityTreeCollector<'a> {
                     Ast::Impl {
                         token_group_idx,
                         body,
-                    } => Some(ImplBlock::parse_from_token_group(
-                        crate_prelude(
+                    } => {
+                        let crate_prelude = crate_prelude(
                             self.opt_universal_prelude,
                             self.core_prelude_module,
                             &self.presheets,
                             self.crate_specific_prelude,
-                        ),
-                        ast_idx,
-                        self.db
-                            .token_sheet_data(module_path)
-                            .unwrap()
-                            .token_group_token_stream(*token_group_idx, None),
-                        &mut self.principal_entity_path_expr_arena,
-                    )),
+                        );
+                        let module_symbol_context = ModuleSymbolContext::new(
+                            crate_prelude,
+                            presheet.module_specific_symbols(),
+                        );
+                        Some(ImplBlock::parse_from_token_group(
+                            module_symbol_context,
+                            module_path,
+                            ast_idx,
+                            *body,
+                            self.db
+                                .token_sheet_data(module_path)
+                                .unwrap()
+                                .token_group_token_stream(*token_group_idx, None),
+                            &mut self.principal_entity_path_expr_arena,
+                        ))
+                    }
                     _ => None,
                 })
                 .collect::<Vec<_>>();
             impl_blockss.push(self.impl_block_arena.alloc_batch(impl_blocks));
         }
         impl_blockss
+    }
+
+    fn collect_associated_items(&mut self, impl_block_idx: ImplBlockIdx) {
+        let impl_block = &self.impl_block_arena[impl_block_idx];
+        let impl_block_kind = impl_block.kind();
+        let body = impl_block.body();
+        for _ in body {
+            // todo!()
+        }
     }
 
     fn exec(&mut self, action: PresheetAction) {
@@ -132,7 +153,7 @@ fn crate_prelude<'a>(
     presheets: &'a VecMap<EntityTreePresheet>,
     crate_specific_prelude: &'a [EntitySymbol],
 ) -> CratePrelude<'a> {
-    let universal_prelude =
-        opt_universal_prelude.unwrap_or_else(|| presheets[core_prelude_module].module_symbols());
+    let universal_prelude = opt_universal_prelude
+        .unwrap_or_else(|| presheets[core_prelude_module].module_specific_symbols());
     CratePrelude::new(universal_prelude, crate_specific_prelude)
 }

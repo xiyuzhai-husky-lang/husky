@@ -1,5 +1,6 @@
 use crate::*;
-use husky_token::TokenAccessibility;
+use husky_token::{TokenAccessibility, TokenIdx};
+use vec_like::VecMapGetEntry;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct ModuleItem {
@@ -224,4 +225,50 @@ impl<Db: EntityTreeDb> salsa::DebugWithDb<Db> for EntitySymbol {
     ) -> std::fmt::Result {
         self.fmt(f, db as &dyn EntityTreeDb, include_all_fields)
     }
+}
+
+#[derive(Debug, Clone, Copy)]
+pub struct ModuleSymbolContext<'a> {
+    crate_prelude: CratePrelude<'a>,
+    module_specific_symbols: &'a [EntitySymbol],
+}
+
+impl<'a> ModuleSymbolContext<'a> {
+    pub fn new(
+        crate_prelude: CratePrelude<'a>,
+        module_specific_symbols: &'a [EntitySymbol],
+    ) -> Self {
+        Self {
+            crate_prelude,
+            module_specific_symbols,
+        }
+    }
+
+    pub fn new_default(db: &'a dyn EntityTreeDb, crate_path: CratePath) -> PreludeResult<Self> {
+        Ok(Self {
+            crate_prelude: crate_prelude(db, crate_path)?,
+            module_specific_symbols: &[],
+        })
+    }
+
+    pub fn resolve_ident(
+        &self,
+        token_idx: TokenIdx,
+        ident: Identifier,
+    ) -> Option<&'a EntitySymbol> {
+        self.module_specific_symbols
+            .get_entry(ident)
+            .or_else(|| self.crate_prelude.resolve_ident(ident))
+    }
+}
+
+pub(crate) fn module_symbol_context<'a>(
+    db: &'a dyn EntityTreeDb,
+    module_path: ModulePath,
+) -> EntityTreeResult<ModuleSymbolContext<'a>> {
+    let entity_tree_sheet = db.entity_tree_sheet(module_path)?;
+    Ok(ModuleSymbolContext {
+        crate_prelude: crate_prelude(db, module_path.crate_path(db))?,
+        module_specific_symbols: entity_tree_sheet.module_specific_symbols(),
+    })
 }

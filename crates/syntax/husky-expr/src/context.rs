@@ -1,9 +1,9 @@
 use crate::*;
-use husky_entity_tree::ModulePrelude;
+use husky_entity_tree::ModuleSymbolContext;
 
 #[derive(Debug, Clone)]
 pub struct ExprContext<'a> {
-    module_prelude: ModulePrelude<'a>,
+    module_symbol_context: ModuleSymbolContext<'a>,
     expr_arena: &'a ExprArena,
     entity_path_expr_arena: &'a EntityPathExprArena,
     pattern_expr_sheet: &'a PatternExprSheet,
@@ -14,11 +14,11 @@ pub struct ExprContext<'a> {
 impl<'a> ExprContext<'a> {
     pub fn new(
         db: &'a dyn ExprDb,
-        module_prelude: ModulePrelude<'a>,
+        module_symbol_context: ModuleSymbolContext<'a>,
         expr_sheet: ExprSheet,
     ) -> Self {
         Self {
-            module_prelude,
+            module_symbol_context,
             expr_arena: expr_sheet.expr_arena(db),
             entity_path_expr_arena: expr_sheet.entity_path_expr_arena(db),
             pattern_expr_sheet: expr_sheet.pattern_expr_sheet(db),

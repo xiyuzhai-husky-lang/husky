@@ -1,7 +1,7 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::fermi`,
-        module_symbols: [
+        module_specific_symbols: [
             ModuleItem {
                 ident: `FermiMatchResult`,
                 accessibility: PubicUnder(

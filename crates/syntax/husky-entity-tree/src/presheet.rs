@@ -29,7 +29,7 @@ fn entity_tree_presheet_works() {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct EntityTreePresheet {
     module_path: ModulePath,
-    module_symbols: VecMap<EntitySymbol>,
+    module_specific_symbols: VecMap<EntitySymbol>,
     entity_use_trackers: EntityUseExprTrackers,
     use_all_trackers: UseAllTrackers,
     errors: Vec<EntityTreeError>,
@@ -37,7 +37,7 @@ pub(crate) struct EntityTreePresheet {
 
 // impl Into<EntityTreeSheet> for EntityTreePresheet {
 //     fn into(self) -> EntityTreeSheet {
-//         EntityTreeSheet::new(self.module_path, self.module_symbols)
+//         EntityTreeSheet::new(self.module_path, self.module_specific_symbols)
 //     }
 // }
 
@@ -46,12 +46,12 @@ impl EntityTreePresheet {
         self.module_path
     }
 
-    pub(crate) fn module_symbols(&self) -> &VecMap<EntitySymbol> {
-        &self.module_symbols
+    pub(crate) fn module_specific_symbols(&self) -> &VecMap<EntitySymbol> {
+        &self.module_specific_symbols
     }
 
     pub(crate) fn into_sheet(self, impl_blocks: ImplBlockIdxRange) -> EntityTreeModuleSheet {
-        EntityTreeModuleSheet::new(self.module_path, self.module_symbols, impl_blocks)
+        EntityTreeModuleSheet::new(self.module_path, self.module_specific_symbols, impl_blocks)
     }
 }
 
@@ -93,7 +93,7 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
         }
         EntityTreePresheet {
             module_path: self.module_path,
-            module_symbols: self.nodes,
+            module_specific_symbols: self.nodes,
             entity_use_trackers: self.entity_use_trackers,
             use_all_trackers: Default::default(),
             errors: self.errors,
@@ -180,8 +180,8 @@ impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntityTreePresheet {
                     .debug_with(db as &dyn VfsDb, include_all_fields),
             )
             .field(
-                "module_symbols",
-                &(&self.module_symbols).debug_with(db, include_all_fields),
+                "module_specific_symbols",
+                &(&self.module_specific_symbols).debug_with(db, include_all_fields),
             )
             .field("entity_use_roots", &self.entity_use_trackers)
             .finish()

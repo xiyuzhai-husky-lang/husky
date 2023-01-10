@@ -1,7 +1,7 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier`,
-        module_symbols: [
+        module_specific_symbols: [
             Module {
                 ident: `connected_component`,
                 accessibility: PubicUnder(
