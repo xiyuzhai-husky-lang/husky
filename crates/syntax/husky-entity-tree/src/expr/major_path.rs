@@ -59,6 +59,37 @@ impl<'a, 'b> MajorPathExprParser<'a, 'b> {
     }
 }
 
+impl<'a, 'b> MajorPathExprParser<'a, 'b> {
+    pub(crate) fn parse_principal_path_expr(
+        &mut self,
+    ) -> MajorPathExprResult<(MajorPathExprIdx, ModuleItemPath)> {
+        let ident_token = self.parse_expected::<IdentifierToken>()?;
+        let Some(entity_symbol) = self
+            .module_symbol_context
+            .resolve_ident(ident_token.token_idx(),ident_token.ident()) else {
+                return Err(MajorPathExprError::UnrecognizedIdentifier(ident_token))
+            };
+        let module_item = match entity_symbol {
+            EntitySymbol::ModuleItem(module_item) => module_item,
+            _ => todo!(),
+        };
+        let (expr, path) = if let Some(_) = self.try_parse::<ScopeResolutionToken>() {
+            todo!()
+        } else {
+            let path = module_item.path();
+            (
+                MajorPathExpr::Root {
+                    ident_token,
+                    entity_path: path.into(),
+                },
+                path,
+            )
+        };
+        let expr = self.major_path_expr_arena.alloc_one(expr);
+        Ok((expr, path))
+    }
+}
+
 impl<'a, 'b> parsec::HasParseError for MajorPathExprParser<'a, 'b> {
     type Error = MajorPathExprError;
 }
@@ -90,34 +121,3 @@ impl<'a, 'b> std::borrow::BorrowMut<TokenStream<'a>> for MajorPathExprParser<'a,
 }
 
 impl<'a, 'b> StreamWrapper for MajorPathExprParser<'a, 'b> {}
-
-impl<'a, 'b> MajorPathExprParser<'a, 'b> {
-    pub(crate) fn parse_principal_path_expr(
-        &mut self,
-    ) -> MajorPathExprResult<(MajorPathExprIdx, ModuleItemPath)> {
-        let ident_token = self.parse_expected::<IdentifierToken>()?;
-        let Some(entity_symbol) = self
-            .module_symbol_context
-            .resolve_ident(ident_token.token_idx(),ident_token.ident()) else {
-                return Err(MajorPathExprError::UnrecognizedIdentifier(ident_token))
-            };
-        let module_item = match entity_symbol {
-            EntitySymbol::ModuleItem(module_item) => module_item,
-            _ => todo!(),
-        };
-        let (expr, path) = if let Some(_) = self.try_parse::<ScopeResolutionToken>() {
-            todo!()
-        } else {
-            let path = module_item.path();
-            (
-                MajorPathExpr::Root {
-                    ident_token,
-                    entity_path: path.into(),
-                },
-                path,
-            )
-        };
-        let expr = self.major_path_expr_arena.alloc_one(expr);
-        Ok((expr, path))
-    }
-}

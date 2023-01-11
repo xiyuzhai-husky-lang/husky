@@ -6,6 +6,7 @@ use std::marker::PhantomData;
 
 pub(crate) use action::*;
 use husky_print_utils::p;
+use husky_token::TokenSheetData;
 
 use crate::{ModuleItem, *};
 use husky_text::TextRange;
@@ -18,7 +19,7 @@ pub(crate) fn entree_presheet(
     db: &dyn EntityTreeDb,
     module_path: ModulePath,
 ) -> VfsResult<EntreePresheet> {
-    Ok(EntreePresheetBuilder::new(db, module_path)?.build())
+    Ok(EntitreePresheetBuilder::new(db, module_path)?.build())
 }
 
 #[test]
@@ -32,7 +33,7 @@ fn entree_presheet_works() {
 pub(crate) struct EntreePresheet {
     module_path: ModulePath,
     module_specific_symbols: VecMap<EntitySymbol>,
-    use_one_trackers: UseExprTrackers,
+    use_one_trackers: UseTreeTrackers,
     use_all_trackers: UseAllTrackers,
     errors: Vec<EntityTreeError>,
 }
@@ -56,7 +57,7 @@ impl EntreePresheet {
 pub(crate) struct EntreePresheetMut<'a> {
     module_path: ModulePath,
     module_specific_symbols: VecMap<EntitySymbol>,
-    use_expr_trackers: UseExprTrackers,
+    use_expr_trackers: UseTreeTrackers,
     use_all_trackers: UseAllTrackers,
     errors: Vec<EntityTreeError>,
     use_tree_expr_arena: UseTreeExprArena,
@@ -95,23 +96,29 @@ impl<'a> AsVecMapEntry for EntreePresheetMut<'a> {
     }
 }
 
-struct EntreePresheetBuilder<'a> {
+struct EntitreePresheetBuilder<'a> {
     db: &'a dyn EntityTreeDb,
     ast_sheet: &'a AstSheet,
     module_path: ModulePath,
-    nodes: VecMap<EntitySymbol>,
-    entity_use_trackers: UseExprTrackers,
+    major_symbols: VecMap<EntitySymbol>,
+    mod_path_expr_arena: ModPathExprArena,
+    use_tree_expr_arena: UseTreeExprArena,
+    entity_use_trackers: UseTreeTrackers,
+    token_sheet_data: &'a TokenSheetData,
     errors: Vec<EntityTreeError>,
 }
 
-impl<'a> EntreePresheetBuilder<'a> {
+impl<'a> EntitreePresheetBuilder<'a> {
     fn new(db: &'a dyn EntityTreeDb, module_path: ModulePath) -> VfsResult<Self> {
         Ok(Self {
             db,
             ast_sheet: db.ast_sheet(module_path)?,
             module_path,
-            nodes: Default::default(),
+            mod_path_expr_arena: Default::default(),
+            use_tree_expr_arena: Default::default(),
+            major_symbols: Default::default(),
             entity_use_trackers: Default::default(),
+            token_sheet_data: db.token_sheet_data(module_path).unwrap(),
             errors: vec![],
         })
     }
@@ -122,7 +129,7 @@ impl<'a> EntreePresheetBuilder<'a> {
         }
         EntreePresheet {
             module_path: self.module_path,
-            module_specific_symbols: self.nodes,
+            module_specific_symbols: self.major_symbols,
             use_one_trackers: self.entity_use_trackers,
             use_all_trackers: Default::default(),
             errors: self.errors,
@@ -132,14 +139,27 @@ impl<'a> EntreePresheetBuilder<'a> {
     fn process(&mut self, ast_idx: AstIdx, ast: &Ast) {
         match ast {
             Ast::Use { token_group_idx } => {
+                let mut token_stream = self
+                    .token_sheet_data
+                    .token_group_token_stream(*token_group_idx, None);
                 // let module_symbol_context = self.module_symbol_context;
-                todo!();
-                // self.entity_use_trackers.push(UseExprTracker::new_root(
-                //     ast_idx,
-                //     *accessibility,
-                //     *ident,
-                //     *use_expr_idx,
-                // ))
+                let accessibility_expr = match parse_accessibility_expr(
+                    &mut token_stream,
+                    &mut self.mod_path_expr_arena,
+                ) {
+                    Ok(accessibility_expr) => accessibility_expr,
+                    Err(_) => todo!(),
+                };
+                let Ok(use_tree_expr_idx) =
+                    parse_use_tree_expr_root(&mut token_stream, &mut self.use_tree_expr_arena) else {
+                        todo!()
+                    };
+                self.entity_use_trackers.push(UseTreeTracker::new_root(
+                    ast_idx,
+                    accessibility_expr,
+                    use_tree_expr_idx,
+                    self.module_path,
+                ))
             }
             Ast::Defn {
                 token_group_idx,
@@ -166,10 +186,10 @@ impl<'a> EntreePresheetBuilder<'a> {
                         ),
                         EntityPath::AssociatedItem(_) | EntityPath::Variant(_) => return,
                     };
-                    match self.nodes.insert_new(new_node) {
+                    match self.major_symbols.insert_new(new_node) {
                         Ok(_) => (),
                         Err(e) => {
-                            let old_node = &self.nodes.data()[e.old];
+                            let old_node = &self.major_symbols.data()[e.old];
                             self.errors
                                 .push(EntityTreeError::EntitySymbolAlreadyDefined {
                                     old: old_node.ast_idx().unwrap(),

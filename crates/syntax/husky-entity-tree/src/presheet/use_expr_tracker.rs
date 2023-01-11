@@ -3,9 +3,9 @@ use husky_word::Identifier;
 use crate::*;
 
 #[derive(Debug, Default, PartialEq, Eq, Clone)]
-pub(crate) struct UseExprTrackers(Vec<UseExprTracker>);
+pub(crate) struct UseTreeTrackers(Vec<UseTreeTracker>);
 
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseExprTrackers {
+impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseTreeTrackers {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -19,34 +19,34 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseExprTrackers {
     }
 }
 
-impl std::ops::Index<UseExprTrackerIdx> for UseExprTrackers {
-    type Output = UseExprTracker;
+impl std::ops::Index<UseTreeTrackerIdx> for UseTreeTrackers {
+    type Output = UseTreeTracker;
 
-    fn index(&self, index: UseExprTrackerIdx) -> &Self::Output {
+    fn index(&self, index: UseTreeTrackerIdx) -> &Self::Output {
         &self.0[index.0]
     }
 }
 
-impl std::ops::IndexMut<UseExprTrackerIdx> for UseExprTrackers {
-    fn index_mut(&mut self, index: UseExprTrackerIdx) -> &mut Self::Output {
+impl std::ops::IndexMut<UseTreeTrackerIdx> for UseTreeTrackers {
+    fn index_mut(&mut self, index: UseTreeTrackerIdx) -> &mut Self::Output {
         &mut self.0[index.0]
     }
 }
 
-pub(crate) struct UseExprTrackerIdx(usize);
+pub(crate) struct UseTreeTrackerIdx(usize);
 
-impl UseExprTrackers {
-    pub(crate) fn push(&mut self, tracker: UseExprTracker) {
+impl UseTreeTrackers {
+    pub(crate) fn push(&mut self, tracker: UseTreeTracker) {
         self.0.push(tracker)
     }
 
     pub(crate) fn indexed_iter(
         &self,
-    ) -> impl Iterator<Item = (UseExprTrackerIdx, &UseExprTracker)> {
+    ) -> impl Iterator<Item = (UseTreeTrackerIdx, &UseTreeTracker)> {
         self.0
             .iter()
             .enumerate()
-            .map(|(i, tracker)| (UseExprTrackerIdx(i), tracker))
+            .map(|(i, tracker)| (UseTreeTrackerIdx(i), tracker))
     }
 
     #[cfg(test)]
@@ -66,16 +66,48 @@ impl UseExprTrackers {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub(crate) struct UseExprTracker {
+pub(crate) struct UseTreeTracker {
     ast_idx: AstIdx,
-    accessibility: Accessibility,
-    ident: Identifier,
-    use_expr_idx: UseTreeExprIdx,
+    accessibility: AccessibilityProgress,
+    use_tree_expr_root: UseTreeExprRoot,
     parent: Option<EntityPath>,
     state: EntityUseState,
 }
 
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseExprTracker {
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum AccessibilityProgress {
+    Done { accessibility: Accessibility },
+    Todo,
+}
+
+impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for AccessibilityProgress {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        todo!()
+    }
+}
+
+impl AccessibilityProgress {
+    fn new(expr: Option<AccessibilityExpr>, module_path: ModulePath) -> Self {
+        match expr {
+            Some(expr) => match expr {
+                AccessibilityExpr::Public { .. } => AccessibilityProgress::Done {
+                    accessibility: Accessibility::Public,
+                },
+                AccessibilityExpr::PublicUnder { scope, .. } => todo!(),
+            },
+            None => AccessibilityProgress::Done {
+                accessibility: Accessibility::PublicUnder(module_path),
+            },
+        }
+    }
+}
+
+impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseTreeTracker {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -86,8 +118,7 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseExprTracker {
         f.debug_struct("UseTracker")
             .field("ast_idx", &self.ast_idx)
             .field("accessibility", &self.accessibility.debug(db))
-            .field("ident", &self.ident.debug(db))
-            .field("use_expr_idx", &self.use_expr_idx)
+            .field("use_tree_expr_root", &self.use_tree_expr_root)
             .field("parent", &self.parent.debug(db))
             .field("state", &self.state)
             .finish()
@@ -101,18 +132,17 @@ pub enum EntityUseState {
     Erroneous,
 }
 
-impl UseExprTracker {
+impl UseTreeTracker {
     pub fn new_root(
         ast_idx: AstIdx,
-        accessibility: Accessibility,
-        ident: Identifier,
-        use_expr_idx: UseTreeExprIdx,
+        accessibility_expr: Option<AccessibilityExpr>,
+        use_tree_expr_root: UseTreeExprRoot,
+        module_path: ModulePath,
     ) -> Self {
         Self {
             ast_idx,
-            accessibility,
-            use_expr_idx,
-            ident,
+            accessibility: AccessibilityProgress::new(accessibility_expr, module_path),
+            use_tree_expr_root,
             parent: None,
             state: EntityUseState::Unresolved,
         }
@@ -124,34 +154,31 @@ impl UseExprTracker {
         use_expr_idx: UseTreeExprIdx,
         parent: EntityPath,
     ) -> Self {
-        Self {
-            ast_idx,
-            accessibility,
-            use_expr_idx,
-            ident,
-            parent: Some(parent),
-            state: EntityUseState::Unresolved,
-        }
+        todo!()
+        // Self {
+        //     ast_idx,
+        //     accessibility,
+        //     use_tree_expr_idx: use_expr_idx,
+        //     ident,
+        //     parent: Some(parent),
+        //     state: EntityUseState::Unresolved,
+        // }
     }
 
     pub fn ast_idx(&self) -> AstIdx {
         self.ast_idx
     }
 
-    pub fn accessibility(&self) -> Accessibility {
-        self.accessibility
-    }
+    // pub fn accessibility(&self) -> Accessibility {
+    //     self.accessibility
+    // }
 
-    pub fn use_tree_expr_idx(&self) -> UseTreeExprIdx {
-        self.use_expr_idx
-    }
+    // pub fn use_tree_expr_idx(&self) -> UseTreeExprIdx {
+    //     self.use_tree_expr_idx
+    // }
 
     pub fn state(&self) -> EntityUseState {
         self.state
-    }
-
-    pub fn ident(&self) -> Identifier {
-        self.ident
     }
 
     pub(crate) fn mark_as_resolved(&mut self) {

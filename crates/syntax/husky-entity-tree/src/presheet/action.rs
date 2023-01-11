@@ -4,7 +4,7 @@ use with_db::{PartialOrdWithDb, WithDb};
 pub(crate) enum PresheetAction {
     ResolveEntityUse {
         module_path: ModulePath,
-        entity_use_tracker_idx: UseExprTrackerIdx,
+        entity_use_tracker_idx: UseTreeTrackerIdx,
         symbol: EntitySymbol,
     },
     EvaluateUseAll {
@@ -30,14 +30,15 @@ impl<'a> EntreePresheetMut<'a> {
     ) {
         for (entity_use_tracker_idx, entity_use_tracker) in self.use_expr_trackers.indexed_iter() {
             if entity_use_tracker.is_unresolved() {
-                let ident = entity_use_tracker.ident();
-                if let Some(node) = ctx.resolve_ident(ident) {
-                    actions.push(PresheetAction::ResolveEntityUse {
-                        module_path: self.module_path,
-                        entity_use_tracker_idx,
-                        symbol: node.clone(),
-                    })
-                }
+                todo!()
+                // let ident = entity_use_tracker.ident();
+                // if let Some(node) = ctx.resolve_ident(ident) {
+                //     actions.push(PresheetAction::ResolveEntityUse {
+                //         module_path: self.module_path,
+                //         entity_use_tracker_idx,
+                //         symbol: node.clone(),
+                //     })
+                // }
             }
         }
         for (use_all_tracker_idx, use_all_tracker) in self.use_all_trackers.indexed_iter() {
@@ -62,30 +63,31 @@ impl<'a> EntreePresheetMut<'a> {
     fn resolve_use_expr(
         &mut self,
         db: &dyn EntityTreeDb,
-        use_expr_tracker_idx: UseExprTrackerIdx,
+        use_tree_tracker_idx: UseTreeTrackerIdx,
         symbol: EntitySymbol,
     ) {
-        let tracker = &mut self.use_expr_trackers[use_expr_tracker_idx];
+        let tracker = &mut self.use_expr_trackers[use_tree_tracker_idx];
         #[cfg(test)]
         assert!(tracker.is_unresolved());
         tracker.mark_as_resolved();
         if !symbol.is_accessible_from(db, self.module_path) {
             todo!()
         }
-        if !(tracker.accessibility().with_db(db) <= symbol.accessility().with_db(db)) {
-            todo!()
-        }
-        let use_tree_expr = &self.use_tree_expr_arena[tracker.use_tree_expr_idx()];
-        match use_tree_expr {
-            UseTreeExpr::All { start } => todo!(),
-            UseTreeExpr::One { ident } => todo!(),
-            UseTreeExpr::Parent {
-                ident,
-                scope_resolution_token,
-                children,
-            } => todo!(),
-            UseTreeExpr::Err(_) => todo!(),
-        }
+        todo!()
+        // if !(tracker.accessibility().with_db(db) <= symbol.accessility().with_db(db)) {
+        //     todo!()
+        // }
+        // let use_tree_expr = &self.use_tree_expr_arena[tracker.use_tree_expr_idx()];
+        // match use_tree_expr {
+        //     UseTreeExpr::All { start } => todo!(),
+        //     UseTreeExpr::One { ident } => todo!(),
+        //     UseTreeExpr::Parent {
+        //         ident,
+        //         scope_resolution_token,
+        //         children,
+        //     } => todo!(),
+        //     UseTreeExpr::Err(_) => todo!(),
+        // }
         // match self
         //     .module_specific_symbols
         //     .insert_new(EntitySymbol::EntityUse {
