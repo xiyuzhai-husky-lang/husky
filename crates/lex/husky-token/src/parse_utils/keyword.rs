@@ -326,6 +326,8 @@ where
     }
 }
 
+// impl
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct ImplToken {
     token_idx: TokenIdx,
@@ -360,4 +362,95 @@ where
             Ok(None)
         }
     }
+}
+
+// pub
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct PubToken {
+    token_idx: TokenIdx,
+}
+
+impl PubToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
+impl<'a, Context> parsec::ParseFrom<Context> for PubToken
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+            match token {
+                Token::Attr(AttributeKeyword::Pub) => Ok(Some(PubToken { token_idx })),
+                Token::Err(ref e) => Err(e.clone().into()),
+                Token::Punctuation(_)
+                | Token::Identifier(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Attr(_)
+                | Token::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+// use
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct UseToken {
+    token_idx: TokenIdx,
+}
+
+impl UseToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
+impl<'a, Context> parsec::ParseFrom<Context> for UseToken
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+            match token {
+                Token::Keyword(Keyword::Use) => Ok(Some(UseToken { token_idx })),
+                Token::Err(ref e) => Err(e.clone().into()),
+                Token::Punctuation(_)
+                | Token::Identifier(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Attr(_)
+                | Token::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+#[test]
+fn use_token_works() {
+    fn t(db: &DB, input: &str) -> TokenResult<Option<UseToken>> {
+        quick_parse(db, input)
+    }
+
+    let db = DB::default();
+    assert!(t(&db, "use").unwrap().is_some());
+    assert!(t(&db, "::@").unwrap().is_none());
+    assert!(t(&db, ":@").unwrap().is_none());
+    assert!(t(&db, ".").unwrap().is_none());
+    assert!(t(&db, "||").unwrap().is_none());
+    assert!(t(&db, "a").unwrap().is_none());
 }
