@@ -67,6 +67,7 @@ impl Token {
                 Punctuation::PoundSign => todo!(),
                 Punctuation::Question => todo!(),
                 Punctuation::DotDot => todo!(),
+                Punctuation::Star => todo!(),
             },
             Token::WordOpr(_) => todo!(),
             Token::Literal(_) => Convexity::Convex,

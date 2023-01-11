@@ -18,6 +18,7 @@ pub enum Punctuation {
     DotDot,            // `.`
     Colon,             // `:`
     DoubleColon,       // `::`
+    Star,              // `*`
     Comma,             // `,`
     Ambersand,         // `&`
     Vertical,          // `|`
@@ -72,6 +73,7 @@ impl Punctuation {
             Punctuation::At => "@",
             Punctuation::Question => "?",
             Punctuation::PoundSign => "#",
+            Punctuation::Star => "*",
         }
     }
 
@@ -109,6 +111,7 @@ impl Punctuation {
             Punctuation::At => todo!(),
             Punctuation::Question => todo!(),
             Punctuation::PoundSign => todo!(),
+            Punctuation::Star => todo!(),
         }
     }
 }

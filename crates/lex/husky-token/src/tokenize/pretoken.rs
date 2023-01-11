@@ -375,7 +375,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     Some('=') => self.pass_two(Punctuation::Binary(BinaryOpr::Assign(Some(
                         BinaryPureClosedOpr::Mul,
                     )))),
-                    _ => Punctuation::Binary(BinaryOpr::PureClosed(BinaryPureClosedOpr::Mul)),
+                    _ => Punctuation::Star,
                 },
                 '/' => match self.peek_char() {
                     Some('/') => unreachable!(),

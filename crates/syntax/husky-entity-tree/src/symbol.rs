@@ -60,7 +60,7 @@ pub enum EntitySymbol {
         accessibility: Accessibility,
         path: EntityPath,
         ast_idx: AstIdx,
-        use_expr_idx: UseExprIdx,
+        use_expr_idx: UseTreeExprIdx,
     },
 }
 

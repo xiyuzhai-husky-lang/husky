@@ -104,9 +104,9 @@ impl ImplBlock {
         ast_idx: AstIdx,
         body: AstIdxRange,
         mut token_stream: TokenStream<'a>,
-        princiapl_entity_path_expr_arena: &mut PrincipalPathExprArena,
+        princiapl_entity_path_expr_arena: &mut MajorPathExprArena,
     ) -> Self {
-        let mut parser = PrincipalPathExprParser::new(
+        let mut parser = MajorPathExprParser::new(
             token_stream,
             princiapl_entity_path_expr_arena,
             module_symbol_context,
@@ -118,7 +118,7 @@ impl ImplBlock {
                 Err(e) => todo!(),
             }
         }
-        let (expr, path) = match parser.parse_principal_entity_path_expr() {
+        let (expr, path) = match parser.parse_principal_path_expr() {
             Ok((expr, path)) => (expr, path),
             Err(e) => {
                 return new_impl_block(
@@ -191,7 +191,7 @@ pub enum ImplBlockError {
     #[error("token error")]
     Token(#[from] TokenError),
     #[error("principal path expr error")]
-    PrincipalPath(#[from] PrincipalPathExprError),
+    MajorPath(#[from] MajorPathExprError),
 }
 
 pub type ImplBlockResult<T> = Result<T, ImplBlockError>;

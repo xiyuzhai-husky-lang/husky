@@ -306,220 +306,56 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         10,
                     ),
-                    ident: `one`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 1,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         11,
                     ),
-                    ident: `six`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 3,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         12,
                     ),
-                    ident: `zero`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 5,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         13,
                     ),
-                    ident: `two`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 7,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         14,
                     ),
-                    ident: `three`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 9,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         15,
                     ),
-                    ident: `five`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 11,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         16,
                     ),
-                    ident: `six`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 13,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         17,
                     ),
-                    ident: `seven`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 15,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         18,
                     ),
-                    ident: `eight`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 17,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         19,
                     ),
-                    ident: `nine`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 19,
                 },
             ],
         },
         top_level_asts: ArenaIdxRange(
             0..20,
         ),
-        use_expr_arena: Arena {
-            data: [
-                One {
-                    ident: `is_one`,
-                },
-                ScopeResolution {
-                    parent: `one`,
-                    child: 0,
-                },
-                One {
-                    ident: `is_six`,
-                },
-                ScopeResolution {
-                    parent: `six`,
-                    child: 2,
-                },
-                One {
-                    ident: `is_zero`,
-                },
-                ScopeResolution {
-                    parent: `zero`,
-                    child: 4,
-                },
-                One {
-                    ident: `is_two`,
-                },
-                ScopeResolution {
-                    parent: `two`,
-                    child: 6,
-                },
-                One {
-                    ident: `is_three`,
-                },
-                ScopeResolution {
-                    parent: `three`,
-                    child: 8,
-                },
-                One {
-                    ident: `is_five`,
-                },
-                ScopeResolution {
-                    parent: `five`,
-                    child: 10,
-                },
-                One {
-                    ident: `is_six`,
-                },
-                ScopeResolution {
-                    parent: `six`,
-                    child: 12,
-                },
-                One {
-                    ident: `is_seven`,
-                },
-                ScopeResolution {
-                    parent: `seven`,
-                    child: 14,
-                },
-                One {
-                    ident: `is_eight`,
-                },
-                ScopeResolution {
-                    parent: `eight`,
-                    child: 16,
-                },
-                One {
-                    ident: `is_nine`,
-                },
-                ScopeResolution {
-                    parent: `nine`,
-                    child: 18,
-                },
-            ],
-        },
     },
 )

@@ -37,9 +37,6 @@ pub enum Ast {
     },
     Use {
         token_group_idx: TokenGroupIdx,
-        accessibility: Accessibility,
-        ident: Identifier,
-        use_expr_idx: UseExprIdx,
     },
     Decor {
         token_group_idx: TokenGroupIdx,
@@ -116,18 +113,20 @@ pub(crate) fn ast_sheet(db: &dyn AstDb, module_path: ModulePath) -> VfsResult<As
 pub struct AstSheet {
     ast_arena: AstArena,
     top_level_asts: AstIdxRange,
-    use_expr_arena: UseExprArena,
+}
+
+impl std::ops::Index<AstIdx> for AstSheet {
+    type Output = Ast;
+
+    fn index(&self, index: AstIdx) -> &Self::Output {
+        &self.ast_arena[index]
+    }
 }
 
 impl AstSheet {
-    pub(crate) fn new(
-        ast_arena: AstArena,
-        top_level_asts: AstIdxRange,
-        use_expr_arena: UseExprArena,
-    ) -> Self {
+    pub(crate) fn new(ast_arena: AstArena, top_level_asts: AstIdxRange) -> Self {
         Self {
             ast_arena,
-            use_expr_arena,
             top_level_asts,
         }
     }
@@ -185,17 +184,9 @@ impl<Db: AstDb> salsa::DebugWithDb<Db> for Ast {
                 .field("token_group_idx", token_group_idx)
                 .field("error", error)
                 .finish(),
-            Ast::Use {
-                token_group_idx,
-                ident,
-                accessibility,
-                use_expr_idx,
-            } => f
+            Ast::Use { token_group_idx } => f
                 .debug_struct("Use")
                 .field("token_group_idx", token_group_idx)
-                .field("ident", &ident.debug_with(db, include_all_fields))
-                .field("accessibility", accessibility)
-                .field("use_expr_idx", use_expr_idx)
                 .finish(),
             Ast::Decor { token_group_idx } => f
                 .debug_struct("Decor")
@@ -304,10 +295,6 @@ impl<Db: AstDb> salsa::DebugWithDb<Db> for AstSheet {
         f.debug_struct("AstSheet")
             .field("arena", &self.ast_arena.debug_with(db, include_all_fields))
             .field("top_level_asts", &self.top_level_asts)
-            .field(
-                "use_expr_arena",
-                &self.use_expr_arena.debug_with(db, include_all_fields),
-            )
             .finish()
     }
 }

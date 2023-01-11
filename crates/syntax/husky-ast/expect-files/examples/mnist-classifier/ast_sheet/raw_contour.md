@@ -1660,57 +1660,21 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    ident: `crate`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 2,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    ident: `crate`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 5,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    ident: `crate`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 8,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    ident: `mnist`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 12,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -2134,51 +2098,5 @@ Ok(
         top_level_asts: ArenaIdxRange(
             199..219,
         ),
-        use_expr_arena: Arena {
-            data: [
-                All,
-                ScopeResolution {
-                    parent: `geom2d`,
-                    child: 0,
-                },
-                ScopeResolution {
-                    parent: `crate`,
-                    child: 1,
-                },
-                All,
-                ScopeResolution {
-                    parent: `connected_component`,
-                    child: 3,
-                },
-                ScopeResolution {
-                    parent: `crate`,
-                    child: 4,
-                },
-                All,
-                ScopeResolution {
-                    parent: `line_segment_sketch`,
-                    child: 6,
-                },
-                ScopeResolution {
-                    parent: `crate`,
-                    child: 7,
-                },
-                One {
-                    ident: `BinaryImage28`,
-                },
-                One {
-                    ident: `BinaryGrid28`,
-                },
-                Multiple {
-                    exprs: ArenaIdxRange(
-                        9..11,
-                    ),
-                },
-                ScopeResolution {
-                    parent: `mnist`,
-                    child: 11,
-                },
-            ],
-        },
     },
 )

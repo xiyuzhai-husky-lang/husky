@@ -18,7 +18,6 @@ pub(crate) struct AstParser<'a> {
     token_sheet: &'a TokenSheetData,
     token_groups: TokenGroupIter<'a>,
     ast_arena: AstArena,
-    use_expr_arena: UseExprArena,
 }
 
 impl<'a> AstParser<'a> {
@@ -30,13 +29,12 @@ impl<'a> AstParser<'a> {
             token_sheet,
             token_groups: token_sheet.token_group_iter(),
             ast_arena: Default::default(),
-            use_expr_arena: Default::default(),
         })
     }
 
     pub(crate) fn parse_all(mut self) -> AstSheet {
         let top_level_asts = self.parse_asts(Context::new_module());
-        AstSheet::new(self.ast_arena, top_level_asts, self.use_expr_arena)
+        AstSheet::new(self.ast_arena, top_level_asts)
     }
 
     fn parse_asts(&mut self, context: Context) -> AstIdxRange {
@@ -92,7 +90,7 @@ impl<'a> AstParser<'a> {
                     | StmtKeyword::Require => self.parse_stmt(token_group_idx, &context),
                 },
                 Keyword::Liason(_) => todo!(),
-                Keyword::Use => self.parse_uses(token_group_idx, context),
+                Keyword::Use => self.parse_use_ast(token_group_idx, context),
                 Keyword::Main => Ast::Main {
                     token_group_idx,
                     body: self.parse_asts(context.subcontext(AstContextKind::InsideForm)),
@@ -240,7 +238,9 @@ impl<'a> AstParser<'a> {
         for token in &self.token_sheet[token_group_idx] {
             match token {
                 Token::Attr(_) => (),
-                Token::Keyword(Keyword::Use) => return self.parse_uses(token_group_idx, context),
+                Token::Keyword(Keyword::Use) => {
+                    return self.parse_use_ast(token_group_idx, context)
+                }
                 Token::Keyword(_) => return self.parse_defn(context, token_group_idx),
                 Token::Identifier(_)
                 | Token::Punctuation(_)

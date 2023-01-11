@@ -1485,71 +1485,26 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
-                    ident: `crate`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 27,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 2,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
-                    ident: `crate`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 27,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 5,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
-                    ident: `concave_component`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 27,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 7,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         7,
                     ),
-                    ident: `convex_component`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 27,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 9,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
-                    ident: `line_segment`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 27,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 11,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1817,44 +1772,5 @@ Ok(
         top_level_asts: ArenaIdxRange(
             159..177,
         ),
-        use_expr_arena: Arena {
-            data: [
-                All,
-                ScopeResolution {
-                    parent: `geom2d`,
-                    child: 0,
-                },
-                ScopeResolution {
-                    parent: `crate`,
-                    child: 1,
-                },
-                One {
-                    ident: `RawContour`,
-                },
-                ScopeResolution {
-                    parent: `raw_contour`,
-                    child: 3,
-                },
-                ScopeResolution {
-                    parent: `crate`,
-                    child: 4,
-                },
-                All,
-                ScopeResolution {
-                    parent: `concave_component`,
-                    child: 6,
-                },
-                All,
-                ScopeResolution {
-                    parent: `convex_component`,
-                    child: 8,
-                },
-                All,
-                ScopeResolution {
-                    parent: `line_segment`,
-                    child: 10,
-                },
-            ],
-        },
     },
 )

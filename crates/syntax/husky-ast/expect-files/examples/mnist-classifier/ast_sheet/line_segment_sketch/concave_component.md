@@ -461,57 +461,21 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    ident: `crate`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 28,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 2,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    ident: `crate`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 28,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 6,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    ident: `crate`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 28,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 10,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    ident: `crate`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 28,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 13,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -588,53 +552,5 @@ Ok(
         top_level_asts: ArenaIdxRange(
             70..76,
         ),
-        use_expr_arena: Arena {
-            data: [
-                All,
-                ScopeResolution {
-                    parent: `line_segment_sketch`,
-                    child: 0,
-                },
-                ScopeResolution {
-                    parent: `crate`,
-                    child: 1,
-                },
-                All,
-                ScopeResolution {
-                    parent: `line_segment`,
-                    child: 3,
-                },
-                ScopeResolution {
-                    parent: `line_segment_sketch`,
-                    child: 4,
-                },
-                ScopeResolution {
-                    parent: `crate`,
-                    child: 5,
-                },
-                All,
-                ScopeResolution {
-                    parent: `convexity`,
-                    child: 7,
-                },
-                ScopeResolution {
-                    parent: `line_segment_sketch`,
-                    child: 8,
-                },
-                ScopeResolution {
-                    parent: `crate`,
-                    child: 9,
-                },
-                All,
-                ScopeResolution {
-                    parent: `geom2d`,
-                    child: 11,
-                },
-                ScopeResolution {
-                    parent: `crate`,
-                    child: 12,
-                },
-            ],
-        },
     },
 )

@@ -2,14 +2,14 @@ use crate::*;
 use husky_word::{IdentMap, Identifier, WordDb};
 use vec_like::{AsVecMapEntry, VecMap, VecMapGetEntry, VecPairMap};
 
-pub(crate) struct EntitySymbolContext<'a> {
+pub(crate) struct EntreeSymbolContext<'a> {
     db: &'a dyn EntityTreeDb,
     module_path: ModulePath,
     module_specific_symbols: &'a [EntitySymbol],
     crate_prelude: CrateSymbolContext<'a>,
 }
 
-impl<'a> EntitySymbolContext<'a> {
+impl<'a> EntreeSymbolContext<'a> {
     pub(crate) fn new(
         db: &'a dyn EntityTreeDb,
         module_path: ModulePath,

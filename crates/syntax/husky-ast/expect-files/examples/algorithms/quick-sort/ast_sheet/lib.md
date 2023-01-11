@@ -428,8 +428,5 @@ Ok(
         top_level_asts: ArenaIdxRange(
             30..37,
         ),
-        use_expr_arena: Arena {
-            data: [],
-        },
     },
 )
