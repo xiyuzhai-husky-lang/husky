@@ -63,12 +63,8 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 18,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 32,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::major`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 2,
@@ -77,12 +73,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 19,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 32,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::major`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 5,
@@ -91,12 +83,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 20,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 32,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::major`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 8,
@@ -105,12 +93,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 21,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 32,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::major`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 12,

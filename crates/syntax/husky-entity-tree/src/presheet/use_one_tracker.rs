@@ -19,39 +19,44 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseOneTrackers {
     }
 }
 
-impl std::ops::Index<UseTrackerIdx> for UseOneTrackers {
+impl std::ops::Index<UseOneTrackerIdx> for UseOneTrackers {
     type Output = UseOneTracker;
 
-    fn index(&self, index: UseTrackerIdx) -> &Self::Output {
+    fn index(&self, index: UseOneTrackerIdx) -> &Self::Output {
         &self.0[index.0]
     }
 }
 
-impl std::ops::IndexMut<UseTrackerIdx> for UseOneTrackers {
-    fn index_mut(&mut self, index: UseTrackerIdx) -> &mut Self::Output {
+impl std::ops::IndexMut<UseOneTrackerIdx> for UseOneTrackers {
+    fn index_mut(&mut self, index: UseOneTrackerIdx) -> &mut Self::Output {
         &mut self.0[index.0]
     }
 }
 
-pub(crate) struct UseTrackerIdx(usize);
+pub(crate) struct UseOneTrackerIdx(usize);
 
 impl UseOneTrackers {
     pub(crate) fn push(&mut self, tracker: UseOneTracker) {
         self.0.push(tracker)
     }
 
-    pub(crate) fn indexed_iter(&self) -> impl Iterator<Item = (UseTrackerIdx, &UseOneTracker)> {
+    pub(crate) fn indexed_iter(&self) -> impl Iterator<Item = (UseOneTrackerIdx, &UseOneTracker)> {
         self.0
             .iter()
             .enumerate()
-            .map(|(i, tracker)| (UseTrackerIdx(i), tracker))
+            .map(|(i, tracker)| (UseOneTrackerIdx(i), tracker))
     }
 
     #[cfg(test)]
-    pub(crate) fn check_done(&self) {
+    pub(crate) fn check_done(&self, db: &dyn EntityTreeDb) {
+        use husky_print_utils::p;
+
         for tracker in self.0.iter() {
             match tracker.state {
-                EntityUseState::Unresolved => panic!(),
+                EntityUseState::Unresolved => {
+                    p!(tracker.debug(db));
+                    panic!()
+                }
                 EntityUseState::Resolved | EntityUseState::Erroneous => (),
             }
         }
@@ -78,10 +83,10 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseOneTracker {
         let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
         f.debug_struct("UseTracker")
             .field("ast_idx", &self.ast_idx)
-            .field("accessibility", &self.accessibility)
-            .field("ident", &self.ident.debug_with(db, include_all_fields))
+            .field("accessibility", &self.accessibility.debug(db))
+            .field("ident", &self.ident.debug(db))
             .field("use_expr_idx", &self.use_expr_idx)
-            .field("parent", &self.parent.debug_with(db, include_all_fields))
+            .field("parent", &self.parent.debug(db))
             .field("state", &self.state)
             .finish()
     }

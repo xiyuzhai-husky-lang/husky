@@ -55,12 +55,8 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 118,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 14,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::connected_component`,
                     ),
                     ident: `cv`,
                     use_expr_idx: 3,
@@ -69,12 +65,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 119,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 14,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::connected_component`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 6,

@@ -79,12 +79,8 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 10,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits`,
                     ),
                     ident: `one`,
                     use_expr_idx: 1,
@@ -93,12 +89,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 11,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits`,
                     ),
                     ident: `six`,
                     use_expr_idx: 3,
@@ -107,12 +99,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 12,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits`,
                     ),
                     ident: `zero`,
                     use_expr_idx: 5,
@@ -121,12 +109,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 13,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits`,
                     ),
                     ident: `two`,
                     use_expr_idx: 7,
@@ -135,12 +119,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 14,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits`,
                     ),
                     ident: `three`,
                     use_expr_idx: 9,
@@ -149,12 +129,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 15,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits`,
                     ),
                     ident: `five`,
                     use_expr_idx: 11,
@@ -163,12 +139,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 16,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits`,
                     ),
                     ident: `six`,
                     use_expr_idx: 13,
@@ -177,12 +149,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 17,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits`,
                     ),
                     ident: `seven`,
                     use_expr_idx: 15,
@@ -191,12 +159,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 18,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits`,
                     ),
                     ident: `eight`,
                     use_expr_idx: 17,
@@ -205,12 +169,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 19,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits`,
                     ),
                     ident: `nine`,
                     use_expr_idx: 19,

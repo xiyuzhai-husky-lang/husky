@@ -65,6 +65,14 @@ pub enum EntitySymbol {
 }
 
 impl EntitySymbol {
+    pub(crate) fn ident(&self) -> Identifier {
+        match self {
+            EntitySymbol::CrateRoot { ident, .. }
+            | EntitySymbol::Submodule { ident, .. }
+            | EntitySymbol::EntityUse { ident, .. } => *ident,
+            EntitySymbol::ModuleItem(module_item) => module_item.ident,
+        }
+    }
     pub(crate) fn accessility(&self) -> Accessibility {
         match self {
             EntitySymbol::CrateRoot { module_path, .. } => Accessibility::PublicUnder(*module_path),
@@ -85,14 +93,6 @@ impl EntitySymbol {
 
     pub(crate) fn is_accessible_from(&self, db: &dyn VfsDb, module_path: ModulePath) -> bool {
         self.accessility().is_accessible_from(db, module_path)
-    }
-
-    pub(crate) fn synthesize_accessibility(
-        &self,
-        db: &dyn VfsDb,
-        use_accessibility: Accessibility,
-    ) -> EntityTreeResult<Accessibility> {
-        todo!()
     }
 
     pub fn entity_path(&self) -> EntityPath {

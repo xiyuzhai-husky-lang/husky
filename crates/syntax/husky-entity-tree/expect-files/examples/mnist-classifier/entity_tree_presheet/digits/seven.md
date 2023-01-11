@@ -55,12 +55,8 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 39,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::seven`,
                     ),
                     ident: `domains`,
                     use_expr_idx: 5,
@@ -69,12 +65,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 40,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::seven`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 8,
@@ -83,12 +75,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 41,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::seven`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 11,
@@ -97,12 +85,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 42,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::seven`,
                     ),
                     ident: `domains`,
                     use_expr_idx: 16,
@@ -111,12 +95,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 43,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::seven`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 19,
@@ -125,12 +105,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 44,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::seven`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 22,
@@ -139,12 +115,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 45,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::seven`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 26,
@@ -153,12 +125,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 46,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::seven`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 29,
@@ -167,12 +135,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 47,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::seven`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 32,
@@ -181,12 +145,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 48,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::seven`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 35,
@@ -195,12 +155,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 49,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::seven`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 38,

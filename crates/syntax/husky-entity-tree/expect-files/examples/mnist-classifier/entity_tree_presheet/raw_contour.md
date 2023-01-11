@@ -95,12 +95,8 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 199,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 2,
@@ -109,12 +105,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 200,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 5,
@@ -123,12 +115,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 201,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 8,
@@ -137,12 +125,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 202,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
                     ident: `mnist`,
                     use_expr_idx: 12,

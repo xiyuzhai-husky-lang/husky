@@ -23,12 +23,8 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 70,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 28,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 2,
@@ -37,12 +33,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 71,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 28,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 6,
@@ -51,12 +43,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 72,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 28,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 10,
@@ -65,12 +53,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 73,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 28,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 13,

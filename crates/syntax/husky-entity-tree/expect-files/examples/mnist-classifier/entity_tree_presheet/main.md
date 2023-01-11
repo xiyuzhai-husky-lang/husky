@@ -63,12 +63,8 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 19,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 13,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier`,
                     ),
                     ident: `mnist`,
                     use_expr_idx: 1,
@@ -77,12 +73,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 20,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 13,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier`,
                     ),
                     ident: `mnist`,
                     use_expr_idx: 3,
@@ -91,12 +83,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 21,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 13,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier`,
                     ),
                     ident: `major`,
                     use_expr_idx: 5,
@@ -105,12 +93,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 22,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 13,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier`,
                     ),
                     ident: `digits`,
                     use_expr_idx: 7,
@@ -119,12 +103,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 23,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 13,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier`,
                     ),
                     ident: `raw_contour`,
                     use_expr_idx: 9,
@@ -133,12 +113,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 24,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 13,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier`,
                     ),
                     ident: `line_segment_sketch`,
                     use_expr_idx: 11,
@@ -147,12 +123,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 25,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 13,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier`,
                     ),
                     ident: `domains`,
                     use_expr_idx: 16,

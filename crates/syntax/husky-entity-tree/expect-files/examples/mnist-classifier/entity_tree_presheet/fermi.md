@@ -23,12 +23,8 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 21,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 25,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::fermi`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 1,
