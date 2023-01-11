@@ -1,14 +1,14 @@
 mod action;
-mod entity_use_tracker;
 mod use_all_tracker;
+mod use_one_tracker;
 
 pub(crate) use action::*;
 use husky_print_utils::p;
 
 use crate::{ModuleItem, *};
-use entity_use_tracker::*;
 use husky_text::TextRange;
 use use_all_tracker::*;
+use use_one_tracker::*;
 use vec_like::{AsVecMapEntry, InsertEntryRepeatError};
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
@@ -55,8 +55,8 @@ impl EntityTreePresheet {
     }
 
     #[cfg(test)]
-    pub(crate) fn check_done(&self) {
-        self.use_one_trackers.check_done()
+    pub(crate) fn check_done(&self, db: &dyn EntityTreeDb) {
+        self.use_one_trackers.check_done(db)
     }
 }
 

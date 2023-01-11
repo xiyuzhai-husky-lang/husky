@@ -15,12 +15,8 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 4,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 29,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch::convex_component`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 2,

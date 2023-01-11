@@ -4,7 +4,7 @@ mod tests;
 use husky_token::TokenIdxRange;
 use husky_vfs::{ModulePath, VfsDb};
 use std::cmp::Ordering;
-use with_db::{PartialOrdWithDb};
+use with_db::PartialOrdWithDb;
 
 /// Accessibility is greater if it can be accessed from more places
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -23,8 +23,9 @@ pub struct FileAccessibility {
     token_idx_range: TokenIdxRange,
 }
 
-impl PartialOrdWithDb<dyn VfsDb + '_> for Accessibility {
-    fn partial_cmp_with_db(&self, db: &dyn VfsDb, other: &Self) -> Option<Ordering> {
+impl<Db: VfsDb + ?Sized> PartialOrdWithDb<Db> for Accessibility {
+    fn partial_cmp_with_db(&self, db: &Db, other: &Self) -> Option<Ordering> {
+        let db = <Db as salsa::DbWithJar<husky_vfs::VfsJar>>::as_jar_db(db);
         match (self, other) {
             (Accessibility::Public, Accessibility::Public) => Some(Ordering::Equal),
             (Accessibility::Public, _) => Some(Ordering::Greater),
@@ -48,12 +49,6 @@ impl PartialOrdWithDb<dyn VfsDb + '_> for Accessibility {
     }
 }
 
-impl<Db: VfsDb> PartialOrdWithDb<Db> for Accessibility {
-    fn partial_cmp_with_db(&self, db: &Db, other: &Self) -> Option<std::cmp::Ordering> {
-        self.partial_cmp_with_db(db as &dyn VfsDb, other)
-    }
-}
-
 impl Accessibility {
     pub fn is_accessible_from(self, db: &dyn VfsDb, module_path: ModulePath) -> bool {
         match self {
@@ -65,11 +60,11 @@ impl Accessibility {
     }
 }
 
-impl salsa::DebugWithDb<dyn VfsDb + '_> for Accessibility {
+impl<Db: VfsDb + ?Sized> salsa::DebugWithDb<Db> for Accessibility {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn VfsDb,
+        db: &Db,
         include_all_fields: bool,
     ) -> std::fmt::Result {
         match self {
@@ -91,16 +86,5 @@ impl salsa::DebugWithDb<dyn VfsDb + '_> for Accessibility {
                 .field("file_accessibility", &file_accessibility)
                 .finish(),
         }
-    }
-}
-
-impl<Db: VfsDb> salsa::DebugWithDb<Db> for Accessibility {
-    fn fmt(
-        &self,
-        _f: &mut std::fmt::Formatter<'_>,
-        _db: &Db,
-        _include_all_fields: bool,
-    ) -> std::fmt::Result {
-        todo!()
     }
 }

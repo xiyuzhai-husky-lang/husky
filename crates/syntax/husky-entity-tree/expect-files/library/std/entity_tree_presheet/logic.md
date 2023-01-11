@@ -6,12 +6,8 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 0,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 8,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `std::logic`,
                     ),
                     ident: `core`,
                     use_expr_idx: 2,

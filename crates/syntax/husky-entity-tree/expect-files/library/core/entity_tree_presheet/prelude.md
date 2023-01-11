@@ -6,12 +6,8 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 0,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 6,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `core::prelude`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 2,
@@ -20,12 +16,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 1,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 6,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `core::prelude`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 5,

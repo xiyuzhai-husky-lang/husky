@@ -1,9 +1,10 @@
 use super::*;
+use with_db::{PartialOrdWithDb, WithDb};
 
 pub(crate) enum PresheetAction {
     ResolveEntityUse {
         module_path: ModulePath,
-        entity_use_tracker_idx: UseTrackerIdx,
+        entity_use_tracker_idx: UseOneTrackerIdx,
         entity_use_accessibility: Accessibility,
         symbol: EntitySymbol,
     },
@@ -53,50 +54,45 @@ impl EntityTreePresheet {
                 symbol: node,
                 entity_use_accessibility,
                 ..
-            } => {
-                self.resolve_entity_use(db, entity_use_tracker_idx, entity_use_accessibility, node)
-            }
+            } => self.resolve_use_one(db, entity_use_tracker_idx, entity_use_accessibility, node),
             PresheetAction::EvaluateUseAll {
                 module_path,
                 use_all_tracker_idx,
             } => todo!(),
         }
     }
-    fn resolve_entity_use(
+    fn resolve_use_one(
         &mut self,
         db: &dyn EntityTreeDb,
-        entity_use_tracker_idx: UseTrackerIdx,
+        entity_use_tracker_idx: UseOneTrackerIdx,
         entity_use_accessibility: Accessibility,
         symbol: EntitySymbol,
     ) {
-        let entity_use_tracker = &mut self.use_one_trackers[entity_use_tracker_idx];
-        assert!(entity_use_tracker.is_unresolved());
-        symbol.synthesize_accessibility(db, entity_use_accessibility);
+        let tracker = &mut self.use_one_trackers[entity_use_tracker_idx];
+        #[cfg(test)]
+        assert!(tracker.is_unresolved());
         if !symbol.is_accessible_from(db, self.module_path) {
             todo!()
         }
-        todo!();
-        // match symbol {
-        //     EntitySymbol::Module {
-        //         ident,
-        //         accessibility,
-        //         module_path,
-        //     } => match self.can_access(db, accessibility) {
-        //         true => todo!(),
-        //         false => todo!(),
-        //     },
-        //     EntitySymbol::ModuleItem {
-        //         ident,
-        //         accessibility,
-        //         ast_idx,
-        //         path,
-        //     } => todo!(),
-        //     EntitySymbol::EntityUse {
-        //         ident,
-        //         accessibility,
-        //         path,
-        //     } => todo!(),
-        // }
-        entity_use_tracker.mark_as_resolved()
+        if !(entity_use_accessibility.with_db(db) <= symbol.accessility().with_db(db)) {
+            todo!()
+        }
+        match self
+            .module_specific_symbols
+            .insert_new(EntitySymbol::EntityUse {
+                ident: tracker.ident(),
+                accessibility: entity_use_accessibility,
+                path: symbol.entity_path(),
+                ast_idx: tracker.ast_idx(),
+                use_expr_idx: tracker.use_expr_idx(),
+            }) {
+            Ok(_) => (),
+            Err(e) => {
+                if e.new.entity_path() != self.module_specific_symbols.data()[e.old].entity_path() {
+                    todo!()
+                }
+            }
+        };
+        tracker.mark_as_resolved()
     }
 }

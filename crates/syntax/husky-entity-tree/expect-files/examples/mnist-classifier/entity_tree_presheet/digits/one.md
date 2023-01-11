@@ -47,12 +47,8 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 61,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 19,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::one`,
                     ),
                     ident: `cv`,
                     use_expr_idx: 3,
@@ -61,12 +57,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 62,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 19,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::one`,
                     ),
                     ident: `domains`,
                     use_expr_idx: 8,
@@ -75,12 +67,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 63,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 19,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::one`,
                     ),
                     ident: `domains`,
                     use_expr_idx: 13,
@@ -89,12 +77,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 64,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 19,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::one`,
                     ),
                     ident: `domains`,
                     use_expr_idx: 18,
@@ -103,12 +87,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 65,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 19,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::one`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 21,
@@ -117,12 +97,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 66,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 19,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::one`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 24,
@@ -131,12 +107,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 67,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 19,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::one`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 28,

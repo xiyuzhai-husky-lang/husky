@@ -15,12 +15,8 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 15,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 31,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch::line_segment`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 2,

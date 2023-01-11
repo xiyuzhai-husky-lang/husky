@@ -12,6 +12,7 @@ thiserror = "1.0.37"
 thin-vec = { path = "../../../forks/thin-vec" }
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
+with-db = { path = "../../abstraction/with-db" }
 idx-arena = { path = "../../abstraction/idx-arena" }
 vec-like = { path = "../../abstraction/vec-like" }
 parsec = { path = "../../abstraction/parsec" }

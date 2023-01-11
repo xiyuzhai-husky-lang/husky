@@ -95,12 +95,8 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 163,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 27,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 2,
@@ -109,12 +105,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 164,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 27,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch`,
                     ),
                     ident: `crate`,
                     use_expr_idx: 5,
@@ -123,12 +115,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 165,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 27,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch`,
                     ),
                     ident: `concave_component`,
                     use_expr_idx: 7,
@@ -137,12 +125,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 166,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 27,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch`,
                     ),
                     ident: `convex_component`,
                     use_expr_idx: 9,
@@ -151,12 +135,8 @@ Ok(
                 },
                 UseTracker {
                     ast_idx: 167,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 27,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch`,
                     ),
                     ident: `line_segment`,
                     use_expr_idx: 11,
