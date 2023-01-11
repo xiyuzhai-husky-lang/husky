@@ -3,47 +3,88 @@ use husky_word::Identifier;
 use crate::*;
 
 #[derive(Debug, Default, PartialEq, Eq, Clone)]
-pub(crate) struct EntityUseExprTrackers(Vec<EntityUseTracker>);
+pub(crate) struct UseOneTrackers(Vec<UseOneTracker>);
 
-impl std::ops::Index<EntityUseExprTrackerIdx> for EntityUseExprTrackers {
-    type Output = EntityUseTracker;
+impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseOneTrackers {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
+        f.debug_tuple("EntityUseExprTrackers")
+            .field(&self.0.debug_with(db, include_all_fields))
+            .finish()
+    }
+}
 
-    fn index(&self, index: EntityUseExprTrackerIdx) -> &Self::Output {
+impl std::ops::Index<UseTrackerIdx> for UseOneTrackers {
+    type Output = UseOneTracker;
+
+    fn index(&self, index: UseTrackerIdx) -> &Self::Output {
         &self.0[index.0]
     }
 }
 
-impl std::ops::IndexMut<EntityUseExprTrackerIdx> for EntityUseExprTrackers {
-    fn index_mut(&mut self, index: EntityUseExprTrackerIdx) -> &mut Self::Output {
+impl std::ops::IndexMut<UseTrackerIdx> for UseOneTrackers {
+    fn index_mut(&mut self, index: UseTrackerIdx) -> &mut Self::Output {
         &mut self.0[index.0]
     }
 }
 
-pub(crate) struct EntityUseExprTrackerIdx(usize);
+pub(crate) struct UseTrackerIdx(usize);
 
-impl EntityUseExprTrackers {
-    pub(crate) fn push(&mut self, tracker: EntityUseTracker) {
+impl UseOneTrackers {
+    pub(crate) fn push(&mut self, tracker: UseOneTracker) {
         self.0.push(tracker)
     }
 
-    pub(crate) fn indexed_iter(
-        &self,
-    ) -> impl Iterator<Item = (EntityUseExprTrackerIdx, &EntityUseTracker)> {
+    pub(crate) fn indexed_iter(&self) -> impl Iterator<Item = (UseTrackerIdx, &UseOneTracker)> {
         self.0
             .iter()
             .enumerate()
-            .map(|(i, tracker)| (EntityUseExprTrackerIdx(i), tracker))
+            .map(|(i, tracker)| (UseTrackerIdx(i), tracker))
+    }
+
+    #[cfg(test)]
+    pub(crate) fn check_done(&self) {
+        for tracker in self.0.iter() {
+            match tracker.state {
+                EntityUseState::Unresolved => panic!(),
+                EntityUseState::Resolved | EntityUseState::Erroneous => (),
+            }
+        }
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub(crate) struct EntityUseTracker {
+pub(crate) struct UseOneTracker {
     ast_idx: AstIdx,
     accessibility: Accessibility,
     ident: Identifier,
     use_expr_idx: UseExprIdx,
     parent: Option<EntityPath>,
     state: EntityUseState,
+}
+
+impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseOneTracker {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
+        f.debug_struct("UseTracker")
+            .field("ast_idx", &self.ast_idx)
+            .field("accessibility", &self.accessibility)
+            .field("ident", &self.ident.debug_with(db, include_all_fields))
+            .field("use_expr_idx", &self.use_expr_idx)
+            .field("parent", &self.parent.debug_with(db, include_all_fields))
+            .field("state", &self.state)
+            .finish()
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -53,7 +94,7 @@ pub enum EntityUseState {
     Erroneous,
 }
 
-impl EntityUseTracker {
+impl UseOneTracker {
     pub fn new_root(
         ast_idx: AstIdx,
         accessibility: Accessibility,

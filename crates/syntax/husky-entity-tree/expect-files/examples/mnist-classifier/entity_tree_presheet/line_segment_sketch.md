@@ -93,7 +93,7 @@ Ok(
         ],
         entity_use_roots: EntityUseExprTrackers(
             [
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 163,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -102,18 +102,12 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 31,
-                            },
-                        ),
-                    ),
+                    ident: `crate`,
                     use_expr_idx: 2,
                     parent: None,
                     state: Unresolved,
                 },
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 164,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -122,18 +116,12 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 31,
-                            },
-                        ),
-                    ),
+                    ident: `crate`,
                     use_expr_idx: 5,
                     parent: None,
                     state: Unresolved,
                 },
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 165,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -142,18 +130,12 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 73,
-                            },
-                        ),
-                    ),
+                    ident: `concave_component`,
                     use_expr_idx: 7,
                     parent: None,
                     state: Unresolved,
                 },
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 166,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -162,18 +144,12 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 74,
-                            },
-                        ),
-                    ),
+                    ident: `convex_component`,
                     use_expr_idx: 9,
                     parent: None,
                     state: Unresolved,
                 },
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 167,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -182,13 +158,7 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 76,
-                            },
-                        ),
-                    ),
+                    ident: `line_segment`,
                     use_expr_idx: 11,
                     parent: None,
                     state: Unresolved,

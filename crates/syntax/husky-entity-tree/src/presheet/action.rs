@@ -3,7 +3,7 @@ use super::*;
 pub(crate) enum PresheetAction {
     ResolveEntityUse {
         module_path: ModulePath,
-        entity_use_tracker_idx: EntityUseExprTrackerIdx,
+        entity_use_tracker_idx: UseTrackerIdx,
         entity_use_accessibility: Accessibility,
         symbol: EntitySymbol,
     },
@@ -28,9 +28,8 @@ impl EntityTreePresheet {
         ctx: EntitySymbolContext,
         actions: &mut Vec<PresheetAction>,
     ) {
-        for (entity_use_tracker_idx, entity_use_tracker) in self.entity_use_trackers.indexed_iter()
-        {
-            if !entity_use_tracker.is_unresolved() {
+        for (entity_use_tracker_idx, entity_use_tracker) in self.use_one_trackers.indexed_iter() {
+            if entity_use_tracker.is_unresolved() {
                 let ident = entity_use_tracker.ident();
                 if let Some(node) = ctx.resolve_ident(ident) {
                     actions.push(PresheetAction::ResolveEntityUse {
@@ -66,11 +65,11 @@ impl EntityTreePresheet {
     fn resolve_entity_use(
         &mut self,
         db: &dyn EntityTreeDb,
-        entity_use_tracker_idx: EntityUseExprTrackerIdx,
+        entity_use_tracker_idx: UseTrackerIdx,
         entity_use_accessibility: Accessibility,
         symbol: EntitySymbol,
     ) {
-        let entity_use_tracker = &mut self.entity_use_trackers[entity_use_tracker_idx];
+        let entity_use_tracker = &mut self.use_one_trackers[entity_use_tracker_idx];
         assert!(entity_use_tracker.is_unresolved());
         symbol.synthesize_accessibility(db, entity_use_accessibility);
         if !symbol.is_accessible_from(db, self.module_path) {

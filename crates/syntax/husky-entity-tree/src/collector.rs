@@ -72,6 +72,10 @@ impl<'a> EntityTreeCollector<'a> {
                 self.exec(action)
             }
         }
+        #[cfg(test)]
+        for presheet in self.presheets.iter() {
+            presheet.check_done()
+        }
         let impl_blockss = self.collect_impl_blockss();
         let sheets = std::iter::zip(self.presheets.into_iter(), impl_blockss.into_iter())
             .map(|(presheet, impl_blocks)| presheet.into_sheet(impl_blocks))
