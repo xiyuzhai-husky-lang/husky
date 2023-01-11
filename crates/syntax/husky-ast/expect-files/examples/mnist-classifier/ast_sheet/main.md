@@ -312,99 +312,36 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         9,
                     ),
-                    ident: `mnist`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 13,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 1,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         10,
                     ),
-                    ident: `mnist`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 13,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 3,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         11,
                     ),
-                    ident: `major`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 13,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 5,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         12,
                     ),
-                    ident: `digits`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 13,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 7,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         13,
                     ),
-                    ident: `raw_contour`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 13,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 9,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         14,
                     ),
-                    ident: `line_segment_sketch`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 13,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 11,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         15,
                     ),
-                    ident: `domains`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 13,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 16,
                 },
                 Main {
                     token_group_idx: TokenGroupIdx(
@@ -419,66 +356,5 @@ Ok(
         top_level_asts: ArenaIdxRange(
             11..27,
         ),
-        use_expr_arena: Arena {
-            data: [
-                One {
-                    ident: `BinaryImage28`,
-                },
-                ScopeResolution {
-                    parent: `mnist`,
-                    child: 0,
-                },
-                One {
-                    ident: `MnistLabel`,
-                },
-                ScopeResolution {
-                    parent: `mnist`,
-                    child: 2,
-                },
-                All,
-                ScopeResolution {
-                    parent: `major`,
-                    child: 4,
-                },
-                All,
-                ScopeResolution {
-                    parent: `digits`,
-                    child: 6,
-                },
-                One {
-                    ident: `find_raw_contours`,
-                },
-                ScopeResolution {
-                    parent: `raw_contour`,
-                    child: 8,
-                },
-                One {
-                    ident: `find_line_segments`,
-                },
-                ScopeResolution {
-                    parent: `line_segment_sketch`,
-                    child: 10,
-                },
-                One {
-                    ident: `naive_i32`,
-                },
-                ScopeResolution {
-                    parent: `naive`,
-                    child: 12,
-                },
-                ScopeResolution {
-                    parent: `models`,
-                    child: 13,
-                },
-                ScopeResolution {
-                    parent: `ml`,
-                    child: 14,
-                },
-                ScopeResolution {
-                    parent: `domains`,
-                    child: 15,
-                },
-            ],
-        },
     },
 )

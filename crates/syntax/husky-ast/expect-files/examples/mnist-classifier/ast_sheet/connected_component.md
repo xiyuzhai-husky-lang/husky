@@ -1182,29 +1182,11 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    ident: `cv`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 14,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 3,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    ident: `crate`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 14,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 6,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1429,33 +1411,5 @@ Ok(
         top_level_asts: ArenaIdxRange(
             118..127,
         ),
-        use_expr_arena: Arena {
-            data: [
-                One {
-                    ident: `BinaryImage28`,
-                },
-                ScopeResolution {
-                    parent: `mnist`,
-                    child: 0,
-                },
-                ScopeResolution {
-                    parent: `datasets`,
-                    child: 1,
-                },
-                ScopeResolution {
-                    parent: `cv`,
-                    child: 2,
-                },
-                All,
-                ScopeResolution {
-                    parent: `raw_contour`,
-                    child: 4,
-                },
-                ScopeResolution {
-                    parent: `crate`,
-                    child: 5,
-                },
-            ],
-        },
     },
 )

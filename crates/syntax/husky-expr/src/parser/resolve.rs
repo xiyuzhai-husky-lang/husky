@@ -146,6 +146,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 Punctuation::DoubleColon => {
                     ResolvedToken::BinaryOpr(token_idx, BinaryOpr::ScopeResolution)
                 }
+                Punctuation::Star => todo!(),
             },
             Token::WordOpr(opr) => match opr {
                 WordOpr::And => ResolvedToken::BinaryOpr(

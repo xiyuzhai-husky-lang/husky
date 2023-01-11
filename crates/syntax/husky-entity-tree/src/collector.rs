@@ -7,12 +7,12 @@ use vec_like::{AsVecMapEntry, VecMap};
 pub(crate) struct EntityTreeCollector<'a> {
     db: &'a dyn EntityTreeDb,
     crate_path: CratePath,
-    presheets: VecMap<EntityTreePresheet>,
+    presheets: VecMap<EntreePresheetMut<'a>>,
     core_prelude_module: ModulePath,
     // can't use `crate_prelude` here because it might not be available
     opt_universal_prelude: Option<&'a [EntitySymbol]>,
     crate_specific_prelude: &'a [EntitySymbol],
-    principal_entity_path_expr_arena: PrincipalPathExprArena,
+    major_path_expr_arena: MajorPathExprArena,
     impl_blocks: Vec<ImplBlock>,
 }
 
@@ -32,7 +32,12 @@ impl<'a> EntityTreeCollector<'a> {
         }
         let presheets = all_modules
             .into_iter()
-            .filter_map(|module_path| entity_tree_presheet(db, *module_path).clone().ok())
+            .filter_map(|module_path| {
+                entree_presheet(db, *module_path)
+                    .as_ref()
+                    .ok()
+                    .map(|presheet| presheet.presheet_mut(db))
+            })
             .collect();
         let toolchain = crate_path.toolchain(db);
         let path_menu = db.vfs_path_menu(toolchain)?;
@@ -57,7 +62,7 @@ impl<'a> EntityTreeCollector<'a> {
             crate_specific_prelude: crate_specific_prelude(db, crate_path)
                 .as_ref()
                 .map_err(|e| e.clone())?,
-            principal_entity_path_expr_arena: Default::default(),
+            major_path_expr_arena: Default::default(),
             impl_blocks: Default::default(),
         })
     }
@@ -80,11 +85,7 @@ impl<'a> EntityTreeCollector<'a> {
         let sheets = std::iter::zip(self.presheets.into_iter(), impl_blockss.into_iter())
             .map(|(presheet, impl_blocks)| presheet.into_sheet(impl_blocks))
             .collect();
-        EntityTreeCrateBundle::new(
-            sheets,
-            self.principal_entity_path_expr_arena,
-            self.impl_blocks,
-        )
+        EntityTreeCrateBundle::new(sheets, self.major_path_expr_arena, self.impl_blocks)
     }
 
     fn collect_impl_blockss(&mut self) -> Vec<Vec<ImplBlock>> {
@@ -119,7 +120,7 @@ impl<'a> EntityTreeCollector<'a> {
                                 .token_sheet_data(module_path)
                                 .unwrap()
                                 .token_group_token_stream(*token_group_idx, None),
-                            &mut self.principal_entity_path_expr_arena,
+                            &mut self.major_path_expr_arena,
                         ))
                     }
                     _ => None,
@@ -140,7 +141,7 @@ impl<'a> EntityTreeCollector<'a> {
 fn crate_prelude<'a>(
     opt_universal_prelude: Option<&'a [EntitySymbol]>,
     core_prelude_module: ModulePath,
-    presheets: &'a VecMap<EntityTreePresheet>,
+    presheets: &'a VecMap<EntreePresheetMut<'a>>,
     crate_specific_prelude: &'a [EntitySymbol],
 ) -> CrateSymbolContext<'a> {
     let universal_prelude = opt_universal_prelude

@@ -96,15 +96,6 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    ident: `crate`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 31,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 2,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -146,18 +137,5 @@ Ok(
         top_level_asts: ArenaIdxRange(
             15..17,
         ),
-        use_expr_arena: Arena {
-            data: [
-                All,
-                ScopeResolution {
-                    parent: `geom2d`,
-                    child: 0,
-                },
-                ScopeResolution {
-                    parent: `crate`,
-                    child: 1,
-                },
-            ],
-        },
     },
 )

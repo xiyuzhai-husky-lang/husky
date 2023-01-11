@@ -5,11 +5,11 @@ mod context;
 mod crate_bundle;
 mod db;
 mod error;
+mod expr;
 mod impl_block;
 mod module_sheet;
 mod prelude;
 mod presheet;
-mod principal_path;
 mod subentity;
 mod submodule;
 mod symbol;
@@ -26,12 +26,12 @@ pub use error::*;
 pub use impl_block::*;
 pub use module_sheet::*;
 pub use prelude::*;
-pub use principal_path::*;
 pub use submodule::*;
 pub use symbol::*;
 
 use collector::*;
 use context::*;
+use expr::*;
 use husky_accessibility::*;
 use husky_ast::*;
 use husky_entity_path::*;
@@ -51,7 +51,7 @@ use vec_like::{AsVecMapEntry, VecMap};
 pub struct EntityTreeJar(
     ImplBlock,
     AssociatedItem,
-    entity_tree_presheet,
+    entree_presheet,
     entity_tree_crate_bundle,
     submodules,
     module_subentity_path,

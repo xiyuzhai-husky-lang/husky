@@ -159,43 +159,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    ident: `crate`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 30,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 2,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    ident: `crate`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 30,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 5,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    ident: `crate`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 30,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 8,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -237,36 +210,5 @@ Ok(
         top_level_asts: ArenaIdxRange(
             19..23,
         ),
-        use_expr_arena: Arena {
-            data: [
-                All,
-                ScopeResolution {
-                    parent: `line_segment_sketch`,
-                    child: 0,
-                },
-                ScopeResolution {
-                    parent: `crate`,
-                    child: 1,
-                },
-                All,
-                ScopeResolution {
-                    parent: `raw_contour`,
-                    child: 3,
-                },
-                ScopeResolution {
-                    parent: `crate`,
-                    child: 4,
-                },
-                All,
-                ScopeResolution {
-                    parent: `geom2d`,
-                    child: 6,
-                },
-                ScopeResolution {
-                    parent: `crate`,
-                    child: 7,
-                },
-            ],
-        },
     },
 )

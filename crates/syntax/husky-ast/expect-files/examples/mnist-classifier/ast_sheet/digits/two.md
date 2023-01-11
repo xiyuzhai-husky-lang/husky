@@ -396,183 +396,66 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    ident: `domains`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 23,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 5,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    ident: `domains`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 23,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 10,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    ident: `domains`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 23,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 15,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    ident: `domains`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 23,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 20,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
-                    ident: `crate`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 23,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 23,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
-                    ident: `crate`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 23,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 26,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
-                    ident: `crate`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 23,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 30,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         7,
                     ),
-                    ident: `crate`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 23,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 33,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
-                    ident: `crate`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 23,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 36,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         9,
                     ),
-                    ident: `crate`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 23,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 39,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         10,
                     ),
-                    ident: `crate`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 23,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 42,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         11,
                     ),
-                    ident: `crate`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 23,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 45,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         12,
                     ),
-                    ident: `crate`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 23,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 48,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -754,186 +637,5 @@ Ok(
         top_level_asts: ArenaIdxRange(
             49..67,
         ),
-        use_expr_arena: Arena {
-            data: [
-                One {
-                    ident: `MnistLabel`,
-                },
-                ScopeResolution {
-                    parent: `mnist`,
-                    child: 0,
-                },
-                ScopeResolution {
-                    parent: `cv`,
-                    child: 1,
-                },
-                ScopeResolution {
-                    parent: `datasets`,
-                    child: 2,
-                },
-                ScopeResolution {
-                    parent: `ml`,
-                    child: 3,
-                },
-                ScopeResolution {
-                    parent: `domains`,
-                    child: 4,
-                },
-                One {
-                    ident: `normalize_vmax_f32`,
-                },
-                ScopeResolution {
-                    parent: `normalize`,
-                    child: 6,
-                },
-                ScopeResolution {
-                    parent: `models`,
-                    child: 7,
-                },
-                ScopeResolution {
-                    parent: `ml`,
-                    child: 8,
-                },
-                ScopeResolution {
-                    parent: `domains`,
-                    child: 9,
-                },
-                One {
-                    ident: `boosting_with_vmax_normalized`,
-                },
-                ScopeResolution {
-                    parent: `boosting`,
-                    child: 11,
-                },
-                ScopeResolution {
-                    parent: `models`,
-                    child: 12,
-                },
-                ScopeResolution {
-                    parent: `ml`,
-                    child: 13,
-                },
-                ScopeResolution {
-                    parent: `domains`,
-                    child: 14,
-                },
-                One {
-                    ident: `narrow_down`,
-                },
-                ScopeResolution {
-                    parent: `narrow`,
-                    child: 16,
-                },
-                ScopeResolution {
-                    parent: `models`,
-                    child: 17,
-                },
-                ScopeResolution {
-                    parent: `ml`,
-                    child: 18,
-                },
-                ScopeResolution {
-                    parent: `domains`,
-                    child: 19,
-                },
-                All,
-                ScopeResolution {
-                    parent: `major`,
-                    child: 21,
-                },
-                ScopeResolution {
-                    parent: `crate`,
-                    child: 22,
-                },
-                All,
-                ScopeResolution {
-                    parent: `fermi`,
-                    child: 24,
-                },
-                ScopeResolution {
-                    parent: `crate`,
-                    child: 25,
-                },
-                All,
-                ScopeResolution {
-                    parent: `concave_component`,
-                    child: 27,
-                },
-                ScopeResolution {
-                    parent: `line_segment_sketch`,
-                    child: 28,
-                },
-                ScopeResolution {
-                    parent: `crate`,
-                    child: 29,
-                },
-                One {
-                    ident: `is_zero`,
-                },
-                ScopeResolution {
-                    parent: `zero`,
-                    child: 31,
-                },
-                ScopeResolution {
-                    parent: `crate`,
-                    child: 32,
-                },
-                One {
-                    ident: `is_one`,
-                },
-                ScopeResolution {
-                    parent: `one`,
-                    child: 34,
-                },
-                ScopeResolution {
-                    parent: `crate`,
-                    child: 35,
-                },
-                One {
-                    ident: `is_three`,
-                },
-                ScopeResolution {
-                    parent: `three`,
-                    child: 37,
-                },
-                ScopeResolution {
-                    parent: `crate`,
-                    child: 38,
-                },
-                One {
-                    ident: `is_seven`,
-                },
-                ScopeResolution {
-                    parent: `seven`,
-                    child: 40,
-                },
-                ScopeResolution {
-                    parent: `crate`,
-                    child: 41,
-                },
-                One {
-                    ident: `is_nine`,
-                },
-                ScopeResolution {
-                    parent: `nine`,
-                    child: 43,
-                },
-                ScopeResolution {
-                    parent: `crate`,
-                    child: 44,
-                },
-                One {
-                    ident: `is_six`,
-                },
-                ScopeResolution {
-                    parent: `six`,
-                    child: 46,
-                },
-                ScopeResolution {
-                    parent: `crate`,
-                    child: 47,
-                },
-            ],
-        },
     },
 )

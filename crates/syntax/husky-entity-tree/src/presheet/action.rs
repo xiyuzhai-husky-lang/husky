@@ -4,8 +4,7 @@ use with_db::{PartialOrdWithDb, WithDb};
 pub(crate) enum PresheetAction {
     ResolveEntityUse {
         module_path: ModulePath,
-        entity_use_tracker_idx: UseOneTrackerIdx,
-        entity_use_accessibility: Accessibility,
+        entity_use_tracker_idx: UseExprTrackerIdx,
         symbol: EntitySymbol,
     },
     EvaluateUseAll {
@@ -23,20 +22,19 @@ impl PresheetAction {
     }
 }
 
-impl EntityTreePresheet {
+impl<'a> EntreePresheetMut<'a> {
     pub(crate) fn collect_possible_actions(
         &self,
-        ctx: EntitySymbolContext,
+        ctx: EntreeSymbolContext,
         actions: &mut Vec<PresheetAction>,
     ) {
-        for (entity_use_tracker_idx, entity_use_tracker) in self.use_one_trackers.indexed_iter() {
+        for (entity_use_tracker_idx, entity_use_tracker) in self.use_expr_trackers.indexed_iter() {
             if entity_use_tracker.is_unresolved() {
                 let ident = entity_use_tracker.ident();
                 if let Some(node) = ctx.resolve_ident(ident) {
                     actions.push(PresheetAction::ResolveEntityUse {
                         module_path: self.module_path,
                         entity_use_tracker_idx,
-                        entity_use_accessibility: entity_use_tracker.accessibility(),
                         symbol: node.clone(),
                     })
                 }
@@ -52,47 +50,57 @@ impl EntityTreePresheet {
             PresheetAction::ResolveEntityUse {
                 entity_use_tracker_idx,
                 symbol: node,
-                entity_use_accessibility,
                 ..
-            } => self.resolve_use_one(db, entity_use_tracker_idx, entity_use_accessibility, node),
+            } => self.resolve_use_expr(db, entity_use_tracker_idx, node),
             PresheetAction::EvaluateUseAll {
                 module_path,
                 use_all_tracker_idx,
             } => todo!(),
         }
     }
-    fn resolve_use_one(
+
+    fn resolve_use_expr(
         &mut self,
         db: &dyn EntityTreeDb,
-        entity_use_tracker_idx: UseOneTrackerIdx,
-        entity_use_accessibility: Accessibility,
+        use_expr_tracker_idx: UseExprTrackerIdx,
         symbol: EntitySymbol,
     ) {
-        let tracker = &mut self.use_one_trackers[entity_use_tracker_idx];
+        let tracker = &mut self.use_expr_trackers[use_expr_tracker_idx];
         #[cfg(test)]
         assert!(tracker.is_unresolved());
+        tracker.mark_as_resolved();
         if !symbol.is_accessible_from(db, self.module_path) {
             todo!()
         }
-        if !(entity_use_accessibility.with_db(db) <= symbol.accessility().with_db(db)) {
+        if !(tracker.accessibility().with_db(db) <= symbol.accessility().with_db(db)) {
             todo!()
         }
-        match self
-            .module_specific_symbols
-            .insert_new(EntitySymbol::EntityUse {
-                ident: tracker.ident(),
-                accessibility: entity_use_accessibility,
-                path: symbol.entity_path(),
-                ast_idx: tracker.ast_idx(),
-                use_expr_idx: tracker.use_expr_idx(),
-            }) {
-            Ok(_) => (),
-            Err(e) => {
-                if e.new.entity_path() != self.module_specific_symbols.data()[e.old].entity_path() {
-                    todo!()
-                }
-            }
-        };
-        tracker.mark_as_resolved()
+        let use_tree_expr = &self.use_tree_expr_arena[tracker.use_tree_expr_idx()];
+        match use_tree_expr {
+            UseTreeExpr::All { start } => todo!(),
+            UseTreeExpr::One { ident } => todo!(),
+            UseTreeExpr::Parent {
+                ident,
+                scope_resolution_token,
+                children,
+            } => todo!(),
+            UseTreeExpr::Err(_) => todo!(),
+        }
+        // match self
+        //     .module_specific_symbols
+        //     .insert_new(EntitySymbol::EntityUse {
+        //         ident: tracker.ident(),
+        //         accessibility: use_accessibility,
+        //         path: symbol.entity_path(),
+        //         ast_idx: tracker.ast_idx(),
+        //         use_expr_idx: tracker.use_expr_idx(),
+        //     }) {
+        //     Ok(_) => (),
+        //     Err(e) => {
+        //         if e.new.entity_path() != self.module_specific_symbols.data()[e.old].entity_path() {
+        //             todo!()
+        //         }
+        //     }
+        // }
     }
 }

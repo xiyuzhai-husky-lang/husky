@@ -34,15 +34,6 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    ident: `crate`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 29,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 2,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -84,18 +75,5 @@ Ok(
         top_level_asts: ArenaIdxRange(
             4..6,
         ),
-        use_expr_arena: Arena {
-            data: [
-                All,
-                ScopeResolution {
-                    parent: `line_segment_sketch`,
-                    child: 0,
-                },
-                ScopeResolution {
-                    parent: `crate`,
-                    child: 1,
-                },
-            ],
-        },
     },
 )
