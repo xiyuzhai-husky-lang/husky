@@ -53,7 +53,7 @@ Ok(
         ],
         entity_use_roots: EntityUseExprTrackers(
             [
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 39,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -62,18 +62,12 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 85,
-                            },
-                        ),
-                    ),
+                    ident: `domains`,
                     use_expr_idx: 5,
                     parent: None,
                     state: Unresolved,
                 },
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 40,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -82,18 +76,12 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 31,
-                            },
-                        ),
-                    ),
+                    ident: `crate`,
                     use_expr_idx: 8,
                     parent: None,
                     state: Unresolved,
                 },
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 41,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -102,18 +90,12 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 31,
-                            },
-                        ),
-                    ),
+                    ident: `crate`,
                     use_expr_idx: 11,
                     parent: None,
                     state: Unresolved,
                 },
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 42,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -122,18 +104,12 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 85,
-                            },
-                        ),
-                    ),
+                    ident: `domains`,
                     use_expr_idx: 16,
                     parent: None,
                     state: Unresolved,
                 },
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 43,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -142,18 +118,12 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 31,
-                            },
-                        ),
-                    ),
+                    ident: `crate`,
                     use_expr_idx: 19,
                     parent: None,
                     state: Unresolved,
                 },
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 44,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -162,18 +132,12 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 31,
-                            },
-                        ),
-                    ),
+                    ident: `crate`,
                     use_expr_idx: 22,
                     parent: None,
                     state: Unresolved,
                 },
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 45,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -182,18 +146,12 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 31,
-                            },
-                        ),
-                    ),
+                    ident: `crate`,
                     use_expr_idx: 26,
                     parent: None,
                     state: Unresolved,
                 },
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 46,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -202,18 +160,12 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 31,
-                            },
-                        ),
-                    ),
+                    ident: `crate`,
                     use_expr_idx: 29,
                     parent: None,
                     state: Unresolved,
                 },
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 47,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -222,18 +174,12 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 31,
-                            },
-                        ),
-                    ),
+                    ident: `crate`,
                     use_expr_idx: 32,
                     parent: None,
                     state: Unresolved,
                 },
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 48,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -242,18 +188,12 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 31,
-                            },
-                        ),
-                    ),
+                    ident: `crate`,
                     use_expr_idx: 35,
                     parent: None,
                     state: Unresolved,
                 },
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 49,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -262,13 +202,7 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 31,
-                            },
-                        ),
-                    ),
+                    ident: `crate`,
                     use_expr_idx: 38,
                     parent: None,
                     state: Unresolved,

@@ -77,7 +77,7 @@ Ok(
         ],
         entity_use_roots: EntityUseExprTrackers(
             [
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 10,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -86,18 +86,12 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 64,
-                            },
-                        ),
-                    ),
+                    ident: `one`,
                     use_expr_idx: 1,
                     parent: None,
                     state: Unresolved,
                 },
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 11,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -106,18 +100,12 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 66,
-                            },
-                        ),
-                    ),
+                    ident: `six`,
                     use_expr_idx: 3,
                     parent: None,
                     state: Unresolved,
                 },
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 12,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -126,18 +114,12 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 69,
-                            },
-                        ),
-                    ),
+                    ident: `zero`,
                     use_expr_idx: 5,
                     parent: None,
                     state: Unresolved,
                 },
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 13,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -146,18 +128,12 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 68,
-                            },
-                        ),
-                    ),
+                    ident: `two`,
                     use_expr_idx: 7,
                     parent: None,
                     state: Unresolved,
                 },
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 14,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -166,18 +142,12 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 67,
-                            },
-                        ),
-                    ),
+                    ident: `three`,
                     use_expr_idx: 9,
                     parent: None,
                     state: Unresolved,
                 },
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 15,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -186,18 +156,12 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 288,
-                            },
-                        ),
-                    ),
+                    ident: `five`,
                     use_expr_idx: 11,
                     parent: None,
                     state: Unresolved,
                 },
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 16,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -206,18 +170,12 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 66,
-                            },
-                        ),
-                    ),
+                    ident: `six`,
                     use_expr_idx: 13,
                     parent: None,
                     state: Unresolved,
                 },
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 17,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -226,18 +184,12 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 65,
-                            },
-                        ),
-                    ),
+                    ident: `seven`,
                     use_expr_idx: 15,
                     parent: None,
                     state: Unresolved,
                 },
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 18,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -246,18 +198,12 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 61,
-                            },
-                        ),
-                    ),
+                    ident: `eight`,
                     use_expr_idx: 17,
                     parent: None,
                     state: Unresolved,
                 },
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 19,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -266,13 +212,7 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 63,
-                            },
-                        ),
-                    ),
+                    ident: `nine`,
                     use_expr_idx: 19,
                     parent: None,
                     state: Unresolved,

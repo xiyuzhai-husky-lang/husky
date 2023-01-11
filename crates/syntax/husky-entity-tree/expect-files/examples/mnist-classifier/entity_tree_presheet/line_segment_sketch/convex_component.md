@@ -13,7 +13,7 @@ Ok(
         ],
         entity_use_roots: EntityUseExprTrackers(
             [
-                EntityUseTracker {
+                UseTracker {
                     ast_idx: 4,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -22,13 +22,7 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 31,
-                            },
-                        ),
-                    ),
+                    ident: `crate`,
                     use_expr_idx: 2,
                     parent: None,
                     state: Unresolved,

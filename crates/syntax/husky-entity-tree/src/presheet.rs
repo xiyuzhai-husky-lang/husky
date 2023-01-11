@@ -30,7 +30,7 @@ fn entity_tree_presheet_works() {
 pub(crate) struct EntityTreePresheet {
     module_path: ModulePath,
     module_specific_symbols: VecMap<EntitySymbol>,
-    entity_use_trackers: EntityUseExprTrackers,
+    use_one_trackers: UseOneTrackers,
     use_all_trackers: UseAllTrackers,
     errors: Vec<EntityTreeError>,
 }
@@ -53,6 +53,11 @@ impl EntityTreePresheet {
     pub(crate) fn into_sheet(self, impl_blocks: Vec<ImplBlock>) -> EntityTreeModuleSheet {
         EntityTreeModuleSheet::new(self.module_path, self.module_specific_symbols, impl_blocks)
     }
+
+    #[cfg(test)]
+    pub(crate) fn check_done(&self) {
+        self.use_one_trackers.check_done()
+    }
 }
 
 impl AsVecMapEntry for EntityTreePresheet {
@@ -71,7 +76,7 @@ struct EntitySymbolPresheetBuilder<'a> {
     ast_sheet: &'a AstSheet,
     module_path: ModulePath,
     nodes: VecMap<EntitySymbol>,
-    entity_use_trackers: EntityUseExprTrackers,
+    entity_use_trackers: UseOneTrackers,
     errors: Vec<EntityTreeError>,
 }
 
@@ -94,7 +99,7 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
         EntityTreePresheet {
             module_path: self.module_path,
             module_specific_symbols: self.nodes,
-            entity_use_trackers: self.entity_use_trackers,
+            use_one_trackers: self.entity_use_trackers,
             use_all_trackers: Default::default(),
             errors: self.errors,
         }
@@ -107,7 +112,7 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
                 accessibility,
                 ident,
                 use_expr_idx,
-            } => self.entity_use_trackers.push(EntityUseTracker::new_root(
+            } => self.entity_use_trackers.push(UseOneTracker::new_root(
                 ast_idx,
                 *accessibility,
                 *ident,
@@ -164,13 +169,14 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
     }
 }
 
-impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntityTreePresheet {
+impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreePresheet {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EntityTreeDb,
+        db: &Db,
         include_all_fields: bool,
     ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
         f.debug_struct("EntityTreePresheet")
             .field(
                 "module_path",
@@ -182,21 +188,10 @@ impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntityTreePresheet {
                 "module_specific_symbols",
                 &(&self.module_specific_symbols).debug_with(db, include_all_fields),
             )
-            .field("entity_use_roots", &self.entity_use_trackers)
+            .field(
+                "entity_use_roots",
+                &self.use_one_trackers.debug_with(db, include_all_fields),
+            )
             .finish()
-    }
-}
-
-impl<Db> salsa::DebugWithDb<Db> for EntityTreePresheet
-where
-    Db: EntityTreeDb,
-{
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        self.fmt(f, db as &dyn EntityTreeDb, include_all_fields)
     }
 }
