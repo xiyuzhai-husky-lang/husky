@@ -35,7 +35,7 @@ impl<'a> EntityTreeCollector<'a> {
             .filter_map(|module_path| entity_tree_presheet(db, *module_path).clone().ok())
             .collect();
         let toolchain = crate_path.toolchain(db);
-        let path_menu = db.path_menu(toolchain)?;
+        let path_menu = db.vfs_path_menu(toolchain)?;
         let core_prelude_module = path_menu.core_prelude();
         let universal_prelude: Option<&'a [EntitySymbol]> = {
             if crate_path != path_menu.core_library() {
@@ -138,8 +138,8 @@ fn crate_prelude<'a>(
     core_prelude_module: ModulePath,
     presheets: &'a VecMap<EntityTreePresheet>,
     crate_specific_prelude: &'a [EntitySymbol],
-) -> CratePrelude<'a> {
+) -> CrateSymbolContext<'a> {
     let universal_prelude = opt_universal_prelude
         .unwrap_or_else(|| presheets[core_prelude_module].module_specific_symbols());
-    CratePrelude::new(universal_prelude, crate_specific_prelude)
+    CrateSymbolContext::new(universal_prelude, crate_specific_prelude)
 }

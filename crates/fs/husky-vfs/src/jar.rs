@@ -5,7 +5,7 @@ pub struct VfsJar(
     <CratePath as salsa::storage::IngredientsFor>::Ingredients,
     <ModulePath as salsa::storage::IngredientsFor>::Ingredients,
     <module_ancestry as salsa::storage::IngredientsFor>::Ingredients,
-    <path_menu as salsa::storage::IngredientsFor>::Ingredients,
+    <vfs_path_menu as salsa::storage::IngredientsFor>::Ingredients,
     <DiffPath as salsa::storage::IngredientsFor>::Ingredients,
     <File as salsa::storage::IngredientsFor>::Ingredients,
     <package_dir as salsa::storage::IngredientsFor>::Ingredients,
@@ -64,13 +64,13 @@ impl salsa::storage::HasIngredientsFor<module_ancestry> for VfsJar {
     }
 }
 
-impl salsa::storage::HasIngredientsFor<path_menu> for VfsJar {
-    fn ingredient(&self) -> &<path_menu as salsa::storage::IngredientsFor>::Ingredients {
+impl salsa::storage::HasIngredientsFor<vfs_path_menu> for VfsJar {
+    fn ingredient(&self) -> &<vfs_path_menu as salsa::storage::IngredientsFor>::Ingredients {
         &self.4
     }
     fn ingredient_mut(
         &mut self,
-    ) -> &mut <path_menu as salsa::storage::IngredientsFor>::Ingredients {
+    ) -> &mut <vfs_path_menu as salsa::storage::IngredientsFor>::Ingredients {
         &mut self.4
     }
 }
@@ -207,7 +207,7 @@ impl<'salsa_db> salsa::jar::Jar<'salsa_db> for VfsJar {
         let i1 = <CratePath as salsa::storage::IngredientsFor>::create_ingredients(routes);
         let i2 = <ModulePath as salsa::storage::IngredientsFor>::create_ingredients(routes);
         let i3 = <module_ancestry as salsa::storage::IngredientsFor>::create_ingredients(routes);
-        let i4 = <path_menu as salsa::storage::IngredientsFor>::create_ingredients(routes);
+        let i4 = <vfs_path_menu as salsa::storage::IngredientsFor>::create_ingredients(routes);
         let i5 = <DiffPath as salsa::storage::IngredientsFor>::create_ingredients(routes);
         let i6 = <File as salsa::storage::IngredientsFor>::create_ingredients(routes);
         let i7 = <package_dir as salsa::storage::IngredientsFor>::create_ingredients(routes);

@@ -4,7 +4,7 @@ use husky_path_utils::{collect_husky_package_dirs, derive_library_path_from_carg
 use husky_text::TextChange;
 
 pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {
-    fn path_menu(&self, toolchain: Toolchain) -> ToolchainResult<&PathMenu>;
+    fn vfs_path_menu(&self, toolchain: Toolchain) -> ToolchainResult<&VfsPathMenu>;
     fn current_toolchain(&self) -> VfsResult<Toolchain>;
 
     fn package_manifest_content(&self, package_path: PackagePath) -> VfsResult<&str>;
@@ -157,8 +157,10 @@ impl<T> VfsDb for T
 where
     T: salsa::DbWithJar<VfsJar> + WordDb + Send + 'static,
 {
-    fn path_menu(&self, toolchain: Toolchain) -> ToolchainResult<&PathMenu> {
-        Ok(path_menu(self, toolchain).as_ref().map_err(|e| e.clone())?)
+    fn vfs_path_menu(&self, toolchain: Toolchain) -> ToolchainResult<&VfsPathMenu> {
+        Ok(vfs_path_menu(self, toolchain)
+            .as_ref()
+            .map_err(|e| e.clone())?)
     }
 
     fn package_manifest_content(&self, package_path: PackagePath) -> VfsResult<&str> {

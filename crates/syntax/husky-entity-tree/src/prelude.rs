@@ -1,5 +1,6 @@
 use crate::*;
 use husky_manifest::ManifestError;
+use husky_print_utils::p;
 use husky_token::TokenIdx;
 use thiserror::Error;
 use vec_like::VecMapGetEntry;
@@ -15,14 +16,25 @@ pub enum PreludeError {
 }
 pub type PreludeResult<T> = Result<T, PreludeError>;
 
+impl<'a, Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for PreludeError {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        todo!()
+    }
+}
+
 pub(crate) fn crate_prelude<'a>(
     db: &'a dyn EntityTreeDb,
     crate_path: CratePath,
-) -> PreludeResult<CratePrelude<'a>> {
+) -> PreludeResult<CrateSymbolContext<'a>> {
     let toolchain = crate_path.toolchain(db);
-    let path_menu = db.path_menu(toolchain)?;
+    let path_menu = db.vfs_path_menu(toolchain)?;
     let core_prelude_module = path_menu.core_prelude();
-    Ok(CratePrelude::new(
+    Ok(CrateSymbolContext::new(
         module_entity_tree(db, core_prelude_module)
             .map_err(|e| PreludeError::CorePreludeEntityTreeSheet(Box::new(e.clone())))?
             .module_specific_symbols(),
@@ -30,6 +42,30 @@ pub(crate) fn crate_prelude<'a>(
             .as_ref()
             .map_err(|e| e.clone())?,
     ))
+}
+
+#[test]
+fn crate_symbol_context_works() {
+    DB::test_crates(|db, crate_path| {
+        let crate_symbol_context = crate_prelude(db, crate_path).unwrap();
+        let t = |path: EntityPath| {
+            assert!(
+                crate_symbol_context
+                    .resolve_ident(path.ident(db).unwrap())
+                    .expect("crate symbol context should contain ...")
+                    .entity_path()
+                    == path
+            )
+        };
+        let toolchain = crate_path.toolchain(db);
+        let vfs_path_menu = db.vfs_path_menu(toolchain).unwrap();
+        let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
+        t(vfs_path_menu.core().into());
+        t(entity_path_menu.i32().into());
+        t(entity_path_menu.i64().into());
+        t(entity_path_menu.f32().into());
+        t(entity_path_menu.f64().into());
+    })
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
@@ -56,19 +92,19 @@ pub(crate) fn crate_specific_prelude(
 }
 
 #[derive(Debug, Clone, Copy)]
-pub struct CratePrelude<'a> {
+pub struct CrateSymbolContext<'a> {
     universal_prelude: &'a [EntitySymbol],
-    crate_specific_prelude: &'a [EntitySymbol],
+    crate_specific_symbol_context: &'a [EntitySymbol],
 }
 
-impl<'a> CratePrelude<'a> {
+impl<'a> CrateSymbolContext<'a> {
     pub(crate) fn new(
         universal_prelude: &'a [EntitySymbol],
         crate_specific_prelude: &'a [EntitySymbol],
     ) -> Self {
         Self {
             universal_prelude,
-            crate_specific_prelude,
+            crate_specific_symbol_context: crate_specific_prelude,
         }
     }
 
@@ -80,8 +116,29 @@ impl<'a> CratePrelude<'a> {
     }
 
     pub(crate) fn resolve_ident(&self, ident: Identifier) -> Option<&'a EntitySymbol> {
-        self.crate_specific_prelude
+        self.crate_specific_symbol_context
             .get_entry(ident)
             .or_else(|| self.universal_prelude.get_entry(ident))
+    }
+}
+
+impl<'a, Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for CrateSymbolContext<'a> {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
+        f.debug_struct("CrateSymbolContext")
+            .field(
+                "universal_prelude",
+                &(&self.universal_prelude).debug_with(db, include_all_fields),
+            )
+            .field(
+                "crate_specific_symbol_context",
+                &(&self.crate_specific_symbol_context).debug_with(db, include_all_fields),
+            )
+            .finish()
     }
 }

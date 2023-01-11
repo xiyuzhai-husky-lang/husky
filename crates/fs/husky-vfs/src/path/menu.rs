@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct PathMenu {
+pub struct VfsPathMenu {
     core_package: PackagePath,
     std_package: PackagePath,
     core_library: CratePath,
@@ -17,11 +17,11 @@ pub struct PathMenu {
 }
 
 #[salsa::tracked(jar = VfsJar, return_ref)]
-pub(crate) fn path_menu(db: &dyn VfsDb, toolchain: Toolchain) -> ToolchainResult<PathMenu> {
-    PathMenu::new(db, toolchain)
+pub(crate) fn vfs_path_menu(db: &dyn VfsDb, toolchain: Toolchain) -> ToolchainResult<VfsPathMenu> {
+    VfsPathMenu::new(db, toolchain)
 }
 
-impl PathMenu {
+impl VfsPathMenu {
     fn new(db: &dyn VfsDb, toolchain: Toolchain) -> ToolchainResult<Self> {
         let word_menu = db.word_menu();
         let core_package = PackagePath::new_toolchain_package(db, toolchain, word_menu.core())?;

@@ -35,6 +35,13 @@ impl ModulePath {
     pub fn toolchain(self, db: &dyn VfsDb) -> Toolchain {
         self.crate_path(db).toolchain(db)
     }
+
+    pub fn ident(self, db: &dyn VfsDb) -> VfsResult<Identifier> {
+        match self.data(db) {
+            ModulePathData::Root(crate_path) => crate_path.package_ident(db),
+            ModulePathData::Child { parent, ident } => Ok(ident),
+        }
+    }
 }
 
 impl PartialOrdWithDb<dyn VfsDb + '_> for ModulePath {

@@ -59,10 +59,9 @@ impl From<ModuleItemPath> for EntityPath {
 }
 
 impl EntityPath {
-    pub fn ident(self, db: &dyn EntityPathDb) -> Identifier {
-        // Xiao Ma
+    pub fn ident(self, db: &dyn EntityPathDb) -> VfsResult<Identifier> {
         match self {
-            EntityPath::Module(_) => todo!(),
+            EntityPath::Module(path) => path.ident(db),
             EntityPath::ModuleItem(_) => todo!(),
             EntityPath::AssociatedItem(_) => todo!(),
             EntityPath::Variant(_) => todo!(),
