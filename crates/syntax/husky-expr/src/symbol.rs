@@ -5,7 +5,7 @@ pub use context_mut::*;
 pub use sheet::*;
 
 use crate::*;
-use husky_entity_tree::{CratePrelude, ModuleSymbolContext, PreludeResult};
+use husky_entity_tree::{CrateSymbolContext, ModuleSymbolContext, PreludeResult};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Symbol {

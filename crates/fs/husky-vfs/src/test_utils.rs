@@ -6,9 +6,9 @@ use std::path::PathBuf;
 pub trait VfsTestSupport: VfsDb {
     // toolchain
     fn dev_toolchain(&self) -> ToolchainResult<Toolchain>;
-    fn dev_path_menu(&self) -> ToolchainResult<&PathMenu> {
+    fn dev_path_menu(&self) -> ToolchainResult<&VfsPathMenu> {
         let toolchain = self.dev_toolchain()?;
-        self.path_menu(toolchain)
+        self.vfs_path_menu(toolchain)
     }
     fn test_crates(f: impl Fn(&Self, CratePath))
     where
@@ -25,6 +25,16 @@ pub trait VfsTestSupport: VfsDb {
         Self: Default,
         T: std::fmt::Debug + ?Sized,
         E: std::fmt::Debug;
+
+    fn expect_test_crates_debug<R>(name: &str, f: impl Fn(&Self, CratePath) -> R)
+    where
+        Self: Default,
+        R: std::fmt::Debug;
+
+    fn expect_test_crates_debug_with_db<R>(name: &str, f: impl Fn(&Self, CratePath) -> R)
+    where
+        Self: Default,
+        R: salsa::DebugWithDb<Self>;
 
     fn expect_test_crates_debug_result_with_db<T, E>(
         name: &str,
@@ -146,6 +156,30 @@ where
         let db = Self::default();
         for dir in test_dirs() {
             test_probable_modules(&db, &dir, &f);
+        }
+    }
+
+    fn expect_test_crates_debug<R>(name: &str, f: impl Fn(&Self, CratePath) -> R)
+    where
+        Self: Default,
+        R: std::fmt::Debug,
+    {
+        let db = Self::default();
+        for (base, out) in expect_test_base_outs() {
+            expect_test_crates(&db, name, &base, out, &f, |db, r| format!("{:#?}", &r));
+        }
+    }
+
+    fn expect_test_crates_debug_with_db<R>(name: &str, f: impl Fn(&Self, CratePath) -> R)
+    where
+        Self: Default,
+        R: salsa::DebugWithDb<Self>,
+    {
+        let db = Self::default();
+        for (base, out) in expect_test_base_outs() {
+            expect_test_crates(&db, name, &base, out, &f, |db, r| {
+                format!("{:#?}", &r.debug(db))
+            });
         }
     }
 
@@ -378,6 +412,37 @@ fn expect_test_crate_refs<Db, R>(
 ) where
     Db: VfsDb,
     R: ?Sized,
+{
+    let toolchain = db.dev_toolchain().unwrap();
+    std::fs::create_dir_all(&out).unwrap();
+    collect_package_relative_dirs(base)
+        .into_iter()
+        .for_each(|path| {
+            let package_path =
+                PackagePath::new_local(db, toolchain, &path.to_logical_path(base)).unwrap();
+            let resolver = TestPathResolver {
+                db,
+                name,
+                package_expects_dir: path.to_logical_path(&out),
+            };
+
+            for crate_path in db.collect_crates(toolchain, package_path).unwrap() {
+                let path = resolver.decide_crate_expect_file_path(crate_path);
+                std::fs::create_dir_all(path.parent().unwrap()).unwrap();
+                expect_test::expect_file![path].assert_eq(&p(&db, f(&db, crate_path)));
+            }
+        });
+}
+
+fn expect_test_crates<Db, R>(
+    db: &Db,
+    name: &str,
+    base: &Path,
+    out: PathBuf,
+    f: &impl Fn(&Db, CratePath) -> R,
+    p: impl Fn(&Db, R) -> String,
+) where
+    Db: VfsDb,
 {
     let toolchain = db.dev_toolchain().unwrap();
     std::fs::create_dir_all(&out).unwrap();

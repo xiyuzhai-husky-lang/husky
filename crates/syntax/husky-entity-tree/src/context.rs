@@ -6,7 +6,7 @@ pub(crate) struct EntitySymbolContext<'a> {
     db: &'a dyn EntityTreeDb,
     module_path: ModulePath,
     module_specific_symbols: &'a [EntitySymbol],
-    crate_prelude: CratePrelude<'a>,
+    crate_prelude: CrateSymbolContext<'a>,
 }
 
 impl<'a> EntitySymbolContext<'a> {
@@ -14,7 +14,7 @@ impl<'a> EntitySymbolContext<'a> {
         db: &'a dyn EntityTreeDb,
         module_path: ModulePath,
         module_specific_symbols: &'a [EntitySymbol],
-        crate_prelude: CratePrelude<'a>,
+        crate_prelude: CrateSymbolContext<'a>,
     ) -> Self {
         Self {
             db,

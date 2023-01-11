@@ -229,13 +229,13 @@ impl<Db: EntityTreeDb> salsa::DebugWithDb<Db> for EntitySymbol {
 
 #[derive(Debug, Clone, Copy)]
 pub struct ModuleSymbolContext<'a> {
-    crate_prelude: CratePrelude<'a>,
+    crate_prelude: CrateSymbolContext<'a>,
     module_specific_symbols: &'a [EntitySymbol],
 }
 
 impl<'a> ModuleSymbolContext<'a> {
     pub fn new(
-        crate_prelude: CratePrelude<'a>,
+        crate_prelude: CrateSymbolContext<'a>,
         module_specific_symbols: &'a [EntitySymbol],
     ) -> Self {
         Self {
