@@ -11,5 +11,7 @@ pub(crate) fn entity_tree_diagnostic_sheet(
     db: &dyn DiagnosticsDb,
     module_path: ModulePath,
 ) -> EntityTreeDiagnosticSheet {
-    todo!()
+    let mut diagnostics = vec![];
+    // todo
+    EntityTreeDiagnosticSheet::new(db, diagnostics)
 }

@@ -12,52 +12,54 @@ pub struct ExprDiagnosticSheet {
 pub(crate) fn expr_diagnostic_sheet(
     db: &dyn DiagnosticsDb,
     module_path: ModulePath,
-) -> AstDiagnosticSheet {
-    todo!()
+) -> ExprDiagnosticSheet {
+    let mut diagnostics = vec![];
+    // todo
+    ExprDiagnosticSheet::new(db, diagnostics)
 }
 
-fn expr_error_message(error: &ExprError) {
-    match error {
-        ExprError::MisMatchingBracket {
-            bra,
-            bra_token_idx,
-            ket,
-            ket_token_idx,
-        } => todo!(),
-        ExprError::MissingRightAngleBracket { langle_token_idx } => todo!(),
-        ExprError::ExpectRightCurlyBrace(_) => todo!(),
-        ExprError::ExpectIdentifier(_) => todo!(),
-        ExprError::ExpectColon(_) => todo!(),
-        ExprError::ExpectRightParenthesis(_) => todo!(),
-        ExprError::NoMatchingBra { ket, ket_token_idx } => todo!(),
-        ExprError::EntityTree(_) => todo!(),
-        ExprError::ExpectIdentifierAfterDot => todo!(),
-        ExprError::Token(_) => todo!(),
-        ExprError::NoLeftOperandForBinaryOperator => todo!(),
-        ExprError::NoRightOperandForBinaryOperator {
-            lopd,
-            punctuation,
-            punctuation_token_idx,
-        } => todo!(),
-        ExprError::NoOperandForPrefixOperator {
-            prefix,
-            prefix_token_idx,
-        } => todo!(),
-        ExprError::MissingItemBeforeComma { comma_token_idx } => todo!(),
-        ExprError::MissingItemBeforeBe { be_token_idx } => todo!(),
-        ExprError::ExpectLetVariablePattern(_) => todo!(),
-        ExprError::ExpectAssignToken(_) => todo!(),
-        ExprError::MissingInitialValue => todo!(),
-        ExprError::UnexpectedKeyword(_) => todo!(),
-        ExprError::MissingResult => todo!(),
-        ExprError::MissingCondition => todo!(),
-        ExprError::MissingForExpr => todo!(),
-        ExprError::ExpectBePattern(_) => todo!(),
-        ExprError::ExpectParameterPattern(_) => todo!(),
-        ExprError::UnterminatedList => todo!(),
-        ExprError::ExpectEolColon(_) => todo!(),
-        ExprError::ExpectIdentifierAfterMut(_) => todo!(),
-        ExprError::ExpectIdentifierAfterScopeResolution(_) => todo!(),
-        ExprError::MissingBlock => todo!(),
-    }
+fn expr_error_message(error: &ExprError) -> Option<String> {
+    Some(match error {
+        ExprError::MismatchingBracket { .. } => format!("Syntax Error: mismatching bracket"),
+        ExprError::MissingRightAngleBracket { .. } => format!("Syntax Error: missing `>`"),
+        ExprError::ExpectRightCurlyBrace(_) => format!("Syntax Error: expect `}}`"),
+        ExprError::ExpectIdentifier(_) => format!("Syntax Error: expect identifier"),
+        ExprError::ExpectColon(_) => format!("Syntax Error: expect `:`"),
+        ExprError::ExpectRightParenthesis(_) => format!("Syntax Error: expect `)`"),
+        ExprError::NoMatchingBra { .. } => format!("Syntax Error: no matching bracket"),
+        ExprError::EntityTree(_) => format!("Syntax Error: entity tree"),
+        ExprError::ExpectIdentifierAfterDot => format!("Syntax Error: expect identifier after dot"),
+        ExprError::Token(_) => return None,
+        ExprError::NoLeftOperandForBinaryOperator => {
+            format!("Syntax Error: no left operand for binary operator")
+        }
+        ExprError::NoRightOperandForBinaryOperator { .. } => {
+            format!("Syntax Error: no right operand for binary operator")
+        }
+        ExprError::NoOperandForPrefixOperator { .. } => {
+            format!("Syntax Error:no operand for prefix operator")
+        }
+        ExprError::MissingItemBeforeComma { .. } => {
+            format!("Syntax Error: missing item before `,`")
+        }
+        ExprError::MissingItemBeforeBe { .. } => format!("Syntax Error: missing item before `be`"),
+        ExprError::ExpectLetVariablePattern(_) => format!("Syntax Error: expect variable pattern"),
+        ExprError::ExpectAssignToken(_) => format!("Syntax Error: expect `=`"),
+        ExprError::MissingInitialValue => format!("Syntax Error: missing initial value"),
+        ExprError::UnexpectedKeyword(_) => format!("Syntax Error: unexpected keyword"),
+        ExprError::MissingResult => format!("Syntax Error: missing result"),
+        ExprError::MissingCondition => format!("Syntax Error: missing condition"),
+        ExprError::MissingForExpr => format!("Syntax Error: expect for expr"),
+        ExprError::ExpectBePattern(_) => format!("Syntax Error: expect be pattern"),
+        ExprError::ExpectParameterPattern(_) => format!("Syntax Error: expect paramter pattern"),
+        ExprError::UnterminatedList => format!("Syntax Error: unterminated list"),
+        ExprError::ExpectEolColon(_) => format!("Syntax Error: expect `:` at end of line"),
+        ExprError::ExpectIdentifierAfterMut(_) => {
+            format!("Syntax Error: expect identifier after `mut`")
+        }
+        ExprError::ExpectIdentifierAfterScopeResolution(_) => {
+            format!("Syntax Error: expect identifier after `::`")
+        }
+        ExprError::MissingBlock => format!("Syntax Error: missing block"),
+    })
 }

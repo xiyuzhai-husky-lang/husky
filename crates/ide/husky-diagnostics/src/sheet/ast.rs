@@ -13,21 +13,29 @@ pub(crate) fn ast_diagnostic_sheet(
     db: &dyn DiagnosticsDb,
     module_path: ModulePath,
 ) -> AstDiagnosticSheet {
-    todo!()
+    let mut diagnostics = vec![];
+    // todo
+    AstDiagnosticSheet::new(db, diagnostics)
 }
 
-fn ast_error_message(error: &AstError) {
+fn ast_error_message(error: &AstError) -> String {
     match error {
-        AstError::ExcessiveIndent => todo!(),
-        AstError::StandaloneElif => todo!(),
-        AstError::StandaloneElse => todo!(),
-        AstError::ExpectEntityKeyword => todo!(),
-        AstError::ExpectDecoratorOrEntityKeyword => todo!(),
-        AstError::ExpectIdentifier(_) => todo!(),
-        AstError::ExpectParBraOrDecoratorOrIdentifier(_) => todo!(),
-        AstError::ExpectNothing => todo!(),
-        AstError::Token(_) => todo!(),
-        AstError::UnexpectedStmtInsideModule => todo!(),
-        AstError::UnexpectedStmtInsideImpl => todo!(),
+        AstError::ExcessiveIndent => format!("Syntax Error: excessive indent"),
+        AstError::StandaloneElif => format!("Syntax Error:standalone elif"),
+        AstError::StandaloneElse => format!("Syntax Error: standalone else"),
+        AstError::ExpectEntityKeyword => format!("Syntax Error: expect entity keyword"),
+        AstError::ExpectDecoratorOrEntityKeyword => {
+            format!("Syntax Error:expect decorator or entity keyword")
+        }
+        AstError::ExpectIdentifier(_) => format!("Syntax Error: expect identifier"),
+        AstError::ExpectParBraOrDecoratorOrIdentifier(_) => {
+            format!("Syntax Error: expect `(` or decorator or identifier")
+        }
+        AstError::ExpectNothing => format!("Syntax Error: expect nothing"),
+        AstError::Token(_) => format!("Syntax Error: token error"),
+        AstError::UnexpectedStmtInsideModule => {
+            format!("Syntax Error: unexpect stmt inside module")
+        }
+        AstError::UnexpectedStmtInsideImpl => format!("Syntax Error: unexpect stmt inside impl"),
     }
 }

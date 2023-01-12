@@ -7,8 +7,8 @@ use thiserror::Error;
 
 #[derive(Error, Debug, PartialEq, Eq, Clone)]
 pub enum ExprError {
-    #[error("non matching bracket")]
-    MisMatchingBracket {
+    #[error("mismatching bracket")]
+    MismatchingBracket {
         bra: Bracket,
         bra_token_idx: TokenIdx,
         ket: Bracket,
