@@ -131,7 +131,10 @@ impl<'a> EntreePresheetMut<'a> {
                     EntityPath::AssociatedItem(_) => todo!(),
                     EntityPath::Variant(_) => todo!(),
                 },
-                UseExpr::One { ident_token } => todo!(),
+                UseExpr::One { ident_token } => {
+                    p!(ident_token.ident().debug(db));
+                    todo!()
+                }
                 UseExpr::Parent {
                     ident_token,
                     scope_resolution_token,
@@ -162,6 +165,7 @@ impl<'a> EntreePresheetMut<'a> {
 
     pub(crate) fn mark_as_erroneous(&mut self, rule_idx: UseTreeRuleIdx, error: EntityTreeError) {
         let rule = &mut self.use_expr_rules[rule_idx];
-        rule.mark_as_erroneous(error)
+        self.errors.push(error);
+        rule.mark_as_erroneous()
     }
 }
