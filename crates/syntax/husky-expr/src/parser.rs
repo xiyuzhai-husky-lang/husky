@@ -193,7 +193,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub fn parse_pattern_expr(&mut self, env: PatternInfo) -> ExprResult<Option<PatternExprIdx>> {
         if let Some(mut_token) = self.parse::<MutToken>()? {
             let ident_token =
-                self.parse_expected2::<IdentifierToken>(ExprError::ExpectIdentifierAfterMut)?;
+                self.parse_expected2::<IdentifierToken, _>(ExprError::ExpectIdentifierAfterMut)?;
             Ok(Some(self.alloc_pattern_expr(
                 PatternExpr::Identifier {
                     ident_token,
@@ -240,7 +240,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         scope_resolution_token: ScopeResolutionToken,
     ) -> (EntityPathExprIdx, ExprResult<EntityPath>) {
         let ident_token = self
-            .parse_expected2::<IdentifierToken>(ExprError::ExpectIdentifierAfterScopeResolution);
+            .parse_expected2::<IdentifierToken, _>(ExprError::ExpectIdentifierAfterScopeResolution);
         let ident: ExprResult<Identifier> = match ident_token {
             Ok(ident_token) => Ok(ident_token.ident()),
             Err(_) => todo!(),

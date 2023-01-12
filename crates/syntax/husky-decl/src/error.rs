@@ -20,6 +20,12 @@ pub enum DeclError {
     Expr(#[from] ExprError),
     #[error("impl block error")]
     ImplBlockErr,
+    #[error("missing output type")]
+    MissingOutputType,
+    #[error("missing `->`")]
+    MissingCurry(TokenIdx),
+    #[error("missing `:` at end of line")]
+    MissingEolColon(TokenIdx),
 }
 
 pub type DeclResult<T> = Result<T, DeclError>;
