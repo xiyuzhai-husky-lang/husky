@@ -649,6 +649,12 @@ pub struct StarToken {
     token_idx: TokenIdx,
 }
 
+impl StarToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
 impl<'a, Context> parsec::ParseFrom<Context> for StarToken
 where
     Context: TokenParseContext<'a>,
