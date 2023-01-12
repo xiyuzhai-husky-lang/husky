@@ -6,21 +6,23 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 0,
-                    accessibility: PubicUnder(
-                        `core::prelude`,
+                    accessibility: Done {
+                        accessibility: Public,
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        1..2,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 2,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 1,
-                    accessibility: PubicUnder(
-                        `core::prelude`,
+                    accessibility: Done {
+                        accessibility: Public,
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        4..5,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 5,
                     parent: None,
                     state: Unresolved,
                 },

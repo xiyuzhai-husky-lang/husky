@@ -9,9 +9,9 @@ pub struct DeclSheet {
 
 impl DeclSheet {
     pub fn collect_from_module(db: &dyn DeclDb, path: ModulePath) -> EntityTreeResult<Self> {
-        let entity_tree_sheet = db.entity_tree_sheet(path)?;
+        let entity_tree_sheet = db.entree_module_sheet(path)?;
         let mut decls: Vec<DeclResult<Decl>> = Default::default();
-        for path in entity_tree_sheet.module_item_path_iter() {
+        for path in entity_tree_sheet.module_item_path_iter(db) {
             decls.push(db.module_item_decl(path))
         }
         for impl_block in entity_tree_sheet.impl_blocks() {

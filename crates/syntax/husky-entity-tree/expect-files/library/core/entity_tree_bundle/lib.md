@@ -130,15 +130,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `core::prelude`,
-                module_specific_symbols: [
-                    EntityUse {
-                        ident: `crate`,
-                        accessibility: PubicUnder(
-                            `core::prelude`,
-                        ),
-                        path: `core`,
-                    },
-                ],
+                module_specific_symbols: [],
             },
         ],
     },

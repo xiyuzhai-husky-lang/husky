@@ -2,6 +2,7 @@ use crate::*;
 use husky_manifest::ManifestError;
 use husky_print_utils::p;
 use husky_token::TokenIdx;
+use husky_word::{IdentMap, IdentPairMap};
 use thiserror::Error;
 use vec_like::VecMapGetEntry;
 
@@ -37,7 +38,7 @@ pub(crate) fn crate_prelude<'a>(
     Ok(CrateSymbolContext::new(
         module_entity_tree(db, core_prelude_module)
             .map_err(|e| PreludeError::CorePreludeEntityTreeSheet(Box::new(e.clone())))?
-            .module_specific_symbols(),
+            .module_symbols(),
         crate_specific_prelude(db, crate_path)
             .as_ref()
             .map_err(|e| e.clone())?,
@@ -53,7 +54,7 @@ fn crate_symbol_context_works() {
                 crate_symbol_context
                     .resolve_ident(path.ident(db).unwrap())
                     .expect("crate symbol context should contain ...")
-                    .entity_path()
+                    .path(db)
                     == path
             )
         };
@@ -72,39 +73,37 @@ fn crate_symbol_context_works() {
 pub(crate) fn crate_specific_prelude(
     db: &dyn EntityTreeDb,
     crate_path: CratePath,
-) -> PreludeResult<VecMap<EntitySymbol>> {
+) -> PreludeResult<IdentMap<EntitySymbolEntry>> {
     let package_path = crate_path.package_path(db);
     let package_dependencies = db.package_dependencies(package_path)?;
-    let mut nodes: VecMap<EntitySymbol> = VecMap::default();
-    let crate_word = db.word_menu().crate_word();
-    nodes.insert(EntitySymbol::CrateRoot {
-        ident: crate_word,
-        module_path: ModulePath::new_root(db, crate_path),
-    });
-    nodes
+    let mut entries: IdentMap<EntitySymbolEntry> = Default::default();
+    entries
+        .insert_new(EntitySymbolEntry::new_crate_root(db, crate_path))
+        .unwrap();
+    entries
         .extend(
             package_dependencies
                 .iter()
                 .map(|package_dependency| todo!()),
         )
         .unwrap();
-    Ok(nodes)
+    Ok(entries)
 }
 
 #[derive(Debug, Clone, Copy)]
 pub struct CrateSymbolContext<'a> {
-    universal_prelude: &'a [EntitySymbol],
-    crate_specific_symbol_context: &'a [EntitySymbol],
+    universal_prelude: &'a [EntitySymbolEntry],
+    crate_specific_symbol_context: &'a [EntitySymbolEntry],
 }
 
 impl<'a> CrateSymbolContext<'a> {
     pub(crate) fn new(
-        universal_prelude: &'a [EntitySymbol],
-        crate_specific_prelude: &'a [EntitySymbol],
+        universal_prelude: &'a [EntitySymbolEntry],
+        crate_specific_symbol_context: &'a [EntitySymbolEntry],
     ) -> Self {
         Self {
             universal_prelude,
-            crate_specific_symbol_context: crate_specific_prelude,
+            crate_specific_symbol_context,
         }
     }
 
@@ -115,10 +114,11 @@ impl<'a> CrateSymbolContext<'a> {
         // Self {}
     }
 
-    pub(crate) fn resolve_ident(&self, ident: Identifier) -> Option<&'a EntitySymbol> {
+    pub(crate) fn resolve_ident(&self, ident: Identifier) -> Option<EntitySymbol> {
         self.crate_specific_symbol_context
             .get_entry(ident)
-            .or_else(|| self.universal_prelude.get_entry(ident))
+            .map(|v| v.symbol())
+            .or_else(|| self.universal_prelude.get_entry(ident).map(|v| v.symbol()))
     }
 }
 

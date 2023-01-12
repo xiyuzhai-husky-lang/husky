@@ -325,14 +325,14 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                         BinaryShortcuitLogicOpr::And,
                     ))),
                     Some('=') => self.pass_two(Punctuation::Binary(BinaryOpr::Assign(Some(
-                        BinaryPureClosedOpr::BitAnd,
+                        PureClosedBinaryOpr::BitAnd,
                     )))),
                     _ => Punctuation::Ambersand,
                 },
                 '|' => match self.peek_char() {
                     Some('|') => self.pass_two(Punctuation::DoubleVertical),
                     Some('=') => self.pass_two(Punctuation::Binary(BinaryOpr::Assign(Some(
-                        BinaryPureClosedOpr::BitOr,
+                        PureClosedBinaryOpr::BitOr,
                     )))),
                     _ => Punctuation::Vertical,
                 },
@@ -342,11 +342,11 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     _ => Punctuation::Dot,
                 },
                 ';' => Punctuation::Semicolon,
-                '%' => Punctuation::Binary(BinaryOpr::PureClosed(BinaryPureClosedOpr::RemEuclid)),
+                '%' => Punctuation::Binary(BinaryOpr::PureClosed(PureClosedBinaryOpr::RemEuclid)),
 
                 '-' => match self.peek_char() {
                     Some('=') => self.pass_two(Punctuation::Binary(BinaryOpr::Assign(Some(
-                        BinaryPureClosedOpr::Sub,
+                        PureClosedBinaryOpr::Sub,
                     )))),
                     Some('-') => self.pass_two(Punctuation::Suffix(SuffixOpr::Decr)),
                     Some('>') => self.pass_two(Punctuation::Binary(BinaryOpr::Curry)),
@@ -354,7 +354,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 },
                 '<' => match self.peek_char() {
                     Some('<') => self.pass_two(Punctuation::Binary(BinaryOpr::PureClosed(
-                        BinaryPureClosedOpr::Shl,
+                        PureClosedBinaryOpr::Shl,
                     ))),
                     Some('=') => self.pass_two(Punctuation::Binary(BinaryOpr::Comparison(
                         BinaryComparisonOpr::Leq,
@@ -370,10 +370,10 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 },
                 '*' => match self.peek_char() {
                     Some('*') => self.pass_two(Punctuation::Binary(BinaryOpr::PureClosed(
-                        BinaryPureClosedOpr::Power,
+                        PureClosedBinaryOpr::Power,
                     ))),
                     Some('=') => self.pass_two(Punctuation::Binary(BinaryOpr::Assign(Some(
-                        BinaryPureClosedOpr::Mul,
+                        PureClosedBinaryOpr::Mul,
                     )))),
                     _ => Punctuation::Star,
                 },
@@ -381,16 +381,16 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     Some('/') => unreachable!(),
                     Some('>') => self.pass_two(Punctuation::XmlKet),
                     Some('=') => self.pass_two(Punctuation::Binary(BinaryOpr::Assign(Some(
-                        BinaryPureClosedOpr::Div,
+                        PureClosedBinaryOpr::Div,
                     )))),
-                    _ => Punctuation::Binary(BinaryOpr::PureClosed(BinaryPureClosedOpr::Div)),
+                    _ => Punctuation::Binary(BinaryOpr::PureClosed(PureClosedBinaryOpr::Div)),
                 },
                 '+' => match self.peek_char() {
                     Some('+') => self.pass_two(Punctuation::Suffix(SuffixOpr::Incr)),
                     Some('=') => self.pass_two(Punctuation::Binary(BinaryOpr::Assign(Some(
-                        BinaryPureClosedOpr::Add,
+                        PureClosedBinaryOpr::Add,
                     )))),
-                    _ => Punctuation::Binary(BinaryOpr::PureClosed(BinaryPureClosedOpr::Add)),
+                    _ => Punctuation::Binary(BinaryOpr::PureClosed(PureClosedBinaryOpr::Add)),
                 },
                 '!' => match self.peek_char() {
                     Some('=') => self.pass_two(Punctuation::Binary(BinaryOpr::Comparison(

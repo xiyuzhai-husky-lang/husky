@@ -55,111 +55,144 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 39,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::digits::seven`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::seven`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        4..5,
                     ),
-                    ident: `domains`,
-                    use_expr_idx: 5,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 40,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::digits::seven`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::seven`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        7..8,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 8,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 41,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::digits::seven`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::seven`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        10..11,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 11,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 42,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::digits::seven`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::seven`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        15..16,
                     ),
-                    ident: `domains`,
-                    use_expr_idx: 16,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 43,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::digits::seven`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::seven`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        18..19,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 19,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 44,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::digits::seven`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::seven`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        21..22,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 22,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 45,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::digits::seven`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::seven`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        25..26,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 26,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 46,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::digits::seven`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::seven`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        28..29,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 29,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 47,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::digits::seven`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::seven`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        31..32,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 32,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 48,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::digits::seven`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::seven`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        34..35,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 35,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 49,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::digits::seven`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::digits::seven`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        37..38,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 38,
                     parent: None,
                     state: Unresolved,
                 },

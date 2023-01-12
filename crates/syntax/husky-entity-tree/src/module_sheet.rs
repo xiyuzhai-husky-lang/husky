@@ -1,15 +1,15 @@
 /// primal doesn't care about uses and impls
 use husky_ast::{Ast, AstIdxRange, AstSheet};
 use husky_print_utils::p;
-use husky_word::Identifier;
-use vec_like::AsVecMapEntry;
+use husky_word::{IdentMap, IdentPairMap, Identifier};
+use vec_like::{AsVecMapEntry, VecPairMap};
 
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityTreeModuleSheet {
     module_path: ModulePath,
-    module_specific_symbols: VecMap<EntitySymbol>,
+    symbols: IdentMap<EntitySymbolEntry>,
     impl_blocks: Vec<ImplBlock>,
 }
 
@@ -31,12 +31,12 @@ impl vec_like::AsVecMapEntry for EntityTreeModuleSheet {
 impl EntityTreeModuleSheet {
     pub(crate) fn new(
         module_path: ModulePath,
-        module_specific_symbols: VecMap<EntitySymbol>,
+        symbols: IdentMap<EntitySymbolEntry>,
         impl_blocks: Vec<ImplBlock>,
     ) -> Self {
         Self {
             module_path,
-            module_specific_symbols: module_specific_symbols,
+            symbols,
             impl_blocks,
         }
     }
@@ -63,23 +63,27 @@ impl EntityTreeModuleSheet {
     //             )
     //         })
     // }
-    pub fn module_specific_symbols(&self) -> &VecMap<EntitySymbol> {
-        &self.module_specific_symbols
+    pub fn module_symbols(&self) -> &[EntitySymbolEntry] {
+        &self.symbols
     }
 
-    pub fn module_item_iter<'a>(&'a self) -> impl Iterator<Item = &'a ModuleItem> + 'a {
-        self.module_specific_symbols
-            .iter()
-            .filter_map(|module_symbol| module_symbol.module_item())
-    }
+    // pub fn module_item_iter<'a>(&'a self) -> impl Iterator<Item = &'a ModuleItem> + 'a {
+    //     self.module_specific_symbols
+    //         .iter()
+    //         .filter_map(|module_symbol| module_symbol.module_item())
+    // }
 
-    pub fn module_item_path_iter<'a>(&'a self) -> impl Iterator<Item = ModuleItemPath> + 'a {
-        self.module_specific_symbols
+    pub fn module_item_path_iter<'a>(
+        &'a self,
+        db: &'a dyn EntityTreeDb,
+    ) -> impl Iterator<Item = ModuleItemPath> + 'a {
+        self.symbols
             .iter()
-            .filter_map(|module_symbol| {
-                module_symbol
-                    .module_item()
-                    .map(|module_item| module_item.path())
+            .filter_map(|entry| match entry.symbol() {
+                EntitySymbol::CrateRoot(_) => todo!(),
+                EntitySymbol::Submodule(_) => todo!(),
+                EntitySymbol::ModuleItem(symbol) => Some(symbol.path(db)),
+                EntitySymbol::Use(_) => todo!(),
             })
     }
 
@@ -116,15 +120,11 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreeModuleSheet
         f.debug_struct("EntityTreeSheet")
             .field(
                 "module_path",
-                &self
-                    .module_path
-                    .debug_with(db as &dyn VfsDb, include_all_fields),
+                &self.module_path.debug_with(db, include_all_fields),
             )
             .field(
                 "module_specific_symbols",
-                &self
-                    .module_specific_symbols
-                    .debug_with(db, include_all_fields),
+                &(&self.symbols).debug_with(db, include_all_fields),
             )
             .finish()
     }

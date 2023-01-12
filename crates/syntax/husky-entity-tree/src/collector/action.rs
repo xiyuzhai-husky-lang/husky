@@ -15,14 +15,15 @@ impl<'a> EntityTreeCollector<'a> {
         let module_path = presheet.module_path();
         EntreeSymbolContext::new(
             self.db,
-            module_path,
-            presheet.module_specific_symbols(),
+            self.crate_path,
             crate_prelude(
                 self.opt_universal_prelude,
                 self.core_prelude_module,
                 &self.presheets,
                 self.crate_specific_prelude,
             ),
+            presheet,
+            &self.presheets,
         )
     }
 }

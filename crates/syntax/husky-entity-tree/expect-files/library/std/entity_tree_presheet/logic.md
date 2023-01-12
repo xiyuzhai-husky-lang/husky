@@ -6,11 +6,12 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 0,
-                    accessibility: PubicUnder(
-                        `std::logic`,
+                    accessibility: Done {
+                        accessibility: Public,
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        1..2,
                     ),
-                    ident: `core`,
-                    use_expr_idx: 2,
                     parent: None,
                     state: Unresolved,
                 },

@@ -9,7 +9,7 @@ use husky_token::*;
 use husky_vfs::CratePath;
 use parsec::*;
 use salsa::DebugWithDb;
-use vec_like::VecPairMap;
+use vec_like::{VecMapGetEntry, VecPairMap};
 
 pub(crate) fn module_item_decl(db: &dyn DeclDb, path: ModuleItemPath) -> DeclResult<Decl> {
     Ok(match path {
@@ -69,22 +69,23 @@ impl<'a> DeclParser<'a> {
             module_symbol_context,
             token_sheet_data: db.token_sheet_data(path)?,
             ast_sheet: db.ast_sheet(path)?,
-            module_entity_tree: db.entity_tree_sheet(path)?,
+            module_entity_tree: db.entree_module_sheet(path)?,
             entity_tree_crate_bundle: db.entity_tree_crate_bundle(path.crate_path(db))?,
         })
     }
 
     fn parse_ty_decl(&self, path: TypePath) -> DeclResult<TypeDecl> {
         let ident = path.ident(self.db);
-        let module_item = self
+        let module_item_symbol = self
             .module_entity_tree
-            .module_specific_symbols()
+            .module_symbols()
             .get_entry(ident)
             .unwrap()
-            .module_item()
+            .symbol()
+            .module_item_symbol()
             .unwrap();
 
-        let ast_idx: AstIdx = module_item.ast_idx();
+        let ast_idx: AstIdx = module_item_symbol.ast_idx(self.db);
         match self.ast_sheet[ast_idx] {
             Ast::Defn {
                 token_group_idx,
@@ -174,12 +175,13 @@ impl<'a> DeclParser<'a> {
         let ident = path.ident(self.db);
         let module_item = self
             .module_entity_tree
-            .module_specific_symbols()
+            .module_symbols()
             .get_entry(ident)
             .unwrap()
-            .module_item()
+            .symbol()
+            .module_item_symbol()
             .unwrap();
-        let ast_idx: AstIdx = module_item.ast_idx();
+        let ast_idx: AstIdx = module_item.ast_idx(self.db);
         match self.ast_sheet[ast_idx] {
             Ast::Defn {
                 token_group_idx,
@@ -333,12 +335,13 @@ impl<'a> DeclParser<'a> {
         let ident = path.ident(self.db);
         let module_item = self
             .module_entity_tree
-            .module_specific_symbols()
+            .module_symbols()
             .get_entry(ident)
             .unwrap()
-            .module_item()
+            .symbol()
+            .module_item_symbol()
             .unwrap();
-        let ast_idx: AstIdx = module_item.ast_idx();
+        let ast_idx: AstIdx = module_item.ast_idx(self.db);
         match self.ast_sheet[ast_idx] {
             Ast::Defn {
                 token_group_idx,

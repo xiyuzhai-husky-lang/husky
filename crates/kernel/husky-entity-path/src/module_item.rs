@@ -25,6 +25,13 @@ impl ModuleItemPath {
             ModuleItemPath::Form(path) => path.module_path(db),
         }
     }
+    pub fn ident(self, db: &dyn EntityPathDb) -> Identifier {
+        match self {
+            ModuleItemPath::Type(path) => path.ident(db),
+            ModuleItemPath::Trait(path) => path.ident(db),
+            ModuleItemPath::Form(path) => path.ident(db),
+        }
+    }
 
     pub fn crate_path(self, db: &dyn EntityPathDb) -> CratePath {
         self.module_path(db).crate_path(db)
