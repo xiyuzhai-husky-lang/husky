@@ -70,74 +70,6 @@ Ok(
                                 path: Some(
                                     TypeItemPath(
                                         Id {
-                                            value: 5,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    ),
-                ),
-            ),
-            Ok(
-                AssociatedItem(
-                    TypeItem(
-                        Memo(
-                            TypeMemoDecl {
-                                path: Some(
-                                    TypeItemPath(
-                                        Id {
-                                            value: 6,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    ),
-                ),
-            ),
-            Ok(
-                AssociatedItem(
-                    TypeItem(
-                        Memo(
-                            TypeMemoDecl {
-                                path: Some(
-                                    TypeItemPath(
-                                        Id {
-                                            value: 7,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    ),
-                ),
-            ),
-            Ok(
-                AssociatedItem(
-                    TypeItem(
-                        Memo(
-                            TypeMemoDecl {
-                                path: Some(
-                                    TypeItemPath(
-                                        Id {
-                                            value: 8,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    ),
-                ),
-            ),
-            Ok(
-                AssociatedItem(
-                    TypeItem(
-                        Memo(
-                            TypeMemoDecl {
-                                path: Some(
-                                    TypeItemPath(
-                                        Id {
                                             value: 9,
                                         },
                                     ),
@@ -201,12 +133,63 @@ Ok(
             Ok(
                 AssociatedItem(
                     TypeItem(
-                        Method(
-                            TypeMethodDecl {
+                        Memo(
+                            TypeMemoDecl {
                                 path: Some(
                                     TypeItemPath(
                                         Id {
                                             value: 13,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Memo(
+                            TypeMemoDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 14,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Memo(
+                            TypeMemoDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 15,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Memo(
+                            TypeMemoDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 16,
                                         },
                                     ),
                                 ),
@@ -223,7 +206,24 @@ Ok(
                                 path: Some(
                                     TypeItemPath(
                                         Id {
-                                            value: 14,
+                                            value: 17,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Method(
+                            TypeMethodDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 18,
                                         },
                                     ),
                                 ),

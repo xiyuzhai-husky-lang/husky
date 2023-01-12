@@ -104,5 +104,109 @@ Ok(
                 Region,
             ),
         },
+        FoldingRange {
+            start_line: 39,
+            start_character: Some(
+                0,
+            ),
+            end_line: 40,
+            end_character: Some(
+                23,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 42,
+            start_character: Some(
+                0,
+            ),
+            end_line: 43,
+            end_character: Some(
+                32,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 48,
+            start_character: Some(
+                0,
+            ),
+            end_line: 49,
+            end_character: Some(
+                24,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 51,
+            start_character: Some(
+                0,
+            ),
+            end_line: 52,
+            end_character: Some(
+                34,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 57,
+            start_character: Some(
+                0,
+            ),
+            end_line: 58,
+            end_character: Some(
+                24,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 60,
+            start_character: Some(
+                0,
+            ),
+            end_line: 61,
+            end_character: Some(
+                30,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 66,
+            start_character: Some(
+                0,
+            ),
+            end_line: 67,
+            end_character: Some(
+                24,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 69,
+            start_character: Some(
+                0,
+            ),
+            end_line: 70,
+            end_character: Some(
+                34,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
     ],
 )

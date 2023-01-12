@@ -48,77 +48,12 @@ Ok(
                             path: Some(
                                 TypeItemPath(
                                     Id {
-                                        value: 18,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
-                        TypeMethodDefn {
-                            path: Some(
-                                TypeItemPath(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
-                        TypeMethodDefn {
-                            path: Some(
-                                TypeItemPath(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
-                        TypeMethodDefn {
-                            path: Some(
-                                TypeItemPath(
-                                    Id {
-                                        value: 21,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
-                        TypeMethodDefn {
-                            path: Some(
-                                TypeItemPath(
-                                    Id {
                                         value: 22,
                                     },
                                 ),
                             ),
                         },
                     ),
-                ),
-            ),
-            ImplBlock(
-                TypeImplBlock(
-                    TypeImplBlockDecl,
                 ),
             ),
             AssociatedItem(
@@ -179,6 +114,11 @@ Ok(
                             ),
                         },
                     ),
+                ),
+            ),
+            ImplBlock(
+                TypeImplBlock(
+                    TypeImplBlockDecl,
                 ),
             ),
             AssociatedItem(
@@ -245,29 +185,6 @@ Ok(
                 TypeItem(
                     Method(
                         TypeMethodDefn {
-                            path: None,
-                        },
-                    ),
-                ),
-            ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
-                        TypeMethodDefn {
-                            path: None,
-                        },
-                    ),
-                ),
-            ),
-            ImplBlock(
-                TypeImplBlock(
-                    TypeImplBlockDecl,
-                ),
-            ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
-                        TypeMethodDefn {
                             path: Some(
                                 TypeItemPath(
                                     Id {
@@ -328,6 +245,29 @@ Ok(
                 TypeItem(
                     Method(
                         TypeMethodDefn {
+                            path: None,
+                        },
+                    ),
+                ),
+            ),
+            AssociatedItem(
+                TypeItem(
+                    Method(
+                        TypeMethodDefn {
+                            path: None,
+                        },
+                    ),
+                ),
+            ),
+            ImplBlock(
+                TypeImplBlock(
+                    TypeImplBlockDecl,
+                ),
+            ),
+            AssociatedItem(
+                TypeItem(
+                    Method(
+                        TypeMethodDefn {
                             path: Some(
                                 TypeItemPath(
                                     Id {
@@ -352,11 +292,6 @@ Ok(
                             ),
                         },
                     ),
-                ),
-            ),
-            ImplBlock(
-                TypeImplBlock(
-                    TypeImplBlockDecl,
                 ),
             ),
             AssociatedItem(
@@ -412,6 +347,71 @@ Ok(
                                 TypeItemPath(
                                     Id {
                                         value: 40,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+            ImplBlock(
+                TypeImplBlock(
+                    TypeImplBlockDecl,
+                ),
+            ),
+            AssociatedItem(
+                TypeItem(
+                    Method(
+                        TypeMethodDefn {
+                            path: Some(
+                                TypeItemPath(
+                                    Id {
+                                        value: 41,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+            AssociatedItem(
+                TypeItem(
+                    Method(
+                        TypeMethodDefn {
+                            path: Some(
+                                TypeItemPath(
+                                    Id {
+                                        value: 42,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+            AssociatedItem(
+                TypeItem(
+                    Method(
+                        TypeMethodDefn {
+                            path: Some(
+                                TypeItemPath(
+                                    Id {
+                                        value: 43,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+            AssociatedItem(
+                TypeItem(
+                    Method(
+                        TypeMethodDefn {
+                            path: Some(
+                                TypeItemPath(
+                                    Id {
+                                        value: 44,
                                     },
                                 ),
                             ),

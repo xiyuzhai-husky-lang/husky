@@ -28,6 +28,23 @@ impl<'a, Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for PreludeError {
     }
 }
 
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+pub(crate) fn crate_specific_prelude(
+    db: &dyn EntityTreeDb,
+    crate_path: CratePath,
+) -> PreludeResult<EntitySymbolTable> {
+    let package_path = crate_path.package_path(db);
+    let package_dependencies = db.package_dependencies(package_path)?;
+    let mut entries: EntitySymbolTable = Default::default();
+    entries.insert(EntitySymbolEntry::new_crate_root(db, crate_path));
+    entries.extend(
+        package_dependencies
+            .iter()
+            .map(|package_dependency| todo!()),
+    );
+    Ok(entries)
+}
+
 pub(crate) fn crate_symbol_context<'a>(
     db: &'a dyn EntityTreeDb,
     crate_path: CratePath,
@@ -75,26 +92,9 @@ fn crate_symbol_context_works() {
         t(entity_path_menu.bool().into());
         t(entity_path_menu.i32().into());
         t(entity_path_menu.i64().into());
-        // t(entity_path_menu.f32().into());
-        // t(entity_path_menu.f64().into());
+        t(entity_path_menu.f32().into());
+        t(entity_path_menu.f64().into());
     })
-}
-
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn crate_specific_prelude(
-    db: &dyn EntityTreeDb,
-    crate_path: CratePath,
-) -> PreludeResult<EntitySymbolTable> {
-    let package_path = crate_path.package_path(db);
-    let package_dependencies = db.package_dependencies(package_path)?;
-    let mut entries: EntitySymbolTable = Default::default();
-    entries.insert(EntitySymbolEntry::new_crate_root(db, crate_path));
-    entries.extend(
-        package_dependencies
-            .iter()
-            .map(|package_dependency| todo!()),
-    );
-    Ok(entries)
 }
 
 #[derive(Debug, Clone, Copy)]

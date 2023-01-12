@@ -34,7 +34,7 @@ Ok(
                                 path: Some(
                                     TypeItemPath(
                                         Id {
-                                            value: 15,
+                                            value: 19,
                                         },
                                     ),
                                 ),
@@ -51,7 +51,7 @@ Ok(
                                 path: Some(
                                     TypeItemPath(
                                         Id {
-                                            value: 16,
+                                            value: 20,
                                         },
                                     ),
                                 ),
@@ -68,7 +68,7 @@ Ok(
                                 path: Some(
                                     TypeItemPath(
                                         Id {
-                                            value: 17,
+                                            value: 21,
                                         },
                                     ),
                                 ),
