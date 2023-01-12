@@ -40,6 +40,7 @@ where
 pub type MajorPathExprResult<T> = Result<T, MajorPathExprError>;
 
 pub(crate) struct MajorPathExprParser<'a, 'b> {
+    db: &'b dyn EntityTreeDb,
     token_stream: TokenStream<'a>,
     major_path_expr_arena: &'b mut MajorPathExprArena,
     module_symbol_context: ModuleSymbolContext<'a>,
@@ -47,11 +48,13 @@ pub(crate) struct MajorPathExprParser<'a, 'b> {
 
 impl<'a, 'b> MajorPathExprParser<'a, 'b> {
     pub(crate) fn new(
+        db: &'b dyn EntityTreeDb,
         token_stream: TokenStream<'a>,
         major_path_expr_arena: &'b mut MajorPathExprArena,
         module_symbol_context: ModuleSymbolContext<'a>,
     ) -> Self {
         Self {
+            db,
             token_stream,
             major_path_expr_arena,
             module_symbol_context,
@@ -69,14 +72,16 @@ impl<'a, 'b> MajorPathExprParser<'a, 'b> {
             .resolve_ident(ident_token.token_idx(),ident_token.ident()) else {
                 return Err(MajorPathExprError::UnrecognizedIdentifier(ident_token))
             };
-        let module_item = match entity_symbol {
-            EntitySymbol::ModuleItem(module_item) => module_item,
-            _ => todo!(),
+        let module_item_symbol = match entity_symbol {
+            EntitySymbol::CrateRoot(_) => todo!(),
+            EntitySymbol::Submodule(_) => todo!(),
+            EntitySymbol::ModuleItem(module_item_symbol) => module_item_symbol,
+            EntitySymbol::Use(_) => todo!(),
         };
         let (expr, path) = if let Some(_) = self.try_parse::<ScopeResolutionToken>() {
             todo!()
         } else {
-            let path = module_item.path();
+            let path = module_item_symbol.path(self.db);
             (
                 MajorPathExpr::Root {
                     ident_token,

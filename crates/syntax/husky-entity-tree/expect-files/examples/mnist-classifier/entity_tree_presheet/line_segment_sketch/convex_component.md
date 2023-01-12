@@ -15,11 +15,14 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 4,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::line_segment_sketch::convex_component`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::line_segment_sketch::convex_component`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        1..2,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 2,
                     parent: None,
                     state: Unresolved,
                 },

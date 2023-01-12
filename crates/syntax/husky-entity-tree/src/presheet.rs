@@ -1,17 +1,21 @@
 mod action;
-mod use_all_tracker;
-mod use_expr_tracker;
+mod entry;
+mod use_all_rule;
+mod use_expr_rule;
+
+pub use entry::*;
 
 use std::marker::PhantomData;
 
 pub(crate) use action::*;
 use husky_print_utils::p;
 use husky_token::TokenSheetData;
+use husky_word::IdentMap;
 
-use crate::{ModuleItem, *};
+use crate::*;
 use husky_text::TextRange;
-use use_all_tracker::*;
-use use_expr_tracker::*;
+use use_all_rule::*;
+use use_expr_rule::*;
 use vec_like::{AsVecMapEntry, InsertEntryRepeatError};
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
@@ -19,7 +23,7 @@ pub(crate) fn entree_presheet(
     db: &dyn EntityTreeDb,
     module_path: ModulePath,
 ) -> VfsResult<EntreePresheet> {
-    Ok(EntitreePresheetBuilder::new(db, module_path)?.build())
+    Ok(EntreePresheetBuilder::new(db, module_path)?.build())
 }
 
 #[test]
@@ -32,23 +36,28 @@ fn entree_presheet_works() {
 #[derive(Debug, PartialEq, Eq)]
 pub(crate) struct EntreePresheet {
     module_path: ModulePath,
-    module_specific_symbols: VecMap<EntitySymbol>,
-    use_one_trackers: UseTreeTrackers,
-    use_all_trackers: UseAllTrackers,
+    native_symbol_entries: IdentMap<NativeEntitySymbolEntry>,
+    use_one_trackers: UseTreeRules,
+    use_all_trackers: UseAllRules,
+    use_tree_expr_arena: UseExprArena,
+    mod_path_arena: ModPathExprArena,
     errors: Vec<EntityTreeError>,
 }
 
 impl EntreePresheet {
-    pub(crate) fn presheet_mut<'a>(&self, db: &'a dyn EntityTreeDb) -> EntreePresheetMut<'a> {
+    pub(crate) fn presheet_mut<'a>(&'a self, db: &'a dyn EntityTreeDb) -> EntreePresheetMut<'a> {
         EntreePresheetMut {
             module_path: self.module_path,
-            module_specific_symbols: self.module_specific_symbols.clone(),
-            use_expr_trackers: self.use_one_trackers.clone(),
-            use_all_trackers: self.use_all_trackers.clone(),
+            symbols: self
+                .native_symbol_entries
+                .iter()
+                .map(|entry| entry.into())
+                .collect(),
+            use_expr_rules: self.use_one_trackers.clone(),
+            use_all_rules: self.use_all_trackers.clone(),
             errors: self.errors.clone(),
-            use_tree_expr_arena: Default::default(),
-            mod_path_arena: Default::default(),
-            phantom: PhantomData,
+            use_tree_expr_arena: &self.use_tree_expr_arena,
+            mod_path_arena: &self.mod_path_arena,
         }
     }
 }
@@ -56,14 +65,12 @@ impl EntreePresheet {
 #[derive(Debug, PartialEq, Eq)]
 pub(crate) struct EntreePresheetMut<'a> {
     module_path: ModulePath,
-    module_specific_symbols: VecMap<EntitySymbol>,
-    use_expr_trackers: UseTreeTrackers,
-    use_all_trackers: UseAllTrackers,
+    symbols: IdentMap<EntitySymbolEntry>,
+    use_expr_rules: UseTreeRules,
+    use_all_rules: UseAllRules,
     errors: Vec<EntityTreeError>,
-    use_tree_expr_arena: UseTreeExprArena,
-    mod_path_arena: ModPathExprArena,
-    // placeholder; to be removed later
-    phantom: PhantomData<&'a ()>,
+    use_tree_expr_arena: &'a UseExprArena,
+    mod_path_arena: &'a ModPathExprArena,
 }
 
 impl<'a> EntreePresheetMut<'a> {
@@ -71,17 +78,17 @@ impl<'a> EntreePresheetMut<'a> {
         self.module_path
     }
 
-    pub(crate) fn module_specific_symbols(&self) -> &VecMap<EntitySymbol> {
-        &self.module_specific_symbols
+    pub(crate) fn module_specific_symbols(&self) -> &IdentMap<EntitySymbolEntry> {
+        &self.symbols
     }
 
     pub(crate) fn into_sheet(self, impl_blocks: Vec<ImplBlock>) -> EntityTreeModuleSheet {
-        EntityTreeModuleSheet::new(self.module_path, self.module_specific_symbols, impl_blocks)
+        EntityTreeModuleSheet::new(self.module_path, self.symbols, impl_blocks)
     }
 
     #[cfg(test)]
     pub(crate) fn check_done(&self, db: &dyn EntityTreeDb) {
-        self.use_expr_trackers.check_done(db)
+        self.use_expr_rules.check_done(db)
     }
 }
 
@@ -96,19 +103,19 @@ impl<'a> AsVecMapEntry for EntreePresheetMut<'a> {
     }
 }
 
-struct EntitreePresheetBuilder<'a> {
+struct EntreePresheetBuilder<'a> {
     db: &'a dyn EntityTreeDb,
     ast_sheet: &'a AstSheet,
     module_path: ModulePath,
-    major_symbols: VecMap<EntitySymbol>,
+    native_symbol_entries: VecMap<NativeEntitySymbolEntry>,
     mod_path_expr_arena: ModPathExprArena,
-    use_tree_expr_arena: UseTreeExprArena,
-    entity_use_trackers: UseTreeTrackers,
+    use_tree_expr_arena: UseExprArena,
+    entity_use_trackers: UseTreeRules,
     token_sheet_data: &'a TokenSheetData,
     errors: Vec<EntityTreeError>,
 }
 
-impl<'a> EntitreePresheetBuilder<'a> {
+impl<'a> EntreePresheetBuilder<'a> {
     fn new(db: &'a dyn EntityTreeDb, module_path: ModulePath) -> VfsResult<Self> {
         Ok(Self {
             db,
@@ -116,7 +123,7 @@ impl<'a> EntitreePresheetBuilder<'a> {
             module_path,
             mod_path_expr_arena: Default::default(),
             use_tree_expr_arena: Default::default(),
-            major_symbols: Default::default(),
+            native_symbol_entries: Default::default(),
             entity_use_trackers: Default::default(),
             token_sheet_data: db.token_sheet_data(module_path).unwrap(),
             errors: vec![],
@@ -129,10 +136,12 @@ impl<'a> EntitreePresheetBuilder<'a> {
         }
         EntreePresheet {
             module_path: self.module_path,
-            module_specific_symbols: self.major_symbols,
+            native_symbol_entries: self.native_symbol_entries,
             use_one_trackers: self.entity_use_trackers,
             use_all_trackers: Default::default(),
             errors: self.errors,
+            use_tree_expr_arena: self.use_tree_expr_arena,
+            mod_path_arena: self.mod_path_expr_arena,
         }
     }
 
@@ -150,14 +159,14 @@ impl<'a> EntitreePresheetBuilder<'a> {
                     Ok(accessibility_expr) => accessibility_expr,
                     Err(_) => todo!(),
                 };
-                let Ok(use_tree_expr_idx) =
+                let Ok(use_tree_expr_root) =
                     parse_use_tree_expr_root(&mut token_stream, &mut self.use_tree_expr_arena) else {
                         todo!()
                     };
-                self.entity_use_trackers.push(UseTreeTracker::new_root(
+                self.entity_use_trackers.push(UseTreeRule::new_root(
                     ast_idx,
                     accessibility_expr,
-                    use_tree_expr_idx,
+                    &self.use_tree_expr_arena[use_tree_expr_root.use_tree_expr_idx()],
                     self.module_path,
                 ))
             }
@@ -172,27 +181,34 @@ impl<'a> EntitreePresheetBuilder<'a> {
                 saved_stream_state,
                 ident_token,
             } => {
+                let accessibility = *accessibility;
                 let ident = ident_token.ident();
                 if let Some(entity_path) = entity_path {
-                    let new_node = match entity_path {
-                        EntityPath::Module(module_path) => EntitySymbol::Submodule {
-                            ident,
-                            accessibility: *accessibility,
-                            module_path: *module_path,
-                            ast_idx,
+                    let new_entry = NativeEntitySymbolEntry::new(
+                        ident,
+                        accessibility,
+                        match entity_path {
+                            EntityPath::Module(module_path) => {
+                                SubmoduleSymbol::new(self.db, *module_path, accessibility, ast_idx)
+                                    .into()
+                            }
+                            EntityPath::ModuleItem(module_item_path) => ModuleItemSymbol::new(
+                                self.db,
+                                *module_item_path,
+                                accessibility,
+                                ast_idx,
+                            )
+                            .into(),
+                            EntityPath::AssociatedItem(_) | EntityPath::Variant(_) => return,
                         },
-                        EntityPath::ModuleItem(module_item_path) => EntitySymbol::ModuleItem(
-                            ModuleItem::new(ident, *accessibility, *module_item_path, ast_idx),
-                        ),
-                        EntityPath::AssociatedItem(_) | EntityPath::Variant(_) => return,
-                    };
-                    match self.major_symbols.insert_new(new_node) {
+                    );
+                    match self.native_symbol_entries.insert_new(new_entry) {
                         Ok(_) => (),
                         Err(e) => {
-                            let old_node = &self.major_symbols.data()[e.old];
+                            let old_native_symbol_entry = &self.native_symbol_entries.data()[e.old];
                             self.errors
                                 .push(EntityTreeError::EntitySymbolAlreadyDefined {
-                                    old: old_node.ast_idx().unwrap(),
+                                    old: old_native_symbol_entry.symbol().ast_idx(self.db),
                                     new: ast_idx,
                                 })
                         }
@@ -229,7 +245,7 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntreePresheet {
             )
             .field(
                 "module_specific_symbols",
-                &(&self.module_specific_symbols).debug_with(db, include_all_fields),
+                &(&self.native_symbol_entries).debug_with(db, include_all_fields),
             )
             .field(
                 "entity_use_roots",

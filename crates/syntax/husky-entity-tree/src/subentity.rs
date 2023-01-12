@@ -1,4 +1,5 @@
 use husky_entity_taxonomy::AssociatedItemKind;
+use vec_like::VecMapGetEntry;
 
 use crate::*;
 
@@ -19,8 +20,8 @@ pub(crate) fn subentity_path(
     match parent {
         EntityPath::Module(module_path) => {
             match db
-                .entity_tree_sheet(module_path)?
-                .module_specific_symbols()
+                .entree_module_sheet(module_path)?
+                .module_symbols()
                 .get_entry(ident)
             {
                 Some(_) => todo!(),

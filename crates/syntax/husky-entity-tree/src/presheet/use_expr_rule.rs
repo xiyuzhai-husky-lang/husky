@@ -1,11 +1,12 @@
+use husky_token::IdentifierToken;
 use husky_word::Identifier;
 
 use crate::*;
 
 #[derive(Debug, Default, PartialEq, Eq, Clone)]
-pub(crate) struct UseTreeTrackers(Vec<UseTreeTracker>);
+pub(crate) struct UseTreeRules(Vec<UseTreeRule>);
 
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseTreeTrackers {
+impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseTreeRules {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -19,34 +20,33 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseTreeTrackers {
     }
 }
 
-impl std::ops::Index<UseTreeTrackerIdx> for UseTreeTrackers {
-    type Output = UseTreeTracker;
+impl std::ops::Index<UseTreeRuleIdx> for UseTreeRules {
+    type Output = UseTreeRule;
 
-    fn index(&self, index: UseTreeTrackerIdx) -> &Self::Output {
+    fn index(&self, index: UseTreeRuleIdx) -> &Self::Output {
         &self.0[index.0]
     }
 }
 
-impl std::ops::IndexMut<UseTreeTrackerIdx> for UseTreeTrackers {
-    fn index_mut(&mut self, index: UseTreeTrackerIdx) -> &mut Self::Output {
+impl std::ops::IndexMut<UseTreeRuleIdx> for UseTreeRules {
+    fn index_mut(&mut self, index: UseTreeRuleIdx) -> &mut Self::Output {
         &mut self.0[index.0]
     }
 }
 
-pub(crate) struct UseTreeTrackerIdx(usize);
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub(crate) struct UseTreeRuleIdx(usize);
 
-impl UseTreeTrackers {
-    pub(crate) fn push(&mut self, tracker: UseTreeTracker) {
-        self.0.push(tracker)
+impl UseTreeRules {
+    pub(crate) fn push(&mut self, new_rule: UseTreeRule) {
+        self.0.push(new_rule)
     }
 
-    pub(crate) fn indexed_iter(
-        &self,
-    ) -> impl Iterator<Item = (UseTreeTrackerIdx, &UseTreeTracker)> {
+    pub(crate) fn indexed_iter(&self) -> impl Iterator<Item = (UseTreeRuleIdx, &UseTreeRule)> {
         self.0
             .iter()
             .enumerate()
-            .map(|(i, tracker)| (UseTreeTrackerIdx(i), tracker))
+            .map(|(i, tracker)| (UseTreeRuleIdx(i), tracker))
     }
 
     #[cfg(test)]
@@ -66,15 +66,17 @@ impl UseTreeTrackers {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub(crate) struct UseTreeTracker {
+pub(crate) struct UseTreeRule {
     ast_idx: AstIdx,
     accessibility: AccessibilityProgress,
-    use_tree_expr_root: UseTreeExprRoot,
+    ident_token: IdentifierToken,
+    children: UseExprIdxRange,
     parent: Option<EntityPath>,
     state: EntityUseState,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+// ad hoc
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum AccessibilityProgress {
     Done { accessibility: Accessibility },
     Todo,
@@ -87,7 +89,14 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for AccessibilityProgress
         db: &Db,
         include_all_fields: bool,
     ) -> std::fmt::Result {
-        todo!()
+        let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
+        match self {
+            AccessibilityProgress::Done { accessibility } => f
+                .debug_struct("Done")
+                .field("accessibility", &accessibility.debug(db))
+                .finish(),
+            AccessibilityProgress::Todo => f.debug_struct("Todo").finish(),
+        }
     }
 }
 
@@ -107,7 +116,7 @@ impl AccessibilityProgress {
     }
 }
 
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseTreeTracker {
+impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseTreeRule {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -118,7 +127,7 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseTreeTracker {
         f.debug_struct("UseTracker")
             .field("ast_idx", &self.ast_idx)
             .field("accessibility", &self.accessibility.debug(db))
-            .field("use_tree_expr_root", &self.use_tree_expr_root)
+            .field("use_tree_expr_children", &self.children)
             .field("parent", &self.parent.debug(db))
             .field("state", &self.state)
             .finish()
@@ -132,50 +141,51 @@ pub enum EntityUseState {
     Erroneous,
 }
 
-impl UseTreeTracker {
+impl UseTreeRule {
     pub fn new_root(
         ast_idx: AstIdx,
         accessibility_expr: Option<AccessibilityExpr>,
-        use_tree_expr_root: UseTreeExprRoot,
+        use_tree_expr: &UseExpr,
         module_path: ModulePath,
     ) -> Self {
-        Self {
-            ast_idx,
-            accessibility: AccessibilityProgress::new(accessibility_expr, module_path),
-            use_tree_expr_root,
-            parent: None,
-            state: EntityUseState::Unresolved,
+        match use_tree_expr {
+            UseExpr::All { star_token } => todo!(),
+            UseExpr::One { ident_token } => todo!(),
+            UseExpr::Parent {
+                ident_token,
+                scope_resolution_token,
+                children,
+            } => Self {
+                ast_idx,
+                accessibility: AccessibilityProgress::new(accessibility_expr, module_path),
+                parent: None,
+                state: EntityUseState::Unresolved,
+                ident_token: *ident_token,
+                children: children.idx_range(),
+            },
+            UseExpr::Err(_) => todo!(),
         }
     }
     pub fn new_child(
-        ast_idx: AstIdx,
-        accessibility: Accessibility,
-        ident: Identifier,
-        use_expr_idx: UseTreeExprIdx,
+        &self,
+        ident_token: IdentifierToken,
+        use_tree_expr_idx: UseExprIdx,
         parent: EntityPath,
+        children: UseExprIdxRange,
     ) -> Self {
-        todo!()
-        // Self {
-        //     ast_idx,
-        //     accessibility,
-        //     use_tree_expr_idx: use_expr_idx,
-        //     ident,
-        //     parent: Some(parent),
-        //     state: EntityUseState::Unresolved,
-        // }
+        Self {
+            ast_idx: self.ast_idx,
+            accessibility: self.accessibility,
+            ident_token,
+            parent: Some(parent),
+            state: EntityUseState::Unresolved,
+            children,
+        }
     }
 
     pub fn ast_idx(&self) -> AstIdx {
         self.ast_idx
     }
-
-    // pub fn accessibility(&self) -> Accessibility {
-    //     self.accessibility
-    // }
-
-    // pub fn use_tree_expr_idx(&self) -> UseTreeExprIdx {
-    //     self.use_tree_expr_idx
-    // }
 
     pub fn state(&self) -> EntityUseState {
         self.state
@@ -187,5 +197,24 @@ impl UseTreeTracker {
 
     pub(crate) fn is_unresolved(&self) -> bool {
         self.state == EntityUseState::Unresolved
+    }
+
+    pub(crate) fn parent(&self) -> Option<EntityPath> {
+        self.parent
+    }
+
+    pub(crate) fn ident_token(&self) -> IdentifierToken {
+        self.ident_token
+    }
+
+    pub(crate) fn accessibility(&self) -> Accessibility {
+        match self.accessibility {
+            AccessibilityProgress::Done { accessibility } => accessibility,
+            AccessibilityProgress::Todo => todo!(),
+        }
+    }
+
+    pub(crate) fn children(&self) -> UseExprIdxRange {
+        self.children
     }
 }

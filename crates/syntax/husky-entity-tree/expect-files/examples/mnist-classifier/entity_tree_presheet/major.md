@@ -63,41 +63,53 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 18,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::major`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::major`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        1..2,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 2,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 19,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::major`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::major`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        4..5,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 5,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 20,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::major`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::major`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        7..8,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 8,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 21,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::major`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::major`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        11..12,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 12,
                     parent: None,
                     state: Unresolved,
                 },

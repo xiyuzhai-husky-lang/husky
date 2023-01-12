@@ -154,7 +154,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         }
     }
 
-    pub(crate) fn db(&self) -> &'a dyn EntityTreeDb {
+    pub(crate) fn db(&self) -> &'a dyn ExprDb {
         self.parser.db
     }
 

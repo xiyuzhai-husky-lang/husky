@@ -2,22 +2,22 @@ use super::*;
 use with_db::{PartialOrdWithDb, WithDb};
 
 pub(crate) enum PresheetAction {
-    ResolveEntityUse {
+    ResolveUseExpr {
         module_path: ModulePath,
-        entity_use_tracker_idx: UseTreeTrackerIdx,
+        tracker_idx: UseTreeRuleIdx,
         symbol: EntitySymbol,
     },
-    EvaluateUseAll {
+    UpdateUseAll {
         module_path: ModulePath,
-        use_all_tracker_idx: UseAllTrackerIdx,
+        rule_idx: UseAllRuleIdx,
     },
 }
 
 impl PresheetAction {
     pub(crate) fn module_path(&self) -> ModulePath {
         match self {
-            PresheetAction::ResolveEntityUse { module_path, .. }
-            | PresheetAction::EvaluateUseAll { module_path, .. } => *module_path,
+            PresheetAction::ResolveUseExpr { module_path, .. }
+            | PresheetAction::UpdateUseAll { module_path, .. } => *module_path,
         }
     }
 }
@@ -28,65 +28,95 @@ impl<'a> EntreePresheetMut<'a> {
         ctx: EntreeSymbolContext,
         actions: &mut Vec<PresheetAction>,
     ) {
-        for (entity_use_tracker_idx, entity_use_tracker) in self.use_expr_trackers.indexed_iter() {
-            if entity_use_tracker.is_unresolved() {
-                todo!()
-                // let ident = entity_use_tracker.ident();
-                // if let Some(node) = ctx.resolve_ident(ident) {
-                //     actions.push(PresheetAction::ResolveEntityUse {
-                //         module_path: self.module_path,
-                //         entity_use_tracker_idx,
-                //         symbol: node.clone(),
-                //     })
-                // }
+        for (rule_idx, rule) in self.use_expr_rules.indexed_iter() {
+            if rule.is_unresolved() {
+                let ident_token = rule.ident_token();
+                let ident = ident_token.ident();
+                let symbol = match rule.parent() {
+                    Some(parent) => ctx.resolve_subentity(parent, ident),
+                    None => ctx.resolve_ident(ident),
+                };
+                let Some(symbol) = symbol else {
+                    todo!()
+                };
+                actions.push(PresheetAction::ResolveUseExpr {
+                    module_path: self.module_path,
+                    tracker_idx: rule_idx,
+                    symbol,
+                })
             }
         }
-        for (use_all_tracker_idx, use_all_tracker) in self.use_all_trackers.indexed_iter() {
-            todo!()
+        for (rule_idx, rule) in self.use_all_rules.indexed_iter() {
+            if rule.is_unresolved(&ctx) {
+                actions.push(PresheetAction::UpdateUseAll {
+                    module_path: self.module_path,
+                    rule_idx,
+                })
+            }
         }
     }
 
-    pub(crate) fn exec(&mut self, db: &dyn EntityTreeDb, action: PresheetAction) {
-        match action {
-            PresheetAction::ResolveEntityUse {
-                entity_use_tracker_idx,
-                symbol: node,
-                ..
-            } => self.resolve_use_expr(db, entity_use_tracker_idx, node),
-            PresheetAction::EvaluateUseAll {
-                module_path,
-                use_all_tracker_idx,
-            } => todo!(),
-        }
-    }
-
-    fn resolve_use_expr(
+    pub(crate) fn resolve_use_expr(
         &mut self,
         db: &dyn EntityTreeDb,
-        use_tree_tracker_idx: UseTreeTrackerIdx,
+        use_tree_rule_idx: UseTreeRuleIdx,
         symbol: EntitySymbol,
     ) {
-        let tracker = &mut self.use_expr_trackers[use_tree_tracker_idx];
+        let rule = &mut self.use_expr_rules[use_tree_rule_idx];
         #[cfg(test)]
-        assert!(tracker.is_unresolved());
-        tracker.mark_as_resolved();
+        assert!(rule.is_unresolved());
+        rule.mark_as_resolved();
         if !symbol.is_accessible_from(db, self.module_path) {
             todo!()
         }
-        todo!()
+        let path = symbol.path(db);
+        for use_tree_expr_idx in rule.children() {
+            let use_tree_expr = &self.use_tree_expr_arena[use_tree_expr_idx];
+            match use_tree_expr {
+                UseExpr::All { star_token } => match path {
+                    EntityPath::Module(path) => {
+                        let new_rule = UseAllRule::new(path);
+                        self.use_all_rules.push(new_rule)
+                    }
+                    EntityPath::ModuleItem(_) => todo!(),
+                    EntityPath::AssociatedItem(_) => todo!(),
+                    EntityPath::Variant(_) => todo!(),
+                },
+                UseExpr::One { ident_token } => todo!(),
+                UseExpr::Parent {
+                    ident_token,
+                    scope_resolution_token,
+                    children,
+                } => {
+                    let new_rule = self.use_expr_rules[use_tree_rule_idx].new_child(
+                        *ident_token,
+                        use_tree_expr_idx,
+                        path,
+                        children.idx_range(),
+                    );
+                    self.use_expr_rules.push(new_rule)
+                }
+                UseExpr::Err(_) => todo!(),
+            }
+        }
         // if !(tracker.accessibility().with_db(db) <= symbol.accessility().with_db(db)) {
+        //     p!(
+        //         tracker.accessibility().debug(db),
+        //         symbol.accessility().debug(db),
+        //         symbol.debug(db)
+        //     );
         //     todo!()
         // }
         // let use_tree_expr = &self.use_tree_expr_arena[tracker.use_tree_expr_idx()];
         // match use_tree_expr {
-        //     UseTreeExpr::All { start } => todo!(),
-        //     UseTreeExpr::One { ident } => todo!(),
-        //     UseTreeExpr::Parent {
+        //     UseExpr::All { start } => todo!(),
+        //     UseExpr::One { ident } => todo!(),
+        //     UseExpr::Parent {
         //         ident,
         //         scope_resolution_token,
         //         children,
         //     } => todo!(),
-        //     UseTreeExpr::Err(_) => todo!(),
+        //     UseExpr::Err(_) => todo!(),
         // }
         // match self
         //     .module_specific_symbols
@@ -104,5 +134,9 @@ impl<'a> EntreePresheetMut<'a> {
         //         }
         //     }
         // }
+    }
+
+    pub(crate) fn update_use_all(&mut self) {
+        todo!()
     }
 }

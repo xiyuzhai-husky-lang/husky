@@ -55,21 +55,27 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 118,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::connected_component`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::connected_component`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        2..3,
                     ),
-                    ident: `cv`,
-                    use_expr_idx: 3,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 119,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::connected_component`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::connected_component`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        5..6,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 6,
                     parent: None,
                     state: Unresolved,
                 },

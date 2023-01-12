@@ -63,71 +63,92 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 19,
-                    accessibility: PubicUnder(
-                        `mnist_classifier`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        0..1,
                     ),
-                    ident: `mnist`,
-                    use_expr_idx: 1,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 20,
-                    accessibility: PubicUnder(
-                        `mnist_classifier`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        2..3,
                     ),
-                    ident: `mnist`,
-                    use_expr_idx: 3,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 21,
-                    accessibility: PubicUnder(
-                        `mnist_classifier`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        4..5,
                     ),
-                    ident: `major`,
-                    use_expr_idx: 5,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 22,
-                    accessibility: PubicUnder(
-                        `mnist_classifier`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        6..7,
                     ),
-                    ident: `digits`,
-                    use_expr_idx: 7,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 23,
-                    accessibility: PubicUnder(
-                        `mnist_classifier`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        8..9,
                     ),
-                    ident: `raw_contour`,
-                    use_expr_idx: 9,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 24,
-                    accessibility: PubicUnder(
-                        `mnist_classifier`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        10..11,
                     ),
-                    ident: `line_segment_sketch`,
-                    use_expr_idx: 11,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 25,
-                    accessibility: PubicUnder(
-                        `mnist_classifier`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        15..16,
                     ),
-                    ident: `domains`,
-                    use_expr_idx: 16,
                     parent: None,
                     state: Unresolved,
                 },

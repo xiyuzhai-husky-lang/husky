@@ -25,7 +25,7 @@ pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + AstDb + EntityPathDb + Manife
         &self,
         crate_path: CratePath,
     ) -> EntityTreeCrateBundleResult<&EntityTreeCrateBundle>;
-    fn entity_tree_sheet(
+    fn entree_module_sheet(
         &self,
         module_path: ModulePath,
     ) -> EntityTreeResult<&EntityTreeModuleSheet>;
@@ -75,7 +75,7 @@ where
             .map_err(|e| e.clone())?)
     }
 
-    fn entity_tree_sheet(
+    fn entree_module_sheet(
         &self,
         module_path: ModulePath,
     ) -> EntityTreeResult<&EntityTreeModuleSheet> {

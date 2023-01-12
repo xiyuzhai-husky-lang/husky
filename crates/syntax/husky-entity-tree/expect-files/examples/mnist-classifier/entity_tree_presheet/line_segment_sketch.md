@@ -95,51 +95,66 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 163,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::line_segment_sketch`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::line_segment_sketch`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        1..2,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 2,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 164,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::line_segment_sketch`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::line_segment_sketch`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        4..5,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 5,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 165,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::line_segment_sketch`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::line_segment_sketch`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        6..7,
                     ),
-                    ident: `concave_component`,
-                    use_expr_idx: 7,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 166,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::line_segment_sketch`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::line_segment_sketch`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        8..9,
                     ),
-                    ident: `convex_component`,
-                    use_expr_idx: 9,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 167,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::line_segment_sketch`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::line_segment_sketch`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        10..11,
                     ),
-                    ident: `line_segment`,
-                    use_expr_idx: 11,
                     parent: None,
                     state: Unresolved,
                 },

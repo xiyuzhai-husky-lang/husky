@@ -7,13 +7,14 @@ use vec_like::{VecMap, VecPairMap};
 #[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
 pub struct Identifier(Word);
 
-impl DebugWithDb<<WordJar as salsa::jar::Jar<'_>>::DynDb> for Identifier {
+impl<Db: WordDb + ?Sized> DebugWithDb<Db> for Identifier {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn WordDb,
+        db: &Db,
         include_all_fields: bool,
     ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<WordJar>>::as_jar_db(db);
         if include_all_fields {
             f.debug_tuple("Identifier").field(&self.data(db)).finish()
         } else {

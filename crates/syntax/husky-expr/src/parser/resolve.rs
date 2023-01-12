@@ -117,7 +117,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     _ => match self.finished_expr().is_some() {
                         true => ResolvedToken::BinaryOpr(
                             token_idx,
-                            BinaryOpr::PureClosed(BinaryPureClosedOpr::BitOr),
+                            BinaryOpr::PureClosed(PureClosedBinaryOpr::BitOr),
                         ),
                         false => ResolvedToken::Bra(token_idx, Bracket::Vertical),
                     },
@@ -139,14 +139,17 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     }
                     Some(_) => ResolvedToken::BinaryOpr(
                         token_idx,
-                        BinaryOpr::PureClosed(BinaryPureClosedOpr::BitOr),
+                        BinaryOpr::PureClosed(PureClosedBinaryOpr::BitOr),
                     ),
                 },
                 Punctuation::DotDot => todo!(),
                 Punctuation::DoubleColon => {
                     ResolvedToken::BinaryOpr(token_idx, BinaryOpr::ScopeResolution)
                 }
-                Punctuation::Star => todo!(),
+                Punctuation::Star => ResolvedToken::BinaryOpr(
+                    token_idx,
+                    BinaryOpr::PureClosed(PureClosedBinaryOpr::Mul),
+                ),
             },
             Token::WordOpr(opr) => match opr {
                 WordOpr::And => ResolvedToken::BinaryOpr(
@@ -193,7 +196,11 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             }
         }
         ResolvedToken::Atom(
-            match self.parser.symbol_context.resolve_ident(token_idx, ident) {
+            match self
+                .parser
+                .symbol_context
+                .resolve_ident(self.db(), token_idx, ident)
+            {
                 Some(symbol) => match symbol {
                     // Symbol::Variable(variable_idx) => Expr::Variable {
                     //     token_idx,

@@ -23,41 +23,53 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 70,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::line_segment_sketch::concave_component`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::line_segment_sketch::concave_component`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        1..2,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 2,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 71,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::line_segment_sketch::concave_component`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::line_segment_sketch::concave_component`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        5..6,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 6,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 72,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::line_segment_sketch::concave_component`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::line_segment_sketch::concave_component`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        9..10,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 10,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 73,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::line_segment_sketch::concave_component`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::line_segment_sketch::concave_component`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        12..13,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 13,
                     parent: None,
                     state: Unresolved,
                 },

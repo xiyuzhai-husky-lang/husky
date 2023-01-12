@@ -84,6 +84,10 @@ impl EntityPath {
         }
     }
 
+    pub fn crate_path(self, db: &dyn EntityPathDb) -> CratePath {
+        self.module_path(db).crate_path(db)
+    }
+
     pub fn entity_kind(self, db: &dyn EntityPathDb) -> EntityKind {
         match self {
             EntityPath::Module(path) => todo!(),

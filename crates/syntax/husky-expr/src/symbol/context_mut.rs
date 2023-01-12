@@ -16,11 +16,16 @@ impl<'a> SymbolContextMut<'a> {
         }
     }
 
-    pub(crate) fn resolve_ident(&self, token_idx: TokenIdx, ident: Identifier) -> Option<Symbol> {
+    pub(crate) fn resolve_ident(
+        &self,
+        db: &dyn ExprDb,
+        token_idx: TokenIdx,
+        ident: Identifier,
+    ) -> Option<Symbol> {
         self.symbol_sheet.resolve_ident(token_idx, ident).or(self
             .module_symbol_context
             .resolve_ident(token_idx, ident)
-            .map(|e| Symbol::Entity(e.entity_path())))
+            .map(|e| Symbol::Entity(e.path(db))))
     }
 
     fn exprs(&self) -> &[Expr] {

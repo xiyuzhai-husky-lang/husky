@@ -1,263 +1,135 @@
+mod native;
+
+pub use native::*;
+
 use crate::*;
 use husky_token::{TokenAccessibility, TokenIdx};
 use vec_like::VecMapGetEntry;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub struct ModuleItem {
-    ident: Identifier,
-    accessibility: Accessibility,
-    path: ModuleItemPath,
-    ast_idx: AstIdx,
+#[salsa::tracked(jar = EntityTreeJar)]
+pub struct ModuleItemSymbol {
+    #[id]
+    pub path: ModuleItemPath,
+    pub accessibility: Accessibility,
+    pub ast_idx: AstIdx,
 }
 
-impl ModuleItem {
-    pub(crate) fn new(
-        ident: Identifier,
-        accessibility: Accessibility,
-        path: ModuleItemPath,
-        ast_idx: AstIdx,
-    ) -> Self {
-        Self {
-            ident,
-            accessibility,
-            path,
-            ast_idx,
-        }
-    }
+#[salsa::tracked(jar = EntityTreeJar)]
+pub struct SubmoduleSymbol {
+    #[id]
+    pub path: ModulePath,
+    pub accessibility: Accessibility,
+    pub ast_idx: AstIdx,
+}
 
-    pub fn ident(&self) -> Identifier {
-        self.ident
-    }
+#[salsa::tracked(jar = EntityTreeJar)]
+pub struct UseSymbol {
+    #[id]
+    pub path: EntityPath,
+    pub ident: Identifier,
+    pub accessibility: Accessibility,
+    pub ast_idx: AstIdx,
+    pub use_expr_idx: UseExprIdx,
+}
 
-    pub fn accessibility(&self) -> Accessibility {
-        self.accessibility
-    }
-
-    pub fn path(&self) -> ModuleItemPath {
-        self.path
-    }
-
-    pub fn ast_idx(&self) -> ArenaIdx<Ast> {
-        self.ast_idx
+impl ModuleItemSymbol {
+    pub fn ident(&self, db: &dyn EntityTreeDb) -> Identifier {
+        self.path(db).ident(db)
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum EntitySymbol {
-    CrateRoot {
-        ident: Identifier,
-        module_path: ModulePath,
-    },
-    Submodule {
-        ident: Identifier,
-        accessibility: Accessibility,
-        module_path: ModulePath,
-        ast_idx: AstIdx,
-    },
-    ModuleItem(ModuleItem),
-    EntityUse {
-        ident: Identifier,
-        accessibility: Accessibility,
-        path: EntityPath,
-        ast_idx: AstIdx,
-        use_expr_idx: UseTreeExprIdx,
-    },
+    CrateRoot(ModulePath),
+    Submodule(SubmoduleSymbol),
+    ModuleItem(ModuleItemSymbol),
+    Use(UseSymbol),
+}
+
+impl From<UseSymbol> for EntitySymbol {
+    fn from(v: UseSymbol) -> Self {
+        Self::Use(v)
+    }
 }
 
 impl EntitySymbol {
-    pub(crate) fn ident(&self) -> Identifier {
+    fn accessibility(&self, db: &dyn EntityTreeDb) -> Accessibility {
         match self {
-            EntitySymbol::CrateRoot { ident, .. }
-            | EntitySymbol::Submodule { ident, .. }
-            | EntitySymbol::EntityUse { ident, .. } => *ident,
-            EntitySymbol::ModuleItem(module_item) => module_item.ident,
-        }
-    }
-    pub(crate) fn accessility(&self) -> Accessibility {
-        match self {
-            EntitySymbol::CrateRoot { module_path, .. } => Accessibility::PublicUnder(*module_path),
-            EntitySymbol::Submodule { accessibility, .. }
-            | EntitySymbol::ModuleItem(ModuleItem { accessibility, .. })
-            | EntitySymbol::EntityUse { accessibility, .. } => *accessibility,
+            EntitySymbol::CrateRoot(root) => Accessibility::PublicUnder(*root),
+            EntitySymbol::Submodule(symbol) => symbol.accessibility(db),
+            EntitySymbol::ModuleItem(symbol) => symbol.accessibility(db),
+            EntitySymbol::Use(symbol) => symbol.accessibility(db),
         }
     }
 
-    pub(crate) fn ast_idx(&self) -> Option<AstIdx> {
+    pub(crate) fn is_accessible_from(self, db: &dyn EntityTreeDb, module_path: ModulePath) -> bool {
+        self.accessibility(db).is_accessible_from(db, module_path)
+    }
+
+    pub fn path(self, db: &dyn EntityTreeDb) -> EntityPath {
         match self {
-            EntitySymbol::CrateRoot { .. } => None,
-            EntitySymbol::Submodule { ast_idx, .. }
-            | EntitySymbol::ModuleItem(ModuleItem { ast_idx, .. })
-            | EntitySymbol::EntityUse { ast_idx, .. } => Some(*ast_idx),
+            EntitySymbol::CrateRoot(root) => root.into(),
+            EntitySymbol::Submodule(symbol) => symbol.path(db).into(),
+            EntitySymbol::ModuleItem(symbol) => symbol.path(db).into(),
+            EntitySymbol::Use(symbol) => symbol.path(db).into(),
         }
     }
 
-    pub(crate) fn is_accessible_from(&self, db: &dyn VfsDb, module_path: ModulePath) -> bool {
-        self.accessility().is_accessible_from(db, module_path)
-    }
-
-    pub fn entity_path(&self) -> EntityPath {
+    pub fn module_item_symbol(self) -> Option<ModuleItemSymbol> {
         match self {
-            EntitySymbol::CrateRoot { module_path, .. }
-            | EntitySymbol::Submodule { module_path, .. } => (*module_path).into(),
-            EntitySymbol::ModuleItem(ModuleItem { path, .. }) => (*path).into(),
-            EntitySymbol::EntityUse { path, .. } => *path,
-        }
-    }
-
-    pub fn module_item(&self) -> Option<&ModuleItem> {
-        match self {
-            EntitySymbol::ModuleItem(module_item) => Some(module_item),
+            EntitySymbol::ModuleItem(symbol) => Some(symbol),
             _ => None,
         }
     }
+
+    // pub(crate) fn new_crate_root(db: &dyn EntityTreeDb, crate_path: CratePath) -> Self {
+    //     Self {
+    //         path: todo!(),
+    //         accessibility: todo!(),
+    //     }
+    // }
 }
 
-impl AsVecMapEntry for EntitySymbol {
-    type K = Identifier;
-
-    fn key(&self) -> Self::K
-    where
-        Self::K: Copy,
-    {
-        match self {
-            EntitySymbol::CrateRoot { ident, .. }
-            | EntitySymbol::Submodule { ident, .. }
-            | EntitySymbol::ModuleItem(ModuleItem { ident, .. })
-            | EntitySymbol::EntityUse { ident, .. } => *ident,
-        }
-    }
-
-    fn key_ref(&self) -> &Self::K {
-        match self {
-            EntitySymbol::CrateRoot { ident, .. }
-            | EntitySymbol::Submodule { ident, .. }
-            | EntitySymbol::ModuleItem(ModuleItem { ident, .. })
-            | EntitySymbol::EntityUse { ident, .. } => ident,
-        }
-    }
-}
-
-impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntitySymbol {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EntityTreeDb,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        match self {
-            EntitySymbol::CrateRoot { ident, module_path } => f
-                .debug_struct("CrateRoot")
-                .field("ident", &ident.debug_with(db, include_all_fields))
-                .field(
-                    "module_path",
-                    &module_path.debug_with(db as &dyn VfsDb, include_all_fields),
-                )
-                .finish(),
-            EntitySymbol::Submodule {
-                ident,
-                accessibility,
-                ast_idx,
-                module_path,
-            } => f
-                .debug_struct("Module")
-                .field("ident", &ident.debug_with(db, include_all_fields))
-                .field(
-                    "accessibility",
-                    &accessibility.debug_with(db as &dyn VfsDb, include_all_fields),
-                )
-                .field("ast_idx", ast_idx)
-                .field(
-                    "module_path",
-                    &module_path.debug_with(db as &dyn VfsDb, include_all_fields),
-                )
-                .finish(),
-            EntitySymbol::ModuleItem(ModuleItem {
-                ident,
-                accessibility,
-                ast_idx,
-                path,
-            }) => f
-                .debug_struct("ModuleItem")
-                .field(
-                    "ident",
-                    &ident.debug_with(db as &dyn WordDb, include_all_fields),
-                )
-                .field(
-                    "accessibility",
-                    &accessibility.debug_with(db as &dyn VfsDb, include_all_fields),
-                )
-                .field("ast_idx", ast_idx)
-                .field(
-                    "path",
-                    &path.debug_with(db as &dyn EntityPathDb, include_all_fields),
-                )
-                .finish(),
-            EntitySymbol::EntityUse {
-                ident,
-                accessibility,
-                ast_idx,
-                use_expr_idx,
-                path,
-            } => f
-                .debug_struct("EntityUse")
-                .field(
-                    "ident",
-                    &ident.debug_with(db as &dyn WordDb, include_all_fields),
-                )
-                .field(
-                    "accessibility",
-                    &accessibility.debug_with(db as &dyn VfsDb, include_all_fields),
-                )
-                .field(
-                    "path",
-                    &path.debug_with(db as &dyn EntityPathDb, include_all_fields),
-                )
-                .finish(),
-        }
-    }
-}
-impl<Db: EntityTreeDb> salsa::DebugWithDb<Db> for EntitySymbol {
+impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntitySymbol {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
         include_all_fields: bool,
     ) -> std::fmt::Result {
-        self.fmt(f, db as &dyn EntityTreeDb, include_all_fields)
+        let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
+        todo!()
     }
 }
 
 #[derive(Debug, Clone, Copy)]
 pub struct ModuleSymbolContext<'a> {
     crate_prelude: CrateSymbolContext<'a>,
-    module_specific_symbols: &'a [EntitySymbol],
+    module_exports: &'a [EntitySymbolEntry],
 }
 
 impl<'a> ModuleSymbolContext<'a> {
     pub fn new(
         crate_prelude: CrateSymbolContext<'a>,
-        module_specific_symbols: &'a [EntitySymbol],
+        module_exports: &'a [EntitySymbolEntry],
     ) -> Self {
         Self {
             crate_prelude,
-            module_specific_symbols,
+            module_exports,
         }
     }
 
     pub fn new_default(db: &'a dyn EntityTreeDb, crate_path: CratePath) -> PreludeResult<Self> {
         Ok(Self {
             crate_prelude: crate_prelude(db, crate_path)?,
-            module_specific_symbols: &[],
+            module_exports: &[],
         })
     }
 
-    pub fn resolve_ident(
-        &self,
-        token_idx: TokenIdx,
-        ident: Identifier,
-    ) -> Option<&'a EntitySymbol> {
-        self.module_specific_symbols
+    pub fn resolve_ident(&self, token_idx: TokenIdx, ident: Identifier) -> Option<EntitySymbol> {
+        self.module_exports
             .get_entry(ident)
+            .map(|t| t.symbol())
             .or_else(|| self.crate_prelude.resolve_ident(ident))
     }
 }
@@ -266,9 +138,9 @@ pub(crate) fn module_symbol_context<'a>(
     db: &'a dyn EntityTreeDb,
     module_path: ModulePath,
 ) -> EntityTreeResult<ModuleSymbolContext<'a>> {
-    let entity_tree_sheet = db.entity_tree_sheet(module_path)?;
+    let entity_tree_sheet = db.entree_module_sheet(module_path)?;
     Ok(ModuleSymbolContext {
         crate_prelude: crate_prelude(db, module_path.crate_path(db))?,
-        module_specific_symbols: entity_tree_sheet.module_specific_symbols(),
+        module_exports: entity_tree_sheet.module_symbols(),
     })
 }

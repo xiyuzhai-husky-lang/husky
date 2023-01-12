@@ -23,11 +23,14 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 21,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::fermi`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::fermi`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        0..1,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 1,
                     parent: None,
                     state: Unresolved,
                 },

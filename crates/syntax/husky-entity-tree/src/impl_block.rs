@@ -107,6 +107,7 @@ impl ImplBlock {
         princiapl_entity_path_expr_arena: &mut MajorPathExprArena,
     ) -> Self {
         let mut parser = MajorPathExprParser::new(
+            db,
             token_stream,
             princiapl_entity_path_expr_arena,
             module_symbol_context,

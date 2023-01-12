@@ -95,41 +95,53 @@ Ok(
             [
                 UseTracker {
                     ast_idx: 199,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::raw_contour`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::raw_contour`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        1..2,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 2,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 200,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::raw_contour`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::raw_contour`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        4..5,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 5,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 201,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::raw_contour`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::raw_contour`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        7..8,
                     ),
-                    ident: `crate`,
-                    use_expr_idx: 8,
                     parent: None,
                     state: Unresolved,
                 },
                 UseTracker {
                     ast_idx: 202,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::raw_contour`,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::raw_contour`,
+                        ),
+                    },
+                    use_tree_expr_children: ArenaIdxRange(
+                        9..11,
                     ),
-                    ident: `mnist`,
-                    use_expr_idx: 12,
                     parent: None,
                     state: Unresolved,
                 },
