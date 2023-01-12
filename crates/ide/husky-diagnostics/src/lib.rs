@@ -3,22 +3,22 @@ mod db;
 mod kind;
 // mod reserve;
 mod severity;
+mod sheet;
 
 pub use db::DiagnosticsDb;
-
 pub use kind::DiagnosticKind;
 pub use severity::DiagnosticSeverity;
+pub use sheet::*;
 
 use collect::collect_module_diagnostics;
 use husky_dev_utils::DevSource;
-use husky_vfs::*;
-
 use husky_text::TextRange;
+use husky_vfs::*;
 use std::fmt::Write;
 use std::sync::Arc;
 
 #[salsa::jar(db = DiagnosticsDb)]
-pub struct DiagnosticsJar();
+pub struct DiagnosticsJar(DiagnosticSheet, diagnostic_sheet);
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Diagnostic {
@@ -59,7 +59,7 @@ pub struct Diagnostic {
 //     }
 // }
 
-impl Into<lsp_types::Diagnostic> for Diagnostic {
+impl Into<lsp_types::Diagnostic> for &Diagnostic {
     fn into(self) -> lsp_types::Diagnostic {
         lsp_types::Diagnostic {
             range: self.range.into(),
@@ -67,7 +67,7 @@ impl Into<lsp_types::Diagnostic> for Diagnostic {
             code: None,
             code_description: None,
             source: Some("husky-analyzer".to_string()),
-            message: self.message,
+            message: self.message.clone(),
             related_information: None,
             tags: None,
             data: None,

@@ -2,13 +2,19 @@ use std::time::Instant;
 
 use crossbeam_channel::Sender;
 
+use dashmap::{mapref::entry::Entry, DashMap};
+use husky_diagnostics::{DiagnosticSheet, DiagnosticsDb};
+use husky_vfs::{ModulePath, VfsDb};
 use lsp_types::notification::Notification;
+
+use crate::{convert::to_lsp_types::url_from_abs_path, db::AnalyzerDB};
 
 use super::Server;
 
 pub(crate) struct ClientCommunicator {
     pub(crate) sender: Sender<lsp_server::Message>,
     pub(crate) req_queue: ReqQueue,
+    diagnostic_sheets_sent: DashMap<ModulePath, DiagnosticSheet>,
 }
 
 pub(crate) type ReqHandler = fn(&mut Server, lsp_server::Response);
@@ -18,7 +24,8 @@ impl ClientCommunicator {
     pub(super) fn new(sender: Sender<lsp_server::Message>) -> ClientCommunicator {
         ClientCommunicator {
             sender,
-            req_queue: ReqQueue::default(),
+            req_queue: Default::default(),
+            diagnostic_sheets_sent: Default::default(),
         }
     }
     fn send(&self, message: lsp_server::Message) {
@@ -33,16 +40,46 @@ impl ClientCommunicator {
         self.send(notif.into());
     }
 
-    pub(crate) fn send_diagnostics(
+    pub(crate) fn send_diagnostics(&self, db: &AnalyzerDB, module_path: ModulePath) {
+        let diagnostic_sheet = db.diagnostic_sheet(module_path);
+        let send_flag = match self.diagnostic_sheets_sent.entry(module_path) {
+            Entry::Occupied(mut entry) => match *entry.get() == diagnostic_sheet {
+                true => false,
+                false => {
+                    entry.insert(diagnostic_sheet);
+                    true
+                }
+            },
+            Entry::Vacant(entry) => {
+                entry.insert(diagnostic_sheet);
+                true
+            }
+        };
+        if send_flag {
+            let Ok(module_diff_path) = db.module_diff_path(module_path) else { todo!() };
+            let url = url_from_abs_path(module_diff_path.data(db));
+            self.send_diagnostics_aux(
+                url,
+                diagnostic_sheet
+                    .diagnostics(db)
+                    .iter()
+                    .map(|diagnostic| diagnostic.into())
+                    .collect(),
+                None,
+            )
+        }
+    }
+
+    fn send_diagnostics_aux(
         &self,
-        uri: lsp_types::Url,
+        url: lsp_types::Url,
         diagnostics: Vec<lsp_types::Diagnostic>,
         version: Option<i32>,
     ) {
         let notif = lsp_server::Notification::new(
             lsp_types::notification::PublishDiagnostics::METHOD.to_string(),
             lsp_types::PublishDiagnosticsParams {
-                uri,
+                uri: url,
                 diagnostics,
                 version,
             },

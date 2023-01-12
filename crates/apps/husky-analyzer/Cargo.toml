@@ -11,6 +11,7 @@ path = "src/bin/server.rs"
 normal = ["winapi"]
 
 [dependencies]
+dashmap = "5.4.0"
 crossbeam-channel = "0.5.0"
 lsp-types = { version = "0.93", features = ["proposed"] }
 xflags = "0.2.1"
