@@ -6,10 +6,7 @@ use crate::major::*
 use crate::fermi::*
 use crate::line_segment_sketch::concave_component::*
 
-use crate::one::is_one
-use crate::six::is_six
-use crate::zero::is_zero
-use crate::three::is_three
+use crate::digits::*
 
 func simple_seven_match -> FermiMatchResult:
     fermi_match(major_concave_components,[simple_leftdown_pattern])

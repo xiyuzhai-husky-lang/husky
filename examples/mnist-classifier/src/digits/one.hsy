@@ -9,7 +9,7 @@ use crate::line_segment_sketch::concave_component::*
 func one_fermi_match -> FermiMatchResult:
     fermi_match(major_concave_components, [downmost, upmost, hat])
 
-def is_one -> ?MnistLabel:
+pub def is_one -> ?MnistLabel:
     narrow_down(
         MnistLabel::One,
         5,
