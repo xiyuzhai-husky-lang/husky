@@ -63,18 +63,18 @@ impl Vector2d:
         cross(other).sgnx()
 
     func angle_to(other: Vector2d, is_branch_cut_positive: bool) -> f32:
-        let this_norm = norm()
-        assert this_norm > 0.0
+        let self_norm = self.norm()
+        assert self_norm > 0.0
         let other_norm = other.norm()
         assert other_norm > 0.0
-        let cos_value = (dot(other) / (this_norm * other_norm)).min(1.)
+        let cos_value = (self.dot(other) / (self_norm * other_norm)).min(1.)
         if cos_value + 1.0 < 0.001:
             if is_branch_cut_positive:
                 180.0
             else:
                 -180.0
         else:
-            arc_angle = (rotation_direction_to(other) as f32) * cos_value.acos()
+            let arc_angle = (self.rotation_direction_to(other) as f32) * cos_value.acos()
             arc_angle * 180.0 / 3.1415926
 
 struct ClosedRange {
@@ -85,16 +85,16 @@ struct ClosedRange {
 impl CloseRange:
     func relative_range(other: ClosedRange) -> ClosedRange:
         assert max > min
-        span = max - min
-        rel_min = (other.min - min) / span
-        rel_max = (other.max - min) / span
+        let span = max - min
+        let rel_min = (other.min - min) / span
+        let rel_max = (other.max - min) / span
         ClosedRange(
             rel_min,
             rel_max,
         )
     
     func relative_point(v: f32) -> f32:
-        span = max - min
+        let span = max - min
         (v - min) / span
 
 pub struct BoundingBox {
@@ -116,16 +116,16 @@ impl BoundingBox:
         )
     
     func xmin() -> f32:
-        xrange.min
+        self.xrange.min
     
     func xmax() -> f32:
-        xrange.max
+        self.xrange.max
     
     func ymin() -> f32:
-        yrange.min
+        self.yrange.min
     
     func ymax() -> f32:
-        yrange.max
+        self.yrange.max
 
 struct RelativeBoundingBox {
     xrange: ClosedRange,
