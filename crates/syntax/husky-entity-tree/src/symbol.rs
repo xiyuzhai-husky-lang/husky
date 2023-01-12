@@ -135,7 +135,7 @@ impl<'a> ModuleSymbolContext<'a> {
 
     pub fn new_default(db: &'a dyn EntityTreeDb, crate_path: CratePath) -> PreludeResult<Self> {
         Ok(Self {
-            crate_prelude: crate_prelude(db, crate_path)?,
+            crate_prelude: crate_symbol_context(db, crate_path)?,
             module_symbols: Default::default(),
         })
     }
@@ -153,7 +153,7 @@ pub(crate) fn module_symbol_context<'a>(
 ) -> EntityTreeResult<ModuleSymbolContext<'a>> {
     let entity_tree_sheet = db.entree_module_sheet(module_path)?;
     Ok(ModuleSymbolContext {
-        crate_prelude: crate_prelude(db, module_path.crate_path(db))?,
+        crate_prelude: crate_symbol_context(db, module_path.crate_path(db))?,
         module_symbols: entity_tree_sheet.module_symbols().into(),
     })
 }

@@ -62,9 +62,9 @@ impl EntityPath {
     pub fn ident(self, db: &dyn EntityPathDb) -> VfsResult<Identifier> {
         match self {
             EntityPath::Module(path) => path.ident(db),
-            EntityPath::ModuleItem(_) => todo!(),
-            EntityPath::AssociatedItem(_) => todo!(),
-            EntityPath::Variant(_) => todo!(),
+            EntityPath::ModuleItem(path) => Ok(path.ident(db)),
+            EntityPath::AssociatedItem(path) => Ok(path.ident(db)),
+            EntityPath::Variant(path) => Ok(path.ident(db)),
         }
     }
 

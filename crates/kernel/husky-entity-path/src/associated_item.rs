@@ -15,12 +15,15 @@ pub enum AssociatedItemPath {
     TypeAsTraitItem(TypeAsTraitItemPath),
 }
 
-impl From<TypeAsTraitItemPath> for AssociatedItemPath {
-    fn from(v: TypeAsTraitItemPath) -> Self {
-        Self::TypeAsTraitItem(v)
-    }
-}
 impl AssociatedItemPath {
+    pub fn ident(self, db: &dyn EntityPathDb) -> Identifier {
+        match self {
+            AssociatedItemPath::TypeItem(_) => todo!(),
+            AssociatedItemPath::TraitItem(_) => todo!(),
+            AssociatedItemPath::TypeAsTraitItem(_) => todo!(),
+        }
+    }
+
     pub(crate) fn entity_kind(self, db: &dyn EntityPathDb) -> EntityKind {
         match self {
             AssociatedItemPath::TypeItem(path) => EntityKind::AssociatedItem {
@@ -29,6 +32,12 @@ impl AssociatedItemPath {
             AssociatedItemPath::TraitItem(_) => todo!(),
             AssociatedItemPath::TypeAsTraitItem(_) => todo!(),
         }
+    }
+}
+
+impl From<TypeAsTraitItemPath> for AssociatedItemPath {
+    fn from(v: TypeAsTraitItemPath) -> Self {
+        Self::TypeAsTraitItem(v)
     }
 }
 
