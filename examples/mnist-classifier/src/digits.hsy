@@ -9,7 +9,7 @@ mod seven
 mod eight
 mod nine
 
-use one::is_one
+pub use one::is_one
 use six::is_six
 use zero::is_zero
 use two::is_two
