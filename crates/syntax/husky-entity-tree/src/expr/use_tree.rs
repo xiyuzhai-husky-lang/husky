@@ -63,7 +63,7 @@ pub type UseExprIdxRange = ArenaIdxRange<UseExpr>;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct UseExprRoot {
     use_token: UseToken,
-    use_tree_expr_idx: UseExprIdx,
+    use_expr_idx: UseExprIdx,
 }
 
 impl UseExprRoot {
@@ -71,18 +71,18 @@ impl UseExprRoot {
         self.use_token
     }
 
-    pub fn use_tree_expr_idx(&self) -> ArenaIdx<UseExpr> {
-        self.use_tree_expr_idx
+    pub fn use_expr_idx(&self) -> ArenaIdx<UseExpr> {
+        self.use_expr_idx
     }
 }
 
-pub(crate) fn parse_use_tree_expr_root(
+pub(crate) fn parse_use_expr_root(
     token_stream: &mut TokenStream,
-    use_tree_expr_arena: &mut UseExprArena,
+    use_expr_arena: &mut UseExprArena,
 ) -> UseExprResult<UseExprRoot> {
     UseExprParser {
         token_stream,
-        use_tree_expr_arena,
+        use_expr_arena,
     }
     .parse_use_expr_root()
 }
@@ -123,7 +123,7 @@ pub type UseExprResult<T> = Result<T, UseExprError>;
 
 pub(crate) struct UseExprParser<'a, 'b> {
     token_stream: &'b mut TokenStream<'a>,
-    use_tree_expr_arena: &'b mut UseExprArena,
+    use_expr_arena: &'b mut UseExprArena,
 }
 
 impl<'a, 'b> UseExprParser<'a, 'b> {
@@ -133,7 +133,7 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
     ) -> Self {
         Self {
             token_stream,
-            use_tree_expr_arena: use_expr_arena,
+            use_expr_arena: use_expr_arena,
         }
     }
 }
@@ -174,11 +174,11 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
     pub(crate) fn parse_use_expr_root(&mut self) -> UseExprResult<UseExprRoot> {
         let use_token = self.parse_expected::<UseToken>()?;
         let ident_token = self.parse_expected::<IdentifierToken>()?;
-        let use_tree_expr = self.parse_use_expr_after_ident(ident_token)?;
-        let use_tree_expr_idx = self.use_tree_expr_arena.alloc_one(use_tree_expr);
+        let use_expr = self.parse_use_expr_after_ident(ident_token)?;
+        let use_expr_idx = self.use_expr_arena.alloc_one(use_expr);
         Ok(UseExprRoot {
             use_token,
-            use_tree_expr_idx,
+            use_expr_idx,
         })
     }
 
@@ -200,11 +200,11 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
     fn parse_children(&mut self) -> UseExprResult<UseExprChildren> {
         let Some(lcurl_token) = self.parse::<LeftCurlyBraceToken>()? else {
             let child = self.parse_expected().into();
-            let child = self.use_tree_expr_arena.alloc_one(child);
+            let child = self.use_expr_arena.alloc_one(child);
             return Ok(UseExprChildren::Single { child })
         };
         let (children, comma_tokens) = parsec::parse_separated_list(self)?;
-        let children = self.use_tree_expr_arena.alloc_batch(children);
+        let children = self.use_expr_arena.alloc_batch(children);
         Ok(UseExprChildren::Multiple {
             lcurl_token,
             children,

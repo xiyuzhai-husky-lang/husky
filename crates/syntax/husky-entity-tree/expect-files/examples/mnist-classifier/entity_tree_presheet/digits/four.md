@@ -1,64 +1,87 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::digits::four`,
-        module_specific_symbols: [
-            ModuleItem {
-                ident: `left_components`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::digits::four`,
-                ),
-                ast_idx: 44,
-                path: FormPath(`mnist_classifier::digits::four::left_components`, `Feature`),
-            },
-            ModuleItem {
-                ident: `left_coordinate_max`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::digits::four`,
-                ),
-                ast_idx: 45,
-                path: FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Function`),
-            },
-            ModuleItem {
-                ident: `components_max_downwards`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::digits::four`,
-                ),
-                ast_idx: 46,
-                path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Feature`),
-            },
-            ModuleItem {
-                ident: `components_max_heights`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::digits::four`,
-                ),
-                ast_idx: 47,
-                path: FormPath(`mnist_classifier::digits::four::components_max_heights`, `Feature`),
-            },
-            ModuleItem {
-                ident: `is_four`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::digits::four`,
-                ),
-                ast_idx: 48,
-                path: FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
-            },
-            ModuleItem {
-                ident: `displacement_downwards`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::digits::four`,
-                ),
-                ast_idx: 49,
-                path: FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Function`),
-            },
-            ModuleItem {
-                ident: `cc_box_heights`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::digits::four`,
-                ),
-                ast_idx: 50,
-                path: FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Function`),
-            },
-        ],
+        module_specific_symbols: NativeEntitySymbolTable(
+            [
+                NativeEntitySymbolEntry {
+                    ident: `left_components`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::digits::four::left_components`, `Feature`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `left_coordinate_max`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Function`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `components_max_downwards`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Feature`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `components_max_heights`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::digits::four::components_max_heights`, `Feature`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `is_four`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `displacement_downwards`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Function`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `cc_box_heights`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Function`),
+                        },
+                    ),
+                },
+            ],
+        ),
         entity_use_roots: EntityUseExprTrackers(
             [
                 UseTracker {
@@ -68,8 +91,10 @@ Ok(
                             `mnist_classifier::digits::four`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        4..5,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            4..5,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -81,8 +106,10 @@ Ok(
                             `mnist_classifier::digits::four`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        9..10,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            9..10,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -94,8 +121,10 @@ Ok(
                             `mnist_classifier::digits::four`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        14..15,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            14..15,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -107,8 +136,10 @@ Ok(
                             `mnist_classifier::digits::four`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        19..20,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            19..20,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -120,8 +151,10 @@ Ok(
                             `mnist_classifier::digits::four`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        22..23,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            22..23,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -133,8 +166,10 @@ Ok(
                             `mnist_classifier::digits::four`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        25..26,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            25..26,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -146,8 +181,10 @@ Ok(
                             `mnist_classifier::digits::four`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        29..30,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            29..30,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,

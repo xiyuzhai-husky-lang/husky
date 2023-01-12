@@ -1,56 +1,76 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::connected_component`,
-        module_specific_symbols: [
-            ModuleItem {
-                ident: `ConnectedComponentDistribution`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::connected_component`,
-                ),
-                ast_idx: 120,
-                path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-            },
-            ModuleItem {
-                ident: `EffHoles`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::connected_component`,
-                ),
-                ast_idx: 121,
-                path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-            },
-            ModuleItem {
-                ident: `hole_tmpl`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::connected_component`,
-                ),
-                ast_idx: 122,
-                path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
-            },
-            ModuleItem {
-                ident: `ConnectedComponent`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::connected_component`,
-                ),
-                ast_idx: 123,
-                path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-            },
-            ModuleItem {
-                ident: `horizontal_extend`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::connected_component`,
-                ),
-                ast_idx: 125,
-                path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
-            },
-            ModuleItem {
-                ident: `find_connected_components`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::connected_component`,
-                ),
-                ast_idx: 126,
-                path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
-            },
-        ],
+        module_specific_symbols: NativeEntitySymbolTable(
+            [
+                NativeEntitySymbolEntry {
+                    ident: `ConnectedComponentDistribution`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::connected_component`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `EffHoles`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::connected_component`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `hole_tmpl`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::connected_component`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `ConnectedComponent`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::connected_component`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `horizontal_extend`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::connected_component`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `find_connected_components`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::connected_component`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
+                        },
+                    ),
+                },
+            ],
+        ),
         entity_use_roots: EntityUseExprTrackers(
             [
                 UseTracker {
@@ -60,8 +80,10 @@ Ok(
                             `mnist_classifier::connected_component`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        2..3,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            2..3,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -73,8 +95,10 @@ Ok(
                             `mnist_classifier::connected_component`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        5..6,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            5..6,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,

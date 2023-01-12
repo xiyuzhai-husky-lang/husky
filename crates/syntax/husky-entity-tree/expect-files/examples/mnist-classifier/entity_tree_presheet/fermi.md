@@ -1,24 +1,32 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::fermi`,
-        module_specific_symbols: [
-            ModuleItem {
-                ident: `FermiMatchResult`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::fermi`,
-                ),
-                ast_idx: 22,
-                path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-            },
-            ModuleItem {
-                ident: `fermi_match`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::fermi`,
-                ),
-                ast_idx: 24,
-                path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
-            },
-        ],
+        module_specific_symbols: NativeEntitySymbolTable(
+            [
+                NativeEntitySymbolEntry {
+                    ident: `FermiMatchResult`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::fermi`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `fermi_match`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::fermi`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                        },
+                    ),
+                },
+            ],
+        ),
         entity_use_roots: EntityUseExprTrackers(
             [
                 UseTracker {
@@ -28,8 +36,10 @@ Ok(
                             `mnist_classifier::fermi`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        0..1,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            0..1,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,

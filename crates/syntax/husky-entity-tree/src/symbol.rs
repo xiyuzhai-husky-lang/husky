@@ -27,8 +27,8 @@ pub struct SubmoduleSymbol {
 #[salsa::tracked(jar = EntityTreeJar)]
 pub struct UseSymbol {
     #[id]
+    pub original_symbol: EntitySymbol,
     pub path: EntityPath,
-    pub ident: Identifier,
     pub accessibility: Accessibility,
     pub ast_idx: AstIdx,
     pub use_expr_idx: UseExprIdx,
@@ -40,7 +40,7 @@ impl ModuleItemSymbol {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum EntitySymbol {
     CrateRoot(ModulePath),
     Submodule(SubmoduleSymbol),

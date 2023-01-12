@@ -1,7 +1,9 @@
 Ok(
     EntityTreePresheet {
         module_path: `core::prelude`,
-        module_specific_symbols: [],
+        module_specific_symbols: NativeEntitySymbolTable(
+            [],
+        ),
         entity_use_roots: EntityUseExprTrackers(
             [
                 UseTracker {
@@ -9,8 +11,10 @@ Ok(
                     accessibility: Done {
                         accessibility: Public,
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        1..2,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            1..2,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -20,8 +24,10 @@ Ok(
                     accessibility: Done {
                         accessibility: Public,
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        4..5,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            4..5,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,

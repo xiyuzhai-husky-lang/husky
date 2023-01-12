@@ -1,48 +1,65 @@
 Ok(
     EntityTreePresheet {
         module_path: `core`,
-        module_specific_symbols: [
-            Module {
-                ident: `basic`,
-                accessibility: PubicUnder(
-                    `core`,
-                ),
-                ast_idx: 0,
-                module_path: `core::basic`,
-            },
-            Module {
-                ident: `logic`,
-                accessibility: PubicUnder(
-                    `core`,
-                ),
-                ast_idx: 1,
-                module_path: `core::logic`,
-            },
-            Module {
-                ident: `num`,
-                accessibility: PubicUnder(
-                    `core`,
-                ),
-                ast_idx: 2,
-                module_path: `core::num`,
-            },
-            Module {
-                ident: `ops`,
-                accessibility: PubicUnder(
-                    `core`,
-                ),
-                ast_idx: 3,
-                module_path: `core::ops`,
-            },
-            Module {
-                ident: `prelude`,
-                accessibility: PubicUnder(
-                    `core`,
-                ),
-                ast_idx: 4,
-                module_path: `core::prelude`,
-            },
-        ],
+        module_specific_symbols: NativeEntitySymbolTable(
+            [
+                NativeEntitySymbolEntry {
+                    ident: `basic`,
+                    accessibility: PubicUnder(
+                        `core`,
+                    ),
+                    symbol: Submodule(
+                        SubmoduleSymbol {
+                            path: `core::basic`,
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `logic`,
+                    accessibility: PubicUnder(
+                        `core`,
+                    ),
+                    symbol: Submodule(
+                        SubmoduleSymbol {
+                            path: `core::logic`,
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `num`,
+                    accessibility: PubicUnder(
+                        `core`,
+                    ),
+                    symbol: Submodule(
+                        SubmoduleSymbol {
+                            path: `core::num`,
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `ops`,
+                    accessibility: PubicUnder(
+                        `core`,
+                    ),
+                    symbol: Submodule(
+                        SubmoduleSymbol {
+                            path: `core::ops`,
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `prelude`,
+                    accessibility: PubicUnder(
+                        `core`,
+                    ),
+                    symbol: Submodule(
+                        SubmoduleSymbol {
+                            path: `core::prelude`,
+                        },
+                    ),
+                },
+            ],
+        ),
         entity_use_roots: EntityUseExprTrackers(
             [],
         ),

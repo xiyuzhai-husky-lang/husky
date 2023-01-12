@@ -1,16 +1,21 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-        module_specific_symbols: [
-            ModuleItem {
-                ident: `ConvexCompoent`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::line_segment_sketch::convex_component`,
-                ),
-                ast_idx: 5,
-                path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent`, `Struct`),
-            },
-        ],
+        module_specific_symbols: NativeEntitySymbolTable(
+            [
+                NativeEntitySymbolEntry {
+                    ident: `ConvexCompoent`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch::convex_component`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent`, `Struct`),
+                        },
+                    ),
+                },
+            ],
+        ),
         entity_use_roots: EntityUseExprTrackers(
             [
                 UseTracker {
@@ -20,8 +25,10 @@ Ok(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        1..2,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            1..2,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,

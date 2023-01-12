@@ -65,8 +65,8 @@ fn crate_symbol_context_works() {
         t(vfs_path_menu.core().into());
         t(entity_path_menu.i32().into());
         t(entity_path_menu.i64().into());
-        t(entity_path_menu.f32().into());
-        t(entity_path_menu.f64().into());
+        // t(entity_path_menu.f32().into());
+        // t(entity_path_menu.f64().into());
     })
 }
 

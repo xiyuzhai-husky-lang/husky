@@ -1,64 +1,87 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::major`,
-        module_specific_symbols: [
-            ModuleItem {
-                ident: `connected_components`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::major`,
-                ),
-                ast_idx: 22,
-                path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
-            },
-            ModuleItem {
-                ident: `major_connected_component`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::major`,
-                ),
-                ast_idx: 23,
-                path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
-            },
-            ModuleItem {
-                ident: `ignored_connected_components_row_span_sum_sum`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::major`,
-                ),
-                ast_idx: 24,
-                path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
-            },
-            ModuleItem {
-                ident: `major_raw_contours`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::major`,
-                ),
-                ast_idx: 25,
-                path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
-            },
-            ModuleItem {
-                ident: `major_raw_contour`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::major`,
-                ),
-                ast_idx: 26,
-                path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
-            },
-            ModuleItem {
-                ident: `major_line_segment_sketch`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::major`,
-                ),
-                ast_idx: 27,
-                path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
-            },
-            ModuleItem {
-                ident: `major_concave_components`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::major`,
-                ),
-                ast_idx: 28,
-                path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
-            },
-        ],
+        module_specific_symbols: NativeEntitySymbolTable(
+            [
+                NativeEntitySymbolEntry {
+                    ident: `connected_components`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::major`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `major_connected_component`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::major`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `ignored_connected_components_row_span_sum_sum`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::major`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `major_raw_contours`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::major`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `major_raw_contour`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::major`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `major_line_segment_sketch`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::major`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `major_concave_components`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::major`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                        },
+                    ),
+                },
+            ],
+        ),
         entity_use_roots: EntityUseExprTrackers(
             [
                 UseTracker {
@@ -68,8 +91,10 @@ Ok(
                             `mnist_classifier::major`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        1..2,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            1..2,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -81,8 +106,10 @@ Ok(
                             `mnist_classifier::major`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        4..5,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            4..5,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -94,8 +121,10 @@ Ok(
                             `mnist_classifier::major`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        7..8,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            7..8,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -107,8 +136,10 @@ Ok(
                             `mnist_classifier::major`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        11..12,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            11..12,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,

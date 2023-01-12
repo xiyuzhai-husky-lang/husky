@@ -1,48 +1,65 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::digits::six`,
-        module_specific_symbols: [
-            ModuleItem {
-                ident: `six_match`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::digits::six`,
-                ),
-                ast_idx: 57,
-                path: FormPath(`mnist_classifier::digits::six::six_match`, `Feature`),
-            },
-            ModuleItem {
-                ident: `six_match_refined1`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::digits::six`,
-                ),
-                ast_idx: 58,
-                path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Feature`),
-            },
-            ModuleItem {
-                ident: `is_six`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::digits::six`,
-                ),
-                ast_idx: 59,
-                path: FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
-            },
-            ModuleItem {
-                ident: `upmost`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::digits::six`,
-                ),
-                ast_idx: 60,
-                path: FormPath(`mnist_classifier::digits::six::upmost`, `Function`),
-            },
-            ModuleItem {
-                ident: `bottom1`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::digits::six`,
-                ),
-                ast_idx: 61,
-                path: FormPath(`mnist_classifier::digits::six::bottom1`, `Function`),
-            },
-        ],
+        module_specific_symbols: NativeEntitySymbolTable(
+            [
+                NativeEntitySymbolEntry {
+                    ident: `six_match`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::six`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::digits::six::six_match`, `Feature`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `six_match_refined1`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::six`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Feature`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `is_six`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::six`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `upmost`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::six`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::digits::six::upmost`, `Function`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `bottom1`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::six`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::digits::six::bottom1`, `Function`),
+                        },
+                    ),
+                },
+            ],
+        ),
         entity_use_roots: EntityUseExprTrackers(
             [
                 UseTracker {
@@ -52,8 +69,10 @@ Ok(
                             `mnist_classifier::digits::six`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        2..3,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            2..3,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -65,8 +84,10 @@ Ok(
                             `mnist_classifier::digits::six`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        7..8,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            7..8,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -78,8 +99,10 @@ Ok(
                             `mnist_classifier::digits::six`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        12..13,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            12..13,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -91,8 +114,10 @@ Ok(
                             `mnist_classifier::digits::six`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        17..18,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            17..18,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -104,8 +129,10 @@ Ok(
                             `mnist_classifier::digits::six`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        20..21,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            20..21,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -117,8 +144,10 @@ Ok(
                             `mnist_classifier::digits::six`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        23..24,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            23..24,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -130,8 +159,10 @@ Ok(
                             `mnist_classifier::digits::six`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        27..28,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            27..28,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -143,8 +174,10 @@ Ok(
                             `mnist_classifier::digits::six`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        30..31,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            30..31,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,

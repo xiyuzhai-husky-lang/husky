@@ -1,96 +1,131 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::line_segment_sketch`,
-        module_specific_symbols: [
-            Module {
-                ident: `concave_component`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::line_segment_sketch`,
-                ),
-                ast_idx: 159,
-                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-            },
-            Module {
-                ident: `convex_component`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::line_segment_sketch`,
-                ),
-                ast_idx: 160,
-                module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-            },
-            Module {
-                ident: `convexity`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::line_segment_sketch`,
-                ),
-                ast_idx: 161,
-                module_path: `mnist_classifier::line_segment_sketch::convexity`,
-            },
-            Module {
-                ident: `line_segment`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::line_segment_sketch`,
-                ),
-                ast_idx: 162,
-                module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-            },
-            ModuleItem {
-                ident: `LineSegmentStroke`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::line_segment_sketch`,
-                ),
-                ast_idx: 168,
-                path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-            },
-            ModuleItem {
-                ident: `LineSegmentSketch`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::line_segment_sketch`,
-                ),
-                ast_idx: 170,
-                path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-            },
-            ModuleItem {
-                ident: `go_right`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::line_segment_sketch`,
-                ),
-                ast_idx: 172,
-                path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
-            },
-            ModuleItem {
-                ident: `go_left`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::line_segment_sketch`,
-                ),
-                ast_idx: 173,
-                path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
-            },
-            ModuleItem {
-                ident: `extend_end`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::line_segment_sketch`,
-                ),
-                ast_idx: 174,
-                path: FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
-            },
-            ModuleItem {
-                ident: `extend_start`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::line_segment_sketch`,
-                ),
-                ast_idx: 175,
-                path: FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
-            },
-            ModuleItem {
-                ident: `find_line_segments`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::line_segment_sketch`,
-                ),
-                ast_idx: 176,
-                path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
-            },
-        ],
+        module_specific_symbols: NativeEntitySymbolTable(
+            [
+                NativeEntitySymbolEntry {
+                    ident: `concave_component`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
+                    symbol: Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::line_segment_sketch::concave_component`,
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `convex_component`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
+                    symbol: Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::line_segment_sketch::convex_component`,
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `convexity`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
+                    symbol: Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::line_segment_sketch::convexity`,
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `line_segment`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
+                    symbol: Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::line_segment_sketch::line_segment`,
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `LineSegmentStroke`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `LineSegmentSketch`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `go_right`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `go_left`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `extend_end`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `extend_start`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `find_line_segments`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
+                        },
+                    ),
+                },
+            ],
+        ),
         entity_use_roots: EntityUseExprTrackers(
             [
                 UseTracker {
@@ -100,8 +135,10 @@ Ok(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        1..2,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            1..2,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -113,8 +150,10 @@ Ok(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        4..5,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            4..5,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -126,8 +165,10 @@ Ok(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        6..7,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            6..7,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -139,8 +180,10 @@ Ok(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        8..9,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            8..9,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -152,8 +195,10 @@ Ok(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        10..11,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            10..11,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
