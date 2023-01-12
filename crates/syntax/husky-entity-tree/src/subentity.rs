@@ -22,7 +22,7 @@ pub(crate) fn subentity_path(
             match db
                 .entree_module_sheet(module_path)?
                 .module_symbols()
-                .get_entry(ident)
+                .resolve_ident(ident)
             {
                 Some(_) => todo!(),
                 None => todo!(),

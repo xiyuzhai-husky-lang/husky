@@ -4,7 +4,7 @@ use with_db::{PartialOrdWithDb, WithDb};
 pub(crate) enum PresheetAction {
     ResolveUseExpr {
         module_path: ModulePath,
-        tracker_idx: UseTreeRuleIdx,
+        rule_idx: UseTreeRuleIdx,
         symbol: EntitySymbol,
     },
     UpdateUseAll {
@@ -41,7 +41,7 @@ impl<'a> EntreePresheetMut<'a> {
                 };
                 actions.push(PresheetAction::ResolveUseExpr {
                     module_path: self.module_path,
-                    tracker_idx: rule_idx,
+                    rule_idx,
                     symbol,
                 })
             }
@@ -59,10 +59,10 @@ impl<'a> EntreePresheetMut<'a> {
     pub(crate) fn resolve_use_expr(
         &mut self,
         db: &dyn EntityTreeDb,
-        use_tree_rule_idx: UseTreeRuleIdx,
+        rule_idx: UseTreeRuleIdx,
         symbol: EntitySymbol,
     ) {
-        let rule = &mut self.use_expr_rules[use_tree_rule_idx];
+        let rule = &mut self.use_expr_rules[rule_idx];
         #[cfg(test)]
         assert!(rule.is_unresolved());
         rule.mark_as_resolved();
@@ -72,10 +72,16 @@ impl<'a> EntreePresheetMut<'a> {
         let path = symbol.path(db);
         for use_tree_expr_idx in rule.children() {
             let use_tree_expr = &self.use_tree_expr_arena[use_tree_expr_idx];
+            let rule = &self.use_expr_rules[rule_idx];
             match use_tree_expr {
                 UseExpr::All { star_token } => match path {
                     EntityPath::Module(path) => {
-                        let new_rule = UseAllRule::new(path);
+                        let new_rule = UseAllRule::new(
+                            path,
+                            rule.ast_idx(),
+                            use_tree_expr_idx,
+                            rule.accessibility(),
+                        );
                         self.use_all_rules.push(new_rule)
                     }
                     EntityPath::ModuleItem(_) => todo!(),
@@ -88,55 +94,19 @@ impl<'a> EntreePresheetMut<'a> {
                     scope_resolution_token,
                     children,
                 } => {
-                    let new_rule = self.use_expr_rules[use_tree_rule_idx].new_child(
-                        *ident_token,
-                        use_tree_expr_idx,
-                        path,
-                        children.idx_range(),
-                    );
+                    let new_rule =
+                        rule.new_child(*ident_token, use_tree_expr_idx, path, children.idx_range());
                     self.use_expr_rules.push(new_rule)
                 }
                 UseExpr::Err(_) => todo!(),
             }
         }
-        // if !(tracker.accessibility().with_db(db) <= symbol.accessility().with_db(db)) {
-        //     p!(
-        //         tracker.accessibility().debug(db),
-        //         symbol.accessility().debug(db),
-        //         symbol.debug(db)
-        //     );
-        //     todo!()
-        // }
-        // let use_tree_expr = &self.use_tree_expr_arena[tracker.use_tree_expr_idx()];
-        // match use_tree_expr {
-        //     UseExpr::All { start } => todo!(),
-        //     UseExpr::One { ident } => todo!(),
-        //     UseExpr::Parent {
-        //         ident,
-        //         scope_resolution_token,
-        //         children,
-        //     } => todo!(),
-        //     UseExpr::Err(_) => todo!(),
-        // }
-        // match self
-        //     .module_specific_symbols
-        //     .insert_new(EntitySymbol::EntityUse {
-        //         ident: tracker.ident(),
-        //         accessibility: use_accessibility,
-        //         path: symbol.entity_path(),
-        //         ast_idx: tracker.ast_idx(),
-        //         use_expr_idx: tracker.use_expr_idx(),
-        //     }) {
-        //     Ok(_) => (),
-        //     Err(e) => {
-        //         if e.new.entity_path() != self.module_specific_symbols.data()[e.old].entity_path() {
-        //             todo!()
-        //         }
-        //     }
-        // }
     }
 
-    pub(crate) fn update_use_all(&mut self) {
+    pub(crate) fn update_use_all(&mut self, rule_idx: UseAllRuleIdx, new_uses: Vec<UseSymbol>) {
+        let rule = &mut self.use_all_rules[rule_idx];
+        rule.mark_new_uses(&new_uses);
+        // self.symbols
         todo!()
     }
 }

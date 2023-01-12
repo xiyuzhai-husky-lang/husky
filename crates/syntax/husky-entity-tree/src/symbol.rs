@@ -1,6 +1,8 @@
 mod native;
+mod table;
 
 pub use native::*;
+pub use table::*;
 
 use crate::*;
 use husky_token::{TokenAccessibility, TokenIdx};
@@ -105,31 +107,30 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntitySymbol {
 #[derive(Debug, Clone, Copy)]
 pub struct ModuleSymbolContext<'a> {
     crate_prelude: CrateSymbolContext<'a>,
-    module_exports: &'a [EntitySymbolEntry],
+    module_symbols: EntitySymbolTableRef<'a>,
 }
 
 impl<'a> ModuleSymbolContext<'a> {
     pub fn new(
         crate_prelude: CrateSymbolContext<'a>,
-        module_exports: &'a [EntitySymbolEntry],
+        module_symbols: EntitySymbolTableRef<'a>,
     ) -> Self {
         Self {
             crate_prelude,
-            module_exports,
+            module_symbols,
         }
     }
 
     pub fn new_default(db: &'a dyn EntityTreeDb, crate_path: CratePath) -> PreludeResult<Self> {
         Ok(Self {
             crate_prelude: crate_prelude(db, crate_path)?,
-            module_exports: &[],
+            module_symbols: Default::default(),
         })
     }
 
     pub fn resolve_ident(&self, token_idx: TokenIdx, ident: Identifier) -> Option<EntitySymbol> {
-        self.module_exports
-            .get_entry(ident)
-            .map(|t| t.symbol())
+        self.module_symbols
+            .resolve_ident(ident)
             .or_else(|| self.crate_prelude.resolve_ident(ident))
     }
 }
@@ -141,6 +142,6 @@ pub(crate) fn module_symbol_context<'a>(
     let entity_tree_sheet = db.entree_module_sheet(module_path)?;
     Ok(ModuleSymbolContext {
         crate_prelude: crate_prelude(db, module_path.crate_path(db))?,
-        module_exports: entity_tree_sheet.module_symbols(),
+        module_symbols: entity_tree_sheet.module_symbols().into(),
     })
 }

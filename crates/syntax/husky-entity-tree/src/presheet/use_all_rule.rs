@@ -3,15 +3,26 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct UseAllRule {
     parent: ModulePath,
+    ast_idx: AstIdx,
+    use_expr_idx: UseExprIdx,
+    accessibility: Accessibility,
     // how many symbols have been checked
     progress: usize,
 }
 
 impl UseAllRule {
-    pub fn new(parent: ModulePath) -> Self {
+    pub fn new(
+        parent: ModulePath,
+        ast_idx: AstIdx,
+        use_expr_idx: UseExprIdx,
+        accessibility: Accessibility,
+    ) -> Self {
         Self {
             parent,
             progress: 0,
+            use_expr_idx,
+            accessibility,
+            ast_idx,
         }
     }
 
@@ -26,11 +37,28 @@ impl UseAllRule {
     pub(crate) fn is_unresolved(&self, ctx: &EntreeSymbolContext) -> bool {
         self.progress < ctx.module_symbols(self.parent).len()
     }
+
+    pub fn use_expr_idx(&self) -> ArenaIdx<UseExpr> {
+        self.use_expr_idx
+    }
+
+    pub fn accessibility(&self) -> Accessibility {
+        self.accessibility
+    }
+
+    pub fn ast_idx(&self) -> ArenaIdx<Ast> {
+        self.ast_idx
+    }
+
+    pub(crate) fn mark_new_uses(&mut self, new_uses: &[UseSymbol]) {
+        self.progress += new_uses.len()
+    }
 }
 
 #[derive(Debug, Default, PartialEq, Eq, Clone)]
 pub(crate) struct UseAllRules(Vec<UseAllRule>);
 
+#[derive(Debug, Default, PartialEq, Eq, Clone, Copy)]
 pub(crate) struct UseAllRuleIdx(usize);
 
 impl UseAllRules {
@@ -51,6 +79,12 @@ impl std::ops::Index<UseAllRuleIdx> for UseAllRules {
 
     fn index(&self, index: UseAllRuleIdx) -> &Self::Output {
         &self.0[index.0]
+    }
+}
+
+impl std::ops::IndexMut<UseAllRuleIdx> for UseAllRules {
+    fn index_mut(&mut self, index: UseAllRuleIdx) -> &mut Self::Output {
+        &mut self.0[index.0]
     }
 }
 
