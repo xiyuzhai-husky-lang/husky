@@ -1,14 +1,15 @@
 mod collect;
 mod db;
-mod kind;
-// mod reserve;
 mod severity;
 mod sheet;
+#[cfg(test)]
+mod tests;
 
 pub use db::DiagnosticsDb;
-pub use kind::DiagnosticKind;
 pub use severity::DiagnosticSeverity;
 pub use sheet::*;
+#[cfg(test)]
+pub use tests::*;
 
 use collect::collect_module_diagnostics;
 use husky_dev_utils::DevSource;
@@ -18,7 +19,18 @@ use std::fmt::Write;
 use std::sync::Arc;
 
 #[salsa::jar(db = DiagnosticsDb)]
-pub struct DiagnosticsJar(DiagnosticSheet, diagnostic_sheet);
+pub struct DiagnosticsJar(
+    DiagnosticSheet,
+    diagnostic_sheet,
+    EntityTreeDiagnosticSheet,
+    entity_tree_diagnostic_sheet,
+    AstDiagnosticSheet,
+    ast_diagnostic_sheet,
+    TokenDiagnosticSheet,
+    token_diagnostic_sheet,
+    ExprDiagnosticSheet,
+    expr_diagnostic_sheet,
+);
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Diagnostic {

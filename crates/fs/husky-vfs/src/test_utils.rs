@@ -57,6 +57,13 @@ pub trait VfsTestSupport: VfsDb {
         T: std::fmt::Debug + ?Sized,
         E: std::fmt::Debug;
 
+    fn expect_test_probable_modules_debug_with_db<R>(
+        name: &str,
+        f: impl Fn(&Self, ModulePath) -> R,
+    ) where
+        Self: Default,
+        R: salsa::DebugWithDb<Self>;
+
     fn expect_test_probable_modules_debug_ref_with_db<R>(
         name: &str,
         f: impl Fn(&Self, ModulePath) -> &R,
@@ -246,6 +253,19 @@ where
     ) where
         Self: Default,
         R: salsa::DebugWithDb<Self> + ?Sized,
+    {
+        let db = Self::default();
+        for (base, out) in expect_test_base_outs() {
+            expect_test_probable_modules_debug_ref_with_db(&db, name, &base, out, &f, |db, r| {
+                format!("{:#?}", (&r).debug(db))
+            });
+        }
+    }
+
+    fn expect_test_probable_modules_debug_with_db<R>(name: &str, f: impl Fn(&Self, ModulePath) -> R)
+    where
+        Self: Default,
+        R: salsa::DebugWithDb<Self>,
     {
         let db = Self::default();
         for (base, out) in expect_test_base_outs() {
@@ -501,7 +521,37 @@ fn expect_test_crate_results<Db, T, E>(
         });
 }
 
-fn expect_test_probable_modules_debug_with_db<Db, R: ?Sized>(
+fn expect_test_probable_modules_debug_with_db<Db, R>(
+    db: &Db,
+    name: &str,
+    base: &Path,
+    out: PathBuf,
+    f: &impl Fn(&Db, ModulePath) -> R,
+    p: impl for<'a> Fn(&'a Db, R) -> String,
+) where
+    Db: VfsDb,
+{
+    std::fs::create_dir_all(&out).expect("failed_to_create_dir_all");
+    let toolchain = db.dev_toolchain().unwrap();
+    collect_package_relative_dirs(base)
+        .into_iter()
+        .for_each(|path| {
+            let package =
+                PackagePath::new_local(db, toolchain, &path.to_logical_path(base)).unwrap();
+            let resolver = TestPathResolver {
+                db,
+                name,
+                package_expects_dir: path.to_logical_path(&out),
+            };
+            for module in db.collect_probable_modules(package) {
+                let path = resolver.decide_module_expect_file_path(module);
+                std::fs::create_dir_all(path.parent().unwrap()).unwrap();
+                expect_test::expect_file![path].assert_eq(&p(&db, f(&db, module)))
+            }
+        });
+}
+
+fn expect_test_probable_modules_debug_ref_with_db<Db, R: ?Sized>(
     db: &Db,
     name: &str,
     base: &Path,
