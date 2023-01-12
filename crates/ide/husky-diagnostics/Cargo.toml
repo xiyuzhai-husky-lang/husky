@@ -10,18 +10,33 @@ salsa = { path = "../../abstraction/salsa" }
 lsp-types = { version = "0.93", features = ["proposed"] }
 # abstraction
 reserve = { path = "../../abstraction/reserve" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
 # infer
 husky-term-infer = { path = "../../infer/husky-term-infer" }
 # kernel
 husky-term = { path = "../../kernel/husky-term" }
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # syntax
 husky-text = { path = "../../lex/husky-text" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-ast = { path = "../../syntax/husky-ast" }
+husky-expr = { path = "../../syntax/husky-expr" }
+husky-decl = { path = "../../syntax/husky-decl" }
+husky-defn = { path = "../../syntax/husky-defn" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
+
+[dev-dependencies]
+# kernel
+husky-word = { path = "../../kernel/husky-word" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
+# syntax
+husky-ast = { path = "../../syntax/husky-ast" }
+husky-expr = { path = "../../syntax/husky-expr" }
+# infer
+husky-manifest = { path = "../../infer/husky-manifest" }

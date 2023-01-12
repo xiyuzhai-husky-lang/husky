@@ -61,8 +61,7 @@ impl ClientCommunicator {
             self.send_diagnostics_aux(
                 url,
                 diagnostic_sheet
-                    .diagnostics(db)
-                    .iter()
+                    .diagnostic_iter(db)
                     .map(|diagnostic| diagnostic.into())
                     .collect(),
                 None,
