@@ -193,51 +193,6 @@ Ok(
                     parent: None,
                     state: Unresolved,
                 },
-                UseTracker {
-                    ast_idx: 47,
-                    accessibility: Done {
-                        accessibility: PubicUnder(
-                            `mnist_classifier::digits::seven`,
-                        ),
-                    },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
-                            31..32,
-                        ),
-                    ),
-                    parent: None,
-                    state: Unresolved,
-                },
-                UseTracker {
-                    ast_idx: 48,
-                    accessibility: Done {
-                        accessibility: PubicUnder(
-                            `mnist_classifier::digits::seven`,
-                        ),
-                    },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
-                            34..35,
-                        ),
-                    ),
-                    parent: None,
-                    state: Unresolved,
-                },
-                UseTracker {
-                    ast_idx: 49,
-                    accessibility: Done {
-                        accessibility: PubicUnder(
-                            `mnist_classifier::digits::seven`,
-                        ),
-                    },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
-                            37..38,
-                        ),
-                    ),
-                    parent: None,
-                    state: Unresolved,
-                },
             ],
         ),
     },

@@ -4,7 +4,7 @@ Ok(
             data: [
                 Stmt {
                     token_group_idx: TokenGroupIdx(
-                        12,
+                        9,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -12,7 +12,23 @@ Ok(
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
-                        14,
+                        11,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        12,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        13,
                     ),
                     body: ArenaIdxRange(
                         1..1,
@@ -23,15 +39,15 @@ Ok(
                         15,
                     ),
                     body: ArenaIdxRange(
-                        1..1,
+                        4..4,
                     ),
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
-                        16,
+                        17,
                     ),
                     body: ArenaIdxRange(
-                        1..1,
+                        5..5,
                     ),
                 },
                 Stmt {
@@ -39,7 +55,15 @@ Ok(
                         18,
                     ),
                     body: ArenaIdxRange(
-                        4..4,
+                        5..5,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        19,
+                    ),
+                    body: ArenaIdxRange(
+                        5..5,
                     ),
                 },
                 Stmt {
@@ -52,18 +76,10 @@ Ok(
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
-                        21,
-                    ),
-                    body: ArenaIdxRange(
-                        5..5,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
                         22,
                     ),
                     body: ArenaIdxRange(
-                        5..5,
+                        9..9,
                     ),
                 },
                 Stmt {
@@ -71,7 +87,15 @@ Ok(
                         23,
                     ),
                     body: ArenaIdxRange(
-                        5..5,
+                        9..9,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        24,
+                    ),
+                    body: ArenaIdxRange(
+                        9..9,
                     ),
                 },
                 Stmt {
@@ -100,62 +124,6 @@ Ok(
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
-                        28,
-                    ),
-                    body: ArenaIdxRange(
-                        9..9,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        29,
-                    ),
-                    body: ArenaIdxRange(
-                        9..9,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        30,
-                    ),
-                    body: ArenaIdxRange(
-                        9..9,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        41,
-                    ),
-                    body: ArenaIdxRange(
-                        15..15,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        42,
-                    ),
-                    body: ArenaIdxRange(
-                        15..15,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        43,
-                    ),
-                    body: ArenaIdxRange(
-                        15..15,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        40,
-                    ),
-                    body: ArenaIdxRange(
-                        15..18,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
                         38,
                     ),
                     body: ArenaIdxRange(
@@ -170,19 +138,12 @@ Ok(
                         15..15,
                     ),
                 },
-                IfElseStmts {
-                    if_stmt: 18,
-                    elif_stmts: ArenaIdxRange(
-                        19..19,
-                    ),
-                    else_stmt: None,
-                },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
-                        44,
+                        40,
                     ),
                     body: ArenaIdxRange(
-                        19..19,
+                        15..15,
                     ),
                 },
                 Stmt {
@@ -190,63 +151,7 @@ Ok(
                         37,
                     ),
                     body: ArenaIdxRange(
-                        19..23,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        46,
-                    ),
-                    body: ArenaIdxRange(
-                        24..24,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        47,
-                    ),
-                    body: ArenaIdxRange(
-                        24..24,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        48,
-                    ),
-                    body: ArenaIdxRange(
-                        24..24,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        45,
-                    ),
-                    body: ArenaIdxRange(
-                        24..27,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        32,
-                    ),
-                    body: ArenaIdxRange(
-                        15..15,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        33,
-                    ),
-                    body: ArenaIdxRange(
-                        15..15,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        34,
-                    ),
-                    body: ArenaIdxRange(
-                        15..15,
+                        15..18,
                     ),
                 },
                 Stmt {
@@ -260,6 +165,101 @@ Ok(
                 Stmt {
                     token_group_idx: TokenGroupIdx(
                         36,
+                    ),
+                    body: ArenaIdxRange(
+                        15..15,
+                    ),
+                },
+                IfElseStmts {
+                    if_stmt: 18,
+                    elif_stmts: ArenaIdxRange(
+                        19..19,
+                    ),
+                    else_stmt: None,
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        41,
+                    ),
+                    body: ArenaIdxRange(
+                        19..19,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        34,
+                    ),
+                    body: ArenaIdxRange(
+                        19..23,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        43,
+                    ),
+                    body: ArenaIdxRange(
+                        24..24,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        44,
+                    ),
+                    body: ArenaIdxRange(
+                        24..24,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        45,
+                    ),
+                    body: ArenaIdxRange(
+                        24..24,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        42,
+                    ),
+                    body: ArenaIdxRange(
+                        24..27,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        29,
+                    ),
+                    body: ArenaIdxRange(
+                        15..15,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        30,
+                    ),
+                    body: ArenaIdxRange(
+                        15..15,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        31,
+                    ),
+                    body: ArenaIdxRange(
+                        15..15,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        32,
+                    ),
+                    body: ArenaIdxRange(
+                        15..15,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        33,
                     ),
                     body: ArenaIdxRange(
                         15..15,
@@ -281,31 +281,31 @@ Ok(
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
+                        46,
+                    ),
+                    body: ArenaIdxRange(
+                        28..28,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        47,
+                    ),
+                    body: ArenaIdxRange(
+                        28..28,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        48,
+                    ),
+                    body: ArenaIdxRange(
+                        28..28,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
                         49,
-                    ),
-                    body: ArenaIdxRange(
-                        28..28,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        50,
-                    ),
-                    body: ArenaIdxRange(
-                        28..28,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        51,
-                    ),
-                    body: ArenaIdxRange(
-                        28..28,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        52,
                     ),
                     body: ArenaIdxRange(
                         28..28,
@@ -351,24 +351,9 @@ Ok(
                         7,
                     ),
                 },
-                Use {
-                    token_group_idx: TokenGroupIdx(
-                        8,
-                    ),
-                },
-                Use {
-                    token_group_idx: TokenGroupIdx(
-                        9,
-                    ),
-                },
-                Use {
-                    token_group_idx: TokenGroupIdx(
-                        10,
-                    ),
-                },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        11,
+                        8,
                     ),
                     body: ArenaIdxRange(
                         0..1,
@@ -392,18 +377,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `simple_seven_match`,
                         token_idx: TokenIdx(
-                            79,
+                            61,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        80,
+                        62,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        13,
+                        10,
                     ),
                     body: ArenaIdxRange(
                         1..4,
@@ -427,18 +412,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `simple_leftdown_pattern`,
                         token_idx: TokenIdx(
-                            92,
+                            74,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        93,
+                        75,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        17,
+                        14,
                     ),
                     body: ArenaIdxRange(
                         4..5,
@@ -462,18 +447,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `special_seven_match`,
                         token_idx: TokenIdx(
-                            122,
+                            104,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        123,
+                        105,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        19,
+                        16,
                     ),
                     body: ArenaIdxRange(
                         5..9,
@@ -497,18 +482,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `leftupcc_pattern`,
                         token_idx: TokenIdx(
-                            137,
+                            119,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        138,
+                        120,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        24,
+                        21,
                     ),
                     body: ArenaIdxRange(
                         9..15,
@@ -532,18 +517,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `leftdowncc_pattern`,
                         token_idx: TokenIdx(
-                            180,
+                            162,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        181,
+                        163,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        31,
+                        28,
                     ),
                     body: ArenaIdxRange(
                         28..39,
@@ -567,19 +552,19 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `is_seven`,
                         token_idx: TokenIdx(
-                            234,
+                            216,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        235,
+                        217,
                     ),
                 },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            39..56,
+            39..53,
         ),
     },
 )

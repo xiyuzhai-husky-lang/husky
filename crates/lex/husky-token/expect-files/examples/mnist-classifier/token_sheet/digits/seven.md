@@ -326,7 +326,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 68,
+                            value: 63,
                         },
                     ),
                 ),
@@ -334,122 +334,8 @@ Ok(
             Punctuation(
                 DoubleColon,
             ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 94,
-                        },
-                    ),
-                ),
-            ),
-            Keyword(
-                Use,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 35,
-                        },
-                    ),
-                ),
-            ),
             Punctuation(
-                DoubleColon,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 70,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                DoubleColon,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 95,
-                        },
-                    ),
-                ),
-            ),
-            Keyword(
-                Use,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 35,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                DoubleColon,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 73,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                DoubleColon,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 96,
-                        },
-                    ),
-                ),
-            ),
-            Keyword(
-                Use,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 35,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                DoubleColon,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 71,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                DoubleColon,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 99,
-                        },
-                    ),
-                ),
+                Star,
             ),
             Keyword(
                 Paradigm(
@@ -2191,55 +2077,49 @@ Ok(
             46,
             54,
             60,
-            66,
-            72,
-            78,
-            83,
-            91,
+            65,
+            73,
+            85,
+            93,
+            99,
             103,
-            111,
-            117,
-            121,
-            126,
-            136,
-            148,
-            156,
-            162,
-            172,
-            179,
-            191,
-            199,
-            205,
+            108,
+            118,
+            130,
+            138,
+            144,
+            154,
+            161,
+            173,
+            181,
+            187,
+            197,
+            210,
+            214,
             215,
-            228,
-            232,
+            221,
+            225,
+            229,
             233,
             239,
-            243,
-            247,
-            251,
-            257,
-            263,
-            268,
-            277,
+            245,
+            250,
+            259,
+            269,
+            274,
             287,
-            292,
-            305,
-            311,
+            293,
+            298,
+            301,
+            306,
             316,
-            319,
-            324,
-            334,
+            320,
+            323,
+            332,
             338,
-            341,
-            350,
-            356,
-            358,
+            340,
         ],
         indents: [
-            0,
-            0,
-            0,
             0,
             0,
             0,

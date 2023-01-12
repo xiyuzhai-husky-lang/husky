@@ -16,9 +16,7 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `is_one`,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::digits::one`,
-                    ),
+                    accessibility: Public,
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),

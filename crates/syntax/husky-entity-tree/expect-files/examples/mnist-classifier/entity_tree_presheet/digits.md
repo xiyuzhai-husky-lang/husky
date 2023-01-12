@@ -120,9 +120,7 @@ Ok(
                 UseTracker {
                     ast_idx: 10,
                     accessibility: Done {
-                        accessibility: PubicUnder(
-                            `mnist_classifier::digits`,
-                        ),
+                        accessibility: Public,
                     },
                     use_expr_children: Some(
                         ArenaIdxRange(
