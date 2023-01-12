@@ -70,87 +70,12 @@ Ok(
                                 path: Some(
                                     TypeItemPath(
                                         Id {
-                                            value: 18,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    ),
-                ),
-            ),
-            Ok(
-                AssociatedItem(
-                    TypeItem(
-                        Method(
-                            TypeMethodDecl {
-                                path: Some(
-                                    TypeItemPath(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    ),
-                ),
-            ),
-            Ok(
-                AssociatedItem(
-                    TypeItem(
-                        Method(
-                            TypeMethodDecl {
-                                path: Some(
-                                    TypeItemPath(
-                                        Id {
-                                            value: 20,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    ),
-                ),
-            ),
-            Ok(
-                AssociatedItem(
-                    TypeItem(
-                        Method(
-                            TypeMethodDecl {
-                                path: Some(
-                                    TypeItemPath(
-                                        Id {
-                                            value: 21,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    ),
-                ),
-            ),
-            Ok(
-                AssociatedItem(
-                    TypeItem(
-                        Method(
-                            TypeMethodDecl {
-                                path: Some(
-                                    TypeItemPath(
-                                        Id {
                                             value: 22,
                                         },
                                     ),
                                 ),
                             },
                         ),
-                    ),
-                ),
-            ),
-            Ok(
-                ImplBlock(
-                    TypeImplBlock(
-                        TypeImplBlockDecl,
                     ),
                 ),
             ),
@@ -223,6 +148,13 @@ Ok(
                 ),
             ),
             Ok(
+                ImplBlock(
+                    TypeImplBlock(
+                        TypeImplBlockDecl,
+                    ),
+                ),
+            ),
+            Ok(
                 AssociatedItem(
                     TypeItem(
                         Method(
@@ -287,38 +219,6 @@ Ok(
                                 ),
                             },
                         ),
-                    ),
-                ),
-            ),
-            Err(
-                ImplBlockErr,
-            ),
-            Ok(
-                AssociatedItem(
-                    TypeItem(
-                        Method(
-                            TypeMethodDecl {
-                                path: None,
-                            },
-                        ),
-                    ),
-                ),
-            ),
-            Ok(
-                AssociatedItem(
-                    TypeItem(
-                        Method(
-                            TypeMethodDecl {
-                                path: None,
-                            },
-                        ),
-                    ),
-                ),
-            ),
-            Ok(
-                ImplBlock(
-                    TypeImplBlock(
-                        TypeImplBlockDecl,
                     ),
                 ),
             ),
@@ -390,6 +290,38 @@ Ok(
                     ),
                 ),
             ),
+            Err(
+                ImplBlockErr,
+            ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Method(
+                            TypeMethodDecl {
+                                path: None,
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Method(
+                            TypeMethodDecl {
+                                path: None,
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            Ok(
+                ImplBlock(
+                    TypeImplBlock(
+                        TypeImplBlockDecl,
+                    ),
+                ),
+            ),
             Ok(
                 AssociatedItem(
                     TypeItem(
@@ -421,13 +353,6 @@ Ok(
                                 ),
                             },
                         ),
-                    ),
-                ),
-            ),
-            Ok(
-                ImplBlock(
-                    TypeImplBlock(
-                        TypeImplBlockDecl,
                     ),
                 ),
             ),
@@ -491,6 +416,81 @@ Ok(
                                     TypeItemPath(
                                         Id {
                                             value: 40,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            Ok(
+                ImplBlock(
+                    TypeImplBlock(
+                        TypeImplBlockDecl,
+                    ),
+                ),
+            ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Method(
+                            TypeMethodDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 41,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Method(
+                            TypeMethodDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 42,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Method(
+                            TypeMethodDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 43,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            Ok(
+                AssociatedItem(
+                    TypeItem(
+                        Method(
+                            TypeMethodDecl {
+                                path: Some(
+                                    TypeItemPath(
+                                        Id {
+                                            value: 44,
                                         },
                                     ),
                                 ),

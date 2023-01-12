@@ -8,7 +8,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 32,
                                 },
                             ),
                         ),
@@ -37,7 +37,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 32,
                                 },
                             ),
                         ),
@@ -53,7 +53,7 @@ Ok(
                         TypeItem(
                             TypeItemPath(
                                 Id {
-                                    value: 51,
+                                    value: 55,
                                 },
                             ),
                         ),
@@ -144,7 +144,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 29,
+                                    value: 33,
                                 },
                             ),
                         ),
@@ -193,7 +193,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 30,
+                                    value: 34,
                                 },
                             ),
                         ),

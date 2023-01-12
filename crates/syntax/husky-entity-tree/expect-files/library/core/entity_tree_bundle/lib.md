@@ -162,6 +162,42 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `f8`,
+                            accessibility: Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    path: TypePath(`core::num::f8`, `Foreign`),
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `f16`,
+                            accessibility: Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    path: TypePath(`core::num::f16`, `Foreign`),
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `f32`,
+                            accessibility: Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    path: TypePath(`core::num::f32`, `Foreign`),
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `f64`,
+                            accessibility: Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    path: TypePath(`core::num::f64`, `Foreign`),
+                                },
+                            ),
+                        },
                     ],
                 ),
             },
@@ -271,6 +307,58 @@ Ok(
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
                                             path: TypePath(`core::num::i64`, `Foreign`),
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `f8`,
+                            accessibility: Public,
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TypePath(`core::num::f8`, `Foreign`),
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `f16`,
+                            accessibility: Public,
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TypePath(`core::num::f16`, `Foreign`),
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `f32`,
+                            accessibility: Public,
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TypePath(`core::num::f32`, `Foreign`),
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `f64`,
+                            accessibility: Public,
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TypePath(`core::num::f64`, `Foreign`),
                                         },
                                     ),
                                 },

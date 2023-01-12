@@ -188,7 +188,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 76,
+                        value: 100,
                     },
                 ),
             },
@@ -313,7 +313,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 74,
+                        value: 98,
                     },
                 ),
             },
@@ -333,28 +333,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 77,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_local_symbol_idx: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 77,
+                        value: 101,
                     },
                 ),
             },
@@ -365,9 +344,8 @@ Ok(
             None,
             None,
             None,
-            Field,
             None,
-            Field,
+            None,
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
@@ -376,7 +354,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 77,
+                        value: 101,
                     },
                 ),
             },
@@ -390,6 +368,7 @@ Ok(
             Field,
             None,
             Field,
+            None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter {
@@ -397,7 +376,28 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 77,
+                        value: 101,
+                    },
+                ),
+            },
+            None,
+            Field,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            Field,
+            InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: Parameter {
+                    original_local_symbol_idx: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 101,
                     },
                 ),
             },

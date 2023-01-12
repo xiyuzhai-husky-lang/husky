@@ -8,7 +8,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 16,
+                                    value: 20,
                                 },
                             ),
                         ),
@@ -26,21 +26,13 @@ Ok(
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
             Entity(
                 Some(
                     ModuleItem(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 16,
+                                    value: 12,
                                 },
                             ),
                         ),
@@ -53,71 +45,11 @@ Ok(
             None,
             Entity(
                 Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 18,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            Method,
-                        ),
-                    },
-                ),
-            ),
-            None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: Parameter {
-                    pattern_symbol: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 166,
-                    },
-                ),
-            },
-            None,
-            Entity(
-                Some(
                     ModuleItem(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 8,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            LocalSymbol {
-                local_symbol_idx: 1,
-                local_symbol_kind: Parameter {
-                    pattern_symbol: 1,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 166,
-                    },
-                ),
-            },
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 8,
+                                    value: 12,
                                 },
                             ),
                         ),
@@ -128,109 +60,11 @@ Ok(
             None,
             None,
             None,
-            None,
             Entity(
                 Some(
                     ModuleItem(
                         Type(
                             TypePath(
-                                Id {
-                                    value: 16,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_local_symbol_idx: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 194,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 1,
-                inherited_symbol_kind: Parameter {
-                    original_local_symbol_idx: 1,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 194,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 19,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            Method,
-                        ),
-                    },
-                ),
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 18,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
                                 Id {
                                     value: 20,
                                 },
@@ -238,129 +72,8 @@ Ok(
                         ),
                     ),
                 ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            Method,
-                        ),
-                    },
-                ),
-            ),
-            None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: Parameter {
-                    pattern_symbol: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 168,
-                    },
-                ),
-            },
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 16,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
                 None,
             ),
-            None,
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 18,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_local_symbol_idx: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 196,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            None,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_local_symbol_idx: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 196,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            Method,
-                        ),
-                    },
-                ),
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Method,
             None,
             None,
             None,
@@ -392,7 +105,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 170,
+                        value: 190,
                     },
                 ),
             },
@@ -403,7 +116,34 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 16,
+                                    value: 8,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                local_symbol_kind: Parameter {
+                    pattern_symbol: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 190,
+                    },
+                ),
+            },
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 8,
                                 },
                             ),
                         ),
@@ -415,6 +155,22 @@ Ok(
             None,
             None,
             None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 20,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
             None,
             None,
             InheritedSymbol {
@@ -424,46 +180,41 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 198,
+                        value: 218,
                     },
                 ),
             },
             None,
             None,
-            Method,
-            None,
-            None,
-            None,
             Entity(
                 Some(
                     ModuleItem(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 17,
+                                    value: 12,
                                 },
                             ),
                         ),
                     ),
                 ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Struct,
-                        ),
-                        connection: Connected,
-                    },
-                ),
+                None,
             ),
             None,
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 1,
+                inherited_symbol_kind: Parameter {
+                    original_local_symbol_idx: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 218,
+                    },
+                ),
+            },
             None,
             None,
             Entity(
@@ -472,39 +223,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 18,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Struct,
-                        ),
-                        connection: Connected,
-                    },
-                ),
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 18,
+                                    value: 12,
                                 },
                             ),
                         ),
@@ -545,7 +264,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 16,
+                                    value: 22,
                                 },
                             ),
                         ),
@@ -587,7 +306,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 173,
+                        value: 192,
                     },
                 ),
             },
@@ -598,7 +317,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 18,
+                                    value: 20,
                                 },
                             ),
                         ),
@@ -616,7 +335,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 18,
+                                    value: 22,
                                 },
                             ),
                         ),
@@ -632,7 +351,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 200,
+                        value: 220,
                     },
                 ),
             },
@@ -648,7 +367,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 200,
+                        value: 220,
                     },
                 ),
             },
@@ -725,7 +444,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 175,
+                        value: 194,
                     },
                 ),
             },
@@ -736,7 +455,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 18,
+                                    value: 20,
                                 },
                             ),
                         ),
@@ -757,28 +476,147 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 202,
+                        value: 222,
                     },
                 ),
             },
             None,
-            Field,
+            None,
+            Method,
             None,
             None,
             None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_local_symbol_idx: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 202,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 21,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Type(
+                            Struct,
+                        ),
+                        connection: Connected,
                     },
                 ),
-            },
+            ),
             None,
-            Field,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 12,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 12,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 22,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Type(
+                            Struct,
+                        ),
+                        connection: Connected,
+                    },
+                ),
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 12,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 12,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 22,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
             None,
             Entity(
                 Some(
@@ -801,17 +639,9 @@ Ok(
                 ),
             ),
             None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: Parameter {
-                    pattern_symbol: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 176,
-                    },
-                ),
-            },
+            None,
+            None,
+            None,
             None,
             Entity(
                 Some(
@@ -819,7 +649,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 18,
+                                    value: 20,
                                 },
                             ),
                         ),
@@ -832,36 +662,6 @@ Ok(
             None,
             None,
             None,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_local_symbol_idx: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 203,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            None,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_local_symbol_idx: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 203,
-                    },
-                ),
-            },
-            None,
-            Field,
             None,
             Entity(
                 Some(
@@ -891,7 +691,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 177,
+                        value: 197,
                     },
                 ),
             },
@@ -902,7 +702,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 1,
+                                    value: 22,
                                 },
                             ),
                         ),
@@ -914,50 +714,34 @@ Ok(
             None,
             None,
             None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 22,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: LetVariable {
-                    pattern_symbol: 0,
+            InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: Parameter {
+                    original_local_symbol_idx: 0,
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 204,
+                        value: 224,
                     },
                 ),
             },
-            None,
-            None,
-            None,
             None,
             Field,
-            None,
-            None,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: LetVariable {
-                    pattern_symbol: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 204,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
             None,
             None,
             None,
@@ -968,36 +752,12 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 204,
+                        value: 224,
                     },
                 ),
             },
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
             Field,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Method,
-            None,
-            None,
-            None,
             None,
             None,
             None,
@@ -1023,49 +783,18 @@ Ok(
                 ),
             ),
             None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: Parameter {
-                    pattern_symbol: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 178,
-                    },
-                ),
-            },
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 18,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
             None,
             None,
             None,
             None,
             None,
             None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_local_symbol_idx: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 205,
-                    },
-                ),
-            },
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
             None,
             None,
             Method,
@@ -1100,7 +829,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 179,
+                        value: 199,
                     },
                 ),
             },
@@ -1111,7 +840,395 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 18,
+                                    value: 22,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: Parameter {
+                    original_local_symbol_idx: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 226,
+                    },
+                ),
+            },
+            None,
+            Field,
+            None,
+            None,
+            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: Parameter {
+                    original_local_symbol_idx: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 226,
+                    },
+                ),
+            },
+            None,
+            Field,
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 31,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: Parameter {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 200,
+                    },
+                ),
+            },
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 22,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: Parameter {
+                    original_local_symbol_idx: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 227,
+                    },
+                ),
+            },
+            None,
+            Field,
+            None,
+            None,
+            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: Parameter {
+                    original_local_symbol_idx: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 227,
+                    },
+                ),
+            },
+            None,
+            Field,
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 32,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: Parameter {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 201,
+                    },
+                ),
+            },
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 228,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            None,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 228,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: Parameter {
+                    original_local_symbol_idx: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 228,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 12,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 33,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: Parameter {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 202,
+                    },
+                ),
+            },
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 22,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: Parameter {
+                    original_local_symbol_idx: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 229,
+                    },
+                ),
+            },
+            None,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 34,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: Parameter {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 203,
+                    },
+                ),
+            },
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 22,
                                 },
                             ),
                         ),
@@ -1127,7 +1244,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 179,
+                        value: 203,
                     },
                 ),
             },
@@ -1170,7 +1287,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 206,
+                        value: 230,
                     },
                 ),
             },
@@ -1196,7 +1313,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 206,
+                        value: 230,
                     },
                 ),
             },
@@ -1228,7 +1345,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 206,
+                        value: 230,
                     },
                 ),
             },
@@ -1254,13 +1371,26 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 206,
+                        value: 230,
                     },
                 ),
             },
             None,
             None,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 12,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             None,
@@ -1280,7 +1410,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 19,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -1298,10 +1428,149 @@ Ok(
             None,
             None,
             None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 12,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 12,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             None,
             None,
+            None,
+            None,
+            Entity(
+                None,
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: Parameter {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 204,
+                    },
+                ),
+            },
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 23,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: Parameter {
+                    original_local_symbol_idx: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 231,
+                    },
+                ),
+            },
+            None,
+            Field,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: Parameter {
+                    original_local_symbol_idx: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 231,
+                    },
+                ),
+            },
+            None,
+            Field,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 23,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             None,
@@ -1327,7 +1596,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 180,
+                        value: 205,
                     },
                 ),
             },
@@ -1338,7 +1607,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 19,
+                                    value: 12,
                                 },
                             ),
                         ),
@@ -1356,12 +1625,6 @@ Ok(
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter {
@@ -1369,101 +1632,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 207,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_local_symbol_idx: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 207,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 19,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
-                None,
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            Method,
-                        ),
-                    },
-                ),
-            ),
-            None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: Parameter {
-                    pattern_symbol: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 181,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_local_symbol_idx: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 208,
+                        value: 232,
                     },
                 ),
             },
@@ -1494,7 +1663,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 20,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -1503,276 +1672,6 @@ Ok(
                 None,
             ),
             None,
-            None,
-            Entity(
-                Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 31,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            Method,
-                        ),
-                    },
-                ),
-            ),
-            None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: Parameter {
-                    pattern_symbol: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 183,
-                    },
-                ),
-            },
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 20,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            Method,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_local_symbol_idx: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 209,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            None,
-            None,
-            None,
-            Method,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_local_symbol_idx: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 209,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 32,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            Method,
-                        ),
-                    },
-                ),
-            ),
-            None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: Parameter {
-                    pattern_symbol: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 184,
-                    },
-                ),
-            },
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 16,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 17,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            Method,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_local_symbol_idx: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 210,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            None,
-            None,
-            None,
-            Method,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_local_symbol_idx: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 210,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 33,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            Method,
-                        ),
-                    },
-                ),
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Field,
-            None,
-            Entity(
-                Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 34,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            Method,
-                        ),
-                    },
-                ),
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Field,
             None,
             Entity(
                 Some(
@@ -1795,13 +1694,90 @@ Ok(
                 ),
             ),
             None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: Parameter {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 207,
+                    },
+                ),
+            },
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 24,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             None,
             None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 25,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
+            None,
+            None,
+            Method,
+            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: Parameter {
+                    original_local_symbol_idx: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 233,
+                    },
+                ),
+            },
             None,
             Field,
+            None,
+            None,
+            None,
+            None,
+            Method,
+            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: Parameter {
+                    original_local_symbol_idx: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 233,
+                    },
+                ),
+            },
+            None,
+            Field,
+            None,
+            None,
+            None,
             None,
             Entity(
                 Some(
@@ -1824,86 +1800,89 @@ Ok(
                 ),
             ),
             None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: Parameter {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 208,
+                    },
+                ),
+            },
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 20,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             None,
             None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 21,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
+            None,
+            None,
+            Method,
+            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: Parameter {
+                    original_local_symbol_idx: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 234,
+                    },
+                ),
+            },
             None,
             Field,
             None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Struct,
-                        ),
-                        connection: Connected,
+            None,
+            None,
+            None,
+            Method,
+            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: Parameter {
+                    original_local_symbol_idx: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 234,
                     },
                 ),
-            ),
+            },
+            None,
+            Field,
             None,
             None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 19,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 19,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
             None,
             None,
             Entity(
@@ -2000,6 +1979,196 @@ Ok(
                             TypeItemPath(
                                 Id {
                                     value: 40,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 25,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Type(
+                            Struct,
+                        ),
+                        connection: Connected,
+                    },
+                ),
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 23,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 23,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 25,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 41,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 42,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 43,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 44,
                                 },
                             ),
                         ),
