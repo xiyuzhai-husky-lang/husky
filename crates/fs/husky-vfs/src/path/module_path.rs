@@ -24,6 +24,10 @@ impl ModulePath {
         self.module_ancestry(db).crate_path()
     }
 
+    pub fn package_path(self, db: &dyn VfsDb) -> PackagePath {
+        self.crate_path(db).package_path(db)
+    }
+
     pub fn new_root(db: &dyn VfsDb, crate_path: CratePath) -> Self {
         Self::new(db, ModulePathData::Root(crate_path))
     }

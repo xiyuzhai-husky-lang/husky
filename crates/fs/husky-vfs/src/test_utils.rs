@@ -371,7 +371,7 @@ where
         .into_iter()
         .for_each(|path| {
             let package_path = PackagePath::new_local(db, toolchain, &path).unwrap();
-            for entity_path in db.collect_probable_modules(package_path).unwrap() {
+            for entity_path in db.collect_probable_modules(package_path) {
                 f(db, entity_path)
             }
         });
@@ -523,7 +523,7 @@ fn expect_test_probable_modules_debug_with_db<Db, R: ?Sized>(
                 name,
                 package_expects_dir: path.to_logical_path(&out),
             };
-            for module in db.collect_probable_modules(package).unwrap() {
+            for module in db.collect_probable_modules(package) {
                 let path = resolver.decide_module_expect_file_path(module);
                 std::fs::create_dir_all(path.parent().unwrap()).unwrap();
                 expect_test::expect_file![path].assert_eq(&p(&db, f(&db, module)))
@@ -553,7 +553,7 @@ fn expect_test_probable_modules_debug_ref_result_with_db<Db, T: ?Sized, E>(
                 name,
                 package_expects_dir: path.to_logical_path(&out),
             };
-            for module in db.collect_probable_modules(package).unwrap() {
+            for module in db.collect_probable_modules(package) {
                 let path = resolver.decide_module_expect_file_path(module);
                 std::fs::create_dir_all(path.parent().unwrap()).unwrap();
                 expect_test::expect_file![path].assert_eq(&p(&db, f(&db, module)))
@@ -583,7 +583,7 @@ fn expect_test_probable_modules_debug<Db, R>(
                 name,
                 package_expects_dir: path.to_logical_path(&out),
             };
-            for module in db.collect_probable_modules(package).unwrap() {
+            for module in db.collect_probable_modules(package) {
                 let path = resolver.decide_module_expect_file_path(module);
                 std::fs::create_dir_all(path.parent().unwrap()).unwrap();
                 expect_test::expect_file![path].assert_eq(&p(&db, f(&db, module)))

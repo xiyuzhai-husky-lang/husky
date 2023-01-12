@@ -8,7 +8,6 @@ mod error;
 mod file;
 mod jar;
 mod path;
-mod runner;
 #[cfg(feature = "test_utils")]
 mod test_utils;
 #[cfg(test)]
@@ -21,10 +20,8 @@ pub use db::VfsDb;
 pub use error::*;
 pub use jar::VfsJar;
 pub use path::*;
-pub use runner::*;
 #[cfg(feature = "test_utils")]
 pub use test_utils::*;
-pub use toolchain::*;
 pub use toolchain::*;
 pub use watch::{VfsWatcher, WatchableVfsDb, WatchedVfs};
 

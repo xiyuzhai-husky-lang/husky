@@ -6,8 +6,11 @@ use husky_text::TextChange;
 pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {
     fn vfs_path_menu(&self, toolchain: Toolchain) -> ToolchainResult<&VfsPathMenu>;
     fn current_toolchain(&self) -> VfsResult<Toolchain>;
-
+    fn live_packages(
+        &self,
+    ) -> std::sync::LockResult<std::sync::RwLockReadGuard<'_, Vec<PackagePath>>>;
     fn package_manifest_content(&self, package_path: PackagePath) -> VfsResult<&str>;
+    fn module_diff_path(&self, module_path: ModulePath) -> VfsResult<DiffPath>;
     fn module_content(&self, module_path: ModulePath) -> VfsResult<&str>;
     fn package_dir(&self, package_path: PackagePath) -> &VfsResult<DiffPath>;
     fn collect_local_packages(
@@ -20,7 +23,7 @@ pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {
         toolchain: Toolchain,
         package_path: PackagePath,
     ) -> VfsResult<Vec<CratePath>>;
-    fn collect_probable_modules(&self, package_path: PackagePath) -> VfsResult<Vec<ModulePath>>;
+    fn collect_probable_modules(&self, package: PackagePath) -> Vec<ModulePath>;
     fn set_live_file(&mut self, path: &Path, text: String) -> VfsResult<()>;
     fn apply_live_file_changes(&mut self, path: &Path, changes: Vec<TextChange>) -> VfsResult<()>;
     fn resolve_module_path(&self, toolchain: Toolchain, path: &Path) -> VfsResult<ModulePath>;
@@ -30,7 +33,7 @@ pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {
 
 // don't leak this outside the crate
 pub trait VfsDbInner {
-    fn file_from_absolute_path(&self, path: DiffPath) -> VfsResult<File>;
+    fn file_from_diff_path(&self, path: DiffPath) -> VfsResult<File>;
     fn vfs_jar(&self) -> &VfsJar;
     fn vfs_jar_mut(&mut self) -> &mut VfsJar;
     fn vfs_cache(&self) -> &VfsCache;
@@ -55,7 +58,7 @@ impl<T> VfsDbInner for T
 where
     T: salsa::DbWithJar<VfsJar> + WordDb + Send + 'static,
 {
-    fn file_from_absolute_path(&self, abs_path: DiffPath) -> VfsResult<File> {
+    fn file_from_diff_path(&self, abs_path: DiffPath) -> VfsResult<File> {
         Ok(
             match self
                 .vfs_jar()
@@ -167,9 +170,19 @@ where
         package_manifest_file(self, package_path)?.text(self)
     }
 
+    fn live_packages(
+        &self,
+    ) -> std::sync::LockResult<std::sync::RwLockReadGuard<'_, Vec<PackagePath>>> {
+        self.vfs_cache().live_packages()
+    }
+
+    fn module_diff_path(&self, module_path: ModulePath) -> VfsResult<DiffPath> {
+        module_diff_path(self, module_path)
+    }
+
     fn module_content(&self, module_path: ModulePath) -> VfsResult<&str> {
-        let abs_path = module_absolute_path(self, module_path)?;
-        self.file_from_absolute_path(abs_path)?.text(self)
+        let diff_path = module_diff_path(self, module_path)?;
+        self.file_from_diff_path(diff_path)?.text(self)
     }
 
     fn package_dir(&self, package: PackagePath) -> &VfsResult<DiffPath> {
@@ -209,7 +222,7 @@ where
         Ok(crates)
     }
 
-    fn collect_probable_modules(&self, package: PackagePath) -> VfsResult<Vec<ModulePath>> {
+    fn collect_probable_modules(&self, package: PackagePath) -> Vec<ModulePath> {
         fn collect_probable_modules(
             db: &dyn VfsDb,
             parent: ModulePath,
@@ -262,12 +275,15 @@ where
         }
 
         let mut modules = vec![];
-        let package_dir = self.package_dir(package).as_ref()?.data(self);
+        let Ok(diff_path) = &self.package_dir(package).as_ref() else {
+            return vec![]
+        };
+        let package_dir = diff_path.data(self);
         if package_dir.join("src/lib.hsy").exists() {
             let root_module =
                 ModulePath::new_root(self, CratePath::new(self, package, CrateKind::Library));
             modules.push(root_module);
-            collect_probable_modules(self, root_module, &package_dir.join("src"), &mut modules)?;
+            collect_probable_modules(self, root_module, &package_dir.join("src"), &mut modules);
             if package_dir.join("src/main.hsy").exists() {
                 todo!()
             }
@@ -278,12 +294,12 @@ where
             let root_module =
                 ModulePath::new_root(self, CratePath::new(self, package, CrateKind::Main));
             modules.push(root_module);
-            collect_probable_modules(self, root_module, &package_dir.join("src"), &mut modules)?;
+            collect_probable_modules(self, root_module, &package_dir.join("src"), &mut modules);
             if package_dir.join("src/bin").exists() {
                 todo!()
             }
         }
-        Ok(modules)
+        modules
     }
 
     fn set_live_file(&mut self, path: &Path, text: String) -> VfsResult<()> {
@@ -298,7 +314,10 @@ where
     }
 
     fn resolve_module_path(&self, toolchain: Toolchain, path: &Path) -> VfsResult<ModulePath> {
-        resolve_module_path(self, toolchain, path)
+        let module_path = resolve_module_path(self, toolchain, path)?;
+        let package_path = module_path.package_path(self);
+        self.vfs_cache().add_live_package(package_path);
+        Ok(module_path)
     }
 
     fn toolchain_library_path(&self, toolchain: Toolchain) -> &Path {

@@ -35,7 +35,7 @@ fn watcher_works() {
 
     std::fs::write(&path, "Hello, world!").expect("can't write");
     assert!(db.query(|db| db
-        .file_from_absolute_path(abs_path)
+        .file_from_diff_path(abs_path)
         .unwrap()
         .content(db.deref())
         == &FileContent::OnDisk("Hello, world!".to_owned())),);
@@ -43,7 +43,7 @@ fn watcher_works() {
     let _a = DEBOUNCE_TEST_SLEEP_TIME;
     std::thread::sleep(DEBOUNCE_TEST_SLEEP_TIME);
     assert!(db.query(|db| db
-        .file_from_absolute_path(abs_path)
+        .file_from_diff_path(abs_path)
         .unwrap()
         .content(db.deref())
         == &FileContent::OnDisk("Hello, world!2".to_owned())))

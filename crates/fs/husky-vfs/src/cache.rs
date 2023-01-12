@@ -1,8 +1,11 @@
+use std::sync::RwLock;
+
 use crate::*;
 use husky_fs_specs::{corgi_install_path, huskyup_install_path, FsSpecsError, FsSpecsResult};
 
 pub struct VfsCache {
     files: DashMap<PathBuf, File>,
+    live_packages: RwLock<Vec<PackagePath>>,
     corgi_install_path: FsSpecsResult<PathBuf>,
     huskyup_install_path: FsSpecsResult<PathBuf>,
     base_path: VfsResult<PathBuf>,
@@ -23,6 +26,7 @@ impl Default for VfsCache {
             .unwrap_or(true));
         Self {
             files: Default::default(),
+            live_packages: Default::default(),
             corgi_install_path,
             huskyup_install_path,
             base_path: match std::env::current_dir() {
@@ -37,6 +41,12 @@ impl Default for VfsCache {
 impl VfsCache {
     pub(crate) fn files(&self) -> &DashMap<PathBuf, File> {
         &self.files
+    }
+
+    pub(crate) fn live_packages<'a>(
+        &'a self,
+    ) -> std::sync::LockResult<std::sync::RwLockReadGuard<'_, Vec<PackagePath>>> {
+        self.live_packages.read()
     }
 
     pub fn corgi_install_path(&self) -> Result<&PathBuf, &FsSpecsError> {
@@ -58,5 +68,12 @@ impl VfsCache {
 
     pub fn base_path(&self) -> Result<&PathBuf, &VfsError> {
         self.base_path.as_ref()
+    }
+
+    pub(crate) fn add_live_package(&self, package_path: PackagePath) {
+        match self.live_packages.write() {
+            Ok(mut live_packages) => live_packages.push(package_path),
+            Err(_) => todo!(),
+        }
     }
 }

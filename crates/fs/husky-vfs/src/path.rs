@@ -36,7 +36,7 @@ pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<Dif
 }
 
 #[salsa::tracked(jar = VfsJar)]
-pub(crate) fn module_absolute_path(
+pub(crate) fn module_diff_path(
     db: &dyn VfsDb,
     module_path: ModulePath,
 ) -> VfsResult<DiffPath> {
@@ -50,7 +50,7 @@ pub(crate) fn module_absolute_path(
         )
         .map_err(|e| e.into()),
         ModulePathData::Child { parent, ident } => {
-            let parent_module_path = module_absolute_path(db, parent)?;
+            let parent_module_path = module_diff_path(db, parent)?;
             let dir = match parent.data(db) {
                 ModulePathData::Root(_) => parent_module_path.path(db).parent().unwrap().to_owned(),
                 ModulePathData::Child {
@@ -133,7 +133,7 @@ pub(crate) fn resolve_module_path(db: &dyn VfsDb,
 #[test]
 fn resolve_module_path_works() {
     <DB as VfsTestSupport>::test_probable_modules(|db, module_path| {
-        let abs_path = module_absolute_path(db, module_path).unwrap();
+        let abs_path = module_diff_path(db, module_path).unwrap();
         let toolchain = module_path.toolchain(db);
         let entity_path_resolved = db.resolve_module_path(toolchain, abs_path.path(db)).unwrap();
         assert_eq!(module_path, entity_path_resolved)

@@ -7,40 +7,15 @@ use salsa::DbWithJar;
 use crate::*;
 
 pub trait DiagnosticsDb: DbWithJar<DiagnosticsJar> + EntityTreeDb + AstDb {
-    fn diagnostics_reserve(&self, module: Term) -> Arc<DiagnosticReserve>;
-    fn print_diagnostics(&self) {
-        todo!()
-        // let modules = self.all_modules();
-        // for module in modules.iter() {
-        //     let diagnostic_reserve = self.diagnostics_reserve(*module);
-        //     p!(module);
-        //     p!(self.module_file(*module));
-        //     p!(diagnostic_reserve.data());
-        // }
-    }
-
-    fn all_diagnostics(&self) -> Vec<(Term, Diagnostic)> {
-        todo!()
-        // let mut diagnostics = vec![];
-        // for module in self.all_modules() {
-        //     let diagnostics_reserve = self.diagnostics_reserve(module);
-        //     diagnostics.extend(
-        //         diagnostics_reserve
-        //             .data()
-        //             .iter()
-        //             .map(|d| (module, d.clone())),
-        //     );
-        // }
-        // diagnostics
-    }
+    fn diagnostic_sheet(&self, module_path: ModulePath) -> DiagnosticSheet;
 }
 
 impl<T> DiagnosticsDb for T
 where
     T: DbWithJar<DiagnosticsJar> + EntityTreeDb + AstDb,
 {
-    fn diagnostics_reserve(&self, _module: Term) -> Arc<DiagnosticReserve> {
-        todo!()
+    fn diagnostic_sheet(&self, module_path: ModulePath) -> DiagnosticSheet {
+        diagnostic_sheet(self, module_path)
     }
 }
 
