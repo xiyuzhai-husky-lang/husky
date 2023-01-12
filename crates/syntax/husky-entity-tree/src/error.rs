@@ -34,6 +34,8 @@ pub enum EntityTreeError {
     CrateBundle(#[from] EntityTreeCrateBundleError),
     #[error("unresolved identifier")]
     UnresolvedIdentifier(husky_token::IdentifierToken),
+    #[error("SymbolNotAccessible")]
+    SymbolNotAccessible,
 }
 
 // impl From<&EntityTreeError> for EntityTreeError {

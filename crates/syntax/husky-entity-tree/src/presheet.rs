@@ -37,7 +37,7 @@ pub(crate) struct EntreePresheet {
     native_symbol_entries: NativeEntitySymbolTable,
     use_one_trackers: UseTreeRules,
     use_all_trackers: UseAllRules,
-    use_tree_expr_arena: UseExprArena,
+    use_expr_arena: UseExprArena,
     mod_path_arena: ModPathExprArena,
     errors: Vec<EntityTreeError>,
 }
@@ -50,7 +50,7 @@ impl EntreePresheet {
             use_expr_rules: self.use_one_trackers.clone(),
             use_all_rules: self.use_all_trackers.clone(),
             errors: self.errors.clone(),
-            use_tree_expr_arena: &self.use_tree_expr_arena,
+            use_expr_arena: &self.use_expr_arena,
             mod_path_arena: &self.mod_path_arena,
         }
     }
@@ -63,7 +63,7 @@ pub(crate) struct EntreePresheetMut<'a> {
     use_expr_rules: UseTreeRules,
     use_all_rules: UseAllRules,
     errors: Vec<EntityTreeError>,
-    use_tree_expr_arena: &'a UseExprArena,
+    use_expr_arena: &'a UseExprArena,
     mod_path_arena: &'a ModPathExprArena,
 }
 
@@ -110,7 +110,7 @@ struct EntreePresheetBuilder<'a> {
     module_path: ModulePath,
     native_symbol_entries: NativeEntitySymbolTable,
     mod_path_expr_arena: ModPathExprArena,
-    use_tree_expr_arena: UseExprArena,
+    use_expr_arena: UseExprArena,
     entity_use_trackers: UseTreeRules,
     token_sheet_data: &'a TokenSheetData,
     errors: Vec<EntityTreeError>,
@@ -123,7 +123,7 @@ impl<'a> EntreePresheetBuilder<'a> {
             ast_sheet: db.ast_sheet(module_path)?,
             module_path,
             mod_path_expr_arena: Default::default(),
-            use_tree_expr_arena: Default::default(),
+            use_expr_arena: Default::default(),
             native_symbol_entries: Default::default(),
             entity_use_trackers: Default::default(),
             token_sheet_data: db.token_sheet_data(module_path).unwrap(),
@@ -141,7 +141,7 @@ impl<'a> EntreePresheetBuilder<'a> {
             use_one_trackers: self.entity_use_trackers,
             use_all_trackers: Default::default(),
             errors: self.errors,
-            use_tree_expr_arena: self.use_tree_expr_arena,
+            use_expr_arena: self.use_expr_arena,
             mod_path_arena: self.mod_path_expr_arena,
         }
     }
@@ -160,14 +160,16 @@ impl<'a> EntreePresheetBuilder<'a> {
                     Ok(accessibility_expr) => accessibility_expr,
                     Err(_) => todo!(),
                 };
-                let Ok(use_tree_expr_root) =
-                    parse_use_tree_expr_root(&mut token_stream, &mut self.use_tree_expr_arena) else {
+                let Ok(use_expr_root) =
+                    parse_use_expr_root(&mut token_stream, &mut self.use_expr_arena) else {
                         todo!()
                     };
+                let use_expr_idx = use_expr_root.use_expr_idx();
                 self.entity_use_trackers.push(UseTreeRule::new_root(
                     ast_idx,
+                    use_expr_idx,
                     accessibility_expr,
-                    &self.use_tree_expr_arena[use_tree_expr_root.use_tree_expr_idx()],
+                    &self.use_expr_arena[use_expr_idx],
                     self.module_path,
                 ))
             }

@@ -1,6 +1,6 @@
 Ok(
     EntityTreePresheet {
-        module_path: `std::prelude`,
+        module_path: `mnist_classifier::digits::five`,
         module_specific_symbols: NativeEntitySymbolTable(
             [],
         ),

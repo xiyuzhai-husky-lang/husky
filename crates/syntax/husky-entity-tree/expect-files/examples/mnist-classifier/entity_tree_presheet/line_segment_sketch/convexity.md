@@ -1,16 +1,21 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::line_segment_sketch::convexity`,
-        module_specific_symbols: [
-            ModuleItem {
-                ident: `is_convex`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::line_segment_sketch::convexity`,
-                ),
-                ast_idx: 22,
-                path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
-            },
-        ],
+        module_specific_symbols: NativeEntitySymbolTable(
+            [
+                NativeEntitySymbolEntry {
+                    ident: `is_convex`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch::convexity`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                        },
+                    ),
+                },
+            ],
+        ),
         entity_use_roots: EntityUseExprTrackers(
             [
                 UseTracker {
@@ -20,8 +25,10 @@ Ok(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        1..2,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            1..2,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -33,8 +40,10 @@ Ok(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        4..5,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            4..5,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -46,8 +55,10 @@ Ok(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        7..8,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            7..8,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,

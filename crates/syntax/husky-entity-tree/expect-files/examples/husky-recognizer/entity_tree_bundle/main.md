@@ -5,7 +5,9 @@ Ok(
                 module_path: `MinimalToml(
                     ExpectWordName,
                 )`,
-                module_specific_symbols: [],
+                module_specific_symbols: EntitySymbolTable(
+                    [],
+                ),
             },
         ],
     },

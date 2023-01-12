@@ -1,16 +1,21 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-        module_specific_symbols: [
-            ModuleItem {
-                ident: `LineSegment`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::line_segment_sketch::line_segment`,
-                ),
-                ast_idx: 16,
-                path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-            },
-        ],
+        module_specific_symbols: NativeEntitySymbolTable(
+            [
+                NativeEntitySymbolEntry {
+                    ident: `LineSegment`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch::line_segment`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                        },
+                    ),
+                },
+            ],
+        ),
         entity_use_roots: EntityUseExprTrackers(
             [
                 UseTracker {
@@ -20,8 +25,10 @@ Ok(
                             `mnist_classifier::line_segment_sketch::line_segment`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        1..2,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            1..2,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,

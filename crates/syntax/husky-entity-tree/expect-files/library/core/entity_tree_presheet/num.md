@@ -1,34 +1,46 @@
 Ok(
     EntityTreePresheet {
         module_path: `core::num`,
-        module_specific_symbols: [
-            ModuleItem {
-                ident: `i8`,
-                accessibility: Public,
-                ast_idx: 9,
-                path: TypePath(`core::num::i8`, `Foreign`),
-            },
-            ModuleItem {
-                ident: `i16`,
-                accessibility: Public,
-                ast_idx: 13,
-                path: TypePath(`core::num::i16`, `Foreign`),
-            },
-            ModuleItem {
-                ident: `i32`,
-                accessibility: Public,
-                ast_idx: 17,
-                path: TypePath(`core::num::i32`, `Foreign`),
-            },
-            ModuleItem {
-                ident: `i64`,
-                accessibility: PubicUnder(
-                    `core::num`,
-                ),
-                ast_idx: 21,
-                path: TypePath(`core::num::i64`, `Foreign`),
-            },
-        ],
+        module_specific_symbols: NativeEntitySymbolTable(
+            [
+                NativeEntitySymbolEntry {
+                    ident: `i8`,
+                    accessibility: Public,
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: TypePath(`core::num::i8`, `Foreign`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `i16`,
+                    accessibility: Public,
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: TypePath(`core::num::i16`, `Foreign`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `i32`,
+                    accessibility: Public,
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: TypePath(`core::num::i32`, `Foreign`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `i64`,
+                    accessibility: Public,
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: TypePath(`core::num::i64`, `Foreign`),
+                        },
+                    ),
+                },
+            ],
+        ),
         entity_use_roots: EntityUseExprTrackers(
             [],
         ),

@@ -16,7 +16,9 @@ impl EntitySymbolTable {
 
     pub(crate) fn insert(&mut self, new_entry: EntitySymbolEntry) -> EntityTreeResult<()> {
         for _ in self.0.iter().filter(|entry| entry.ident == new_entry.ident) {
-            todo!()
+            // todo!()
+            // ad hoc
+            return Ok(());
         }
         self.0.push(new_entry);
         Ok(())
@@ -41,7 +43,9 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntitySymbolTable {
         db: &Db,
         include_all_fields: bool,
     ) -> std::fmt::Result {
-        todo!()
+        f.debug_tuple("EntitySymbolTable")
+            .field(&(&self.0).debug(db))
+            .finish()
     }
 }
 
@@ -96,6 +100,28 @@ impl EntitySymbolEntry {
         }
     }
 
+    pub(crate) fn new_use_symbol_entry(
+        db: &dyn EntityTreeDb,
+        original_symbol: EntitySymbol,
+        rule: &mut UseTreeRule,
+    ) -> Self {
+        rule.mark_as_resolved();
+        let accessibility = rule.accessibility();
+        Self {
+            ident: rule.ident_token().ident(),
+            accessibility,
+            symbol: UseSymbol::new(
+                db,
+                original_symbol,
+                original_symbol.path(db),
+                accessibility,
+                rule.ast_idx(),
+                rule.use_expr_idx(),
+            )
+            .into(),
+        }
+    }
+
     pub(crate) fn export_via_use_all(
         &self,
         db: &dyn EntityTreeDb,
@@ -109,8 +135,8 @@ impl EntitySymbolEntry {
                 accessibility: rule.accessibility(),
                 symbol: UseSymbol::new(
                     db,
+                    self.symbol,
                     self.symbol.path(db),
-                    self.ident,
                     rule.accessibility(),
                     rule.ast_idx(),
                     rule.use_expr_idx(),
@@ -170,7 +196,9 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for NativeEntitySymbolTab
         db: &Db,
         include_all_fields: bool,
     ) -> std::fmt::Result {
-        todo!()
+        f.debug_tuple("NativeEntitySymbolTable")
+            .field(&(&self.0).debug(db))
+            .finish()
     }
 }
 
@@ -217,6 +245,10 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for NativeEntitySymbolEnt
         include_all_fields: bool,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
-        todo!()
+        f.debug_struct("NativeEntitySymbolEntry")
+            .field("ident", &self.ident.debug(db))
+            .field("accessibility", &self.accessibility.debug(db))
+            .field("symbol", &self.symbol.debug(db))
+            .finish()
     }
 }

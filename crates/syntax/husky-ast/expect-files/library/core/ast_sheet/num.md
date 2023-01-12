@@ -181,13 +181,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `abs`,
                         token_idx: TokenIdx(
-                            149,
+                            150,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        150,
+                        151,
                     ),
                 },
                 Defn {
@@ -207,13 +207,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `add`,
                         token_idx: TokenIdx(
-                            169,
+                            170,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        170,
+                        171,
                     ),
                 },
                 Decor {
@@ -378,13 +378,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 4,
-                            },
-                        ),
-                    ),
+                    accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Foreign,
@@ -397,13 +391,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `i64`,
                         token_idx: TokenIdx(
-                            142,
+                            143,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        143,
+                        144,
                     ),
                 },
                 Impl {

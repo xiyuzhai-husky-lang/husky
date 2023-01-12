@@ -1,56 +1,76 @@
 Ok(
     EntityTreePresheet {
         module_path: `mnist_classifier::digits::seven`,
-        module_specific_symbols: [
-            ModuleItem {
-                ident: `simple_seven_match`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::digits::seven`,
-                ),
-                ast_idx: 50,
-                path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
-            },
-            ModuleItem {
-                ident: `simple_leftdown_pattern`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::digits::seven`,
-                ),
-                ast_idx: 51,
-                path: FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
-            },
-            ModuleItem {
-                ident: `special_seven_match`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::digits::seven`,
-                ),
-                ast_idx: 52,
-                path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Feature`),
-            },
-            ModuleItem {
-                ident: `leftupcc_pattern`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::digits::seven`,
-                ),
-                ast_idx: 53,
-                path: FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
-            },
-            ModuleItem {
-                ident: `leftdowncc_pattern`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::digits::seven`,
-                ),
-                ast_idx: 54,
-                path: FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
-            },
-            ModuleItem {
-                ident: `is_seven`,
-                accessibility: PubicUnder(
-                    `mnist_classifier::digits::seven`,
-                ),
-                ast_idx: 55,
-                path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
-            },
-        ],
+        module_specific_symbols: NativeEntitySymbolTable(
+            [
+                NativeEntitySymbolEntry {
+                    ident: `simple_seven_match`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::seven`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `simple_leftdown_pattern`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::seven`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `special_seven_match`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::seven`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Feature`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `leftupcc_pattern`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::seven`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `leftdowncc_pattern`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::seven`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `is_seven`,
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::seven`,
+                    ),
+                    symbol: ModuleItem(
+                        ModuleItemSymbol {
+                            path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
+                        },
+                    ),
+                },
+            ],
+        ),
         entity_use_roots: EntityUseExprTrackers(
             [
                 UseTracker {
@@ -60,8 +80,10 @@ Ok(
                             `mnist_classifier::digits::seven`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        4..5,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            4..5,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -73,8 +95,10 @@ Ok(
                             `mnist_classifier::digits::seven`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        7..8,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            7..8,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -86,8 +110,10 @@ Ok(
                             `mnist_classifier::digits::seven`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        10..11,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            10..11,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -99,8 +125,10 @@ Ok(
                             `mnist_classifier::digits::seven`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        15..16,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            15..16,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -112,8 +140,10 @@ Ok(
                             `mnist_classifier::digits::seven`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        18..19,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            18..19,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -125,8 +155,10 @@ Ok(
                             `mnist_classifier::digits::seven`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        21..22,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            21..22,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -138,8 +170,10 @@ Ok(
                             `mnist_classifier::digits::seven`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        25..26,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            25..26,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -151,8 +185,10 @@ Ok(
                             `mnist_classifier::digits::seven`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        28..29,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            28..29,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -164,8 +200,10 @@ Ok(
                             `mnist_classifier::digits::seven`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        31..32,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            31..32,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -177,8 +215,10 @@ Ok(
                             `mnist_classifier::digits::seven`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        34..35,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            34..35,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,
@@ -190,8 +230,10 @@ Ok(
                             `mnist_classifier::digits::seven`,
                         ),
                     },
-                    use_tree_expr_children: ArenaIdxRange(
-                        37..38,
+                    use_expr_children: Some(
+                        ArenaIdxRange(
+                            37..38,
+                        ),
                     ),
                     parent: None,
                     state: Unresolved,

@@ -68,9 +68,10 @@ impl UseTreeRules {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct UseTreeRule {
     ast_idx: AstIdx,
+    use_expr_idx: UseExprIdx,
     accessibility: AccessibilityProgress,
     ident_token: IdentifierToken,
-    children: UseExprIdxRange,
+    children: Option<UseExprIdxRange>,
     parent: Option<EntityPath>,
     state: EntityUseState,
 }
@@ -127,7 +128,7 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseTreeRule {
         f.debug_struct("UseTracker")
             .field("ast_idx", &self.ast_idx)
             .field("accessibility", &self.accessibility.debug(db))
-            .field("use_tree_expr_children", &self.children)
+            .field("use_expr_children", &self.children)
             .field("parent", &self.parent.debug(db))
             .field("state", &self.state)
             .finish()
@@ -144,11 +145,12 @@ pub enum EntityUseState {
 impl UseTreeRule {
     pub fn new_root(
         ast_idx: AstIdx,
+        use_expr_idx: UseExprIdx,
         accessibility_expr: Option<AccessibilityExpr>,
-        use_tree_expr: &UseExpr,
+        use_expr: &UseExpr,
         module_path: ModulePath,
     ) -> Self {
-        match use_tree_expr {
+        match use_expr {
             UseExpr::All { star_token } => todo!(),
             UseExpr::One { ident_token } => todo!(),
             UseExpr::Parent {
@@ -157,11 +159,12 @@ impl UseTreeRule {
                 children,
             } => Self {
                 ast_idx,
+                use_expr_idx,
                 accessibility: AccessibilityProgress::new(accessibility_expr, module_path),
                 parent: None,
                 state: EntityUseState::Unresolved,
                 ident_token: *ident_token,
-                children: children.idx_range(),
+                children: Some(children.idx_range()),
             },
             UseExpr::Err(_) => todo!(),
         }
@@ -169,12 +172,13 @@ impl UseTreeRule {
     pub fn new_child(
         &self,
         ident_token: IdentifierToken,
-        use_tree_expr_idx: UseExprIdx,
+        use_expr_idx: UseExprIdx,
         parent: EntityPath,
-        children: UseExprIdxRange,
+        children: Option<UseExprIdxRange>,
     ) -> Self {
         Self {
             ast_idx: self.ast_idx,
+            use_expr_idx,
             accessibility: self.accessibility,
             ident_token,
             parent: Some(parent),
@@ -214,11 +218,15 @@ impl UseTreeRule {
         }
     }
 
-    pub(crate) fn children(&self) -> UseExprIdxRange {
+    pub(crate) fn children(&self) -> Option<UseExprIdxRange> {
         self.children
     }
 
     pub(crate) fn mark_as_erroneous(&mut self) {
         self.state = EntityUseState::Erroneous
+    }
+
+    pub(crate) fn use_expr_idx(&self) -> ArenaIdx<UseExpr> {
+        self.use_expr_idx
     }
 }
