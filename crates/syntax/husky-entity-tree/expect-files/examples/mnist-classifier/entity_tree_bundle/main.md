@@ -112,6 +112,25 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `is_one`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
                     ],
                 ),
             },
@@ -1436,6 +1455,29 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `is_one`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: Use(
+                                                UseSymbol {
+                                                    original_symbol: ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                        },
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
                     ],
                 ),
             },
@@ -1555,9 +1597,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `is_one`,
-                            accessibility: PubicUnder(
-                                `mnist_classifier::digits`,
-                            ),
+                            accessibility: Public,
                             symbol: Use(
                                 UseSymbol {
                                     original_symbol: ModuleItem(
@@ -1718,9 +1758,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `is_one`,
-                            accessibility: PubicUnder(
-                                `mnist_classifier::digits::one`,
-                            ),
+                            accessibility: Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
                                     path: FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
@@ -2072,6 +2110,255 @@ Ok(
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
                                             path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `zero`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::digits::zero`,
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `one`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::digits::one`,
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `six`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::digits::six`,
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `three`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::digits::three`,
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `four`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::digits::four`,
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `five`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::digits::five`,
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `seven`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::digits::seven`,
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `eight`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::digits::eight`,
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `nine`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::digits::nine`,
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `is_one`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `is_six`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `is_zero`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `is_three`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `is_eight`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `is_nine`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+                                                },
+                                            ),
                                         },
                                     ),
                                 },

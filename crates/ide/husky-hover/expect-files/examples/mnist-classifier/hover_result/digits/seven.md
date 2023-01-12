@@ -32,7 +32,7 @@ Ok(
         ),
         (
             TokenIdx(
-                18,
+                17,
             ),
             Some(
                 HoverResult {
@@ -40,18 +40,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 18;\n\ntoken = Keyword(\n    Use,\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 17;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 348,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 2,
-                                    character: 0,
+                                    line: 1,
+                                    character: 18,
                                 },
                                 end: Position {
-                                    line: 2,
-                                    character: 3,
+                                    line: 1,
+                                    character: 42,
                                 },
                             },
                         ),
@@ -62,7 +62,7 @@ Ok(
         ),
         (
             TokenIdx(
-                36,
+                34,
             ),
             Some(
                 HoverResult {
@@ -70,47 +70,17 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 36;\n\ntoken = Punctuation(\n    DoubleColon,\n);\n\ntoken_info = None;\n\n\n",
+                                value: "Other\ntoken_idx = 34;\n\ntoken = Keyword(\n    Use,\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 4,
-                                    character: 9,
+                                    character: 0,
                                 },
                                 end: Position {
                                     line: 4,
-                                    character: 11,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                54,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "Other\ntoken_idx = 54;\n\ntoken = Keyword(\n    Use,\n);\n\ntoken_info = None;\n\n\n",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 8,
-                                    character: 0,
-                                },
-                                end: Position {
-                                    line: 8,
                                     character: 3,
                                 },
                             },
@@ -122,7 +92,7 @@ Ok(
         ),
         (
             TokenIdx(
-                72,
+                51,
             ),
             Some(
                 HoverResult {
@@ -130,18 +100,48 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 72;\n\ntoken = Keyword(\n    Use,\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 51;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 81,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 6,
+                                    character: 32,
+                                },
+                                end: Position {
+                                    line: 6,
+                                    character: 49,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                68,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 68;\n\ntoken = Punctuation(\n    Comma,\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 11,
-                                    character: 0,
+                                    character: 40,
                                 },
                                 end: Position {
                                     line: 11,
-                                    character: 3,
+                                    character: 41,
                                 },
                             },
                         ),
@@ -152,7 +152,7 @@ Ok(
         ),
         (
             TokenIdx(
-                90,
+                85,
             ),
             Some(
                 HoverResult {
@@ -160,18 +160,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 90;\n\ntoken = Punctuation(\n    Ket(\n        Par,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "Other\ntoken_idx = 85;\n\ntoken = Keyword(\n    Stmt(\n        Let,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 14,
-                                    character: 66,
+                                    character: 4,
                                 },
                                 end: Position {
                                     line: 14,
-                                    character: 67,
+                                    character: 7,
                                 },
                             },
                         ),
@@ -182,7 +182,7 @@ Ok(
         ),
         (
             TokenIdx(
-                108,
+                102,
             ),
             Some(
                 HoverResult {
@@ -190,198 +190,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 108;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 184,\n            },\n        ),\n    ),\n);\n\ntoken_info = Method;\n\n\n",
+                                value: "\ntoken_idx = 102;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 153,\n            },\n        ),\n    ),\n);\n\ntoken_info = Field;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 17,
-                                    character: 16,
-                                },
-                                end: Position {
-                                    line: 17,
-                                    character: 28,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                126,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "\ntoken_idx = 126;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 338,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 22,
-                                    character: 4,
-                                },
-                                end: Position {
-                                    line: 22,
-                                    character: 15,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                144,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "\ntoken_idx = 144;\n\ntoken = Punctuation(\n    Binary(\n        Curry,\n    ),\n);\n\ntoken_info = None;\n\n\n",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 24,
-                                    character: 45,
-                                },
-                                end: Position {
-                                    line: 24,
-                                    character: 47,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                162,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "Other\ntoken_idx = 162;\n\ntoken = Keyword(\n    Stmt(\n        Require,\n    ),\n);\n\ntoken_info = None;\n\n\n",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 27,
-                                    character: 4,
-                                },
-                                end: Position {
-                                    line: 27,
-                                    character: 11,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                180,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "\ntoken_idx = 180;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 413,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Form(\n                FormPath(\n                    Id {\n                        value: 54,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Form(\n                Function,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 30,
-                                    character: 5,
-                                },
-                                end: Position {
-                                    line: 30,
-                                    character: 23,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                198,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "\ntoken_idx = 198;\n\ntoken = Punctuation(\n    Ket(\n        Par,\n    ),\n);\n\ntoken_info = None;\n\n\n",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 31,
-                                    character: 29,
-                                },
-                                end: Position {
-                                    line: 31,
-                                    character: 30,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                216,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "\ntoken_idx = 216;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 414,\n            },\n        ),\n    ),\n);\n\ntoken_info = LocalSymbol {\n    local_symbol_idx: 1,\n    local_symbol_kind: LetVariable {\n        pattern_symbol: 1,\n    },\n    expr_sheet: ExprSheet(\n        Id {\n            value: 146,\n        },\n    ),\n};\n\nLocalSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 414,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        217,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                233,\n            ),\n        ),\n    ),\n    kind: LetVariable {\n        pattern_symbol: 1,\n    },\n}\n",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 36,
+                                    line: 16,
                                     character: 8,
                                 },
                                 end: Position {
-                                    line: 36,
-                                    character: 11,
+                                    line: 16,
+                                    character: 9,
                                 },
                             },
                         ),
@@ -392,7 +212,7 @@ Ok(
         ),
         (
             TokenIdx(
-                234,
+                119,
             ),
             Some(
                 HoverResult {
@@ -400,108 +220,318 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 234;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 101,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Form(\n                FormPath(\n                    Id {\n                        value: 55,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Form(\n                Feature,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
+                                value: "\ntoken_idx = 119;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 412,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Form(\n                FormPath(\n                    Id {\n                        value: 53,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Form(\n                Function,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 40,
+                                    line: 21,
+                                    character: 5,
+                                },
+                                end: Position {
+                                    line: 21,
+                                    character: 21,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                136,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 136;\n\ntoken = Punctuation(\n    Bra(\n        Par,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 22,
+                                    character: 28,
+                                },
+                                end: Position {
+                                    line: 22,
+                                    character: 29,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                153,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 153;\n\ntoken = Literal(\n    Float(\n        Unspecified,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 24,
+                                    character: 46,
+                                },
+                                end: Position {
+                                    line: 24,
+                                    character: 49,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                170,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 170;\n\ntoken = Punctuation(\n    Question,\n);\n\ntoken_info = None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 27,
+                                    character: 50,
+                                },
+                                end: Position {
+                                    line: 27,
+                                    character: 51,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                187,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "Other\ntoken_idx = 187;\n\ntoken = Keyword(\n    Stmt(\n        Require,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 31,
                                     character: 4,
                                 },
                                 end: Position {
-                                    line: 40,
-                                    character: 12,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                252,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "\ntoken_idx = 252;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 351,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Form(\n                FormPath(\n                    Id {\n                        value: 65,\n                    },\n                ),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 44,
-                                    character: 12,
-                                },
-                                end: Position {
-                                    line: 44,
-                                    character: 37,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                270,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "\ntoken_idx = 270;\n\ntoken = Punctuation(\n    Dot,\n);\n\ntoken_info = None;\n\n\n",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 47,
-                                    character: 34,
-                                },
-                                end: Position {
-                                    line: 47,
-                                    character: 35,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                288,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "\ntoken_idx = 288;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 416,\n            },\n        ),\n    ),\n);\n\ntoken_info = LocalSymbol {\n    local_symbol_idx: 0,\n    local_symbol_kind: LetVariable {\n        pattern_symbol: 3,\n    },\n    expr_sheet: ExprSheet(\n        Id {\n            value: 147,\n        },\n    ),\n};\n\nLocalSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 415,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        259,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                361,\n            ),\n        ),\n    ),\n    kind: LetVariable {\n        pattern_symbol: 3,\n    },\n}\n",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 49,
+                                    line: 31,
                                     character: 11,
                                 },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                204,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 204;\n\ntoken = Punctuation(\n    Ket(\n        Par,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 33,
+                                    character: 31,
+                                },
                                 end: Position {
-                                    line: 49,
-                                    character: 23,
+                                    line: 33,
+                                    character: 32,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                221,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "Other\ntoken_idx = 221;\n\ntoken = Keyword(\n    Stmt(\n        Require,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 38,
+                                    character: 4,
+                                },
+                                end: Position {
+                                    line: 38,
+                                    character: 11,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                238,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 238;\n\ntoken = Literal(\n    Float(\n        Unspecified,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 41,
+                                    character: 55,
+                                },
+                                end: Position {
+                                    line: 41,
+                                    character: 57,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                255,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 255;\n\ntoken = Literal(\n    Integer(\n        Unspecified,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 44,
+                                    character: 43,
+                                },
+                                end: Position {
+                                    line: 44,
+                                    character: 44,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                272,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 272;\n\ntoken = Literal(\n    Float(\n        Unspecified,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 46,
+                                    character: 26,
+                                },
+                                end: Position {
+                                    line: 46,
+                                    character: 29,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                289,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 289;\n\ntoken = Punctuation(\n    Binary(\n        Assign(\n            None,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 48,
+                                    character: 18,
+                                },
+                                end: Position {
+                                    line: 48,
+                                    character: 19,
                                 },
                             },
                         ),
@@ -520,18 +550,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 306;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 151,\n            },\n        ),\n    ),\n);\n\ntoken_info = LocalSymbol {\n    local_symbol_idx: 3,\n    local_symbol_kind: LetVariable {\n        pattern_symbol: 7,\n    },\n    expr_sheet: ExprSheet(\n        Id {\n            value: 147,\n        },\n    ),\n};\n\nLocalSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 151,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        307,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                316,\n            ),\n        ),\n    ),\n    kind: LetVariable {\n        pattern_symbol: 7,\n    },\n}\n",
+                                value: "Other\ntoken_idx = 306;\n\ntoken = Keyword(\n    Stmt(\n        Let,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 51,
-                                    character: 16,
+                                    line: 52,
+                                    character: 8,
                                 },
                                 end: Position {
-                                    line: 51,
-                                    character: 17,
+                                    line: 52,
+                                    character: 11,
                                 },
                             },
                         ),
@@ -542,7 +572,7 @@ Ok(
         ),
         (
             TokenIdx(
-                324,
+                323,
             ),
             Some(
                 HoverResult {
@@ -550,14 +580,14 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 324;\n\ntoken = Keyword(\n    Stmt(\n        Let,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "Other\ntoken_idx = 323;\n\ntoken = Keyword(\n    Stmt(\n        Require,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 55,
-                                    character: 8,
+                                    character: 4,
                                 },
                                 end: Position {
                                     line: 55,
@@ -572,7 +602,7 @@ Ok(
         ),
         (
             TokenIdx(
-                342,
+                340,
             ),
             Some(
                 HoverResult {
@@ -580,48 +610,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 342;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 411,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Form(\n                FormPath(\n                    Id {\n                        value: 52,\n                    },\n                ),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
+                                value: "\ntoken_idx = 340;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 90,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 58,
-                                    character: 12,
+                                    character: 4,
                                 },
                                 end: Position {
                                     line: 58,
-                                    character: 31,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                360,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "\ntoken_idx = 360;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 417,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 61,
-                                    character: 16,
-                                },
-                                end: Position {
-                                    line: 61,
-                                    character: 21,
+                                    character: 14,
                                 },
                             },
                         ),

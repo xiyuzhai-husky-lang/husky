@@ -564,13 +564,7 @@ Ok(
                     body: ArenaIdxRange(
                         48..51,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
-                    ),
+                    accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Feature,
@@ -583,13 +577,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `is_one`,
                         token_idx: TokenIdx(
-                            76,
+                            77,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        77,
+                        78,
                     ),
                 },
                 Defn {
@@ -618,13 +612,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `upmost`,
                         token_idx: TokenIdx(
-                            553,
+                            554,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        554,
+                        555,
                     ),
                 },
                 Defn {
@@ -653,13 +647,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `downmost`,
                         token_idx: TokenIdx(
-                            582,
+                            583,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        583,
+                        584,
                     ),
                 },
                 Defn {
@@ -688,13 +682,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `hat`,
                         token_idx: TokenIdx(
-                            616,
+                            617,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        617,
+                        618,
                     ),
                 },
             ],
