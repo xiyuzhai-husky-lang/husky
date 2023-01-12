@@ -30,8 +30,7 @@ impl<'a> EntreeSymbolContext<'a> {
     pub(crate) fn resolve_ident(&self, ident: Identifier) -> Option<EntitySymbol> {
         self.current_sheet
             .module_specific_symbols()
-            .get_entry(ident)
-            .map(|entry| entry.symbol())
+            .resolve_ident(ident)
             .or_else(|| self.crate_prelude.resolve_ident(ident))
     }
 
@@ -49,10 +48,7 @@ impl<'a> EntreeSymbolContext<'a> {
             match parent {
                 EntityPath::Module(module_path) => {
                     let module_sheet = &self.sheets[module_path];
-                    module_sheet
-                        .module_specific_symbols()
-                        .get_entry(ident)
-                        .map(|entry| entry.symbol())
+                    module_sheet.module_specific_symbols().resolve_ident(ident)
                 }
                 EntityPath::ModuleItem(_) => todo!(),
                 EntityPath::AssociatedItem(_) => todo!(),
@@ -63,7 +59,7 @@ impl<'a> EntreeSymbolContext<'a> {
         }
     }
 
-    pub(crate) fn module_symbols(&self, module_path: ModulePath) -> &'a [EntitySymbolEntry] {
+    pub(crate) fn module_symbols(&self, module_path: ModulePath) -> EntitySymbolTableRef<'a> {
         let query_crate_path = module_path.crate_path(self.db);
         if query_crate_path == self.crate_path {
             self.sheets[module_path].module_specific_symbols()

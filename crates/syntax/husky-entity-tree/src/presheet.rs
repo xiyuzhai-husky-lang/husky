@@ -1,9 +1,6 @@
 mod action;
-mod entry;
 mod use_all_rule;
 mod use_expr_rule;
-
-pub use entry::*;
 
 use std::marker::PhantomData;
 
@@ -36,7 +33,7 @@ fn entree_presheet_works() {
 #[derive(Debug, PartialEq, Eq)]
 pub(crate) struct EntreePresheet {
     module_path: ModulePath,
-    native_symbol_entries: IdentMap<NativeEntitySymbolEntry>,
+    native_symbol_entries: NativeEntitySymbolTable,
     use_one_trackers: UseTreeRules,
     use_all_trackers: UseAllRules,
     use_tree_expr_arena: UseExprArena,
@@ -48,11 +45,7 @@ impl EntreePresheet {
     pub(crate) fn presheet_mut<'a>(&'a self, db: &'a dyn EntityTreeDb) -> EntreePresheetMut<'a> {
         EntreePresheetMut {
             module_path: self.module_path,
-            symbols: self
-                .native_symbol_entries
-                .iter()
-                .map(|entry| entry.into())
-                .collect(),
+            symbols: self.native_symbol_entries.entity_symbol_table(),
             use_expr_rules: self.use_one_trackers.clone(),
             use_all_rules: self.use_all_trackers.clone(),
             errors: self.errors.clone(),
@@ -65,7 +58,7 @@ impl EntreePresheet {
 #[derive(Debug, PartialEq, Eq)]
 pub(crate) struct EntreePresheetMut<'a> {
     module_path: ModulePath,
-    symbols: IdentMap<EntitySymbolEntry>,
+    symbols: EntitySymbolTable,
     use_expr_rules: UseTreeRules,
     use_all_rules: UseAllRules,
     errors: Vec<EntityTreeError>,
@@ -78,8 +71,8 @@ impl<'a> EntreePresheetMut<'a> {
         self.module_path
     }
 
-    pub(crate) fn module_specific_symbols(&self) -> &IdentMap<EntitySymbolEntry> {
-        &self.symbols
+    pub(crate) fn module_specific_symbols(&'a self) -> EntitySymbolTableRef<'a> {
+        self.symbols.as_ref()
     }
 
     pub(crate) fn into_sheet(self, impl_blocks: Vec<ImplBlock>) -> EntityTreeModuleSheet {
@@ -107,7 +100,7 @@ struct EntreePresheetBuilder<'a> {
     db: &'a dyn EntityTreeDb,
     ast_sheet: &'a AstSheet,
     module_path: ModulePath,
-    native_symbol_entries: VecMap<NativeEntitySymbolEntry>,
+    native_symbol_entries: NativeEntitySymbolTable,
     mod_path_expr_arena: ModPathExprArena,
     use_tree_expr_arena: UseExprArena,
     entity_use_trackers: UseTreeRules,
@@ -202,15 +195,16 @@ impl<'a> EntreePresheetBuilder<'a> {
                             EntityPath::AssociatedItem(_) | EntityPath::Variant(_) => return,
                         },
                     );
-                    match self.native_symbol_entries.insert_new(new_entry) {
+                    match self.native_symbol_entries.insert(new_entry) {
                         Ok(_) => (),
                         Err(e) => {
-                            let old_native_symbol_entry = &self.native_symbol_entries.data()[e.old];
-                            self.errors
-                                .push(EntityTreeError::EntitySymbolAlreadyDefined {
-                                    old: old_native_symbol_entry.symbol().ast_idx(self.db),
-                                    new: ast_idx,
-                                })
+                            todo!()
+                            // let old_native_symbol_entry = &self.native_symbol_entries.data()[e.old];
+                            // self.errors
+                            //     .push(EntityTreeError::EntitySymbolAlreadyDefined {
+                            //         old: old_native_symbol_entry.symbol().ast_idx(self.db),
+                            //         new: ast_idx,
+                            //     })
                         }
                     }
                 }

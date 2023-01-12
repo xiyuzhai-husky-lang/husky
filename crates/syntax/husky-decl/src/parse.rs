@@ -79,9 +79,8 @@ impl<'a> DeclParser<'a> {
         let module_item_symbol = self
             .module_entity_tree
             .module_symbols()
-            .get_entry(ident)
+            .resolve_ident(ident)
             .unwrap()
-            .symbol()
             .module_item_symbol()
             .unwrap();
 
@@ -176,9 +175,8 @@ impl<'a> DeclParser<'a> {
         let module_item = self
             .module_entity_tree
             .module_symbols()
-            .get_entry(ident)
+            .resolve_ident(ident)
             .unwrap()
-            .symbol()
             .module_item_symbol()
             .unwrap();
         let ast_idx: AstIdx = module_item.ast_idx(self.db);
@@ -336,9 +334,8 @@ impl<'a> DeclParser<'a> {
         let module_item = self
             .module_entity_tree
             .module_symbols()
-            .get_entry(ident)
+            .resolve_ident(ident)
             .unwrap()
-            .symbol()
             .module_item_symbol()
             .unwrap();
         let ast_idx: AstIdx = module_item.ast_idx(self.db);

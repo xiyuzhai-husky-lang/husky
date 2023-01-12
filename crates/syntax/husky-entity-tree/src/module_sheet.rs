@@ -9,7 +9,7 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityTreeModuleSheet {
     module_path: ModulePath,
-    symbols: IdentMap<EntitySymbolEntry>,
+    symbols: EntitySymbolTable,
     impl_blocks: Vec<ImplBlock>,
 }
 
@@ -31,7 +31,7 @@ impl vec_like::AsVecMapEntry for EntityTreeModuleSheet {
 impl EntityTreeModuleSheet {
     pub(crate) fn new(
         module_path: ModulePath,
-        symbols: IdentMap<EntitySymbolEntry>,
+        symbols: EntitySymbolTable,
         impl_blocks: Vec<ImplBlock>,
     ) -> Self {
         Self {
@@ -63,8 +63,8 @@ impl EntityTreeModuleSheet {
     //             )
     //         })
     // }
-    pub fn module_symbols(&self) -> &[EntitySymbolEntry] {
-        &self.symbols
+    pub fn module_symbols<'a>(&'a self) -> EntitySymbolTableRef<'a> {
+        self.symbols.as_ref()
     }
 
     // pub fn module_item_iter<'a>(&'a self) -> impl Iterator<Item = &'a ModuleItem> + 'a {
@@ -78,6 +78,7 @@ impl EntityTreeModuleSheet {
         db: &'a dyn EntityTreeDb,
     ) -> impl Iterator<Item = ModuleItemPath> + 'a {
         self.symbols
+            .data()
             .iter()
             .filter_map(|entry| match entry.symbol() {
                 EntitySymbol::CrateRoot(_) => todo!(),
@@ -124,7 +125,7 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreeModuleSheet
             )
             .field(
                 "module_specific_symbols",
-                &(&self.symbols).debug_with(db, include_all_fields),
+                &self.symbols.debug_with(db, include_all_fields),
             )
             .finish()
     }

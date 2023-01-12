@@ -41,6 +41,7 @@ pub(crate) fn crate_prelude<'a>(
             .module_symbols(),
         crate_specific_prelude(db, crate_path)
             .as_ref()
+            .map(|table| table.as_ref())
             .map_err(|e| e.clone())?,
     ))
 }
@@ -73,33 +74,29 @@ fn crate_symbol_context_works() {
 pub(crate) fn crate_specific_prelude(
     db: &dyn EntityTreeDb,
     crate_path: CratePath,
-) -> PreludeResult<IdentMap<EntitySymbolEntry>> {
+) -> PreludeResult<EntitySymbolTable> {
     let package_path = crate_path.package_path(db);
     let package_dependencies = db.package_dependencies(package_path)?;
-    let mut entries: IdentMap<EntitySymbolEntry> = Default::default();
-    entries
-        .insert_new(EntitySymbolEntry::new_crate_root(db, crate_path))
-        .unwrap();
-    entries
-        .extend(
-            package_dependencies
-                .iter()
-                .map(|package_dependency| todo!()),
-        )
-        .unwrap();
+    let mut entries: EntitySymbolTable = Default::default();
+    entries.insert(EntitySymbolEntry::new_crate_root(db, crate_path));
+    entries.extend(
+        package_dependencies
+            .iter()
+            .map(|package_dependency| todo!()),
+    );
     Ok(entries)
 }
 
 #[derive(Debug, Clone, Copy)]
 pub struct CrateSymbolContext<'a> {
-    universal_prelude: &'a [EntitySymbolEntry],
-    crate_specific_symbol_context: &'a [EntitySymbolEntry],
+    universal_prelude: EntitySymbolTableRef<'a>,
+    crate_specific_symbol_context: EntitySymbolTableRef<'a>,
 }
 
 impl<'a> CrateSymbolContext<'a> {
     pub(crate) fn new(
-        universal_prelude: &'a [EntitySymbolEntry],
-        crate_specific_symbol_context: &'a [EntitySymbolEntry],
+        universal_prelude: EntitySymbolTableRef<'a>,
+        crate_specific_symbol_context: EntitySymbolTableRef<'a>,
     ) -> Self {
         Self {
             universal_prelude,
@@ -116,9 +113,8 @@ impl<'a> CrateSymbolContext<'a> {
 
     pub(crate) fn resolve_ident(&self, ident: Identifier) -> Option<EntitySymbol> {
         self.crate_specific_symbol_context
-            .get_entry(ident)
-            .map(|v| v.symbol())
-            .or_else(|| self.universal_prelude.get_entry(ident).map(|v| v.symbol()))
+            .resolve_ident(ident)
+            .or_else(|| self.universal_prelude.resolve_ident(ident))
     }
 }
 
@@ -133,7 +129,7 @@ impl<'a, Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for CrateSymbolContex
         f.debug_struct("CrateSymbolContext")
             .field(
                 "universal_prelude",
-                &(&self.universal_prelude).debug_with(db, include_all_fields),
+                &self.universal_prelude.debug_with(db, include_all_fields),
             )
             .field(
                 "crate_specific_symbol_context",

@@ -10,8 +10,8 @@ pub(crate) struct EntityTreeCollector<'a> {
     presheets: VecMap<EntreePresheetMut<'a>>,
     core_prelude_module: ModulePath,
     // can't use `crate_prelude` here because it might not be available
-    opt_universal_prelude: Option<&'a [EntitySymbolEntry]>,
-    crate_specific_prelude: &'a [EntitySymbolEntry],
+    opt_universal_prelude: Option<EntitySymbolTableRef<'a>>,
+    crate_specific_prelude: EntitySymbolTableRef<'a>,
     major_path_expr_arena: MajorPathExprArena,
     impl_blocks: Vec<ImplBlock>,
 }
@@ -42,7 +42,7 @@ impl<'a> EntityTreeCollector<'a> {
         let toolchain = crate_path.toolchain(db);
         let path_menu = db.vfs_path_menu(toolchain)?;
         let core_prelude_module = path_menu.core_prelude();
-        let universal_prelude: Option<&'a [EntitySymbolEntry]> = {
+        let universal_prelude: Option<EntitySymbolTableRef<'a>> = {
             if crate_path != path_menu.core_library() {
                 Some(
                     module_entity_tree(db, core_prelude_module)
@@ -61,6 +61,7 @@ impl<'a> EntityTreeCollector<'a> {
             opt_universal_prelude: universal_prelude,
             crate_specific_prelude: crate_specific_prelude(db, crate_path)
                 .as_ref()
+                .map(|table| table.as_ref())
                 .map_err(|e| e.clone())?,
             major_path_expr_arena: Default::default(),
             impl_blocks: Default::default(),
@@ -132,16 +133,13 @@ impl<'a> EntityTreeCollector<'a> {
     }
 
     fn exec(&mut self, action: PresheetAction) {
+        let db = self.db;
         match action {
             PresheetAction::ResolveUseExpr {
                 module_path,
-                tracker_idx: entity_use_tracker_idx,
+                rule_idx,
                 symbol: export,
-            } => self.presheets[module_path].resolve_use_expr(
-                self.db,
-                entity_use_tracker_idx,
-                export,
-            ),
+            } => self.presheets[module_path].resolve_use_expr(db, rule_idx, export),
             PresheetAction::UpdateUseAll {
                 module_path,
                 rule_idx,
@@ -149,18 +147,33 @@ impl<'a> EntityTreeCollector<'a> {
                 let rule = &self.presheets[module_path][rule_idx];
                 let parent = rule.parent();
                 let progress = rule.progress();
-                let a = &self.presheets[parent].module_specific_symbols().data()[progress..];
-                self.presheets[module_path].update_use_all()
+                let new_uses = self.presheets[parent].module_specific_symbols().data()[progress..]
+                    .iter()
+                    .filter_map(|entry| {
+                        let symbol = entry.symbol();
+                        symbol
+                            .is_accessible_from(db, module_path)
+                            .then_some(UseSymbol::new(
+                                db,
+                                symbol.path(db),
+                                entry.ident(),
+                                rule.accessibility(),
+                                rule.ast_idx(),
+                                rule.use_expr_idx(),
+                            ))
+                    })
+                    .collect();
+                self.presheets[module_path].update_use_all(rule_idx, new_uses)
             }
         }
     }
 }
 
 fn crate_prelude<'a>(
-    opt_universal_prelude: Option<&'a [EntitySymbolEntry]>,
+    opt_universal_prelude: Option<EntitySymbolTableRef<'a>>,
     core_prelude_module: ModulePath,
     presheets: &'a VecMap<EntreePresheetMut<'a>>,
-    crate_specific_prelude: &'a [EntitySymbolEntry],
+    crate_specific_prelude: EntitySymbolTableRef<'a>,
 ) -> CrateSymbolContext<'a> {
     let universal_prelude = opt_universal_prelude
         .unwrap_or_else(|| presheets[core_prelude_module].module_specific_symbols());
