@@ -53,7 +53,7 @@ pub(crate) fn crate_symbol_context<'a>(
     let path_menu = db.vfs_path_menu(toolchain)?;
     let core_prelude_module = path_menu.core_prelude();
     Ok(CrateSymbolContext::new(
-        module_entity_tree(db, core_prelude_module)
+        entity_tree_sheet(db, core_prelude_module)
             .map_err(|e| PreludeError::CorePreludeEntityTreeSheet(Box::new(e.clone())))?
             .module_symbols(),
         crate_specific_prelude(db, crate_path)

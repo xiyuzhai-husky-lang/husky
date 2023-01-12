@@ -103,9 +103,9 @@ impl EntitySymbolEntry {
     pub(crate) fn new_use_symbol_entry(
         db: &dyn EntityTreeDb,
         original_symbol: EntitySymbol,
-        rule: &mut UseTreeRule,
+        rule: &mut UseExprRule,
     ) -> Self {
-        rule.mark_as_resolved();
+        rule.mark_as_resolved(original_symbol);
         let accessibility = rule.accessibility();
         Self {
             ident: rule.ident_token().ident(),

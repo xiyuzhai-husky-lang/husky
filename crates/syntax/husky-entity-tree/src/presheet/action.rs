@@ -5,7 +5,7 @@ use with_db::{PartialOrdWithDb, WithDb};
 pub(crate) enum PresheetAction {
     ResolveUseExpr {
         module_path: ModulePath,
-        rule_idx: UseTreeRuleIdx,
+        rule_idx: UseExprRuleIdx,
         symbol: EntitySymbol,
     },
     UpdateUseAll {
@@ -14,7 +14,7 @@ pub(crate) enum PresheetAction {
     },
     Err {
         module_path: ModulePath,
-        rule_idx: UseTreeRuleIdx,
+        rule_idx: UseExprRuleIdx,
         error: EntityTreeError,
     },
 }
@@ -61,10 +61,10 @@ impl PresheetAction {
     }
 }
 
-impl<'a> EntreePresheetMut<'a> {
+impl<'a> EntityTreePresheetMut<'a> {
     pub(crate) fn collect_possible_actions(
         &self,
-        ctx: EntreeSymbolContext,
+        ctx: EntityTreeSymbolContext,
         actions: &mut Vec<PresheetAction>,
     ) {
         for (rule_idx, rule) in self.use_expr_rules.indexed_iter() {
@@ -102,17 +102,17 @@ impl<'a> EntreePresheetMut<'a> {
     pub(crate) fn resolve_use_expr(
         &mut self,
         db: &dyn EntityTreeDb,
-        rule_idx: UseTreeRuleIdx,
-        symbol: EntitySymbol,
+        rule_idx: UseExprRuleIdx,
+        original_symbol: EntitySymbol,
     ) {
         let rule = &mut self.use_expr_rules[rule_idx];
         #[cfg(test)]
         assert!(rule.is_unresolved());
-        rule.mark_as_resolved();
-        if !symbol.is_accessible_from(db, self.module_path) {
+        rule.mark_as_resolved(original_symbol);
+        if !original_symbol.is_accessible_from(db, self.module_path) {
             self.errors.push(EntityTreeError::SymbolNotAccessible);
         }
-        let path = symbol.path(db);
+        let path = original_symbol.path(db);
         if let Some(children) = rule.children() {
             for use_expr_idx in children {
                 let use_expr = &self.use_expr_arena[use_expr_idx];
@@ -153,10 +153,11 @@ impl<'a> EntreePresheetMut<'a> {
                 }
             }
         } else {
-            match self
-                .symbols
-                .insert(EntitySymbolEntry::new_use_symbol_entry(db, symbol, rule))
-            {
+            match self.symbols.insert(EntitySymbolEntry::new_use_symbol_entry(
+                db,
+                original_symbol,
+                rule,
+            )) {
                 Ok(_) => (),
                 Err(_) => todo!(),
             }
@@ -177,7 +178,7 @@ impl<'a> EntreePresheetMut<'a> {
         }
     }
 
-    pub(crate) fn mark_as_erroneous(&mut self, rule_idx: UseTreeRuleIdx, error: EntityTreeError) {
+    pub(crate) fn mark_as_erroneous(&mut self, rule_idx: UseExprRuleIdx, error: EntityTreeError) {
         let rule = &mut self.use_expr_rules[rule_idx];
         self.errors.push(error);
         rule.mark_as_erroneous()

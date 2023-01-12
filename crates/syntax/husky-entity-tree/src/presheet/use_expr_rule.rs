@@ -4,9 +4,9 @@ use husky_word::Identifier;
 use crate::*;
 
 #[derive(Debug, Default, PartialEq, Eq, Clone)]
-pub(crate) struct UseTreeRules(Vec<UseTreeRule>);
+pub(crate) struct UseExprRules(Vec<UseExprRule>);
 
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseTreeRules {
+impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseExprRules {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -20,33 +20,33 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseTreeRules {
     }
 }
 
-impl std::ops::Index<UseTreeRuleIdx> for UseTreeRules {
-    type Output = UseTreeRule;
+impl std::ops::Index<UseExprRuleIdx> for UseExprRules {
+    type Output = UseExprRule;
 
-    fn index(&self, index: UseTreeRuleIdx) -> &Self::Output {
+    fn index(&self, index: UseExprRuleIdx) -> &Self::Output {
         &self.0[index.0]
     }
 }
 
-impl std::ops::IndexMut<UseTreeRuleIdx> for UseTreeRules {
-    fn index_mut(&mut self, index: UseTreeRuleIdx) -> &mut Self::Output {
+impl std::ops::IndexMut<UseExprRuleIdx> for UseExprRules {
+    fn index_mut(&mut self, index: UseExprRuleIdx) -> &mut Self::Output {
         &mut self.0[index.0]
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub(crate) struct UseTreeRuleIdx(usize);
+pub struct UseExprRuleIdx(usize);
 
-impl UseTreeRules {
-    pub(crate) fn push(&mut self, new_rule: UseTreeRule) {
+impl UseExprRules {
+    pub(crate) fn push(&mut self, new_rule: UseExprRule) {
         self.0.push(new_rule)
     }
 
-    pub(crate) fn indexed_iter(&self) -> impl Iterator<Item = (UseTreeRuleIdx, &UseTreeRule)> {
+    pub(crate) fn indexed_iter(&self) -> impl Iterator<Item = (UseExprRuleIdx, &UseExprRule)> {
         self.0
             .iter()
             .enumerate()
-            .map(|(i, tracker)| (UseTreeRuleIdx(i), tracker))
+            .map(|(i, tracker)| (UseExprRuleIdx(i), tracker))
     }
 
     #[cfg(test)]
@@ -55,25 +55,25 @@ impl UseTreeRules {
 
         for tracker in self.0.iter() {
             match tracker.state {
-                EntityUseState::Unresolved => {
+                UseExprRuleState::Unresolved => {
                     p!(tracker.debug(db));
                     panic!()
                 }
-                EntityUseState::Resolved | EntityUseState::Erroneous => (),
+                UseExprRuleState::Resolved { .. } | UseExprRuleState::Erroneous => (),
             }
         }
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub(crate) struct UseTreeRule {
+pub struct UseExprRule {
     ast_idx: AstIdx,
     use_expr_idx: UseExprIdx,
     accessibility: AccessibilityProgress,
     ident_token: IdentifierToken,
     children: Option<UseExprIdxRange>,
     parent: Option<EntityPath>,
-    state: EntityUseState,
+    state: UseExprRuleState,
 }
 
 // ad hoc
@@ -117,7 +117,7 @@ impl AccessibilityProgress {
     }
 }
 
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseTreeRule {
+impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseExprRule {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -136,13 +136,13 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseTreeRule {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum EntityUseState {
+pub enum UseExprRuleState {
     Unresolved,
-    Resolved,
+    Resolved { original_symbol: EntitySymbol },
     Erroneous,
 }
 
-impl UseTreeRule {
+impl UseExprRule {
     pub fn new_root(
         ast_idx: AstIdx,
         use_expr_idx: UseExprIdx,
@@ -162,7 +162,7 @@ impl UseTreeRule {
                 use_expr_idx,
                 accessibility: AccessibilityProgress::new(accessibility_expr, module_path),
                 parent: None,
-                state: EntityUseState::Unresolved,
+                state: UseExprRuleState::Unresolved,
                 ident_token: *ident_token,
                 children: Some(children.idx_range()),
             },
@@ -182,7 +182,7 @@ impl UseTreeRule {
             accessibility: self.accessibility,
             ident_token,
             parent: Some(parent),
-            state: EntityUseState::Unresolved,
+            state: UseExprRuleState::Unresolved,
             children,
         }
     }
@@ -191,16 +191,16 @@ impl UseTreeRule {
         self.ast_idx
     }
 
-    pub fn state(&self) -> EntityUseState {
+    pub fn state(&self) -> UseExprRuleState {
         self.state
     }
 
-    pub(crate) fn mark_as_resolved(&mut self) {
-        self.state = EntityUseState::Resolved
+    pub(crate) fn mark_as_resolved(&mut self, original_symbol: EntitySymbol) {
+        self.state = UseExprRuleState::Resolved { original_symbol }
     }
 
     pub(crate) fn is_unresolved(&self) -> bool {
-        self.state == EntityUseState::Unresolved
+        self.state == UseExprRuleState::Unresolved
     }
 
     pub(crate) fn parent(&self) -> Option<EntityPath> {
@@ -223,10 +223,10 @@ impl UseTreeRule {
     }
 
     pub(crate) fn mark_as_erroneous(&mut self) {
-        self.state = EntityUseState::Erroneous
+        self.state = UseExprRuleState::Erroneous
     }
 
-    pub(crate) fn use_expr_idx(&self) -> ArenaIdx<UseExpr> {
+    pub fn use_expr_idx(&self) -> ArenaIdx<UseExpr> {
         self.use_expr_idx
     }
 }

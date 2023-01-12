@@ -1,4 +1,5 @@
 use husky_entity_taxonomy::{EntityKind, ModuleItemConnection, ModuleItemKind, TypeKind};
+use husky_entity_tree::UseExprRuleState;
 use husky_expr::{InheritedSymbolKind, LocalSymbolKind};
 
 use crate::*;
@@ -69,6 +70,13 @@ fn token_to_semantic_token(
                 connection: ModuleItemConnection::Connected,
             })
         }
+        TokenInfo::UseExpr { state, .. } => match state {
+            UseExprRuleState::Unresolved => return None,
+            UseExprRuleState::Erroneous => return None,
+            UseExprRuleState::Resolved { original_symbol } => {
+                SemanticToken::Entity(original_symbol.path(db).entity_kind(db))
+            }
+        },
     };
     Some(RangedSemanticToken {
         semantic_token,

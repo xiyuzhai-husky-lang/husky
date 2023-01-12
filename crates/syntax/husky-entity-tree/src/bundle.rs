@@ -3,14 +3,14 @@ use thiserror::Error;
 use vec_like::{VecMap, VecPairMap};
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
-pub enum EntityTreeCrateBundleError {
+pub enum EntityTreeBundleError {
     #[error("from toolchain error")]
     Toolchain(#[from] ToolchainError),
     #[error("from prelude error")]
     Prelude(#[from] PreludeError),
 }
 
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreeCrateBundleError {
+impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreeBundleError {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -21,7 +21,7 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreeCrateBundle
     }
 }
 
-pub type EntityTreeCrateBundleResult<T> = Result<T, EntityTreeCrateBundleError>;
+pub type EntityTreeCrateBundleResult<T> = Result<T, EntityTreeBundleError>;
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn entity_tree_crate_bundle(
@@ -45,14 +45,14 @@ fn entity_tree_crate_bundle_works() {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityTreeCrateBundle {
-    sheets: VecMap<EntityTreeModuleSheet>,
+    sheets: VecMap<EntityTreeSheet>,
     principal_entity_path_expr_arena: MajorPathExprArena,
     impl_blocks: Vec<ImplBlock>,
 }
 
 impl EntityTreeCrateBundle {
     pub(crate) fn new(
-        sheets: VecMap<EntityTreeModuleSheet>,
+        sheets: VecMap<EntityTreeSheet>,
         principal_entity_path_expr_arena: MajorPathExprArena,
         impl_blocks: Vec<ImplBlock>,
     ) -> Self {
@@ -63,11 +63,11 @@ impl EntityTreeCrateBundle {
         }
     }
 
-    pub fn sheets(&self) -> &[EntityTreeModuleSheet] {
+    pub fn sheets(&self) -> &[EntityTreeSheet] {
         &self.sheets
     }
 
-    pub(crate) fn get_sheet(&self, module_path: ModulePath) -> Option<&EntityTreeModuleSheet> {
+    pub(crate) fn get_sheet(&self, module_path: ModulePath) -> Option<&EntityTreeSheet> {
         self.sheets.get_entry(module_path)
     }
 

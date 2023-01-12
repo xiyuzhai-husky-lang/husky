@@ -2,6 +2,27 @@ Ok(
     TokenInfoSheet {
         token_infos: [
             None,
+            UseExpr {
+                use_expr_idx: 3,
+                rule_idx: UseExprRuleIdx(
+                    0,
+                ),
+                state: Erroneous,
+            },
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            UseExpr {
+                use_expr_idx: 8,
+                rule_idx: UseExprRuleIdx(
+                    1,
+                ),
+                state: Erroneous,
+            },
             None,
             None,
             None,
@@ -11,6 +32,13 @@ Ok(
             None,
             None,
             None,
+            UseExpr {
+                use_expr_idx: 13,
+                rule_idx: UseExprRuleIdx(
+                    2,
+                ),
+                state: Erroneous,
+            },
             None,
             None,
             None,
@@ -20,6 +48,13 @@ Ok(
             None,
             None,
             None,
+            UseExpr {
+                use_expr_idx: 18,
+                rule_idx: UseExprRuleIdx(
+                    3,
+                ),
+                state: Erroneous,
+            },
             None,
             None,
             None,
@@ -29,40 +64,147 @@ Ok(
             None,
             None,
             None,
+            UseExpr {
+                use_expr_idx: 21,
+                rule_idx: UseExprRuleIdx(
+                    4,
+                ),
+                state: Resolved {
+                    original_symbol: CrateRoot(
+                        ModulePath(
+                            Id {
+                                value: 13,
+                            },
+                        ),
+                    ),
+                },
+            },
+            None,
+            UseExpr {
+                use_expr_idx: 20,
+                rule_idx: UseExprRuleIdx(
+                    8,
+                ),
+                state: Resolved {
+                    original_symbol: Submodule(
+                        SubmoduleSymbol(
+                            Id {
+                                value: 15,
+                            },
+                        ),
+                    ),
+                },
+            },
             None,
             None,
             None,
+            UseExpr {
+                use_expr_idx: 24,
+                rule_idx: UseExprRuleIdx(
+                    5,
+                ),
+                state: Resolved {
+                    original_symbol: CrateRoot(
+                        ModulePath(
+                            Id {
+                                value: 13,
+                            },
+                        ),
+                    ),
+                },
+            },
+            None,
+            UseExpr {
+                use_expr_idx: 23,
+                rule_idx: UseExprRuleIdx(
+                    9,
+                ),
+                state: Resolved {
+                    original_symbol: Submodule(
+                        SubmoduleSymbol(
+                            Id {
+                                value: 13,
+                            },
+                        ),
+                    ),
+                },
+            },
             None,
             None,
             None,
+            UseExpr {
+                use_expr_idx: 28,
+                rule_idx: UseExprRuleIdx(
+                    6,
+                ),
+                state: Resolved {
+                    original_symbol: CrateRoot(
+                        ModulePath(
+                            Id {
+                                value: 13,
+                            },
+                        ),
+                    ),
+                },
+            },
+            None,
+            UseExpr {
+                use_expr_idx: 27,
+                rule_idx: UseExprRuleIdx(
+                    10,
+                ),
+                state: Resolved {
+                    original_symbol: Submodule(
+                        SubmoduleSymbol(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                },
+            },
+            None,
+            UseExpr {
+                use_expr_idx: 26,
+                rule_idx: UseExprRuleIdx(
+                    12,
+                ),
+                state: Resolved {
+                    original_symbol: Submodule(
+                        SubmoduleSymbol(
+                            Id {
+                                value: 16,
+                            },
+                        ),
+                    ),
+                },
+            },
             None,
             None,
             None,
+            UseExpr {
+                use_expr_idx: 31,
+                rule_idx: UseExprRuleIdx(
+                    7,
+                ),
+                state: Resolved {
+                    original_symbol: CrateRoot(
+                        ModulePath(
+                            Id {
+                                value: 13,
+                            },
+                        ),
+                    ),
+                },
+            },
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            UseExpr {
+                use_expr_idx: 30,
+                rule_idx: UseExprRuleIdx(
+                    11,
+                ),
+                state: Erroneous,
+            },
             None,
             None,
             None,

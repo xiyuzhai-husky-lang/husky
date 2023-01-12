@@ -151,7 +151,7 @@ pub(crate) fn module_symbol_context<'a>(
     db: &'a dyn EntityTreeDb,
     module_path: ModulePath,
 ) -> EntityTreeResult<ModuleSymbolContext<'a>> {
-    let entity_tree_sheet = db.entree_module_sheet(module_path)?;
+    let entity_tree_sheet = db.entity_tree_sheet(module_path)?;
     Ok(ModuleSymbolContext {
         crate_prelude: crate_symbol_context(db, module_path.crate_path(db))?,
         module_symbols: entity_tree_sheet.module_symbols().into(),

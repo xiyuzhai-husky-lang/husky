@@ -2,8 +2,8 @@ mod action;
 mod use_all_rule;
 mod use_expr_rule;
 
-pub(crate) use use_all_rule::*;
-pub(crate) use use_expr_rule::*;
+pub use use_all_rule::*;
+pub use use_expr_rule::*;
 
 use std::marker::PhantomData;
 
@@ -17,34 +17,45 @@ use husky_text::TextRange;
 use vec_like::{AsVecMapEntry, InsertEntryRepeatError};
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn entree_presheet(
+pub(crate) fn entity_tree_presheet(
     db: &dyn EntityTreeDb,
     module_path: ModulePath,
-) -> VfsResult<EntreePresheet> {
-    Ok(EntreePresheetBuilder::new(db, module_path)?.build())
+) -> VfsResult<EntityTreePresheet> {
+    Ok(EntityTreePresheetBuilder::new(db, module_path)?.build())
 }
 
 #[test]
-fn entree_presheet_works() {
+fn entity_tree_presheet_works() {
     DB::expect_test_probable_modules_debug_ref_with_db("entity_tree_presheet", |db, module_path| {
-        entree_presheet(db, module_path)
+        entity_tree_presheet(db, module_path)
     })
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub(crate) struct EntreePresheet {
+pub struct EntityTreePresheet {
     module_path: ModulePath,
     native_symbol_entries: NativeEntitySymbolTable,
-    use_one_trackers: UseTreeRules,
+    use_one_trackers: UseExprRules,
     use_all_trackers: UseAllRules,
     use_expr_arena: UseExprArena,
     mod_path_arena: ModPathExprArena,
     errors: Vec<EntityTreeError>,
 }
 
-impl EntreePresheet {
-    pub(crate) fn presheet_mut<'a>(&'a self, db: &'a dyn EntityTreeDb) -> EntreePresheetMut<'a> {
-        EntreePresheetMut {
+impl std::ops::Index<UseExprIdx> for EntityTreePresheet {
+    type Output = UseExpr;
+
+    fn index(&self, index: UseExprIdx) -> &Self::Output {
+        &self.use_expr_arena[index]
+    }
+}
+
+impl EntityTreePresheet {
+    pub(crate) fn presheet_mut<'a>(
+        &'a self,
+        db: &'a dyn EntityTreeDb,
+    ) -> EntityTreePresheetMut<'a> {
+        EntityTreePresheetMut {
             module_path: self.module_path,
             symbols: self.native_symbol_entries.entity_symbol_table(),
             use_expr_rules: self.use_one_trackers.clone(),
@@ -57,17 +68,17 @@ impl EntreePresheet {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub(crate) struct EntreePresheetMut<'a> {
+pub(crate) struct EntityTreePresheetMut<'a> {
     module_path: ModulePath,
     symbols: EntitySymbolTable,
-    use_expr_rules: UseTreeRules,
+    use_expr_rules: UseExprRules,
     use_all_rules: UseAllRules,
     errors: Vec<EntityTreeError>,
     use_expr_arena: &'a UseExprArena,
     mod_path_arena: &'a ModPathExprArena,
 }
 
-impl<'a> EntreePresheetMut<'a> {
+impl<'a> EntityTreePresheetMut<'a> {
     pub(crate) fn module_path(&self) -> ModulePath {
         self.module_path
     }
@@ -76,8 +87,8 @@ impl<'a> EntreePresheetMut<'a> {
         self.symbols.as_ref()
     }
 
-    pub(crate) fn into_sheet(self, impl_blocks: Vec<ImplBlock>) -> EntityTreeModuleSheet {
-        EntityTreeModuleSheet::new(
+    pub(crate) fn into_sheet(self, impl_blocks: Vec<ImplBlock>) -> EntityTreeSheet {
+        EntityTreeSheet::new(
             self.module_path,
             self.symbols,
             impl_blocks,
@@ -93,7 +104,7 @@ impl<'a> EntreePresheetMut<'a> {
     }
 }
 
-impl<'a> AsVecMapEntry for EntreePresheetMut<'a> {
+impl<'a> AsVecMapEntry for EntityTreePresheetMut<'a> {
     type K = ModulePath;
     fn key(&self) -> ModulePath {
         self.module_path
@@ -104,19 +115,19 @@ impl<'a> AsVecMapEntry for EntreePresheetMut<'a> {
     }
 }
 
-struct EntreePresheetBuilder<'a> {
+struct EntityTreePresheetBuilder<'a> {
     db: &'a dyn EntityTreeDb,
     ast_sheet: &'a AstSheet,
     module_path: ModulePath,
     native_symbol_entries: NativeEntitySymbolTable,
     mod_path_expr_arena: ModPathExprArena,
     use_expr_arena: UseExprArena,
-    entity_use_trackers: UseTreeRules,
+    entity_use_trackers: UseExprRules,
     token_sheet_data: &'a TokenSheetData,
     errors: Vec<EntityTreeError>,
 }
 
-impl<'a> EntreePresheetBuilder<'a> {
+impl<'a> EntityTreePresheetBuilder<'a> {
     fn new(db: &'a dyn EntityTreeDb, module_path: ModulePath) -> VfsResult<Self> {
         Ok(Self {
             db,
@@ -131,11 +142,11 @@ impl<'a> EntreePresheetBuilder<'a> {
         })
     }
 
-    fn build(mut self) -> EntreePresheet {
+    fn build(mut self) -> EntityTreePresheet {
         for (ast_idx, ast) in self.ast_sheet.all_ast_indexed_iter() {
             self.process(ast_idx, ast)
         }
-        EntreePresheet {
+        EntityTreePresheet {
             module_path: self.module_path,
             native_symbol_entries: self.native_symbol_entries,
             use_one_trackers: self.entity_use_trackers,
@@ -165,7 +176,7 @@ impl<'a> EntreePresheetBuilder<'a> {
                         todo!()
                     };
                 let use_expr_idx = use_expr_root.use_expr_idx();
-                self.entity_use_trackers.push(UseTreeRule::new_root(
+                self.entity_use_trackers.push(UseExprRule::new_root(
                     ast_idx,
                     use_expr_idx,
                     accessibility_expr,
@@ -232,7 +243,7 @@ impl<'a> EntreePresheetBuilder<'a> {
     }
 }
 
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntreePresheet {
+impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreePresheet {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
