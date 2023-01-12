@@ -229,7 +229,10 @@ pub fn cargo_manifest_dir() -> Result<PathBuf, std::env::VarError> {
 }
 
 pub fn derive_library_path_from_cargo_manifest_dir() -> PathUtilsResult<PathBuf> {
-    let cargo_manifest_dir = std::env::var("CARGO_MANIFEST_DIR").unwrap();
+    let Ok(cargo_manifest_dir) = std::env::var("CARGO_MANIFEST_DIR") else {
+        // ad hoc
+        return Ok("/home/xiyuzhai/repos/husky/library".into())
+    };
     let mut library_parent_dir: &Path = cargo_manifest_dir.as_ref();
     Ok(loop {
         let library_dir = library_parent_dir.join("library");
@@ -245,7 +248,10 @@ pub fn derive_library_path_from_cargo_manifest_dir() -> PathUtilsResult<PathBuf>
 }
 
 pub fn derive_examples_dir_from_cargo_manifest_dir() -> PathBuf {
-    let cargo_manifest_dir = std::env::var("CARGO_MANIFEST_DIR").unwrap();
+    let Ok(cargo_manifest_dir) = std::env::var("CARGO_MANIFEST_DIR") else {
+        // ad hoc
+        return  "/home/xiyuzhai/repos/husky/examples".into() 
+    };
     let mut parent_dir: &Path = cargo_manifest_dir.as_ref();
     loop {
         let library_dir = parent_dir.join("library");

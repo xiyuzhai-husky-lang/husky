@@ -1,3 +1,5 @@
+use husky_print_utils::epin;
+
 use super::*;
 
 #[derive(Debug, Default, PartialEq, Eq)]
@@ -13,6 +15,9 @@ impl EntitySymbolTable {
     }
 
     pub(crate) fn insert(&mut self, new_entry: EntitySymbolEntry) -> EntityTreeResult<()> {
+        for _ in self.0.iter().filter(|entry| entry.ident == new_entry.ident) {
+            todo!()
+        }
         self.0.push(new_entry);
         Ok(())
         // todo!()
@@ -68,7 +73,9 @@ impl<'a, Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntitySymbolTable
         db: &Db,
         include_all_fields: bool,
     ) -> std::fmt::Result {
-        todo!()
+        f.debug_tuple("EntitySymbolTableRef")
+            .field(&(&self.0).debug(db))
+            .finish()
     }
 }
 
@@ -87,6 +94,29 @@ impl EntitySymbolEntry {
             accessibility: Accessibility::PublicUnder(root),
             symbol: EntitySymbol::CrateRoot(root),
         }
+    }
+
+    pub(crate) fn export_via_use_all(
+        &self,
+        db: &dyn EntityTreeDb,
+        target_module_path: ModulePath,
+        rule: &UseAllRule,
+    ) -> Option<Self> {
+        self.symbol
+            .is_accessible_from(db, target_module_path)
+            .then_some(EntitySymbolEntry {
+                ident: self.ident,
+                accessibility: rule.accessibility(),
+                symbol: UseSymbol::new(
+                    db,
+                    self.symbol.path(db),
+                    self.ident,
+                    rule.accessibility(),
+                    rule.ast_idx(),
+                    rule.use_expr_idx(),
+                )
+                .into(),
+            })
     }
 
     pub fn symbol(&self) -> EntitySymbol {
@@ -110,7 +140,11 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntitySymbolEntry {
         include_all_fields: bool,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
-        todo!()
+        f.debug_struct("EntitySymbolEntry")
+            .field("ident", &self.ident.debug(db))
+            .field("accessibility", &self.accessibility.debug(db))
+            .field("symbol", &self.symbol.debug(db))
+            .finish()
     }
 }
 

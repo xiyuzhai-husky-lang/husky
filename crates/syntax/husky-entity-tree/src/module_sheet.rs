@@ -81,10 +81,8 @@ impl EntityTreeModuleSheet {
             .data()
             .iter()
             .filter_map(|entry| match entry.symbol() {
-                EntitySymbol::CrateRoot(_) => todo!(),
-                EntitySymbol::Submodule(_) => todo!(),
                 EntitySymbol::ModuleItem(symbol) => Some(symbol.path(db)),
-                EntitySymbol::Use(_) => todo!(),
+                _ => None,
             })
     }
 

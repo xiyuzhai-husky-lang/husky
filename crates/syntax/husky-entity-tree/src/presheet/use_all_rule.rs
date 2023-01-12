@@ -10,6 +10,24 @@ pub struct UseAllRule {
     progress: usize,
 }
 
+impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseAllRule {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
+        f.debug_struct("UseAllRule")
+            .field("parent", &self.parent.debug(db))
+            .field("ast_idx", &self.ast_idx)
+            .field("use_expr_idx", &self.use_expr_idx)
+            .field("accessibility", &self.accessibility.debug(db))
+            .field("progress", &self.progress)
+            .finish()
+    }
+}
+
 impl UseAllRule {
     pub fn new(
         parent: ModulePath,
@@ -50,8 +68,8 @@ impl UseAllRule {
         self.ast_idx
     }
 
-    pub(crate) fn mark_new_uses(&mut self, new_uses: &[UseSymbol]) {
-        self.progress += new_uses.len()
+    pub(super) fn set_progress(&mut self, progress: usize) {
+        self.progress = progress
     }
 }
 
@@ -93,5 +111,11 @@ impl<'a> std::ops::Index<UseAllRuleIdx> for EntreePresheetMut<'a> {
 
     fn index(&self, index: UseAllRuleIdx) -> &Self::Output {
         &self.use_all_rules[index]
+    }
+}
+
+impl<'a> std::ops::IndexMut<UseAllRuleIdx> for EntreePresheetMut<'a> {
+    fn index_mut(&mut self, index: UseAllRuleIdx) -> &mut Self::Output {
+        &mut self.use_all_rules[index]
     }
 }

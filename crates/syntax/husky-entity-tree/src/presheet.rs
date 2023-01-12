@@ -2,6 +2,9 @@ mod action;
 mod use_all_rule;
 mod use_expr_rule;
 
+pub(crate) use use_all_rule::*;
+pub(crate) use use_expr_rule::*;
+
 use std::marker::PhantomData;
 
 pub(crate) use action::*;
@@ -11,8 +14,6 @@ use husky_word::IdentMap;
 
 use crate::*;
 use husky_text::TextRange;
-use use_all_rule::*;
-use use_expr_rule::*;
 use vec_like::{AsVecMapEntry, InsertEntryRepeatError};
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]

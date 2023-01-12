@@ -100,7 +100,19 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntitySymbol {
         include_all_fields: bool,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
-        todo!()
+        match self {
+            EntitySymbol::CrateRoot(root) => {
+                f.debug_tuple("CrateRoot").field(&root.debug(db)).finish()
+            }
+            EntitySymbol::Submodule(symbol) => {
+                f.debug_tuple("Submodule").field(&symbol.debug(db)).finish()
+            }
+            EntitySymbol::ModuleItem(symbol) => f
+                .debug_tuple("ModuleItem")
+                .field(&symbol.debug(db))
+                .finish(),
+            EntitySymbol::Use(symbol) => f.debug_tuple("Use").field(&symbol.debug(db)).finish(),
+        }
     }
 }
 
