@@ -11,6 +11,9 @@ pub struct EntityTreeModuleSheet {
     module_path: ModulePath,
     symbols: EntitySymbolTable,
     impl_blocks: Vec<ImplBlock>,
+    use_expr_rules: UseTreeRules,
+    use_all_rules: UseAllRules,
+    errors: Vec<EntityTreeError>,
 }
 
 impl vec_like::AsVecMapEntry for EntityTreeModuleSheet {
@@ -33,45 +36,23 @@ impl EntityTreeModuleSheet {
         module_path: ModulePath,
         symbols: EntitySymbolTable,
         impl_blocks: Vec<ImplBlock>,
+        use_expr_rules: UseTreeRules,
+        use_all_rules: UseAllRules,
+        errors: Vec<EntityTreeError>,
     ) -> Self {
         Self {
             module_path,
             symbols,
             impl_blocks,
+            use_expr_rules,
+            use_all_rules,
+            errors,
         }
     }
 
-    // pub(crate) fn get(&self, entity_path: EntityPath) -> Option<&EntitySymbol> {
-    //     self.arena
-    //         .data()
-    //         .iter()
-    //         .find(|node| node.entity_path() == entity_path)
-    // }
-
-    // pub(crate) fn top_level_entities<'a>(
-    //     &'a self,
-    // ) -> impl Iterator<Item = (EntitySymbolIdx, Accessibility, EntityCard, EntityPath)> + 'a {
-    //     self[&self.top_level_entities_idx_range]
-    //         .iter()
-    //         .enumerate()
-    //         .map(|(i, tree)| {
-    //             (
-    //                 self.top_level_entities_idx_range.start() + i,
-    //                 tree.node.accessibility(),
-    //                 tree.node.card(),
-    //                 tree.node.entity_path(),
-    //             )
-    //         })
-    // }
     pub fn module_symbols<'a>(&'a self) -> EntitySymbolTableRef<'a> {
         self.symbols.as_ref()
     }
-
-    // pub fn module_item_iter<'a>(&'a self) -> impl Iterator<Item = &'a ModuleItem> + 'a {
-    //     self.module_specific_symbols
-    //         .iter()
-    //         .filter_map(|module_symbol| module_symbol.module_item())
-    // }
 
     pub fn module_item_path_iter<'a>(
         &'a self,

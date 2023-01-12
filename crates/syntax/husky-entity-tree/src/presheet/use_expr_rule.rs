@@ -59,7 +59,7 @@ impl UseTreeRules {
                     p!(tracker.debug(db));
                     panic!()
                 }
-                EntityUseState::Resolved | EntityUseState::Erroneous(_) => (),
+                EntityUseState::Resolved | EntityUseState::Erroneous => (),
             }
         }
     }
@@ -134,11 +134,11 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseTreeRule {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum EntityUseState {
     Unresolved,
     Resolved,
-    Erroneous(EntityTreeError),
+    Erroneous,
 }
 
 impl UseTreeRule {
@@ -187,8 +187,8 @@ impl UseTreeRule {
         self.ast_idx
     }
 
-    pub fn state(&self) -> &EntityUseState {
-        &self.state
+    pub fn state(&self) -> EntityUseState {
+        self.state
     }
 
     pub(crate) fn mark_as_resolved(&mut self) {
@@ -218,7 +218,7 @@ impl UseTreeRule {
         self.children
     }
 
-    pub(crate) fn mark_as_erroneous(&mut self, error: EntityTreeError) {
-        self.state = EntityUseState::Erroneous(error)
+    pub(crate) fn mark_as_erroneous(&mut self) {
+        self.state = EntityUseState::Erroneous
     }
 }

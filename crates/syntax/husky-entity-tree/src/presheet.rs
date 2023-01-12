@@ -77,7 +77,14 @@ impl<'a> EntreePresheetMut<'a> {
     }
 
     pub(crate) fn into_sheet(self, impl_blocks: Vec<ImplBlock>) -> EntityTreeModuleSheet {
-        EntityTreeModuleSheet::new(self.module_path, self.symbols, impl_blocks)
+        EntityTreeModuleSheet::new(
+            self.module_path,
+            self.symbols,
+            impl_blocks,
+            self.use_expr_rules,
+            self.use_all_rules,
+            self.errors,
+        )
     }
 
     #[cfg(test)]
