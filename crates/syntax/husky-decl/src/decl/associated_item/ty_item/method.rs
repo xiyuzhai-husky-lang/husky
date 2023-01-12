@@ -12,4 +12,10 @@ pub struct TypeMethodDecl {
     pub implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     #[return_ref]
     pub parameter_decl_list: ParameterDeclList,
+    #[return_ref]
+    pub curry_token: DeclResult<CurryToken>,
+    #[return_ref]
+    pub output_ty: DeclResult<ExprIdx>,
+    #[return_ref]
+    pub eol_colon: DeclResult<EolColonToken>,
 }

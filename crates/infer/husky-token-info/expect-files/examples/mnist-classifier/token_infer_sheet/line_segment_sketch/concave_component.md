@@ -522,9 +522,22 @@ Ok(
             ),
             None,
             None,
-            None,
-            None,
-            None,
+            BoxPrefix,
+            BoxPrefix,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             None,

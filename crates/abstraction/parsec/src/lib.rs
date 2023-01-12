@@ -52,10 +52,12 @@ pub trait ParseContext: HasParseError + HasParseState {
     where
         Self::Error: FromAbsent<P, Self>;
 
-    fn parse_expected2<P: ParseFrom<Self>>(
+    fn parse_expected2<P: ParseFrom<Self>, Error>(
         &mut self,
-        f: impl FnOnce(Self::State) -> Self::Error,
-    ) -> Result<P, Self::Error>;
+        f: impl FnOnce(Self::State) -> Error,
+    ) -> Result<P, Error>
+    where
+        Error: From<Self::Error>;
 
     /// returns an optional and the rest of the stream,
     ///
@@ -90,10 +92,13 @@ where
         }
     }
 
-    fn parse_expected2<P: ParseFrom<Self>>(
+    fn parse_expected2<P: ParseFrom<Self>, Error>(
         &mut self,
-        f: impl FnOnce(Self::State) -> Self::Error,
-    ) -> Result<P, Self::Error> {
+        f: impl FnOnce(Self::State) -> Error,
+    ) -> Result<P, Error>
+    where
+        Error: From<Self::Error>,
+    {
         let saved_state = self.save_state();
         match P::parse_from_with_rollback_when_no_error(self)? {
             Some(output) => Ok(output),
