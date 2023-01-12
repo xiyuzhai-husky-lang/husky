@@ -69,7 +69,14 @@ impl<'a> EntityTreeCollector<'a> {
     }
 
     pub(crate) fn collect_all(mut self) -> EntityTreeCrateBundle {
+        // for testing purposes
+        let mut loop_idx = 0;
+        const LOOP_LIMIT: usize = 100;
         loop {
+            loop_idx += 1;
+            if loop_idx >= LOOP_LIMIT {
+                panic!();
+            }
             let actions = self.collect_possible_actions();
             if actions.len() == 0 {
                 break;
@@ -147,24 +154,19 @@ impl<'a> EntityTreeCollector<'a> {
                 let rule = &self.presheets[module_path][rule_idx];
                 let parent = rule.parent();
                 let progress = rule.progress();
-                let new_uses = self.presheets[parent].module_specific_symbols().data()[progress..]
+                let parent_symbols = &self.presheets[parent].module_specific_symbols().data();
+                let new_uses: Vec<EntitySymbolEntry> = parent_symbols[progress..]
                     .iter()
-                    .filter_map(|entry| {
-                        let symbol = entry.symbol();
-                        symbol
-                            .is_accessible_from(db, module_path)
-                            .then_some(UseSymbol::new(
-                                db,
-                                symbol.path(db),
-                                entry.ident(),
-                                rule.accessibility(),
-                                rule.ast_idx(),
-                                rule.use_expr_idx(),
-                            ))
-                    })
+                    .filter_map(|entry| entry.export_via_use_all(db, module_path, rule))
                     .collect();
-                self.presheets[module_path].update_use_all(rule_idx, new_uses)
+                let progress = parent_symbols.len();
+                self.presheets[module_path].update_use_all(rule_idx, new_uses, progress)
             }
+            PresheetAction::Err {
+                module_path,
+                rule_idx,
+                error,
+            } => self.presheets[module_path].mark_as_erroneous(rule_idx, error),
         }
     }
 }

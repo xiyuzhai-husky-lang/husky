@@ -1,7 +1,7 @@
 use std::path::{Path, PathBuf};
 
 pub struct HuskyDevPathEnv {
-    cargo_manifest_dir: PathBuf,
+    cargo_manifest_dir: Option<PathBuf>,
     lang_dev_root: PathBuf,
     lang_dev_library_dir: PathBuf,
     lang_dev_examples_dir: PathBuf,
@@ -9,9 +9,11 @@ pub struct HuskyDevPathEnv {
 
 impl HuskyDevPathEnv {
     pub fn new() -> Self {
-        let cargo_manifest_dir: PathBuf = std::env::var("CARGO_MANIFEST_DIR").unwrap().into();
-        let dev_root = {
-            let mut dir: &Path = &cargo_manifest_dir;
+        let cargo_manifest_dir: Option<PathBuf> = std::env::var("CARGO_MANIFEST_DIR")
+            .ok()
+            .map(|path| path.into());
+        let dev_root: PathBuf = if let Some(ref cargo_manifest_dir) = cargo_manifest_dir {
+            let mut dir: &Path = cargo_manifest_dir;
             loop {
                 if dir.join("husky-toolchain.toml").exists() {
                     assert!(dir.join("husky-toolchain.toml").is_file());
@@ -31,6 +33,9 @@ impl HuskyDevPathEnv {
                     todo!()
                 }
             }
+        } else {
+            // ad hoc
+            "/home/xiyuzhai/repos/husky".into()
         };
         let dev_library_dir = dev_root.join("library");
         let dev_examples_dir = dev_root.join("examples");
@@ -42,8 +47,8 @@ impl HuskyDevPathEnv {
         }
     }
 
-    pub fn cargo_manifest_dir(&self) -> &PathBuf {
-        &self.cargo_manifest_dir
+    pub fn cargo_manifest_dir(&self) -> Option<&Path> {
+        self.cargo_manifest_dir.as_ref().map(|path| path as &Path)
     }
 
     pub fn dev_root(&self) -> &PathBuf {

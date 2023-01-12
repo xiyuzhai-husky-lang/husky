@@ -1,6 +1,7 @@
 use super::*;
 use with_db::{PartialOrdWithDb, WithDb};
 
+#[derive(Debug)]
 pub(crate) enum PresheetAction {
     ResolveUseExpr {
         module_path: ModulePath,
@@ -11,13 +12,51 @@ pub(crate) enum PresheetAction {
         module_path: ModulePath,
         rule_idx: UseAllRuleIdx,
     },
+    Err {
+        module_path: ModulePath,
+        rule_idx: UseTreeRuleIdx,
+        error: EntityTreeError,
+    },
+}
+
+impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for PresheetAction {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
+        match self {
+            PresheetAction::ResolveUseExpr {
+                module_path,
+                rule_idx,
+                symbol,
+            } => f
+                .debug_struct("ResolvedUseExpr")
+                .field("module_path", &module_path.debug(db))
+                .field("rule_idx", &rule_idx)
+                .field("symbol", &symbol.debug(db))
+                .finish(),
+            PresheetAction::UpdateUseAll {
+                module_path,
+                rule_idx,
+            } => f
+                .debug_struct("UpdateUseAll")
+                .field("module_path", &module_path.debug(db))
+                .field("rule_idx", &rule_idx)
+                .finish(),
+            PresheetAction::Err { .. } => todo!(),
+        }
+    }
 }
 
 impl PresheetAction {
     pub(crate) fn module_path(&self) -> ModulePath {
         match self {
             PresheetAction::ResolveUseExpr { module_path, .. }
-            | PresheetAction::UpdateUseAll { module_path, .. } => *module_path,
+            | PresheetAction::UpdateUseAll { module_path, .. }
+            | PresheetAction::Err { module_path, .. } => *module_path,
         }
     }
 }
@@ -36,13 +75,17 @@ impl<'a> EntreePresheetMut<'a> {
                     Some(parent) => ctx.resolve_subentity(parent, ident),
                     None => ctx.resolve_ident(ident),
                 };
-                let Some(symbol) = symbol else {
-                    todo!()
-                };
-                actions.push(PresheetAction::ResolveUseExpr {
-                    module_path: self.module_path,
-                    rule_idx,
-                    symbol,
+                actions.push(match symbol {
+                    Some(symbol) => PresheetAction::ResolveUseExpr {
+                        module_path: self.module_path,
+                        rule_idx,
+                        symbol,
+                    },
+                    None => PresheetAction::Err {
+                        module_path: self.module_path,
+                        rule_idx,
+                        error: EntityTreeError::UnresolvedIdentifier(ident_token),
+                    },
                 })
             }
         }
@@ -103,10 +146,22 @@ impl<'a> EntreePresheetMut<'a> {
         }
     }
 
-    pub(crate) fn update_use_all(&mut self, rule_idx: UseAllRuleIdx, new_uses: Vec<UseSymbol>) {
+    pub(crate) fn update_use_all(
+        &mut self,
+        rule_idx: UseAllRuleIdx,
+        new_uses: Vec<EntitySymbolEntry>,
+        progress: usize,
+    ) {
         let rule = &mut self.use_all_rules[rule_idx];
-        rule.mark_new_uses(&new_uses);
-        // self.symbols
-        todo!()
+        rule.set_progress(progress);
+        match self.symbols.extend(new_uses) {
+            Ok(_) => (),
+            Err(_) => todo!(),
+        }
+    }
+
+    pub(crate) fn mark_as_erroneous(&mut self, rule_idx: UseTreeRuleIdx, error: EntityTreeError) {
+        let rule = &mut self.use_expr_rules[rule_idx];
+        rule.mark_as_erroneous(error)
     }
 }

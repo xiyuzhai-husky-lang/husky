@@ -1,3 +1,4 @@
+#![feature(stmt_expr_attributes)]
 #![feature(trait_upcasting)]
 mod associated_item;
 mod collector;
