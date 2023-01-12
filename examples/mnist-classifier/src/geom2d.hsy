@@ -46,14 +46,14 @@ impl Vector2d:
         x * other.y - y * other.x
 
     func angle(is_branch_cut_positive: bool) -> f32:
-        let cos_value = (this.x/this.norm()).min(1.)
+        let cos_value = (x / norm()).min(1.)
         if cos_value + 1.0 < 0.001:
             if is_branch_cut_positive:
                 180.0
             else:
                 -180.0
         else:
-            (this.y.sgnx() as f32) * cos_value.acos() * 180.0 / 3.1415926
+            (y.sgnx() as f32) * cos_value.acos() * 180.0 / 3.1415926
 
     // rotation direction from this to other with minimal angle
     func rotation_direction_to(other: Vector2d) -> i32:
@@ -63,18 +63,18 @@ impl Vector2d:
         cross(other).sgnx()
 
     func angle_to(other: Vector2d, is_branch_cut_positive: bool) -> f32:
-        this_norm = this.norm()
+        let this_norm = norm()
         assert this_norm > 0.0
-        other_norm = other.norm()
+        let other_norm = other.norm()
         assert other_norm > 0.0
-        cos_value = (this.dot(other) / (this_norm * other_norm)).min(1.)
+        let cos_value = (dot(other) / (this_norm * other_norm)).min(1.)
         if cos_value + 1.0 < 0.001:
             if is_branch_cut_positive:
                 180.0
             else:
                 -180.0
         else:
-            arc_angle = (this.rotation_direction_to(other) as f32) * cos_value.acos()
+            arc_angle = (rotation_direction_to(other) as f32) * cos_value.acos()
             arc_angle * 180.0 / 3.1415926
 
 struct ClosedRange {

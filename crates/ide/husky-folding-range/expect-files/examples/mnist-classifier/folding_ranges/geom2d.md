@@ -111,7 +111,7 @@ Ok(
             ),
             end_line: 55,
             end_character: Some(
-                73,
+                68,
             ),
             kind: Some(
                 Region,
