@@ -3,21 +3,21 @@ use husky_print_utils::p;
 use husky_word::{IdentMap, Identifier, WordDb};
 use vec_like::{AsVecMapEntry, VecMap, VecMapGetEntry, VecPairMap};
 
-pub(crate) struct EntreeSymbolContext<'a> {
+pub(crate) struct EntityTreeSymbolContext<'a> {
     db: &'a dyn EntityTreeDb,
     crate_path: CratePath,
     crate_prelude: CrateSymbolContext<'a>,
-    current_sheet: &'a EntreePresheetMut<'a>,
-    sheets: &'a VecMap<EntreePresheetMut<'a>>,
+    current_sheet: &'a EntityTreePresheetMut<'a>,
+    sheets: &'a VecMap<EntityTreePresheetMut<'a>>,
 }
 
-impl<'a> EntreeSymbolContext<'a> {
+impl<'a> EntityTreeSymbolContext<'a> {
     pub(crate) fn new(
         db: &'a dyn EntityTreeDb,
         crate_path: CratePath,
         crate_prelude: CrateSymbolContext<'a>,
-        current_sheet: &'a EntreePresheetMut<'a>,
-        sheets: &'a VecMap<EntreePresheetMut<'a>>,
+        current_sheet: &'a EntityTreePresheetMut<'a>,
+        sheets: &'a VecMap<EntityTreePresheetMut<'a>>,
     ) -> Self {
         Self {
             db,

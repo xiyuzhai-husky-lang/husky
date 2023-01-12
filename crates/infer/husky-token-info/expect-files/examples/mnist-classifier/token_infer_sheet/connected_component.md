@@ -2,6 +2,13 @@ Ok(
     TokenInfoSheet {
         token_infos: [
             None,
+            UseExpr {
+                use_expr_idx: 3,
+                rule_idx: UseExprRuleIdx(
+                    0,
+                ),
+                state: Erroneous,
+            },
             None,
             None,
             None,
@@ -9,10 +16,37 @@ Ok(
             None,
             None,
             None,
+            UseExpr {
+                use_expr_idx: 6,
+                rule_idx: UseExprRuleIdx(
+                    1,
+                ),
+                state: Resolved {
+                    original_symbol: CrateRoot(
+                        ModulePath(
+                            Id {
+                                value: 13,
+                            },
+                        ),
+                    ),
+                },
+            },
             None,
-            None,
-            None,
-            None,
+            UseExpr {
+                use_expr_idx: 5,
+                rule_idx: UseExprRuleIdx(
+                    2,
+                ),
+                state: Resolved {
+                    original_symbol: Submodule(
+                        SubmoduleSymbol(
+                            Id {
+                                value: 10,
+                            },
+                        ),
+                    ),
+                },
+            },
             None,
             None,
             None,

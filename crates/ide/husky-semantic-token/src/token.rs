@@ -55,7 +55,7 @@ impl SemanticToken {
             SemanticToken::ThisValue => ext::SemanticTokenType::VARIABLE,
             SemanticToken::FrameVariable => ext::SemanticTokenType::VARIABLE,
             SemanticToken::Entity(entity_kind) => match entity_kind {
-                EntityKind::Module => todo!(),
+                EntityKind::Module => ext::SemanticTokenType::NAMESPACE,
                 EntityKind::ModuleItem {
                     module_item_kind,
                     connection,

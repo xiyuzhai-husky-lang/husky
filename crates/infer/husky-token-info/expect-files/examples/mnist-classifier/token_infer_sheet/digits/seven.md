@@ -2,6 +2,13 @@ Ok(
     TokenInfoSheet {
         token_infos: [
             None,
+            UseExpr {
+                use_expr_idx: 5,
+                rule_idx: UseExprRuleIdx(
+                    0,
+                ),
+                state: Erroneous,
+            },
             None,
             None,
             None,
@@ -13,6 +20,109 @@ Ok(
             None,
             None,
             None,
+            UseExpr {
+                use_expr_idx: 8,
+                rule_idx: UseExprRuleIdx(
+                    1,
+                ),
+                state: Resolved {
+                    original_symbol: CrateRoot(
+                        ModulePath(
+                            Id {
+                                value: 13,
+                            },
+                        ),
+                    ),
+                },
+            },
+            None,
+            UseExpr {
+                use_expr_idx: 7,
+                rule_idx: UseExprRuleIdx(
+                    8,
+                ),
+                state: Resolved {
+                    original_symbol: Submodule(
+                        SubmoduleSymbol(
+                            Id {
+                                value: 15,
+                            },
+                        ),
+                    ),
+                },
+            },
+            None,
+            UseExpr {
+                use_expr_idx: 6,
+                rule_idx: UseExprRuleIdx(
+                    14,
+                ),
+                state: Resolved {
+                    original_symbol: ModuleItem(
+                        ModuleItemSymbol(
+                            Id {
+                                value: 103,
+                            },
+                        ),
+                    ),
+                },
+            },
+            None,
+            UseExpr {
+                use_expr_idx: 11,
+                rule_idx: UseExprRuleIdx(
+                    2,
+                ),
+                state: Resolved {
+                    original_symbol: CrateRoot(
+                        ModulePath(
+                            Id {
+                                value: 13,
+                            },
+                        ),
+                    ),
+                },
+            },
+            None,
+            UseExpr {
+                use_expr_idx: 10,
+                rule_idx: UseExprRuleIdx(
+                    9,
+                ),
+                state: Resolved {
+                    original_symbol: Submodule(
+                        SubmoduleSymbol(
+                            Id {
+                                value: 15,
+                            },
+                        ),
+                    ),
+                },
+            },
+            None,
+            UseExpr {
+                use_expr_idx: 9,
+                rule_idx: UseExprRuleIdx(
+                    15,
+                ),
+                state: Resolved {
+                    original_symbol: ModuleItem(
+                        ModuleItemSymbol(
+                            Id {
+                                value: 98,
+                            },
+                        ),
+                    ),
+                },
+            },
+            None,
+            UseExpr {
+                use_expr_idx: 16,
+                rule_idx: UseExprRuleIdx(
+                    3,
+                ),
+                state: Erroneous,
+            },
             None,
             None,
             None,
@@ -22,43 +132,155 @@ Ok(
             None,
             None,
             None,
+            UseExpr {
+                use_expr_idx: 19,
+                rule_idx: UseExprRuleIdx(
+                    4,
+                ),
+                state: Resolved {
+                    original_symbol: CrateRoot(
+                        ModulePath(
+                            Id {
+                                value: 13,
+                            },
+                        ),
+                    ),
+                },
+            },
+            None,
+            UseExpr {
+                use_expr_idx: 18,
+                rule_idx: UseExprRuleIdx(
+                    10,
+                ),
+                state: Resolved {
+                    original_symbol: Submodule(
+                        SubmoduleSymbol(
+                            Id {
+                                value: 15,
+                            },
+                        ),
+                    ),
+                },
+            },
             None,
             None,
             None,
+            UseExpr {
+                use_expr_idx: 22,
+                rule_idx: UseExprRuleIdx(
+                    5,
+                ),
+                state: Resolved {
+                    original_symbol: CrateRoot(
+                        ModulePath(
+                            Id {
+                                value: 13,
+                            },
+                        ),
+                    ),
+                },
+            },
+            None,
+            UseExpr {
+                use_expr_idx: 21,
+                rule_idx: UseExprRuleIdx(
+                    11,
+                ),
+                state: Resolved {
+                    original_symbol: Submodule(
+                        SubmoduleSymbol(
+                            Id {
+                                value: 13,
+                            },
+                        ),
+                    ),
+                },
+            },
             None,
             None,
             None,
+            UseExpr {
+                use_expr_idx: 26,
+                rule_idx: UseExprRuleIdx(
+                    6,
+                ),
+                state: Resolved {
+                    original_symbol: CrateRoot(
+                        ModulePath(
+                            Id {
+                                value: 13,
+                            },
+                        ),
+                    ),
+                },
+            },
+            None,
+            UseExpr {
+                use_expr_idx: 25,
+                rule_idx: UseExprRuleIdx(
+                    12,
+                ),
+                state: Resolved {
+                    original_symbol: Submodule(
+                        SubmoduleSymbol(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                },
+            },
+            None,
+            UseExpr {
+                use_expr_idx: 24,
+                rule_idx: UseExprRuleIdx(
+                    16,
+                ),
+                state: Resolved {
+                    original_symbol: Submodule(
+                        SubmoduleSymbol(
+                            Id {
+                                value: 16,
+                            },
+                        ),
+                    ),
+                },
+            },
             None,
             None,
             None,
+            UseExpr {
+                use_expr_idx: 29,
+                rule_idx: UseExprRuleIdx(
+                    7,
+                ),
+                state: Resolved {
+                    original_symbol: CrateRoot(
+                        ModulePath(
+                            Id {
+                                value: 13,
+                            },
+                        ),
+                    ),
+                },
+            },
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            UseExpr {
+                use_expr_idx: 28,
+                rule_idx: UseExprRuleIdx(
+                    13,
+                ),
+                state: Resolved {
+                    original_symbol: Submodule(
+                        SubmoduleSymbol(
+                            Id {
+                                value: 14,
+                            },
+                        ),
+                    ),
+                },
+            },
             None,
             None,
             None,

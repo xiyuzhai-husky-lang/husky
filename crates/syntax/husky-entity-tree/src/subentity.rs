@@ -20,7 +20,7 @@ pub(crate) fn subentity_path(
     match parent {
         EntityPath::Module(module_path) => {
             match db
-                .entree_module_sheet(module_path)?
+                .entity_tree_sheet(module_path)?
                 .module_symbols()
                 .resolve_ident(ident)
             {

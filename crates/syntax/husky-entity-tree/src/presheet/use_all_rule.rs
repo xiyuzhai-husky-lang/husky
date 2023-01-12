@@ -52,7 +52,7 @@ impl UseAllRule {
         self.progress
     }
 
-    pub(crate) fn is_unresolved(&self, ctx: &EntreeSymbolContext) -> bool {
+    pub(crate) fn is_unresolved(&self, ctx: &EntityTreeSymbolContext) -> bool {
         self.progress < ctx.module_symbols(self.parent).len()
     }
 
@@ -106,7 +106,7 @@ impl std::ops::IndexMut<UseAllRuleIdx> for UseAllRules {
     }
 }
 
-impl<'a> std::ops::Index<UseAllRuleIdx> for EntreePresheetMut<'a> {
+impl<'a> std::ops::Index<UseAllRuleIdx> for EntityTreePresheetMut<'a> {
     type Output = UseAllRule;
 
     fn index(&self, index: UseAllRuleIdx) -> &Self::Output {
@@ -114,7 +114,7 @@ impl<'a> std::ops::Index<UseAllRuleIdx> for EntreePresheetMut<'a> {
     }
 }
 
-impl<'a> std::ops::IndexMut<UseAllRuleIdx> for EntreePresheetMut<'a> {
+impl<'a> std::ops::IndexMut<UseAllRuleIdx> for EntityTreePresheetMut<'a> {
     fn index_mut(&mut self, index: UseAllRuleIdx) -> &mut Self::Output {
         &mut self.use_all_rules[index]
     }

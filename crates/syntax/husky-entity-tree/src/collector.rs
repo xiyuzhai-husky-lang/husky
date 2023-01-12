@@ -7,7 +7,7 @@ use vec_like::{AsVecMapEntry, VecMap};
 pub(crate) struct EntityTreeCollector<'a> {
     db: &'a dyn EntityTreeDb,
     crate_path: CratePath,
-    presheets: VecMap<EntreePresheetMut<'a>>,
+    presheets: VecMap<EntityTreePresheetMut<'a>>,
     core_prelude_module: ModulePath,
     // can't use `crate_prelude` here because it might not be available
     opt_universal_prelude: Option<EntitySymbolTableRef<'a>>,
@@ -33,7 +33,7 @@ impl<'a> EntityTreeCollector<'a> {
         let presheets = all_modules
             .into_iter()
             .filter_map(|module_path| {
-                entree_presheet(db, *module_path)
+                entity_tree_presheet(db, *module_path)
                     .as_ref()
                     .ok()
                     .map(|presheet| presheet.presheet_mut(db))
@@ -45,7 +45,7 @@ impl<'a> EntityTreeCollector<'a> {
         let universal_prelude: Option<EntitySymbolTableRef<'a>> = {
             if crate_path != path_menu.core_library() {
                 Some(
-                    module_entity_tree(db, core_prelude_module)
+                    entity_tree_sheet(db, core_prelude_module)
                         .map_err(|e| PreludeError::CorePreludeEntityTreeSheet(Box::new(e)))?
                         .module_symbols(),
                 )
@@ -174,7 +174,7 @@ impl<'a> EntityTreeCollector<'a> {
 fn crate_prelude<'a>(
     opt_universal_prelude: Option<EntitySymbolTableRef<'a>>,
     core_prelude_module: ModulePath,
-    presheets: &'a VecMap<EntreePresheetMut<'a>>,
+    presheets: &'a VecMap<EntityTreePresheetMut<'a>>,
     crate_specific_prelude: EntitySymbolTableRef<'a>,
 ) -> CrateSymbolContext<'a> {
     let universal_prelude = opt_universal_prelude

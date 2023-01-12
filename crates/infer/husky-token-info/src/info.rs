@@ -1,5 +1,6 @@
 use husky_entity_path::EntityPath;
 use husky_entity_taxonomy::EntityKind;
+use husky_entity_tree::{UseExprIdx, UseExprRuleIdx, UseExprRuleState};
 use husky_expr::{
     ExprSheet, InheritedSymbolIdx, InheritedSymbolKind, LocalSymbolIdx, LocalSymbolKind,
 };
@@ -24,6 +25,11 @@ pub enum TokenInfo {
     Method,
     BoxColon,
     BoxPrefix,
+    UseExpr {
+        use_expr_idx: UseExprIdx,
+        rule_idx: UseExprRuleIdx,
+        state: UseExprRuleState,
+    },
 }
 
 impl Default for TokenInfo {

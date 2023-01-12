@@ -11,9 +11,12 @@ impl<'a> EntityTreeCollector<'a> {
         actions
     }
 
-    fn context<'b>(&'b self, presheet: &'b EntreePresheetMut<'b>) -> EntreeSymbolContext<'b> {
+    fn context<'b>(
+        &'b self,
+        presheet: &'b EntityTreePresheetMut<'b>,
+    ) -> EntityTreeSymbolContext<'b> {
         let module_path = presheet.module_path();
-        EntreeSymbolContext::new(
+        EntityTreeSymbolContext::new(
             self.db,
             self.crate_path,
             crate_prelude(

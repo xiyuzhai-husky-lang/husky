@@ -111,6 +111,7 @@ impl<'a> HoverResultCalculator<'a> {
             TokenInfo::Method => format!(""),
             TokenInfo::BoxColon => format!("box colon"),
             TokenInfo::BoxPrefix => format!("box prefix"),
+            TokenInfo::UseExpr { .. } => format!("use"),
         };
         format!(
             r#"

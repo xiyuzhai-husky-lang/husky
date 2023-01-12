@@ -8,6 +8,8 @@ pub(crate) struct InferEngine<'a> {
     db: &'a dyn TokenInfoDb,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
+    entity_tree_presheet: &'a EntityTreePresheet,
+    entity_tree_sheet: &'a EntityTreeSheet,
     defn_sheet: &'a DefnSheet,
     module_symbol_context: ModuleSymbolContext<'a>,
     sheet: TokenInfoSheet,
@@ -21,6 +23,8 @@ impl<'a> InferEngine<'a> {
             token_sheet_data,
             defn_sheet: db.defn_sheet(module_path)?,
             ast_sheet: db.ast_sheet(module_path)?,
+            entity_tree_presheet: db.entity_tree_presheet(module_path)?,
+            entity_tree_sheet: db.entity_tree_sheet(module_path)?,
             sheet: TokenInfoSheet::new(token_sheet_data),
             module_symbol_context: db.module_symbol_context(module_path)?,
         })
@@ -28,49 +32,71 @@ impl<'a> InferEngine<'a> {
 
     pub(crate) fn visit_all(mut self) -> TokenInfoSheet {
         for defn in self.defn_sheet.defns() {
-            let decl = defn.decl(self.db);
-            self.visit_expr_sheet(decl.expr_sheet(self.db).into());
-            defn.expr_sheet(self.db)
-                .map(|expr_sheet| self.visit_expr_sheet(expr_sheet.into()));
-            let ast_idx = defn.ast_idx(self.db);
-            match self.ast_sheet[ast_idx] {
-                Ast::Defn {
-                    token_group_idx,
-                    ref body,
-                    accessibility,
-                    entity_kind,
-                    entity_path,
-                    ident_token,
-                    is_generic,
-                    body_kind,
-                    saved_stream_state,
-                } => {
+            self.visit_defn(defn);
+        }
+        for (rule_idx, rule) in self.entity_tree_sheet.use_expr_rule_indexed_iter() {
+            let use_expr_idx = rule.use_expr_idx();
+            let use_expr = &self.entity_tree_presheet[use_expr_idx];
+            match use_expr {
+                UseExpr::All { star_token } => (),
+                UseExpr::One { ident_token } | UseExpr::Parent { ident_token, .. } => {
                     self.sheet.add(
                         ident_token.token_idx(),
-                        TokenInfo::Entity(decl.path(self.db), Some(entity_kind)),
-                    );
-                    if is_generic {
-                        for implicit_parameter in defn.implicit_parameters(self.db) {
-                            self.sheet.add(
-                                implicit_parameter.ident().token_idx(),
-                                TokenInfo::ImplicitParameter,
-                            )
-                        }
-                    }
+                        TokenInfo::UseExpr {
+                            use_expr_idx,
+                            rule_idx,
+                            state: rule.state(),
+                        },
+                    )
                 }
-                Ast::Impl { .. } => (),
-                _ => unreachable!(),
-            }
-            match defn {
-                Defn::Type(defn) => self.visit_ty(defn),
-                Defn::Trait(defn) => self.visit_trai(defn),
-                Defn::Form(defn) => self.visit_form(defn),
-                Defn::AssociatedItem(defn) => self.visit_associated_item(defn),
-                Defn::Variant(_) => todo!(),
-                Defn::ImplBlock(_) => (),
+                UseExpr::Err(_) => (),
             }
         }
         self.sheet
+    }
+
+    fn visit_defn(&mut self, defn: Defn) {
+        let decl = defn.decl(self.db);
+        self.visit_expr_sheet(decl.expr_sheet(self.db).into());
+        defn.expr_sheet(self.db)
+            .map(|expr_sheet| self.visit_expr_sheet(expr_sheet.into()));
+        let ast_idx = defn.ast_idx(self.db);
+        match self.ast_sheet[ast_idx] {
+            Ast::Defn {
+                token_group_idx,
+                ref body,
+                accessibility,
+                entity_kind,
+                entity_path,
+                ident_token,
+                is_generic,
+                body_kind,
+                saved_stream_state,
+            } => {
+                self.sheet.add(
+                    ident_token.token_idx(),
+                    TokenInfo::Entity(decl.path(self.db), Some(entity_kind)),
+                );
+                if is_generic {
+                    for implicit_parameter in defn.implicit_parameters(self.db) {
+                        self.sheet.add(
+                            implicit_parameter.ident().token_idx(),
+                            TokenInfo::ImplicitParameter,
+                        )
+                    }
+                }
+            }
+            Ast::Impl { .. } => (),
+            _ => unreachable!(),
+        }
+        match defn {
+            Defn::Type(defn) => self.visit_ty(defn),
+            Defn::Trait(defn) => self.visit_trai(defn),
+            Defn::Form(defn) => self.visit_form(defn),
+            Defn::AssociatedItem(defn) => self.visit_associated_item(defn),
+            Defn::Variant(_) => todo!(),
+            Defn::ImplBlock(_) => (),
+        }
     }
 
     fn visit_expr_sheet(&mut self, expr_sheet: ExprSheet) {

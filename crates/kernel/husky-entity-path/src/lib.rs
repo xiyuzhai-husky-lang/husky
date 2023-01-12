@@ -90,7 +90,7 @@ impl EntityPath {
 
     pub fn entity_kind(self, db: &dyn EntityPathDb) -> EntityKind {
         match self {
-            EntityPath::Module(path) => todo!(),
+            EntityPath::Module(path) => EntityKind::Module,
             EntityPath::ModuleItem(path) => path.entity_kind(db),
             EntityPath::AssociatedItem(path) => path.entity_kind(db),
             EntityPath::Variant(_) => todo!(),

@@ -1,16 +1,16 @@
 #![feature(stmt_expr_attributes)]
 #![feature(trait_upcasting)]
 mod associated_item;
+mod bundle;
 mod collector;
 mod context;
-mod crate_bundle;
 mod db;
 mod error;
 mod expr;
 mod impl_block;
-mod module_sheet;
 mod prelude;
 mod presheet;
+mod sheet;
 mod subentity;
 mod submodule;
 mod symbol;
@@ -20,19 +20,20 @@ mod utils;
 
 pub use associated_item::*;
 pub use associated_item::*;
-pub use crate_bundle::*;
+pub use bundle::*;
 pub use db::EntityTreeDb;
 pub use error::EntityTreeError;
 pub use error::*;
+pub use expr::*;
 pub use impl_block::*;
-pub use module_sheet::*;
 pub use prelude::*;
+pub use presheet::*;
+pub use sheet::*;
 pub use submodule::*;
 pub use symbol::*;
 
 use collector::*;
 use context::*;
-use expr::*;
 use husky_accessibility::*;
 use husky_ast::*;
 use husky_entity_path::*;
@@ -41,7 +42,6 @@ use husky_package_path::*;
 use husky_vfs::*;
 use husky_word::{Identifier, WordDb};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
-use presheet::*;
 use salsa::DebugWithDb;
 use subentity::*;
 #[cfg(test)]
@@ -55,7 +55,7 @@ pub struct EntityTreeJar(
     UseSymbol,
     ImplBlock,
     AssociatedItem,
-    entree_presheet,
+    entity_tree_presheet,
     entity_tree_crate_bundle,
     submodules,
     module_subentity_path,

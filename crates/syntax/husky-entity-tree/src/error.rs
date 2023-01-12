@@ -4,7 +4,7 @@ use husky_manifest::ManifestError;
 use husky_vfs::{ModulePath, ToolchainError, VfsError};
 use thiserror::Error;
 
-use crate::{EntityTreeCrateBundleError, EntityTreeDb, PreludeError};
+use crate::{EntityTreeBundleError, EntityTreeDb, PreludeError};
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum EntityTreeError {
@@ -31,7 +31,7 @@ pub enum EntityTreeError {
     #[error("no subentity")]
     NoSubentity,
     #[error("from bundle {0}")]
-    CrateBundle(#[from] EntityTreeCrateBundleError),
+    CrateBundle(#[from] EntityTreeBundleError),
     #[error("unresolved identifier")]
     UnresolvedIdentifier(husky_token::IdentifierToken),
     #[error("SymbolNotAccessible")]

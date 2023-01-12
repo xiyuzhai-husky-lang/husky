@@ -7,16 +7,16 @@ use vec_like::{AsVecMapEntry, VecPairMap};
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct EntityTreeModuleSheet {
+pub struct EntityTreeSheet {
     module_path: ModulePath,
     symbols: EntitySymbolTable,
     impl_blocks: Vec<ImplBlock>,
-    use_expr_rules: UseTreeRules,
+    use_expr_rules: UseExprRules,
     use_all_rules: UseAllRules,
     errors: Vec<EntityTreeError>,
 }
 
-impl vec_like::AsVecMapEntry for EntityTreeModuleSheet {
+impl vec_like::AsVecMapEntry for EntityTreeSheet {
     type K = ModulePath;
 
     fn key(&self) -> Self::K
@@ -31,12 +31,12 @@ impl vec_like::AsVecMapEntry for EntityTreeModuleSheet {
     }
 }
 
-impl EntityTreeModuleSheet {
+impl EntityTreeSheet {
     pub(crate) fn new(
         module_path: ModulePath,
         symbols: EntitySymbolTable,
         impl_blocks: Vec<ImplBlock>,
-        use_expr_rules: UseTreeRules,
+        use_expr_rules: UseExprRules,
         use_all_rules: UseAllRules,
         errors: Vec<EntityTreeError>,
     ) -> Self {
@@ -67,6 +67,12 @@ impl EntityTreeModuleSheet {
             })
     }
 
+    pub fn use_expr_rule_indexed_iter<'a>(
+        &'a self,
+    ) -> impl Iterator<Item = (UseExprRuleIdx, &'a UseExprRule)> + 'a {
+        self.use_expr_rules.indexed_iter()
+    }
+
     pub fn module_path(&self) -> ModulePath {
         self.module_path
     }
@@ -76,10 +82,10 @@ impl EntityTreeModuleSheet {
     }
 }
 
-pub(crate) fn module_entity_tree(
+pub(crate) fn entity_tree_sheet(
     db: &dyn EntityTreeDb,
     module_path: ModulePath,
-) -> EntityTreeResult<&EntityTreeModuleSheet> {
+) -> EntityTreeResult<&EntityTreeSheet> {
     let crate_path = module_path.crate_path(db);
     let entity_tree_bundle = entity_tree_crate_bundle(db, crate_path)
         .as_ref()
@@ -89,7 +95,7 @@ pub(crate) fn module_entity_tree(
         .ok_or_else(|| EntityTreeError::InvalidModulePath(module_path))
 }
 
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreeModuleSheet {
+impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreeSheet {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
