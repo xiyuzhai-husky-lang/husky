@@ -9,7 +9,7 @@
   },
   {
     "input": "*",
-    "output": "TokenSheetData {\n    tokens: [\n        Punctuation(\n            Binary(\n                PureClosed(\n                    Mul,\n                ),\n            ),\n        ),\n    ],\n    group_starts: [\n        0,\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        Punctuation(\n            Star,\n        ),\n    ],\n    group_starts: [\n        0,\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "/",

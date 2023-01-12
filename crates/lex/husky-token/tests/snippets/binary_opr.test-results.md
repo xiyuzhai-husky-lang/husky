@@ -70,11 +70,7 @@ output
 TokenSheetData {
     tokens: [
         Punctuation(
-            Binary(
-                PureClosed(
-                    Mul,
-                ),
-            ),
+            Star,
         ),
     ],
     group_starts: [

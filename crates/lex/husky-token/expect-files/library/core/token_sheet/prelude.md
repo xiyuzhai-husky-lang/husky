@@ -32,11 +32,7 @@ Ok(
                 DoubleColon,
             ),
             Punctuation(
-                Binary(
-                    PureClosed(
-                        Mul,
-                    ),
-                ),
+                Star,
             ),
             Attr(
                 Pub,
@@ -69,11 +65,7 @@ Ok(
                 DoubleColon,
             ),
             Punctuation(
-                Binary(
-                    PureClosed(
-                        Mul,
-                    ),
-                ),
+                Star,
             ),
         ],
         group_starts: [
