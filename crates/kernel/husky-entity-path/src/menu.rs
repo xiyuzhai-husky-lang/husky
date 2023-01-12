@@ -60,6 +60,7 @@ impl EntityPathMenu {
         let word_menu = db.word_menu();
         let path_menu = db.vfs_path_menu(toolchain)?;
         let core_ops = path_menu.core_ops();
+        let core_basic = path_menu.core_basic();
         let core_num = path_menu.core_num();
         let core_ops_add = TraitPath::new(
             db,
@@ -161,14 +162,14 @@ impl EntityPathMenu {
         );
         let unit = TypePath::new(
             db,
-            core_num,
+            core_basic,
             word_menu.unit(),
             ModuleItemConnection::Connected,
             TypeKind::Foreign,
         );
         let bool = TypePath::new(
             db,
-            core_num,
+            core_basic,
             word_menu.bool(),
             ModuleItemConnection::Connected,
             TypeKind::Foreign,

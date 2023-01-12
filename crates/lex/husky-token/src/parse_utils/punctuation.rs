@@ -683,7 +683,7 @@ fn star_token_works() {
 
     let db = DB::default();
     assert!(t(&db, "*").unwrap().is_some());
-    assert!(t(&db, "::@").unwrap().is_some());
+    assert!(t(&db, "::@").unwrap().is_none());
     assert!(t(&db, ":@").unwrap().is_none());
     assert!(t(&db, ".").unwrap().is_none());
     assert!(t(&db, "||").unwrap().is_none());
