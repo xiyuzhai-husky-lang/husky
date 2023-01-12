@@ -77,6 +77,7 @@ fn token_to_semantic_token(
                 SemanticToken::Entity(original_symbol.path(db).entity_kind(db))
             }
         },
+        TokenInfo::UseExprStar => SemanticToken::Special,
     };
     Some(RangedSemanticToken {
         semantic_token,

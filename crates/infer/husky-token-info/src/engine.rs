@@ -31,28 +31,40 @@ impl<'a> InferEngine<'a> {
     }
 
     pub(crate) fn visit_all(mut self) -> TokenInfoSheet {
+        self.visit_defns();
+        self.visit_use_expr_rules();
+        self.sheet
+    }
+
+    fn visit_defns(&mut self) {
         for defn in self.defn_sheet.defns() {
             self.visit_defn(defn);
         }
+    }
+
+    fn visit_use_expr_rules(&mut self) {
         for (rule_idx, rule) in self.entity_tree_sheet.use_expr_rule_indexed_iter() {
-            let use_expr_idx = rule.use_expr_idx();
-            let use_expr = &self.entity_tree_presheet[use_expr_idx];
-            match use_expr {
-                UseExpr::All { star_token } => (),
-                UseExpr::One { ident_token } | UseExpr::Parent { ident_token, .. } => {
-                    self.sheet.add(
-                        ident_token.token_idx(),
-                        TokenInfo::UseExpr {
-                            use_expr_idx,
-                            rule_idx,
-                            state: rule.state(),
-                        },
-                    )
-                }
-                UseExpr::Err(_) => (),
-            }
+            self.visit_use_expr_rule(rule, rule_idx);
         }
-        self.sheet
+    }
+
+    fn visit_use_expr_rule(&mut self, rule: &UseExprRule, rule_idx: UseExprRuleIdx) {
+        let use_expr_idx = rule.use_expr_idx();
+        let use_expr = &self.entity_tree_presheet[use_expr_idx];
+        match use_expr {
+            UseExpr::All { star_token } => self
+                .sheet
+                .add(star_token.token_idx(), TokenInfo::UseExprStar),
+            UseExpr::One { ident_token } | UseExpr::Parent { ident_token, .. } => self.sheet.add(
+                ident_token.token_idx(),
+                TokenInfo::UseExpr {
+                    use_expr_idx,
+                    rule_idx,
+                    state: rule.state(),
+                },
+            ),
+            UseExpr::Err(_) => (),
+        }
     }
 
     fn visit_defn(&mut self, defn: Defn) {

@@ -25,6 +25,7 @@ pub enum TokenInfo {
     Method,
     BoxColon,
     BoxPrefix,
+    UseExprStar,
     UseExpr {
         use_expr_idx: UseExprIdx,
         rule_idx: UseExprRuleIdx,
