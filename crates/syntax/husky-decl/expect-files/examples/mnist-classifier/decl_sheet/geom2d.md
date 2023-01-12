@@ -41,7 +41,7 @@ Ok(
                 Expr(
                     ExpectRightCurlyBrace(
                         TokenIdx(
-                            520,
+                            511,
                         ),
                     ),
                 ),

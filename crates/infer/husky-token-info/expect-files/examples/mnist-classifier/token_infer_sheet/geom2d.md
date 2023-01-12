@@ -1177,11 +1177,7 @@ Ok(
             None,
             None,
             None,
-            Field,
             None,
-            None,
-            None,
-            Method,
             None,
             None,
             None,
@@ -1229,8 +1225,6 @@ Ok(
             None,
             None,
             None,
-            None,
-            Field,
             None,
             Method,
             None,
@@ -1437,17 +1431,47 @@ Ok(
             ),
             None,
             None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 230,
+                    },
+                ),
+            },
             None,
             None,
             None,
-            Method,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 230,
+                    },
+                ),
+            },
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 230,
+                    },
+                ),
+            },
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
@@ -1465,15 +1489,34 @@ Ok(
             None,
             None,
             None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 230,
+                    },
+                ),
+            },
             None,
             None,
             None,
+            LocalSymbol {
+                local_symbol_idx: 2,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 230,
+                    },
+                ),
+            },
             None,
             None,
             None,
-            None,
-            None,
-            Method,
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
@@ -1489,9 +1532,29 @@ Ok(
             None,
             None,
             None,
+            LocalSymbol {
+                local_symbol_idx: 2,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 230,
+                    },
+                ),
+            },
             None,
-            None,
-            None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 230,
+                    },
+                ),
+            },
             None,
             None,
             None,
@@ -1500,7 +1563,17 @@ Ok(
             None,
             None,
             None,
-            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 230,
+                    },
+                ),
+            },
             None,
             None,
             None,
@@ -1530,8 +1603,6 @@ Ok(
             None,
             None,
             None,
-            None,
-            Method,
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
