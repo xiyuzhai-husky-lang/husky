@@ -28,7 +28,7 @@ impl<'a, Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for PreludeError {
     }
 }
 
-pub(crate) fn crate_prelude<'a>(
+pub(crate) fn crate_symbol_context<'a>(
     db: &'a dyn EntityTreeDb,
     crate_path: CratePath,
 ) -> PreludeResult<CrateSymbolContext<'a>> {
@@ -49,20 +49,30 @@ pub(crate) fn crate_prelude<'a>(
 #[test]
 fn crate_symbol_context_works() {
     DB::test_crates(|db, crate_path| {
-        let crate_symbol_context = crate_prelude(db, crate_path).unwrap();
+        let crate_symbol_context = crate_symbol_context(db, crate_path).unwrap();
         let t = |path: EntityPath| {
-            assert!(
-                crate_symbol_context
-                    .resolve_ident(path.ident(db).unwrap())
-                    .expect("crate symbol context should contain ...")
-                    .path(db)
-                    == path
-            )
+            let symbol = match crate_symbol_context.resolve_ident(path.ident(db).unwrap()) {
+                Some(symbol) => symbol,
+                None => panic!(
+                    r#"crate symbol context should contain {:?}
+    crate symbol context is
+    {:?}"#,
+                    &path.debug(db),
+                    crate_symbol_context.debug(db)
+                ),
+            };
+            if symbol.path(db) != path {
+                panic!(
+                    "symbol.path(db)({:?}) should be equal to path({:?})",
+                    symbol.path(db).debug(db),
+                    path.debug(db)
+                )
+            }
         };
         let toolchain = crate_path.toolchain(db);
         let vfs_path_menu = db.vfs_path_menu(toolchain).unwrap();
         let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
-        t(vfs_path_menu.core().into());
+        t(entity_path_menu.bool().into());
         t(entity_path_menu.i32().into());
         t(entity_path_menu.i64().into());
         // t(entity_path_menu.f32().into());
