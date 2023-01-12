@@ -12,9 +12,10 @@ use crate::*;
 
 #[salsa::tracked(jar = DiagnosticsJar)]
 pub struct DiagnosticSheet {
-    pub ast_diagnostic_sheet: AstDiagnosticSheet,
-    pub entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet,
     pub token_diagnostic_sheet: TokenDiagnosticSheet,
+    pub ast_diagnostic_sheet: AstDiagnosticSheet,
+    pub expr_diagnostic_sheet: ExprDiagnosticSheet,
+    pub entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet,
 }
 
 // ad hoc
@@ -33,9 +34,10 @@ impl<Db: DiagnosticsDb> salsa::DebugWithDb<Db> for DiagnosticSheet {
 pub(crate) fn diagnostic_sheet(db: &dyn DiagnosticsDb, module_path: ModulePath) -> DiagnosticSheet {
     DiagnosticSheet::new(
         db,
-        ast_diagnostic_sheet(db, module_path),
-        entity_tree_diagnostic_sheet(db, module_path),
         token_diagnostic_sheet(db, module_path),
+        ast_diagnostic_sheet(db, module_path),
+        expr_diagnostic_sheet(db, module_path),
+        entity_tree_diagnostic_sheet(db, module_path),
     )
 }
 
