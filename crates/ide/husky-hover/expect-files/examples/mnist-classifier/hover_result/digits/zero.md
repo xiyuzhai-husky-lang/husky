@@ -580,7 +580,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 266;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 177,\n            },\n        ),\n    ),\n);\n\ntoken_info = Method;\n\n\n",
+                                value: "\ntoken_idx = 266;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 178,\n            },\n        ),\n    ),\n);\n\ntoken_info = Method;\n\n\n",
                             },
                         ),
                         range: Some(

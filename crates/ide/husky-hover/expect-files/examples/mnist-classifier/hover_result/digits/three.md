@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 135;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 245,\n            },\n        ),\n    ),\n);\n\ntoken_info = Field;\n\n\n",
+                                value: "\ntoken_idx = 135;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 246,\n            },\n        ),\n    ),\n);\n\ntoken_info = Field;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -490,7 +490,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 240;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 176,\n            },\n        ),\n    ),\n);\n\ntoken_info = Method;\n\n\n",
+                                value: "\ntoken_idx = 240;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 177,\n            },\n        ),\n    ),\n);\n\ntoken_info = Method;\n\n\n",
                             },
                         ),
                         range: Some(
