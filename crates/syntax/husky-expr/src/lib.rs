@@ -85,8 +85,6 @@ pub enum Expr {
         local_symbol_idx: LocalSymbolIdx,
         local_symbol_kind: LocalSymbolKind,
     },
-    Uncertain(Identifier),
-    Unrecognized(Identifier),
     BinaryOpn {
         lopd: ExprIdx,
         punctuation: BinaryOpr,

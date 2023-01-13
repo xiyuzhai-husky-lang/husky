@@ -184,7 +184,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         todo!()
                     }
                     BaseEntityPath::Uncertain { .. } => {
-                        return ResolvedToken::Atom(Expr::Uncertain(ident))
+                        return ResolvedToken::Atom(Expr::Err(ExprError::UnresolvedSubentity {
+                            token_idx,
+                            ident,
+                        }))
                     }
                     BaseEntityPath::Err => todo!(),
                 },
@@ -226,7 +229,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     },
                     //  Expr::EntityPath(entity_path),
                 },
-                None => Expr::Unrecognized(ident),
+                None => Expr::Err(ExprError::UnrecognizedIdentifier { token_idx, ident }),
             },
         )
     }

@@ -82,6 +82,16 @@ pub enum ExprError {
     MissingBlock(TokenGroupIdx),
     #[error("unexpected `$`")]
     UnexpectedSheba(TokenIdx),
+    #[error("unrecognized identifier")]
+    UnrecognizedIdentifier {
+        token_idx: TokenIdx,
+        ident: Identifier,
+    },
+    #[error("unrecognized identifier")]
+    UnresolvedSubentity {
+        token_idx: TokenIdx,
+        ident: Identifier,
+    },
 }
 
 pub type ExprResult<T> = Result<T, ExprError>;
