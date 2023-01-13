@@ -38,5 +38,3 @@ func big_mouth(cc: &ConcaveComponent)->?f32:
     if cc.relative_bounding_box.ymax()>0.5:
         require cc.strokes.firstx().start.x > cc.strokes.firstx().end.x
     cc.relative_bounding_box.ymax()
-    
-
