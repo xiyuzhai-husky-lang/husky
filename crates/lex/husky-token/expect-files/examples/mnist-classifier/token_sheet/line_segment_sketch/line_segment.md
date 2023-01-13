@@ -46,7 +46,9 @@ Ok(
                 ),
             ),
             Punctuation(
-                Colon,
+                Bra(
+                    Curl,
+                ),
             ),
             Identifier(
                 Identifier(
@@ -69,6 +71,9 @@ Ok(
                     ),
                 ),
             ),
+            Punctuation(
+                Comma,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -89,6 +94,29 @@ Ok(
                         },
                     ),
                 ),
+            ),
+            Punctuation(
+                Comma,
+            ),
+            Punctuation(
+                Ket(
+                    Curl,
+                ),
+            ),
+            Keyword(
+                Impl,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 334,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Colon,
             ),
             Keyword(
                 Paradigm(
@@ -686,27 +714,25 @@ Ok(
         group_starts: [
             0,
             6,
-            9,
-            12,
-            15,
-            22,
+            18,
+            21,
             28,
-            38,
-            45,
-            53,
-            63,
-            68,
-            70,
-            78,
-            88,
-            93,
-            95,
+            34,
+            44,
+            51,
+            59,
+            69,
+            74,
+            76,
+            84,
+            94,
+            99,
+            101,
         ],
         indents: [
             0,
             0,
-            4,
-            4,
+            0,
             4,
             8,
             4,

@@ -4,13 +4,13 @@ Ok(
         module_specific_symbols: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: `ConvexCompoent`,
+                    ident: `ConvexComponent`,
                     accessibility: PubicUnder(
                         `mnist_classifier::line_segment_sketch::convex_component`,
                     ),
                     symbol: ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent`, `Struct`),
+                            path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                         },
                     ),
                 },
@@ -19,7 +19,7 @@ Ok(
         entity_use_roots: EntityUseExprTrackers(
             [
                 UseTracker {
-                    ast_idx: 4,
+                    ast_idx: 2,
                     accessibility: Done {
                         accessibility: PubicUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,

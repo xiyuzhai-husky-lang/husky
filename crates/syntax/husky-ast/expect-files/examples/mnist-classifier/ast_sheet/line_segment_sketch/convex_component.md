@@ -4,29 +4,17 @@ Ok(
             data: [
                 Err {
                     token_group_idx: TokenGroupIdx(
-                        2,
-                    ),
-                    error: ExpectNothing,
-                },
-                Err {
-                    token_group_idx: TokenGroupIdx(
                         3,
-                    ),
-                    error: ExpectNothing,
-                },
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        4,
                     ),
                     error: ExpectIdentifier(
                         TokenIdx(
-                            20,
+                            26,
                         ),
                     ),
                 },
                 Err {
                     token_group_idx: TokenGroupIdx(
-                        5,
+                        4,
                     ),
                     error: ExcessiveIndent,
                 },
@@ -40,7 +28,7 @@ Ok(
                         1,
                     ),
                     body: ArenaIdxRange(
-                        0..4,
+                        0..0,
                     ),
                     accessibility: PublicUnder(
                         ModulePath(
@@ -56,24 +44,32 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent`, `Struct`),
+                        TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `ConvexCompoent`,
+                        ident: `ConvexComponent`,
                         token_idx: TokenIdx(
                             7,
                         ),
                     },
                     is_generic: false,
-                    body_kind: Block,
+                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         8,
+                    ),
+                },
+                Impl {
+                    token_group_idx: TokenGroupIdx(
+                        2,
+                    ),
+                    body: ArenaIdxRange(
+                        0..2,
                     ),
                 },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            4..6,
+            2..5,
         ),
     },
 )

@@ -816,13 +816,13 @@ Ok(
                 module_specific_symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: `ConvexCompoent`,
+                            ident: `ConvexComponent`,
                             accessibility: PubicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent`, `Struct`),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                 },
                             ),
                         },

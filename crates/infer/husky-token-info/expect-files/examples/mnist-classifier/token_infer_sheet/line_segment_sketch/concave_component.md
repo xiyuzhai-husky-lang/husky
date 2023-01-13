@@ -170,441 +170,1302 @@ Ok(
             None,
             None,
             None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Type(
+                            Struct,
+                        ),
+                        connection: Connected,
+                    },
+                ),
+            ),
+            None,
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            BoxPrefix,
+            None,
+            BoxPrefix,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 26,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 45,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Memo,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 12,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            Field,
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 46,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Memo,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 12,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            Field,
+            None,
+            None,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 47,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Memo,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 12,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 261,
+                    },
+                ),
+            },
             None,
             None,
             None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 261,
+                    },
+                ),
+            },
             None,
             None,
             None,
+            Method,
             None,
             None,
             None,
+            Field,
             None,
+            LocalSymbol {
+                local_symbol_idx: 2,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 261,
+                    },
+                ),
+            },
             None,
             None,
             None,
+            Method,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 3,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 3,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 261,
+                    },
+                ),
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 261,
+                    },
+                ),
+            },
+            None,
+            Method,
+            None,
+            None,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 4,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 4,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 261,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 5,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 5,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 261,
+                    },
+                ),
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 3,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 3,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 261,
+                    },
+                ),
+            },
+            None,
+            Method,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 261,
+                    },
+                ),
+            },
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 261,
+                    },
+                ),
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 5,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 5,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 261,
+                    },
+                ),
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 5,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 5,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 261,
+                    },
+                ),
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 261,
+                    },
+                ),
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 5,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 5,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 261,
+                    },
+                ),
+            },
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 48,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Memo,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 12,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 262,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 262,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            Field,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 2,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 262,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            Field,
+            None,
+            None,
+            None,
+            None,
+            Method,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 2,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 262,
+                    },
+                ),
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 262,
+                    },
+                ),
+            },
+            None,
+            Method,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 262,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 262,
+                    },
+                ),
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 262,
+                    },
+                ),
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 2,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 262,
+                    },
+                ),
+            },
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 49,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Memo,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 24,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            Field,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 2,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 2,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            Field,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 3,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 3,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 3,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 3,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            Field,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 4,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 4,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 4,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 4,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            Field,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 5,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 5,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Field,
+            LocalSymbol {
+                local_symbol_idx: 4,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 4,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 4,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 4,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            Method,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            Field,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 3,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 3,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 3,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 3,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            Method,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            Field,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 2,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 2,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            Method,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            Field,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            Method,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            Field,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 24,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 4,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 4,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 3,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 3,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 2,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 263,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 50,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Memo,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            None,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            Field,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 51,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 52,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 53,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            Field,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 54,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 55,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 56,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Method,
+            None,
+            None,
+            None,
+            Method,
             None,
             None,
             None,
@@ -640,7 +1501,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 243,
+                        value: 244,
                     },
                 ),
             },
@@ -688,7 +1549,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -719,7 +1580,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -731,7 +1592,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -750,7 +1611,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -765,7 +1626,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -779,7 +1640,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -792,7 +1653,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -807,7 +1668,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -819,7 +1680,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -832,7 +1693,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -845,7 +1706,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -857,7 +1718,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -869,7 +1730,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -881,7 +1742,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -893,7 +1754,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -906,7 +1767,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -918,7 +1779,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -930,7 +1791,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -945,7 +1806,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -957,20 +1818,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
-                    },
-                ),
-            },
-            None,
-            None,
-            LocalSymbol {
-                local_symbol_idx: 1,
-                local_symbol_kind: LetVariable {
-                    pattern_symbol: 1,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -983,7 +1831,20 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
+                    },
+                ),
+            },
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 258,
                     },
                 ),
             },
@@ -995,7 +1856,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -1009,7 +1870,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -1038,7 +1899,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -1050,7 +1911,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -1066,7 +1927,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -1078,7 +1939,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -1092,7 +1953,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -1104,7 +1965,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -1115,7 +1976,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -1127,7 +1988,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
@@ -1141,7 +2002,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 244,
+                        value: 258,
                     },
                 ),
             },
