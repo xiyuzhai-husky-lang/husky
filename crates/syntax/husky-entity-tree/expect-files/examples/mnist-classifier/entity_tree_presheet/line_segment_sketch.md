@@ -205,9 +205,7 @@ Ok(
                 UseTracker {
                     ast_idx: 165,
                     accessibility: Done {
-                        accessibility: PubicUnder(
-                            `mnist_classifier::line_segment_sketch`,
-                        ),
+                        accessibility: Public,
                     },
                     use_expr_children: Some(
                         ArenaIdxRange(
@@ -220,9 +218,7 @@ Ok(
                 UseTracker {
                     ast_idx: 166,
                     accessibility: Done {
-                        accessibility: PubicUnder(
-                            `mnist_classifier::line_segment_sketch`,
-                        ),
+                        accessibility: Public,
                     },
                     use_expr_children: Some(
                         ArenaIdxRange(

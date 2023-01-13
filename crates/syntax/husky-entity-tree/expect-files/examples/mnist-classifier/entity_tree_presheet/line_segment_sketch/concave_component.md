@@ -5,15 +5,11 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `ConcaveComponent`,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::line_segment_sketch::concave_component`,
-                    ),
+                    accessibility: Public,
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                            accessibility: PubicUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
+                            accessibility: Public,
                             ast_idx: 73,
                         },
                     ),

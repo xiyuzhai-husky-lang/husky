@@ -127,21 +127,7 @@ Ok(
                 },
             },
             None,
-            UseExpr {
-                use_expr_idx: 10,
-                rule_idx: UseExprRuleIdx(
-                    8,
-                ),
-                state: Resolved {
-                    original_symbol: ModuleItem(
-                        ModuleItemSymbol(
-                            Id {
-                                value: 50,
-                            },
-                        ),
-                    ),
-                },
-            },
+            None,
             None,
             UseExpr {
                 use_expr_idx: 16,
