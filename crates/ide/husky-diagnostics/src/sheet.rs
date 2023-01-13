@@ -51,6 +51,7 @@ impl DiagnosticSheet {
             .iter()
             .chain(self.entity_tree_diagnostic_sheet(db).diagnostics(db).iter())
             .chain(self.token_diagnostic_sheet(db).diagnostics(db).iter())
+            .chain(self.expr_diagnostic_sheet(db).diagnostics(db).iter())
     }
 }
 
