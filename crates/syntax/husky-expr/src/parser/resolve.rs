@@ -43,11 +43,11 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             ),
                             BaseEntityPath::Some(_) => todo!(),
                             BaseEntityPath::Uncertain { inclination } => match inclination {
-                                BaseEntityPathInclination::GlobalValue
-                                | BaseEntityPathInclination::TypeOrVariant => {
+                                BaseEntityPathInclination::TypeOrVariant => {
                                     ResolvedToken::Bra(token_idx, Bracket::Angle)
                                 }
-                                BaseEntityPathInclination::FunctionOrLocalValue => {
+                                BaseEntityPathInclination::GlobalValue
+                                | BaseEntityPathInclination::FunctionOrLocalValue => {
                                     ResolvedToken::BinaryOpr(
                                         token_idx,
                                         BinaryOpr::Comparison(BinaryComparisonOpr::Less),
