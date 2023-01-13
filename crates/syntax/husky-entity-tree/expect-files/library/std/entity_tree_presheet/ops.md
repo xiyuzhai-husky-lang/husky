@@ -11,6 +11,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TraitPath(`std::ops::Add`),
+                            accessibility: PubicUnder(
+                                `std::ops`,
+                            ),
+                            ast_idx: 3,
                         },
                     ),
                 },

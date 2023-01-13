@@ -11,6 +11,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
+                            ast_idx: 28,
                         },
                     ),
                 },
@@ -22,6 +26,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
+                            ast_idx: 29,
                         },
                     ),
                 },
@@ -33,6 +41,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::eight::big_mouth`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
+                            ast_idx: 30,
                         },
                     ),
                 },

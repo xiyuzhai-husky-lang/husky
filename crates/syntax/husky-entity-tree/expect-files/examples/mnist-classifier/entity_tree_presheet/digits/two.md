@@ -11,6 +11,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::two::two_match`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
+                            ast_idx: 62,
                         },
                     ),
                 },
@@ -22,6 +26,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
+                            ast_idx: 63,
                         },
                     ),
                 },
@@ -33,6 +41,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
+                            ast_idx: 64,
                         },
                     ),
                 },
@@ -44,6 +56,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
+                            ast_idx: 65,
                         },
                     ),
                 },
@@ -55,6 +71,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::two::is_two`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
+                            ast_idx: 66,
                         },
                     ),
                 },

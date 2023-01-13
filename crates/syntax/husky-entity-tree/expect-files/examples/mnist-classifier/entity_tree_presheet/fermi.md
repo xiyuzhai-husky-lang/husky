@@ -11,6 +11,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            ast_idx: 22,
                         },
                     ),
                 },
@@ -22,6 +26,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            ast_idx: 24,
                         },
                     ),
                 },

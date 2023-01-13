@@ -11,6 +11,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `core::basic`,
+                            accessibility: PubicUnder(
+                                `core`,
+                            ),
+                            ast_idx: 0,
                         },
                     ),
                 },
@@ -22,6 +26,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `core::logic`,
+                            accessibility: PubicUnder(
+                                `core`,
+                            ),
+                            ast_idx: 1,
                         },
                     ),
                 },
@@ -33,6 +41,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `core::num`,
+                            accessibility: PubicUnder(
+                                `core`,
+                            ),
+                            ast_idx: 2,
                         },
                     ),
                 },
@@ -44,6 +56,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `core::ops`,
+                            accessibility: PubicUnder(
+                                `core`,
+                            ),
+                            ast_idx: 3,
                         },
                     ),
                 },
@@ -55,6 +71,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `core::prelude`,
+                            accessibility: PubicUnder(
+                                `core`,
+                            ),
+                            ast_idx: 4,
                         },
                     ),
                 },

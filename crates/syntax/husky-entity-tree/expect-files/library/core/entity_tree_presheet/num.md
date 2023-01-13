@@ -9,6 +9,8 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`core::num::i8`, `Foreign`),
+                            accessibility: Public,
+                            ast_idx: 17,
                         },
                     ),
                 },
@@ -18,6 +20,8 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`core::num::i16`, `Foreign`),
+                            accessibility: Public,
+                            ast_idx: 21,
                         },
                     ),
                 },
@@ -27,6 +31,8 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`core::num::i32`, `Foreign`),
+                            accessibility: Public,
+                            ast_idx: 25,
                         },
                     ),
                 },
@@ -36,6 +42,8 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`core::num::i64`, `Foreign`),
+                            accessibility: Public,
+                            ast_idx: 29,
                         },
                     ),
                 },
@@ -45,6 +53,8 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`core::num::f8`, `Foreign`),
+                            accessibility: Public,
+                            ast_idx: 33,
                         },
                     ),
                 },
@@ -54,6 +64,8 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`core::num::f16`, `Foreign`),
+                            accessibility: Public,
+                            ast_idx: 37,
                         },
                     ),
                 },
@@ -63,6 +75,8 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`core::num::f32`, `Foreign`),
+                            accessibility: Public,
+                            ast_idx: 41,
                         },
                     ),
                 },
@@ -72,6 +86,8 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`core::num::f64`, `Foreign`),
+                            accessibility: Public,
+                            ast_idx: 45,
                         },
                     ),
                 },

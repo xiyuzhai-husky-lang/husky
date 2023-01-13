@@ -11,6 +11,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            ast_idx: 120,
                         },
                     ),
                 },
@@ -22,6 +26,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            ast_idx: 121,
                         },
                     ),
                 },
@@ -33,6 +41,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            ast_idx: 122,
                         },
                     ),
                 },
@@ -44,6 +56,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            ast_idx: 123,
                         },
                     ),
                 },
@@ -55,6 +71,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            ast_idx: 125,
                         },
                     ),
                 },
@@ -66,6 +86,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            ast_idx: 126,
                         },
                     ),
                 },

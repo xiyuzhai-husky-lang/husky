@@ -9,6 +9,8 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`quick_sort::quick_sort`, `Function`),
+                            accessibility: Public,
+                            ast_idx: 30,
                         },
                     ),
                 },
@@ -20,6 +22,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                            accessibility: PubicUnder(
+                                `quick_sort`,
+                            ),
+                            ast_idx: 31,
                         },
                     ),
                 },
@@ -31,6 +37,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`quick_sort::partition`, `Function`),
+                            accessibility: PubicUnder(
+                                `quick_sort`,
+                            ),
+                            ast_idx: 32,
                         },
                     ),
                 },
@@ -42,6 +52,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
+                            accessibility: PubicUnder(
+                                `quick_sort`,
+                            ),
+                            ast_idx: 34,
                         },
                     ),
                 },
@@ -53,6 +67,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
+                            accessibility: PubicUnder(
+                                `quick_sort`,
+                            ),
+                            ast_idx: 36,
                         },
                     ),
                 },

@@ -329,16 +329,8 @@ impl<A: AllowedOptions> SalsaStruct<A> {
                     );
                 };
 
-                if self.is_identity_field(field) {
-                    quote_spanned! { field.field.span() =>
-                        #field_debug
-                    }
-                } else {
-                    quote_spanned! { field.field.span() =>
-                        if _include_all_fields {
-                            #field_debug
-                        }
-                    }
+                quote_spanned! { field.field.span() =>
+                    #field_debug
                 }
             })
             .collect::<TokenStream>();

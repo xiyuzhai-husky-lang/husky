@@ -11,6 +11,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch::convex_component`,
+                            ),
+                            ast_idx: 3,
                         },
                     ),
                 },

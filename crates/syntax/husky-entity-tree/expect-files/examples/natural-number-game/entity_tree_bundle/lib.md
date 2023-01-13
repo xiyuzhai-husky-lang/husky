@@ -13,6 +13,10 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
                                     path: TypePath(`natural_number_game::Nat`, `Inductive`),
+                                    accessibility: PubicUnder(
+                                        `natural_number_game`,
+                                    ),
+                                    ast_idx: 3,
                                 },
                             ),
                         },
@@ -24,6 +28,10 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
                                     path: TypePath(`natural_number_game::OddNat`, `Structure`),
+                                    accessibility: PubicUnder(
+                                        `natural_number_game`,
+                                    ),
+                                    ast_idx: 9,
                                 },
                             ),
                         },
@@ -35,6 +43,10 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
                                     path: TypePath(`natural_number_game::EvenNat`, `Structure`),
+                                    accessibility: PubicUnder(
+                                        `natural_number_game`,
+                                    ),
+                                    ast_idx: 10,
                                 },
                             ),
                         },

@@ -11,6 +11,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                            ast_idx: 33,
                         },
                     ),
                 },
@@ -22,6 +26,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                            ast_idx: 34,
                         },
                     ),
                 },
@@ -33,6 +41,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                            ast_idx: 35,
                         },
                     ),
                 },

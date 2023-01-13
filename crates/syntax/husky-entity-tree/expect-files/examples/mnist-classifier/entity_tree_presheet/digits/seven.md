@@ -11,6 +11,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            ast_idx: 47,
                         },
                     ),
                 },
@@ -22,6 +26,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            ast_idx: 48,
                         },
                     ),
                 },
@@ -33,6 +41,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            ast_idx: 49,
                         },
                     ),
                 },
@@ -44,6 +56,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            ast_idx: 50,
                         },
                     ),
                 },
@@ -55,6 +71,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            ast_idx: 51,
                         },
                     ),
                 },
@@ -66,6 +86,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            ast_idx: 52,
                         },
                     ),
                 },

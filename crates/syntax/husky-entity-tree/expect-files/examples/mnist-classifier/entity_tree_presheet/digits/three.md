@@ -11,6 +11,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
+                            ast_idx: 34,
                         },
                     ),
                 },
@@ -22,6 +26,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
+                            ast_idx: 35,
                         },
                     ),
                 },
@@ -33,6 +41,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::three::uparc`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
+                            ast_idx: 36,
                         },
                     ),
                 },
@@ -44,6 +56,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::three::downarc`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
+                            ast_idx: 37,
                         },
                     ),
                 },
@@ -55,6 +71,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::three::back`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
+                            ast_idx: 38,
                         },
                     ),
                 },

@@ -4,6 +4,11 @@ Ok(
             Trait(
                 TraitDefn {
                     path: TraitPath(`core::ops::Add`),
+                    decl: TraitDecl(
+                        Id {
+                            value: 1,
+                        },
+                    ),
                 },
             ),
         ],

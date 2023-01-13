@@ -11,6 +11,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::four::left_components`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            ast_idx: 44,
                         },
                     ),
                 },
@@ -22,6 +26,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            ast_idx: 45,
                         },
                     ),
                 },
@@ -33,6 +41,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            ast_idx: 46,
                         },
                     ),
                 },
@@ -44,6 +56,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::four::components_max_heights`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            ast_idx: 47,
                         },
                     ),
                 },
@@ -55,6 +71,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            ast_idx: 48,
                         },
                     ),
                 },
@@ -66,6 +86,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            ast_idx: 49,
                         },
                     ),
                 },
@@ -77,6 +101,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            ast_idx: 50,
                         },
                     ),
                 },

@@ -11,6 +11,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            ast_idx: 22,
                         },
                     ),
                 },
@@ -22,6 +26,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            ast_idx: 23,
                         },
                     ),
                 },
@@ -33,6 +41,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            ast_idx: 24,
                         },
                     ),
                 },
@@ -44,6 +56,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            ast_idx: 25,
                         },
                     ),
                 },
@@ -55,6 +71,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            ast_idx: 26,
                         },
                     ),
                 },
@@ -66,6 +86,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            ast_idx: 27,
                         },
                     ),
                 },
@@ -77,6 +101,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            ast_idx: 28,
                         },
                     ),
                 },
