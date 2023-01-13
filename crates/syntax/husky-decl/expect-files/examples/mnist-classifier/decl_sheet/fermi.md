@@ -96,7 +96,7 @@ Ok(
                             parameter_decl_list: ParameterDeclList {
                                 lpar: LeftParenthesisToken {
                                     token_idx: TokenIdx(
-                                        134,
+                                        146,
                                     ),
                                 },
                                 decls: [
@@ -109,7 +109,7 @@ Ok(
                                         },
                                         colon: ColonToken {
                                             token_idx: TokenIdx(
-                                                136,
+                                                148,
                                             ),
                                         },
                                         ty: 3,
@@ -123,7 +123,7 @@ Ok(
                                         },
                                         colon: ColonToken {
                                             token_idx: TokenIdx(
-                                                143,
+                                                155,
                                             ),
                                         },
                                         ty: 11,
@@ -132,20 +132,20 @@ Ok(
                                 commas: [
                                     CommaToken {
                                         token_idx: TokenIdx(
-                                            141,
+                                            153,
                                         ),
                                     },
                                 ],
                                 rpar: RightParenthesisToken {
                                     token_idx: TokenIdx(
-                                        155,
+                                        167,
                                     ),
                                 },
                             },
                             curry_token: Ok(
                                 CurryToken {
                                     token_idx: TokenIdx(
-                                        156,
+                                        168,
                                     ),
                                 },
                             ),
@@ -155,7 +155,7 @@ Ok(
                             eol_colon: Ok(
                                 EolColonToken {
                                     token_idx: TokenIdx(
-                                        158,
+                                        170,
                                     ),
                                 },
                             ),
@@ -266,7 +266,7 @@ Ok(
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            62,
+                                            66,
                                         ),
                                     },
                                 ),
@@ -276,7 +276,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            64,
+                                            68,
                                         ),
                                     },
                                 ),
@@ -311,7 +311,7 @@ Ok(
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            96,
+                                            104,
                                         ),
                                     },
                                 ),
@@ -321,7 +321,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            98,
+                                            106,
                                         ),
                                     },
                                 ),

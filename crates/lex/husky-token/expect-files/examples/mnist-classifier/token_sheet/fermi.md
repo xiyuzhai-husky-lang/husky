@@ -218,6 +218,18 @@ Ok(
                 Identifier(
                     Word(
                         Id {
+                            value: 123,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
                             value: 239,
                         },
                     ),
@@ -289,6 +301,18 @@ Ok(
                 Bra(
                     Par,
                 ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 123,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -432,6 +456,18 @@ Ok(
                 Identifier(
                     Word(
                         Id {
+                            value: 123,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
                             value: 239,
                         },
                     ),
@@ -503,6 +539,18 @@ Ok(
                 Bra(
                     Par,
                 ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 123,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -646,6 +694,18 @@ Ok(
                 Identifier(
                     Word(
                         Id {
+                            value: 123,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
                             value: 239,
                         },
                     ),
@@ -717,6 +777,18 @@ Ok(
                 Bra(
                     Par,
                 ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 123,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -1290,25 +1362,25 @@ Ok(
             26,
             31,
             36,
-            45,
-            58,
-            60,
-            65,
-            70,
-            79,
-            92,
-            94,
-            99,
-            104,
-            113,
-            130,
-            132,
-            159,
-            168,
-            179,
-            188,
-            195,
-            206,
+            47,
+            62,
+            64,
+            69,
+            74,
+            85,
+            100,
+            102,
+            107,
+            112,
+            123,
+            142,
+            144,
+            171,
+            180,
+            191,
+            200,
+            207,
+            218,
         ],
         indents: [
             0,

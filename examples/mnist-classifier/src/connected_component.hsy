@@ -105,10 +105,10 @@ impl ConnectedComponent:
         assert k > 0
         let mut i = 1
         forext i < 29:
-            if mask[i]:
+            if self.mask[i]:
                 break
         for i <= j < i + k:
-            top_k_row_span_sum += mask[j].right_mass()
+            top_k_row_span_sum += self.mask[j].right_mass()
         return top_k_row_span_sum as f32
 
     visual:

@@ -20,7 +20,7 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [12:17, 12:23),
+                range: [12:17, 12:21),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
@@ -30,17 +30,17 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [13:29, 13:35),
+                range: [13:29, 13:33),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [13:36, 13:37),
+                range: [13:41, 13:42),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [18:17, 18:23),
+                range: [18:17, 18:21),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
@@ -50,17 +50,17 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [19:29, 19:35),
+                range: [19:29, 19:33),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [19:36, 19:37),
+                range: [19:41, 19:42),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [24:17, 24:23),
+                range: [24:17, 24:21),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
@@ -70,12 +70,12 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [25:29, 25:35),
+                range: [25:29, 25:33),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [25:36, 25:37),
+                range: [25:41, 25:42),
             },
         ],
     },
