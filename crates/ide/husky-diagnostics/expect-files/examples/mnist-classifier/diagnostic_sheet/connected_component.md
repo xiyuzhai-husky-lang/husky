@@ -22,16 +22,6 @@ DiagnosticSheet {
                 severity: Error,
                 range: [122:36, 122:37),
             },
-            Diagnostic {
-                message: "Syntax Error: unexpected keyword",
-                severity: Error,
-                range: [94:9, 94:15),
-            },
-            Diagnostic {
-                message: "Syntax Error: unexpected keyword",
-                severity: Error,
-                range: [105:9, 105:15),
-            },
         ],
     },
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {

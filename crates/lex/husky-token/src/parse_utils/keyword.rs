@@ -19,6 +19,11 @@ pub struct RequireToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct AssertToken {
+    token_idx: TokenIdx,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct BreakToken {
     token_idx: TokenIdx,
 }
@@ -47,11 +52,18 @@ pub enum BasicStmtKeywordToken {
     Let(LetToken),
     Return(ReturnToken),
     Require(RequireToken),
+    Assert(AssertToken),
     Break(BreakToken),
     For(ForToken),
     ForExt(ForextToken),
     While(WhileToken),
     Do(DoToken),
+}
+
+impl From<AssertToken> for BasicStmtKeywordToken {
+    fn from(v: AssertToken) -> Self {
+        Self::Assert(v)
+    }
 }
 
 impl From<DoToken> for BasicStmtKeywordToken {
@@ -147,6 +159,9 @@ where
                 }
                 Token::Keyword(Keyword::Stmt(StmtKeyword::Require)) => {
                     Ok(Some(RequireToken { token_idx }.into()))
+                }
+                Token::Keyword(Keyword::Stmt(StmtKeyword::Assert)) => {
+                    Ok(Some(AssertToken { token_idx }.into()))
                 }
                 Token::Keyword(Keyword::Stmt(StmtKeyword::Break)) => {
                     Ok(Some(BreakToken { token_idx }.into()))

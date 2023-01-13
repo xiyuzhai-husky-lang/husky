@@ -6,23 +6,7 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: unexpected keyword",
-                severity: Error,
-                range: [67:9, 67:15),
-            },
-            Diagnostic {
-                message: "Syntax Error: unexpected keyword",
-                severity: Error,
-                range: [69:9, 69:15),
-            },
-            Diagnostic {
-                message: "Syntax Error: unexpected keyword",
-                severity: Error,
-                range: [87:9, 87:15),
-            },
-        ],
+        diagnostics: [],
     },
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],

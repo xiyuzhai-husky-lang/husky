@@ -23,6 +23,10 @@ pub enum Stmt {
         require_token: RequireToken,
         condition: ExprResult<ExprIdx>,
     },
+    Assert {
+        assert_token: AssertToken,
+        condition: ExprResult<ExprIdx>,
+    },
     Break {
         break_token: BreakToken,
     },

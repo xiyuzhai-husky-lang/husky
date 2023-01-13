@@ -133,6 +133,13 @@ impl<'a> BlockExprParser<'a> {
                         ExprError::MissingCondition,
                     ),
                 },
+                BasicStmtKeywordToken::Assert(assert_token) => Stmt::Assert {
+                    assert_token,
+                    condition: ctx.parse_expr_expected(
+                        ExprParseEnvironment::None,
+                        ExprError::MissingCondition,
+                    ),
+                },
                 BasicStmtKeywordToken::Break(break_token) => Stmt::Break { break_token },
                 BasicStmtKeywordToken::For(for_token) => {
                     // ad hoc
