@@ -158,7 +158,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                LAngleOrLt,
+                LaOrLt,
             ),
             Identifier(
                 Identifier(
@@ -170,76 +170,11 @@ Ok(
                 ),
             ),
             Punctuation(
-                RAngle,
+                RaOrGt,
             ),
             Keyword(
                 Connection(
                     For,
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 19,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Colon,
-            ),
-            Attr(
-                Pub,
-            ),
-            Keyword(
-                Paradigm(
-                    Fn,
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 23,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Bra(
-                    Par,
-                ),
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 24,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Colon,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 19,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Ket(
-                    Par,
-                ),
-            ),
-            Punctuation(
-                Binary(
-                    Curry,
                 ),
             ),
             Identifier(
@@ -252,6 +187,71 @@ Ok(
                 ),
             ),
             Punctuation(
+                Colon,
+            ),
+            Attr(
+                Pub,
+            ),
+            Keyword(
+                Paradigm(
+                    Fn,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 23,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Bra(
+                    Par,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 24,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Colon,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 19,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Ket(
+                    Par,
+                ),
+            ),
+            Punctuation(
+                Binary(
+                    Curry,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 19,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
                 Semicolon,
             ),
             Punctuation(
@@ -411,7 +411,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                LAngleOrLt,
+                LaOrLt,
             ),
             Identifier(
                 Identifier(
@@ -423,7 +423,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                RAngle,
+                RaOrGt,
             ),
             Keyword(
                 Connection(
@@ -664,7 +664,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                LAngleOrLt,
+                LaOrLt,
             ),
             Identifier(
                 Identifier(
@@ -676,7 +676,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                RAngle,
+                RaOrGt,
             ),
             Keyword(
                 Connection(
@@ -914,7 +914,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                LAngleOrLt,
+                LaOrLt,
             ),
             Identifier(
                 Identifier(
@@ -926,7 +926,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                RAngle,
+                RaOrGt,
             ),
             Keyword(
                 Connection(
@@ -1167,7 +1167,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                LAngleOrLt,
+                LaOrLt,
             ),
             Identifier(
                 Identifier(
@@ -1179,7 +1179,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                RAngle,
+                RaOrGt,
             ),
             Keyword(
                 Connection(
@@ -1420,7 +1420,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                LAngleOrLt,
+                LaOrLt,
             ),
             Identifier(
                 Identifier(
@@ -1432,7 +1432,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                RAngle,
+                RaOrGt,
             ),
             Keyword(
                 Connection(
@@ -1673,7 +1673,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                LAngleOrLt,
+                LaOrLt,
             ),
             Identifier(
                 Identifier(
@@ -1685,7 +1685,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                RAngle,
+                RaOrGt,
             ),
             Keyword(
                 Connection(
@@ -1923,7 +1923,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                LAngleOrLt,
+                LaOrLt,
             ),
             Identifier(
                 Identifier(
@@ -1935,7 +1935,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                RAngle,
+                RaOrGt,
             ),
             Keyword(
                 Connection(

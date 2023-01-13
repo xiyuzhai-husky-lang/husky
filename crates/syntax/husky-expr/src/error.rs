@@ -80,6 +80,8 @@ pub enum ExprError {
     ExpectIdentifierAfterScopeResolution(TokenIdx),
     #[error("missing block")]
     MissingBlock(TokenGroupIdx),
+    #[error("unexpected `$`")]
+    UnexpectedSheba(TokenIdx),
 }
 
 pub type ExprResult<T> = Result<T, ExprError>;

@@ -161,7 +161,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             .into(),
                             Err(_) => todo!(),
                         },
-                        Err(_) => todo!(),
+                        Err(e) => {
+                            p!(e);
+                            todo!()
+                        }
                     },
                     _ => todo!(),
                 }

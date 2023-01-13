@@ -19,7 +19,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                LAngleOrLt,
+                LaOrLt,
             ),
             Identifier(
                 Identifier(
@@ -67,7 +67,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                RAngle,
+                RaOrGt,
             ),
             Punctuation(
                 Bra(
@@ -145,7 +145,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                LAngleOrLt,
+                LaOrLt,
             ),
             Identifier(
                 Identifier(
@@ -193,7 +193,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                RAngle,
+                RaOrGt,
             ),
             Punctuation(
                 Vertical,

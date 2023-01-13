@@ -298,7 +298,7 @@ output
 TokenSheetData {
     tokens: [
         Punctuation(
-            RAngle,
+            RaOrGt,
         ),
     ],
     group_starts: [
@@ -354,7 +354,7 @@ output
 TokenSheetData {
     tokens: [
         Punctuation(
-            LAngleOrLt,
+            LaOrLt,
         ),
     ],
     group_starts: [
