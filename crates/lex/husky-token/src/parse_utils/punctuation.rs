@@ -397,10 +397,8 @@ where
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
-        Ok(
-            parse_specific_punctuation_from(ctx, Punctuation::LAngleOrLt)?
-                .map(|token_idx| LeftAngleBracketOrLessThanToken { token_idx }),
-        )
+        Ok(parse_specific_punctuation_from(ctx, Punctuation::LaOrLt)?
+            .map(|token_idx| LeftAngleBracketOrLessThanToken { token_idx }))
     }
 }
 
@@ -473,7 +471,7 @@ where
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
-        Ok(parse_specific_punctuation_from(ctx, Punctuation::RAngle)?
+        Ok(parse_specific_punctuation_from(ctx, Punctuation::RaOrGt)?
             .map(|token_idx| RightAngleBracketToken { token_idx }))
     }
 }

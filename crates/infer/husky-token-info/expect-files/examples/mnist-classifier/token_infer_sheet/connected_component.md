@@ -2080,7 +2080,6 @@ Ok(
             None,
             None,
             None,
-            None,
             LocalSymbol {
                 local_symbol_idx: 1,
                 local_symbol_kind: LetVariable {
@@ -2151,7 +2150,6 @@ Ok(
             None,
             None,
             None,
-            None,
             LocalSymbol {
                 local_symbol_idx: 0,
                 local_symbol_kind: LetVariable {
@@ -2264,7 +2262,6 @@ Ok(
                     },
                 ),
             },
-            None,
             None,
             None,
             None,

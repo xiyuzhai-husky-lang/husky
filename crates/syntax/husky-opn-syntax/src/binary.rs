@@ -8,18 +8,18 @@ pub use pure_closed::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum BinaryOpr {
-    PureClosed(PureClosedBinaryOpr),
+    PureClosed(BinaryPureClosedOpr),
     Comparison(BinaryComparisonOpr),
     ShortcuitLogic(BinaryShortcuitLogicOpr),
-    Assign(Option<PureClosedBinaryOpr>),
+    Assign(Option<BinaryPureClosedOpr>),
     ScopeResolution,
     Curry, // ->
     As,    // as
     Is,    // :
 }
 
-impl From<Option<PureClosedBinaryOpr>> for BinaryOpr {
-    fn from(v: Option<PureClosedBinaryOpr>) -> Self {
+impl From<Option<BinaryPureClosedOpr>> for BinaryOpr {
+    fn from(v: Option<BinaryPureClosedOpr>) -> Self {
         Self::Assign(v)
     }
 }
@@ -30,8 +30,8 @@ impl From<BinaryShortcuitLogicOpr> for BinaryOpr {
     }
 }
 
-impl From<PureClosedBinaryOpr> for BinaryOpr {
-    fn from(v: PureClosedBinaryOpr) -> Self {
+impl From<BinaryPureClosedOpr> for BinaryOpr {
+    fn from(v: BinaryPureClosedOpr) -> Self {
         Self::PureClosed(v)
     }
 }
@@ -48,17 +48,17 @@ impl BinaryOpr {
             BinaryOpr::PureClosed(pure_opr) => pure_opr.husky_code(),
             BinaryOpr::Assign(None) => "=",
             BinaryOpr::Assign(Some(pure_opr)) => match pure_opr {
-                PureClosedBinaryOpr::Add => "+=",
-                PureClosedBinaryOpr::BitAnd => "&=",
-                PureClosedBinaryOpr::BitOr => "|=",
-                PureClosedBinaryOpr::BitXor => "^=",
-                PureClosedBinaryOpr::Div => "/=",
-                PureClosedBinaryOpr::Mul => "*=",
-                PureClosedBinaryOpr::RemEuclid => "%=",
-                PureClosedBinaryOpr::Power => "**=",
-                PureClosedBinaryOpr::Shl => "<<=",
-                PureClosedBinaryOpr::Shr => ">>=",
-                PureClosedBinaryOpr::Sub => "-=",
+                BinaryPureClosedOpr::Add => "+=",
+                BinaryPureClosedOpr::BitAnd => "&=",
+                BinaryPureClosedOpr::BitOr => "|=",
+                BinaryPureClosedOpr::BitXor => "^=",
+                BinaryPureClosedOpr::Div => "/=",
+                BinaryPureClosedOpr::Mul => "*=",
+                BinaryPureClosedOpr::RemEuclid => "%=",
+                BinaryPureClosedOpr::Power => "**=",
+                BinaryPureClosedOpr::Shl => "<<=",
+                BinaryPureClosedOpr::Shr => ">>=",
+                BinaryPureClosedOpr::Sub => "-=",
             },
             BinaryOpr::Comparison(cmp_opr) => cmp_opr.husky_code(),
             BinaryOpr::ShortcuitLogic(logic_opr) => logic_opr.husky_code(),
@@ -77,17 +77,17 @@ impl BinaryOpr {
             BinaryOpr::Assign(opt_binary_opr) => {
                 if let Some(binary_opr) = opt_binary_opr {
                     match binary_opr {
-                        PureClosedBinaryOpr::Add => " += ",
-                        PureClosedBinaryOpr::BitAnd => " &= ",
-                        PureClosedBinaryOpr::BitOr => " |= ",
-                        PureClosedBinaryOpr::BitXor => " ^= ",
-                        PureClosedBinaryOpr::Div => " /= ",
-                        PureClosedBinaryOpr::Mul => " *= ",
-                        PureClosedBinaryOpr::RemEuclid => " %= ",
-                        PureClosedBinaryOpr::Power => " **= ",
-                        PureClosedBinaryOpr::Shl => " <<= ",
-                        PureClosedBinaryOpr::Shr => " >>= ",
-                        PureClosedBinaryOpr::Sub => " -= ",
+                        BinaryPureClosedOpr::Add => " += ",
+                        BinaryPureClosedOpr::BitAnd => " &= ",
+                        BinaryPureClosedOpr::BitOr => " |= ",
+                        BinaryPureClosedOpr::BitXor => " ^= ",
+                        BinaryPureClosedOpr::Div => " /= ",
+                        BinaryPureClosedOpr::Mul => " *= ",
+                        BinaryPureClosedOpr::RemEuclid => " %= ",
+                        BinaryPureClosedOpr::Power => " **= ",
+                        BinaryPureClosedOpr::Shl => " <<= ",
+                        BinaryPureClosedOpr::Shr => " >>= ",
+                        BinaryPureClosedOpr::Sub => " -= ",
                     }
                 } else {
                     " = "

@@ -38,15 +38,15 @@ impl From<BinaryOpr> for Precedence {
     fn from(binary: BinaryOpr) -> Self {
         match binary {
             BinaryOpr::PureClosed(pure_binary) => match pure_binary {
-                PureClosedBinaryOpr::BitAnd => Precedence::BitAnd,
-                PureClosedBinaryOpr::BitOr => Precedence::BitOr,
-                PureClosedBinaryOpr::BitXor => Precedence::BitXor,
-                PureClosedBinaryOpr::Mul
-                | PureClosedBinaryOpr::Div
-                | PureClosedBinaryOpr::RemEuclid => Precedence::Multiplicative,
-                PureClosedBinaryOpr::Add | PureClosedBinaryOpr::Sub => Precedence::Additive,
-                PureClosedBinaryOpr::Shl | PureClosedBinaryOpr::Shr => Precedence::Shift,
-                PureClosedBinaryOpr::Power => Precedence::Power,
+                BinaryPureClosedOpr::BitAnd => Precedence::BitAnd,
+                BinaryPureClosedOpr::BitOr => Precedence::BitOr,
+                BinaryPureClosedOpr::BitXor => Precedence::BitXor,
+                BinaryPureClosedOpr::Mul
+                | BinaryPureClosedOpr::Div
+                | BinaryPureClosedOpr::RemEuclid => Precedence::Multiplicative,
+                BinaryPureClosedOpr::Add | BinaryPureClosedOpr::Sub => Precedence::Additive,
+                BinaryPureClosedOpr::Shl | BinaryPureClosedOpr::Shr => Precedence::Shift,
+                BinaryPureClosedOpr::Power => Precedence::Power,
             },
             BinaryOpr::Comparison(cmp_opr) => match cmp_opr {
                 BinaryComparisonOpr::Eq | BinaryComparisonOpr::Neq => Precedence::EqComparison,

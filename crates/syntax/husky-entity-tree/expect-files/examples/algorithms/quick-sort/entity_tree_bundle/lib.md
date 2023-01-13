@@ -12,7 +12,7 @@ Ok(
                                 ModuleItemSymbol {
                                     path: FormPath(`quick_sort::quick_sort`, `Function`),
                                     accessibility: Public,
-                                    ast_idx: 30,
+                                    ast_idx: 31,
                                 },
                             ),
                         },
@@ -27,7 +27,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `quick_sort`,
                                     ),
-                                    ast_idx: 31,
+                                    ast_idx: 32,
                                 },
                             ),
                         },
@@ -42,7 +42,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `quick_sort`,
                                     ),
-                                    ast_idx: 32,
+                                    ast_idx: 33,
                                 },
                             ),
                         },
@@ -57,7 +57,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `quick_sort`,
                                     ),
-                                    ast_idx: 34,
+                                    ast_idx: 35,
                                 },
                             ),
                         },
@@ -72,7 +72,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `quick_sort`,
                                     ),
-                                    ast_idx: 36,
+                                    ast_idx: 37,
                                 },
                             ),
                         },

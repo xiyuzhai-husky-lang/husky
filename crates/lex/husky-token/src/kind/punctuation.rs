@@ -8,9 +8,14 @@ pub enum Punctuation {
     Bra(Bracket),
     Ket(Bracket),
     Suffix(SuffixOpr),
-    LAngleOrLt,        // <
-    ColonColonLAngle,  // ::<
-    RAngle,            // >
+    LaOrLt,           // <
+    ColonColonLAngle, // ::<
+    /// `>`, represents one of several cases:
+    /// 1) right angle bracket
+    /// 2) greater than
+    RaOrGt,
+    /// `>>` shift right
+    Shr,
     DeriveAssign,      // :=
     Minus,             // -
     DoubleVertical,    // ||
@@ -27,6 +32,7 @@ pub enum Punctuation {
     DoubleExclamation, // `!!`
     Semicolon,         // `;`
     XmlKet,            // `/>`
+    Sheba,             // $
     /// `@`
     At,
     /// `?`
@@ -54,9 +60,10 @@ impl Punctuation {
             Punctuation::Bra(bra) => bra.bra_code(),
             Punctuation::Ket(ket) => ket.ket_code(),
             Punctuation::Suffix(_) => todo!(),
-            Punctuation::LAngleOrLt => "<",
+            Punctuation::LaOrLt => "<",
             Punctuation::ColonColonLAngle => "::<",
-            Punctuation::RAngle => ">",
+            Punctuation::RaOrGt => ">",
+            Punctuation::Shr => ">>",
             Punctuation::DeriveAssign => ":=",
             Punctuation::Minus => "-",
             Punctuation::DoubleVertical => "||",
@@ -76,12 +83,13 @@ impl Punctuation {
             Punctuation::Question => "?",
             Punctuation::PoundSign => "#",
             Punctuation::Star => "*",
+            Punctuation::Sheba => todo!(),
         }
     }
 
     pub fn opt_bra(self) -> Option<Bracket> {
         match self {
-            Punctuation::LAngleOrLt => Some(Bracket::Angle),
+            Punctuation::LaOrLt => Some(Bracket::Angle),
             Punctuation::Bra(bracket) => Some(bracket),
             _ => None,
         }
@@ -93,9 +101,10 @@ impl Punctuation {
             Punctuation::Bra(_) => todo!(),
             Punctuation::Ket(_) => todo!(),
             Punctuation::Suffix(_) => todo!(),
-            Punctuation::LAngleOrLt => todo!(),
+            Punctuation::LaOrLt => todo!(),
             Punctuation::ColonColonLAngle => todo!(),
-            Punctuation::RAngle => todo!(),
+            Punctuation::RaOrGt => todo!(),
+            Punctuation::Shr => todo!(),
             Punctuation::DeriveAssign => todo!(),
             Punctuation::Minus => todo!(),
             Punctuation::DoubleVertical => todo!(),
@@ -115,6 +124,7 @@ impl Punctuation {
             Punctuation::Question => todo!(),
             Punctuation::PoundSign => todo!(),
             Punctuation::Star => todo!(),
+            Punctuation::Sheba => todo!(),
         }
     }
 }

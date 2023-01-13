@@ -1224,7 +1224,6 @@ Ok(
             },
             None,
             None,
-            None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter {
@@ -1322,7 +1321,6 @@ Ok(
                 ),
             },
             None,
-            None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter {
@@ -1416,7 +1414,6 @@ Ok(
                     },
                 ),
             },
-            None,
             None,
             None,
             InheritedSymbol {

@@ -79,8 +79,11 @@ impl Expr {
             Expr::Unrecognized(ident) => BaseEntityPath::Uncertain {
                 inclination: BaseEntityPathInclination::from_case(ident.case(db)),
             },
-            Expr::Err(_) => BaseEntityPath::Uncertain {
-                inclination: todo!(),
+            Expr::Err(e) => BaseEntityPath::Uncertain {
+                inclination: match e {
+                    // ad hoc
+                    _ => BaseEntityPathInclination::FunctionOrLocalValue,
+                },
             },
             Expr::TemplateInstantiation { template, .. } => {
                 arena[template].base_entity_path(db, arena)
@@ -240,5 +243,26 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             }
         }
         None
+    }
+
+    pub(super) fn last_two_bras(&self) -> Vec<Bracket> {
+        let mut bras = vec![];
+        for (unfinished_expr, _) in self.stack.unfinished_exprs.iter().rev() {
+            match unfinished_expr {
+                UnfinishedExpr::List {
+                    opr,
+                    bra,
+                    bra_token_idx,
+                    items,
+                } => {
+                    bras.push(*bra);
+                    if bras.len() >= 2 {
+                        return bras;
+                    }
+                }
+                _ => (),
+            }
+        }
+        bras
     }
 }

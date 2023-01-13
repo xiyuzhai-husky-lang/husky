@@ -58,7 +58,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                LAngleOrLt,
+                LaOrLt,
             ),
             Identifier(
                 Identifier(
@@ -70,7 +70,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                RAngle,
+                RaOrGt,
             ),
             Punctuation(
                 Colon,
