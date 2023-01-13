@@ -9,6 +9,8 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`core::logic::LogicAnd`, `Structure`),
+                            accessibility: Public,
+                            ast_idx: 0,
                         },
                     ),
                 },
@@ -18,6 +20,8 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`core::logic::LogicOr`, `Inductive`),
+                            accessibility: Public,
+                            ast_idx: 1,
                         },
                     ),
                 },

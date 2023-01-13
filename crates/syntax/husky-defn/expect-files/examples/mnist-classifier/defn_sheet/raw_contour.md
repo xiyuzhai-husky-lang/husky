@@ -5,6 +5,11 @@ Ok(
                 PropsStruct(
                     PropsStructTypeDefn {
                         path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                        decl: PropsStructTypeDecl(
+                            Id {
+                                value: 14,
+                            },
+                        ),
                     },
                 ),
             ),
@@ -12,6 +17,11 @@ Ok(
                 Enum(
                     EnumTypeDefn {
                         path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        decl: EnumTypeDecl(
+                            Id {
+                                value: 1,
+                            },
+                        ),
                     },
                 ),
             ),
@@ -19,6 +29,19 @@ Ok(
                 Function(
                     FunctionDefn {
                         path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
+                        decl: FunctionDecl(
+                            Id {
+                                value: 33,
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 334,
+                            },
+                        ),
+                        body: Ok(
+                            10,
+                        ),
                     },
                 ),
             ),
@@ -26,6 +49,19 @@ Ok(
                 Function(
                     FunctionDefn {
                         path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
+                        decl: FunctionDecl(
+                            Id {
+                                value: 34,
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 335,
+                            },
+                        ),
+                        body: Ok(
+                            7,
+                        ),
                     },
                 ),
             ),
@@ -33,6 +69,19 @@ Ok(
                 Function(
                     FunctionDefn {
                         path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
+                        decl: FunctionDecl(
+                            Id {
+                                value: 35,
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 336,
+                            },
+                        ),
+                        body: Ok(
+                            10,
+                        ),
                     },
                 ),
             ),
@@ -40,6 +89,19 @@ Ok(
                 Function(
                     FunctionDefn {
                         path: FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
+                        decl: FunctionDecl(
+                            Id {
+                                value: 36,
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 337,
+                            },
+                        ),
+                        body: Ok(
+                            8,
+                        ),
                     },
                 ),
             ),
@@ -47,6 +109,19 @@ Ok(
                 Function(
                     FunctionDefn {
                         path: FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
+                        decl: FunctionDecl(
+                            Id {
+                                value: 37,
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 338,
+                            },
+                        ),
+                        body: Ok(
+                            17,
+                        ),
                     },
                 ),
             ),
@@ -54,6 +129,19 @@ Ok(
                 Function(
                     FunctionDefn {
                         path: FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
+                        decl: FunctionDecl(
+                            Id {
+                                value: 38,
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 339,
+                            },
+                        ),
+                        body: Ok(
+                            12,
+                        ),
                     },
                 ),
             ),
@@ -61,6 +149,19 @@ Ok(
                 Function(
                     FunctionDefn {
                         path: FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
+                        decl: FunctionDecl(
+                            Id {
+                                value: 39,
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 340,
+                            },
+                        ),
+                        body: Ok(
+                            36,
+                        ),
                     },
                 ),
             ),
@@ -68,12 +169,50 @@ Ok(
                 Function(
                     FunctionDefn {
                         path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                        decl: FunctionDecl(
+                            Id {
+                                value: 40,
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 341,
+                            },
+                        ),
+                        body: Ok(
+                            216,
+                        ),
                     },
                 ),
             ),
             ImplBlock(
                 TypeImplBlock(
-                    TypeImplBlockDecl,
+                    TypeImplBlockDecl {
+                        ast_idx: 204,
+                        impl_block: ImplBlock(
+                            Id {
+                                value: 18,
+                            },
+                        ),
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                41,
+                            ),
+                        },
+                        ty: 0,
+                        eol_colon: Ok(
+                            EolColonToken {
+                                token_idx: TokenIdx(
+                                    43,
+                                ),
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 328,
+                            },
+                        ),
+                    },
                 ),
             ),
             AssociatedItem(
@@ -86,6 +225,19 @@ Ok(
                                         value: 64,
                                     },
                                 ),
+                            ),
+                            decl: TypeMemoDecl(
+                                Id {
+                                    value: 20,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 342,
+                                },
+                            ),
+                            body: Ok(
+                                6,
                             ),
                         },
                     ),
@@ -102,6 +254,19 @@ Ok(
                                     },
                                 ),
                             ),
+                            decl: TypeMemoDecl(
+                                Id {
+                                    value: 21,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 343,
+                                },
+                            ),
+                            body: Ok(
+                                52,
+                            ),
                         },
                     ),
                 ),
@@ -116,6 +281,19 @@ Ok(
                                         value: 66,
                                     },
                                 ),
+                            ),
+                            decl: TypeMemoDecl(
+                                Id {
+                                    value: 22,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 344,
+                                },
+                            ),
+                            body: Ok(
+                                8,
                             ),
                         },
                     ),
@@ -132,6 +310,19 @@ Ok(
                                     },
                                 ),
                             ),
+                            decl: TypeMemoDecl(
+                                Id {
+                                    value: 23,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 345,
+                                },
+                            ),
+                            body: Ok(
+                                59,
+                            ),
                         },
                     ),
                 ),
@@ -146,6 +337,19 @@ Ok(
                                         value: 68,
                                     },
                                 ),
+                            ),
+                            decl: TypeMethodDecl(
+                                Id {
+                                    value: 47,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 346,
+                                },
+                            ),
+                            body: Ok(
+                                24,
                             ),
                         },
                     ),

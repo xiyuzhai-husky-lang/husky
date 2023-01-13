@@ -11,6 +11,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::geom2d`,
+                            ),
+                            ast_idx: 80,
                         },
                     ),
                 },
@@ -22,6 +26,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::geom2d`,
+                            ),
+                            ast_idx: 82,
                         },
                     ),
                 },
@@ -33,6 +41,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::geom2d`,
+                            ),
+                            ast_idx: 83,
                         },
                     ),
                 },
@@ -44,6 +56,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::geom2d`,
+                            ),
+                            ast_idx: 85,
                         },
                     ),
                 },
@@ -53,6 +69,8 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                            accessibility: Public,
+                            ast_idx: 87,
                         },
                     ),
                 },
@@ -64,6 +82,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::geom2d`,
+                            ),
+                            ast_idx: 90,
                         },
                     ),
                 },

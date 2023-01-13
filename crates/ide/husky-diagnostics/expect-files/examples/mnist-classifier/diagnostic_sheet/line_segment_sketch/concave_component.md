@@ -1,1 +1,30 @@
-DiagnosticSheet
+DiagnosticSheet {
+    token_diagnostic_sheet: TokenDiagnosticSheet {
+        diagnostics: [],
+    },
+    ast_diagnostic_sheet: AstDiagnosticSheet {
+        diagnostics: [],
+    },
+    expr_diagnostic_sheet: ExprDiagnosticSheet {
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: no left operand for binary operator",
+                severity: Error,
+                range: [8:15, 8:16),
+            },
+            Diagnostic {
+                message: "Syntax Error: no right operand for binary operator",
+                severity: Error,
+                range: [8:15, 8:16),
+            },
+            Diagnostic {
+                message: "Syntax Error: unterminated list",
+                severity: Error,
+                range: [36:27, 36:28),
+            },
+        ],
+    },
+    entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
+        diagnostics: [],
+    },
+}

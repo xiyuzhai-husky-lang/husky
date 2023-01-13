@@ -5,6 +5,19 @@ Ok(
                 Feature(
                     FeatureDefn {
                         path: FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
+                        decl: FeatureDecl(
+                            Id {
+                                value: 22,
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 171,
+                            },
+                        ),
+                        body: Ok(
+                            5,
+                        ),
                     },
                 ),
             ),
@@ -12,6 +25,19 @@ Ok(
                 Function(
                     FunctionDefn {
                         path: FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
+                        decl: FunctionDecl(
+                            Id {
+                                value: 24,
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 172,
+                            },
+                        ),
+                        body: Ok(
+                            12,
+                        ),
                     },
                 ),
             ),
@@ -19,6 +45,19 @@ Ok(
                 Feature(
                     FeatureDefn {
                         path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                        decl: FeatureDecl(
+                            Id {
+                                value: 23,
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 173,
+                            },
+                        ),
+                        body: Ok(
+                            110,
+                        ),
                     },
                 ),
             ),

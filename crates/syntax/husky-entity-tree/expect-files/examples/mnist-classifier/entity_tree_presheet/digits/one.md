@@ -11,6 +11,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
+                            ast_idx: 68,
                         },
                     ),
                 },
@@ -20,6 +24,8 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                            accessibility: Public,
+                            ast_idx: 69,
                         },
                     ),
                 },
@@ -31,6 +37,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::one::upmost`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
+                            ast_idx: 70,
                         },
                     ),
                 },
@@ -42,6 +52,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::one::downmost`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
+                            ast_idx: 71,
                         },
                     ),
                 },
@@ -53,6 +67,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::one::hat`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
+                            ast_idx: 72,
                         },
                     ),
                 },

@@ -5,6 +5,11 @@ Ok(
                 Structure(
                     StructureTypeDefn {
                         path: TypePath(`core::logic::LogicAnd`, `Structure`),
+                        decl: StructureTypeDecl(
+                            Id {
+                                value: 3,
+                            },
+                        ),
                     },
                 ),
             ),
@@ -12,6 +17,11 @@ Ok(
                 Inductive(
                     InductiveTypeDefn {
                         path: TypePath(`core::logic::LogicOr`, `Inductive`),
+                        decl: InductiveTypeDecl(
+                            Id {
+                                value: 1,
+                            },
+                        ),
                     },
                 ),
             ),

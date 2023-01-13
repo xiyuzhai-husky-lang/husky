@@ -5,6 +5,11 @@ Ok(
                 PropsStruct(
                     PropsStructTypeDefn {
                         path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                        decl: PropsStructTypeDecl(
+                            Id {
+                                value: 10,
+                            },
+                        ),
                     },
                 ),
             ),
@@ -12,12 +17,50 @@ Ok(
                 Function(
                     FunctionDefn {
                         path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                        decl: FunctionDecl(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 258,
+                            },
+                        ),
+                        body: Ok(
+                            64,
+                        ),
                     },
                 ),
             ),
             ImplBlock(
                 TypeImplBlock(
-                    TypeImplBlockDecl,
+                    TypeImplBlockDecl {
+                        ast_idx: 74,
+                        impl_block: ImplBlock(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                44,
+                            ),
+                        },
+                        ty: 0,
+                        eol_colon: Ok(
+                            EolColonToken {
+                                token_idx: TokenIdx(
+                                    46,
+                                ),
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 245,
+                            },
+                        ),
+                    },
                 ),
             ),
             AssociatedItem(
@@ -30,6 +73,19 @@ Ok(
                                         value: 45,
                                     },
                                 ),
+                            ),
+                            decl: TypeMemoDecl(
+                                Id {
+                                    value: 12,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 259,
+                                },
+                            ),
+                            body: Ok(
+                                2,
                             ),
                         },
                     ),
@@ -46,6 +102,19 @@ Ok(
                                     },
                                 ),
                             ),
+                            decl: TypeMemoDecl(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 260,
+                                },
+                            ),
+                            body: Ok(
+                                6,
+                            ),
                         },
                     ),
                 ),
@@ -60,6 +129,19 @@ Ok(
                                         value: 47,
                                     },
                                 ),
+                            ),
+                            decl: TypeMemoDecl(
+                                Id {
+                                    value: 14,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 261,
+                                },
+                            ),
+                            body: Ok(
+                                30,
                             ),
                         },
                     ),
@@ -76,6 +158,19 @@ Ok(
                                     },
                                 ),
                             ),
+                            decl: TypeMemoDecl(
+                                Id {
+                                    value: 15,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 262,
+                                },
+                            ),
+                            body: Ok(
+                                27,
+                            ),
                         },
                     ),
                 ),
@@ -90,6 +185,19 @@ Ok(
                                         value: 49,
                                     },
                                 ),
+                            ),
+                            decl: TypeMemoDecl(
+                                Id {
+                                    value: 16,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 263,
+                                },
+                            ),
+                            body: Ok(
+                                56,
                             ),
                         },
                     ),
@@ -106,6 +214,19 @@ Ok(
                                     },
                                 ),
                             ),
+                            decl: TypeMemoDecl(
+                                Id {
+                                    value: 17,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 264,
+                                },
+                            ),
+                            body: Ok(
+                                6,
+                            ),
                         },
                     ),
                 ),
@@ -120,6 +241,19 @@ Ok(
                                         value: 51,
                                     },
                                 ),
+                            ),
+                            decl: TypeMethodDecl(
+                                Id {
+                                    value: 36,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 265,
+                                },
+                            ),
+                            body: Ok(
+                                10,
                             ),
                         },
                     ),
@@ -136,6 +270,19 @@ Ok(
                                     },
                                 ),
                             ),
+                            decl: TypeMethodDecl(
+                                Id {
+                                    value: 37,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 266,
+                                },
+                            ),
+                            body: Ok(
+                                4,
+                            ),
                         },
                     ),
                 ),
@@ -150,6 +297,19 @@ Ok(
                                         value: 53,
                                     },
                                 ),
+                            ),
+                            decl: TypeMethodDecl(
+                                Id {
+                                    value: 38,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 267,
+                                },
+                            ),
+                            body: Ok(
+                                4,
                             ),
                         },
                     ),
@@ -166,6 +326,19 @@ Ok(
                                     },
                                 ),
                             ),
+                            decl: TypeMethodDecl(
+                                Id {
+                                    value: 39,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 268,
+                                },
+                            ),
+                            body: Ok(
+                                3,
+                            ),
                         },
                     ),
                 ),
@@ -181,6 +354,19 @@ Ok(
                                     },
                                 ),
                             ),
+                            decl: TypeMethodDecl(
+                                Id {
+                                    value: 40,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 269,
+                                },
+                            ),
+                            body: Ok(
+                                3,
+                            ),
                         },
                     ),
                 ),
@@ -195,6 +381,19 @@ Ok(
                                         value: 56,
                                     },
                                 ),
+                            ),
+                            decl: TypeMethodDecl(
+                                Id {
+                                    value: 41,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 270,
+                                },
+                            ),
+                            body: Ok(
+                                3,
                             ),
                         },
                     ),

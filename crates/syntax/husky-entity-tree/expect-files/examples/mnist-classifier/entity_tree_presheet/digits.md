@@ -11,6 +11,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::digits::zero`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 0,
                         },
                     ),
                 },
@@ -22,6 +26,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::digits::one`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 1,
                         },
                     ),
                 },
@@ -33,6 +41,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::digits::six`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 2,
                         },
                     ),
                 },
@@ -44,6 +56,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::digits::three`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 3,
                         },
                     ),
                 },
@@ -55,6 +71,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::digits::four`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 4,
                         },
                     ),
                 },
@@ -66,6 +86,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::digits::five`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 5,
                         },
                     ),
                 },
@@ -77,6 +101,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::digits::six`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 6,
                         },
                     ),
                 },
@@ -88,6 +116,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::digits::seven`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 7,
                         },
                     ),
                 },
@@ -99,6 +131,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::digits::eight`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 8,
                         },
                     ),
                 },
@@ -110,6 +146,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::digits::nine`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 9,
                         },
                     ),
                 },

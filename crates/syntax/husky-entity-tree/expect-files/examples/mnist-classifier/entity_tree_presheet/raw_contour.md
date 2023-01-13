@@ -11,6 +11,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            ast_idx: 203,
                         },
                     ),
                 },
@@ -22,6 +26,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            ast_idx: 205,
                         },
                     ),
                 },
@@ -33,6 +41,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            ast_idx: 210,
                         },
                     ),
                 },
@@ -44,6 +56,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            ast_idx: 211,
                         },
                     ),
                 },
@@ -55,6 +71,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            ast_idx: 212,
                         },
                     ),
                 },
@@ -66,6 +86,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            ast_idx: 213,
                         },
                     ),
                 },
@@ -77,6 +101,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            ast_idx: 214,
                         },
                     ),
                 },
@@ -88,6 +116,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            ast_idx: 215,
                         },
                     ),
                 },
@@ -99,6 +131,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            ast_idx: 216,
                         },
                     ),
                 },
@@ -110,6 +146,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            ast_idx: 217,
                         },
                     ),
                 },
@@ -121,6 +161,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            ast_idx: 218,
                         },
                     ),
                 },

@@ -11,6 +11,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `std::prelude`,
+                            accessibility: PubicUnder(
+                                `std`,
+                            ),
+                            ast_idx: 0,
                         },
                     ),
                 },
@@ -22,6 +26,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `std::logic`,
+                            accessibility: PubicUnder(
+                                `std`,
+                            ),
+                            ast_idx: 1,
                         },
                     ),
                 },
@@ -33,6 +41,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `std::ops`,
+                            accessibility: PubicUnder(
+                                `std`,
+                            ),
+                            ast_idx: 2,
                         },
                     ),
                 },

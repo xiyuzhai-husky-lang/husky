@@ -6,6 +6,13 @@ Ok(
                     Inductive(
                         InductiveTypeDecl {
                             path: TypePath(`natural_number_game::Nat`, `Inductive`),
+                            ast_idx: 3,
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 199,
+                                },
+                            ),
+                            implicit_parameter_decl_list: None,
                         },
                     ),
                 ),
@@ -15,6 +22,13 @@ Ok(
                     Structure(
                         StructureTypeDecl {
                             path: TypePath(`natural_number_game::OddNat`, `Structure`),
+                            ast_idx: 9,
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 200,
+                                },
+                            ),
+                            implicit_parameter_decl_list: None,
                         },
                     ),
                 ),
@@ -24,6 +38,13 @@ Ok(
                     Structure(
                         StructureTypeDecl {
                             path: TypePath(`natural_number_game::EvenNat`, `Structure`),
+                            ast_idx: 10,
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 201,
+                                },
+                            ),
+                            implicit_parameter_decl_list: None,
                         },
                     ),
                 ),
@@ -31,7 +52,32 @@ Ok(
             Ok(
                 ImplBlock(
                     TypeImplBlock(
-                        TypeImplBlockDecl,
+                        TypeImplBlockDecl {
+                            ast_idx: 6,
+                            impl_block: ImplBlock(
+                                Id {
+                                    value: 30,
+                                },
+                            ),
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    9,
+                                ),
+                            },
+                            ty: 0,
+                            eol_colon: Ok(
+                                EolColonToken {
+                                    token_idx: TokenIdx(
+                                        11,
+                                    ),
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 202,
+                                },
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -45,6 +91,34 @@ Ok(
                                         Id {
                                             value: 69,
                                         },
+                                    ),
+                                ),
+                                associated_item: AssociatedItem(
+                                    Id {
+                                        value: 79,
+                                    },
+                                ),
+                                ast_idx: 0,
+                                expr_sheet: ExprSheet(
+                                    Id {
+                                        value: 203,
+                                    },
+                                ),
+                                curry_token: Err(
+                                    MissingCurry(
+                                        TokenIdx(
+                                            14,
+                                        ),
+                                    ),
+                                ),
+                                output_ty: Ok(
+                                    4,
+                                ),
+                                eol_colon: Err(
+                                    MissingEolColon(
+                                        TokenIdx(
+                                            18,
+                                        ),
                                     ),
                                 ),
                             },

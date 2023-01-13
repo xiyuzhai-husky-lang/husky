@@ -9,6 +9,8 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TraitPath(`core::ops::Add`),
+                            accessibility: Public,
+                            ast_idx: 3,
                         },
                     ),
                 },

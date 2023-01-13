@@ -5,6 +5,11 @@ Ok(
                 Foreign(
                     AlienTypeDefn {
                         path: TypePath(`core::num::i8`, `Foreign`),
+                        decl: AlienTypeDecl(
+                            Id {
+                                value: 2,
+                            },
+                        ),
                     },
                 ),
             ),
@@ -12,6 +17,11 @@ Ok(
                 Foreign(
                     AlienTypeDefn {
                         path: TypePath(`core::num::i16`, `Foreign`),
+                        decl: AlienTypeDecl(
+                            Id {
+                                value: 3,
+                            },
+                        ),
                     },
                 ),
             ),
@@ -19,6 +29,11 @@ Ok(
                 Foreign(
                     AlienTypeDefn {
                         path: TypePath(`core::num::i32`, `Foreign`),
+                        decl: AlienTypeDecl(
+                            Id {
+                                value: 4,
+                            },
+                        ),
                     },
                 ),
             ),
@@ -26,6 +41,11 @@ Ok(
                 Foreign(
                     AlienTypeDefn {
                         path: TypePath(`core::num::i64`, `Foreign`),
+                        decl: AlienTypeDecl(
+                            Id {
+                                value: 5,
+                            },
+                        ),
                     },
                 ),
             ),
@@ -33,6 +53,11 @@ Ok(
                 Foreign(
                     AlienTypeDefn {
                         path: TypePath(`core::num::f8`, `Foreign`),
+                        decl: AlienTypeDecl(
+                            Id {
+                                value: 6,
+                            },
+                        ),
                     },
                 ),
             ),
@@ -40,6 +65,11 @@ Ok(
                 Foreign(
                     AlienTypeDefn {
                         path: TypePath(`core::num::f16`, `Foreign`),
+                        decl: AlienTypeDecl(
+                            Id {
+                                value: 7,
+                            },
+                        ),
                     },
                 ),
             ),
@@ -47,6 +77,11 @@ Ok(
                 Foreign(
                     AlienTypeDefn {
                         path: TypePath(`core::num::f32`, `Foreign`),
+                        decl: AlienTypeDecl(
+                            Id {
+                                value: 8,
+                            },
+                        ),
                     },
                 ),
             ),
@@ -54,12 +89,42 @@ Ok(
                 Foreign(
                     AlienTypeDefn {
                         path: TypePath(`core::num::f64`, `Foreign`),
+                        decl: AlienTypeDecl(
+                            Id {
+                                value: 9,
+                            },
+                        ),
                     },
                 ),
             ),
             ImplBlock(
                 TypeImplBlock(
-                    TypeImplBlockDecl,
+                    TypeImplBlockDecl {
+                        ast_idx: 18,
+                        impl_block: ImplBlock(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                11,
+                            ),
+                        },
+                        ty: 0,
+                        eol_colon: Ok(
+                            EolColonToken {
+                                token_idx: TokenIdx(
+                                    13,
+                                ),
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 14,
+                            },
+                        ),
+                    },
                 ),
             ),
             AssociatedItem(
@@ -73,6 +138,19 @@ Ok(
                                     },
                                 ),
                             ),
+                            decl: TypeMethodDecl(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 38,
+                                },
+                            ),
+                            body: Err(
+                                MissingBody,
+                            ),
                         },
                     ),
                 ),
@@ -82,13 +160,51 @@ Ok(
                     Method(
                         TypeAsTraitMethodDefn {
                             path: None,
+                            decl: TypeAsTraitMethodDecl(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 39,
+                                },
+                            ),
+                            body: Err(
+                                MissingBody,
+                            ),
                         },
                     ),
                 ),
             ),
             ImplBlock(
                 TypeImplBlock(
-                    TypeImplBlockDecl,
+                    TypeImplBlockDecl {
+                        ast_idx: 22,
+                        impl_block: ImplBlock(
+                            Id {
+                                value: 3,
+                            },
+                        ),
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                56,
+                            ),
+                        },
+                        ty: 0,
+                        eol_colon: Ok(
+                            EolColonToken {
+                                token_idx: TokenIdx(
+                                    58,
+                                ),
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 17,
+                            },
+                        ),
+                    },
                 ),
             ),
             AssociatedItem(
@@ -102,6 +218,19 @@ Ok(
                                     },
                                 ),
                             ),
+                            decl: TypeMethodDecl(
+                                Id {
+                                    value: 2,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 40,
+                                },
+                            ),
+                            body: Err(
+                                MissingBody,
+                            ),
                         },
                     ),
                 ),
@@ -111,13 +240,51 @@ Ok(
                     Method(
                         TypeAsTraitMethodDefn {
                             path: None,
+                            decl: TypeAsTraitMethodDecl(
+                                Id {
+                                    value: 2,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 41,
+                                },
+                            ),
+                            body: Err(
+                                MissingBody,
+                            ),
                         },
                     ),
                 ),
             ),
             ImplBlock(
                 TypeImplBlock(
-                    TypeImplBlockDecl,
+                    TypeImplBlockDecl {
+                        ast_idx: 26,
+                        impl_block: ImplBlock(
+                            Id {
+                                value: 5,
+                            },
+                        ),
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                101,
+                            ),
+                        },
+                        ty: 0,
+                        eol_colon: Ok(
+                            EolColonToken {
+                                token_idx: TokenIdx(
+                                    103,
+                                ),
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 20,
+                            },
+                        ),
+                    },
                 ),
             ),
             AssociatedItem(
@@ -131,6 +298,19 @@ Ok(
                                     },
                                 ),
                             ),
+                            decl: TypeMethodDecl(
+                                Id {
+                                    value: 3,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 42,
+                                },
+                            ),
+                            body: Err(
+                                MissingBody,
+                            ),
                         },
                     ),
                 ),
@@ -140,13 +320,51 @@ Ok(
                     Method(
                         TypeAsTraitMethodDefn {
                             path: None,
+                            decl: TypeAsTraitMethodDecl(
+                                Id {
+                                    value: 3,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 43,
+                                },
+                            ),
+                            body: Err(
+                                MissingBody,
+                            ),
                         },
                     ),
                 ),
             ),
             ImplBlock(
                 TypeImplBlock(
-                    TypeImplBlockDecl,
+                    TypeImplBlockDecl {
+                        ast_idx: 30,
+                        impl_block: ImplBlock(
+                            Id {
+                                value: 7,
+                            },
+                        ),
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                145,
+                            ),
+                        },
+                        ty: 0,
+                        eol_colon: Ok(
+                            EolColonToken {
+                                token_idx: TokenIdx(
+                                    147,
+                                ),
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 23,
+                            },
+                        ),
+                    },
                 ),
             ),
             AssociatedItem(
@@ -160,6 +378,19 @@ Ok(
                                     },
                                 ),
                             ),
+                            decl: TypeMethodDecl(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 44,
+                                },
+                            ),
+                            body: Err(
+                                MissingBody,
+                            ),
                         },
                     ),
                 ),
@@ -169,13 +400,51 @@ Ok(
                     Method(
                         TypeAsTraitMethodDefn {
                             path: None,
+                            decl: TypeAsTraitMethodDecl(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 45,
+                                },
+                            ),
+                            body: Err(
+                                MissingBody,
+                            ),
                         },
                     ),
                 ),
             ),
             ImplBlock(
                 TypeImplBlock(
-                    TypeImplBlockDecl,
+                    TypeImplBlockDecl {
+                        ast_idx: 34,
+                        impl_block: ImplBlock(
+                            Id {
+                                value: 9,
+                            },
+                        ),
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                190,
+                            ),
+                        },
+                        ty: 0,
+                        eol_colon: Ok(
+                            EolColonToken {
+                                token_idx: TokenIdx(
+                                    192,
+                                ),
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                    },
                 ),
             ),
             AssociatedItem(
@@ -189,6 +458,19 @@ Ok(
                                     },
                                 ),
                             ),
+                            decl: TypeMethodDecl(
+                                Id {
+                                    value: 5,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 46,
+                                },
+                            ),
+                            body: Err(
+                                MissingBody,
+                            ),
                         },
                     ),
                 ),
@@ -198,13 +480,51 @@ Ok(
                     Method(
                         TypeAsTraitMethodDefn {
                             path: None,
+                            decl: TypeAsTraitMethodDecl(
+                                Id {
+                                    value: 5,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 47,
+                                },
+                            ),
+                            body: Err(
+                                MissingBody,
+                            ),
                         },
                     ),
                 ),
             ),
             ImplBlock(
                 TypeImplBlock(
-                    TypeImplBlockDecl,
+                    TypeImplBlockDecl {
+                        ast_idx: 38,
+                        impl_block: ImplBlock(
+                            Id {
+                                value: 11,
+                            },
+                        ),
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                235,
+                            ),
+                        },
+                        ty: 0,
+                        eol_colon: Ok(
+                            EolColonToken {
+                                token_idx: TokenIdx(
+                                    237,
+                                ),
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 29,
+                            },
+                        ),
+                    },
                 ),
             ),
             AssociatedItem(
@@ -218,6 +538,19 @@ Ok(
                                     },
                                 ),
                             ),
+                            decl: TypeMethodDecl(
+                                Id {
+                                    value: 6,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 48,
+                                },
+                            ),
+                            body: Err(
+                                MissingBody,
+                            ),
                         },
                     ),
                 ),
@@ -227,13 +560,51 @@ Ok(
                     Method(
                         TypeAsTraitMethodDefn {
                             path: None,
+                            decl: TypeAsTraitMethodDecl(
+                                Id {
+                                    value: 6,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 49,
+                                },
+                            ),
+                            body: Err(
+                                MissingBody,
+                            ),
                         },
                     ),
                 ),
             ),
             ImplBlock(
                 TypeImplBlock(
-                    TypeImplBlockDecl,
+                    TypeImplBlockDecl {
+                        ast_idx: 42,
+                        impl_block: ImplBlock(
+                            Id {
+                                value: 13,
+                            },
+                        ),
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                280,
+                            ),
+                        },
+                        ty: 0,
+                        eol_colon: Ok(
+                            EolColonToken {
+                                token_idx: TokenIdx(
+                                    282,
+                                ),
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 32,
+                            },
+                        ),
+                    },
                 ),
             ),
             AssociatedItem(
@@ -247,6 +618,19 @@ Ok(
                                     },
                                 ),
                             ),
+                            decl: TypeMethodDecl(
+                                Id {
+                                    value: 7,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 50,
+                                },
+                            ),
+                            body: Err(
+                                MissingBody,
+                            ),
                         },
                     ),
                 ),
@@ -256,13 +640,51 @@ Ok(
                     Method(
                         TypeAsTraitMethodDefn {
                             path: None,
+                            decl: TypeAsTraitMethodDecl(
+                                Id {
+                                    value: 7,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 51,
+                                },
+                            ),
+                            body: Err(
+                                MissingBody,
+                            ),
                         },
                     ),
                 ),
             ),
             ImplBlock(
                 TypeImplBlock(
-                    TypeImplBlockDecl,
+                    TypeImplBlockDecl {
+                        ast_idx: 46,
+                        impl_block: ImplBlock(
+                            Id {
+                                value: 15,
+                            },
+                        ),
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                324,
+                            ),
+                        },
+                        ty: 0,
+                        eol_colon: Ok(
+                            EolColonToken {
+                                token_idx: TokenIdx(
+                                    326,
+                                ),
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 35,
+                            },
+                        ),
+                    },
                 ),
             ),
             AssociatedItem(
@@ -276,6 +698,19 @@ Ok(
                                     },
                                 ),
                             ),
+                            decl: TypeMethodDecl(
+                                Id {
+                                    value: 8,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 52,
+                                },
+                            ),
+                            body: Err(
+                                MissingBody,
+                            ),
                         },
                     ),
                 ),
@@ -285,6 +720,19 @@ Ok(
                     Method(
                         TypeAsTraitMethodDefn {
                             path: None,
+                            decl: TypeAsTraitMethodDecl(
+                                Id {
+                                    value: 8,
+                                },
+                            ),
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 53,
+                                },
+                            ),
+                            body: Err(
+                                MissingBody,
+                            ),
                         },
                     ),
                 ),

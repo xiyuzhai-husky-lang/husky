@@ -9,6 +9,8 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`core::basic::bool`, `Foreign`),
+                            accessibility: Public,
+                            ast_idx: 0,
                         },
                     ),
                 },
@@ -18,6 +20,8 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`core::basic::Trait`, `Structure`),
+                            accessibility: Public,
+                            ast_idx: 1,
                         },
                     ),
                 },
@@ -27,6 +31,8 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`core::basic::Module`, `Structure`),
+                            accessibility: Public,
+                            ast_idx: 2,
                         },
                     ),
                 },

@@ -11,6 +11,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::line_segment_sketch::concave_component`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 159,
                         },
                     ),
                 },
@@ -22,6 +26,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::line_segment_sketch::convex_component`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 160,
                         },
                     ),
                 },
@@ -33,6 +41,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::line_segment_sketch::convexity`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 161,
                         },
                     ),
                 },
@@ -44,6 +56,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::line_segment_sketch::line_segment`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 162,
                         },
                     ),
                 },
@@ -55,6 +71,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 168,
                         },
                     ),
                 },
@@ -66,6 +86,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 170,
                         },
                     ),
                 },
@@ -77,6 +101,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 172,
                         },
                     ),
                 },
@@ -88,6 +116,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 173,
                         },
                     ),
                 },
@@ -99,6 +131,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 174,
                         },
                     ),
                 },
@@ -110,6 +146,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 175,
                         },
                     ),
                 },
@@ -121,6 +161,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 176,
                         },
                     ),
                 },

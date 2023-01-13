@@ -11,6 +11,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
+                            ast_idx: 44,
                         },
                     ),
                 },
@@ -22,6 +26,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
+                            ast_idx: 45,
                         },
                     ),
                 },
@@ -33,6 +41,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
+                            ast_idx: 46,
                         },
                     ),
                 },
@@ -44,6 +56,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::nine::downmost`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
+                            ast_idx: 47,
                         },
                     ),
                 },
@@ -55,6 +71,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::nine::big_cc`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
+                            ast_idx: 48,
                         },
                     ),
                 },

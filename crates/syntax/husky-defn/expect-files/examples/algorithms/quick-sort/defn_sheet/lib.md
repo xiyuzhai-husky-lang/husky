@@ -5,6 +5,19 @@ Ok(
                 Function(
                     FunctionDefn {
                         path: FormPath(`quick_sort::quick_sort`, `Function`),
+                        decl: FunctionDecl(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 61,
+                            },
+                        ),
+                        body: Ok(
+                            12,
+                        ),
                     },
                 ),
             ),
@@ -12,6 +25,19 @@ Ok(
                 Function(
                     FunctionDefn {
                         path: FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                        decl: FunctionDecl(
+                            Id {
+                                value: 2,
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 62,
+                            },
+                        ),
+                        body: Ok(
+                            22,
+                        ),
                     },
                 ),
             ),
@@ -19,6 +45,19 @@ Ok(
                 Function(
                     FunctionDefn {
                         path: FormPath(`quick_sort::partition`, `Function`),
+                        decl: FunctionDecl(
+                            Id {
+                                value: 3,
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 63,
+                            },
+                        ),
+                        body: Ok(
+                            62,
+                        ),
                     },
                 ),
             ),
@@ -26,6 +65,19 @@ Ok(
                 Feature(
                     FeatureDefn {
                         path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
+                        decl: FeatureDecl(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 64,
+                            },
+                        ),
+                        body: Ok(
+                            31,
+                        ),
                     },
                 ),
             ),
@@ -33,6 +85,19 @@ Ok(
                 Feature(
                     FeatureDefn {
                         path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
+                        decl: FeatureDecl(
+                            Id {
+                                value: 2,
+                            },
+                        ),
+                        expr_sheet: ExprSheet(
+                            Id {
+                                value: 65,
+                            },
+                        ),
+                        body: Ok(
+                            21,
+                        ),
                     },
                 ),
             ),

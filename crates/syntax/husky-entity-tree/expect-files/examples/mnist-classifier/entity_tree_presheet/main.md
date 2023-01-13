@@ -11,6 +11,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::connected_component`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 12,
                         },
                     ),
                 },
@@ -22,6 +26,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::raw_contour`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 13,
                         },
                     ),
                 },
@@ -33,6 +41,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::geom2d`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 14,
                         },
                     ),
                 },
@@ -44,6 +56,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::line_segment_sketch`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 15,
                         },
                     ),
                 },
@@ -55,6 +71,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::fermi`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 16,
                         },
                     ),
                 },
@@ -66,6 +86,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::digits`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 17,
                         },
                     ),
                 },
@@ -77,6 +101,10 @@ Ok(
                     symbol: Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::major`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 18,
                         },
                     ),
                 },

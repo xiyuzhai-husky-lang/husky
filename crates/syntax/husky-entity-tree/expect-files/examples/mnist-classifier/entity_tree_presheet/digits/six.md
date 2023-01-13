@@ -11,6 +11,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::six::six_match`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
+                            ast_idx: 57,
                         },
                     ),
                 },
@@ -22,6 +26,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
+                            ast_idx: 58,
                         },
                     ),
                 },
@@ -33,6 +41,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
+                            ast_idx: 59,
                         },
                     ),
                 },
@@ -44,6 +56,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::six::upmost`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
+                            ast_idx: 60,
                         },
                     ),
                 },
@@ -55,6 +71,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::digits::six::bottom1`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
+                            ast_idx: 61,
                         },
                     ),
                 },

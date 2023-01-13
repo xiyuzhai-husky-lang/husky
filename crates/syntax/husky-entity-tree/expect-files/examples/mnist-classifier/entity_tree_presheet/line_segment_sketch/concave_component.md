@@ -11,6 +11,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            ast_idx: 73,
                         },
                     ),
                 },
@@ -22,6 +26,10 @@ Ok(
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            ast_idx: 75,
                         },
                     ),
                 },
