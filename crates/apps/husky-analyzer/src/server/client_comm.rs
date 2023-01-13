@@ -57,7 +57,7 @@ impl ClientCommunicator {
         };
         if send_flag {
             let Ok(module_diff_path) = db.module_diff_path(module_path) else { todo!() };
-            let path = &module_diff_path.data(db);
+            let Ok(path) = &module_diff_path.abs_path(db) else { todo!() };
             match url_from_diff_path(path) {
                 Ok(url) => self.send_diagnostics_aux(
                     url,
