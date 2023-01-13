@@ -1730,7 +1730,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                LAngle,
+                LAngleOrLt,
             ),
             Literal(
                 Float(
@@ -2402,7 +2402,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                LAngle,
+                LAngleOrLt,
             ),
             Literal(
                 Float(

@@ -14,7 +14,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Identifier(
                 Identifier(
@@ -26,7 +26,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Identifier(
                 Identifier(
@@ -38,7 +38,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Identifier(
                 Identifier(
@@ -50,7 +50,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Identifier(
                 Identifier(
@@ -62,7 +62,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Identifier(
                 Identifier(
@@ -86,7 +86,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Identifier(
                 Identifier(
@@ -98,7 +98,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Identifier(
                 Identifier(
@@ -122,7 +122,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Identifier(
                 Identifier(
@@ -134,7 +134,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Identifier(
                 Identifier(
@@ -158,7 +158,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Identifier(
                 Identifier(
@@ -170,7 +170,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Identifier(
                 Identifier(
@@ -182,7 +182,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Identifier(
                 Identifier(
@@ -194,7 +194,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Identifier(
                 Identifier(
@@ -218,7 +218,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Identifier(
                 Identifier(
@@ -230,7 +230,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Punctuation(
                 Star,
@@ -248,7 +248,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Identifier(
                 Identifier(
@@ -260,7 +260,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Punctuation(
                 Star,
@@ -278,7 +278,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Identifier(
                 Identifier(
@@ -290,7 +290,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Identifier(
                 Identifier(
@@ -302,7 +302,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Punctuation(
                 Star,
@@ -320,7 +320,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Identifier(
                 Identifier(
@@ -332,7 +332,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Punctuation(
                 Star,
@@ -565,7 +565,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                LAngle,
+                LAngleOrLt,
             ),
             Literal(
                 Float(
@@ -836,7 +836,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                LAngle,
+                LAngleOrLt,
             ),
             Literal(
                 Float(
@@ -1089,7 +1089,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                LAngle,
+                LAngleOrLt,
             ),
             Literal(
                 Float(
@@ -1145,7 +1145,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                LAngle,
+                LAngleOrLt,
             ),
             Literal(
                 Float(
@@ -1250,7 +1250,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                LAngle,
+                LAngleOrLt,
             ),
             Literal(
                 Float(
@@ -1473,7 +1473,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                LAngle,
+                LAngleOrLt,
             ),
             Literal(
                 Float(
@@ -1621,7 +1621,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                LAngle,
+                LAngleOrLt,
             ),
             Literal(
                 Float(
@@ -1767,7 +1767,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                LAngle,
+                LAngleOrLt,
             ),
             Punctuation(
                 Minus,
@@ -1787,7 +1787,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Identifier(
                 Identifier(
@@ -1813,7 +1813,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                LAngle,
+                LAngleOrLt,
             ),
             Literal(
                 Float(
@@ -1925,7 +1925,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Identifier(
                 Identifier(
@@ -2055,7 +2055,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Identifier(
                 Identifier(

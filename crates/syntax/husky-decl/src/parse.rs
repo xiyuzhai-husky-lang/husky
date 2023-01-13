@@ -411,6 +411,7 @@ impl<'a> DeclParser<'a> {
         );
         let implicit_parameter_decl_list = ctx.parse()?;
         let Some(parameter_decl_list) = ctx.parse()? else {
+            p!(path.debug(self.db));
             todo!()
         };
         let curry_token = ctx.parse_expected2(DeclError::MissingCurry);

@@ -17,11 +17,6 @@ DiagnosticSheet {
                 severity: Error,
                 range: [8:15, 8:16),
             },
-            Diagnostic {
-                message: "Syntax Error: unterminated list",
-                severity: Error,
-                range: [36:27, 36:28),
-            },
         ],
     },
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {

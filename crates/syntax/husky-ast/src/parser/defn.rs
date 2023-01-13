@@ -144,16 +144,18 @@ impl<'a> BasicAuxAstParser<'a> {
                     {
                         match token {
                             Token::Punctuation(special_token) => match special_token {
-                                Punctuation::Bra(Bracket::Par) | Punctuation::LAngle => match kw {
-                                    FormKeyword::Def => todo!(),
-                                    FormKeyword::Func
-                                    | FormKeyword::Proc
-                                    | FormKeyword::Fn
-                                    | FormKeyword::Function => TraitItemKind::Method,
-                                    FormKeyword::Theorem => todo!(),
-                                    FormKeyword::Lemma => todo!(),
-                                    FormKeyword::Proposition => todo!(),
-                                },
+                                Punctuation::Bra(Bracket::Par) | Punctuation::LAngleOrLt => {
+                                    match kw {
+                                        FormKeyword::Def => todo!(),
+                                        FormKeyword::Func
+                                        | FormKeyword::Proc
+                                        | FormKeyword::Fn
+                                        | FormKeyword::Function => TraitItemKind::Method,
+                                        FormKeyword::Theorem => todo!(),
+                                        FormKeyword::Lemma => todo!(),
+                                        FormKeyword::Proposition => todo!(),
+                                    }
+                                }
                                 Punctuation::Binary(BinaryOpr::Curry) | Punctuation::Colon => {
                                     todo!()
                                 }
@@ -218,16 +220,18 @@ impl<'a> BasicAuxAstParser<'a> {
                     {
                         match token {
                             Token::Punctuation(special_token) => match special_token {
-                                Punctuation::Bra(Bracket::Par) | Punctuation::LAngle => match kw {
-                                    FormKeyword::Def => todo!(),
-                                    FormKeyword::Func
-                                    | FormKeyword::Proc
-                                    | FormKeyword::Fn
-                                    | FormKeyword::Function => TypeItemKind::Method,
-                                    FormKeyword::Theorem => todo!(),
-                                    FormKeyword::Lemma => todo!(),
-                                    FormKeyword::Proposition => todo!(),
-                                },
+                                Punctuation::Bra(Bracket::Par) | Punctuation::LAngleOrLt => {
+                                    match kw {
+                                        FormKeyword::Def => todo!(),
+                                        FormKeyword::Func
+                                        | FormKeyword::Proc
+                                        | FormKeyword::Fn
+                                        | FormKeyword::Function => TypeItemKind::Method,
+                                        FormKeyword::Theorem => todo!(),
+                                        FormKeyword::Lemma => todo!(),
+                                        FormKeyword::Proposition => todo!(),
+                                    }
+                                }
                                 Punctuation::Binary(BinaryOpr::Curry) | Punctuation::Colon => {
                                     TypeItemKind::Memo
                                 }
@@ -264,16 +268,18 @@ impl<'a> BasicAuxAstParser<'a> {
                     {
                         match token {
                             Token::Punctuation(special_token) => match special_token {
-                                Punctuation::Bra(Bracket::Par) | Punctuation::LAngle => match kw {
-                                    FormKeyword::Def => todo!(),
-                                    FormKeyword::Func
-                                    | FormKeyword::Proc
-                                    | FormKeyword::Fn
-                                    | FormKeyword::Function => TraitItemKind::Method,
-                                    FormKeyword::Theorem => todo!(),
-                                    FormKeyword::Lemma => todo!(),
-                                    FormKeyword::Proposition => todo!(),
-                                },
+                                Punctuation::Bra(Bracket::Par) | Punctuation::LAngleOrLt => {
+                                    match kw {
+                                        FormKeyword::Def => todo!(),
+                                        FormKeyword::Func
+                                        | FormKeyword::Proc
+                                        | FormKeyword::Fn
+                                        | FormKeyword::Function => TraitItemKind::Method,
+                                        FormKeyword::Theorem => todo!(),
+                                        FormKeyword::Lemma => todo!(),
+                                        FormKeyword::Proposition => todo!(),
+                                    }
+                                }
                                 Punctuation::Binary(BinaryOpr::Curry) | Punctuation::Colon => {
                                     todo!()
                                     // TraitItemKind::Memo
@@ -309,16 +315,18 @@ impl<'a> BasicAuxAstParser<'a> {
                     let form_kind = if let Some(token) = self.token_stream_mut().peek() {
                         match token {
                             Token::Punctuation(special_token) => match special_token {
-                                Punctuation::Bra(Bracket::Par) | Punctuation::LAngle => match kw {
-                                    FormKeyword::Def => todo!(),
-                                    FormKeyword::Func
-                                    | FormKeyword::Proc
-                                    | FormKeyword::Fn
-                                    | FormKeyword::Function => FormKind::Function,
-                                    FormKeyword::Theorem => todo!(),
-                                    FormKeyword::Lemma => todo!(),
-                                    FormKeyword::Proposition => todo!(),
-                                },
+                                Punctuation::Bra(Bracket::Par) | Punctuation::LAngleOrLt => {
+                                    match kw {
+                                        FormKeyword::Def => todo!(),
+                                        FormKeyword::Func
+                                        | FormKeyword::Proc
+                                        | FormKeyword::Fn
+                                        | FormKeyword::Function => FormKind::Function,
+                                        FormKeyword::Theorem => todo!(),
+                                        FormKeyword::Lemma => todo!(),
+                                        FormKeyword::Proposition => todo!(),
+                                    }
+                                }
                                 Punctuation::Binary(BinaryOpr::Curry) | Punctuation::Colon => {
                                     FormKind::Feature
                                 }

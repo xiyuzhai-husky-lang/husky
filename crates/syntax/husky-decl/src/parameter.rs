@@ -1,9 +1,6 @@
 use husky_opn_syntax::Bracket;
 use husky_print_utils::p;
-use husky_token::{
-    ColonToken, CommaToken, IdentifierToken, LeftAngleBracketToken, LeftParenthesisToken,
-    RightAngleBracketToken, RightParenthesisToken,
-};
+use husky_token::*;
 use parsec::{parse_separated_list, ParseContext, ParseFrom};
 
 use crate::*;
@@ -46,28 +43,9 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDecl {
     }
 }
 
-impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclList {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> Result<Option<Self>, ExprError> {
-        let Some(langle) = ctx.parse::<LeftAngleBracketToken>()? else {
-            return Ok(None)
-        };
-        let (decls, commas) = parse_separated_list(ctx)?;
-        Ok(Some(Self {
-            langle,
-            decls,
-            commas,
-            rangle: ctx.parse()?.ok_or(ExprError::MissingRightAngleBracket {
-                langle_token_idx: langle.token_idx(),
-            })?,
-        }))
-    }
-}
-
 #[derive(Debug, PartialEq, Eq)]
 pub struct ImplicitParameterDeclList {
-    langle: LeftAngleBracketToken,
+    langle: LeftAngleBracketOrLessThanToken,
     decls: Vec<ImplicitParameterDecl>,
     commas: Vec<CommaToken>,
     rangle: RightAngleBracketToken,
@@ -82,7 +60,7 @@ impl std::ops::Deref for ImplicitParameterDeclList {
 }
 
 impl ImplicitParameterDeclList {
-    pub fn lcurl(&self) -> LeftAngleBracketToken {
+    pub fn lcurl(&self) -> LeftAngleBracketOrLessThanToken {
         self.langle
     }
 
@@ -96,6 +74,25 @@ impl ImplicitParameterDeclList {
 
     pub fn rcurl(&self) -> RightAngleBracketToken {
         self.rangle
+    }
+}
+
+impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclList {
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut ExprParseContext<'a, 'b>,
+    ) -> Result<Option<Self>, ExprError> {
+        let Some(langle) = ctx.parse::< LeftAngleBracketOrLessThanToken>()? else {
+            return Ok(None)
+        };
+        let (decls, commas) = parse_separated_list(ctx)?;
+        Ok(Some(Self {
+            langle,
+            decls,
+            commas,
+            rangle: ctx.parse()?.ok_or(ExprError::MissingRightAngleBracket {
+                langle_token_idx: langle.token_idx(),
+            })?,
+        }))
     }
 }
 

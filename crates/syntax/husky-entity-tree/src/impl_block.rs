@@ -1,7 +1,5 @@
 use crate::*;
-use husky_token::{
-    ImplToken, LeftAngleBracketToken, Token, TokenError, TokenGroupIdx, TokenStream,
-};
+use husky_token::*;
 use husky_word::IdentPairMap;
 use parsec::ParseContext;
 use thiserror::Error;
@@ -113,7 +111,7 @@ impl ImplBlock {
             module_symbol_context,
         );
         parser.parse::<ImplToken>().unwrap().unwrap();
-        if let Some(_) = parser.try_parse::<LeftAngleBracketToken>() {
+        if let Some(_) = parser.try_parse::<LeftAngleBracketOrLessThanToken>() {
             match ignore_implicit_parameters(&mut parser) {
                 Ok(_) => (),
                 Err(e) => todo!(),

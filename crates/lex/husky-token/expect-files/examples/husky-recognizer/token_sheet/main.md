@@ -19,7 +19,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Identifier(
                 Identifier(
@@ -31,7 +31,7 @@ Ok(
                 ),
             ),
             Punctuation(
-                DoubleColon,
+                ColonColon,
             ),
             Identifier(
                 Identifier(
