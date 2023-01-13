@@ -55,7 +55,7 @@ impl Vector2d:
         else:
             (y.sgnx() as f32) * cos_value.acos() * 180.0 / 3.1415926
 
-    // rotation direction from this to other with minimal angle
+    // rotation direction from self to other with minimal angle
     func rotation_direction_to(other: Vector2d) -> i32:
         // +1: counterclockwise
         // -1: clockwise

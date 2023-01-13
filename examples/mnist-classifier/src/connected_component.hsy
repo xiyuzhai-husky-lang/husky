@@ -24,21 +24,21 @@ struct ConnectedComponent {
 
 impl ConnectedComponent:
     func raw_contours -> []RawContour:
-        find_raw_contours(this)
+        find_raw_contours(self)
     
     proc eff_holes -> EffHoles:
-        let mut raw_contours = this.raw_contours.collect_refs()
+        let mut raw_contours = self.raw_contours.collect_refs()
         let mut matches = []?&RawContour()
-        // ad hoc, should replace this with pop_first
+        // ad hoc, should replace self with pop_first
         raw_contours.pop_with_largest_opt_f32(hole_tmpl);
         matches.push(raw_contours.pop_with_largest_opt_f32(hole_tmpl))
         matches.push(raw_contours.pop_with_largest_opt_f32(hole_tmpl))
         return EffHoles(matches)
 
     proc max_hole_ilen -> f32:
-        // todo: change this to iter
+        // todo: change self to iter
         let mut max_hole_ilen = 0
-        let raw_contours = this.raw_contours
+        let raw_contours = self.raw_contours
         for 0 < i < raw_contours.ilen():
             let hole_ilen = raw_contours[i].points.ilen()
             if max_hole_ilen < hole_ilen:
@@ -46,14 +46,14 @@ impl ConnectedComponent:
         return max_hole_ilen as f32
     
     proc max_row_span -> f32:
-        // todo: change this to func
+        // todo: change self to func
         let mut max_row = 0
         for 0 < i < 29:
             max_row = max_row.max(mask[i].span())
         return max_row as f32
 
     proc row_span_sum -> f32:
-        // todo: change this to func
+        // todo: change self to func
         let mut row_span_sum = 0
         for 0 < i < 29:
             row_span_sum += mask[i].span()
@@ -84,10 +84,10 @@ impl ConnectedComponent:
         )
     
     func upper_mass -> f32:
-        this.distribution.upper_mass as f32
+        self.distribution.upper_mass as f32
     
     func lower_mass -> f32:
-        this.distribution.lower_mass as f32
+        self.distribution.lower_mass as f32
     
     proc top_k_row_span_sum(k : i32) -> f32:
         let mut top_k_row_span_sum = 0
