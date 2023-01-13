@@ -7,7 +7,7 @@ use husky_diagnostics::{DiagnosticSheet, DiagnosticsDb};
 use husky_vfs::{ModulePath, VfsDb};
 use lsp_types::notification::Notification;
 
-use crate::{convert::to_lsp_types::url_from_abs_path, db::AnalyzerDB};
+use crate::{convert::to_lsp_types::url_from_diff_path, db::AnalyzerDB};
 
 use super::Server;
 
@@ -57,15 +57,18 @@ impl ClientCommunicator {
         };
         if send_flag {
             let Ok(module_diff_path) = db.module_diff_path(module_path) else { todo!() };
-            let url = url_from_abs_path(module_diff_path.data(db));
-            self.send_diagnostics_aux(
-                url,
-                diagnostic_sheet
-                    .diagnostic_iter(db)
-                    .map(|diagnostic| diagnostic.into())
-                    .collect(),
-                None,
-            )
+            let path = &module_diff_path.data(db);
+            match url_from_diff_path(path) {
+                Ok(url) => self.send_diagnostics_aux(
+                    url,
+                    diagnostic_sheet
+                        .diagnostic_iter(db)
+                        .map(|diagnostic| diagnostic.into())
+                        .collect(),
+                    None,
+                ),
+                Err(_) => eprintln!("error in translating path {:?}", path),
+            }
         }
     }
 

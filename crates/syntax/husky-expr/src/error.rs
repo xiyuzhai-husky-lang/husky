@@ -32,11 +32,11 @@ pub enum ExprError {
     #[error("entity tree")]
     EntityTree(#[from] EntityTreeError),
     #[error("expect identifier after dot")]
-    ExpectIdentifierAfterDot,
+    ExpectIdentifierAfterDot(TokenIdx),
     #[error("token error {0}")]
     Token(#[from] TokenError),
     #[error("no left operand for binary operator")]
-    NoLeftOperandForBinaryOperator,
+    NoLeftOperandForBinaryOperator { binary_token_idx: TokenIdx },
     #[error("no right operand for binary operator")]
     NoRightOperandForBinaryOperator {
         lopd: ExprIdx,
@@ -57,21 +57,21 @@ pub enum ExprError {
     #[error("expect `=`")]
     ExpectAssignToken(TokenIdx),
     #[error("missing initial value")]
-    MissingInitialValue,
+    MissingInitialValue(TokenIdx),
     #[error("unexpected keyword")]
     UnexpectedKeyword(TokenIdx),
     #[error("missing result")]
-    MissingResult,
+    MissingResult(TokenIdx),
     #[error("missing condition")]
-    MissingCondition,
+    MissingCondition(TokenIdx),
     #[error("expect for expr")]
-    MissingForExpr,
+    MissingForExpr(TokenIdx),
     #[error("expect be pattern")]
     ExpectBePattern(TokenIdx),
     #[error("expect paramter pattern")]
     ExpectParameterPattern(TokenIdx),
     #[error("unterminated list")]
-    UnterminatedList,
+    UnterminatedList { bra_token_idx: TokenIdx },
     #[error("expect `:` at end of line")]
     ExpectEolColon(TokenIdx),
     #[error("expect identifier after `mut`")]
@@ -79,7 +79,7 @@ pub enum ExprError {
     #[error("expect identifier after `::`")]
     ExpectIdentifierAfterScopeResolution(TokenIdx),
     #[error("missing block")]
-    MissingBlock,
+    MissingBlock(TokenGroupIdx),
 }
 
 pub type ExprResult<T> = Result<T, ExprError>;
