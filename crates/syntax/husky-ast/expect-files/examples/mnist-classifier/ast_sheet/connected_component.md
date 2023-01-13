@@ -859,7 +859,7 @@ Ok(
                     ),
                     error: ExpectIdentifier(
                         TokenIdx(
-                            529,
+                            533,
                         ),
                     ),
                 },
@@ -1362,13 +1362,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `horizontal_extend`,
                         token_idx: TokenIdx(
-                            532,
+                            536,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        533,
+                        537,
                     ),
                 },
                 Defn {
@@ -1397,13 +1397,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `find_connected_components`,
                         token_idx: TokenIdx(
-                            617,
+                            621,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        618,
+                        622,
                     ),
                 },
             ],

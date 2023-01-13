@@ -153,13 +153,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `rel_norm`,
                         token_idx: TokenIdx(
-                            61,
+                            65,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        62,
+                        66,
                     ),
                 },
                 Defn {
@@ -185,13 +185,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `angle_change_norm`,
                         token_idx: TokenIdx(
-                            95,
+                            103,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        96,
+                        104,
                     ),
                 },
                 Stmt {
@@ -316,13 +316,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `fermi_match`,
                         token_idx: TokenIdx(
-                            133,
+                            145,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        134,
+                        146,
                     ),
                 },
             ],
