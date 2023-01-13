@@ -8,7 +8,8 @@ pub enum Punctuation {
     Bra(Bracket),
     Ket(Bracket),
     Suffix(SuffixOpr),
-    LAngle,            // <
+    LAngleOrLt,        // <
+    ColonColonLAngle,  // ::<
     RAngle,            // >
     DeriveAssign,      // :=
     Minus,             // -
@@ -17,7 +18,7 @@ pub enum Punctuation {
     Dot,               // .
     DotDot,            // `.`
     Colon,             // `:`
-    DoubleColon,       // `::`
+    ColonColon,        // `::`
     Star,              // `*`
     Comma,             // `,`
     Ambersand,         // `&`
@@ -53,7 +54,8 @@ impl Punctuation {
             Punctuation::Bra(bra) => bra.bra_code(),
             Punctuation::Ket(ket) => ket.ket_code(),
             Punctuation::Suffix(_) => todo!(),
-            Punctuation::LAngle => "<",
+            Punctuation::LAngleOrLt => "<",
+            Punctuation::ColonColonLAngle => "::<",
             Punctuation::RAngle => ">",
             Punctuation::DeriveAssign => ":=",
             Punctuation::Minus => "-",
@@ -62,7 +64,7 @@ impl Punctuation {
             Punctuation::Dot => ".",
             Punctuation::DotDot => "..",
             Punctuation::Colon => ":",
-            Punctuation::DoubleColon => "::",
+            Punctuation::ColonColon => "::",
             Punctuation::Comma => ",",
             Punctuation::Ambersand => todo!(),
             Punctuation::Vertical => "|",
@@ -79,7 +81,7 @@ impl Punctuation {
 
     pub fn opt_bra(self) -> Option<Bracket> {
         match self {
-            Punctuation::LAngle => Some(Bracket::Angle),
+            Punctuation::LAngleOrLt => Some(Bracket::Angle),
             Punctuation::Bra(bracket) => Some(bracket),
             _ => None,
         }
@@ -91,7 +93,8 @@ impl Punctuation {
             Punctuation::Bra(_) => todo!(),
             Punctuation::Ket(_) => todo!(),
             Punctuation::Suffix(_) => todo!(),
-            Punctuation::LAngle => todo!(),
+            Punctuation::LAngleOrLt => todo!(),
+            Punctuation::ColonColonLAngle => todo!(),
             Punctuation::RAngle => todo!(),
             Punctuation::DeriveAssign => todo!(),
             Punctuation::Minus => todo!(),
@@ -100,7 +103,7 @@ impl Punctuation {
             Punctuation::Dot => todo!(),
             Punctuation::DotDot => todo!(),
             Punctuation::Colon => todo!(),
-            Punctuation::DoubleColon => todo!(),
+            Punctuation::ColonColon => todo!(),
             Punctuation::Comma => todo!(),
             Punctuation::Ambersand => todo!(),
             Punctuation::Vertical => todo!(),

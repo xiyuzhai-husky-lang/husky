@@ -379,17 +379,17 @@ fn right_curly_brace_token_works() {
 // left angle bracket
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct LeftAngleBracketToken {
+pub struct LeftAngleBracketOrLessThanToken {
     token_idx: TokenIdx,
 }
 
-impl LeftAngleBracketToken {
+impl LeftAngleBracketOrLessThanToken {
     pub fn token_idx(&self) -> TokenIdx {
         self.token_idx
     }
 }
 
-impl<'a, Context> parsec::ParseFrom<Context> for LeftAngleBracketToken
+impl<'a, Context> parsec::ParseFrom<Context> for LeftAngleBracketOrLessThanToken
 where
     Context: TokenParseContext<'a>,
     <Context as HasParseError>::Error: From<TokenError>,
@@ -397,19 +397,63 @@ where
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
-        Ok(parse_specific_punctuation_from(ctx, Punctuation::LAngle)?
-            .map(|token_idx| LeftAngleBracketToken { token_idx }))
+        Ok(
+            parse_specific_punctuation_from(ctx, Punctuation::LAngleOrLt)?
+                .map(|token_idx| LeftAngleBracketOrLessThanToken { token_idx }),
+        )
     }
 }
 
 #[test]
-fn left_angle_bracket_token_works() {
+fn left_angle_or_less_bracket_token_works() {
     let db = DB::default();
-    fn t(db: &DB, input: &str) -> TokenResult<Option<LeftAngleBracketToken>> {
+    fn t(db: &DB, input: &str) -> TokenResult<Option<LeftAngleBracketOrLessThanToken>> {
         quick_parse(db, input)
     }
 
     assert!(t(&db, "<").unwrap().is_some());
+    assert!(t(&db, "::<").unwrap().is_none());
+    assert!(t(&db, ">").unwrap().is_none());
+    assert!(t(&db, "a").unwrap().is_none());
+}
+
+// colon colon left angle bracket
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct ColonColonLeftAngleBracketToken {
+    token_idx: TokenIdx,
+}
+
+impl ColonColonLeftAngleBracketToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
+impl<'a, Context> parsec::ParseFrom<Context> for ColonColonLeftAngleBracketToken
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+        Ok(
+            parse_specific_punctuation_from(ctx, Punctuation::ColonColonLAngle)?
+                .map(|token_idx| ColonColonLeftAngleBracketToken { token_idx }),
+        )
+    }
+}
+
+#[test]
+fn colon_colon_left_angle_bracket_token_works() {
+    let db = DB::default();
+    fn t(db: &DB, input: &str) -> TokenResult<Option<ColonColonLeftAngleBracketToken>> {
+        quick_parse(db, input)
+    }
+
+    assert!(t(&db, "::<").unwrap().is_some());
+    assert!(t(&db, "<").unwrap().is_none());
     assert!(t(&db, ">").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
 }
@@ -611,7 +655,7 @@ where
         let token_stream = ctx.token_stream_mut();
         if let Some((token_idx, token)) = token_stream.next_indexed() {
             match token {
-                Token::Punctuation(Punctuation::DoubleColon) => {
+                Token::Punctuation(Punctuation::ColonColon) => {
                     Ok(Some(ScopeResolutionToken { token_idx }))
                 }
                 Token::Err(ref e) => Err(e.clone().into()),

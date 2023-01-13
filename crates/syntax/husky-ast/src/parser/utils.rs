@@ -52,7 +52,7 @@ where
             .token_stream_mut()
             .peek() else { return false };
         match token {
-            Token::Punctuation(Punctuation::LAngle) => true,
+            Token::Punctuation(Punctuation::LAngleOrLt) => true,
             _ => false,
         }
     }

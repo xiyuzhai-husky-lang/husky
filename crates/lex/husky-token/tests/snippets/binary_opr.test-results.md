@@ -354,7 +354,7 @@ output
 TokenSheetData {
     tokens: [
         Punctuation(
-            LAngle,
+            LAngleOrLt,
         ),
     ],
     group_starts: [

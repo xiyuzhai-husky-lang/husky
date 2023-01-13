@@ -33,7 +33,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     None => return TokenResolveResult::Break(()),
                 },
                 Punctuation::Suffix(suffix) => ResolvedToken::SuffixOpr(token_idx, suffix),
-                Punctuation::LAngle => match self.top_expr() {
+                Punctuation::LAngleOrLt => match self.top_expr() {
                     TopExprRef::Unfinished(_) => todo!(),
                     TopExprRef::Finished(expr) => {
                         match expr.base_entity_path(self.db(), &self.parser.expr_arena) {
@@ -59,6 +59,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     }
                     TopExprRef::None => todo!(),
                 },
+                Punctuation::ColonColonLAngle => todo!(),
                 Punctuation::RAngle => match (self.last_bra(), self.env()) {
                     (Some(Bracket::Angle), _) => ResolvedToken::Ket(token_idx, Bracket::Angle),
                     (None, ExprParseEnvironment::WithinBracket(Bracket::Angle)) => {
@@ -143,7 +144,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     ),
                 },
                 Punctuation::DotDot => todo!(),
-                Punctuation::DoubleColon => {
+                Punctuation::ColonColon => {
                     ResolvedToken::BinaryOpr(token_idx, BinaryOpr::ScopeResolution)
                 }
                 Punctuation::Star => ResolvedToken::BinaryOpr(

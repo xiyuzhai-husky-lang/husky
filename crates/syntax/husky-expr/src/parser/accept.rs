@@ -141,7 +141,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             items: vec![],
                         }
                         .into(),
-                        Ok(None) => match this.parse::<LeftAngleBracketToken>() {
+                        Ok(None) => match this.parse::<ColonColonLeftAngleBracketToken>() {
                             Ok(Some(langle)) => UnfinishedExpr::List {
                                 opr: UnfinishedListOpr::MethodInstantiation {
                                     this_expr,

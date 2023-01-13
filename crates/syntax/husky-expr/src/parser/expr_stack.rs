@@ -66,11 +66,7 @@ impl Expr {
                 punctuation,
                 punctuation_token_idx,
             } => todo!(),
-            Expr::Field {
-                this_expr,
-                dot_token_idx,
-                ident_token,
-            } => todo!(),
+            Expr::Field { .. } => BaseEntityPath::None,
             Expr::MethodCall { .. } => BaseEntityPath::None,
             Expr::Application { function, argument } => todo!(),
             Expr::NewTuple {

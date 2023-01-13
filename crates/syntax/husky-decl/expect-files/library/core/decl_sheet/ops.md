@@ -13,7 +13,7 @@ Ok(
                         ),
                         implicit_parameter_decl_list: Some(
                             ImplicitParameterDeclList {
-                                langle: LeftAngleBracketToken {
+                                langle: LeftAngleBracketOrLessThanToken {
                                     token_idx: TokenIdx(
                                         10,
                                     ),

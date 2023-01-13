@@ -309,7 +309,16 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 },
                 ':' => match self.peek_char() {
                     Some('=') => self.pass_two(Punctuation::DeriveAssign),
-                    Some(':') => self.pass_two(Punctuation::DoubleColon),
+                    Some(':') => {
+                        self.char_iter.next();
+                        match self.peek_char() {
+                            Some('<') => {
+                                self.char_iter.next();
+                                Punctuation::ColonColonLAngle
+                            }
+                            _ => Punctuation::ColonColon,
+                        }
+                    }
                     _ => Punctuation::Colon,
                 },
                 '(' => Punctuation::Bra(Bracket::Par),
@@ -359,7 +368,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     Some('=') => self.pass_two(Punctuation::Binary(BinaryOpr::Comparison(
                         BinaryComparisonOpr::Leq,
                     ))),
-                    _ => Punctuation::LAngle,
+                    _ => Punctuation::LAngleOrLt,
                 },
                 '>' => match self.peek_char() {
                     // '>' => self.pass_two(SpecialToken::Shr), // >>
