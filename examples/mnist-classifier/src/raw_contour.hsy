@@ -87,7 +87,7 @@ func get_inward_direction(
         | 0 => Direction::RIGHT
         | 1
         | 3 => Direction::LEFT
-        | 2 =>Direction::UP
+        | 2 => Direction::UP
         | _ => unreachable
     | 3 =>:
         match pixel_pair_below with
