@@ -12,36 +12,14 @@ impl DiffPath {
     pub fn path<'a>(self, db: &'a dyn VfsDb) -> &'a Path {
         self.data(db)
     }
+
+    pub fn abs_path(self, db: &dyn VfsDb) -> VfsResult<PathBuf> {
+        std::path::absolute(db.vfs_cache().base_path()?.join(&self.data(db).0)).map_err(|e| todo!())
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct DiffPathBuf(PathBuf);
-
-// impl salsa::DebugWithDb<dyn VfsDb + '_> for DiffPathBuf {
-//     fn fmt(
-//         &self,
-//         f: &mut std::fmt::Formatter<'_>,
-//         db: &dyn VfsDb,
-//         include_all_fields: bool,
-//     ) -> std::fmt::Result {
-//         let diff_path = todo!();
-//         todo!()
-//     }
-// }
-
-// impl<Db> salsa::DebugWithDb<Db> for DiffPathBuf
-// where
-//     Db: VfsDb,
-// {
-//     fn fmt(
-//         &self,
-//         f: &mut std::fmt::Formatter<'_>,
-//         db: &Db,
-//         include_all_fields: bool,
-//     ) -> std::fmt::Result {
-//         self.fmt(f, db as &dyn VfsDb, include_all_fields)
-//     }
-// }
 
 #[test]
 fn test_absolute_path_debug() {
