@@ -46,7 +46,9 @@ Ok(
                 ),
             ),
             Punctuation(
-                Colon,
+                Bra(
+                    Curl,
+                ),
             ),
             Identifier(
                 Identifier(
@@ -71,6 +73,9 @@ Ok(
                         },
                     ),
                 ),
+            ),
+            Punctuation(
+                Comma,
             ),
             Identifier(
                 Identifier(
@@ -110,6 +115,29 @@ Ok(
                     ),
                 ),
             ),
+            Punctuation(
+                Comma,
+            ),
+            Punctuation(
+                Ket(
+                    Curl,
+                ),
+            ),
+            Keyword(
+                Impl,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 341,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Colon,
+            ),
             Keyword(
                 Visual,
             ),
@@ -129,16 +157,14 @@ Ok(
         group_starts: [
             0,
             6,
-            9,
-            13,
-            19,
-            21,
+            22,
+            25,
+            27,
         ],
         indents: [
             0,
             0,
-            4,
-            4,
+            0,
             4,
             8,
         ],

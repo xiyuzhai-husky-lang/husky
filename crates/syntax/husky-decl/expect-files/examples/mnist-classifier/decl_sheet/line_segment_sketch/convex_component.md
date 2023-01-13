@@ -1,10 +1,19 @@
 Ok(
     DeclSheet {
         decls: [
-            Err(
-                ExpectLCurlOrLParOrSemicolon(
-                    TokenIdx(
-                        8,
+            Ok(
+                Type(
+                    PropsStruct(
+                        PropsStructTypeDecl {
+                            path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                        },
+                    ),
+                ),
+            ),
+            Ok(
+                ImplBlock(
+                    TypeImplBlock(
+                        TypeImplBlockDecl,
                     ),
                 ),
             ),

@@ -1,9 +1,11 @@
 use crate::geom2d::*
 
-struct LineSegment:
-    start: Point2d
-    end: Point2d
+struct LineSegment {
+    start: Point2d,
+    end: Point2d,
+}
 
+impl LineSegment:
     func displacement() -> Vector2d:
         start.to(end)
     

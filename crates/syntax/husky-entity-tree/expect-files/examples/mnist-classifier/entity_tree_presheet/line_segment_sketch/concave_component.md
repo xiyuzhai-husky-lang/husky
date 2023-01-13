@@ -30,7 +30,7 @@ Ok(
         entity_use_roots: EntityUseExprTrackers(
             [
                 UseTracker {
-                    ast_idx: 70,
+                    ast_idx: 69,
                     accessibility: Done {
                         accessibility: PubicUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
@@ -45,7 +45,7 @@ Ok(
                     state: Unresolved,
                 },
                 UseTracker {
-                    ast_idx: 71,
+                    ast_idx: 70,
                     accessibility: Done {
                         accessibility: PubicUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
@@ -60,7 +60,7 @@ Ok(
                     state: Unresolved,
                 },
                 UseTracker {
-                    ast_idx: 72,
+                    ast_idx: 71,
                     accessibility: Done {
                         accessibility: PubicUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
@@ -75,7 +75,7 @@ Ok(
                     state: Unresolved,
                 },
                 UseTracker {
-                    ast_idx: 73,
+                    ast_idx: 72,
                     accessibility: Done {
                         accessibility: PubicUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,

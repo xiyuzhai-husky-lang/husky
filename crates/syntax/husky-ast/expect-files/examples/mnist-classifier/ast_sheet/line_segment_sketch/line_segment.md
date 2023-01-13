@@ -2,95 +2,175 @@ Ok(
     AstSheet {
         arena: Arena {
             data: [
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        2,
-                    ),
-                    error: ExpectNothing,
-                },
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        3,
-                    ),
-                    error: ExpectNothing,
-                },
-                Err {
+                Stmt {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
-                    error: ExpectNothing,
-                },
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        5,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
-                    error: ExcessiveIndent,
                 },
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        6,
-                    ),
-                    error: ExpectNothing,
-                },
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        7,
-                    ),
-                    error: ExcessiveIndent,
-                },
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        8,
-                    ),
-                    error: ExcessiveIndent,
-                },
-                Err {
+                Stmt {
                     token_group_idx: TokenGroupIdx(
                         9,
                     ),
-                    error: ExcessiveIndent,
-                },
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        10,
+                    body: ArenaIdxRange(
+                        1..1,
                     ),
-                    error: ExcessiveIndent,
                 },
-                Err {
+                Stmt {
                     token_group_idx: TokenGroupIdx(
-                        11,
+                        8,
                     ),
-                    error: ExcessiveIndent,
-                },
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        12,
+                    body: ArenaIdxRange(
+                        1..2,
                     ),
-                    error: ExcessiveIndent,
                 },
-                Err {
+                Stmt {
                     token_group_idx: TokenGroupIdx(
                         13,
                     ),
-                    error: ExcessiveIndent,
-                },
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        14,
+                    body: ArenaIdxRange(
+                        3..3,
                     ),
-                    error: ExcessiveIndent,
                 },
-                Err {
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        12,
+                    ),
+                    body: ArenaIdxRange(
+                        3..4,
+                    ),
+                },
+                Stmt {
                     token_group_idx: TokenGroupIdx(
                         15,
                     ),
-                    error: ExcessiveIndent,
-                },
-                Err {
-                    token_group_idx: TokenGroupIdx(
-                        16,
+                    body: ArenaIdxRange(
+                        5..5,
                     ),
-                    error: ExcessiveIndent,
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        14,
+                    ),
+                    body: ArenaIdxRange(
+                        5..6,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        11,
+                    ),
+                    body: ArenaIdxRange(
+                        3..3,
+                    ),
+                },
+                IfElseStmts {
+                    if_stmt: 4,
+                    elif_stmts: ArenaIdxRange(
+                        5..5,
+                    ),
+                    else_stmt: Some(
+                        6,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        10,
+                    ),
+                    body: ArenaIdxRange(
+                        7..9,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        6,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        7,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                IfElseStmts {
+                    if_stmt: 2,
+                    elif_stmts: ArenaIdxRange(
+                        3..3,
+                    ),
+                    else_stmt: Some(
+                        9,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        3,
+                    ),
+                    body: ArenaIdxRange(
+                        0..1,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 32,
+                            },
+                        ),
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `displacement`,
+                        token_idx: TokenIdx(
+                            22,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: Block,
+                    saved_stream_state: TokenIdx(
+                        23,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        5,
+                    ),
+                    body: ArenaIdxRange(
+                        10..13,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 32,
+                            },
+                        ),
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentifierToken {
+                        ident: `dist_to_point`,
+                        token_idx: TokenIdx(
+                            35,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: Block,
+                    saved_stream_state: TokenIdx(
+                        36,
+                    ),
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
@@ -102,7 +182,7 @@ Ok(
                         1,
                     ),
                     body: ArenaIdxRange(
-                        0..15,
+                        0..0,
                     ),
                     accessibility: PublicUnder(
                         ModulePath(
@@ -127,15 +207,23 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: Block,
+                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         8,
+                    ),
+                },
+                Impl {
+                    token_group_idx: TokenGroupIdx(
+                        2,
+                    ),
+                    body: ArenaIdxRange(
+                        13..15,
                     ),
                 },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            15..17,
+            15..18,
         ),
     },
 )
