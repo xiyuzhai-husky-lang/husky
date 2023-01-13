@@ -8,6 +8,17 @@ pub struct ExprDiagnosticSheet {
     #[return_ref]
     pub diagnostics: Vec<Diagnostic>,
 }
+// ad hoc
+impl<Db: DiagnosticsDb> salsa::DebugWithDb<Db> for ExprDiagnosticSheet {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        self.fmt(f, db as &dyn DiagnosticsDb, include_all_fields)
+    }
+}
 
 #[salsa::tracked(jar = DiagnosticsJar)]
 pub(crate) fn expr_diagnostic_sheet(
