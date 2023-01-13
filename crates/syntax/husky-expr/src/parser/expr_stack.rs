@@ -49,7 +49,6 @@ impl Expr {
                 Err(_) => todo!(),
             },
             Expr::InheritedSymbol { .. } | Expr::LocalSymbol { .. } => BaseEntityPath::None,
-            Expr::Uncertain(_) => todo!(),
             Expr::BinaryOpn {
                 lopd,
                 punctuation,
@@ -76,11 +75,11 @@ impl Expr {
             } => todo!(),
             Expr::NewBoxList { .. } => BaseEntityPath::None,
             Expr::Bracketed(expr) => arena[expr].base_entity_path(db, arena),
-            Expr::Unrecognized(ident) => BaseEntityPath::Uncertain {
-                inclination: BaseEntityPathInclination::from_case(ident.case(db)),
-            },
             Expr::Err(e) => BaseEntityPath::Uncertain {
                 inclination: match e {
+                    ExprError::UnrecognizedIdentifier { ident, .. } => {
+                        BaseEntityPathInclination::from_case(ident.case(db))
+                    }
                     // ad hoc
                     _ => BaseEntityPathInclination::FunctionOrLocalValue,
                 },

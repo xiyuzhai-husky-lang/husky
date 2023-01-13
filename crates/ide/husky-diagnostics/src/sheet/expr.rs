@@ -115,6 +115,12 @@ fn expr_error_message(error: &ExprError) -> Option<String> {
         }
         ExprError::MissingBlock(_) => format!("Syntax Error: missing block"),
         ExprError::UnexpectedSheba(_) => format!("Syntax Error: unexpected `$`"),
+        ExprError::UnrecognizedIdentifier { token_idx, ident } => {
+            format!("Syntax Error: unrecognized identifier")
+        }
+        ExprError::UnresolvedSubentity { token_idx, ident } => {
+            format!("Syntax Error: unresolved subentity")
+        }
     })
 }
 
@@ -172,7 +178,11 @@ fn expr_error_range(error: &ExprError, ranged_token_sheet: &RangedTokenSheet) ->
         | ExprError::ExpectEolColon(token_idx)
         | ExprError::ExpectIdentifierAfterMut(token_idx)
         | ExprError::ExpectIdentifierAfterScopeResolution(token_idx)
-        | ExprError::UnexpectedSheba(token_idx) => ranged_token_sheet.token_range(*token_idx),
+        | ExprError::UnexpectedSheba(token_idx)
+        | ExprError::UnrecognizedIdentifier { token_idx, .. }
+        | ExprError::UnresolvedSubentity { token_idx, .. } => {
+            ranged_token_sheet.token_range(*token_idx)
+        }
         ExprError::EntityTree(_) => todo!(),
         ExprError::Token(_) => todo!(),
         ExprError::MissingBlock(_) => todo!(),

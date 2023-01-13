@@ -39,60 +39,7 @@ impl<'a> TermPatternInferContext<'a> {
         sheet: &mut TermPatternInferSheet,
     ) -> ExprTermPatternInferRawResults {
         todo!()
-        // match self.expr() {
-        //     Expr::Literal(literal) => self.infer_literal(todo!(), sheet),
-        //     Expr::EntityPath(_) => todo!(),
-        //     Expr::Variable {
-        //         token_idx,
-        //         variable_idx,
-        //     } => todo!(),
-        //     // Expr::Symbol(symbol) => match symbol {
-        //     //     Symbol::Entity(_) => todo!(),
-        //     //     Symbol::Variable(_) => todo!(),
-        //     //     Symbol::Lifetime(_) => todo!(),
-        //     //     Symbol::Label(_) => todo!(),
-        //     // },
-        //     Expr::Unrecognized(ident) => {
-        //         let error = self.error_original(OriginalTermPatternInferError::IdentUnrecognized {
-        //             ident: self.db.dt_ident(*ident).to_owned(),
-        //         });
-        //         ExprTermPatternInferRawResults {
-        //             const_expr: Err(error.clone()),
-        //             ty: self
-        //                 .err_derived(DerivedTermPatternInferError::TermPatternInferError(error)),
-        //         }
-        //     }
-        //     Expr::Uncertain(_) => todo!(),
-        //     Expr::Opn {
-        //         opn: ref opn_variant,
-        //         ref opds,
-        //     } => self.infer_opn_ty(opn_variant, opds, sheet),
-        //     Expr::Bracketed(_) => todo!(),
-        //     Expr::Err(_) => todo!(),
-        //     Expr::MethodCall {
-        //         this_expr,
-        //         arguments,
-        //         lpar_token_idx,
-        //         rpar_token_idx,
-        //     } => todo!(),
-        // }
     }
-
-    // fn infer_opn_ty(
-    //     &self,
-    //     opn_variant: &Opn,
-    //     opds: &ExprIdxRange,
-    //     sheet: &mut TermPatternInferSheet,
-    // ) -> ExprTermPatternInferRawResults {
-    //     todo!()
-    //     // match opn_variant {
-    //     //     Opn::List { .. } => todo!(),
-    //     //     Opn::Field { .. } => todo!(),
-    //     //     Opn::Abstraction => todo!(),
-    //     //     Opn::Application => todo!(),
-    //     //     Opn::Method { ident_token } => todo!(),
-    //     // }
-    // }
 
     fn infer_binary_opn(
         &self,

@@ -274,8 +274,6 @@ impl<'a> AuxInferEngine<'a> {
             }
             Expr::Literal(_)
             | Expr::EntityPath { .. }
-            | Expr::Uncertain(_)
-            | Expr::Unrecognized(_)
             | Expr::BinaryOpn { .. }
             | Expr::PrefixOpn { .. }
             | Expr::SuffixOpn { .. }
