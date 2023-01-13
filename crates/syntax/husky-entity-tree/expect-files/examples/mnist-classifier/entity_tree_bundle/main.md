@@ -136,31 +136,6 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `find_line_segments`,
-                            accessibility: PubicUnder(
-                                `mnist_classifier`,
-                            ),
-                            symbol: Use(
-                                UseSymbol {
-                                    original_symbol: ModuleItem(
-                                        ModuleItemSymbol {
-                                            path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
-                                            accessibility: PubicUnder(
-                                                `mnist_classifier::line_segment_sketch`,
-                                            ),
-                                            ast_idx: 176,
-                                        },
-                                    ),
-                                    path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
-                                    accessibility: PubicUnder(
-                                        `mnist_classifier`,
-                                    ),
-                                    ast_idx: 24,
-                                    use_expr_idx: 10,
-                                },
-                            ),
-                        },
-                        EntitySymbolEntry {
                             ident: `is_one`,
                             accessibility: PubicUnder(
                                 `mnist_classifier`,
@@ -188,6 +163,37 @@ Ok(
                                     ),
                                     ast_idx: 22,
                                     use_expr_idx: 6,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConcaveComponent`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    accessibility: Public,
+                                                    ast_idx: 73,
+                                                },
+                                            ),
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 165,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 24,
+                                    use_expr_idx: 10,
                                 },
                             ),
                         },
@@ -483,6 +489,37 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `ConcaveComponent`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    accessibility: Public,
+                                                    ast_idx: 73,
+                                                },
+                                            ),
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 165,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 201,
+                                    use_expr_idx: 6,
+                                },
+                            ),
+                        },
                     ],
                 ),
             },
@@ -749,6 +786,25 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `ConcaveComponent`,
+                            accessibility: Public,
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 73,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    accessibility: Public,
+                                    ast_idx: 165,
+                                    use_expr_idx: 6,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `RawContour`,
                             accessibility: PubicUnder(
                                 `mnist_classifier::line_segment_sketch`,
@@ -805,15 +861,11 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `ConcaveComponent`,
-                            accessibility: PubicUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
+                            accessibility: Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
                                     path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    accessibility: PubicUnder(
-                                        `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ),
+                                    accessibility: Public,
                                     ast_idx: 73,
                                 },
                             ),
@@ -1474,6 +1526,37 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `ConcaveComponent`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch::convex_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    accessibility: Public,
+                                                    ast_idx: 73,
+                                                },
+                                            ),
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 165,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `RawContour`,
                             accessibility: PubicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
@@ -1830,6 +1913,37 @@ Ok(
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConcaveComponent`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch::convexity`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    accessibility: Public,
+                                                    ast_idx: 73,
+                                                },
+                                            ),
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 165,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     accessibility: PubicUnder(
                                         `mnist_classifier::line_segment_sketch::convexity`,
                                     ),
@@ -2199,41 +2313,6 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `find_line_segments`,
-                            accessibility: PubicUnder(
-                                `mnist_classifier::fermi`,
-                            ),
-                            symbol: Use(
-                                UseSymbol {
-                                    original_symbol: Use(
-                                        UseSymbol {
-                                            original_symbol: ModuleItem(
-                                                ModuleItemSymbol {
-                                                    path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
-                                                    accessibility: PubicUnder(
-                                                        `mnist_classifier::line_segment_sketch`,
-                                                    ),
-                                                    ast_idx: 176,
-                                                },
-                                            ),
-                                            path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
-                                            accessibility: PubicUnder(
-                                                `mnist_classifier`,
-                                            ),
-                                            ast_idx: 24,
-                                            use_expr_idx: 10,
-                                        },
-                                    ),
-                                    path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
-                                    accessibility: PubicUnder(
-                                        `mnist_classifier::fermi`,
-                                    ),
-                                    ast_idx: 21,
-                                    use_expr_idx: 0,
-                                },
-                            ),
-                        },
-                        EntitySymbolEntry {
                             ident: `is_one`,
                             accessibility: PubicUnder(
                                 `mnist_classifier::fermi`,
@@ -2266,6 +2345,47 @@ Ok(
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConcaveComponent`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: Use(
+                                                UseSymbol {
+                                                    original_symbol: ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            accessibility: Public,
+                                                            ast_idx: 73,
+                                                        },
+                                                    ),
+                                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    accessibility: Public,
+                                                    ast_idx: 165,
+                                                    use_expr_idx: 6,
+                                                },
+                                            ),
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 24,
+                                            use_expr_idx: 10,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     accessibility: PubicUnder(
                                         `mnist_classifier::fermi`,
                                     ),
@@ -2652,6 +2772,29 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `ConcaveComponent`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 73,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::zero`,
+                                    ),
+                                    ast_idx: 31,
+                                    use_expr_idx: 25,
+                                },
+                            ),
+                        },
                     ],
                 ),
             },
@@ -2727,6 +2870,29 @@ Ok(
                                         `mnist_classifier::digits::one`,
                                     ),
                                     ast_idx: 72,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConcaveComponent`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 73,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::one`,
+                                    ),
+                                    ast_idx: 67,
+                                    use_expr_idx: 25,
                                 },
                             ),
                         },
@@ -2812,6 +2978,29 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `ConcaveComponent`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 73,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::six`,
+                                    ),
+                                    ast_idx: 55,
+                                    use_expr_idx: 25,
+                                },
+                            ),
+                        },
                     ],
                 ),
             },
@@ -2891,6 +3080,29 @@ Ok(
                                         `mnist_classifier::digits::three`,
                                     ),
                                     ast_idx: 38,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConcaveComponent`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 73,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::three`,
+                                    ),
+                                    ast_idx: 33,
+                                    use_expr_idx: 27,
                                 },
                             ),
                         },
@@ -3003,6 +3215,29 @@ Ok(
                                         `mnist_classifier::digits::four`,
                                     ),
                                     ast_idx: 50,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConcaveComponent`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 73,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 43,
+                                    use_expr_idx: 27,
                                 },
                             ),
                         },
@@ -3590,6 +3825,29 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `ConcaveComponent`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 73,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 45,
+                                    use_expr_idx: 23,
+                                },
+                            ),
+                        },
                     ],
                 ),
             },
@@ -3692,6 +3950,29 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `ConcaveComponent`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 73,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::eight`,
+                                    ),
+                                    ast_idx: 25,
+                                    use_expr_idx: 29,
+                                },
+                            ),
+                        },
                     ],
                 ),
             },
@@ -3771,6 +4052,29 @@ Ok(
                                         `mnist_classifier::digits::nine`,
                                     ),
                                     ast_idx: 48,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConcaveComponent`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 73,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::nine`,
+                                    ),
+                                    ast_idx: 41,
+                                    use_expr_idx: 27,
                                 },
                             ),
                         },
@@ -3883,6 +4187,37 @@ Ok(
                                         `mnist_classifier::major`,
                                     ),
                                     ast_idx: 28,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConcaveComponent`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    accessibility: Public,
+                                                    ast_idx: 73,
+                                                },
+                                            ),
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 165,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 20,
+                                    use_expr_idx: 6,
                                 },
                             ),
                         },

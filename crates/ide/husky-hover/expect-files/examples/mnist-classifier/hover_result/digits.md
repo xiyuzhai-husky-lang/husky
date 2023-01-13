@@ -250,7 +250,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 24;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 102,\n            },\n        ),\n    ),\n);\n\ntoken_info = UseExpr {\n    use_expr_idx: 0,\n    rule_idx: UseExprRuleIdx(\n        10,\n    ),\n    state: Resolved {\n        original_symbol: ModuleItem(\n            ModuleItemSymbol(\n                Id {\n                    value: 62,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 24;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 101,\n            },\n        ),\n    ),\n);\n\ntoken_info = UseExpr {\n    use_expr_idx: 0,\n    rule_idx: UseExprRuleIdx(\n        10,\n    ),\n    state: Resolved {\n        original_symbol: ModuleItem(\n            ModuleItemSymbol(\n                Id {\n                    value: 62,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -370,7 +370,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 36;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 110,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 36;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 109,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -490,7 +490,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 48;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 103,\n            },\n        ),\n    ),\n);\n\ntoken_info = UseExpr {\n    use_expr_idx: 12,\n    rule_idx: UseExprRuleIdx(\n        15,\n    ),\n    state: Resolved {\n        original_symbol: ModuleItem(\n            ModuleItemSymbol(\n                Id {\n                    value: 68,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 48;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 102,\n            },\n        ),\n    ),\n);\n\ntoken_info = UseExpr {\n    use_expr_idx: 12,\n    rule_idx: UseExprRuleIdx(\n        15,\n    ),\n    state: Resolved {\n        original_symbol: ModuleItem(\n            ModuleItemSymbol(\n                Id {\n                    value: 68,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -610,7 +610,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 60;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 108,\n            },\n        ),\n    ),\n);\n\ntoken_info = UseExpr {\n    use_expr_idx: 18,\n    rule_idx: UseExprRuleIdx(\n        18,\n    ),\n    state: Resolved {\n        original_symbol: ModuleItem(\n            ModuleItemSymbol(\n                Id {\n                    value: 94,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 60;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 107,\n            },\n        ),\n    ),\n);\n\ntoken_info = UseExpr {\n    use_expr_idx: 18,\n    rule_idx: UseExprRuleIdx(\n        18,\n    ),\n    state: Resolved {\n        original_symbol: ModuleItem(\n            ModuleItemSymbol(\n                Id {\n                    value: 94,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(

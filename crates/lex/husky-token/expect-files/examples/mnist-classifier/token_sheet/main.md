@@ -247,6 +247,12 @@ Ok(
             Punctuation(
                 ColonColon,
             ),
+            Punctuation(
+                Star,
+            ),
+            Keyword(
+                Use,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -256,8 +262,8 @@ Ok(
                     ),
                 ),
             ),
-            Keyword(
-                Use,
+            Punctuation(
+                ColonColon,
             ),
             Identifier(
                 Identifier(
@@ -304,8 +310,11 @@ Ok(
                     ),
                 ),
             ),
+            Keyword(
+                Main,
+            ),
             Punctuation(
-                ColonColon,
+                Colon,
             ),
             Identifier(
                 Identifier(
@@ -316,11 +325,8 @@ Ok(
                     ),
                 ),
             ),
-            Keyword(
-                Main,
-            ),
             Punctuation(
-                Colon,
+                Question,
             ),
             Identifier(
                 Identifier(
@@ -422,18 +428,6 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 106,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Question,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
                             value: 90,
                         },
                     ),
@@ -446,7 +440,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 107,
+                            value: 106,
                         },
                     ),
                 ),

@@ -92,6 +92,7 @@ Ok(
                 },
             },
             None,
+            None,
             UseExpr {
                 use_expr_idx: 7,
                 rule_idx: UseExprRuleIdx(
@@ -107,6 +108,7 @@ Ok(
                     ),
                 },
             },
+            None,
             None,
             None,
             None,
@@ -557,7 +559,20 @@ Ok(
             None,
             BoxPrefix,
             BoxPrefix,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             None,
@@ -615,6 +630,8 @@ Ok(
             None,
             None,
             None,
+            Field,
+            None,
             None,
             None,
             None,
@@ -731,6 +748,8 @@ Ok(
             None,
             None,
             None,
+            None,
+            Field,
             None,
             Method,
             None,
@@ -750,6 +769,8 @@ Ok(
             },
             None,
             None,
+            None,
+            Field,
             None,
             None,
             None,

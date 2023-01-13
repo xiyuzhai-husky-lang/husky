@@ -5,8 +5,8 @@ mod line_segment
 
 use crate::geom2d::*
 use crate::raw_contour::RawContour
-use concave_component::*
-use convex_component::*
+pub use concave_component::*
+pub use convex_component::*
 use line_segment::*
 
 struct LineSegmentStroke {
@@ -36,13 +36,13 @@ impl LineSegmentSketch:
         find_concave_components(self)
     
     proc bounding_box -> BoundingBox:
-        let start_point = strokes[0].start
+        let start_point = self.strokes[0].start
         let mut xmin = start_point.x
         let mut xmax = start_point.x
         let mut ymin = start_point.y
         let mut ymax = start_point.y
-        for i < strokes.ilen():
-            let point = strokes[i].end
+        for i < self.strokes.ilen():
+            let point = self.strokes[i].end
             xmin = xmin.min(point.x)
             xmax = xmax.max(point.x)
             ymin = ymin.min(point.y)
