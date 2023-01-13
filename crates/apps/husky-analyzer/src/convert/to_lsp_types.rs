@@ -11,8 +11,8 @@ use std::{
 /// This will only happen when processing windows paths.
 ///
 /// When processing non-windows path, this is essentially the same as `Url::from_file_path`.
-pub(crate) fn url_from_abs_path(path: &Path) -> lsp_types::Url {
-    let url = lsp_types::Url::from_file_path(path).unwrap();
+pub(crate) fn url_from_diff_path(path: &Path) -> Result<lsp_types::Url, ()> {
+    let url = lsp_types::Url::from_file_path(path)?;
     match path.components().next() {
         Some(path::Component::Prefix(prefix))
             if matches!(
@@ -22,7 +22,7 @@ pub(crate) fn url_from_abs_path(path: &Path) -> lsp_types::Url {
         {
             // Need to lowercase driver letter
         }
-        _ => return url,
+        _ => return Ok(url),
     }
 
     let driver_letter_range = {
@@ -30,7 +30,7 @@ pub(crate) fn url_from_abs_path(path: &Path) -> lsp_types::Url {
 
         let (scheme, drive_letter, _rest) = match url.as_str().splitn(3, ':').collect_tuple() {
             Some(it) => it,
-            None => return url,
+            None => return Ok(url),
         };
         let start = scheme.len() + ':'.len_utf8();
         start..(start + drive_letter.len())
@@ -41,7 +41,7 @@ pub(crate) fn url_from_abs_path(path: &Path) -> lsp_types::Url {
     // string in place.
     let mut url: String = url.into();
     url[driver_letter_range].make_ascii_lowercase();
-    lsp_types::Url::parse(&url).unwrap()
+    lsp_types::Url::parse(&url).map_err(|_| ())
 }
 
 impl From<lsp_ext::SnippetWorkspaceEdit> for lsp_types::WorkspaceEdit {

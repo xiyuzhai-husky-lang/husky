@@ -182,6 +182,34 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         self.finish_batch()
     }
 
+    pub fn parse_expr_expected<Error>(
+        &mut self,
+        env: ExprParseEnvironment,
+        err: impl FnOnce(TokenIdx) -> Error,
+    ) -> Result<ExprIdx, Error> {
+        let state = self.save_state();
+        self.env.set(env);
+        loop {
+            let Some((token_idx, token)) = self.token_stream.next_indexed()
+                else {
+                    break
+                };
+            match self.resolve_token(token_idx, token) {
+                ControlFlow::Continue(resolved_token) => self.accept_token(resolved_token),
+                ControlFlow::Break(_) => {
+                    self.rollback(token_idx);
+                    break;
+                }
+            }
+        }
+        self.reduce(Precedence::None);
+        self.env.unset();
+        match self.finish_batch() {
+            Some(expr_idx) => Ok(expr_idx),
+            None => Err(err(state)),
+        }
+    }
+
     pub(crate) fn pattern_expr_sheet(&self) -> &PatternExprSheet {
         self.parser.pattern_expr_sheet()
     }

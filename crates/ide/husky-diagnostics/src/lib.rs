@@ -1,3 +1,4 @@
+#![feature(trait_upcasting)]
 mod collect;
 mod db;
 mod severity;
@@ -34,42 +35,10 @@ pub struct DiagnosticsJar(
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Diagnostic {
+    message: String,
     severity: DiagnosticSeverity,
     range: TextRange,
-    message: String,
-    dev_src: DevSource,
 }
-
-// impl From<&AstError> for Diagnostic {
-//     fn from(error: &AstError) -> Self {
-//         match error.variant {
-//             AstErrorVariant::Original { ref message, range } => Self {
-//                 severity: DiagnosticSeverity::Error,
-//                 range: range.clone(),
-//                 message: format!("Ast Error: {}", message),
-//                 dev_src: error.dev_src.clone(),
-//             },
-//             AstErrorVariant::Derived => panic!(),
-//         }
-//     }
-// }
-
-// impl From<&InferError> for Diagnostic {
-//     fn from(error: &InferError) -> Self {
-//         match error.variant {
-//             InferErrorVariant::Derived { .. } => {
-//                 p!(error);
-//                 panic!()
-//             }
-//             InferErrorVariant::Original { ref message, range } => Self {
-//                 severity: DiagnosticSeverity::Error,
-//                 range: range.clone(),
-//                 message: format!("Infer Error: {}", message),
-//                 dev_src: error.dev_src.clone(),
-//             },
-//         }
-//     }
-// }
 
 impl Into<lsp_types::Diagnostic> for &Diagnostic {
     fn into(self) -> lsp_types::Diagnostic {

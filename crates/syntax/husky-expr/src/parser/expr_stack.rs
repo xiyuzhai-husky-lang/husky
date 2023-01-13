@@ -211,8 +211,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 UnfinishedExpr::ListItem {
                     separator_token_idx,
                 } => todo!(),
-                UnfinishedExpr::List { .. } => {
-                    self.stack.finished_expr = Some(Expr::Err(ExprError::UnterminatedList))
+                UnfinishedExpr::List { bra_token_idx, .. } => {
+                    self.stack.finished_expr =
+                        Some(Expr::Err(ExprError::UnterminatedList { bra_token_idx }))
                 }
                 UnfinishedExpr::LambdaHead { inputs, start } => todo!(),
             }

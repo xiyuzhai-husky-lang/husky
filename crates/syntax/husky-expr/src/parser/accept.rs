@@ -206,9 +206,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
     pub(crate) fn accept_binary_opr(&mut self, binary: BinaryOpr, binary_token_idx: TokenIdx) {
         self.reduce(binary.into());
-        let lopd = self
-            .take_finished_expr()
-            .unwrap_or(Expr::Err(ExprError::NoLeftOperandForBinaryOperator));
+        let lopd = self.take_finished_expr().unwrap_or(Expr::Err(
+            ExprError::NoLeftOperandForBinaryOperator { binary_token_idx },
+        ));
         let unfinished_expr = UnfinishedExpr::Binary {
             lopd,
             punctuation: binary,
