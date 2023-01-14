@@ -242,19 +242,17 @@ proc find_raw_contours(cc: &ConnectedComponent) -> []RawContour:
                     prev_angle_change1 = angle_change
                 // move
                 // update i, j, row below and above
-                match outward_direction:
-                    case Direction::UP:
-                        i = i - 1 
-                        row_below = row_above
-                        row_above = cc.mask[i-1]
-                    case Direction::DOWN:
-                        i = i + 1 
-                        row_above = row_below
-                        row_below = cc.mask[i]
-                    case Direction::LEFT:
-                        j = j + 1
-                    case Direction::RIGHT:
-                        j = j - 1
+                match outward_direction with:
+                | Direction::UP =>:
+                    i = i - 1 
+                    row_below = row_above
+                    row_above = cc.mask[i-1]
+                | Direction::DOWN =>:
+                    i = i + 1 
+                    row_above = row_below
+                    row_below = cc.mask[i]
+                | Direction::LEFT => j = j + 1
+                | Direction::RIGHT => j = j - 1
                 // update inward_direction
                 inward_direction = outward_direction
                 // update streak

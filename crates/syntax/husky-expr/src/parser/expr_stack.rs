@@ -49,6 +49,8 @@ impl Expr {
                 Err(_) => todo!(),
             },
             Expr::InheritedSymbol { .. } | Expr::LocalSymbol { .. } => BaseEntityPath::None,
+            Expr::SelfValue(_) => todo!(),
+            Expr::SelfType(_) => todo!(),
             Expr::BinaryOpn {
                 lopd,
                 punctuation,

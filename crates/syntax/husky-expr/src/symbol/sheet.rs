@@ -1,13 +1,64 @@
 use crate::*;
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum AllowSelfValue {
+    True,
+    False,
+}
+
+impl AllowSelfValue {
+    fn to_bool(self) -> bool {
+        match self {
+            AllowSelfValue::True => true,
+            AllowSelfValue::False => false,
+        }
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum AllowSelfType {
+    True,
+    False,
+}
+
+impl AllowSelfType {
+    fn to_bool(self) -> bool {
+        match self {
+            AllowSelfType::True => true,
+            AllowSelfType::False => false,
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq)]
 pub struct SymbolSheet {
     inherited_symbol_arena: InheritedSymbolArena,
     local_symbol_arena: LocalSymbolArena,
+    allow_self_type: AllowSelfType,
+    allow_self_value: AllowSelfValue,
 }
 
 impl SymbolSheet {
-    pub(crate) fn new(parent_symbol_sheet: Option<&SymbolSheet>) -> Self {
+    pub(crate) fn new(
+        parent_symbol_sheet: Option<&SymbolSheet>,
+        allow_self_type: AllowSelfType,
+        allow_self_value: AllowSelfValue,
+    ) -> Self {
+        #[cfg(test)]
+        {
+            if allow_self_value.to_bool() {
+                assert!(allow_self_type.to_bool());
+            } else {
+                if let Some(parent_symbol_sheet) = parent_symbol_sheet {
+                    assert!(!parent_symbol_sheet.allow_self_value.to_bool());
+                }
+            }
+            if !allow_self_type.to_bool() {
+                if let Some(parent_symbol_sheet) = parent_symbol_sheet {
+                    assert!(!parent_symbol_sheet.allow_self_type.to_bool());
+                }
+            }
+        }
         Self {
             // ad hoc
             inherited_symbol_arena: match parent_symbol_sheet {
@@ -15,6 +66,8 @@ impl SymbolSheet {
                 None => Default::default(),
             },
             local_symbol_arena: Default::default(),
+            allow_self_type,
+            allow_self_value,
         }
     }
 
@@ -76,6 +129,14 @@ impl SymbolSheet {
             });
         }
         inherited_symbol_arena
+    }
+
+    pub fn allow_self_type(&self) -> AllowSelfType {
+        self.allow_self_type
+    }
+
+    pub fn allow_self_value(&self) -> AllowSelfValue {
+        self.allow_self_value
     }
 }
 

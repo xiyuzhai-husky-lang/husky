@@ -85,6 +85,8 @@ pub enum Expr {
         local_symbol_idx: LocalSymbolIdx,
         local_symbol_kind: LocalSymbolKind,
     },
+    SelfType(TokenIdx),
+    SelfValue(TokenIdx),
     BinaryOpn {
         lopd: ExprIdx,
         punctuation: BinaryOpr,

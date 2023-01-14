@@ -6,7 +6,7 @@ use super::*;
 impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(crate) fn accept_token(&mut self, token: ResolvedToken) {
         match token {
-            ResolvedToken::Atom(atom) => self.accept_atom(atom),
+            ResolvedToken::AtomicExpr(atom) => self.accept_atom(atom),
             ResolvedToken::BinaryOpr(token_idx, opr) => self.accept_binary_opr(opr, token_idx),
             ResolvedToken::PrefixOpr(token_idx, opr) => self.accept_prefix_opr(opr, token_idx),
             ResolvedToken::SuffixOpr(token_idx, opr) => self.accept_suffix_opr(opr, token_idx),

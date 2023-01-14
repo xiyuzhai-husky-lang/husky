@@ -161,7 +161,11 @@ impl<'a> DeclParser<'a> {
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeDecl> {
-        let mut parser = self.expr_parser(DeclExprPath::Entity(path.into()));
+        let mut parser = self.expr_parser(
+            DeclExprPath::Entity(path.into()),
+            AllowSelfType::True,
+            AllowSelfValue::False,
+        );
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
@@ -203,7 +207,11 @@ impl<'a> DeclParser<'a> {
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TraitDecl> {
-        let mut parser = self.expr_parser(DeclExprPath::Entity(path.into()));
+        let mut parser = self.expr_parser(
+            DeclExprPath::Entity(path.into()),
+            AllowSelfType::True,
+            AllowSelfValue::False,
+        );
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
@@ -226,7 +234,11 @@ impl<'a> DeclParser<'a> {
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeDecl> {
-        let mut parser = self.expr_parser(DeclExprPath::Entity(path.into()));
+        let mut parser = self.expr_parser(
+            DeclExprPath::Entity(path.into()),
+            AllowSelfType::True,
+            AllowSelfValue::False,
+        );
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
@@ -246,7 +258,11 @@ impl<'a> DeclParser<'a> {
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeDecl> {
-        let mut parser = self.expr_parser(DeclExprPath::Entity(path.into()));
+        let mut parser = self.expr_parser(
+            DeclExprPath::Entity(path.into()),
+            AllowSelfType::True,
+            AllowSelfValue::False,
+        );
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
@@ -274,12 +290,22 @@ impl<'a> DeclParser<'a> {
         }
     }
 
-    fn expr_parser(&self, expr_path: DeclExprPath) -> ExprParser<'a> {
+    fn expr_parser(
+        &self,
+        expr_path: DeclExprPath,
+        allow_self_type: AllowSelfType,
+        allow_self_value: AllowSelfValue,
+    ) -> ExprParser<'a> {
         ExprParser::new(
             self.db,
             expr_path.into(),
             self.token_sheet_data,
-            SymbolContextMut::new(self.module_symbol_context, None),
+            SymbolContextMut::new(
+                self.module_symbol_context,
+                None,
+                allow_self_type,
+                allow_self_value,
+            ),
         )
     }
 
@@ -295,7 +321,11 @@ impl<'a> DeclParser<'a> {
             .token_sheet_data
             .token_group_token_stream(token_group_idx, Some(saved_stream_state));
 
-        let mut parser = self.expr_parser(DeclExprPath::Entity(path.into()));
+        let mut parser = self.expr_parser(
+            DeclExprPath::Entity(path.into()),
+            AllowSelfType::True,
+            AllowSelfValue::False,
+        );
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
@@ -320,7 +350,11 @@ impl<'a> DeclParser<'a> {
             .token_sheet_data
             .token_group_token_stream(token_group_idx, Some(saved_stream_state));
 
-        let mut parser = self.expr_parser(DeclExprPath::Entity(path.into()));
+        let mut parser = self.expr_parser(
+            DeclExprPath::Entity(path.into()),
+            AllowSelfType::True,
+            AllowSelfValue::False,
+        );
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
@@ -389,7 +423,11 @@ impl<'a> DeclParser<'a> {
         saved_stream_state: TokenIdx,
         path: FormPath,
     ) -> Result<FormDecl, DeclError> {
-        let mut parser = self.expr_parser(DeclExprPath::Entity(path.into()));
+        let mut parser = self.expr_parser(
+            DeclExprPath::Entity(path.into()),
+            AllowSelfType::False,
+            AllowSelfValue::False,
+        );
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
@@ -404,7 +442,11 @@ impl<'a> DeclParser<'a> {
         saved_stream_state: TokenIdx,
         path: FormPath,
     ) -> Result<FormDecl, DeclError> {
-        let mut parser = self.expr_parser(DeclExprPath::Entity(path.into()));
+        let mut parser = self.expr_parser(
+            DeclExprPath::Entity(path.into()),
+            AllowSelfType::False,
+            AllowSelfValue::False,
+        );
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
@@ -456,7 +498,11 @@ impl<'a> DeclParser<'a> {
         token_group_idx: TokenGroupIdx,
         impl_block: ImplBlock,
     ) -> DeclResult<TypeImplBlockDecl> {
-        let mut parser = self.expr_parser(DeclExprPath::ImplBlock(impl_block));
+        let mut parser = self.expr_parser(
+            DeclExprPath::ImplBlock(impl_block),
+            AllowSelfType::True,
+            AllowSelfValue::False,
+        );
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, None),
@@ -542,7 +588,11 @@ impl<'a> DeclParser<'a> {
         associated_item: AssociatedItem,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeMethodDecl> {
-        let mut parser = self.expr_parser(DeclExprPath::AssociatedItem(associated_item));
+        let mut parser = self.expr_parser(
+            DeclExprPath::AssociatedItem(associated_item),
+            AllowSelfType::True,
+            AllowSelfValue::True,
+        );
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, saved_stream_state),
@@ -584,7 +634,11 @@ impl<'a> DeclParser<'a> {
         associated_item: AssociatedItem,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeMemoDecl> {
-        let mut parser = self.expr_parser(DeclExprPath::AssociatedItem(associated_item));
+        let mut parser = self.expr_parser(
+            DeclExprPath::AssociatedItem(associated_item),
+            AllowSelfType::True,
+            AllowSelfValue::True,
+        );
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, saved_stream_state),
@@ -619,7 +673,11 @@ impl<'a> DeclParser<'a> {
         associated_item: AssociatedItem,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeAsTraitMethodDecl> {
-        let mut parser = self.expr_parser(DeclExprPath::AssociatedItem(associated_item));
+        let mut parser = self.expr_parser(
+            DeclExprPath::AssociatedItem(associated_item),
+            AllowSelfType::True,
+            AllowSelfValue::True,
+        );
         let mut ctx = parser.ctx(
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, saved_stream_state),

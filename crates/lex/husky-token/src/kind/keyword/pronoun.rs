@@ -3,17 +3,17 @@ use crate::{Keyword, Token};
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum PronounKeyword {
     Crate,
-    Super,
-    SelfValue,
     SelfType,
+    SelfValue,
+    Super,
 }
 
 impl PronounKeyword {
     pub fn code(self) -> &'static str {
         match self {
             PronounKeyword::Crate => "crate",
-            PronounKeyword::SelfValue => "self",
             PronounKeyword::SelfType => "Self",
+            PronounKeyword::SelfValue => "self",
             PronounKeyword::Super => "super",
         }
     }

@@ -9,10 +9,12 @@ impl<'a> SymbolContextMut<'a> {
     pub fn new(
         module_symbol_context: ModuleSymbolContext<'a>,
         parent_symbol_sheet: Option<&SymbolSheet>,
+        allow_self_type: AllowSelfType,
+        allow_self_value: AllowSelfValue,
     ) -> Self {
         Self {
             module_symbol_context,
-            symbol_sheet: SymbolSheet::new(parent_symbol_sheet),
+            symbol_sheet: SymbolSheet::new(parent_symbol_sheet, allow_self_type, allow_self_value),
         }
     }
 
@@ -52,5 +54,9 @@ impl<'a> SymbolContextMut<'a> {
 
     pub(crate) fn define_variables(&mut self, variables: Vec<LocalSymbol>) -> LocalSymbolIdxRange {
         self.symbol_sheet.define_variables(variables)
+    }
+
+    pub(crate) fn symbol_sheet(&self) -> &SymbolSheet {
+        &self.symbol_sheet
     }
 }

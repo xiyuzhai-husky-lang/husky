@@ -21,6 +21,8 @@ pub enum TokenInfo {
         local_symbol_kind: LocalSymbolKind,
         expr_sheet: ExprSheet,
     },
+    SelfType,
+    SelfValue,
     Field,
     Method,
     BoxColon,
