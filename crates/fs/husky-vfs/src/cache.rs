@@ -2,10 +2,11 @@ use std::sync::RwLock;
 
 use crate::*;
 use husky_fs_specs::{corgi_install_path, huskyup_install_path, FsSpecsError, FsSpecsResult};
+use vec_like::VecSet;
 
 pub struct VfsCache {
     files: DashMap<PathBuf, File>,
-    live_packages: RwLock<Vec<PackagePath>>,
+    live_packages: RwLock<VecSet<PackagePath>>,
     corgi_install_path: FsSpecsResult<PathBuf>,
     huskyup_install_path: FsSpecsResult<PathBuf>,
     base_path: VfsResult<PathBuf>,
@@ -45,7 +46,7 @@ impl VfsCache {
 
     pub(crate) fn live_packages<'a>(
         &'a self,
-    ) -> std::sync::LockResult<std::sync::RwLockReadGuard<'_, Vec<PackagePath>>> {
+    ) -> std::sync::LockResult<std::sync::RwLockReadGuard<'_, VecSet<PackagePath>>> {
         self.live_packages.read()
     }
 
@@ -72,7 +73,7 @@ impl VfsCache {
 
     pub(crate) fn add_live_package(&self, package_path: PackagePath) {
         match self.live_packages.write() {
-            Ok(mut live_packages) => live_packages.push(package_path),
+            Ok(mut live_packages) => live_packages.insert(package_path),
             Err(_) => todo!(),
         }
     }

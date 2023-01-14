@@ -2,13 +2,14 @@ use crate::*;
 use husky_fs_specs::FsSpecsError;
 use husky_path_utils::{collect_husky_package_dirs, derive_library_path_from_cargo_manifest_dir};
 use husky_text::TextChange;
+use vec_like::VecSet;
 
 pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {
     fn vfs_path_menu(&self, toolchain: Toolchain) -> ToolchainResult<&VfsPathMenu>;
     fn current_toolchain(&self) -> VfsResult<Toolchain>;
     fn live_packages(
         &self,
-    ) -> std::sync::LockResult<std::sync::RwLockReadGuard<'_, Vec<PackagePath>>>;
+    ) -> std::sync::LockResult<std::sync::RwLockReadGuard<'_, VecSet<PackagePath>>>;
     fn package_manifest_content(&self, package_path: PackagePath) -> VfsResult<&str>;
     fn module_diff_path(&self, module_path: ModulePath) -> VfsResult<DiffPath>;
     fn module_content(&self, module_path: ModulePath) -> VfsResult<&str>;
@@ -172,7 +173,7 @@ where
 
     fn live_packages(
         &self,
-    ) -> std::sync::LockResult<std::sync::RwLockReadGuard<'_, Vec<PackagePath>>> {
+    ) -> std::sync::LockResult<std::sync::RwLockReadGuard<'_, VecSet<PackagePath>>> {
         self.vfs_cache().live_packages()
     }
 
@@ -303,12 +304,14 @@ where
     }
 
     fn set_live_file(&mut self, path: &Path, text: String) -> VfsResult<()> {
+        update_live_packages(self, path);
         self.set_content(path, FileContent::Live(text))
     }
 
     /// If range are omitted
     /// the new text is considered to be the full content of the document.
-    fn apply_live_file_changes(&mut self, _path: &Path, _event: Vec<TextChange>) -> VfsResult<()> {
+    fn apply_live_file_changes(&mut self, path: &Path, _event: Vec<TextChange>) -> VfsResult<()> {
+        update_live_packages(self, path);
         eprintln!("todo: apply_live_file_changes");
         Ok(())
     }
@@ -333,6 +336,12 @@ where
 
     fn current_toolchain(&self) -> VfsResult<Toolchain> {
         current_toolchain(self)
+    }
+}
+
+fn update_live_packages(db: &dyn VfsDb, path: &Path) {
+    if let Ok(toolchain) = db.current_toolchain() {
+        db.resolve_module_path(toolchain, path);
     }
 }
 

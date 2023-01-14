@@ -10,13 +10,14 @@ url = "2.3.1"
 thiserror = "1.0.37"
 notify-debouncer-mini = "0.2.0"
 expect-test = "1.4.0"
-salsa = { path = "../../abstraction/salsa" }
 crossbeam-channel = "0.5.6"
 dashmap = "5.4.0"
 eyre = "0.6.8"
 semver = "1.0.14"
 replace_with = "0.1.7"
 # abstraction
+vec-like = { path = "../../abstraction/vec-like" }
+salsa = { path = "../../abstraction/salsa" }
 with-db = { path = "../../abstraction/with-db" }
 # fs
 husky-fs-specs = { path = "../../fs/husky-fs-specs" }
