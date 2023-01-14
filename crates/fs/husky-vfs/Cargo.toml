@@ -15,6 +15,7 @@ dashmap = "5.4.0"
 eyre = "0.6.8"
 semver = "1.0.14"
 replace_with = "0.1.7"
+lsp-types = { version = "0.93", features = ["proposed"], optional = true }
 # abstraction
 vec-like = { path = "../../abstraction/vec-like" }
 salsa = { path = "../../abstraction/salsa" }
@@ -37,3 +38,4 @@ tempfile = "3.3.0"
 [features]
 default = []
 test_utils = []
+lsp_support = ["dep:lsp-types", "husky-text/lsp_support"]

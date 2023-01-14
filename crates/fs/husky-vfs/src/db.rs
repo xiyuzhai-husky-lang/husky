@@ -25,8 +25,6 @@ pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {
         package_path: PackagePath,
     ) -> VfsResult<Vec<CratePath>>;
     fn collect_probable_modules(&self, package: PackagePath) -> Vec<ModulePath>;
-    fn set_live_file(&mut self, path: &Path, text: String) -> VfsResult<()>;
-    fn apply_live_file_changes(&mut self, path: &Path, changes: Vec<TextChange>) -> VfsResult<()>;
     fn resolve_module_path(&self, toolchain: Toolchain, path: &Path) -> VfsResult<ModulePath>;
     fn toolchain_library_path(&self, toolchain: Toolchain) -> &Path;
     fn published_toolchain_library_path(&self, toolchain: PublishedToolchain) -> &Path;
@@ -39,7 +37,7 @@ pub trait VfsDbInner {
     fn vfs_jar_mut(&mut self) -> &mut VfsJar;
     fn vfs_cache(&self) -> &VfsCache;
     fn set_content(&mut self, path: &Path, content: FileContent) -> VfsResult<()>;
-    fn update_file(&mut self, path: &Path) -> VfsResult<()>
+    fn refresh_file_from_disk(&mut self, path: &Path) -> VfsResult<()>
     where
         Self: 'static;
     fn corgi_install_path(&self) -> Result<&PathBuf, &FsSpecsError> {
@@ -106,13 +104,14 @@ where
     }
 
     // todo: test this
-    fn update_file(&mut self, path: &Path) -> VfsResult<()>
+    fn refresh_file_from_disk(&mut self, path: &Path) -> VfsResult<()>
     where
         T: 'static,
     {
         let content = read_file_content(&path);
         self.set_content(path, content)
     }
+
     fn set_content(&mut self, path: &Path, content: FileContent) -> VfsResult<()> {
         let abs_path = DiffPath::try_new(self, path)?;
         let file = match self
@@ -303,19 +302,6 @@ where
         modules
     }
 
-    fn set_live_file(&mut self, path: &Path, text: String) -> VfsResult<()> {
-        update_live_packages(self, path);
-        self.set_content(path, FileContent::Live(text))
-    }
-
-    /// If range are omitted
-    /// the new text is considered to be the full content of the document.
-    fn apply_live_file_changes(&mut self, path: &Path, _event: Vec<TextChange>) -> VfsResult<()> {
-        update_live_packages(self, path);
-        eprintln!("todo: apply_live_file_changes");
-        Ok(())
-    }
-
     fn resolve_module_path(&self, toolchain: Toolchain, path: &Path) -> VfsResult<ModulePath> {
         let module_path = resolve_module_path(self, toolchain, path)?;
         let package_path = module_path.package_path(self);
@@ -336,12 +322,6 @@ where
 
     fn current_toolchain(&self) -> VfsResult<Toolchain> {
         current_toolchain(self)
-    }
-}
-
-fn update_live_packages(db: &dyn VfsDb, path: &Path) {
-    if let Ok(toolchain) = db.current_toolchain() {
-        db.resolve_module_path(toolchain, path);
     }
 }
 
