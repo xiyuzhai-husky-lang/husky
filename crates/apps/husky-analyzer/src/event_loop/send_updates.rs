@@ -11,11 +11,4 @@ pub(crate) fn send_updates(db: &AnalyzerDB, comm: &ClientCommunicator) {
             comm.send_diagnostics(db, module_path)
         }
     }
-    // db.module_iter().for_each(|module| {
-    //     db.diagnostics_reserve(module).release(|diagnostics| {
-    //         if let Some(file) = db.module_file(module).ok() {
-    //             comm.send_diagnostics(db.url(file), diagnostics.iter().map(|d| d.clone().into()).collect(), None);
-    //         }
-    //     })
-    // });
 }
