@@ -60,6 +60,7 @@ impl<'a> TermPatternInferContext<'a> {
             BinaryOpr::Curry => todo!(),
             BinaryOpr::As => todo!(),
             BinaryOpr::Is => todo!(),
+            BinaryOpr::In => todo!(),
         }
     }
 

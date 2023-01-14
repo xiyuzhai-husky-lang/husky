@@ -142,16 +142,16 @@ impl<'a> BlockExprParser<'a> {
                 },
                 BasicStmtKeywordToken::Break(break_token) => Stmt::Break { break_token },
                 BasicStmtKeywordToken::For(for_token) => {
-                    // ad hoc
-                    Stmt::For {
-                        for_token,
-                        condition: ctx.parse_expr_expected(
-                            ExprParseEnvironment::None,
-                            ExprError::MissingCondition,
-                        ),
-                        eol_colon: ctx.parse_expected(),
-                        block: self.parse_block_stmts_expected(body, token_group_idx),
-                    }
+                    let expr = match ctx.parse_expr_expected(
+                        ExprParseEnvironment::None,
+                        ExprError::MissingCondition,
+                    ) {
+                        Ok(expr) => expr,
+                        Err(_) => todo!(),
+                    };
+                    let eol_colon = ctx.parse_expected();
+                    let block = self.parse_block_stmts_expected(body, token_group_idx);
+                    self.parse_for_loop(expr, for_token, eol_colon, block)
                 }
                 BasicStmtKeywordToken::ForExt(forext_token) => Stmt::ForExt {
                     forext_token,
@@ -189,6 +189,44 @@ impl<'a> BlockExprParser<'a> {
                 .parse_expr(ExprParseEnvironment::None)
                 .map(|expr| Stmt::Eval { expr }),
             Err(_) => todo!(),
+        }
+    }
+
+    fn parse_for_loop(
+        &mut self,
+        expr: ExprIdx,
+        for_token: ForToken,
+        eol_colon: ExprResult<EolColonToken>,
+        block: ExprResult<StmtIdxRange>,
+    ) -> Stmt {
+        match self.expr_arena[expr] {
+            Expr::BinaryOpn {
+                lopd,
+                opr: BinaryOpr::Comparison(_),
+                opr_token_idx,
+                ropd,
+            } => Stmt::ForBetween {
+                for_token,
+                frame_var_ident: todo!(),
+                frame_var_token_idx: todo!(),
+                initial_boundary: todo!(),
+                final_boundary: todo!(),
+                step: todo!(),
+                eol_colon,
+                block,
+            },
+            Expr::BinaryOpn {
+                lopd,
+                opr: BinaryOpr::In,
+                opr_token_idx,
+                ropd,
+            } => Stmt::ForIn {
+                for_token,
+                condition: todo!(),
+                eol_colon,
+                block,
+            },
+            _ => todo!(),
         }
     }
 
