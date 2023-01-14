@@ -340,6 +340,14 @@ Ok(
                     Par,
                 ),
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -351,6 +359,14 @@ Ok(
             ),
             Punctuation(
                 Comma,
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -470,6 +486,14 @@ Ok(
                     ),
                 ),
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -509,6 +533,14 @@ Ok(
                         Sub,
                     ),
                 ),
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -570,6 +602,14 @@ Ok(
                     Par,
                 ),
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -581,6 +621,14 @@ Ok(
             ),
             Punctuation(
                 Star,
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -598,6 +646,14 @@ Ok(
                     ),
                 ),
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -609,6 +665,14 @@ Ok(
             ),
             Punctuation(
                 Star,
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -707,6 +771,14 @@ Ok(
             ),
             Punctuation(
                 Colon,
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -972,6 +1044,14 @@ Ok(
                     Par,
                 ),
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -983,6 +1063,14 @@ Ok(
             ),
             Punctuation(
                 Comma,
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -1102,6 +1190,14 @@ Ok(
                     ),
                 ),
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -1141,6 +1237,14 @@ Ok(
                         Sub,
                     ),
                 ),
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -1202,6 +1306,14 @@ Ok(
                     Par,
                 ),
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -1213,6 +1325,14 @@ Ok(
             ),
             Punctuation(
                 Star,
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -1230,6 +1350,14 @@ Ok(
                     ),
                 ),
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -1241,6 +1369,14 @@ Ok(
             ),
             Punctuation(
                 Star,
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -1340,6 +1476,14 @@ Ok(
             Punctuation(
                 Colon,
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -1379,6 +1523,14 @@ Ok(
                         Add,
                     ),
                 ),
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -1475,6 +1627,14 @@ Ok(
             Punctuation(
                 Colon,
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -1514,6 +1674,14 @@ Ok(
                         Sub,
                     ),
                 ),
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -1636,6 +1804,14 @@ Ok(
                     Par,
                 ),
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -1651,6 +1827,14 @@ Ok(
                         Div,
                     ),
                 ),
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -1791,6 +1975,14 @@ Ok(
                     Par,
                 ),
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -1841,6 +2033,14 @@ Ok(
             ),
             Punctuation(
                 Star,
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -1954,6 +2154,14 @@ Ok(
             ),
             Punctuation(
                 Colon,
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -2746,6 +2954,14 @@ Ok(
                     Assert,
                 ),
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -2757,6 +2973,14 @@ Ok(
             ),
             Punctuation(
                 RaOrGt,
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -2788,6 +3012,14 @@ Ok(
                     ),
                 ),
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -2803,6 +3035,14 @@ Ok(
                         Sub,
                     ),
                 ),
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -2866,6 +3106,14 @@ Ok(
                         Sub,
                     ),
                 ),
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -2950,6 +3198,14 @@ Ok(
                         Sub,
                     ),
                 ),
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -3107,6 +3363,14 @@ Ok(
                     ),
                 ),
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -3122,6 +3386,14 @@ Ok(
                         Sub,
                     ),
                 ),
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -3152,6 +3424,14 @@ Ok(
                         Sub,
                     ),
                 ),
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -3355,6 +3635,14 @@ Ok(
                     Par,
                 ),
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -3409,6 +3697,14 @@ Ok(
             ),
             Punctuation(
                 Comma,
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -3546,6 +3842,14 @@ Ok(
                     Par,
                 ),
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -3600,6 +3904,14 @@ Ok(
             ),
             Punctuation(
                 Comma,
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -4069,6 +4381,14 @@ Ok(
             Punctuation(
                 Colon,
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -4130,6 +4450,14 @@ Ok(
             ),
             Punctuation(
                 Colon,
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -4193,6 +4521,14 @@ Ok(
             Punctuation(
                 Colon,
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -4255,6 +4591,14 @@ Ok(
             Punctuation(
                 Colon,
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -4284,88 +4628,88 @@ Ok(
             30,
             48,
             55,
-            61,
-            71,
-            85,
-            92,
-            105,
-            115,
-            123,
-            135,
-            147,
-            150,
-            157,
-            163,
-            173,
-            187,
-            194,
-            207,
-            217,
-            228,
-            238,
-            249,
-            259,
-            274,
-            281,
-            284,
-            285,
-            287,
-            289,
+            65,
+            75,
+            93,
+            100,
+            121,
+            131,
+            141,
+            153,
+            165,
+            168,
+            175,
+            185,
+            195,
+            213,
+            220,
+            241,
+            251,
+            266,
+            276,
             291,
-            310,
+            301,
             320,
-            328,
-            342,
-            350,
-            354,
-            362,
-            366,
-            388,
-            395,
-            398,
-            399,
-            401,
-            403,
-            405,
-            424,
-            429,
-            441,
-            444,
-            454,
-            458,
-            464,
+            327,
+            330,
+            331,
+            333,
+            335,
+            337,
+            360,
+            370,
+            380,
+            394,
+            402,
+            406,
+            414,
+            418,
+            440,
+            447,
+            450,
+            451,
+            453,
+            455,
+            457,
             476,
-            488,
-            495,
-            505,
-            511,
-            518,
-            522,
-            527,
-            532,
-            533,
-            536,
-            546,
-            567,
-            577,
-            598,
-            605,
-            610,
-            617,
-            622,
-            629,
-            634,
+            481,
+            493,
+            496,
+            506,
+            514,
+            524,
+            538,
+            552,
+            559,
+            569,
+            579,
+            588,
+            592,
+            597,
+            602,
+            603,
+            606,
+            616,
             641,
-            646,
-            658,
-            661,
-            668,
-            671,
-            678,
-            681,
+            651,
+            676,
+            683,
             688,
-            691,
-            698,
+            695,
+            700,
+            707,
+            712,
+            719,
+            724,
+            736,
+            739,
+            746,
+            751,
+            758,
+            763,
+            770,
+            775,
+            782,
         ],
         indents: [
             0,

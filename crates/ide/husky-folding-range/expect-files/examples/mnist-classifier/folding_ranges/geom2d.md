@@ -20,7 +20,7 @@ Ok(
             ),
             end_line: 10,
             end_character: Some(
-                22,
+                32,
             ),
             kind: Some(
                 Region,
@@ -33,7 +33,7 @@ Ok(
             ),
             end_line: 13,
             end_character: Some(
-                42,
+                52,
             ),
             kind: Some(
                 Region,
@@ -46,7 +46,7 @@ Ok(
             ),
             end_line: 16,
             end_character: Some(
-                30,
+                50,
             ),
             kind: Some(
                 Region,
@@ -59,7 +59,7 @@ Ok(
             ),
             end_line: 19,
             end_character: Some(
-                24,
+                29,
             ),
             kind: Some(
                 Region,
@@ -111,7 +111,7 @@ Ok(
             ),
             end_line: 55,
             end_character: Some(
-                68,
+                78,
             ),
             kind: Some(
                 Region,
@@ -176,7 +176,7 @@ Ok(
             ),
             end_line: 33,
             end_character: Some(
-                21,
+                31,
             ),
             kind: Some(
                 Region,
@@ -189,7 +189,7 @@ Ok(
             ),
             end_line: 36,
             end_character: Some(
-                42,
+                52,
             ),
             kind: Some(
                 Region,
@@ -202,7 +202,7 @@ Ok(
             ),
             end_line: 39,
             end_character: Some(
-                30,
+                50,
             ),
             kind: Some(
                 Region,
@@ -215,7 +215,7 @@ Ok(
             ),
             end_line: 42,
             end_character: Some(
-                33,
+                43,
             ),
             kind: Some(
                 Region,
@@ -228,7 +228,7 @@ Ok(
             ),
             end_line: 45,
             end_character: Some(
-                33,
+                43,
             ),
             kind: Some(
                 Region,
@@ -254,7 +254,7 @@ Ok(
             ),
             end_line: 62,
             end_character: Some(
-                27,
+                32,
             ),
             kind: Some(
                 Region,
@@ -293,7 +293,7 @@ Ok(
             ),
             end_line: 97,
             end_character: Some(
-                24,
+                29,
             ),
             kind: Some(
                 Region,
@@ -384,7 +384,7 @@ Ok(
             ),
             end_line: 136,
             end_character: Some(
-                18,
+                23,
             ),
             kind: Some(
                 Region,
@@ -397,7 +397,7 @@ Ok(
             ),
             end_line: 139,
             end_character: Some(
-                18,
+                23,
             ),
             kind: Some(
                 Region,
@@ -410,7 +410,7 @@ Ok(
             ),
             end_line: 142,
             end_character: Some(
-                18,
+                23,
             ),
             kind: Some(
                 Region,
@@ -423,7 +423,7 @@ Ok(
             ),
             end_line: 145,
             end_character: Some(
-                18,
+                23,
             ),
             kind: Some(
                 Region,
@@ -436,7 +436,7 @@ Ok(
             ),
             end_line: 19,
             end_character: Some(
-                24,
+                29,
             ),
             kind: Some(
                 Region,
@@ -462,7 +462,7 @@ Ok(
             ),
             end_line: 97,
             end_character: Some(
-                24,
+                29,
             ),
             kind: Some(
                 Region,
@@ -501,7 +501,7 @@ Ok(
             ),
             end_line: 145,
             end_character: Some(
-                18,
+                23,
             ),
             kind: Some(
                 Region,
