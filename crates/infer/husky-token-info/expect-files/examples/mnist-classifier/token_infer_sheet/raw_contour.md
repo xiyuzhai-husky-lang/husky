@@ -1835,6 +1835,17 @@ Ok(
             ),
             None,
             None,
+            LocalSymbol {
+                local_symbol_idx: 0,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 338,
+                    },
+                ),
+            },
             None,
             None,
             None,

@@ -64,11 +64,15 @@ fn module_ancestry_works() {
     expect_test::expect![[r#"
         ModuleAncestry {
             crate_path: CratePath {
-                package_path: PackagePath(
-                    Id {
-                        value: 1,
+                package_path: PackagePath {
+                    data: Local {
+                        path: DiffPath {
+                            data: DiffPathBuf(
+                                "../../../library/core",
+                            ),
+                        },
                     },
-                ),
+                },
                 crate_kind: Library,
             },
             modules: [
@@ -80,11 +84,15 @@ fn module_ancestry_works() {
     expect_test::expect![[r#"
         ModuleAncestry {
             crate_path: CratePath {
-                package_path: PackagePath(
-                    Id {
-                        value: 1,
+                package_path: PackagePath {
+                    data: Local {
+                        path: DiffPath {
+                            data: DiffPathBuf(
+                                "../../../library/core",
+                            ),
+                        },
                     },
-                ),
+                },
                 crate_kind: Library,
             },
             modules: [

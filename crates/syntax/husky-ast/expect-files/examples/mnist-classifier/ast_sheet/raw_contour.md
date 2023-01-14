@@ -1963,13 +1963,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `get_outward_direction`,
                         token_idx: TokenIdx(
-                            660,
+                            661,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        661,
+                        662,
                     ),
                 },
                 Defn {
@@ -1998,13 +1998,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `StreakCache`,
                         token_idx: TokenIdx(
-                            885,
+                            886,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        886,
+                        887,
                     ),
                 },
                 Defn {
@@ -2033,13 +2033,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `get_concave_middle_point`,
                         token_idx: TokenIdx(
-                            894,
+                            895,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        895,
+                        896,
                     ),
                 },
                 Defn {
@@ -2068,13 +2068,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `find_raw_contours`,
                         token_idx: TokenIdx(
-                            956,
+                            957,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        957,
+                        958,
                     ),
                 },
             ],

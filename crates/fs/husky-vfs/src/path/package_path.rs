@@ -78,13 +78,28 @@ impl PackagePath {
     }
 }
 
-impl DebugWithDb<dyn VfsDb + '_> for PackagePathData {
+impl<Db: VfsDb + ?Sized> DebugWithDb<Db> for PackagePath {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn VfsDb,
+        db: &Db,
         include_all_fields: bool,
     ) -> ::std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
+        f.debug_struct("PackagePath")
+            .field("data", &self.data(db).debug(db))
+            .finish()
+    }
+}
+
+impl<Db: VfsDb + ?Sized> DebugWithDb<Db> for PackagePathData {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> ::std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
         match self {
             PackagePathData::Toolchain { ident, toolchain } => f
                 .debug_struct("Builtin")
