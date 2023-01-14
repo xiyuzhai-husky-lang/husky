@@ -433,11 +433,15 @@ Ok(
             None,
             None,
             None,
+            SelfValue,
             None,
+            Field,
             None,
             Method,
             None,
+            SelfValue,
             None,
+            Field,
             None,
             None,
             None,
@@ -1749,6 +1753,17 @@ Ok(
                 ),
             },
             None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 295,
+                    },
+                ),
+            },
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
@@ -1763,9 +1778,9 @@ Ok(
             },
             None,
             LocalSymbol {
-                local_symbol_idx: 0,
+                local_symbol_idx: 1,
                 local_symbol_kind: LetVariable {
-                    pattern_symbol: 0,
+                    pattern_symbol: 1,
                 },
                 expr_sheet: ExprSheet(
                     Id {
@@ -1776,9 +1791,9 @@ Ok(
             None,
             None,
             LocalSymbol {
-                local_symbol_idx: 0,
+                local_symbol_idx: 1,
                 local_symbol_kind: LetVariable {
-                    pattern_symbol: 0,
+                    pattern_symbol: 1,
                 },
                 expr_sheet: ExprSheet(
                     Id {
@@ -1788,9 +1803,9 @@ Ok(
             },
             None,
             LocalSymbol {
-                local_symbol_idx: 0,
+                local_symbol_idx: 1,
                 local_symbol_kind: LetVariable {
-                    pattern_symbol: 0,
+                    pattern_symbol: 1,
                 },
                 expr_sheet: ExprSheet(
                     Id {
@@ -1828,9 +1843,133 @@ Ok(
             None,
             None,
             None,
+            LocalSymbol {
+                local_symbol_idx: 2,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 295,
+                    },
+                ),
+            },
             None,
             None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 295,
+                    },
+                ),
+            },
             None,
+            InheritedSymbol {
+                inherited_symbol_idx: 1,
+                inherited_symbol_kind: Parameter {
+                    original_local_symbol_idx: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 295,
+                    },
+                ),
+            },
+            None,
+            Field,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 2,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 295,
+                    },
+                ),
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 3,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 3,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 295,
+                    },
+                ),
+            },
+            None,
+            LocalSymbol {
+                local_symbol_idx: 2,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 295,
+                    },
+                ),
+            },
+            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 1,
+                inherited_symbol_kind: Parameter {
+                    original_local_symbol_idx: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 295,
+                    },
+                ),
+            },
+            None,
+            Field,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 3,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 3,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 295,
+                    },
+                ),
+            },
+            None,
+            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 1,
+                inherited_symbol_kind: Parameter {
+                    original_local_symbol_idx: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 295,
+                    },
+                ),
+            },
+            None,
+            Field,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 295,
+                    },
+                ),
+            },
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
@@ -1857,68 +1996,6 @@ Ok(
                     },
                 ),
             },
-            None,
-            None,
-            None,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 1,
-                inherited_symbol_kind: Parameter {
-                    original_local_symbol_idx: 1,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 295,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: LetVariable {
-                    pattern_symbol: 0,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 295,
-                    },
-                ),
-            },
-            None,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 1,
-                inherited_symbol_kind: Parameter {
-                    original_local_symbol_idx: 1,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 295,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            None,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 1,
-                inherited_symbol_kind: Parameter {
-                    original_local_symbol_idx: 1,
-                },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 295,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            None,
             None,
             None,
             Entity(

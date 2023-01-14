@@ -36,7 +36,7 @@ Ok(
             ImplBlock(
                 TypeImplBlock(
                     TypeImplBlockDecl {
-                        ast_idx: 77,
+                        ast_idx: 74,
                         impl_block: ImplBlock(
                             Id {
                                 value: 26,
@@ -253,7 +253,7 @@ Ok(
                                 },
                             ),
                             body: Ok(
-                                2,
+                                12,
                             ),
                         },
                     ),

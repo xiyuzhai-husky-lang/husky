@@ -21,7 +21,7 @@ impl LineSegmentStroke:
         LineSegmentStroke(ct.points.cyclic_slice(from, to + 1))
 
     func displacement() -> Vector2d:
-        start.to(end)
+        self.start.to(self.end)
 
     visual:
         <LineSegment start={this.start} end={this.end} />
@@ -69,9 +69,9 @@ func go_right(u: Vector2d, r: f32) -> Vector2d:
 func go_left(u: Vector2d, r: f32) -> Vector2d:
     let L = (u.x*u.x+u.y*u.y).sqrt()
     assert L > r
-    dr = r*L/(L*L-r*r).sqrt()
-    dx = -dr*u.y/L
-    dy = dr*u.x/L
+    let dr = r*L/(L*L-r*r).sqrt()
+    let dx = -dr*u.y/L
+    let dy = dr*u.x/L
     Vector2d(u.x+dx, u.y+dy)
 
 proc extend_end(ct: &RawContour, start: i32, r: f32) -> i32:

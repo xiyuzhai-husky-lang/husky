@@ -35,42 +35,7 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [72:5, 72:7),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [73:11, 73:13),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [73:5, 73:7),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [74:10, 74:12),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [74:5, 74:7),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
                 range: [75:5, 75:13),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [75:18, 75:20),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [75:26, 75:28),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
@@ -86,16 +51,6 @@ DiagnosticSheet {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
                 range: [23:28, 23:36),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [24:9, 24:14),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [24:18, 24:21),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",

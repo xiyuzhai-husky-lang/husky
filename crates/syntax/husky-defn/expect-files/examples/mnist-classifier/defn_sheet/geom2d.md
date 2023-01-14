@@ -141,7 +141,7 @@ Ok(
                                 },
                             ),
                             body: Ok(
-                                4,
+                                6,
                             ),
                         },
                     ),
@@ -169,7 +169,7 @@ Ok(
                                 },
                             ),
                             body: Ok(
-                                10,
+                                12,
                             ),
                         },
                     ),
@@ -197,7 +197,7 @@ Ok(
                                 },
                             ),
                             body: Ok(
-                                9,
+                                13,
                             ),
                         },
                     ),
@@ -242,14 +242,14 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                147,
+                                165,
                             ),
                         },
                         ty: 0,
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    149,
+                                    167,
                                 ),
                             },
                         ),
@@ -283,7 +283,7 @@ Ok(
                                 },
                             ),
                             body: Ok(
-                                4,
+                                6,
                             ),
                         },
                     ),
@@ -311,7 +311,7 @@ Ok(
                                 },
                             ),
                             body: Ok(
-                                10,
+                                12,
                             ),
                         },
                     ),
@@ -339,7 +339,7 @@ Ok(
                                 },
                             ),
                             body: Ok(
-                                9,
+                                13,
                             ),
                         },
                     ),
@@ -367,7 +367,7 @@ Ok(
                                 },
                             ),
                             body: Ok(
-                                9,
+                                11,
                             ),
                         },
                     ),
@@ -395,7 +395,7 @@ Ok(
                                 },
                             ),
                             body: Ok(
-                                9,
+                                11,
                             ),
                         },
                     ),
@@ -423,7 +423,7 @@ Ok(
                                 },
                             ),
                             body: Ok(
-                                28,
+                                31,
                             ),
                         },
                     ),
@@ -501,7 +501,7 @@ Ok(
                                 },
                             ),
                             body: Ok(
-                                24,
+                                30,
                             ),
                         },
                     ),
@@ -523,7 +523,7 @@ Ok(
                                 },
                             ),
                             body: Ok(
-                                9,
+                                12,
                             ),
                         },
                     ),
@@ -540,14 +540,14 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                533,
+                                603,
                             ),
                         },
                         ty: 0,
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    535,
+                                    605,
                                 ),
                             },
                         ),
@@ -581,7 +581,7 @@ Ok(
                                 },
                             ),
                             body: Ok(
-                                10,
+                                12,
                             ),
                         },
                     ),
@@ -609,7 +609,7 @@ Ok(
                                 },
                             ),
                             body: Ok(
-                                10,
+                                12,
                             ),
                         },
                     ),
@@ -738,14 +738,14 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                658,
+                                736,
                             ),
                         },
                         ty: 0,
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    660,
+                                    738,
                                 ),
                             },
                         ),
@@ -779,7 +779,7 @@ Ok(
                                 },
                             ),
                             body: Ok(
-                                2,
+                                3,
                             ),
                         },
                     ),
@@ -807,7 +807,7 @@ Ok(
                                 },
                             ),
                             body: Ok(
-                                2,
+                                3,
                             ),
                         },
                     ),
@@ -835,7 +835,7 @@ Ok(
                                 },
                             ),
                             body: Ok(
-                                2,
+                                3,
                             ),
                         },
                     ),
@@ -863,7 +863,7 @@ Ok(
                                 },
                             ),
                             body: Ok(
-                                2,
+                                3,
                             ),
                         },
                     ),

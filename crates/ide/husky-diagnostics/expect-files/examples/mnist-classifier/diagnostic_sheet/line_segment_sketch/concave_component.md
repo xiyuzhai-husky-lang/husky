@@ -88,11 +88,6 @@ DiagnosticSheet {
                 range: [63:9, 63:20),
             },
             Diagnostic {
-                message: "Syntax Error: unterminated list",
-                severity: Error,
-                range: [63:20, 63:21),
-            },
-            Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
                 range: [68:21, 68:28),
