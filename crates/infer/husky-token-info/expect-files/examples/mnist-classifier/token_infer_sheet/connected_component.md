@@ -1850,6 +1850,8 @@ Ok(
             None,
             None,
             None,
+            Field,
+            None,
             LocalSymbol {
                 local_symbol_idx: 0,
                 local_symbol_kind: LetVariable {
@@ -1916,6 +1918,8 @@ Ok(
             },
             None,
             None,
+            None,
+            Field,
             None,
             None,
             None,

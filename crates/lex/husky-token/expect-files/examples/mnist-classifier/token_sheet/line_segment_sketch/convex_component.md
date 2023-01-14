@@ -4,13 +4,9 @@ Ok(
             Keyword(
                 Use,
             ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 35,
-                        },
-                    ),
+            Keyword(
+                Pronoun(
+                    Crate,
                 ),
             ),
             Punctuation(
@@ -20,7 +16,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 80,
+                            value: 78,
                         },
                     ),
                 ),
@@ -40,7 +36,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 339,
+                            value: 336,
                         },
                     ),
                 ),
@@ -54,7 +50,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 80,
+                            value: 78,
                         },
                     ),
                 ),
@@ -69,7 +65,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 322,
+                            value: 319,
                         },
                     ),
                 ),
@@ -81,7 +77,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 340,
+                            value: 337,
                         },
                     ),
                 ),
@@ -110,7 +106,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 323,
+                            value: 320,
                         },
                     ),
                 ),
@@ -130,7 +126,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 339,
+                            value: 336,
                         },
                     ),
                 ),
@@ -148,7 +144,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 340,
+                            value: 337,
                         },
                     ),
                 ),

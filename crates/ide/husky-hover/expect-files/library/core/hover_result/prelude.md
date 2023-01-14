@@ -70,7 +70,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 2;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 35,\n            },\n        ),\n    ),\n);\n\ntoken_info = UseExpr {\n    use_expr_idx: 2,\n    rule_idx: UseExprRuleIdx(\n        0,\n    ),\n    state: Resolved {\n        original_symbol: CrateRoot(\n            ModulePath(\n                Id {\n                    value: 1,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
+                                value: "Other\ntoken_idx = 2;\n\ntoken = Keyword(\n    Pronoun(\n        Crate,\n    ),\n);\n\ntoken_info = UseExpr {\n    use_expr_idx: 2,\n    rule_idx: UseExprRuleIdx(\n        0,\n    ),\n    state: Resolved {\n        original_symbol: CrateRoot(\n            ModulePath(\n                Id {\n                    value: 1,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 9;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 35,\n            },\n        ),\n    ),\n);\n\ntoken_info = UseExpr {\n    use_expr_idx: 5,\n    rule_idx: UseExprRuleIdx(\n        1,\n    ),\n    state: Resolved {\n        original_symbol: CrateRoot(\n            ModulePath(\n                Id {\n                    value: 1,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
+                                value: "Other\ntoken_idx = 9;\n\ntoken = Keyword(\n    Pronoun(\n        Crate,\n    ),\n);\n\ntoken_info = UseExpr {\n    use_expr_idx: 5,\n    rule_idx: UseExprRuleIdx(\n        1,\n    ),\n    state: Resolved {\n        original_symbol: CrateRoot(\n            ModulePath(\n                Id {\n                    value: 1,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(

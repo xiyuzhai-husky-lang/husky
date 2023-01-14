@@ -54,7 +54,7 @@ pub enum AmbiguousPretoken {
 }
 
 impl AmbiguousPretoken {
-    pub fn as_str(self) -> &'static str {
+    pub fn code(self) -> &'static str {
         match self {
             AmbiguousPretoken::SubOrMinus => todo!(),
             AmbiguousPretoken::For => "for",
@@ -117,6 +117,12 @@ impl From<WordOpr> for Pretoken {
 }
 
 impl Into<Pretoken> for FormKeyword {
+    fn into(self) -> Pretoken {
+        Pretoken::Certain(self.into())
+    }
+}
+
+impl Into<Pretoken> for PronounKeyword {
     fn into(self) -> Pretoken {
         Pretoken::Certain(self.into())
     }

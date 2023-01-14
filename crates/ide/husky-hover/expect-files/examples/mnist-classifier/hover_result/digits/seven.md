@@ -40,7 +40,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 17;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 348,\n            },\n        ),\n    ),\n);\n\ntoken_info = UseExpr {\n    use_expr_idx: 6,\n    rule_idx: UseExprRuleIdx(\n        14,\n    ),\n    state: Resolved {\n        original_symbol: ModuleItem(\n            ModuleItemSymbol(\n                Id {\n                    value: 103,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 17;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 346,\n            },\n        ),\n    ),\n);\n\ntoken_info = UseExpr {\n    use_expr_idx: 6,\n    rule_idx: UseExprRuleIdx(\n        14,\n    ),\n    state: Resolved {\n        original_symbol: ModuleItem(\n            ModuleItemSymbol(\n                Id {\n                    value: 103,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -100,7 +100,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 51;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 85,\n            },\n        ),\n    ),\n);\n\ntoken_info = UseExpr {\n    use_expr_idx: 24,\n    rule_idx: UseExprRuleIdx(\n        16,\n    ),\n    state: Resolved {\n        original_symbol: Submodule(\n            SubmoduleSymbol(\n                Id {\n                    value: 16,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 51;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 84,\n            },\n        ),\n    ),\n);\n\ntoken_info = UseExpr {\n    use_expr_idx: 24,\n    rule_idx: UseExprRuleIdx(\n        16,\n    ),\n    state: Resolved {\n        original_symbol: Submodule(\n            SubmoduleSymbol(\n                Id {\n                    value: 16,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -190,7 +190,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 102;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 59,\n            },\n        ),\n    ),\n);\n\ntoken_info = Field;\n\n\n",
+                                value: "\ntoken_idx = 102;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 58,\n            },\n        ),\n    ),\n);\n\ntoken_info = Field;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -220,7 +220,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 119;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 412,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Form(\n                FormPath(\n                    Id {\n                        value: 53,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Form(\n                Function,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
+                                value: "\ntoken_idx = 119;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 410,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Form(\n                FormPath(\n                    Id {\n                        value: 53,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Form(\n                Function,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -610,7 +610,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 340;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 94,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 340;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 93,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(

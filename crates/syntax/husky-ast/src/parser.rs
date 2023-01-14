@@ -89,6 +89,7 @@ impl<'a> AstParser<'a> {
                     | StmtKeyword::Assert
                     | StmtKeyword::Require => self.parse_stmt(token_group_idx, &context),
                 },
+                Keyword::Pronoun(_) => self.parse_stmt(token_group_idx, &context),
                 Keyword::Liason(_) => todo!(),
                 Keyword::Use => self.parse_use_ast(token_group_idx, context),
                 Keyword::Main => Ast::Main {

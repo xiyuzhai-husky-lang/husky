@@ -179,11 +179,18 @@ Ok(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    9,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             1..2,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -194,11 +201,18 @@ Ok(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    15,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             4..5,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -207,11 +221,25 @@ Ok(
                     accessibility: Done {
                         accessibility: Public,
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 80,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    22,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             6..7,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -220,11 +248,25 @@ Ok(
                     accessibility: Done {
                         accessibility: Public,
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 81,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    27,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             8..9,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -235,11 +277,25 @@ Ok(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 83,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    31,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             10..11,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },

@@ -100,7 +100,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 15;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 168,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 15;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 166,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -190,7 +190,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 30;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 191,\n            },\n        ),\n    ),\n);\n\ntoken_info = Method;\n\n\n",
+                                value: "\ntoken_idx = 30;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 189,\n            },\n        ),\n    ),\n);\n\ntoken_info = Method;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -220,7 +220,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 35;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 317,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        AssociatedItem(\n            TypeItem(\n                TypeItemPath(\n                    Id {\n                        value: 58,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        AssociatedItem {\n            associated_item_kind: TypeItem(\n                Method,\n            ),\n        },\n    ),\n);\n\n\n",
+                                value: "\ntoken_idx = 35;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 315,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        AssociatedItem(\n            TypeItem(\n                TypeItemPath(\n                    Id {\n                        value: 58,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        AssociatedItem {\n            associated_item_kind: TypeItem(\n                Method,\n            ),\n        },\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -340,7 +340,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 55;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 191,\n            },\n        ),\n    ),\n);\n\ntoken_info = Method;\n\n\n",
+                                value: "\ntoken_idx = 55;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 189,\n            },\n        ),\n    ),\n);\n\ntoken_info = Method;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -370,7 +370,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 60;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 332,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 60;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 330,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -490,7 +490,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 80;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 191,\n            },\n        ),\n    ),\n);\n\ntoken_info = Method;\n\n\n",
+                                value: "\ntoken_idx = 80;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 189,\n            },\n        ),\n    ),\n);\n\ntoken_info = Method;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -520,7 +520,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 85;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 332,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 85;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 330,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -640,7 +640,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 105;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 333,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 105;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 331,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(

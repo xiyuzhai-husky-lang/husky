@@ -1,8 +1,10 @@
 [
   {
-    "input": "self"
+    "input": "self",
+    "output": "TokenSheetData {\n    tokens: [\n        Keyword(\n            Pronoun(\n                SelfValue,\n            ),\n        ),\n    ],\n    group_starts: [\n        0,\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
-    "input": "Self"
+    "input": "Self",
+    "output": "TokenSheetData {\n    tokens: [\n        Keyword(\n            Pronoun(\n                SelfType,\n            ),\n        ),\n    ],\n    group_starts: [\n        0,\n    ],\n    indents: [\n        0,\n    ],\n}"
   }
 ]

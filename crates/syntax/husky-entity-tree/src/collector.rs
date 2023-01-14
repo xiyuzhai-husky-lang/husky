@@ -7,6 +7,7 @@ use vec_like::{AsVecMapEntry, VecMap};
 pub(crate) struct EntityTreeCollector<'a> {
     db: &'a dyn EntityTreeDb,
     crate_path: CratePath,
+    crate_root: ModulePath,
     presheets: VecMap<EntityTreePresheetMut<'a>>,
     core_prelude_module: ModulePath,
     // can't use `crate_prelude` here because it might not be available
@@ -21,6 +22,7 @@ impl<'a> EntityTreeCollector<'a> {
         db: &'a dyn EntityTreeDb,
         crate_path: CratePath,
     ) -> EntityTreeCrateBundleResult<Self> {
+        let crate_root = ModulePath::new_root(db, crate_path);
         let all_modules = db.all_modules_within_crate(crate_path);
         for i in 0..all_modules.len() {
             for j in (i + 1)..all_modules.len() {
@@ -56,6 +58,7 @@ impl<'a> EntityTreeCollector<'a> {
         Ok(Self {
             db,
             crate_path,
+            crate_root,
             presheets,
             core_prelude_module,
             opt_universal_prelude: universal_prelude,

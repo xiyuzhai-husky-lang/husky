@@ -19,6 +19,7 @@ impl<'a> EntityTreeCollector<'a> {
         EntityTreeSymbolContext::new(
             self.db,
             self.crate_path,
+            self.crate_root,
             crate_prelude(
                 self.opt_universal_prelude,
                 self.core_prelude_module,

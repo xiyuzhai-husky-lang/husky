@@ -13,7 +13,7 @@ pub enum TypeKeyword {
 }
 
 impl TypeKeyword {
-    pub const fn as_str(&self) -> &'static str {
+    pub const fn code(self) -> &'static str {
         match self {
             TypeKeyword::Type => "type",
             TypeKeyword::Struct => "struct",
@@ -29,7 +29,7 @@ impl Deref for TypeKeyword {
     type Target = str;
 
     fn deref(&self) -> &Self::Target {
-        self.as_str()
+        self.code()
     }
 }
 

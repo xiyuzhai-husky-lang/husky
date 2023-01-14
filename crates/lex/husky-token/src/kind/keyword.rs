@@ -3,6 +3,7 @@ mod config;
 mod end;
 mod form;
 mod liason;
+mod pronoun;
 mod stmt;
 mod ty;
 
@@ -11,6 +12,7 @@ pub use config::*;
 pub use end::*;
 pub use form::*;
 pub use liason::*;
+pub use pronoun::*;
 pub use stmt::*;
 pub use ty::*;
 
@@ -34,6 +36,7 @@ pub enum Keyword {
     Type(TypeKeyword),
     Stmt(StmtKeyword),
     Liason(LiasonKeyword),
+    Pronoun(PronounKeyword),
     Main,
     Use,
     Mod,
@@ -58,26 +61,27 @@ pub enum ConnectionKeyword {
 
 impl std::fmt::Display for Keyword {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.as_str().fmt(f)
+        self.code().fmt(f)
     }
 }
 
 impl Keyword {
-    pub const fn as_str(&self) -> &'static str {
+    pub const fn code(&self) -> &'static str {
         match self {
-            Keyword::Config(keyword) => keyword.as_str(),
-            Keyword::Paradigm(keyword) => keyword.as_str(),
-            Keyword::Type(keyword) => keyword.as_str(),
-            Keyword::Stmt(keyword) => keyword.as_str(),
+            Keyword::Config(keyword) => keyword.code(),
+            Keyword::Paradigm(keyword) => keyword.code(),
+            Keyword::Type(keyword) => keyword.code(),
+            Keyword::Stmt(keyword) => keyword.code(),
             Keyword::Use => "use",
             Keyword::Mod => "mod",
             Keyword::Main => "main",
             Keyword::Visual => "visual",
-            Keyword::Liason(keyword) => keyword.as_str(),
+            Keyword::Liason(keyword) => keyword.code(),
             Keyword::Trait => "trait",
             Keyword::Impl => "impl",
             Keyword::End(_) => todo!(),
             Keyword::Connection(_) => todo!(),
+            Keyword::Pronoun(_) => todo!(),
         }
     }
 }
@@ -86,7 +90,7 @@ impl Deref for Keyword {
     type Target = str;
 
     fn deref(&self) -> &Self::Target {
-        self.as_str()
+        self.code()
     }
 }
 

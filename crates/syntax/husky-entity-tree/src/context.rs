@@ -6,6 +6,7 @@ use vec_like::{AsVecMapEntry, VecMap, VecMapGetEntry, VecPairMap};
 pub(crate) struct EntityTreeSymbolContext<'a> {
     db: &'a dyn EntityTreeDb,
     crate_path: CratePath,
+    crate_root: ModulePath,
     crate_prelude: CrateSymbolContext<'a>,
     current_sheet: &'a EntityTreePresheetMut<'a>,
     sheets: &'a VecMap<EntityTreePresheetMut<'a>>,
@@ -15,6 +16,7 @@ impl<'a> EntityTreeSymbolContext<'a> {
     pub(crate) fn new(
         db: &'a dyn EntityTreeDb,
         crate_path: CratePath,
+        crate_root: ModulePath,
         crate_prelude: CrateSymbolContext<'a>,
         current_sheet: &'a EntityTreePresheetMut<'a>,
         sheets: &'a VecMap<EntityTreePresheetMut<'a>>,
@@ -22,6 +24,7 @@ impl<'a> EntityTreeSymbolContext<'a> {
         Self {
             db,
             crate_path,
+            crate_root,
             crate_prelude,
             current_sheet,
             sheets,
@@ -69,5 +72,9 @@ impl<'a> EntityTreeSymbolContext<'a> {
         } else {
             todo!()
         }
+    }
+
+    pub(crate) fn crate_root(&self) -> ModulePath {
+        self.crate_root
     }
 }

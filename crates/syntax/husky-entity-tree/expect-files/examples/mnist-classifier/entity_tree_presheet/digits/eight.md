@@ -59,11 +59,25 @@ Ok(
                             `mnist_classifier::digits::eight`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 91,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             4..5,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -74,11 +88,18 @@ Ok(
                             `mnist_classifier::digits::eight`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    13,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             7..8,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -89,11 +110,18 @@ Ok(
                             `mnist_classifier::digits::eight`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    19,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             10..11,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -104,11 +132,25 @@ Ok(
                             `mnist_classifier::digits::eight`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 91,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    25,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             15..16,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -119,11 +161,18 @@ Ok(
                             `mnist_classifier::digits::eight`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    35,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             18..19,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -134,11 +183,18 @@ Ok(
                             `mnist_classifier::digits::eight`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    41,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             21..22,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -149,11 +205,18 @@ Ok(
                             `mnist_classifier::digits::eight`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    47,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             24..25,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -164,11 +227,18 @@ Ok(
                             `mnist_classifier::digits::eight`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    53,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             27..28,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -179,11 +249,18 @@ Ok(
                             `mnist_classifier::digits::eight`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    59,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             31..32,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -194,11 +271,18 @@ Ok(
                             `mnist_classifier::digits::eight`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    67,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             34..35,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -209,11 +293,18 @@ Ok(
                             `mnist_classifier::digits::eight`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    73,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             37..38,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },

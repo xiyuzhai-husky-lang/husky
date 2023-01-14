@@ -730,7 +730,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 24;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 34,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "Other\ntoken_idx = 24;\n\ntoken = Keyword(\n    Pronoun(\n        SelfType,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(

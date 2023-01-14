@@ -13,7 +13,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 36,
+                            value: 34,
                         },
                     ),
                 ),
@@ -136,13 +136,9 @@ Ok(
                     Curry,
                 ),
             ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 34,
-                        },
-                    ),
+            Keyword(
+                Pronoun(
+                    SelfType,
                 ),
             ),
             Punctuation(

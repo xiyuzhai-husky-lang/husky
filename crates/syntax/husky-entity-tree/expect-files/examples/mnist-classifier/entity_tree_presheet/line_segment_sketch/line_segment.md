@@ -29,11 +29,18 @@ Ok(
                             `mnist_classifier::line_segment_sketch::line_segment`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             1..2,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },

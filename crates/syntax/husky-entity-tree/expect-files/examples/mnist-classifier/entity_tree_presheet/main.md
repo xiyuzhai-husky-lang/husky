@@ -119,11 +119,25 @@ Ok(
                             `mnist_classifier`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 86,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    22,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             0..1,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -134,11 +148,25 @@ Ok(
                             `mnist_classifier`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 86,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    26,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             2..3,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -149,11 +177,25 @@ Ok(
                             `mnist_classifier`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 84,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    30,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             4..5,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -164,11 +206,25 @@ Ok(
                             `mnist_classifier`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 66,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    34,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             6..7,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -179,11 +235,25 @@ Ok(
                             `mnist_classifier`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 85,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    38,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             8..9,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -194,11 +264,25 @@ Ok(
                             `mnist_classifier`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 79,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    42,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             10..11,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -209,11 +293,25 @@ Ok(
                             `mnist_classifier`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 91,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    46,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             15..16,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },

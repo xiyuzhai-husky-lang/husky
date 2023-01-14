@@ -13,7 +13,7 @@ pub enum FormKeyword {
 }
 
 impl FormKeyword {
-    pub const fn as_str(self) -> &'static str {
+    pub const fn code(self) -> &'static str {
         match self {
             FormKeyword::Proc => "proc",
             FormKeyword::Func => "func",
@@ -38,7 +38,7 @@ impl Deref for FormKeyword {
     type Target = str;
 
     fn deref(&self) -> &Self::Target {
-        self.as_str()
+        self.code()
     }
 }
 

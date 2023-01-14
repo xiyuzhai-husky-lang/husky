@@ -104,11 +104,25 @@ Ok(
                             `mnist_classifier::connected_component`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 107,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             2..3,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -119,11 +133,18 @@ Ok(
                             `mnist_classifier::connected_component`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    9,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             5..6,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },

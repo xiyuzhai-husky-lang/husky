@@ -27,7 +27,7 @@ pub enum XmlTagKind {
 }
 
 impl XmlTagKind {
-    pub fn as_str(self) -> &'static str {
+    pub fn code(self) -> &'static str {
         match self {
             XmlTagKind::Point2d => "Point2d",
             XmlTagKind::Arrow2d => "Arrow2d",

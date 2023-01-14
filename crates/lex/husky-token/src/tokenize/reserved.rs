@@ -7,7 +7,7 @@ pub(crate) fn reserved_words(_db: &dyn TokenDb) -> VecPairMap<&'static str, Pret
     macro_rules! gen_reserved_words {
         ($($args: expr),*,) => {
             [
-                $(($args.as_str(), $args.into())),*
+                $(($args.code(), $args.into())),*
             ]
         };
     }
@@ -56,6 +56,10 @@ pub(crate) fn reserved_words(_db: &dyn TokenDb) -> VecPairMap<&'static str, Pret
         WordOpr::As,
         WordOpr::Be,
         AmbiguousPretoken::For,
+        PronounKeyword::Crate,
+        PronounKeyword::SelfType,
+        PronounKeyword::SelfValue,
+        PronounKeyword::Super,
     ]
     .into_iter()
     .collect()
