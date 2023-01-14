@@ -6,7 +6,7 @@ Ok(
                     PropsStruct(
                         PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                            ast_idx: 73,
+                            ast_idx: 76,
                             expr_sheet: ExprSheet(
                                 Id {
                                     value: 141,
@@ -24,7 +24,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 84,
+                                                    value: 83,
                                                 },
                                             ),
                                         ),
@@ -44,7 +44,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 274,
+                                                    value: 272,
                                                 },
                                             ),
                                         ),
@@ -86,7 +86,7 @@ Ok(
                     Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
-                            ast_idx: 75,
+                            ast_idx: 78,
                             expr_sheet: ExprSheet(
                                 Id {
                                     value: 142,
@@ -147,7 +147,7 @@ Ok(
                 ImplBlock(
                     TypeImplBlock(
                         TypeImplBlockDecl {
-                            ast_idx: 74,
+                            ast_idx: 77,
                             impl_block: ImplBlock(
                                 Id {
                                     value: 26,
@@ -192,7 +192,7 @@ Ok(
                                         value: 55,
                                     },
                                 ),
-                                ast_idx: 39,
+                                ast_idx: 42,
                                 expr_sheet: ExprSheet(
                                     Id {
                                         value: 144,
@@ -237,7 +237,7 @@ Ok(
                                         value: 56,
                                     },
                                 ),
-                                ast_idx: 40,
+                                ast_idx: 43,
                                 expr_sheet: ExprSheet(
                                     Id {
                                         value: 145,
@@ -282,7 +282,7 @@ Ok(
                                         value: 57,
                                     },
                                 ),
-                                ast_idx: 41,
+                                ast_idx: 44,
                                 expr_sheet: ExprSheet(
                                     Id {
                                         value: 146,
@@ -327,7 +327,7 @@ Ok(
                                         value: 58,
                                     },
                                 ),
-                                ast_idx: 42,
+                                ast_idx: 45,
                                 expr_sheet: ExprSheet(
                                     Id {
                                         value: 147,
@@ -372,7 +372,7 @@ Ok(
                                         value: 59,
                                     },
                                 ),
-                                ast_idx: 43,
+                                ast_idx: 46,
                                 expr_sheet: ExprSheet(
                                     Id {
                                         value: 148,
@@ -417,7 +417,7 @@ Ok(
                                         value: 60,
                                     },
                                 ),
-                                ast_idx: 44,
+                                ast_idx: 47,
                                 expr_sheet: ExprSheet(
                                     Id {
                                         value: 149,
@@ -462,7 +462,7 @@ Ok(
                                         value: 61,
                                     },
                                 ),
-                                ast_idx: 45,
+                                ast_idx: 48,
                                 expr_sheet: ExprSheet(
                                     Id {
                                         value: 150,
@@ -522,7 +522,7 @@ Ok(
                                         value: 62,
                                     },
                                 ),
-                                ast_idx: 46,
+                                ast_idx: 49,
                                 expr_sheet: ExprSheet(
                                     Id {
                                         value: 151,
@@ -582,7 +582,7 @@ Ok(
                                         value: 63,
                                     },
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 50,
                                 expr_sheet: ExprSheet(
                                     Id {
                                         value: 152,
@@ -642,7 +642,7 @@ Ok(
                                         value: 64,
                                     },
                                 ),
-                                ast_idx: 48,
+                                ast_idx: 51,
                                 expr_sheet: ExprSheet(
                                     Id {
                                         value: 153,
@@ -702,7 +702,7 @@ Ok(
                                         value: 65,
                                     },
                                 ),
-                                ast_idx: 49,
+                                ast_idx: 52,
                                 expr_sheet: ExprSheet(
                                     Id {
                                         value: 154,
@@ -762,7 +762,7 @@ Ok(
                                         value: 66,
                                     },
                                 ),
-                                ast_idx: 50,
+                                ast_idx: 53,
                                 expr_sheet: ExprSheet(
                                     Id {
                                         value: 155,

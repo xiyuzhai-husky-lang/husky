@@ -29,11 +29,18 @@ Ok(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             1..2,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -44,11 +51,18 @@ Ok(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    7,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             4..5,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -59,11 +73,18 @@ Ok(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    13,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             7..8,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },

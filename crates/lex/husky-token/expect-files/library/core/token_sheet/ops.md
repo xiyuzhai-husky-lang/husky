@@ -139,13 +139,9 @@ Ok(
                     Curry,
                 ),
             ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 34,
-                        },
-                    ),
+            Keyword(
+                Pronoun(
+                    SelfType,
                 ),
             ),
             Punctuation(

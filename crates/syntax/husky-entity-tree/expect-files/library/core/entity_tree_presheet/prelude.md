@@ -11,11 +11,18 @@ Ok(
                     accessibility: Done {
                         accessibility: Public,
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    2,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             1..2,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -24,11 +31,18 @@ Ok(
                     accessibility: Done {
                         accessibility: Public,
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    9,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             4..5,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },

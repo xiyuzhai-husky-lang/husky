@@ -138,17 +138,17 @@ DiagnosticSheet {
                 range: [63:9, 63:14),
             },
             Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
+                message: "Syntax Error: unexpected keyword",
                 severity: Error,
                 range: [66:25, 66:29),
             },
             Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
+                message: "Syntax Error: unexpected keyword",
                 severity: Error,
                 range: [70:26, 70:30),
             },
             Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
+                message: "Syntax Error: unexpected keyword",
                 severity: Error,
                 range: [77:30, 77:34),
             },
@@ -223,22 +223,22 @@ DiagnosticSheet {
                 range: [115:13, 115:19),
             },
             Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
+                message: "Syntax Error: unexpected keyword",
                 severity: Error,
                 range: [119:9, 119:13),
             },
             Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
+                message: "Syntax Error: unexpected keyword",
                 severity: Error,
                 range: [122:9, 122:13),
             },
             Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
+                message: "Syntax Error: unexpected keyword",
                 severity: Error,
                 range: [125:9, 125:13),
             },
             Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
+                message: "Syntax Error: unexpected keyword",
                 severity: Error,
                 range: [128:9, 128:13),
             },

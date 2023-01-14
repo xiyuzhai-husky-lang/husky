@@ -11,11 +11,25 @@ Ok(
                     accessibility: Done {
                         accessibility: Public,
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 6,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    2,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             1..2,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },

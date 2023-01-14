@@ -32,7 +32,7 @@ impl const Into<Token> for LiasonKeyword {
 }
 
 impl LiasonKeyword {
-    pub const fn as_str(self) -> &'static str {
+    pub const fn code(self) -> &'static str {
         match self {
             LiasonKeyword::Mut => "mut",
         }

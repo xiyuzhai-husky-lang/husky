@@ -44,11 +44,18 @@ Ok(
                             `mnist_classifier::fermi`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             0..1,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },

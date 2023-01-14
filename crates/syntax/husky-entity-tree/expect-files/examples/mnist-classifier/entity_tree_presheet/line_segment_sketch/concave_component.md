@@ -10,7 +10,7 @@ Ok(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                             accessibility: Public,
-                            ast_idx: 73,
+                            ast_idx: 76,
                         },
                     ),
                 },
@@ -25,7 +25,7 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            ast_idx: 75,
+                            ast_idx: 78,
                         },
                     ),
                 },
@@ -34,62 +34,90 @@ Ok(
         entity_use_roots: EntityUseExprTrackers(
             [
                 UseTracker {
-                    ast_idx: 69,
-                    accessibility: Done {
-                        accessibility: PubicUnder(
-                            `mnist_classifier::line_segment_sketch::concave_component`,
-                        ),
-                    },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
-                            1..2,
-                        ),
-                    ),
-                    parent: None,
-                    state: Unresolved,
-                },
-                UseTracker {
-                    ast_idx: 70,
-                    accessibility: Done {
-                        accessibility: PubicUnder(
-                            `mnist_classifier::line_segment_sketch::concave_component`,
-                        ),
-                    },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
-                            5..6,
-                        ),
-                    ),
-                    parent: None,
-                    state: Unresolved,
-                },
-                UseTracker {
-                    ast_idx: 71,
-                    accessibility: Done {
-                        accessibility: PubicUnder(
-                            `mnist_classifier::line_segment_sketch::concave_component`,
-                        ),
-                    },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
-                            9..10,
-                        ),
-                    ),
-                    parent: None,
-                    state: Unresolved,
-                },
-                UseTracker {
                     ast_idx: 72,
                     accessibility: Done {
                         accessibility: PubicUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            1..2,
+                        ),
+                    },
+                    parent: None,
+                    state: Unresolved,
+                },
+                UseTracker {
+                    ast_idx: 73,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::line_segment_sketch::concave_component`,
+                        ),
+                    },
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    7,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            5..6,
+                        ),
+                    },
+                    parent: None,
+                    state: Unresolved,
+                },
+                UseTracker {
+                    ast_idx: 74,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::line_segment_sketch::concave_component`,
+                        ),
+                    },
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    15,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            9..10,
+                        ),
+                    },
+                    parent: None,
+                    state: Unresolved,
+                },
+                UseTracker {
+                    ast_idx: 75,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::line_segment_sketch::concave_component`,
+                        ),
+                    },
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    23,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             12..13,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },

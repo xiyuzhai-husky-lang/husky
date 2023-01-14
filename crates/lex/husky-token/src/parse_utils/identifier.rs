@@ -27,10 +27,6 @@ where
 }
 
 impl IdentifierToken {
-    pub fn new(ident: Identifier, token_idx: TokenIdx) -> Self {
-        Self { ident, token_idx }
-    }
-
     pub fn ident(&self) -> Identifier {
         self.ident
     }

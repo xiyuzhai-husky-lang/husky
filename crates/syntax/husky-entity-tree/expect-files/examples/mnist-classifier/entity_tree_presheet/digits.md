@@ -162,11 +162,25 @@ Ok(
                     accessibility: Done {
                         accessibility: Public,
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 71,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    22,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             0..1,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -177,11 +191,25 @@ Ok(
                             `mnist_classifier::digits`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 73,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    26,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             2..3,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -192,11 +220,25 @@ Ok(
                             `mnist_classifier::digits`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 76,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    30,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             4..5,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -207,11 +249,25 @@ Ok(
                             `mnist_classifier::digits`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 75,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    34,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             6..7,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -222,11 +278,25 @@ Ok(
                             `mnist_classifier::digits`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 74,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    38,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             8..9,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -237,11 +307,25 @@ Ok(
                             `mnist_classifier::digits`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 68,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    42,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             10..11,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -252,11 +336,25 @@ Ok(
                             `mnist_classifier::digits`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 73,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    46,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             12..13,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -267,11 +365,25 @@ Ok(
                             `mnist_classifier::digits`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 72,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    50,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             14..15,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -282,11 +394,25 @@ Ok(
                             `mnist_classifier::digits`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 67,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    54,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             16..17,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -297,11 +423,25 @@ Ok(
                             `mnist_classifier::digits`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 70,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    58,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             18..19,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },

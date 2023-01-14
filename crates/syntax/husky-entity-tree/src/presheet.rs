@@ -176,13 +176,15 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                         todo!()
                     };
                 let use_expr_idx = use_expr_root.use_expr_idx();
-                self.entity_use_trackers.push(UseExprRule::new_root(
+                if let Some(new_rule) = UseExprRule::new_root(
                     ast_idx,
                     use_expr_idx,
                     accessibility_expr,
                     &self.use_expr_arena[use_expr_idx],
                     self.module_path,
-                ))
+                ) {
+                    self.entity_use_trackers.push(new_rule)
+                }
             }
             Ast::Defn {
                 token_group_idx,

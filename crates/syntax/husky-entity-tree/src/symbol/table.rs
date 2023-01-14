@@ -108,7 +108,7 @@ impl EntitySymbolEntry {
         rule.mark_as_resolved(original_symbol);
         let accessibility = rule.accessibility();
         Self {
-            ident: rule.ident_token().ident(),
+            ident: rule.ident().unwrap(),
             accessibility,
             symbol: UseSymbol::new(
                 db,

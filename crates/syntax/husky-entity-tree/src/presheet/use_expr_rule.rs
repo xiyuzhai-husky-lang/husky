@@ -70,10 +70,20 @@ pub struct UseExprRule {
     ast_idx: AstIdx,
     use_expr_idx: UseExprIdx,
     accessibility: AccessibilityProgress,
-    ident_token: IdentifierToken,
-    children: Option<UseExprIdxRange>,
+    variant: UseExprRuleVariant,
     parent: Option<EntityPath>,
     state: UseExprRuleState,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum UseExprRuleVariant {
+    Parent {
+        parent_name_token: ParentNameToken,
+        children: UseExprIdxRange,
+    },
+    Leaf {
+        ident_token: IdentifierToken,
+    },
 }
 
 // ad hoc
@@ -128,7 +138,7 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for UseExprRule {
         f.debug_struct("UseTracker")
             .field("ast_idx", &self.ast_idx)
             .field("accessibility", &self.accessibility.debug(db))
-            .field("use_expr_children", &self.children)
+            .field("variant", &self.variant)
             .field("parent", &self.parent.debug(db))
             .field("state", &self.state)
             .finish()
@@ -149,41 +159,42 @@ impl UseExprRule {
         accessibility_expr: Option<AccessibilityExpr>,
         use_expr: &UseExpr,
         module_path: ModulePath,
-    ) -> Self {
+    ) -> Option<Self> {
         match use_expr {
             UseExpr::All { star_token } => todo!(),
-            UseExpr::One { ident_token } => todo!(),
+            UseExpr::Leaf { ident_token } => todo!(),
             UseExpr::Parent {
-                ident_token,
+                parent_name_token,
                 scope_resolution_token,
                 children,
-            } => Self {
+            } => Some(Self {
                 ast_idx,
                 use_expr_idx,
                 accessibility: AccessibilityProgress::new(accessibility_expr, module_path),
                 parent: None,
                 state: UseExprRuleState::Unresolved,
-                ident_token: *ident_token,
-                children: Some(children.idx_range()),
-            },
+                variant: UseExprRuleVariant::Parent {
+                    parent_name_token: *parent_name_token,
+                    children: children.as_ref().ok()?.idx_range(),
+                },
+            }),
             UseExpr::Err(_) => todo!(),
+            UseExpr::SelfOne { self_token } => todo!(),
         }
     }
-    pub fn new_child(
+    pub fn new_nonroot(
         &self,
-        ident_token: IdentifierToken,
         use_expr_idx: UseExprIdx,
         parent: EntityPath,
-        children: Option<UseExprIdxRange>,
+        variant: UseExprRuleVariant,
     ) -> Self {
         Self {
             ast_idx: self.ast_idx,
             use_expr_idx,
             accessibility: self.accessibility,
-            ident_token,
             parent: Some(parent),
             state: UseExprRuleState::Unresolved,
-            children,
+            variant,
         }
     }
 
@@ -207,8 +218,8 @@ impl UseExprRule {
         self.parent
     }
 
-    pub(crate) fn ident_token(&self) -> IdentifierToken {
-        self.ident_token
+    pub(crate) fn variant(&self) -> &UseExprRuleVariant {
+        &self.variant
     }
 
     pub(crate) fn accessibility(&self) -> Accessibility {
@@ -219,7 +230,8 @@ impl UseExprRule {
     }
 
     pub(crate) fn children(&self) -> Option<UseExprIdxRange> {
-        self.children
+        todo!()
+        // self.children
     }
 
     pub(crate) fn mark_as_erroneous(&mut self) {
@@ -228,5 +240,16 @@ impl UseExprRule {
 
     pub fn use_expr_idx(&self) -> ArenaIdx<UseExpr> {
         self.use_expr_idx
+    }
+
+    pub(crate) fn ident(&self) -> Option<Identifier> {
+        match self.variant {
+            UseExprRuleVariant::Parent {
+                parent_name_token: ParentNameToken::Identifier(ident_token),
+                ..
+            }
+            | UseExprRuleVariant::Leaf { ident_token } => Some(ident_token.ident()),
+            _ => None,
+        }
     }
 }

@@ -469,3 +469,222 @@ fn use_token_works() {
     assert!(t(&db, "||").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
 }
+
+// crate
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct CrateToken {
+    token_idx: TokenIdx,
+}
+
+impl CrateToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
+impl<'a, Context> parsec::ParseFrom<Context> for CrateToken
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+            match token {
+                Token::Keyword(Keyword::Pronoun(PronounKeyword::Crate)) => {
+                    Ok(Some(CrateToken { token_idx }))
+                }
+                Token::Err(ref e) => Err(e.clone().into()),
+                Token::Punctuation(_)
+                | Token::Identifier(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Attr(_)
+                | Token::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+#[test]
+fn crate_token_works() {
+    fn t(db: &DB, input: &str) -> TokenResult<Option<CrateToken>> {
+        quick_parse(db, input)
+    }
+
+    let db = DB::default();
+    assert!(t(&db, "crate").unwrap().is_some());
+    assert!(t(&db, "use").unwrap().is_none());
+    assert!(t(&db, ":@").unwrap().is_none());
+    assert!(t(&db, ".").unwrap().is_none());
+    assert!(t(&db, "||").unwrap().is_none());
+    assert!(t(&db, "a").unwrap().is_none());
+}
+
+// self value
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct SelfValueToken {
+    token_idx: TokenIdx,
+}
+
+impl SelfValueToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
+impl<'a, Context> parsec::ParseFrom<Context> for SelfValueToken
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+            match token {
+                Token::Keyword(Keyword::Pronoun(PronounKeyword::SelfValue)) => {
+                    Ok(Some(SelfValueToken { token_idx }))
+                }
+                Token::Err(ref e) => Err(e.clone().into()),
+                Token::Punctuation(_)
+                | Token::Identifier(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Attr(_)
+                | Token::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+#[test]
+fn self_value_token_works() {
+    fn t(db: &DB, input: &str) -> TokenResult<Option<SelfValueToken>> {
+        quick_parse(db, input)
+    }
+
+    let db = DB::default();
+    assert!(t(&db, "self").unwrap().is_some());
+    assert!(t(&db, "use").unwrap().is_none());
+    assert!(t(&db, ":@").unwrap().is_none());
+    assert!(t(&db, ".").unwrap().is_none());
+    assert!(t(&db, "||").unwrap().is_none());
+    assert!(t(&db, "a").unwrap().is_none());
+}
+
+/// `Self` self type token
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct SelfTypeToken {
+    token_idx: TokenIdx,
+}
+
+impl SelfTypeToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
+impl<'a, Context> parsec::ParseFrom<Context> for SelfTypeToken
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+            match token {
+                Token::Keyword(Keyword::Pronoun(PronounKeyword::SelfType)) => {
+                    Ok(Some(SelfTypeToken { token_idx }))
+                }
+                Token::Err(ref e) => Err(e.clone().into()),
+                Token::Punctuation(_)
+                | Token::Identifier(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Attr(_)
+                | Token::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+#[test]
+fn self_type_token_works() {
+    fn t(db: &DB, input: &str) -> TokenResult<Option<SelfTypeToken>> {
+        quick_parse(db, input)
+    }
+
+    let db = DB::default();
+    assert!(t(&db, "Self").unwrap().is_some());
+    assert!(t(&db, "use").unwrap().is_none());
+    assert!(t(&db, ":@").unwrap().is_none());
+    assert!(t(&db, ".").unwrap().is_none());
+    assert!(t(&db, "||").unwrap().is_none());
+    assert!(t(&db, "a").unwrap().is_none());
+}
+
+/// `super` super token
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct SuperToken {
+    token_idx: TokenIdx,
+}
+
+impl SuperToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
+impl<'a, Context> parsec::ParseFrom<Context> for SuperToken
+where
+    Context: TokenParseContext<'a>,
+    <Context as HasParseError>::Error: From<TokenError>,
+{
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+            match token {
+                Token::Keyword(Keyword::Pronoun(PronounKeyword::Super)) => {
+                    Ok(Some(SuperToken { token_idx }))
+                }
+                Token::Err(ref e) => Err(e.clone().into()),
+                Token::Punctuation(_)
+                | Token::Identifier(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Attr(_)
+                | Token::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+#[test]
+fn super_token_works() {
+    fn t(db: &DB, input: &str) -> TokenResult<Option<SuperToken>> {
+        quick_parse(db, input)
+    }
+
+    let db = DB::default();
+    assert!(t(&db, "super").unwrap().is_some());
+    assert!(t(&db, "Self").unwrap().is_none());
+    assert!(t(&db, "use").unwrap().is_none());
+    assert!(t(&db, ":@").unwrap().is_none());
+    assert!(t(&db, ".").unwrap().is_none());
+    assert!(t(&db, "||").unwrap().is_none());
+    assert!(t(&db, "a").unwrap().is_none());
+}

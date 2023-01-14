@@ -12,7 +12,7 @@ pub enum AttributeKeyword {
 
 impl std::fmt::Display for AttributeKeyword {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.as_str().fmt(f)
+        self.code().fmt(f)
     }
 }
 
@@ -20,12 +20,12 @@ impl Deref for AttributeKeyword {
     type Target = str;
 
     fn deref(&self) -> &Self::Target {
-        self.as_str()
+        self.code()
     }
 }
 
 impl AttributeKeyword {
-    pub const fn as_str(self) -> &'static str {
+    pub const fn code(self) -> &'static str {
         match self {
             AttributeKeyword::Pub => "pub",
             AttributeKeyword::Protected => "protected",

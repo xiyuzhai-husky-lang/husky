@@ -55,7 +55,7 @@ impl<'a> InferEngine<'a> {
             UseExpr::All { star_token } => self
                 .sheet
                 .add(star_token.token_idx(), TokenInfo::UseExprStar),
-            UseExpr::One { ident_token } | UseExpr::Parent { ident_token, .. } => self.sheet.add(
+            UseExpr::Leaf { ident_token } => self.sheet.add(
                 ident_token.token_idx(),
                 TokenInfo::UseExpr {
                     use_expr_idx,
@@ -63,7 +63,18 @@ impl<'a> InferEngine<'a> {
                     state: rule.state(),
                 },
             ),
+            UseExpr::Parent {
+                parent_name_token, ..
+            } => self.sheet.add(
+                parent_name_token.token_idx(),
+                TokenInfo::UseExpr {
+                    use_expr_idx,
+                    rule_idx,
+                    state: rule.state(),
+                },
+            ),
             UseExpr::Err(_) => (),
+            UseExpr::SelfOne { self_token } => todo!(),
         }
     }
 

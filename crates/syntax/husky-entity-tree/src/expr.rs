@@ -1,9 +1,9 @@
-mod accessibility;
-mod major_path;
-mod mod_path;
-mod use_;
+mod accessibility_expr;
+mod major_path_expr;
+mod mod_path_expr;
+mod use_expr;
 
-pub use accessibility::*;
-pub use major_path::*;
-pub use mod_path::*;
-pub use use_::*;
+pub use accessibility_expr::*;
+pub use major_path_expr::*;
+pub use mod_path_expr::*;
+pub use use_expr::*;

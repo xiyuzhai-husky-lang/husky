@@ -119,11 +119,25 @@ Ok(
                             `mnist_classifier::digits::four`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 91,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             4..5,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -134,11 +148,25 @@ Ok(
                             `mnist_classifier::digits::four`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 91,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    13,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             9..10,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -149,11 +177,25 @@ Ok(
                             `mnist_classifier::digits::four`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 91,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    23,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             14..15,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -164,11 +206,25 @@ Ok(
                             `mnist_classifier::digits::four`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 91,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    33,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             19..20,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -179,11 +235,18 @@ Ok(
                             `mnist_classifier::digits::four`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    43,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             22..23,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -194,11 +257,18 @@ Ok(
                             `mnist_classifier::digits::four`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    49,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             25..26,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },
@@ -209,11 +279,18 @@ Ok(
                             `mnist_classifier::digits::four`,
                         ),
                     },
-                    use_expr_children: Some(
-                        ArenaIdxRange(
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    55,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
                             29..30,
                         ),
-                    ),
+                    },
                     parent: None,
                     state: Unresolved,
                 },

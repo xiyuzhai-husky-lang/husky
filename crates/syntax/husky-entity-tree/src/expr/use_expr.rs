@@ -10,15 +10,44 @@ pub enum UseExpr {
     All {
         star_token: StarToken,
     },
-    One {
+    Leaf {
         ident_token: IdentifierToken,
+    },
+    SelfOne {
+        self_token: SelfValueToken,
     },
     Parent {
-        ident_token: IdentifierToken,
-        scope_resolution_token: ScopeResolutionToken,
-        children: UseExprChildren,
+        parent_name_token: ParentNameToken,
+        scope_resolution_token: UseExprResult<ScopeResolutionToken>,
+        children: UseExprResult<UseExprChildren>,
     },
     Err(UseExprError),
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum ParentNameToken {
+    Identifier(IdentifierToken),
+    Crate(CrateToken),
+    SelfValue(SelfValueToken),
+    Super(SuperToken),
+}
+impl ParentNameToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        match self {
+            ParentNameToken::Identifier(token) => token.token_idx(),
+            ParentNameToken::Crate(token) => token.token_idx(),
+            ParentNameToken::SelfValue(token) => token.token_idx(),
+            ParentNameToken::Super(_) => todo!(),
+        }
+    }
+    pub fn ident(&self) -> Option<Identifier> {
+        match self {
+            ParentNameToken::Identifier(ident_token) => Some(ident_token.ident()),
+            ParentNameToken::Crate(_)
+            | ParentNameToken::SelfValue(_)
+            | ParentNameToken::Super(_) => None,
+        }
+    }
 }
 
 impl From<UseExprResult<UseExpr>> for UseExpr {
@@ -113,6 +142,12 @@ impl<'a, 'b> FromAbsent<UseToken, UseExprParser<'a, 'b>> for UseExprError {
     }
 }
 
+impl<'a, 'b> FromAbsent<ScopeResolutionToken, UseExprParser<'a, 'b>> for UseExprError {
+    fn new_absent_error(state: TokenIdx) -> Self {
+        todo!()
+    }
+}
+
 impl<'a, 'b> FromAbsent<UseExpr, UseExprParser<'a, 'b>> for UseExprError {
     fn new_absent_error(state: TokenIdx) -> Self {
         todo!()
@@ -173,12 +208,10 @@ impl<'a, 'b> StreamWrapper for UseExprParser<'a, 'b> {}
 impl<'a, 'b> UseExprParser<'a, 'b> {
     pub(crate) fn parse_use_expr_root(&mut self) -> UseExprResult<UseExprRoot> {
         let use_token = self.parse_expected::<UseToken>()?;
-        let ident_token = self.parse_expected::<IdentifierToken>()?;
-        let use_expr = self.parse_use_expr_after_ident(ident_token)?;
-        let use_expr_idx = self.use_expr_arena.alloc_one(use_expr);
+        let use_expr = self.parse_expected()?;
         Ok(UseExprRoot {
             use_token,
-            use_expr_idx,
+            use_expr_idx: self.use_expr_arena.alloc_one(use_expr),
         })
     }
 
@@ -187,13 +220,12 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
         ident_token: IdentifierToken,
     ) -> UseExprResult<UseExpr> {
         let Some(scope_resolution_token) = self.parse::<ScopeResolutionToken>()? else {
-            return Ok( UseExpr::One { ident_token })
+            return Ok( UseExpr::Leaf { ident_token })
         };
-        let children = self.parse_children()?;
         Ok(UseExpr::Parent {
-            ident_token,
-            scope_resolution_token,
-            children,
+            parent_name_token: ParentNameToken::Identifier(ident_token),
+            scope_resolution_token: Ok(scope_resolution_token),
+            children: self.parse_children(),
         })
     }
 
@@ -220,6 +252,17 @@ impl<'a, 'b> ParseFrom<UseExprParser<'a, 'b>> for UseExpr {
     ) -> Result<Option<Self>, UseExprError> {
         if let Some(star_token) = ctx.parse::<StarToken>()? {
             return Ok(Some(UseExpr::All { star_token }));
+        }
+        if let Some(crate_token) = ctx.parse::<CrateToken>()? {
+            return Ok(Some(UseExpr::Parent {
+                parent_name_token: ParentNameToken::Crate(crate_token),
+                scope_resolution_token: ctx.parse_expected(),
+                children: ctx.parse_children(),
+            }));
+        }
+        if let Some(self_value_token) = ctx.parse::<SelfValueToken>()? {
+            // differentiate betwee self one and self children
+            todo!()
         }
         let Some(ident_token) = ctx.parse::<IdentifierToken>()? else {
             return Ok(None);

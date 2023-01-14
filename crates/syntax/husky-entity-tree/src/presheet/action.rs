@@ -69,24 +69,75 @@ impl<'a> EntityTreePresheetMut<'a> {
     ) {
         for (rule_idx, rule) in self.use_expr_rules.indexed_iter() {
             if rule.is_unresolved() {
-                let ident_token = rule.ident_token();
-                let ident = ident_token.ident();
                 let symbol = match rule.parent() {
-                    Some(parent) => ctx.resolve_subentity(parent, ident),
-                    None => ctx.resolve_ident(ident),
+                    Some(parent) => match rule.variant() {
+                        UseExprRuleVariant::Leaf { ident_token }
+                        | UseExprRuleVariant::Parent {
+                            parent_name_token: ParentNameToken::Identifier(ident_token),
+                            ..
+                        } => ctx
+                            .resolve_subentity(parent, ident_token.ident())
+                            .ok_or(*ident_token),
+                        UseExprRuleVariant::Parent {
+                            parent_name_token: ParentNameToken::SelfValue(self_value_token),
+                            children,
+                        } => {
+                            todo!()
+                        }
+                        UseExprRuleVariant::Parent {
+                            parent_name_token: ParentNameToken::Super(_),
+                            children,
+                        } => {
+                            todo!()
+                        }
+                        UseExprRuleVariant::Parent {
+                            parent_name_token: ParentNameToken::Crate(crate_token),
+                            children,
+                        } => {
+                            // todo: prevent this in the parsing stage
+                            todo!()
+                        }
+                    },
+                    None => match rule.variant() {
+                        UseExprRuleVariant::Leaf { ident_token }
+                        | UseExprRuleVariant::Parent {
+                            parent_name_token: ParentNameToken::Identifier(ident_token),
+                            ..
+                        } => ctx.resolve_ident(ident_token.ident()).ok_or(*ident_token),
+                        UseExprRuleVariant::Parent {
+                            parent_name_token: ParentNameToken::SelfValue(self_value_token),
+                            children,
+                        } => {
+                            todo!()
+                        }
+                        UseExprRuleVariant::Parent {
+                            parent_name_token: ParentNameToken::Super(_),
+                            children,
+                        } => Ok(todo!()),
+                        UseExprRuleVariant::Parent {
+                            parent_name_token: ParentNameToken::Crate(_),
+                            children,
+                        } => Ok(EntitySymbol::CrateRoot(ctx.crate_root())),
+                    },
                 };
                 actions.push(match symbol {
-                    Some(symbol) => PresheetAction::ResolveUseExpr {
+                    Ok(symbol) => PresheetAction::ResolveUseExpr {
                         module_path: self.module_path,
                         rule_idx,
                         symbol,
                     },
-                    None => PresheetAction::Err {
+                    Err(ident_token) => PresheetAction::Err {
                         module_path: self.module_path,
                         rule_idx,
                         error: EntityTreeError::UnresolvedIdentifier(ident_token),
                     },
                 })
+                // let ident_token = rule.parent_name_token();
+                // let ident = ident_token.ident();
+                // let symbol = match rule.parent() {
+                //     Some(parent) => ctx.resolve_subentity(parent, ident),
+                //     None => ctx.resolve_ident(ident),
+                // };
             }
         }
         for (rule_idx, rule) in self.use_all_rules.indexed_iter() {
@@ -113,54 +164,68 @@ impl<'a> EntityTreePresheetMut<'a> {
             self.errors.push(EntityTreeError::SymbolNotAccessible);
         }
         let path = original_symbol.path(db);
-        if let Some(children) = rule.children() {
-            for use_expr_idx in children {
-                let use_expr = &self.use_expr_arena[use_expr_idx];
-                let rule = &self.use_expr_rules[rule_idx];
-                match use_expr {
-                    UseExpr::All { star_token } => match path {
-                        EntityPath::Module(path) => {
-                            let new_rule = UseAllRule::new(
-                                path,
-                                rule.ast_idx(),
+        match rule.variant() {
+            UseExprRuleVariant::Parent {
+                parent_name_token,
+                children,
+            } => {
+                for use_expr_idx in children {
+                    let use_expr = &self.use_expr_arena[use_expr_idx];
+                    let rule = &self.use_expr_rules[rule_idx];
+                    match use_expr {
+                        UseExpr::All { star_token } => match path {
+                            EntityPath::Module(path) => {
+                                let new_rule = UseAllRule::new(
+                                    path,
+                                    rule.ast_idx(),
+                                    use_expr_idx,
+                                    rule.accessibility(),
+                                );
+                                self.use_all_rules.push(new_rule)
+                            }
+                            EntityPath::ModuleItem(_) => todo!(),
+                            EntityPath::AssociatedItem(_) => todo!(),
+                            EntityPath::Variant(_) => todo!(),
+                        },
+                        UseExpr::Leaf { ident_token } => {
+                            let new_rule = rule.new_nonroot(
                                 use_expr_idx,
-                                rule.accessibility(),
+                                path,
+                                UseExprRuleVariant::Leaf {
+                                    ident_token: *ident_token,
+                                },
                             );
-                            self.use_all_rules.push(new_rule)
+                            self.use_expr_rules.push(new_rule)
                         }
-                        EntityPath::ModuleItem(_) => todo!(),
-                        EntityPath::AssociatedItem(_) => todo!(),
-                        EntityPath::Variant(_) => todo!(),
-                    },
-                    UseExpr::One { ident_token } => {
-                        let new_rule = rule.new_child(*ident_token, use_expr_idx, path, None);
-                        self.use_expr_rules.push(new_rule)
+                        UseExpr::Parent {
+                            parent_name_token,
+                            scope_resolution_token,
+                            children: Ok(children),
+                        } => {
+                            let new_rule = rule.new_nonroot(
+                                use_expr_idx,
+                                path,
+                                UseExprRuleVariant::Parent {
+                                    parent_name_token: *parent_name_token,
+                                    children: children.idx_range(),
+                                },
+                            );
+                            self.use_expr_rules.push(new_rule)
+                        }
+                        UseExpr::Parent {
+                            children: Err(_), ..
+                        }
+                        | UseExpr::Err(_) => todo!(),
+                        UseExpr::SelfOne { self_token } => todo!(),
                     }
-                    UseExpr::Parent {
-                        ident_token,
-                        scope_resolution_token,
-                        children,
-                    } => {
-                        let new_rule = rule.new_child(
-                            *ident_token,
-                            use_expr_idx,
-                            path,
-                            Some(children.idx_range()),
-                        );
-                        self.use_expr_rules.push(new_rule)
-                    }
-                    UseExpr::Err(_) => todo!(),
                 }
             }
-        } else {
-            match self.symbols.insert(EntitySymbolEntry::new_use_symbol_entry(
-                db,
-                original_symbol,
-                rule,
-            )) {
+            UseExprRuleVariant::Leaf { ident_token } => match self.symbols.insert(
+                EntitySymbolEntry::new_use_symbol_entry(db, original_symbol, rule),
+            ) {
                 Ok(_) => (),
                 Err(_) => todo!(),
-            }
+            },
         }
     }
 

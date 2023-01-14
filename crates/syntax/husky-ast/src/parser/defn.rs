@@ -193,6 +193,7 @@ impl<'a> BasicAuxAstParser<'a> {
                 Keyword::Trait => todo!(),
                 Keyword::End(_) => todo!(),
                 Keyword::Connection(_) => todo!(),
+                Keyword::Pronoun(_) => todo!(),
             },
             AstContextKind::InsideEnumLikeType { module_item_path } => todo!(),
             AstContextKind::InsideForm => match kw {
@@ -209,6 +210,7 @@ impl<'a> BasicAuxAstParser<'a> {
                 Keyword::Trait => todo!(),
                 Keyword::End(_) => todo!(),
                 Keyword::Connection(_) => todo!(),
+                Keyword::Pronoun(_) => todo!(),
             },
             AstContextKind::InsideTypeImpl => match kw {
                 Keyword::Config(_) => todo!(),
@@ -255,6 +257,7 @@ impl<'a> BasicAuxAstParser<'a> {
                 Keyword::Trait => todo!(),
                 Keyword::End(_) => todo!(),
                 Keyword::Connection(_) => todo!(),
+                Keyword::Pronoun(_) => todo!(),
             },
             AstContextKind::InsideTraitImpl => match kw {
                 Keyword::Config(_) => todo!(),
@@ -302,6 +305,7 @@ impl<'a> BasicAuxAstParser<'a> {
                 Keyword::Trait => todo!(),
                 Keyword::End(_) => todo!(),
                 Keyword::Connection(_) => todo!(),
+                Keyword::Pronoun(_) => todo!(),
             },
             AstContextKind::InsideModule => match kw {
                 Keyword::Config(_) => todo!(),
@@ -363,6 +367,7 @@ impl<'a> BasicAuxAstParser<'a> {
                 },
                 Keyword::End(_) => todo!(),
                 Keyword::Connection(_) => todo!(),
+                Keyword::Pronoun(_) => todo!(),
             },
             AstContextKind::InsideMatchStmt => todo!(),
             AstContextKind::InsideNoChild => return Err(AstError::ExpectNothing),

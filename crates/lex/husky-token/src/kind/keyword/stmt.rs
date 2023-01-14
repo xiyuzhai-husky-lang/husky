@@ -21,7 +21,7 @@ pub enum StmtKeyword {
 }
 
 impl StmtKeyword {
-    pub const fn as_str(&self) -> &'static str {
+    pub const fn code(self) -> &'static str {
         match self {
             StmtKeyword::Let => "let",
             StmtKeyword::Var => "var",
@@ -45,7 +45,7 @@ impl Deref for StmtKeyword {
     type Target = str;
 
     fn deref(&self) -> &Self::Target {
-        self.as_str()
+        self.code()
     }
 }
 
