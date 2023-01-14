@@ -103,29 +103,9 @@ DiagnosticSheet {
                 range: [36:9, 36:32),
             },
             Diagnostic {
-                message: "Syntax Error: unexpected keyword",
-                severity: Error,
-                range: [36:33, 36:37),
-            },
-            Diagnostic {
-                message: "Syntax Error: unexpected keyword",
-                severity: Error,
-                range: [39:27, 39:31),
-            },
-            Diagnostic {
-                message: "Syntax Error: unexpected keyword",
-                severity: Error,
-                range: [44:17, 44:21),
-            },
-            Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
                 range: [44:13, 44:14),
-            },
-            Diagnostic {
-                message: "Syntax Error: unexpected keyword",
-                severity: Error,
-                range: [45:25, 45:29),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",

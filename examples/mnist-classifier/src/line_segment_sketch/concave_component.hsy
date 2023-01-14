@@ -33,7 +33,7 @@ impl ConcaveComponent:
         let mut angle_change = 0.0
         let mut dp0 = self.strokes[self.strokes.start].displacement()
         // todo: change self for .. in ..[1..]
-        for strokes.start < i < self.strokes.end:
+        for self.strokes.start < i < self.strokes.end:
             let dp = self.strokes[i].displacement()
             angle_change += dp0.angle_to(dp, true)
             dp0 = dp

@@ -292,6 +292,14 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             None => (expr, path),
         }
     }
+
+    fn allow_self_type(&self) -> AllowSelfType {
+        self.parser.symbol_context.symbol_sheet().allow_self_type()
+    }
+
+    fn allow_self_value(&self) -> AllowSelfValue {
+        self.parser.symbol_context.symbol_sheet().allow_self_value()
+    }
 }
 
 impl<'a, 'b> parsec::HasParseError for ExprParseContext<'a, 'b> {

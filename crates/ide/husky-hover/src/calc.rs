@@ -113,6 +113,8 @@ impl<'a> HoverResultCalculator<'a> {
             TokenInfo::BoxPrefix => format!("box prefix"),
             TokenInfo::UseExpr { .. } => format!("use"),
             TokenInfo::UseExprStar => format!("use expr star"),
+            TokenInfo::SelfType => format!("self type"),
+            TokenInfo::SelfValue => format!("self value"),
         };
         format!(
             r#"

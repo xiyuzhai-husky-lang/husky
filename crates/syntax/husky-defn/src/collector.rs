@@ -115,6 +115,8 @@ impl<'a> DefnCollector<'a> {
         let mut parser = self.expr_parser(
             DefnExprPath::Entity(path.into()),
             Some(decl.expr_sheet(self.db).symbol_sheet(self.db)),
+            AllowSelfType::False,
+            AllowSelfValue::False,
         );
         let ast_idx = decl.ast_idx(self.db);
         let ast = &self.ast_sheet[ast_idx];
@@ -128,7 +130,12 @@ impl<'a> DefnCollector<'a> {
 
     fn parse_feature_defn(&self, decl: FeatureDecl) -> FeatureDefn {
         let path = decl.path(self.db);
-        let mut parser = self.expr_parser(DefnExprPath::Entity(path.into()), None);
+        let mut parser = self.expr_parser(
+            DefnExprPath::Entity(path.into()),
+            None,
+            AllowSelfType::False,
+            AllowSelfValue::False,
+        );
         let ast_idx = decl.ast_idx(self.db);
         let ast = &self.ast_sheet[ast_idx];
         let body = match ast {
@@ -164,6 +171,8 @@ impl<'a> DefnCollector<'a> {
         let mut parser = self.expr_parser(
             DefnExprPath::AssociatedItem(decl.associated_item(self.db)),
             Some(decl.expr_sheet(self.db).symbol_sheet(self.db)),
+            AllowSelfType::True,
+            AllowSelfValue::True,
         );
         let ast_idx = decl.ast_idx(self.db);
         let ast = &self.ast_sheet[ast_idx];
@@ -180,6 +189,8 @@ impl<'a> DefnCollector<'a> {
         let mut parser = self.expr_parser(
             DefnExprPath::AssociatedItem(decl.associated_item(self.db)),
             Some(decl.expr_sheet(self.db).symbol_sheet(self.db)),
+            AllowSelfType::True,
+            AllowSelfValue::True,
         );
         let ast_idx = decl.ast_idx(self.db);
         let ast = &self.ast_sheet[ast_idx];
@@ -209,6 +220,8 @@ impl<'a> DefnCollector<'a> {
         let mut parser = self.expr_parser(
             DefnExprPath::AssociatedItem(decl.associated_item(self.db)),
             Some(decl.expr_sheet(self.db).symbol_sheet(self.db)),
+            AllowSelfType::True,
+            AllowSelfValue::True,
         );
         let ast_idx = decl.ast_idx(self.db);
         let ast = &self.ast_sheet[ast_idx];
@@ -224,12 +237,19 @@ impl<'a> DefnCollector<'a> {
         &self,
         expr_path: DefnExprPath,
         decl_symbol_sheet: Option<&SymbolSheet>,
+        allow_self_type: AllowSelfType,
+        allow_self_value: AllowSelfValue,
     ) -> BlockExprParser<'a> {
         let parser = ExprParser::new(
             self.db,
             expr_path.into(),
             self.token_sheet_data,
-            SymbolContextMut::new(self.module_symbol_context, decl_symbol_sheet),
+            SymbolContextMut::new(
+                self.module_symbol_context,
+                decl_symbol_sheet,
+                allow_self_type,
+                allow_self_value,
+            ),
         );
         BlockExprParser::new(parser, self.ast_sheet, self.ast_range_sheet)
     }

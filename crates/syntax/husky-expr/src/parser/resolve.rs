@@ -14,8 +14,28 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     ) -> TokenResolveResult<ResolvedToken> {
         TokenResolveResult::Continue(match token {
             Token::Attr(_) => todo!(),
+            Token::Keyword(Keyword::Pronoun(pronoun)) => match pronoun {
+                PronounKeyword::Crate => todo!(),
+                PronounKeyword::SelfType => match self.allow_self_type() {
+                    AllowSelfType::True => ResolvedToken::AtomicExpr(Expr::SelfType(token_idx)),
+                    AllowSelfType::False => todo!(),
+                },
+                PronounKeyword::SelfValue => match self.peek() {
+                    Some(Token::Punctuation(Punctuation::Binary(BinaryOpr::ScopeResolution))) => {
+                        todo!()
+                    }
+                    _ => match self.allow_self_value() {
+                        AllowSelfValue::True => {
+                            ResolvedToken::AtomicExpr(Expr::SelfValue(token_idx))
+                        }
+                        AllowSelfValue::False => todo!(),
+                    },
+                },
+
+                PronounKeyword::Super => todo!(),
+            },
             Token::Keyword(keyword) => {
-                ResolvedToken::Atom(Expr::Err(ExprError::UnexpectedKeyword(token_idx)))
+                ResolvedToken::AtomicExpr(Expr::Err(ExprError::UnexpectedKeyword(token_idx)))
             }
             Token::Identifier(ident) => self.resolve_ident(token_idx, ident),
             Token::Punctuation(punc) => match punc {
@@ -58,7 +78,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     _ => ResolvedToken::BinaryOpr(token_idx, BinaryComparisonOpr::Greater.into()),
                 },
                 Punctuation::Sheba => {
-                    ResolvedToken::Atom(Expr::Err(ExprError::UnexpectedSheba(token_idx)))
+                    ResolvedToken::AtomicExpr(Expr::Err(ExprError::UnexpectedSheba(token_idx)))
                 }
                 Punctuation::Shr => {
                     ResolvedToken::BinaryOpr(token_idx, BinaryPureClosedOpr::Shr.into())
@@ -159,8 +179,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 WordOpr::As => ResolvedToken::BinaryOpr(token_idx, BinaryOpr::As),
                 WordOpr::Be => ResolvedToken::Be(token_idx),
             },
-            Token::Literal(_) => ResolvedToken::Atom(Expr::Literal(token_idx)),
-            Token::Err(ref error) => ResolvedToken::Atom(Expr::Err(error.clone().into())),
+            Token::Literal(_) => ResolvedToken::AtomicExpr(Expr::Literal(token_idx)),
+            Token::Err(ref error) => ResolvedToken::AtomicExpr(Expr::Err(error.clone().into())),
         })
     }
 }
@@ -184,17 +204,16 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         todo!()
                     }
                     BaseEntityPath::Uncertain { .. } => {
-                        return ResolvedToken::Atom(Expr::Err(ExprError::UnresolvedSubentity {
-                            token_idx,
-                            ident,
-                        }))
+                        return ResolvedToken::AtomicExpr(Expr::Err(
+                            ExprError::UnresolvedSubentity { token_idx, ident },
+                        ))
                     }
                     BaseEntityPath::Err => todo!(),
                 },
                 _ => (),
             }
         }
-        ResolvedToken::Atom(
+        ResolvedToken::AtomicExpr(
             match self
                 .parser
                 .symbol_context
@@ -237,7 +256,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
 #[derive(Debug)]
 pub(crate) enum ResolvedToken {
-    Atom(Expr),
+    AtomicExpr(Expr),
     BinaryOpr(TokenIdx, BinaryOpr),
     PrefixOpr(TokenIdx, PrefixOpr),
     SuffixOpr(TokenIdx, SuffixOpr),

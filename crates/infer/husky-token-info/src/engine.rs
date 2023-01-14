@@ -277,6 +277,8 @@ impl<'a> AuxInferEngine<'a> {
                     inherited_symbol_kind: *inherited_symbol_kind,
                 },
             ),
+            Expr::SelfType(token_idx) => self.sheet.add(*token_idx, TokenInfo::SelfType),
+            Expr::SelfValue(token_idx) => self.sheet.add(*token_idx, TokenInfo::SelfValue),
             Expr::Field { ident_token, .. } => {
                 self.sheet.add(ident_token.token_idx(), TokenInfo::Field)
             }

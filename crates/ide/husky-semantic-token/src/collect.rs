@@ -61,6 +61,8 @@ fn token_to_semantic_token(
         } => match inherited_symbol_kind {
             InheritedSymbolKind::Parameter { .. } => SemanticToken::Parameter,
         },
+        TokenInfo::SelfType => todo!(),
+        TokenInfo::SelfValue => SemanticToken::Variable,
         // SemanticToken::Variable,
         TokenInfo::Field => SemanticToken::Field,
         TokenInfo::Method => SemanticToken::Method,

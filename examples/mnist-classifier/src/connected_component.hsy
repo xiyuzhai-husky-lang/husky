@@ -49,33 +49,33 @@ impl ConnectedComponent:
         // todo: change self to func
         let mut max_row = 0
         for 0 < i < 29:
-            max_row = max_row.max(mask[i].span())
+            max_row = max_row.max(self.mask[i].span())
         return max_row as f32
 
     proc row_span_sum -> f32:
         // todo: change self to func
         let mut row_span_sum = 0
         for 0 < i < 29:
-            row_span_sum += mask[i].span()
+            row_span_sum += self.mask[i].span()
         return row_span_sum as f32
 
     proc distribution -> ConnectedComponentDistribution:
         let mut row_start = 1
         forext row_start < 29:
-            if mask[row_start]:
+            if self.mask[row_start]:
                 break
         let mut row_end = row_start + 1
         forext row_end < 29:
-            if !mask[row_end]:
+            if !self.mask[row_end]:
                 break
         let height = row_end - row_start
         let half_height = height / 2
         let mut upper_mass = 0
         for row_start <= i1 < row_start + half_height:
-            upper_mass += mask[i1].co()
+            upper_mass += self.mask[i1].co()
         let mut lower_mass = 0
         for row_end > i2 >= row_end - half_height:
-            lower_mass += mask[i2].co()
+            lower_mass += self.mask[i2].co()
         return ConnectedComponentDistribution(
             row_start,
             row_end,
@@ -94,10 +94,10 @@ impl ConnectedComponent:
         assert k > 0
         let mut i = 1
         forext i < 29:
-            if mask[i]:
+            if self.mask[i]:
                 break
         for i <= j < i + k:
-            top_k_row_span_sum += mask[j].span()
+            top_k_row_span_sum += self.mask[j].span()
         return top_k_row_span_sum as f32
 
     proc top_k_row_right_mass_sum(k : i32) -> f32:
