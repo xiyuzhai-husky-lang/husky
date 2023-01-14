@@ -11,7 +11,7 @@ use crate::{
 
 use handlers::*;
 
-use husky_vfs::VfsDb;
+use husky_vfs::{apply_live_file_changes, set_live_file, VfsDb};
 
 pub(crate) fn dispatch_lsp_msg(
     server: &mut Server,
@@ -107,7 +107,7 @@ fn handle_lsp_notification(
         })?
         .on_sync::<lsp_types::notification::DidOpenTextDocument>(|server, params| {
             if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
-                match server.db.set_live_file(&path, params.text_document.text) {
+                match set_live_file(&mut server.db, &path, params.text_document.text) {
                     Ok(_) => (),
                     Err(e) => {
                         eprintln!(
@@ -126,7 +126,7 @@ fn handle_lsp_notification(
                     .into_iter()
                     .map(|change| change.into())
                     .collect();
-                server.db.apply_live_file_changes(&path, changes)?;
+                apply_live_file_changes(&mut server.db, &path, changes)?;
             }
             Ok(TaskSet::SendUpdates)
         })?

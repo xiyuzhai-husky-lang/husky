@@ -213,7 +213,7 @@ where
 
     fn process_debounced_events(&mut self, events: Vec<DebouncedEvent>) {
         for event in events {
-            self.db.update_file(&event.path).unwrap()
+            self.db.refresh_file_from_disk(&event.path).unwrap()
         }
     }
 }

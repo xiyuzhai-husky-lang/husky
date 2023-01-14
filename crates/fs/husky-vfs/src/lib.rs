@@ -7,6 +7,8 @@ mod db;
 mod error;
 mod file;
 mod jar;
+#[cfg(feature = "lsp_support")]
+mod lsp_support;
 mod path;
 #[cfg(feature = "test_utils")]
 mod test_utils;
@@ -19,6 +21,8 @@ pub use cache::VfsCache;
 pub use db::VfsDb;
 pub use error::*;
 pub use jar::VfsJar;
+#[cfg(feature = "lsp_support")]
+pub use lsp_support::*;
 pub use path::*;
 #[cfg(feature = "test_utils")]
 pub use test_utils::*;

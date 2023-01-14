@@ -6,6 +6,8 @@ mod char_iter;
 mod indent;
 mod info;
 mod line_map;
+#[cfg(feature = "lsp_support")]
+mod lsp_support;
 mod position;
 mod range;
 #[cfg(test)]
@@ -15,6 +17,8 @@ pub use change::TextChange;
 pub use char_iter::{PositionedTextCharIter, TextCharIter};
 pub use indent::TextIndent;
 pub use info::*;
+#[cfg(feature = "lsp_support")]
+pub use lsp_support::*;
 pub use position::*;
 pub use range::*;
 pub type CharIter<'token_line> = std::iter::Peekable<Enumerate<Chars<'token_line>>>;
