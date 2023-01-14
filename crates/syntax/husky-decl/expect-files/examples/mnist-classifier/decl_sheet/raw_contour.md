@@ -6,7 +6,7 @@ Ok(
                     PropsStruct(
                         PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                            ast_idx: 203,
+                            ast_idx: 201,
                             expr_sheet: ExprSheet(
                                 Id {
                                     value: 183,
@@ -86,7 +86,7 @@ Ok(
                     Enum(
                         EnumTypeDecl {
                             path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                            ast_idx: 205,
+                            ast_idx: 203,
                             expr_sheet: ExprSheet(
                                 Id {
                                     value: 184,
@@ -102,7 +102,7 @@ Ok(
                     Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
-                            ast_idx: 210,
+                            ast_idx: 208,
                             expr_sheet: ExprSheet(
                                 Id {
                                     value: 185,
@@ -184,7 +184,7 @@ Ok(
                     Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
-                            ast_idx: 211,
+                            ast_idx: 209,
                             expr_sheet: ExprSheet(
                                 Id {
                                     value: 186,
@@ -266,7 +266,7 @@ Ok(
                     Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
-                            ast_idx: 212,
+                            ast_idx: 210,
                             expr_sheet: ExprSheet(
                                 Id {
                                     value: 187,
@@ -348,7 +348,7 @@ Ok(
                     Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
-                            ast_idx: 213,
+                            ast_idx: 211,
                             expr_sheet: ExprSheet(
                                 Id {
                                     value: 188,
@@ -454,7 +454,7 @@ Ok(
                     Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
-                            ast_idx: 214,
+                            ast_idx: 212,
                             expr_sheet: ExprSheet(
                                 Id {
                                     value: 189,
@@ -536,7 +536,7 @@ Ok(
                     Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
-                            ast_idx: 215,
+                            ast_idx: 213,
                             expr_sheet: ExprSheet(
                                 Id {
                                     value: 190,
@@ -668,7 +668,7 @@ Ok(
                     Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
-                            ast_idx: 217,
+                            ast_idx: 215,
                             expr_sheet: ExprSheet(
                                 Id {
                                     value: 191,
@@ -730,7 +730,7 @@ Ok(
                     Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
-                            ast_idx: 218,
+                            ast_idx: 216,
                             expr_sheet: ExprSheet(
                                 Id {
                                     value: 192,
@@ -791,7 +791,7 @@ Ok(
                 ImplBlock(
                     TypeImplBlock(
                         TypeImplBlockDecl {
-                            ast_idx: 204,
+                            ast_idx: 202,
                             impl_block: ImplBlock(
                                 Id {
                                     value: 18,

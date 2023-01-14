@@ -220,18 +220,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 217;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 296,\n            },\n        ),\n    ),\n);\n\ntoken_info = LocalSymbol {\n    local_symbol_idx: 1,\n    local_symbol_kind: LetVariable {\n        pattern_symbol: 1,\n    },\n    expr_sheet: ExprSheet(\n        Id {\n            value: 262,\n        },\n    ),\n};\n\nLocalSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 296,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        174,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                230,\n            ),\n        ),\n    ),\n    kind: LetVariable {\n        pattern_symbol: 1,\n    },\n}\n",
+                                value: "\ntoken_idx = 217;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 236,\n            },\n        ),\n    ),\n);\n\ntoken_info = LocalSymbol {\n    local_symbol_idx: 2,\n    local_symbol_kind: LetVariable {\n        pattern_symbol: 2,\n    },\n    expr_sheet: ExprSheet(\n        Id {\n            value: 262,\n        },\n    ),\n};\n\nLocalSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 284,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        206,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                230,\n            ),\n        ),\n    ),\n    kind: LetVariable {\n        pattern_symbol: 2,\n    },\n}\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 37,
-                                    character: 28,
+                                    character: 12,
                                 },
                                 end: Position {
                                     line: 37,
-                                    character: 31,
+                                    character: 24,
                                 },
                             },
                         ),
@@ -250,18 +250,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 248;\n\ntoken = Keyword(\n    Liason(\n        Mut,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 248;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 183,\n            },\n        ),\n    ),\n);\n\ntoken_info = Field;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 43,
-                                    character: 12,
+                                    line: 42,
+                                    character: 48,
                                 },
                                 end: Position {
-                                    line: 43,
-                                    character: 15,
+                                    line: 42,
+                                    character: 53,
                                 },
                             },
                         ),
@@ -287,11 +287,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 47,
-                                    character: 24,
+                                    character: 16,
                                 },
                                 end: Position {
                                     line: 47,
-                                    character: 25,
+                                    character: 17,
                                 },
                             },
                         ),
@@ -310,18 +310,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 310;\n\ntoken = Punctuation(\n    Ket(\n        Par,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 310;\n\ntoken = Punctuation(\n    Dot,\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 49,
-                                    character: 35,
+                                    character: 33,
                                 },
                                 end: Position {
                                     line: 49,
-                                    character: 36,
+                                    character: 34,
                                 },
                             },
                         ),
@@ -340,18 +340,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 341;\n\ntoken = Keyword(\n    Stmt(\n        Return,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 341;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 58,\n            },\n        ),\n    ),\n);\n\ntoken_info = Field;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 53,
-                                    character: 8,
+                                    line: 52,
+                                    character: 34,
                                 },
                                 end: Position {
-                                    line: 53,
-                                    character: 14,
+                                    line: 52,
+                                    character: 35,
                                 },
                             },
                         ),
@@ -370,18 +370,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 372;\n\ntoken = Keyword(\n    Pronoun(\n        SelfValue,\n    ),\n);\n\ntoken_info = SelfValue;\n\nself value\n",
+                                value: "\ntoken_idx = 372;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 180,\n            },\n        ),\n    ),\n);\n\ntoken_info = Method;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 59,
-                                    character: 68,
+                                    character: 46,
                                 },
                                 end: Position {
                                     line: 59,
-                                    character: 72,
+                                    character: 67,
                                 },
                             },
                         ),
@@ -400,18 +400,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 403;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 238,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 403;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 270,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 64,
-                                    character: 25,
+                                    character: 17,
                                 },
                                 end: Position {
                                     line: 64,
-                                    character: 30,
+                                    character: 24,
                                 },
                             },
                         ),
@@ -430,18 +430,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 434;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 184,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        AssociatedItem(\n            TypeItem(\n                TypeItemPath(\n                    Id {\n                        value: 53,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        AssociatedItem {\n            associated_item_kind: TypeItem(\n                Method,\n            ),\n        },\n    ),\n);\n\n\n",
+                                value: "\ntoken_idx = 434;\n\ntoken = Punctuation(\n    Ket(\n        Par,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 70,
-                                    character: 9,
+                                    line: 68,
+                                    character: 42,
                                 },
                                 end: Position {
-                                    line: 70,
-                                    character: 12,
+                                    line: 68,
+                                    character: 43,
                                 },
                             },
                         ),
@@ -460,18 +460,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 465;\n\ntoken = Punctuation(\n    Dot,\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 465;\n\ntoken = Punctuation(\n    Bra(\n        Par,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 74,
-                                    character: 27,
+                                    character: 25,
                                 },
                                 end: Position {
                                     line: 74,
-                                    character: 28,
+                                    character: 26,
                                 },
                             },
                         ),
@@ -490,18 +490,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 496;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 272,\n            },\n        ),\n    ),\n);\n\ntoken_info = Field;\n\n\n",
+                                value: "Other\ntoken_idx = 496;\n\ntoken = Keyword(\n    Pronoun(\n        SelfValue,\n    ),\n);\n\ntoken_info = SelfValue;\n\nself value\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 80,
-                                    character: 13,
+                                    character: 8,
                                 },
                                 end: Position {
                                     line: 80,
-                                    character: 20,
+                                    character: 12,
                                 },
                             },
                         ),
@@ -520,18 +520,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 527;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 274,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 28,\n                    },\n                ),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
+                                value: "\ntoken_idx = 527;\n\ntoken = Punctuation(\n    Bra(\n        Box,\n    ),\n);\n\ntoken_info = BoxPrefix;\n\nbox prefix\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 86,
-                                    character: 35,
+                                    character: 33,
                                 },
                                 end: Position {
                                     line: 86,
-                                    character: 51,
+                                    character: 34,
                                 },
                             },
                         ),
@@ -550,18 +550,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 558;\n\ntoken = Punctuation(\n    Bra(\n        Par,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 558;\n\ntoken = Punctuation(\n    Exclamation,\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 90,
-                                    character: 35,
+                                    character: 25,
                                 },
                                 end: Position {
                                     line: 90,
-                                    character: 36,
+                                    character: 26,
                                 },
                             },
                         ),
@@ -580,18 +580,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 589;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 184,\n            },\n        ),\n    ),\n);\n\ntoken_info = LocalSymbol {\n    local_symbol_idx: 1,\n    local_symbol_kind: LetVariable {\n        pattern_symbol: 1,\n    },\n    expr_sheet: ExprSheet(\n        Id {\n            value: 258,\n        },\n    ),\n};\n\nLocalSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 280,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        532,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                631,\n            ),\n        ),\n    ),\n    kind: LetVariable {\n        pattern_symbol: 1,\n    },\n}\n",
+                                value: "\ntoken_idx = 589;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 83,\n            },\n        ),\n    ),\n);\n\ntoken_info = InheritedSymbol {\n    inherited_symbol_idx: 0,\n    inherited_symbol_kind: Parameter {\n        original_local_symbol_idx: 0,\n    },\n    expr_sheet: ExprSheet(\n        Id {\n            value: 258,\n        },\n    ),\n};\n\nInheritedSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 83,\n            },\n        ),\n    ),\n    kind: Parameter {\n        original_local_symbol_idx: 0,\n    },\n}\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 94,
-                                    character: 65,
+                                    character: 44,
                                 },
                                 end: Position {
                                     line: 94,
-                                    character: 68,
+                                    character: 63,
                                 },
                             },
                         ),
@@ -616,12 +616,12 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 100,
-                                    character: 12,
+                                    line: 99,
+                                    character: 67,
                                 },
                                 end: Position {
-                                    line: 100,
-                                    character: 13,
+                                    line: 99,
+                                    character: 68,
                                 },
                             },
                         ),

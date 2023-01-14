@@ -131,6 +131,7 @@ impl SemanticToken {
                     | StmtKeyword::Require => result |= CONTROL_FLOW,
                     StmtKeyword::Let | StmtKeyword::Var | StmtKeyword::Assert => (),
                 },
+                Keyword::End(_) => result |= CONTROL_FLOW,
                 _ => (),
             },
             _ => (),

@@ -123,7 +123,7 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::raw_contour`,
                                             ),
-                                            ast_idx: 218,
+                                            ast_idx: 216,
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
@@ -312,7 +312,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier::raw_contour`,
                                     ),
-                                    ast_idx: 203,
+                                    ast_idx: 201,
                                 },
                             ),
                         },
@@ -327,7 +327,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier::raw_contour`,
                                     ),
-                                    ast_idx: 205,
+                                    ast_idx: 203,
                                 },
                             ),
                         },
@@ -342,7 +342,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier::raw_contour`,
                                     ),
-                                    ast_idx: 210,
+                                    ast_idx: 208,
                                 },
                             ),
                         },
@@ -357,7 +357,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier::raw_contour`,
                                     ),
-                                    ast_idx: 211,
+                                    ast_idx: 209,
                                 },
                             ),
                         },
@@ -372,7 +372,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier::raw_contour`,
                                     ),
-                                    ast_idx: 212,
+                                    ast_idx: 210,
                                 },
                             ),
                         },
@@ -387,7 +387,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier::raw_contour`,
                                     ),
-                                    ast_idx: 213,
+                                    ast_idx: 211,
                                 },
                             ),
                         },
@@ -402,7 +402,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier::raw_contour`,
                                     ),
-                                    ast_idx: 214,
+                                    ast_idx: 212,
                                 },
                             ),
                         },
@@ -417,7 +417,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier::raw_contour`,
                                     ),
-                                    ast_idx: 215,
+                                    ast_idx: 213,
                                 },
                             ),
                         },
@@ -432,7 +432,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier::raw_contour`,
                                     ),
-                                    ast_idx: 216,
+                                    ast_idx: 214,
                                 },
                             ),
                         },
@@ -447,7 +447,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier::raw_contour`,
                                     ),
-                                    ast_idx: 217,
+                                    ast_idx: 215,
                                 },
                             ),
                         },
@@ -462,7 +462,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier::raw_contour`,
                                     ),
-                                    ast_idx: 218,
+                                    ast_idx: 216,
                                 },
                             ),
                         },
@@ -484,7 +484,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier::raw_contour`,
                                     ),
-                                    ast_idx: 199,
+                                    ast_idx: 197,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -515,7 +515,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier::raw_contour`,
                                     ),
-                                    ast_idx: 201,
+                                    ast_idx: 199,
                                     use_expr_idx: 6,
                                 },
                             ),
@@ -817,7 +817,7 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::raw_contour`,
                                             ),
-                                            ast_idx: 203,
+                                            ast_idx: 201,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -1175,7 +1175,7 @@ Ok(
                                                     accessibility: PubicUnder(
                                                         `mnist_classifier::raw_contour`,
                                                     ),
-                                                    ast_idx: 203,
+                                                    ast_idx: 201,
                                                 },
                                             ),
                                             path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -1571,7 +1571,7 @@ Ok(
                                                     accessibility: PubicUnder(
                                                         `mnist_classifier::raw_contour`,
                                                     ),
-                                                    ast_idx: 203,
+                                                    ast_idx: 201,
                                                 },
                                             ),
                                             path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -1967,7 +1967,7 @@ Ok(
                                                     accessibility: PubicUnder(
                                                         `mnist_classifier::raw_contour`,
                                                     ),
-                                                    ast_idx: 203,
+                                                    ast_idx: 201,
                                                 },
                                             ),
                                             path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -2292,7 +2292,7 @@ Ok(
                                                     accessibility: PubicUnder(
                                                         `mnist_classifier::raw_contour`,
                                                     ),
-                                                    ast_idx: 218,
+                                                    ast_idx: 216,
                                                 },
                                             ),
                                             path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),

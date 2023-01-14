@@ -160,7 +160,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 360;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 279,\n            },\n        ),\n    ),\n);\n\ntoken_info = InheritedSymbol {\n    inherited_symbol_idx: 1,\n    inherited_symbol_kind: Parameter {\n        original_local_symbol_idx: 1,\n    },\n    expr_sheet: ExprSheet(\n        Id {\n            value: 294,\n        },\n    ),\n};\n\nInheritedSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 276,\n            },\n        ),\n    ),\n    kind: Parameter {\n        original_local_symbol_idx: 1,\n    },\n}\n",
+                                value: "\ntoken_idx = 360;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 277,\n            },\n        ),\n    ),\n);\n\ntoken_info = InheritedSymbol {\n    inherited_symbol_idx: 1,\n    inherited_symbol_kind: Parameter {\n        original_local_symbol_idx: 1,\n    },\n    expr_sheet: ExprSheet(\n        Id {\n            value: 294,\n        },\n    ),\n};\n\nInheritedSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 274,\n            },\n        ),\n    ),\n    kind: Parameter {\n        original_local_symbol_idx: 1,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -190,7 +190,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 432;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 284,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Form(\n                FormPath(\n                    Id {\n                        value: 18,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Form(\n                Function,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
+                                value: "\ntoken_idx = 432;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 282,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Form(\n                FormPath(\n                    Id {\n                        value: 18,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Form(\n                Function,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -220,7 +220,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 504;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 281,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 504;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 279,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -430,7 +430,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 1008;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 183,\n            },\n        ),\n    ),\n);\n\ntoken_info = LocalSymbol {\n    local_symbol_idx: 9,\n    local_symbol_kind: LetVariable {\n        pattern_symbol: 9,\n    },\n    expr_sheet: ExprSheet(\n        Id {\n            value: 297,\n        },\n    ),\n};\n\nLocalSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 293,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        938,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                971,\n            ),\n        ),\n    ),\n    kind: LetVariable {\n        pattern_symbol: 9,\n    },\n}\n",
+                                value: "\ntoken_idx = 1008;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 183,\n            },\n        ),\n    ),\n);\n\ntoken_info = LocalSymbol {\n    local_symbol_idx: 9,\n    local_symbol_kind: LetVariable {\n        pattern_symbol: 9,\n    },\n    expr_sheet: ExprSheet(\n        Id {\n            value: 297,\n        },\n    ),\n};\n\nLocalSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 291,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        938,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                971,\n            ),\n        ),\n    ),\n    kind: LetVariable {\n        pattern_symbol: 9,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -460,7 +460,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 1080;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 121,\n            },\n        ),\n    ),\n);\n\ntoken_info = InheritedSymbol {\n    inherited_symbol_idx: 1,\n    inherited_symbol_kind: Parameter {\n        original_local_symbol_idx: 1,\n    },\n    expr_sheet: ExprSheet(\n        Id {\n            value: 298,\n        },\n    ),\n};\n\nInheritedSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 276,\n            },\n        ),\n    ),\n    kind: Parameter {\n        original_local_symbol_idx: 1,\n    },\n}\n",
+                                value: "\ntoken_idx = 1080;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 121,\n            },\n        ),\n    ),\n);\n\ntoken_info = InheritedSymbol {\n    inherited_symbol_idx: 1,\n    inherited_symbol_kind: Parameter {\n        original_local_symbol_idx: 1,\n    },\n    expr_sheet: ExprSheet(\n        Id {\n            value: 298,\n        },\n    ),\n};\n\nInheritedSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 274,\n            },\n        ),\n    ),\n    kind: Parameter {\n        original_local_symbol_idx: 1,\n    },\n}\n",
                             },
                         ),
                         range: Some(

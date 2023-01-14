@@ -1,5 +1,28 @@
+use crate::{Keyword, Token};
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum EndKeyword {
     With,
     Into,
+}
+
+impl EndKeyword {
+    pub fn code(self) -> &'static str {
+        match self {
+            EndKeyword::With => "with",
+            EndKeyword::Into => "into",
+        }
+    }
+}
+
+impl const From<EndKeyword> for Keyword {
+    fn from(kw: EndKeyword) -> Self {
+        Keyword::End(kw)
+    }
+}
+
+impl const From<EndKeyword> for Token {
+    fn from(kw: EndKeyword) -> Self {
+        Token::Keyword(kw.into())
+    }
 }

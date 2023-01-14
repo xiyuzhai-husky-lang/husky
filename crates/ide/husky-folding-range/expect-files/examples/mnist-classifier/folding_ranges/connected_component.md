@@ -33,7 +33,7 @@ Ok(
             ),
             end_line: 51,
             end_character: Some(
-                49,
+                54,
             ),
             kind: Some(
                 Region,
@@ -46,7 +46,7 @@ Ok(
             ),
             end_line: 58,
             end_character: Some(
-                42,
+                47,
             ),
             kind: Some(
                 Region,
@@ -111,7 +111,7 @@ Ok(
             ),
             end_line: 74,
             end_character: Some(
-                39,
+                44,
             ),
             kind: Some(
                 Region,
@@ -124,7 +124,7 @@ Ok(
             ),
             end_line: 77,
             end_character: Some(
-                39,
+                44,
             ),
             kind: Some(
                 Region,
@@ -163,7 +163,7 @@ Ok(
             ),
             end_line: 99,
             end_character: Some(
-                48,
+                53,
             ),
             kind: Some(
                 Region,
