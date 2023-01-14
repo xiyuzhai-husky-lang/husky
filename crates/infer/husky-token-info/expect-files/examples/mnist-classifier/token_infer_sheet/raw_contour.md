@@ -3887,6 +3887,13 @@ Ok(
             None,
             None,
             None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
             LocalSymbol {
                 local_symbol_idx: 11,
                 local_symbol_kind: LetVariable {

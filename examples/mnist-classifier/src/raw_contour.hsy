@@ -98,8 +98,8 @@ func get_inward_direction(
     | _ => unreachable
 
 func get_angle_change(inward: Direction, outward: Direction) -> i32:
-    raw_angle_change = (((outward as i32) - (inward as i32)) as r32).last_bits(2)
-    match raw_angle_change:
+    let raw_angle_change = (((outward as i32) - (inward as i32)) as r32).last_bits(2)
+    match raw_angle_change with
     | 0
     | 1
     | 2 => raw_angle_change as i32

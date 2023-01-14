@@ -237,11 +237,11 @@ Ok(
         FoldingRange {
             start_line: 245,
             start_character: Some(
-                20,
+                16,
             ),
             end_line: 248,
             end_character: Some(
-                48,
+                44,
             ),
             kind: Some(
                 Region,
@@ -250,61 +250,22 @@ Ok(
         FoldingRange {
             start_line: 249,
             start_character: Some(
-                20,
+                16,
             ),
             end_line: 252,
             end_character: Some(
-                46,
+                42,
             ),
             kind: Some(
                 Region,
             ),
         },
         FoldingRange {
-            start_line: 253,
-            start_character: Some(
-                20,
-            ),
-            end_line: 254,
-            end_character: Some(
-                33,
-            ),
-            kind: Some(
-                Region,
-            ),
-        },
-        FoldingRange {
-            start_line: 255,
-            start_character: Some(
-                20,
-            ),
-            end_line: 256,
-            end_character: Some(
-                33,
-            ),
-            kind: Some(
-                Region,
-            ),
-        },
-        FoldingRange {
-            start_line: 244,
+            start_line: 258,
             start_character: Some(
                 16,
             ),
-            end_line: 256,
-            end_character: Some(
-                33,
-            ),
-            kind: Some(
-                Region,
-            ),
-        },
-        FoldingRange {
-            start_line: 260,
-            start_character: Some(
-                16,
-            ),
-            end_line: 261,
+            end_line: 259,
             end_character: Some(
                 36,
             ),
@@ -313,11 +274,11 @@ Ok(
             ),
         },
         FoldingRange {
-            start_line: 262,
+            start_line: 260,
             start_character: Some(
                 12,
             ),
-            end_line: 263,
+            end_line: 261,
             end_character: Some(
                 31,
             ),
@@ -330,7 +291,7 @@ Ok(
             start_character: Some(
                 12,
             ),
-            end_line: 261,
+            end_line: 259,
             end_character: Some(
                 36,
             ),
@@ -343,7 +304,7 @@ Ok(
             start_character: Some(
                 8,
             ),
-            end_line: 264,
+            end_line: 262,
             end_character: Some(
                 48,
             ),
@@ -369,7 +330,7 @@ Ok(
             start_character: Some(
                 4,
             ),
-            end_line: 264,
+            end_line: 262,
             end_character: Some(
                 48,
             ),
@@ -499,7 +460,7 @@ Ok(
             start_character: Some(
                 0,
             ),
-            end_line: 265,
+            end_line: 263,
             end_character: Some(
                 17,
             ),

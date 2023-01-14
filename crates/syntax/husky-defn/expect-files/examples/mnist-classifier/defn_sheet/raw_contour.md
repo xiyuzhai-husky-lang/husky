@@ -188,7 +188,7 @@ Ok(
             ImplBlock(
                 TypeImplBlock(
                     TypeImplBlockDecl {
-                        ast_idx: 204,
+                        ast_idx: 202,
                         impl_block: ImplBlock(
                             Id {
                                 value: 18,

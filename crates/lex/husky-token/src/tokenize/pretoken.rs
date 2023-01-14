@@ -47,6 +47,12 @@ impl Into<Pretoken> for FloatLiteral {
     }
 }
 
+impl const From<EndKeyword> for Pretoken {
+    fn from(kw: EndKeyword) -> Self {
+        Pretoken::Certain(kw.into())
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum AmbiguousPretoken {
     SubOrMinus,
