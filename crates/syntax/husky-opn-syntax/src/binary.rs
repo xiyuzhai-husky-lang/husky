@@ -16,6 +16,7 @@ pub enum BinaryOpr {
     Curry, // ->
     As,    // as
     Is,    // :
+    In,    // in
 }
 
 impl From<Option<BinaryPureClosedOpr>> for BinaryOpr {
@@ -66,6 +67,7 @@ impl BinaryOpr {
             BinaryOpr::As => todo!(),
             BinaryOpr::Is => todo!(),
             BinaryOpr::ScopeResolution => todo!(),
+            BinaryOpr::In => "in",
         }
     }
 
@@ -96,7 +98,8 @@ impl BinaryOpr {
             BinaryOpr::Curry => " -> ",
             BinaryOpr::As => " as ",
             BinaryOpr::Is => " : ",
-            BinaryOpr::ScopeResolution => todo!(),
+            BinaryOpr::ScopeResolution => " :: ",
+            BinaryOpr::In => " in ",
         }
     }
 }

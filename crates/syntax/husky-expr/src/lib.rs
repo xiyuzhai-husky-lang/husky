@@ -89,8 +89,8 @@ pub enum Expr {
     SelfValue(TokenIdx),
     BinaryOpn {
         lopd: ExprIdx,
-        punctuation: BinaryOpr,
-        punctuation_token_idx: TokenIdx,
+        opr: BinaryOpr,
+        opr_token_idx: TokenIdx,
         ropd: ExprIdx,
     },
     Be {

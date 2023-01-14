@@ -1,3 +1,7 @@
+mod loop_stmt;
+
+pub use loop_stmt::*;
+
 use crate::*;
 use husky_token::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
@@ -33,9 +37,13 @@ pub enum Stmt {
     Eval {
         expr: ExprIdx,
     },
-    For {
+    ForBetween {
         for_token: ForToken,
-        condition: ExprResult<ExprIdx>,
+        frame_var_ident: Identifier,
+        frame_var_token_idx: TokenIdx,
+        initial_boundary: LoopBoundary,
+        final_boundary: LoopBoundary,
+        step: LoopStep,
         eol_colon: ExprResult<EolColonToken>,
         block: ExprResult<StmtIdxRange>,
     },

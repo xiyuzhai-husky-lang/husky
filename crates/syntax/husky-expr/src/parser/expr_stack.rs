@@ -53,8 +53,8 @@ impl Expr {
             Expr::SelfType(_) => todo!(),
             Expr::BinaryOpn {
                 lopd,
-                punctuation,
-                punctuation_token_idx,
+                opr: punctuation,
+                opr_token_idx: punctuation_token_idx,
                 ropd,
             } => todo!(),
             Expr::PrefixOpn {
@@ -174,8 +174,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     self.stack.finished_expr = Some(match finished_expr {
                         Some(ropd) => Expr::BinaryOpn {
                             lopd,
-                            punctuation,
-                            punctuation_token_idx,
+                            opr: punctuation,
+                            opr_token_idx: punctuation_token_idx,
                             ropd: self.alloc_expr(ropd),
                         },
                         None => Expr::Err(ExprError::NoRightOperandForBinaryOperator {
