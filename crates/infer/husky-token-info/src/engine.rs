@@ -256,12 +256,18 @@ impl<'a> AuxInferEngine<'a> {
                 local_symbol_idx,
                 local_symbol_kind,
                 ..
+            }
+            | Expr::FrameVarDecl {
+                token_idx,
+                local_symbol_idx,
+                local_symbol_kind,
+                ..
             } => self.sheet.add(
                 *token_idx,
                 TokenInfo::LocalSymbol {
                     local_symbol_idx: *local_symbol_idx,
-                    expr_sheet: self.expr_sheet,
                     local_symbol_kind: *local_symbol_kind,
+                    expr_sheet: self.expr_sheet,
                 },
             ),
             Expr::InheritedSymbol {
@@ -369,6 +375,7 @@ impl<'a> AuxInferEngine<'a> {
                     }
                 }
             }
+            LocalSymbolKind::FrameVariable(_) => (),
         }
     }
 

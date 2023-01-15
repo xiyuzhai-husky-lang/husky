@@ -41,13 +41,13 @@ impl LocalSymbol {
         ident: Identifier,
         access_start: TokenIdx,
         access_end: Option<TokenIdxRangeEnd>,
-        variant: LocalSymbolKind,
+        kind: LocalSymbolKind,
     ) -> Self {
         Self {
             ident,
             access_start,
             access_end,
-            kind: variant,
+            kind,
         }
     }
 
@@ -60,6 +60,7 @@ impl LocalSymbol {
 pub enum LocalSymbolKind {
     Parameter { pattern_symbol: PatternSymbolIdx },
     LetVariable { pattern_symbol: PatternSymbolIdx },
+    FrameVariable(ExprIdx),
 }
 
 pub type InheritedSymbolArena = Arena<InheritedSymbol>;

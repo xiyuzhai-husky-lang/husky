@@ -126,6 +126,7 @@ impl SymbolSheet {
                     },
                 },
                 LocalSymbolKind::LetVariable { .. } => todo!(),
+                LocalSymbolKind::FrameVariable(_) => todo!(),
             });
         }
         inherited_symbol_arena

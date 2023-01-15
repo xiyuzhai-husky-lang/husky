@@ -150,8 +150,8 @@ impl<'a> BlockExprParser<'a> {
                         Err(_) => todo!(),
                     };
                     let eol_colon = ctx.parse_expected();
-                    let block = self.parse_block_stmts_expected(body, token_group_idx);
-                    self.parse_for_loop(expr, for_token, eol_colon, block)
+                    self.parse_for_loop_stmt(expr, for_token, eol_colon, token_group_idx, body)
+                        .into()
                 }
                 BasicStmtKeywordToken::ForExt(forext_token) => Stmt::ForExt {
                     forext_token,
@@ -192,41 +192,122 @@ impl<'a> BlockExprParser<'a> {
         }
     }
 
-    fn parse_for_loop(
+    fn parse_for_loop_stmt(
         &mut self,
         expr: ExprIdx,
         for_token: ForToken,
         eol_colon: ExprResult<EolColonToken>,
-        block: ExprResult<StmtIdxRange>,
-    ) -> Stmt {
+        token_group_idx: TokenGroupIdx,
+        body: AstIdxRange,
+    ) -> StmtResult<Stmt> {
         match self.expr_arena[expr] {
             Expr::BinaryOpn {
                 lopd,
-                opr: BinaryOpr::Comparison(_),
+                opr: BinaryOpr::Comparison(comparison_opr),
                 opr_token_idx,
                 ropd,
-            } => Stmt::ForBetween {
-                for_token,
-                frame_var_ident: todo!(),
-                frame_var_token_idx: todo!(),
-                initial_boundary: todo!(),
-                final_boundary: todo!(),
-                step: todo!(),
-                eol_colon,
-                block,
-            },
+            } => {
+                let particulars = self.parse_for_between_particulars(lopd, ropd, comparison_opr)?;
+                let local_symbol_kind =
+                    LocalSymbolKind::FrameVariable(particulars.frame_var_expr_idx);
+                let access_start = self.ast_token_idx_range_sheet[body.start()]
+                    .start()
+                    .token_idx();
+                let access_end = self.ast_token_idx_range_sheet[body.end() - 1].end();
+                let local_symbol_idx = self
+                    .define_variables(vec![LocalSymbol::new(
+                        particulars.frame_var_ident,
+                        access_start,
+                        Some(access_end),
+                        local_symbol_kind,
+                    )])
+                    .start();
+                unsafe {
+                    self.expr_arena.set(
+                        particulars.frame_var_expr_idx,
+                        Expr::FrameVarDecl {
+                            token_idx: particulars.frame_var_token_idx,
+                            ident: particulars.frame_var_ident,
+                            local_symbol_idx,
+                            local_symbol_kind,
+                        },
+                    )
+                }
+                Ok(Stmt::ForBetween {
+                    for_token,
+                    particulars,
+                    eol_colon,
+                    block: self.parse_block_stmts_expected(body, token_group_idx),
+                })
+            }
             Expr::BinaryOpn {
                 lopd,
                 opr: BinaryOpr::In,
                 opr_token_idx,
                 ropd,
-            } => Stmt::ForIn {
+            } => Ok(Stmt::ForIn {
                 for_token,
                 condition: todo!(),
                 eol_colon,
-                block,
-            },
+                block: self.parse_block_stmts_expected(body, token_group_idx),
+            }),
             _ => todo!(),
+        }
+    }
+
+    fn parse_for_between_particulars(
+        &self,
+        lopd: ArenaIdx<Expr>,
+        ropd: ArenaIdx<Expr>,
+        comparison_opr: BinaryComparisonOpr,
+    ) -> Result<ForBetweenParticulars, StmtError> {
+        use ExprError::UnrecognizedIdentifier;
+        let lopd_expr = &self.expr_arena[lopd];
+        let ropd_expr = &self.expr_arena[ropd];
+        // todo: parse with
+        if let Expr::Err(UnrecognizedIdentifier { token_idx, ident }) = lopd_expr {
+            Ok(ForBetweenParticulars {
+                frame_var_token_idx: *token_idx,
+                frame_var_expr_idx: lopd,
+                frame_var_ident: *ident,
+                range: ForBetweenRange::new_with_default_initial(comparison_opr, ropd)?,
+            })
+        } else if let Expr::Err(UnrecognizedIdentifier { token_idx, ident }) = ropd_expr {
+            Ok(ForBetweenParticulars {
+                frame_var_token_idx: *token_idx,
+                frame_var_expr_idx: ropd,
+                frame_var_ident: *ident,
+                range: ForBetweenRange::new_with_default_final(lopd, comparison_opr)?,
+            })
+        } else {
+            let final_comparison = comparison_opr;
+            match lopd_expr {
+                Expr::BinaryOpn {
+                    lopd: llopd,
+                    opr: BinaryOpr::Comparison(initial_comparison),
+                    opr_token_idx,
+                    ropd: lropd,
+                } => {
+                    let lropd_expr = &self.expr_arena[lropd];
+                    match lropd_expr {
+                        Expr::Err(UnrecognizedIdentifier { token_idx, ident }) => {
+                            Ok(ForBetweenParticulars {
+                                frame_var_token_idx: *token_idx,
+                                frame_var_expr_idx: *lropd,
+                                frame_var_ident: *ident,
+                                range: ForBetweenRange::new_without_defaults(
+                                    *llopd,
+                                    *initial_comparison,
+                                    final_comparison,
+                                    ropd,
+                                )?,
+                            })
+                        }
+                        _ => todo!(),
+                    }
+                }
+                _ => todo!(),
+            }
         }
     }
 
@@ -308,4 +389,12 @@ impl<'a> BlockExprParser<'a> {
     pub fn finish(self) -> ExprSheet {
         self.expr_parser.finish()
     }
+}
+
+fn get_lazy(list: &mut Vec<String>) -> &mut String {
+    if let Some(s) = list.first_mut() {
+        s;
+    }
+    list.push(format!("Hl"));
+    list.first_mut().unwrap()
 }

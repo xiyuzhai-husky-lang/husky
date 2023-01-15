@@ -240,7 +240,17 @@ Ok(
             None,
             None,
             None,
-            None,
+            LocalSymbol {
+                local_symbol_idx: 2,
+                local_symbol_kind: FrameVariable(
+                    3,
+                ),
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 312,
+                    },
+                ),
+            },
             None,
             Entity(
                 Some(
@@ -263,7 +273,7 @@ Ok(
             None,
             None,
             LocalSymbol {
-                local_symbol_idx: 2,
+                local_symbol_idx: 3,
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
@@ -289,7 +299,17 @@ Ok(
                 None,
             ),
             None,
-            None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 312,
+                    },
+                ),
+            },
             None,
             None,
             Field,
@@ -307,10 +327,10 @@ Ok(
             },
             None,
             LocalSymbol {
-                local_symbol_idx: 1,
-                local_symbol_kind: LetVariable {
-                    pattern_symbol: 1,
-                },
+                local_symbol_idx: 2,
+                local_symbol_kind: FrameVariable(
+                    3,
+                ),
                 expr_sheet: ExprSheet(
                     Id {
                         value: 312,
@@ -319,10 +339,10 @@ Ok(
             },
             None,
             LocalSymbol {
-                local_symbol_idx: 1,
-                local_symbol_kind: LetVariable {
-                    pattern_symbol: 1,
-                },
+                local_symbol_idx: 2,
+                local_symbol_kind: FrameVariable(
+                    3,
+                ),
                 expr_sheet: ExprSheet(
                     Id {
                         value: 312,
@@ -342,7 +362,7 @@ Ok(
                 ),
             },
             LocalSymbol {
-                local_symbol_idx: 2,
+                local_symbol_idx: 3,
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
@@ -353,7 +373,17 @@ Ok(
                 ),
             },
             None,
-            None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 312,
+                    },
+                ),
+            },
             None,
             Entity(
                 Some(
@@ -371,7 +401,7 @@ Ok(
             ),
             None,
             LocalSymbol {
-                local_symbol_idx: 2,
+                local_symbol_idx: 3,
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
@@ -423,32 +453,11 @@ Ok(
             None,
             None,
             None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 64,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            Method,
-            None,
-            None,
-            None,
             LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: LetVariable {
-                    pattern_symbol: 0,
-                },
+                local_symbol_idx: 1,
+                local_symbol_kind: FrameVariable(
+                    2,
+                ),
                 expr_sheet: ExprSheet(
                     Id {
                         value: 313,
@@ -471,16 +480,57 @@ Ok(
                 None,
             ),
             None,
+            Method,
             None,
             None,
             None,
-            Field,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                local_symbol_kind: FrameVariable(
+                    2,
+                ),
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 313,
+                    },
+                ),
+            },
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 64,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             LocalSymbol {
                 local_symbol_idx: 0,
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 313,
+                    },
+                ),
+            },
+            None,
+            None,
+            Field,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                local_symbol_kind: FrameVariable(
+                    2,
+                ),
                 expr_sheet: ExprSheet(
                     Id {
                         value: 313,
