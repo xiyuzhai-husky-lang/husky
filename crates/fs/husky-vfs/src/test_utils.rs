@@ -103,7 +103,25 @@ pub trait VfsTestUtils: VfsDb {
     }
     fn vfs_test<U>(&self, f: impl Fn(&Self, U))
     where
-        U: VfsTestUnit;
+        U: VfsTestUnit,
+    {
+        for dir in test_dirs() {
+            let vfs_db = <Self as salsa::DbWithJar<VfsJar>>::as_jar_db(self);
+            let toolchain = self.dev_toolchain().unwrap();
+            for (base, out) in expect_test_base_outs() {
+                std::fs::create_dir_all(&out).expect("failed_to_create_dir_all");
+                for path in collect_package_relative_dirs(&base).into_iter() {
+                    let package_path =
+                        PackagePath::new_local(vfs_db, toolchain, &path.to_logical_path(&base))
+                            .unwrap();
+                    for unit in <U as VfsTestUnit>::collect_from_package_path(vfs_db, package_path)
+                    {
+                        f(self, unit)
+                    }
+                }
+            }
+        }
+    }
 
     fn expect_test_packages_debug_result<T, E>(
         name: &str,
@@ -142,13 +160,6 @@ impl<Db> VfsTestUtils for Db
 where
     Db: VfsDb + ?Sized,
 {
-    fn vfs_test<U>(&self, f: impl Fn(&Self, U))
-    where
-        U: VfsTestUnit,
-    {
-        vfs_test(self, f)
-    }
-
     fn expect_test_packages_debug_result<T, E>(
         name: &str,
         f: impl Fn(&Self, PackagePath) -> Result<&T, E>,
@@ -219,37 +230,15 @@ fn expect_test_packages<Db, T, E>(
         .for_each(|path| {
             let package_path =
                 PackagePath::new_local(db, toolchain, &path.to_logical_path(base)).unwrap();
-            let resolver = TestPathResolver {
-                db,
-                name,
-                package_expects_dir: path.to_logical_path(&out),
-            };
-            let path = path.to_logical_path(&out);
-            std::fs::create_dir_all(path.parent().unwrap()).unwrap();
-            expect_test::expect_file![path].assert_eq(&p(&db, f(&db, package_path)));
+            let package_expect_file_path = path
+                .to_logical_path(&out)
+                .with_extension(EXPECT_FILE_EXTENSION);
+            let dir = &package_expect_file_path.parent().unwrap();
+            p!(dir);
+            std::fs::create_dir_all(dir).unwrap();
+            expect_test::expect_file![package_expect_file_path]
+                .assert_eq(&p(&db, f(&db, package_path)));
         });
-}
-
-fn vfs_test<'a, Db, U>(db: &'a Db, f: impl Fn(&'a Db, U))
-where
-    Db: VfsDb + ?Sized,
-    U: VfsTestUnit,
-{
-    for dir in test_dirs() {
-        let vfs_db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
-        let toolchain = db.dev_toolchain().unwrap();
-        for (base, out) in expect_test_base_outs() {
-            std::fs::create_dir_all(&out).expect("failed_to_create_dir_all");
-            for path in collect_package_relative_dirs(&base).into_iter() {
-                let package_path =
-                    PackagePath::new_local(vfs_db, toolchain, &path.to_logical_path(&base))
-                        .unwrap();
-                for unit in <U as VfsTestUnit>::collect_from_package_path(vfs_db, package_path) {
-                    f(db, unit)
-                }
-            }
-        }
-    }
 }
 
 fn vfs_expect_test<'a, Db, U, R>(
