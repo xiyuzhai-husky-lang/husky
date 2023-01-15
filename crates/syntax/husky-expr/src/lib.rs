@@ -85,6 +85,12 @@ pub enum Expr {
         local_symbol_idx: LocalSymbolIdx,
         local_symbol_kind: LocalSymbolKind,
     },
+    FrameVarDecl {
+        token_idx: TokenIdx,
+        ident: Identifier,
+        local_symbol_idx: LocalSymbolIdx,
+        local_symbol_kind: LocalSymbolKind,
+    },
     SelfType(TokenIdx),
     SelfValue(TokenIdx),
     BinaryOpn {

@@ -97,6 +97,9 @@ impl Expr {
                 target,
             } => todo!(),
             Expr::BoxColon { .. } => todo!(),
+            Expr::FrameVarDecl {
+                token_idx, ident, ..
+            } => todo!(),
         }
     }
 }

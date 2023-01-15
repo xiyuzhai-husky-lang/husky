@@ -44,6 +44,12 @@ impl std::fmt::Debug for TokenIdxRange {
 #[derive(Debug, Hash, PartialOrd, Ord, PartialEq, Eq, Clone, Copy)]
 pub struct TokenIdxRangeStart(TokenIdx);
 
+impl TokenIdxRangeStart {
+    pub fn token_idx(self) -> TokenIdx {
+        self.0
+    }
+}
+
 #[derive(Debug, Hash, PartialOrd, Ord, PartialEq, Eq, Clone, Copy)]
 pub struct TokenIdxRangeEnd(TokenIdx);
 

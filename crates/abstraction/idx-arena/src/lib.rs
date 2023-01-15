@@ -59,6 +59,10 @@ impl<T> Arena<T> {
         &self.data
     }
 
+    pub unsafe fn set(&mut self, idx: ArenaIdx<T>, new_value: T) {
+        self.data[idx.raw] = new_value
+    }
+
     pub fn index_iter<'a>(&'a self) -> impl Iterator<Item = ArenaIdx<T>> {
         (0..self.data.len()).map(|i| ArenaIdx {
             raw: i,

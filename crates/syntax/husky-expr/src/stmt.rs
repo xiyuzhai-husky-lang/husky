@@ -1,5 +1,7 @@
+mod error;
 mod loop_stmt;
 
+pub use error::*;
 pub use loop_stmt::*;
 
 use crate::*;
@@ -39,11 +41,7 @@ pub enum Stmt {
     },
     ForBetween {
         for_token: ForToken,
-        frame_var_ident: Identifier,
-        frame_var_token_idx: TokenIdx,
-        initial_boundary: LoopBoundary,
-        final_boundary: LoopBoundary,
-        step: LoopStep,
+        particulars: ForBetweenParticulars,
         eol_colon: ExprResult<EolColonToken>,
         block: ExprResult<StmtIdxRange>,
     },
@@ -77,6 +75,16 @@ pub enum Stmt {
         else_branch: Option<ElseBranch>,
     },
     Match {},
+    Err(StmtError),
+}
+
+impl From<StmtResult<Stmt>> for Stmt {
+    fn from(value: StmtResult<Stmt>) -> Self {
+        match value {
+            Ok(stmt) => stmt,
+            Err(err) => Stmt::Err(err),
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq)]
