@@ -5,7 +5,12 @@ use std::path::PathBuf;
 
 pub trait VfsTestUnit: Sized {
     fn collect_from_dir(db: &dyn VfsDb, dir: &Path) -> Vec<Self>;
-    fn decide_expect_file_path(&self, db: &dyn VfsDb, task_name: &str) -> PathBuf;
+    fn decide_expect_file_path(
+        &self,
+        db: &dyn VfsDb,
+        task_name: &str,
+        package_expects_dir: &Path,
+    ) -> PathBuf;
 }
 
 impl VfsTestUnit for PackagePath {
@@ -13,7 +18,12 @@ impl VfsTestUnit for PackagePath {
         todo!()
     }
 
-    fn decide_expect_file_path(&self, db: &dyn VfsDb, task_name: &str) -> PathBuf {
+    fn decide_expect_file_path(
+        &self,
+        db: &dyn VfsDb,
+        task_name: &str,
+        package_expects_dir: &Path,
+    ) -> PathBuf {
         todo!()
     }
 }
@@ -23,7 +33,12 @@ impl VfsTestUnit for CratePath {
         todo!()
     }
 
-    fn decide_expect_file_path(&self, db: &dyn VfsDb, task_name: &str) -> PathBuf {
+    fn decide_expect_file_path(
+        &self,
+        db: &dyn VfsDb,
+        task_name: &str,
+        package_expects_dir: &Path,
+    ) -> PathBuf {
         todo!()
     }
 }
@@ -42,7 +57,12 @@ impl VfsTestUnit for ModulePath {
             .collect()
     }
 
-    fn decide_expect_file_path(&self, db: &dyn VfsDb, task_name: &str) -> PathBuf {
+    fn decide_expect_file_path(
+        &self,
+        db: &dyn VfsDb,
+        task_name: &str,
+        package_expects_dir: &Path,
+    ) -> PathBuf {
         todo!()
         // match self.data(db) {
         //     ModulePathData::Root(_) => self.package_expects_dir.join(self.name),
@@ -717,7 +737,7 @@ fn vfs_expect_test<'a, Db, U, R>(
     for (base, out) in expect_test_base_outs() {
         std::fs::create_dir_all(&out).expect("failed_to_create_dir_all");
         for unit in <U as VfsTestUnit>::collect_from_dir(vfs_db, &base) {
-            let path = unit.decide_expect_file_path(vfs_db, name);
+            let path = unit.decide_expect_file_path(vfs_db, name, todo!());
             std::fs::create_dir_all(path.parent().unwrap()).unwrap();
             expect_test::expect_file![path].assert_eq(&p(db, f(db, unit)))
         }
