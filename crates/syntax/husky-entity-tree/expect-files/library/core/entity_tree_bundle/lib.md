@@ -143,13 +143,24 @@ Ok(
                 module_specific_symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
+                            ident: `Prop`,
+                            accessibility: Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    path: TypePath(`core::logic::Prop`, `Foreign`),
+                                    accessibility: Public,
+                                    ast_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `LogicAnd`,
                             accessibility: Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
                                     path: TypePath(`core::logic::LogicAnd`, `Structure`),
                                     accessibility: Public,
-                                    ast_idx: 0,
+                                    ast_idx: 1,
                                 },
                             ),
                         },
@@ -160,7 +171,7 @@ Ok(
                                 ModuleItemSymbol {
                                     path: TypePath(`core::logic::LogicOr`, `Inductive`),
                                     accessibility: Public,
-                                    ast_idx: 1,
+                                    ast_idx: 2,
                                 },
                             ),
                         },

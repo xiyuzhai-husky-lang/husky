@@ -2,6 +2,18 @@ Ok(
     DefnSheet {
         defns: [
             Type(
+                Foreign(
+                    AlienTypeDefn {
+                        path: TypePath(`core::logic::Prop`, `Foreign`),
+                        decl: AlienTypeDecl(
+                            Id {
+                                value: 2,
+                            },
+                        ),
+                    },
+                ),
+            ),
+            Type(
                 Structure(
                     StructureTypeDefn {
                         path: TypePath(`core::logic::LogicAnd`, `Structure`),

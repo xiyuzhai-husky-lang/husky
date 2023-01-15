@@ -3,20 +3,36 @@ Ok(
         decls: [
             Ok(
                 Type(
-                    Structure(
-                        StructureTypeDecl {
-                            path: TypePath(`core::logic::LogicAnd`, `Structure`),
+                    Foreign(
+                        AlienTypeDecl {
+                            path: TypePath(`core::logic::Prop`, `Foreign`),
                             ast_idx: 0,
                             expr_sheet: ExprSheet(
                                 Id {
                                     value: 4,
                                 },
                             ),
+                            implicit_parameter_decl_list: None,
+                        },
+                    ),
+                ),
+            ),
+            Ok(
+                Type(
+                    Structure(
+                        StructureTypeDecl {
+                            path: TypePath(`core::logic::LogicAnd`, `Structure`),
+                            ast_idx: 1,
+                            expr_sheet: ExprSheet(
+                                Id {
+                                    value: 5,
+                                },
+                            ),
                             implicit_parameter_decl_list: Some(
                                 ImplicitParameterDeclList {
                                     langle: LeftAngleBracketOrLessThanToken {
                                         token_idx: TokenIdx(
-                                            3,
+                                            7,
                                         ),
                                     },
                                     decls: [
@@ -25,33 +41,7 @@ Ok(
                                                 ident: Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 11,
-                                                        },
-                                                    ),
-                                                ),
-                                                token_idx: TokenIdx(
-                                                    4,
-                                                ),
-                                            },
-                                            traits: Some(
-                                                (
-                                                    ColonToken {
-                                                        token_idx: TokenIdx(
-                                                            5,
-                                                        ),
-                                                    },
-                                                    Some(
-                                                        0,
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                        ImplicitParameterDecl {
-                                            ident: IdentifierToken {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 13,
+                                                            value: 12,
                                                         },
                                                     ),
                                                 ),
@@ -67,6 +57,32 @@ Ok(
                                                         ),
                                                     },
                                                     Some(
+                                                        0,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        ImplicitParameterDecl {
+                                            ident: IdentifierToken {
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 13,
+                                                        },
+                                                    ),
+                                                ),
+                                                token_idx: TokenIdx(
+                                                    12,
+                                                ),
+                                            },
+                                            traits: Some(
+                                                (
+                                                    ColonToken {
+                                                        token_idx: TokenIdx(
+                                                            13,
+                                                        ),
+                                                    },
+                                                    Some(
                                                         1,
                                                     ),
                                                 ),
@@ -76,13 +92,13 @@ Ok(
                                     commas: [
                                         CommaToken {
                                             token_idx: TokenIdx(
-                                                7,
+                                                11,
                                             ),
                                         },
                                     ],
                                     rangle: RightAngleBracketToken {
                                         token_idx: TokenIdx(
-                                            11,
+                                            15,
                                         ),
                                     },
                                 },
@@ -96,17 +112,17 @@ Ok(
                     Inductive(
                         InductiveTypeDecl {
                             path: TypePath(`core::logic::LogicOr`, `Inductive`),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 5,
+                                    value: 6,
                                 },
                             ),
                             implicit_parameter_decl_list: Some(
                                 ImplicitParameterDeclList {
                                     langle: LeftAngleBracketOrLessThanToken {
                                         token_idx: TokenIdx(
-                                            25,
+                                            29,
                                         ),
                                     },
                                     decls: [
@@ -115,19 +131,19 @@ Ok(
                                                 ident: Identifier(
                                                     Word(
                                                         Id {
-                                                            value: 11,
+                                                            value: 12,
                                                         },
                                                     ),
                                                 ),
                                                 token_idx: TokenIdx(
-                                                    26,
+                                                    30,
                                                 ),
                                             },
                                             traits: Some(
                                                 (
                                                     ColonToken {
                                                         token_idx: TokenIdx(
-                                                            27,
+                                                            31,
                                                         ),
                                                     },
                                                     Some(
@@ -146,14 +162,14 @@ Ok(
                                                     ),
                                                 ),
                                                 token_idx: TokenIdx(
-                                                    30,
+                                                    34,
                                                 ),
                                             },
                                             traits: Some(
                                                 (
                                                     ColonToken {
                                                         token_idx: TokenIdx(
-                                                            31,
+                                                            35,
                                                         ),
                                                     },
                                                     Some(
@@ -166,13 +182,13 @@ Ok(
                                     commas: [
                                         CommaToken {
                                             token_idx: TokenIdx(
-                                                29,
+                                                33,
                                             ),
                                         },
                                     ],
                                     rangle: RightAngleBracketToken {
                                         token_idx: TokenIdx(
-                                            33,
+                                            37,
                                         ),
                                     },
                                 },
