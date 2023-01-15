@@ -7,15 +7,15 @@ struct LineSegment {
 
 impl LineSegment:
     func displacement() -> Vector2d:
-        start.to(end)
+        self.start.to(self.end)
     
     func dist_to_point(pt: Point2d) -> f32:
-        ab = this.displacement()
-        ap = start.to(pt)
+        let ab = self.displacement()
+        let ap = self.start.to(pt)
         if ab.dot(ap) < 0.0:
             ap.norm()
         else:
-            bp = end.to(pt)
+            let bp = end.to(pt)
             if ab.dot(bp) > 0.0:
                 bp.norm()
             else:

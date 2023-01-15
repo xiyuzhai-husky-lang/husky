@@ -163,13 +163,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `dist_to_point`,
                         token_idx: TokenIdx(
-                            35,
+                            39,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        36,
+                        40,
                     ),
                 },
                 Use {
