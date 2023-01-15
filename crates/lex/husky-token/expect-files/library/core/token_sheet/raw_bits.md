@@ -18,6 +18,9 @@ Ok(
                     ),
                 ),
             ),
+            Punctuation(
+                Semicolon,
+            ),
         ],
         group_starts: [
             0,

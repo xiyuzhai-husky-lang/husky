@@ -6,7 +6,7 @@ Ok(
             ),
             Keyword(
                 Type(
-                    Structure,
+                    Type,
                 ),
             ),
             Identifier(
@@ -19,7 +19,15 @@ Ok(
                 ),
             ),
             Punctuation(
-                LaOrLt,
+                Semicolon,
+            ),
+            Attr(
+                Pub,
+            ),
+            Keyword(
+                Type(
+                    Structure,
+                ),
             ),
             Identifier(
                 Identifier(
@@ -31,13 +39,25 @@ Ok(
                 ),
             ),
             Punctuation(
-                Colon,
+                LaOrLt,
             ),
             Identifier(
                 Identifier(
                     Word(
                         Id {
                             value: 12,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Colon,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 10,
                         },
                     ),
                 ),
@@ -61,7 +81,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 12,
+                            value: 10,
                         },
                     ),
                 ),
@@ -90,7 +110,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 11,
+                            value: 12,
                         },
                     ),
                 ),
@@ -151,7 +171,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 11,
+                            value: 12,
                         },
                     ),
                 ),
@@ -163,7 +183,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 12,
+                            value: 10,
                         },
                     ),
                 ),
@@ -187,7 +207,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 12,
+                            value: 10,
                         },
                     ),
                 ),
@@ -216,7 +236,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 11,
+                            value: 12,
                         },
                     ),
                 ),
@@ -260,11 +280,13 @@ Ok(
         ],
         group_starts: [
             0,
-            22,
-            34,
-            39,
+            4,
+            26,
+            38,
+            43,
         ],
         indents: [
+            0,
             0,
             0,
             0,

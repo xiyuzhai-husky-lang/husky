@@ -48,7 +48,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 63,
+                                value: 64,
                             },
                         ),
                     ),
@@ -80,7 +80,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 69,
+                                value: 70,
                             },
                         ),
                     ),
@@ -112,7 +112,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 61,
+                                value: 62,
                             },
                         ),
                     ),
@@ -154,7 +154,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 73,
+                                value: 74,
                             },
                         ),
                     ),
@@ -210,7 +210,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 69,
+                                value: 70,
                             },
                         ),
                     ),
@@ -242,7 +242,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 89,
+                                value: 90,
                             },
                         ),
                     ),
@@ -274,7 +274,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 91,
+                                value: 92,
                             },
                         ),
                     ),
@@ -306,7 +306,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 95,
+                                value: 96,
                             },
                         ),
                     ),

@@ -61,7 +61,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 104,
+                                value: 105,
                             },
                         ),
                     ),
@@ -109,7 +109,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 99,
+                                value: 100,
                             },
                         ),
                     ),
@@ -462,7 +462,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 101,
+                        value: 102,
                     },
                 ),
             },
@@ -587,7 +587,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 99,
+                        value: 100,
                     },
                 ),
             },
@@ -599,7 +599,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 29,
+                                    value: 30,
                                 },
                             ),
                         ),
@@ -616,7 +616,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 12,
+                                    value: 13,
                                 },
                             ),
                         ),
@@ -633,7 +633,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 102,
+                        value: 103,
                     },
                 ),
             },
@@ -654,7 +654,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 102,
+                        value: 103,
                     },
                 ),
             },
@@ -676,7 +676,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 102,
+                        value: 103,
                     },
                 ),
             },
@@ -697,7 +697,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 102,
+                        value: 103,
                     },
                 ),
             },

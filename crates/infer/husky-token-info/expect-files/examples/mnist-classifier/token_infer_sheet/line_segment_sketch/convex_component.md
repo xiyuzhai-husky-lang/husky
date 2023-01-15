@@ -42,7 +42,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 30,
+                                    value: 31,
                                 },
                             ),
                         ),
@@ -67,6 +67,26 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
+                                    value: 29,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            BoxPrefix,
+            None,
+            BoxPrefix,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
                                     value: 28,
                                 },
                             ),
@@ -78,33 +98,13 @@ Ok(
             None,
             None,
             None,
-            BoxPrefix,
-            None,
-            BoxPrefix,
             Entity(
                 Some(
                     ModuleItem(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 27,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 30,
+                                    value: 31,
                                 },
                             ),
                         ),

@@ -104,7 +104,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 38,
+                                value: 39,
                             },
                         ),
                     ),

@@ -7,7 +7,7 @@ Ok(
                         path: TypePath(`core::num::i8`, `Foreign`),
                         decl: AlienTypeDecl(
                             Id {
-                                value: 2,
+                                value: 3,
                             },
                         ),
                     },
@@ -19,7 +19,7 @@ Ok(
                         path: TypePath(`core::num::i16`, `Foreign`),
                         decl: AlienTypeDecl(
                             Id {
-                                value: 3,
+                                value: 4,
                             },
                         ),
                     },
@@ -31,7 +31,7 @@ Ok(
                         path: TypePath(`core::num::i32`, `Foreign`),
                         decl: AlienTypeDecl(
                             Id {
-                                value: 4,
+                                value: 5,
                             },
                         ),
                     },
@@ -43,7 +43,7 @@ Ok(
                         path: TypePath(`core::num::i64`, `Foreign`),
                         decl: AlienTypeDecl(
                             Id {
-                                value: 5,
+                                value: 6,
                             },
                         ),
                     },
@@ -55,7 +55,7 @@ Ok(
                         path: TypePath(`core::num::f8`, `Foreign`),
                         decl: AlienTypeDecl(
                             Id {
-                                value: 6,
+                                value: 7,
                             },
                         ),
                     },
@@ -67,7 +67,7 @@ Ok(
                         path: TypePath(`core::num::f16`, `Foreign`),
                         decl: AlienTypeDecl(
                             Id {
-                                value: 7,
+                                value: 8,
                             },
                         ),
                     },
@@ -79,7 +79,7 @@ Ok(
                         path: TypePath(`core::num::f32`, `Foreign`),
                         decl: AlienTypeDecl(
                             Id {
-                                value: 8,
+                                value: 9,
                             },
                         ),
                     },
@@ -91,7 +91,7 @@ Ok(
                         path: TypePath(`core::num::f64`, `Foreign`),
                         decl: AlienTypeDecl(
                             Id {
-                                value: 9,
+                                value: 10,
                             },
                         ),
                     },
@@ -121,7 +121,7 @@ Ok(
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 14,
+                                value: 15,
                             },
                         ),
                     },
@@ -145,7 +145,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 38,
+                                    value: 39,
                                 },
                             ),
                             body: Err(
@@ -167,7 +167,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 39,
+                                    value: 40,
                                 },
                             ),
                             body: Err(
@@ -201,7 +201,7 @@ Ok(
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 17,
+                                value: 18,
                             },
                         ),
                     },
@@ -225,7 +225,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 40,
+                                    value: 41,
                                 },
                             ),
                             body: Err(
@@ -247,7 +247,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 41,
+                                    value: 42,
                                 },
                             ),
                             body: Err(
@@ -281,7 +281,7 @@ Ok(
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 20,
+                                value: 21,
                             },
                         ),
                     },
@@ -305,7 +305,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 42,
+                                    value: 43,
                                 },
                             ),
                             body: Err(
@@ -327,7 +327,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 43,
+                                    value: 44,
                                 },
                             ),
                             body: Err(
@@ -361,7 +361,7 @@ Ok(
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 23,
+                                value: 24,
                             },
                         ),
                     },
@@ -385,7 +385,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 44,
+                                    value: 45,
                                 },
                             ),
                             body: Err(
@@ -407,7 +407,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 45,
+                                    value: 46,
                                 },
                             ),
                             body: Err(
@@ -441,7 +441,7 @@ Ok(
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 26,
+                                value: 27,
                             },
                         ),
                     },
@@ -465,7 +465,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 46,
+                                    value: 47,
                                 },
                             ),
                             body: Err(
@@ -487,7 +487,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 47,
+                                    value: 48,
                                 },
                             ),
                             body: Err(
@@ -521,7 +521,7 @@ Ok(
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 29,
+                                value: 30,
                             },
                         ),
                     },
@@ -545,7 +545,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 48,
+                                    value: 49,
                                 },
                             ),
                             body: Err(
@@ -567,7 +567,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 49,
+                                    value: 50,
                                 },
                             ),
                             body: Err(
@@ -601,7 +601,7 @@ Ok(
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 32,
+                                value: 33,
                             },
                         ),
                     },
@@ -625,7 +625,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 50,
+                                    value: 51,
                                 },
                             ),
                             body: Err(
@@ -647,7 +647,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 51,
+                                    value: 52,
                                 },
                             ),
                             body: Err(
@@ -681,7 +681,7 @@ Ok(
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 35,
+                                value: 36,
                             },
                         ),
                     },
@@ -705,7 +705,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 52,
+                                    value: 53,
                                 },
                             ),
                             body: Err(
@@ -727,7 +727,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 53,
+                                    value: 54,
                                 },
                             ),
                             body: Err(
