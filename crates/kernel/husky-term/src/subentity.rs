@@ -1,7 +1,7 @@
 use crate::*;
 use husky_word::Identifier;
 
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
+#[salsa::interned(jar = TermJar)]
 pub struct TermSubentity {
     parent: Term,
     ident: Identifier,
@@ -20,8 +20,8 @@ impl TermSubentity {
     // }
 }
 
-impl From<TermSubentity> for TermData {
+impl From<TermSubentity> for Term {
     fn from(val: TermSubentity) -> Self {
-        TermData::Subentity(val)
+        Term::Subentity(val)
     }
 }

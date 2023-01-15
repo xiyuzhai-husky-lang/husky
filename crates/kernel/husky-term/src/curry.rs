@@ -5,11 +5,11 @@ pub use context::*;
 use crate::*;
 
 /// representing term `x -> y`
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
+#[salsa::interned(jar = TermJar)]
 pub struct TermCurry {
-    curry_variant: TermCurryVariant,
-    x: Term,
-    y: Term,
+    pub curry_variant: TermCurryVariant,
+    pub x: Term,
+    pub y: Term,
     // ty: Term,
 }
 
@@ -39,20 +39,6 @@ pub enum PhysicalParameterModifier {
     None,
     Move,
     MoveMut,
-}
-
-impl TermCurry {
-    pub fn curry_variant(&self) -> &TermCurryVariant {
-        &self.curry_variant
-    }
-
-    pub fn x(&self) -> Term {
-        self.x
-    }
-
-    pub fn y(&self) -> Term {
-        self.y
-    }
 }
 
 impl<'a> TermContext<'a> {
@@ -118,8 +104,8 @@ impl<'a> TermContext<'a> {
 //     // assert_eq!(bool_to_bool.to_string(), "bool -> bool");
 // }
 
-impl Into<TermData> for TermCurry {
-    fn into(self) -> TermData {
-        TermData::Curry(self)
+impl Into<Term> for TermCurry {
+    fn into(self) -> Term {
+        Term::Curry(self)
     }
 }

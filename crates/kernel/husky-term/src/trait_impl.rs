@@ -1,6 +1,6 @@
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
+#[salsa::interned(jar = TermJar)]
 pub struct TermTraitImpl {
     ty: Term,
     trai: Trai,

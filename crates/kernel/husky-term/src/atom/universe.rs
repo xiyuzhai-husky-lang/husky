@@ -9,9 +9,9 @@ impl From<TermUniverse> for TermAtom {
     }
 }
 
-impl From<TermUniverse> for TermData {
+impl From<TermUniverse> for Term {
     fn from(val: TermUniverse) -> Self {
-        TermData::Atom(val.into())
+        Term::Atom(val.into())
     }
 }
 
@@ -56,10 +56,10 @@ impl std::fmt::Display for TermUniverse {
     }
 }
 
-impl TermData {
-    pub(crate) fn as_universe(self: &TermData) -> TermResult<TermUniverse> {
+impl Term {
+    pub(crate) fn as_universe(self: &Term) -> TermResult<TermUniverse> {
         match self {
-            TermData::Atom(a) => match a {
+            Term::Atom(a) => match a {
                 TermAtom::Literal(_) => todo!(),
                 TermAtom::Variable {
                     variable_variant: _,
@@ -68,11 +68,11 @@ impl TermData {
                 TermAtom::Category(_category_kind) => todo!(),
                 TermAtom::Universe(u) => Ok(*u),
             },
-            TermData::Curry(_) => todo!(),
-            TermData::Abstraction(_) => todo!(),
-            TermData::Application(_) => todo!(),
-            TermData::Subentity(_) => todo!(),
-            TermData::TraitImpl(_) => todo!(),
+            Term::Curry(_) => todo!(),
+            Term::Abstraction(_) => todo!(),
+            Term::Application(_) => todo!(),
+            Term::Subentity(_) => todo!(),
+            Term::TraitImpl(_) => todo!(),
         }
     }
 }

@@ -2,7 +2,7 @@ use husky_word::Identifier;
 
 use crate::*;
 
-impl TermData {
+impl Term {
     // pub(crate) fn std(db: &dyn TermDb, _menu2: &TermMenu2) -> Term {
     //     todo!()
     //     // Self::root_builtin_entity(db, Std, todo!())

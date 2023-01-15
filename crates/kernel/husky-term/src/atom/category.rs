@@ -13,8 +13,8 @@ impl From<TermCategory> for TermAtom {
     }
 }
 
-impl From<TermCategory> for TermData {
+impl From<TermCategory> for Term {
     fn from(val: TermCategory) -> Self {
-        TermData::Atom(val.into())
+        Term::Atom(val.into())
     }
 }

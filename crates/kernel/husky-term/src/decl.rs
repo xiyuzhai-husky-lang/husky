@@ -9,7 +9,7 @@ pub enum Decl {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct NamespaceDecl {
-    members: IdentPairMap<TermData>,
+    members: IdentPairMap<Term>,
 }
 
 #[derive(Debug, PartialEq, Eq)]
