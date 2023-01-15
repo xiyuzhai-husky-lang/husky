@@ -71,7 +71,7 @@ fn defn_sheet(db: &dyn DefnDb, module_path: ModulePath) -> EntityTreeResult<Defn
 
 #[test]
 fn defn_sheet_works() {
-    use husky_vfs::VfsTestSupport;
+    use husky_vfs::VfsTestUtils;
     use tests::*;
 
     DB::default().vfs_expect_test_debug_with_db("defn_sheet", DefnDb::defn_sheet);

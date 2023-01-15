@@ -6,7 +6,7 @@ use husky_expect_test_snippets_utils::expect_test_snippets;
 use husky_print_utils::epin;
 use husky_term::TermDb;
 use husky_token::*;
-use husky_vfs::{VfsDb, VfsTestSupport};
+use husky_vfs::{VfsDb, VfsTestUtils};
 
 #[test]
 fn test_decl() {

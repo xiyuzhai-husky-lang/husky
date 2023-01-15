@@ -33,7 +33,7 @@ pub(crate) fn entity_tree_crate_bundle(
 
 #[test]
 fn entity_tree_crate_bundle_works() {
-    DB::expect_test_crates_debug_result_with_db(
+    DB::default().vfs_expect_test_debug_with_db(
         "entity_tree_bundle",
         |db, crate_path| -> EntityTreeCrateBundleResult<_> {
             Ok(entity_tree_crate_bundle(db, crate_path)
