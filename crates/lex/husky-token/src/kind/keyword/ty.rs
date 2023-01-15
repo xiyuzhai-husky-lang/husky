@@ -33,14 +33,14 @@ impl Deref for TypeKeyword {
     }
 }
 
-impl const Into<Keyword> for TypeKeyword {
-    fn into(self) -> Keyword {
-        Keyword::Type(self)
+impl const From<TypeKeyword> for Keyword {
+    fn from(val: TypeKeyword) -> Self {
+        Keyword::Type(val)
     }
 }
 
-impl const Into<Token> for TypeKeyword {
-    fn into(self) -> Token {
-        Token::Keyword(self.into())
+impl const From<TypeKeyword> for Token {
+    fn from(val: TypeKeyword) -> Self {
+        Token::Keyword(val.into())
     }
 }

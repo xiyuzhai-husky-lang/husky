@@ -27,17 +27,17 @@ impl std::fmt::Display for __StaticFile {
     }
 }
 
-impl Into<PathBuf> for __StaticFile {
-    fn into(self) -> PathBuf {
-        match self {
+impl From<__StaticFile> for PathBuf {
+    fn from(val: __StaticFile) -> Self {
+        match val {
             __StaticFile::Rust(file) => file.into(),
         }
     }
 }
 
-impl Into<String> for __StaticFile {
-    fn into(self) -> String {
-        match self {
+impl From<__StaticFile> for String {
+    fn from(val: __StaticFile) -> Self {
+        match val {
             __StaticFile::Rust(file) => file.to_string(),
         }
     }

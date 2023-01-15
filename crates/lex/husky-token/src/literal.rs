@@ -1,14 +1,17 @@
+mod bool_literal;
 mod char_literal;
 mod float_literal;
 mod integer_literal;
 mod string_literal;
 mod tuple_index_literal;
 
+pub use bool_literal::*;
 pub use char_literal::*;
 pub use float_literal::*;
 pub use integer_literal::*;
 pub use tuple_index_literal::*;
 
+use super::*;
 use crate::TokenJar;
 
 /// follows mainly from <https://doc.rust-lang.org/reference/tokens.html#literals/>
@@ -20,7 +23,7 @@ pub enum Literal {
     Integer(IntegerLiteral),
     Float(FloatLiteral),
     TupleIndex(TupleIndexLiteral),
-    Bool(bool),
+    Bool(BoolLiteral),
 }
 
 #[salsa::tracked(jar = TokenJar)]

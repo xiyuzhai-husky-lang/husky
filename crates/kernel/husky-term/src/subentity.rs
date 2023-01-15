@@ -20,8 +20,8 @@ impl TermSubentity {
     // }
 }
 
-impl Into<TermData> for TermSubentity {
-    fn into(self) -> TermData {
-        TermData::Subentity(self)
+impl From<TermSubentity> for TermData {
+    fn from(val: TermSubentity) -> Self {
+        TermData::Subentity(val)
     }
 }

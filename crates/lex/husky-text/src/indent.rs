@@ -11,9 +11,9 @@ impl From<u8> for TextIndent {
     }
 }
 
-impl Into<u8> for TextIndent {
-    fn into(self) -> u8 {
-        self.raw
+impl From<TextIndent> for u8 {
+    fn from(val: TextIndent) -> Self {
+        val.raw
     }
 }
 

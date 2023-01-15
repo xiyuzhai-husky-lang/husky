@@ -5,9 +5,9 @@ pub enum LiasonKeyword {
     Mut,
 }
 
-impl const Into<Keyword> for LiasonKeyword {
-    fn into(self) -> Keyword {
-        Keyword::Liason(self)
+impl const From<LiasonKeyword> for Keyword {
+    fn from(val: LiasonKeyword) -> Self {
+        Keyword::Liason(val)
     }
 }
 
@@ -25,9 +25,9 @@ impl const Into<Keyword> for LiasonKeyword {
 //     IllFormedLiteral(LiteralToken),
 // }
 
-impl const Into<Token> for LiasonKeyword {
-    fn into(self) -> Token {
-        Token::Keyword(self.into())
+impl const From<LiasonKeyword> for Token {
+    fn from(val: LiasonKeyword) -> Self {
+        Token::Keyword(val.into())
     }
 }
 

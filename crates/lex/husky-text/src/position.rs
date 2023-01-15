@@ -121,8 +121,8 @@ impl std::fmt::Display for TextPosition {
 }
 
 #[cfg(feature = "lsp_support")]
-impl Into<lsp_types::Position> for TextPosition {
-    fn into(self) -> lsp_types::Position {
-        lsp_types::Position::new(self.line.0, self.col.0)
+impl From<TextPosition> for lsp_types::Position {
+    fn from(val: TextPosition) -> Self {
+        lsp_types::Position::new(val.line.0, val.col.0)
     }
 }

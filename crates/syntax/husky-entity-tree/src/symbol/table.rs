@@ -209,12 +209,12 @@ pub struct NativeEntitySymbolEntry {
     symbol: NativeEntitySymbol,
 }
 
-impl Into<EntitySymbolEntry> for &NativeEntitySymbolEntry {
-    fn into(self) -> EntitySymbolEntry {
+impl From<&NativeEntitySymbolEntry> for EntitySymbolEntry {
+    fn from(val: &NativeEntitySymbolEntry) -> Self {
         EntitySymbolEntry {
-            ident: self.ident,
-            accessibility: self.accessibility,
-            symbol: self.symbol.into(),
+            ident: val.ident,
+            accessibility: val.accessibility,
+            symbol: val.symbol.into(),
         }
     }
 }
