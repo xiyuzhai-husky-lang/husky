@@ -55,7 +55,7 @@ fn submodules_works() {
 
 #[test]
 fn all_modules_works() {
-    DB::expect_test_crates_debug_ref_with_db(
+    DB::default().vfs_expect_test_debug_with_db(
         "all_modules_within_crate",
         EntityTreeDb::all_modules_within_crate,
     )

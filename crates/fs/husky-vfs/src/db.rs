@@ -19,11 +19,7 @@ pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {
         toolchain: Toolchain,
         dir: &Path,
     ) -> VfsResult<Vec<PackagePath>>;
-    fn collect_crates(
-        &self,
-        toolchain: Toolchain,
-        package_path: PackagePath,
-    ) -> VfsResult<Vec<CratePath>>;
+    fn collect_crates(&self, package_path: PackagePath) -> VfsResult<Vec<CratePath>>;
     fn collect_probable_modules(&self, package_path: PackagePath) -> Vec<ModulePath>;
     fn resolve_module_path(&self, toolchain: Toolchain, path: &Path) -> VfsResult<ModulePath>;
     fn toolchain_library_path(&self, toolchain: Toolchain) -> &Path;
@@ -200,11 +196,7 @@ where
             .collect()
     }
 
-    fn collect_crates(
-        &self,
-        toolchain: Toolchain,
-        package_path: PackagePath,
-    ) -> VfsResult<Vec<CratePath>> {
+    fn collect_crates(&self, package_path: PackagePath) -> VfsResult<Vec<CratePath>> {
         let mut crates: Vec<CratePath> = vec![];
         let package_dir = self.package_dir(package_path).as_ref()?.path(self);
         if package_dir.join("src/lib.hsy").exists() {

@@ -31,7 +31,7 @@ impl VfsTestUnit for PackagePath {
 
 impl VfsTestUnit for CratePath {
     fn collect_from_package_path(db: &dyn VfsDb, package_path: PackagePath) -> Vec<Self> {
-        todo!()
+        db.collect_crates(package_path).unwrap_or_default()
     }
 
     fn decide_expect_file_path(
@@ -40,7 +40,16 @@ impl VfsTestUnit for CratePath {
         task_name: &str,
         package_expects_dir: &Path,
     ) -> PathBuf {
-        todo!()
+        package_expects_dir.join(format!(
+            "{}/{}.{EXPECT_FILE_EXTENSION}",
+            task_name,
+            match self.crate_kind(db) {
+                CrateKind::Library => format!("lib"),
+                CrateKind::Main => format!("main"),
+                CrateKind::Binary(_) => todo!(),
+                CrateKind::StandaloneTest(_) => todo!(),
+            }
+        ))
     }
 }
 
@@ -85,17 +94,13 @@ impl VfsTestUnit for ModulePath {
     }
 }
 
-pub trait VfsTestSupport: VfsDb {
+pub trait VfsTestUtils: VfsDb {
     // toolchain
     fn dev_toolchain(&self) -> ToolchainResult<Toolchain>;
     fn dev_path_menu(&self) -> ToolchainResult<&VfsPathMenu> {
         let toolchain = self.dev_toolchain()?;
         self.vfs_path_menu(toolchain)
     }
-    fn test_crates(f: impl Fn(&Self, CratePath))
-    where
-        Self: Default;
-
     fn vfs_test<U>(&self, f: impl Fn(&Self, U))
     where
         U: VfsTestUnit;
@@ -107,11 +112,6 @@ pub trait VfsTestSupport: VfsDb {
         Self: Default,
         T: std::fmt::Debug + ?Sized,
         E: std::fmt::Debug;
-
-    fn expect_test_crates_debug<R>(name: &str, f: impl Fn(&Self, CratePath) -> R)
-    where
-        Self: Default,
-        R: std::fmt::Debug;
 
     fn vfs_expect_test_debug_with_db<'a, U, R>(&'a self, name: &str, f: impl Fn(&'a Self, U) -> R)
     where
@@ -128,32 +128,6 @@ pub trait VfsTestSupport: VfsDb {
     {
         vfs_expect_test(self, name, &f, |_db, r| format!("{:#?}", r))
     }
-
-    fn expect_test_crates_debug_with_db<R>(name: &str, f: impl Fn(&Self, CratePath) -> R)
-    where
-        Self: Default,
-        R: salsa::DebugWithDb<Self>;
-
-    fn expect_test_crates_debug_result_with_db<T, E>(
-        name: &str,
-        f: impl Fn(&Self, CratePath) -> Result<&T, E>,
-    ) where
-        Self: Default,
-        T: salsa::DebugWithDb<Self> + ?Sized,
-        E: salsa::DebugWithDb<Self>;
-
-    fn expect_test_crates_debug_ref_with_db<R>(name: &str, f: impl Fn(&Self, CratePath) -> &R)
-    where
-        Self: Default,
-        R: salsa::DebugWithDb<Self> + ?Sized;
-
-    fn expect_test_crates_debug_result<T, E>(
-        name: &str,
-        f: impl Fn(&Self, CratePath) -> Result<&T, E>,
-    ) where
-        Self: Default,
-        T: std::fmt::Debug + ?Sized,
-        E: std::fmt::Debug;
 }
 
 struct TestPathResolver<'a> {
@@ -162,95 +136,17 @@ struct TestPathResolver<'a> {
     package_expects_dir: PathBuf,
 }
 
-impl<'a> TestPathResolver<'a> {
-    fn decide_crate_expect_file_path(&self, crate_path: CratePath) -> PathBuf {
-        self.package_expects_dir.join(format!(
-            "{}/{}.{EXPECT_FILE_EXTENSION}",
-            self.name,
-            match crate_path.crate_kind(self.db) {
-                CrateKind::Library => format!("lib"),
-                CrateKind::Main => format!("main"),
-                CrateKind::Binary(_) => todo!(),
-                CrateKind::StandaloneTest(_) => todo!(),
-            }
-        ))
-    }
-}
-
 const EXPECT_FILE_EXTENSION: &'static str = "md";
 
-impl<Db> VfsTestSupport for Db
+impl<Db> VfsTestUtils for Db
 where
     Db: VfsDb + ?Sized,
 {
-    fn test_crates(f: impl Fn(&Self, CratePath))
-    where
-        Self: Default,
-    {
-        let db = Self::default();
-        for dir in test_dirs() {
-            test_crates(&db, &dir, &f);
-        }
-    }
-
     fn vfs_test<U>(&self, f: impl Fn(&Self, U))
     where
         U: VfsTestUnit,
     {
         vfs_test(self, f)
-    }
-
-    fn expect_test_crates_debug<R>(name: &str, f: impl Fn(&Self, CratePath) -> R)
-    where
-        Self: Default,
-        R: std::fmt::Debug,
-    {
-        let db = Self::default();
-        for (base, out) in expect_test_base_outs() {
-            expect_test_crates(&db, name, &base, out, &f, |db, r| format!("{:#?}", &r));
-        }
-    }
-
-    fn expect_test_crates_debug_with_db<R>(name: &str, f: impl Fn(&Self, CratePath) -> R)
-    where
-        Self: Default,
-        R: salsa::DebugWithDb<Self>,
-    {
-        let db = Self::default();
-        for (base, out) in expect_test_base_outs() {
-            expect_test_crates(&db, name, &base, out, &f, |db, r| {
-                format!("{:#?}", &r.debug(db))
-            });
-        }
-    }
-
-    fn expect_test_crates_debug_result_with_db<T, E>(
-        name: &str,
-        f: impl Fn(&Self, CratePath) -> Result<&T, E>,
-    ) where
-        Self: Default,
-        T: salsa::DebugWithDb<Self> + ?Sized,
-        E: salsa::DebugWithDb<Self>,
-    {
-        let db = Self::default();
-        for (base, out) in expect_test_base_outs() {
-            expect_test_crate_results(&db, name, &base, out, &f, |db, r| {
-                format!("{:#?}", &r.debug(db))
-            });
-        }
-    }
-
-    fn expect_test_crates_debug_ref_with_db<R>(name: &str, f: impl Fn(&Self, CratePath) -> &R)
-    where
-        Self: Default,
-        R: salsa::DebugWithDb<Self> + ?Sized,
-    {
-        let db = Self::default();
-        for (base, out) in expect_test_base_outs() {
-            expect_test_crate_refs(&db, name, &base, out, &f, |db, r| {
-                format!("{:#?}", (&r).debug(db))
-            });
-        }
     }
 
     fn expect_test_packages_debug_result<T, E>(
@@ -264,20 +160,6 @@ where
         let db = Self::default();
         for (base, out) in expect_test_base_outs() {
             expect_test_packages(&db, name, &base, out, &f, |_db, r| format!("{:#?}", r));
-        }
-    }
-
-    fn expect_test_crates_debug_result<T, E>(
-        name: &str,
-        f: impl Fn(&Self, CratePath) -> Result<&T, E>,
-    ) where
-        Self: Default,
-        T: std::fmt::Debug + ?Sized,
-        E: std::fmt::Debug,
-    {
-        let db = Self::default();
-        for (base, out) in expect_test_base_outs() {
-            expect_test_crate_results(&db, name, &base, out, &f, |_db, r| format!("{:#?}", r));
         }
     }
 
@@ -319,21 +201,6 @@ fn expect_test_base_outs() -> Vec<(PathBuf, PathBuf)> {
     ]
 }
 
-fn test_crates<T>(db: &T, dir: &Path, f: &impl Fn(&T, CratePath))
-where
-    T: VfsDb,
-{
-    let toolchain = db.dev_toolchain().unwrap();
-    collect_husky_package_dirs(dir)
-        .into_iter()
-        .for_each(|path| {
-            let package_path = PackagePath::new_local(db, toolchain, &path).unwrap();
-            for crate_path in db.collect_crates(toolchain, package_path).unwrap() {
-                f(db, crate_path)
-            }
-        });
-}
-
 fn expect_test_packages<Db, T, E>(
     db: &Db,
     name: &str,
@@ -360,101 +227,6 @@ fn expect_test_packages<Db, T, E>(
             let path = path.to_logical_path(&out);
             std::fs::create_dir_all(path.parent().unwrap()).unwrap();
             expect_test::expect_file![path].assert_eq(&p(&db, f(&db, package_path)));
-        });
-}
-
-fn expect_test_crate_refs<Db, R>(
-    db: &Db,
-    name: &str,
-    base: &Path,
-    out: PathBuf,
-    f: &impl Fn(&Db, CratePath) -> &R,
-    p: impl Fn(&Db, &R) -> String,
-) where
-    Db: VfsDb,
-    R: ?Sized,
-{
-    let toolchain = db.dev_toolchain().unwrap();
-    std::fs::create_dir_all(&out).unwrap();
-    collect_package_relative_dirs(base)
-        .into_iter()
-        .for_each(|path| {
-            let package_path =
-                PackagePath::new_local(db, toolchain, &path.to_logical_path(base)).unwrap();
-            let resolver = TestPathResolver {
-                db,
-                name,
-                package_expects_dir: path.to_logical_path(&out),
-            };
-
-            for crate_path in db.collect_crates(toolchain, package_path).unwrap() {
-                let path = resolver.decide_crate_expect_file_path(crate_path);
-                std::fs::create_dir_all(path.parent().unwrap()).unwrap();
-                expect_test::expect_file![path].assert_eq(&p(&db, f(&db, crate_path)));
-            }
-        });
-}
-
-fn expect_test_crates<Db, R>(
-    db: &Db,
-    name: &str,
-    base: &Path,
-    out: PathBuf,
-    f: &impl Fn(&Db, CratePath) -> R,
-    p: impl Fn(&Db, R) -> String,
-) where
-    Db: VfsDb,
-{
-    let toolchain = db.dev_toolchain().unwrap();
-    std::fs::create_dir_all(&out).unwrap();
-    collect_package_relative_dirs(base)
-        .into_iter()
-        .for_each(|path| {
-            let package_path =
-                PackagePath::new_local(db, toolchain, &path.to_logical_path(base)).unwrap();
-            let resolver = TestPathResolver {
-                db,
-                name,
-                package_expects_dir: path.to_logical_path(&out),
-            };
-
-            for crate_path in db.collect_crates(toolchain, package_path).unwrap() {
-                let path = resolver.decide_crate_expect_file_path(crate_path);
-                std::fs::create_dir_all(path.parent().unwrap()).unwrap();
-                expect_test::expect_file![path].assert_eq(&p(&db, f(&db, crate_path)));
-            }
-        });
-}
-
-fn expect_test_crate_results<Db, T, E>(
-    db: &Db,
-    name: &str,
-    base: &Path,
-    out: PathBuf,
-    f: &impl Fn(&Db, CratePath) -> Result<&T, E>,
-    p: impl Fn(&Db, Result<&T, E>) -> String,
-) where
-    Db: VfsDb,
-    T: ?Sized,
-{
-    let toolchain = db.dev_toolchain().unwrap();
-    std::fs::create_dir_all(&out).unwrap();
-    collect_package_relative_dirs(base)
-        .into_iter()
-        .for_each(|path| {
-            let package_path =
-                PackagePath::new_local(db, toolchain, &path.to_logical_path(base)).unwrap();
-            let resolver = TestPathResolver {
-                db,
-                name,
-                package_expects_dir: path.to_logical_path(&out),
-            };
-
-            for crate_path in db.collect_crates(toolchain, package_path).unwrap() {
-                let path = resolver.decide_crate_expect_file_path(crate_path);
-                std::fs::create_dir_all(path.parent().unwrap()).unwrap();
-                expect_test::expect_file![path].assert_eq(&p(&db, f(&db, crate_path)));
-            }
         });
 }
 

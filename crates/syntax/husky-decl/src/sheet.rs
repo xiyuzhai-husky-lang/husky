@@ -16,7 +16,7 @@ pub fn module_decl_sheet<'a>(
 
 #[test]
 fn decl_sheet_works() {
-    use husky_vfs::VfsTestSupport;
+    use husky_vfs::VfsTestUtils;
     use tests::*;
 
     DB::default().vfs_expect_test_debug_with_db("decl_sheet", DeclDb::module_decl_sheet);

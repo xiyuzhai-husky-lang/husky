@@ -65,7 +65,7 @@ pub(crate) fn crate_symbol_context<'a>(
 
 #[test]
 fn crate_symbol_context_works() {
-    DB::test_crates(|db, crate_path| {
+    DB::default().vfs_test(|db, crate_path| {
         let crate_symbol_context = crate_symbol_context(db, crate_path).unwrap();
         let t = |path: EntityPath| {
             let symbol = match crate_symbol_context.resolve_ident(path.ident(db).unwrap()) {
