@@ -96,9 +96,9 @@ pub trait VfsTestSupport: VfsDb {
     where
         Self: Default;
 
-    fn test_probable_modules(f: impl Fn(&Self, ModulePath))
+    fn vfs_test<U>(&self, f: impl Fn(&Self, U))
     where
-        Self: Default;
+        U: VfsTestUnit;
 
     fn expect_test_packages_debug_result<T, E>(
         name: &str,
@@ -163,16 +163,6 @@ struct TestPathResolver<'a> {
 }
 
 impl<'a> TestPathResolver<'a> {
-    // return the folder containing submodules
-    fn decide_module_dir(&self, module: ModulePath) -> PathBuf {
-        match module.data(self.db) {
-            ModulePathData::Root(_) => self.package_expects_dir.join(self.name),
-            ModulePathData::Child { parent, ident } => {
-                self.decide_module_dir(parent).join(self.db.dt_ident(ident))
-            }
-        }
-    }
-
     fn decide_crate_expect_file_path(&self, crate_path: CratePath) -> PathBuf {
         self.package_expects_dir.join(format!(
             "{}/{}.{EXPECT_FILE_EXTENSION}",
@@ -184,22 +174,6 @@ impl<'a> TestPathResolver<'a> {
                 CrateKind::StandaloneTest(_) => todo!(),
             }
         ))
-    }
-
-    fn decide_module_expect_file_path(&self, module: ModulePath) -> PathBuf {
-        let dir = self.decide_module_dir(module);
-        match module.data(self.db) {
-            ModulePathData::Root(crate_path) => dir.join(format!(
-                "{}.{EXPECT_FILE_EXTENSION}",
-                match crate_path.crate_kind(self.db) {
-                    CrateKind::Library => "lib",
-                    CrateKind::Main => "main",
-                    CrateKind::Binary(_) => todo!(),
-                    CrateKind::StandaloneTest(_) => todo!(),
-                }
-            )),
-            ModulePathData::Child { .. } => dir.with_extension(EXPECT_FILE_EXTENSION),
-        }
     }
 }
 
@@ -219,14 +193,11 @@ where
         }
     }
 
-    fn test_probable_modules(f: impl Fn(&Self, ModulePath))
+    fn vfs_test<U>(&self, f: impl Fn(&Self, U))
     where
-        Self: Default,
+        U: VfsTestUnit,
     {
-        let db = Self::default();
-        for dir in test_dirs() {
-            test_probable_modules(&db, &dir, &f);
-        }
+        vfs_test(self, f)
     }
 
     fn expect_test_crates_debug<R>(name: &str, f: impl Fn(&Self, CratePath) -> R)
@@ -363,21 +334,6 @@ where
         });
 }
 
-fn test_probable_modules<T>(db: &T, dir: &Path, f: &impl Fn(&T, ModulePath))
-where
-    T: VfsDb,
-{
-    let toolchain = db.dev_toolchain().unwrap();
-    collect_husky_package_dirs(dir)
-        .into_iter()
-        .for_each(|path| {
-            let package_path = PackagePath::new_local(db, toolchain, &path).unwrap();
-            for entity_path in db.collect_probable_modules(package_path) {
-                f(db, entity_path)
-            }
-        });
-}
-
 fn expect_test_packages<Db, T, E>(
     db: &Db,
     name: &str,
@@ -500,6 +456,28 @@ fn expect_test_crate_results<Db, T, E>(
                 expect_test::expect_file![path].assert_eq(&p(&db, f(&db, crate_path)));
             }
         });
+}
+
+fn vfs_test<'a, Db, U>(db: &'a Db, f: impl Fn(&'a Db, U))
+where
+    Db: VfsDb + ?Sized,
+    U: VfsTestUnit,
+{
+    for dir in test_dirs() {
+        let vfs_db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
+        let toolchain = db.dev_toolchain().unwrap();
+        for (base, out) in expect_test_base_outs() {
+            std::fs::create_dir_all(&out).expect("failed_to_create_dir_all");
+            for path in collect_package_relative_dirs(&base).into_iter() {
+                let package_path =
+                    PackagePath::new_local(vfs_db, toolchain, &path.to_logical_path(&base))
+                        .unwrap();
+                for unit in <U as VfsTestUnit>::collect_from_package_path(vfs_db, package_path) {
+                    f(db, unit)
+                }
+            }
+        }
+    }
 }
 
 fn vfs_expect_test<'a, Db, U, R>(
