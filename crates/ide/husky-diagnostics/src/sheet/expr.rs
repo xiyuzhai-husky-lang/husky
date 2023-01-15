@@ -72,15 +72,7 @@ fn collect_expr_diagnostics(
     }
     for stmt in expr_sheet.stmt_arena(db).data() {
         match stmt {
-            Stmt::Err(e) => {
-                if let Some(message) = stmt_error_message(e) {
-                    diagnostics.push(Diagnostic {
-                        message,
-                        severity: stmt_error_severity(e),
-                        range: stmt_error_range(e, ranged_token_sheet),
-                    })
-                }
-            }
+            Stmt::Err(e) => diagnostics.push(e.to_diagnostic(db, ranged_token_sheet)),
             _ => (),
         }
     }
@@ -98,11 +90,7 @@ fn collect_expr_diagnostics(
                 }
                 match entity_path {
                     Success(_) | Abort(_) => (),
-                    Failure(e) => diagnostics.push(Diagnostic {
-                        message: entity_path_expr_error_message(db, e),
-                        severity: entity_path_expr_error_severity(e),
-                        range: entity_path_expr_error_range(e, ranged_token_sheet),
-                    }),
+                    Failure(e) => diagnostics.push(e.to_diagnostic(db, ranged_token_sheet)),
                 }
             }
         }
@@ -223,42 +211,45 @@ fn expr_error_range(error: &ExprError, ranged_token_sheet: &RangedTokenSheet) ->
     }
 }
 
-fn entity_path_expr_error_message(db: &dyn DiagnosticsDb, error: &EntityPathExprError) -> String {
-    match error {
-        EntityPathExprError::EntityTree { token_idx, error } => {
-            format!("entity tree error {:?}", error.debug(db))
+impl Diagnose for EntityPathExprError {
+    fn message(&self, db: &dyn DiagnosticsDb) -> String {
+        match self {
+            EntityPathExprError::EntityTree { token_idx, error } => {
+                format!("entity tree error {:?}", error.debug(db))
+            }
+            EntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => todo!(),
         }
-        EntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => todo!(),
     }
-}
 
-fn entity_path_expr_error_severity(error: &EntityPathExprError) -> DiagnosticSeverity {
-    match error {
-        EntityPathExprError::EntityTree { token_idx, error } => DiagnosticSeverity::Error,
-        EntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => DiagnosticSeverity::Error,
-    }
-}
-
-fn entity_path_expr_error_range(
-    error: &EntityPathExprError,
-    ranged_token_sheet: &RangedTokenSheet,
-) -> TextRange {
-    match error {
-        EntityPathExprError::EntityTree { token_idx, error } => {
-            ranged_token_sheet.token_range(*token_idx)
+    fn severity(&self) -> DiagnosticSeverity {
+        match self {
+            EntityPathExprError::EntityTree { token_idx, error } => DiagnosticSeverity::Error,
+            EntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => {
+                DiagnosticSeverity::Error
+            }
         }
-        EntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => todo!(),
+    }
+
+    fn range(&self, ranged_token_sheet: &RangedTokenSheet) -> TextRange {
+        match self {
+            EntityPathExprError::EntityTree { token_idx, error } => {
+                ranged_token_sheet.token_range(*token_idx)
+            }
+            EntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => todo!(),
+        }
     }
 }
 
-fn stmt_error_message(error: &StmtError) -> Option<String> {
-    todo!()
-}
+impl Diagnose for StmtError {
+    fn message(&self, db: &dyn DiagnosticsDb) -> String {
+        todo!()
+    }
 
-fn stmt_error_severity(error: &StmtError) -> DiagnosticSeverity {
-    todo!()
-}
+    fn severity(&self) -> DiagnosticSeverity {
+        todo!()
+    }
 
-fn stmt_error_range(error: &StmtError, ranged_token_sheet: &RangedTokenSheet) -> TextRange {
-    todo!()
+    fn range(&self, ranged_token_sheet: &RangedTokenSheet) -> TextRange {
+        todo!()
+    }
 }
