@@ -24,7 +24,6 @@ use parse::*;
 
 #[salsa::jar(db = DeclDb)]
 pub struct DeclJar(
-    module_decl_sheet,
     // type
     type_decl,
     EnumTypeDecl,
@@ -73,16 +72,3 @@ pub struct DeclJar(
     TypeAsTraitAssociatedTypeDecl,
     TypeAsTraitAssociatedValueDecl,
 );
-
-#[salsa::tracked(jar = DeclJar, return_ref)]
-fn module_decl_sheet(db: &dyn DeclDb, path: ModulePath) -> EntityTreeResult<DeclSheet> {
-    DeclSheet::collect_from_module(db, path)
-}
-
-#[test]
-fn decl_sheet_works() {
-    use husky_vfs::VfsTestSupport;
-    use tests::*;
-
-    DB::expect_test_probable_modules_debug_result_with_db("decl_sheet", DeclDb::module_decl_sheet);
-}

@@ -3,14 +3,29 @@ use husky_entity_path::EntityPath;
 use vec_like::VecPairMap;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct DeclSheet {
-    decls: Vec<DeclResult<Decl>>,
+pub struct DeclSheet<'a> {
+    decls: Vec<DeclResultBorrowed<'a, Decl>>,
 }
 
-impl DeclSheet {
-    pub fn collect_from_module(db: &dyn DeclDb, path: ModulePath) -> EntityTreeResult<Self> {
+pub fn module_decl_sheet<'a>(
+    db: &'a dyn DeclDb,
+    path: ModulePath,
+) -> EntityTreeResult<DeclSheet<'a>> {
+    DeclSheet::collect_from_module(db, path)
+}
+
+#[test]
+fn decl_sheet_works() {
+    use husky_vfs::VfsTestSupport;
+    use tests::*;
+
+    DB::default().vfs_expect_test_debug_with_db("decl_sheet", DeclDb::module_decl_sheet);
+}
+
+impl<'a> DeclSheet<'a> {
+    pub fn collect_from_module(db: &'a dyn DeclDb, path: ModulePath) -> EntityTreeResult<Self> {
         let entity_tree_sheet = db.entity_tree_sheet(path)?;
-        let mut decls: Vec<DeclResult<Decl>> = Default::default();
+        let mut decls: Vec<DeclResultBorrowed<'a, Decl>> = Default::default();
         for path in entity_tree_sheet.module_item_path_iter(db) {
             decls.push(db.module_item_decl(path))
         }
@@ -27,16 +42,16 @@ impl DeclSheet {
         Ok(DeclSheet::new(decls))
     }
 
-    fn new(decls: Vec<DeclResult<Decl>>) -> Self {
+    fn new(decls: Vec<DeclResultBorrowed<'a, Decl>>) -> Self {
         Self { decls }
     }
 
-    pub fn decls(&self) -> &[DeclResult<Decl>] {
+    pub fn decls(&self) -> &[DeclResultBorrowed<'a, Decl>] {
         &self.decls
     }
 }
 
-impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for DeclSheet {
+impl<'a, Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for DeclSheet<'a> {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,

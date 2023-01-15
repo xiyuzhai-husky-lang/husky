@@ -7,6 +7,7 @@ pub struct TypeImplBlockDecl {
     pub impl_block: ImplBlock,
     pub impl_token: ImplToken,
     pub ty: ExprIdx,
+    #[return_ref]
     pub eol_colon: ExprResult<EolColonToken>,
     pub expr_sheet: ExprSheet,
 }

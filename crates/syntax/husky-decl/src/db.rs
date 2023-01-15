@@ -4,36 +4,36 @@ use husky_vfs::{CratePath, ModulePath, VfsResult};
 use salsa::DbWithJar;
 
 pub trait DeclDb: DbWithJar<DeclJar> + ExprDb {
-    fn module_item_decl(&self, path: ModuleItemPath) -> DeclResult<Decl>;
-    fn impl_block_decl(&self, impl_block: ImplBlock) -> DeclResult<ImplBlockDecl>;
+    fn module_item_decl(&self, path: ModuleItemPath) -> DeclResultBorrowed<Decl>;
+    fn impl_block_decl(&self, impl_block: ImplBlock) -> DeclResultBorrowed<ImplBlockDecl>;
     fn associated_item_decl(
         &self,
         associated_item: AssociatedItem,
-    ) -> DeclResult<AssociatedItemDecl>;
-    fn module_decl_sheet(&self, path: ModulePath) -> EntityTreeResult<&DeclSheet>;
+    ) -> DeclResultBorrowed<AssociatedItemDecl>;
+    fn module_decl_sheet<'a>(&'a self, path: ModulePath) -> EntityTreeResult<DeclSheet<'a>>;
 }
 
 impl<Db> DeclDb for Db
 where
     Db: DbWithJar<DeclJar> + ExprDb,
 {
-    fn module_item_decl(&self, path: ModuleItemPath) -> DeclResult<Decl> {
+    fn module_item_decl(&self, path: ModuleItemPath) -> DeclResultBorrowed<Decl> {
         module_item_decl(self, path)
     }
-    fn module_decl_sheet(&self, path: ModulePath) -> EntityTreeResult<&DeclSheet> {
-        Ok(module_decl_sheet(self, path)
-            .as_ref()
-            .map_err(|e| e.clone())?)
+    fn module_decl_sheet<'a>(&'a self, path: ModulePath) -> EntityTreeResult<DeclSheet<'a>> {
+        module_decl_sheet(self, path)
     }
 
-    fn impl_block_decl(&self, impl_block: ImplBlock) -> DeclResult<ImplBlockDecl> {
-        impl_block_decl(self, impl_block)
+    fn impl_block_decl(&self, impl_block: ImplBlock) -> DeclResultBorrowed<ImplBlockDecl> {
+        impl_block_decl(self, impl_block).as_ref().map(|decl| *decl)
     }
 
     fn associated_item_decl(
         &self,
         associated_item: AssociatedItem,
-    ) -> DeclResult<AssociatedItemDecl> {
+    ) -> DeclResultBorrowed<AssociatedItemDecl> {
         associated_item_decl(self, associated_item)
+            .as_ref()
+            .map(|decl| *decl)
     }
 }

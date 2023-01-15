@@ -6,7 +6,7 @@ use husky_vfs::VfsError;
 use parsec::*;
 use thiserror::Error;
 
-#[derive(Debug, Error, PartialEq, Eq, Clone)]
+#[derive(Debug, Error, PartialEq, Eq)]
 pub enum DeclError {
     #[error("expect `{{` or `(` or `;`")]
     ExpectLCurlOrLParOrSemicolon(TokenIdx),
@@ -29,6 +29,7 @@ pub enum DeclError {
 }
 
 pub type DeclResult<T> = Result<T, DeclError>;
+pub type DeclResultBorrowed<'a, T> = Result<T, &'a DeclError>;
 
 impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for DeclError {
     fn fmt(

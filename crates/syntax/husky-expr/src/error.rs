@@ -5,7 +5,7 @@ use husky_token::*;
 use parsec::*;
 use thiserror::Error;
 
-#[derive(Error, Debug, PartialEq, Eq, Clone)]
+#[derive(Error, Debug, PartialEq, Eq)]
 pub enum ExprError {
     #[error("mismatching bracket")]
     MismatchingBracket {
