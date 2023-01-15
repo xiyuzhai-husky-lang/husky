@@ -9,8 +9,8 @@ fn main() {
     assert!(PathBuf::from("rust-toolchain").exists());
     assert!(PathBuf::from("husky-toolchain.toml").exists());
     assert!(PathBuf::from(".corgi/config.toml").exists());
-    remove_folder_in_tests("try/try");
-    // clean_expect_files();
+    // remove_folder_in_tests("try/try");
+    clean_expect_files();
     // clean_tests()
     // restructure()
 }
