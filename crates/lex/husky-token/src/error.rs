@@ -4,7 +4,7 @@ use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
 pub enum TokenError {
-    #[error("incomplet string literal")]
+    #[error("incomplete string literal")]
     IncompleteStringLiteral,
     #[error("unexpect char after backslash")]
     UnexpectedCharAfterBackslash,
