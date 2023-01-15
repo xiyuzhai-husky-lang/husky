@@ -20,11 +20,6 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [34:40, 34:44),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
                 range: [51:9, 51:19),
             },
             Diagnostic {
@@ -41,11 +36,6 @@ DiagnosticSheet {
                 message: "Syntax Error: unresolved subentity",
                 severity: Error,
                 range: [55:21, 55:26),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [58:13, 58:18),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",

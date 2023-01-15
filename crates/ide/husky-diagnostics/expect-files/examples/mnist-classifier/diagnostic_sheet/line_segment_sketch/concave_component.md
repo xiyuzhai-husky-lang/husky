@@ -17,11 +17,6 @@ DiagnosticSheet {
                 severity: Error,
                 range: [9:15, 9:16),
             },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [39:46, 39:50),
-            },
         ],
     },
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {

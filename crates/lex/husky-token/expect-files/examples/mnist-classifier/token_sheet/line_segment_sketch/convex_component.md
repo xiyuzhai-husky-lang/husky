@@ -16,7 +16,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 80,
+                            value: 79,
                         },
                     ),
                 ),
@@ -36,7 +36,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 337,
+                            value: 335,
                         },
                     ),
                 ),
@@ -50,7 +50,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 80,
+                            value: 79,
                         },
                     ),
                 ),
@@ -65,7 +65,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 320,
+                            value: 318,
                         },
                     ),
                 ),
@@ -77,7 +77,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 338,
+                            value: 336,
                         },
                     ),
                 ),
@@ -106,7 +106,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 321,
+                            value: 319,
                         },
                     ),
                 ),
@@ -126,7 +126,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 337,
+                            value: 335,
                         },
                     ),
                 ),
@@ -144,7 +144,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 338,
+                            value: 336,
                         },
                     ),
                 ),
