@@ -46,12 +46,12 @@ impl DiagnosticSheet {
         self,
         db: &'a dyn DiagnosticsDb,
     ) -> impl Iterator<Item = &'a Diagnostic> + 'a {
-        self.ast_diagnostic_sheet(db)
+        self.token_diagnostic_sheet(db)
             .diagnostics(db)
             .iter()
-            .chain(self.entity_tree_diagnostic_sheet(db).diagnostics(db).iter())
-            .chain(self.token_diagnostic_sheet(db).diagnostics(db).iter())
+            .chain(self.ast_diagnostic_sheet(db).diagnostics(db).iter())
             .chain(self.expr_diagnostic_sheet(db).diagnostics(db).iter())
+            .chain(self.entity_tree_diagnostic_sheet(db).diagnostics(db).iter())
     }
 }
 
