@@ -198,8 +198,8 @@ where
 {
     match result {
         Ok(resp) => lsp_server::Response::new_ok(id, &resp),
-        Err(error) => {
-            p!(error);
+        Err(e) => {
+            p!(e);
             todo!()
         }
     }

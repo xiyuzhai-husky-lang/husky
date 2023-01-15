@@ -29,8 +29,6 @@ pub enum ExprError {
         ket: Bracket,
         ket_token_idx: TokenIdx,
     },
-    #[error("entity tree")]
-    EntityTree(#[from] EntityTreeError),
     #[error("expect identifier after dot")]
     ExpectIdentifierAfterDot(TokenIdx),
     #[error("token error {0}")]
@@ -76,8 +74,6 @@ pub enum ExprError {
     ExpectEolColon(TokenIdx),
     #[error("expect identifier after `mut`")]
     ExpectIdentifierAfterMut(TokenIdx),
-    #[error("expect identifier after `::`")]
-    ExpectIdentifierAfterScopeResolution(TokenIdx),
     #[error("missing block")]
     MissingBlock(TokenGroupIdx),
     #[error("unexpected `$`")]

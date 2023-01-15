@@ -1,5 +1,8 @@
-use husky_expr::{Expr, ExprError, ExprSheet, Stmt, StmtError};
+use husky_expr::{
+    EntityPathExpr, EntityPathExprError, Expr, ExprError, ExprSheet, Stmt, StmtError,
+};
 use husky_token::RangedTokenSheet;
+use salsa::DebugWithDb;
 
 use super::*;
 
@@ -69,16 +72,39 @@ fn collect_expr_diagnostics(
     }
     for stmt in expr_sheet.stmt_arena(db).data() {
         match stmt {
-            Stmt::Err(error) => {
-                if let Some(message) = stmt_error_message(error) {
+            Stmt::Err(e) => {
+                if let Some(message) = stmt_error_message(e) {
                     diagnostics.push(Diagnostic {
                         message,
-                        severity: stmt_error_severity(error),
-                        range: stmt_error_range(error, ranged_token_sheet),
+                        severity: stmt_error_severity(e),
+                        range: stmt_error_range(e, ranged_token_sheet),
                     })
                 }
             }
             _ => (),
+        }
+    }
+    for entity_path_expr in expr_sheet.entity_path_expr_arena(db).data() {
+        match entity_path_expr {
+            EntityPathExpr::Root { .. } => (),
+            EntityPathExpr::Subentity {
+                ident_token,
+                path: entity_path,
+                ..
+            } => {
+                match ident_token {
+                    Ok(_) => (),
+                    Err(e) => todo!(),
+                }
+                match entity_path {
+                    Success(_) | Abort(_) => (),
+                    Failure(e) => diagnostics.push(Diagnostic {
+                        message: entity_path_expr_error_message(db, e),
+                        severity: entity_path_expr_error_severity(e),
+                        range: entity_path_expr_error_range(e, ranged_token_sheet),
+                    }),
+                }
+            }
         }
     }
 }
@@ -92,7 +118,6 @@ fn expr_error_message(error: &ExprError) -> Option<String> {
         ExprError::ExpectColon(_) => format!("Syntax Error: expect `:`"),
         ExprError::ExpectRightParenthesis(_) => format!("Syntax Error: expect `)`"),
         ExprError::NoMatchingBra { .. } => format!("Syntax Error: no matching bracket"),
-        ExprError::EntityTree(_) => format!("Syntax Error: entity tree"),
         ExprError::ExpectIdentifierAfterDot { .. } => {
             format!("Syntax Error: expect identifier after dot")
         }
@@ -123,9 +148,6 @@ fn expr_error_message(error: &ExprError) -> Option<String> {
         ExprError::ExpectEolColon(_) => format!("Syntax Error: expect `:` at end of line"),
         ExprError::ExpectIdentifierAfterMut(_) => {
             format!("Syntax Error: expect identifier after `mut`")
-        }
-        ExprError::ExpectIdentifierAfterScopeResolution(_) => {
-            format!("Syntax Error: expect identifier after `::`")
         }
         ExprError::MissingBlock(_) => format!("Syntax Error: missing block"),
         ExprError::UnexpectedSheba(_) => format!("Syntax Error: unexpected `$`"),
@@ -191,15 +213,41 @@ fn expr_error_range(error: &ExprError, ranged_token_sheet: &RangedTokenSheet) ->
         }
         | ExprError::ExpectEolColon(token_idx)
         | ExprError::ExpectIdentifierAfterMut(token_idx)
-        | ExprError::ExpectIdentifierAfterScopeResolution(token_idx)
         | ExprError::UnexpectedSheba(token_idx)
         | ExprError::UnrecognizedIdentifier { token_idx, .. }
         | ExprError::UnresolvedSubentity { token_idx, .. } => {
             ranged_token_sheet.token_range(*token_idx)
         }
-        ExprError::EntityTree(_) => todo!(),
         ExprError::Token(_) => todo!(),
         ExprError::MissingBlock(_) => todo!(),
+    }
+}
+
+fn entity_path_expr_error_message(db: &dyn DiagnosticsDb, error: &EntityPathExprError) -> String {
+    match error {
+        EntityPathExprError::EntityTree { token_idx, error } => {
+            format!("entity tree error {:?}", error.debug(db))
+        }
+        EntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => todo!(),
+    }
+}
+
+fn entity_path_expr_error_severity(error: &EntityPathExprError) -> DiagnosticSeverity {
+    match error {
+        EntityPathExprError::EntityTree { token_idx, error } => DiagnosticSeverity::Error,
+        EntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => DiagnosticSeverity::Error,
+    }
+}
+
+fn entity_path_expr_error_range(
+    error: &EntityPathExprError,
+    ranged_token_sheet: &RangedTokenSheet,
+) -> TextRange {
+    match error {
+        EntityPathExprError::EntityTree { token_idx, error } => {
+            ranged_token_sheet.token_range(*token_idx)
+        }
+        EntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => todo!(),
     }
 }
 

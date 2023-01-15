@@ -45,8 +45,8 @@ impl Expr {
         match self {
             Expr::Literal(_) => BaseEntityPath::None,
             Expr::EntityPath { entity_path, .. } => match entity_path {
-                Ok(entity_path) => BaseEntityPath::Some(*entity_path),
-                Err(_) => todo!(),
+                Some(entity_path) => BaseEntityPath::Some(*entity_path),
+                None => todo!(),
             },
             Expr::InheritedSymbol { .. } | Expr::LocalSymbol { .. } => BaseEntityPath::None,
             Expr::SelfValue(_) => todo!(),

@@ -11,6 +11,7 @@ mod unfinished_expr;
 pub use block::*;
 pub use env::*;
 use husky_print_utils::p;
+use outcome::Outcome;
 
 use crate::*;
 use expr_stack::*;
@@ -28,6 +29,7 @@ use salsa::DebugWithDb;
 use std::ops::ControlFlow;
 use symbol::*;
 use unfinished_expr::*;
+use Outcome::*;
 
 #[macro_use]
 macro_rules! report {
@@ -247,7 +249,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         token_idx: TokenIdx,
         ident: Identifier,
         entity_path: EntityPath,
-    ) -> (EntityPathExprIdx, ExprResult<EntityPath>) {
+    ) -> (EntityPathExprIdx, Option<EntityPath>) {
         let root = self.alloc_entity_path_expr(EntityPathExpr::Root {
             token_idx,
             ident,
@@ -255,41 +257,50 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         });
         match self.try_parse::<ScopeResolutionToken>() {
             Some(scope_resolution_token) => {
-                self.parse_subentity_path_expr(root, Ok(entity_path), scope_resolution_token)
+                self.parse_subentity_path_expr(root, Some(entity_path), scope_resolution_token)
             }
-            None => (root, Ok(entity_path)),
+            None => (root, Some(entity_path)),
         }
     }
 
     fn parse_subentity_path_expr(
         &mut self,
         parent: EntityPathExprIdx,
-        parent_path: ExprResult<EntityPath>,
+        parent_path: Option<EntityPath>,
         scope_resolution_token: ScopeResolutionToken,
-    ) -> (EntityPathExprIdx, ExprResult<EntityPath>) {
-        let ident_token = self
-            .parse_expected2::<IdentifierToken, _>(ExprError::ExpectIdentifierAfterScopeResolution);
-        let ident: ExprResult<Identifier> = match ident_token {
-            Ok(ident_token) => Ok(ident_token.ident()),
-            Err(_) => todo!(),
+    ) -> (EntityPathExprIdx, Option<EntityPath>) {
+        let ident_token = self.parse_expected2::<IdentifierToken, _>(
+            EntityPathExprError::ExpectIdentifierAfterScopeResolution,
+        );
+        let path: EntityPathExprOutcome<EntityPath> = match parent_path {
+            Some(parent_path) => match ident_token {
+                Ok(ident_token) => {
+                    let ident = ident_token.ident();
+                    match self.parser.db.subentity_path(parent_path, ident) {
+                        Ok(path) => Success(path),
+                        Err(error) => Failure(EntityPathExprError::EntityTree {
+                            token_idx: ident_token.token_idx(),
+                            error,
+                        }),
+                    }
+                }
+                Err(_) => todo!(),
+            },
+            None => todo!(),
         };
-        let path: ExprResult<EntityPath> = parent_path
-            .map(|parent_path| -> ExprResult<EntityPath> {
-                Ok(self.parser.db.subentity_path(parent_path, ident?)?)
-            })
-            .flatten();
+        let parent_path = path.ok_copy();
         let expr = EntityPathExpr::Subentity {
             parent,
             scope_resolution_token,
             ident_token,
-            entity_path: path.clone(),
+            path,
         };
         let expr = self.alloc_entity_path_expr(expr);
         match self.try_parse::<ScopeResolutionToken>() {
             Some(scope_resolution_token) => {
-                self.parse_subentity_path_expr(expr, path, scope_resolution_token)
+                self.parse_subentity_path_expr(expr, parent_path, scope_resolution_token)
             }
-            None => (expr, path),
+            None => (expr, parent_path),
         }
     }
 
