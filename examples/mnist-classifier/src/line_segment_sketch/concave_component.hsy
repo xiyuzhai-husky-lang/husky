@@ -2,6 +2,7 @@ use crate::line_segment_sketch::*
 use crate::line_segment_sketch::line_segment::*
 use crate::line_segment_sketch::convexity::*
 use crate::geom2d::*
+use crate::*
 
 pub struct ConcaveComponent {
     line_segment_sketch: &LineSegmentSketch,
@@ -83,7 +84,7 @@ impl ConcaveComponent:
     visual:
         strokes
 
-proc find_concave_components(line_segment_sketch: &LineSegmentSketch) -> []ConcaveComponent:
+pub proc find_concave_components(line_segment_sketch: &LineSegmentSketch) -> []ConcaveComponent:
     let mut concave_components = []ConcaveComponent()
     let L = line_segment_sketch.strokes.ilen()
     let mut start = 0

@@ -43,13 +43,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `new`,
                         token_idx: TokenIdx(
-                            80,
+                            81,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        81,
+                        82,
                     ),
                 },
                 Defn {
@@ -75,13 +75,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `displacement`,
                         token_idx: TokenIdx(
-                            118,
+                            119,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        119,
+                        120,
                     ),
                 },
                 Err {
@@ -90,7 +90,7 @@ Ok(
                     ),
                     error: ExpectIdentifier(
                         TokenIdx(
-                            135,
+                            136,
                         ),
                     ),
                 },
@@ -235,13 +235,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `concave_components`,
                         token_idx: TokenIdx(
-                            172,
+                            174,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        173,
+                        175,
                     ),
                 },
                 Defn {
@@ -267,13 +267,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `bounding_box`,
                         token_idx: TokenIdx(
-                            183,
+                            185,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        184,
+                        186,
                     ),
                 },
                 Defn {
@@ -293,13 +293,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `new`,
                         token_idx: TokenIdx(
-                            308,
+                            310,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        309,
+                        311,
                     ),
                 },
                 Err {
@@ -308,7 +308,7 @@ Ok(
                     ),
                     error: ExpectIdentifier(
                         TokenIdx(
-                            334,
+                            336,
                         ),
                     ),
                 },
@@ -1513,13 +1513,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 28,
-                            },
-                        ),
-                    ),
+                    accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1532,13 +1526,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `LineSegmentStroke`,
                         token_idx: TokenIdx(
-                            35,
+                            36,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        36,
+                        37,
                     ),
                 },
                 Impl {
@@ -1556,13 +1550,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 28,
-                            },
-                        ),
-                    ),
+                    accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1575,13 +1563,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `LineSegmentSketch`,
                         token_idx: TokenIdx(
-                            154,
+                            156,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        155,
+                        157,
                     ),
                 },
                 Impl {
@@ -1618,13 +1606,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `go_right`,
                         token_idx: TokenIdx(
-                            339,
+                            341,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        340,
+                        342,
                     ),
                 },
                 Defn {
@@ -1653,13 +1641,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `go_left`,
                         token_idx: TokenIdx(
-                            436,
+                            438,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        437,
+                        439,
                     ),
                 },
                 Defn {
@@ -1688,13 +1676,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `extend_end`,
                         token_idx: TokenIdx(
-                            533,
+                            535,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        534,
+                        536,
                     ),
                 },
                 Defn {
@@ -1723,13 +1711,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `extend_start`,
                         token_idx: TokenIdx(
-                            766,
+                            768,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        767,
+                        769,
                     ),
                 },
                 Defn {
@@ -1758,13 +1746,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `find_line_segments`,
                         token_idx: TokenIdx(
-                            1032,
+                            1034,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        1033,
+                        1035,
                     ),
                 },
             ],

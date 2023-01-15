@@ -3,7 +3,7 @@ use crate::connected_component::*
 use crate::line_segment_sketch::*
 use mnist::{BinaryImage28, BinaryGrid28}
 
-struct RawContour {
+pub struct RawContour {
     cc: &ConnectedComponent,
     points: []Point2d,
 }
@@ -152,9 +152,10 @@ func get_outward_direction(
     | _ => unreachable
 
 
-struct StreakCache:
-    prev1: i32
-    prev2: i32
+struct StreakCache {
+    prev1: i32,
+    prev2: i32,
+}
 
 func get_concave_middle_point(points: []Point2d) -> Point2d:
     let N = points.ilen()

@@ -10,22 +10,18 @@ Ok(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                             accessibility: Public,
-                            ast_idx: 73,
+                            ast_idx: 74,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
                     ident: `find_concave_components`,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::line_segment_sketch::concave_component`,
-                    ),
+                    accessibility: Public,
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
-                            accessibility: PubicUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            ast_idx: 75,
+                            accessibility: Public,
+                            ast_idx: 76,
                         },
                     ),
                 },
@@ -116,6 +112,28 @@ Ok(
                         ),
                         children: ArenaIdxRange(
                             12..13,
+                        ),
+                    },
+                    parent: None,
+                    state: Unresolved,
+                },
+                UseTracker {
+                    ast_idx: 73,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::line_segment_sketch::concave_component`,
+                        ),
+                    },
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    29,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            14..15,
                         ),
                     },
                     parent: None,

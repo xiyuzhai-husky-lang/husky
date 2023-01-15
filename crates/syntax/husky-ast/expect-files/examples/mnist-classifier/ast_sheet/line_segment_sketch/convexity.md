@@ -177,13 +177,7 @@ Ok(
                     body: ArenaIdxRange(
                         14..19,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 31,
-                            },
-                        ),
-                    ),
+                    accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Function,
@@ -196,13 +190,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `is_convex`,
                         token_idx: TokenIdx(
-                            19,
+                            20,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        20,
+                        21,
                     ),
                 },
             ],

@@ -5,16 +5,12 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `RawContour`,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::raw_contour`,
-                    ),
+                    accessibility: Public,
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                            accessibility: PubicUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                            ast_idx: 201,
+                            accessibility: Public,
+                            ast_idx: 199,
                         },
                     ),
                 },
@@ -29,7 +25,7 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 203,
+                            ast_idx: 201,
                         },
                     ),
                 },
@@ -44,7 +40,7 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 208,
+                            ast_idx: 206,
                         },
                     ),
                 },
@@ -59,7 +55,7 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 209,
+                            ast_idx: 207,
                         },
                     ),
                 },
@@ -74,7 +70,7 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 210,
+                            ast_idx: 208,
                         },
                     ),
                 },
@@ -89,7 +85,7 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 211,
+                            ast_idx: 209,
                         },
                     ),
                 },
@@ -104,7 +100,7 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 212,
+                            ast_idx: 210,
                         },
                     ),
                 },
@@ -119,7 +115,7 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 213,
+                            ast_idx: 211,
                         },
                     ),
                 },
@@ -134,7 +130,7 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 214,
+                            ast_idx: 212,
                         },
                     ),
                 },
@@ -149,7 +145,7 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 215,
+                            ast_idx: 213,
                         },
                     ),
                 },
@@ -164,7 +160,7 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 216,
+                            ast_idx: 214,
                         },
                     ),
                 },
@@ -173,7 +169,7 @@ Ok(
         entity_use_roots: EntityUseExprTrackers(
             [
                 UseTracker {
-                    ast_idx: 197,
+                    ast_idx: 195,
                     accessibility: Done {
                         accessibility: PubicUnder(
                             `mnist_classifier::raw_contour`,
@@ -195,7 +191,7 @@ Ok(
                     state: Unresolved,
                 },
                 UseTracker {
-                    ast_idx: 198,
+                    ast_idx: 196,
                     accessibility: Done {
                         accessibility: PubicUnder(
                             `mnist_classifier::raw_contour`,
@@ -217,7 +213,7 @@ Ok(
                     state: Unresolved,
                 },
                 UseTracker {
-                    ast_idx: 199,
+                    ast_idx: 197,
                     accessibility: Done {
                         accessibility: PubicUnder(
                             `mnist_classifier::raw_contour`,
@@ -239,7 +235,7 @@ Ok(
                     state: Unresolved,
                 },
                 UseTracker {
-                    ast_idx: 200,
+                    ast_idx: 198,
                     accessibility: Done {
                         accessibility: PubicUnder(
                             `mnist_classifier::raw_contour`,

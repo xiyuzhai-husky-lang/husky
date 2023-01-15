@@ -10,32 +10,17 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: no left operand for binary operator",
                 severity: Error,
-                range: [8:15, 8:16),
+                range: [9:15, 9:16),
             },
             Diagnostic {
                 message: "Syntax Error: no right operand for binary operator",
                 severity: Error,
-                range: [8:15, 8:16),
+                range: [9:15, 9:16),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [91:27, 91:36),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [95:35, 95:44),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [38:46, 38:50),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [55:13, 55:24),
+                range: [39:46, 39:50),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
@@ -45,42 +30,22 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [59:35, 59:54),
+                range: [57:13, 57:24),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [62:28, 62:39),
+                range: [60:35, 60:54),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [63:9, 63:20),
+                range: [63:28, 63:39),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [68:21, 68:28),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [71:19, 71:26),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [74:28, 74:36),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [77:29, 77:37),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [80:27, 80:35),
+                range: [64:9, 64:20),
             },
         ],
     },

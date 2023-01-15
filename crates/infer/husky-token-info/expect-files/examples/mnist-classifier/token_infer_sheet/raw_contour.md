@@ -118,6 +118,7 @@ Ok(
             None,
             None,
             None,
+            None,
             Entity(
                 Some(
                     ModuleItem(
@@ -143,13 +144,39 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 16,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             None,
             BoxPrefix,
             BoxPrefix,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 20,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             None,
@@ -190,9 +217,35 @@ Ok(
                 ),
             ),
             None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
-            None,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             None,
@@ -245,7 +298,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -265,7 +318,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -277,7 +330,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -292,7 +345,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -304,7 +357,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -319,7 +372,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -331,7 +384,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -346,7 +399,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -358,7 +411,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -372,7 +425,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -393,7 +446,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -409,7 +462,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -421,7 +474,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -433,7 +486,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -447,7 +500,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -461,7 +514,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -473,7 +526,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -487,7 +540,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -501,7 +554,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -513,7 +566,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -527,7 +580,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -541,7 +594,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -553,7 +606,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -567,7 +620,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -599,7 +652,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -611,7 +664,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -626,7 +679,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -638,7 +691,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 343,
+                        value: 344,
                     },
                 ),
             },
@@ -732,7 +785,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 345,
+                        value: 346,
                     },
                 ),
             },
@@ -748,7 +801,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 345,
+                        value: 346,
                     },
                 ),
             },
@@ -769,7 +822,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 345,
+                        value: 346,
                     },
                 ),
             },
@@ -785,7 +838,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 345,
+                        value: 346,
                     },
                 ),
             },
@@ -800,7 +853,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 345,
+                        value: 346,
                     },
                 ),
             },
@@ -816,7 +869,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 345,
+                        value: 346,
                     },
                 ),
             },
@@ -828,7 +881,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 345,
+                        value: 346,
                     },
                 ),
             },
@@ -841,7 +894,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 345,
+                        value: 346,
                     },
                 ),
             },
@@ -855,7 +908,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 345,
+                        value: 346,
                     },
                 ),
             },
@@ -875,7 +928,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 345,
+                        value: 346,
                     },
                 ),
             },
@@ -889,7 +942,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 345,
+                        value: 346,
                     },
                 ),
             },
@@ -908,7 +961,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 345,
+                        value: 346,
                     },
                 ),
             },
@@ -935,7 +988,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 345,
+                        value: 346,
                     },
                 ),
             },
@@ -953,7 +1006,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 345,
+                        value: 346,
                     },
                 ),
             },
@@ -966,7 +1019,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 345,
+                        value: 346,
                     },
                 ),
             },
@@ -980,7 +1033,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 345,
+                        value: 346,
                     },
                 ),
             },
@@ -1000,7 +1053,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 345,
+                        value: 346,
                     },
                 ),
             },
@@ -1014,7 +1067,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 345,
+                        value: 346,
                     },
                 ),
             },
@@ -1033,7 +1086,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 345,
+                        value: 346,
                     },
                 ),
             },
@@ -1066,7 +1119,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 333,
+                        value: 334,
                     },
                 ),
             },
@@ -1093,7 +1146,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 333,
+                        value: 334,
                     },
                 ),
             },
@@ -1114,7 +1167,20 @@ Ok(
             ),
             None,
             None,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 22,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             LocalSymbol {
@@ -1124,7 +1190,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 346,
+                        value: 347,
                     },
                 ),
             },
@@ -1144,7 +1210,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 346,
+                        value: 347,
                     },
                 ),
             },
@@ -1160,7 +1226,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 346,
+                        value: 347,
                     },
                 ),
             },
@@ -1172,7 +1238,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 346,
+                        value: 347,
                     },
                 ),
             },
@@ -1185,7 +1251,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 346,
+                        value: 347,
                     },
                 ),
             },
@@ -1201,7 +1267,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 346,
+                        value: 347,
                     },
                 ),
             },
@@ -1213,7 +1279,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 346,
+                        value: 347,
                     },
                 ),
             },
@@ -1225,7 +1291,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 346,
+                        value: 347,
                     },
                 ),
             },
@@ -1239,7 +1305,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 346,
+                        value: 347,
                     },
                 ),
             },
@@ -1361,7 +1427,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 334,
+                        value: 335,
                     },
                 ),
             },
@@ -1374,7 +1440,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 334,
+                        value: 335,
                     },
                 ),
             },
@@ -1459,7 +1525,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 335,
+                        value: 336,
                     },
                 ),
             },
@@ -1471,7 +1537,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 335,
+                        value: 336,
                     },
                 ),
             },
@@ -1553,7 +1619,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 336,
+                        value: 337,
                     },
                 ),
             },
@@ -1566,7 +1632,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 336,
+                        value: 337,
                     },
                 ),
             },
@@ -1679,7 +1745,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 337,
+                        value: 338,
                     },
                 ),
             },
@@ -1706,7 +1772,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 337,
+                        value: 338,
                     },
                 ),
             },
@@ -1718,7 +1784,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 337,
+                        value: 338,
                     },
                 ),
             },
@@ -1731,7 +1797,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 337,
+                        value: 338,
                     },
                 ),
             },
@@ -1758,7 +1824,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 337,
+                        value: 338,
                     },
                 ),
             },
@@ -1770,7 +1836,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 337,
+                        value: 338,
                     },
                 ),
             },
@@ -1985,7 +2051,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 338,
+                        value: 339,
                     },
                 ),
             },
@@ -2000,7 +2066,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 338,
+                        value: 339,
                     },
                 ),
             },
@@ -2029,7 +2095,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 338,
+                        value: 339,
                     },
                 ),
             },
@@ -2213,7 +2279,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 339,
+                        value: 340,
                     },
                 ),
             },
@@ -2240,7 +2306,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 339,
+                        value: 340,
                     },
                 ),
             },
@@ -2252,7 +2318,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 339,
+                        value: 340,
                     },
                 ),
             },
@@ -2265,7 +2331,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 339,
+                        value: 340,
                     },
                 ),
             },
@@ -2292,7 +2358,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 339,
+                        value: 340,
                     },
                 ),
             },
@@ -2304,7 +2370,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 339,
+                        value: 340,
                     },
                 ),
             },
@@ -2496,12 +2562,61 @@ Ok(
             None,
             None,
             None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 19,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Type(
+                            Struct,
+                        ),
+                        connection: Connected,
+                    },
+                ),
+            ),
             None,
             None,
             None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 8,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 8,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             None,
@@ -2534,17 +2649,43 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 326,
+                        value: 327,
                     },
                 ),
             },
             None,
             BoxPrefix,
             BoxPrefix,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 20,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
-            None,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 20,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             LocalSymbol {
@@ -2554,7 +2695,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 340,
+                        value: 341,
                     },
                 ),
             },
@@ -2566,7 +2707,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 340,
+                        value: 341,
                     },
                 ),
             },
@@ -2582,7 +2723,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 340,
+                        value: 341,
                     },
                 ),
             },
@@ -2594,7 +2735,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 340,
+                        value: 341,
                     },
                 ),
             },
@@ -2606,7 +2747,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 340,
+                        value: 341,
                     },
                 ),
             },
@@ -2621,7 +2762,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 340,
+                        value: 341,
                     },
                 ),
             },
@@ -2633,7 +2774,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 340,
+                        value: 341,
                     },
                 ),
             },
@@ -2645,14 +2786,27 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 340,
+                        value: 341,
                     },
                 ),
             },
             None,
             None,
             None,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 20,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             LocalSymbol {
@@ -2662,7 +2816,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 340,
+                        value: 341,
                     },
                 ),
             },
@@ -2676,7 +2830,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 340,
+                        value: 341,
                     },
                 ),
             },
@@ -2694,7 +2848,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 340,
+                        value: 341,
                     },
                 ),
             },
@@ -2708,7 +2862,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 340,
+                        value: 341,
                     },
                 ),
             },
@@ -2749,13 +2903,26 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 327,
+                        value: 328,
                     },
                 ),
             },
             None,
             None,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 16,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             BoxPrefix,
@@ -2784,7 +2951,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -2816,7 +2983,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -2834,7 +3001,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -2849,7 +3016,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -2861,7 +3028,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -2875,7 +3042,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -2890,7 +3057,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -2902,7 +3069,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -2916,7 +3083,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -2929,7 +3096,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -2941,7 +3108,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -2955,7 +3122,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -2967,7 +3134,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -2980,7 +3147,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -2992,7 +3159,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3006,7 +3173,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3018,7 +3185,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3030,7 +3197,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3042,7 +3209,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3058,7 +3225,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3070,7 +3237,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3082,7 +3249,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3094,7 +3261,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3110,7 +3277,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3125,7 +3292,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3137,7 +3304,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3152,14 +3319,27 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
             None,
             BoxPrefix,
             BoxPrefix,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 20,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             None,
@@ -3171,7 +3351,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3183,7 +3363,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3196,7 +3376,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3208,7 +3388,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3220,7 +3400,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3238,7 +3418,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3250,7 +3430,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3264,7 +3444,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3280,7 +3460,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3292,7 +3472,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3306,7 +3486,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3320,7 +3500,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3347,7 +3527,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3359,7 +3539,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3371,7 +3551,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3384,7 +3564,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3396,7 +3576,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3408,7 +3588,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3420,7 +3600,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3432,7 +3612,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3444,7 +3624,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3457,7 +3637,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3472,7 +3652,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3487,7 +3667,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3502,7 +3682,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3518,7 +3698,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3534,7 +3714,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3552,7 +3732,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3564,7 +3744,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3576,7 +3756,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3588,7 +3768,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3600,7 +3780,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3612,7 +3792,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3626,7 +3806,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3653,7 +3833,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3665,7 +3845,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3677,7 +3857,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3689,7 +3869,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3702,7 +3882,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3729,7 +3909,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3741,7 +3921,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3753,7 +3933,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3765,7 +3945,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3778,7 +3958,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3790,7 +3970,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3808,7 +3988,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3822,7 +4002,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3835,7 +4015,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3850,7 +4030,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3865,7 +4045,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3879,7 +4059,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3894,7 +4074,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3908,7 +4088,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3939,7 +4119,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3951,14 +4131,27 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
             None,
             Method,
             None,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 20,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             None,
@@ -3969,7 +4162,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3981,7 +4174,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -3994,7 +4187,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -4008,7 +4201,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -4117,7 +4310,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -4130,7 +4323,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -4142,7 +4335,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -4153,7 +4346,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -4165,7 +4358,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -4250,7 +4443,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -4262,7 +4455,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -4274,7 +4467,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -4289,7 +4482,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -4302,7 +4495,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -4317,7 +4510,7 @@ Ok(
                 ),
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -4331,7 +4524,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -4345,7 +4538,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -4361,7 +4554,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -4390,7 +4583,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -4402,7 +4595,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },
@@ -4416,7 +4609,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 341,
+                        value: 342,
                     },
                 ),
             },

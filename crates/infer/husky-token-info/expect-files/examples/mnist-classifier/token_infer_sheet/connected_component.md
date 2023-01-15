@@ -35,7 +35,7 @@ Ok(
             UseExpr {
                 use_expr_idx: 5,
                 rule_idx: UseExprRuleIdx(
-                    2,
+                    3,
                 ),
                 state: Resolved {
                     original_symbol: Submodule(
@@ -47,6 +47,25 @@ Ok(
                     ),
                 },
             },
+            None,
+            None,
+            None,
+            UseExpr {
+                use_expr_idx: 8,
+                rule_idx: UseExprRuleIdx(
+                    2,
+                ),
+                state: Resolved {
+                    original_symbol: CrateRoot(
+                        ModulePath(
+                            Id {
+                                value: 13,
+                            },
+                        ),
+                    ),
+                },
+            },
+            None,
             None,
             None,
             None,
@@ -142,6 +161,7 @@ Ok(
             None,
             None,
             None,
+            None,
             Entity(
                 Some(
                     ModuleItem(
@@ -170,7 +190,20 @@ Ok(
             BoxPrefix,
             None,
             None,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 17,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             None,
@@ -209,7 +242,20 @@ Ok(
             },
             None,
             None,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 17,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             None,
@@ -282,6 +328,7 @@ Ok(
             None,
             None,
             None,
+            None,
             Entity(
                 Some(
                     ModuleItem(
@@ -348,9 +395,35 @@ Ok(
             None,
             BoxPrefix,
             BoxPrefix,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 17,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
-            None,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 16,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             SelfValue,
             None,
@@ -430,7 +503,20 @@ Ok(
             BoxPrefix,
             None,
             None,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 17,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             LocalSymbol {
@@ -2438,6 +2524,7 @@ Ok(
                     },
                 ),
             },
+            None,
             None,
             Entity(
                 Some(

@@ -5,15 +5,11 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `is_convex`,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::line_segment_sketch::convexity`,
-                    ),
+                    accessibility: Public,
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
-                            accessibility: PubicUnder(
-                                `mnist_classifier::line_segment_sketch::convexity`,
-                            ),
+                            accessibility: Public,
                             ast_idx: 22,
                         },
                     ),

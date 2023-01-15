@@ -16,7 +16,7 @@ Ok(
                             parameter_decl_list: ParameterDeclList {
                                 lpar: LeftParenthesisToken {
                                     token_idx: TokenIdx(
-                                        20,
+                                        21,
                                     ),
                                 },
                                 decls: [
@@ -29,7 +29,7 @@ Ok(
                                         },
                                         colon: ColonToken {
                                             token_idx: TokenIdx(
-                                                22,
+                                                23,
                                             ),
                                         },
                                         ty: 0,
@@ -43,7 +43,7 @@ Ok(
                                         },
                                         colon: ColonToken {
                                             token_idx: TokenIdx(
-                                                26,
+                                                27,
                                             ),
                                         },
                                         ty: 1,
@@ -52,20 +52,20 @@ Ok(
                                 commas: [
                                     CommaToken {
                                         token_idx: TokenIdx(
-                                            24,
+                                            25,
                                         ),
                                     },
                                 ],
                                 rpar: RightParenthesisToken {
                                     token_idx: TokenIdx(
-                                        28,
+                                        29,
                                     ),
                                 },
                             },
                             curry_token: Ok(
                                 CurryToken {
                                     token_idx: TokenIdx(
-                                        29,
+                                        30,
                                     ),
                                 },
                             ),
@@ -75,7 +75,7 @@ Ok(
                             eol_colon: Ok(
                                 EolColonToken {
                                     token_idx: TokenIdx(
-                                        31,
+                                        32,
                                     ),
                                 },
                             ),

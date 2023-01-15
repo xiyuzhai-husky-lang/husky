@@ -2,6 +2,7 @@ Ok(
     TokenInfoSheet {
         token_infos: [
             None,
+            None,
             Entity(
                 Some(
                     ModuleItem(
@@ -569,6 +570,7 @@ Ok(
             None,
             None,
             None,
+            None,
             Entity(
                 Some(
                     ModuleItem(
@@ -627,6 +629,7 @@ Ok(
             None,
             None,
             None,
+            None,
             Entity(
                 Some(
                     ModuleItem(
@@ -699,6 +702,7 @@ Ok(
                 ),
                 None,
             ),
+            None,
             None,
             None,
             Entity(
@@ -761,6 +765,7 @@ Ok(
             SelfValue,
             None,
             Field,
+            None,
             None,
             None,
             Entity(

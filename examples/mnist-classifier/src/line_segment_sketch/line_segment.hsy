@@ -15,7 +15,7 @@ impl LineSegment:
         if ab.dot(ap) < 0.0:
             ap.norm()
         else:
-            let bp = end.to(pt)
+            let bp = self.end.to(pt)
             if ab.dot(bp) > 0.0:
                 bp.norm()
             else:
