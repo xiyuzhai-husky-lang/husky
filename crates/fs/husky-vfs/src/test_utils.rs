@@ -3,6 +3,56 @@ use husky_path_utils::*;
 use salsa::DebugWithDb;
 use std::path::PathBuf;
 
+pub trait VfsTestUnit: Sized {
+    fn collect_from_dir(db: &dyn VfsDb, dir: &Path) -> Vec<Self>;
+    fn decide_expect_file_path(&self, db: &dyn VfsDb, task_name: &str) -> PathBuf;
+}
+
+impl VfsTestUnit for PackagePath {
+    fn collect_from_dir(db: &dyn VfsDb, dir: &Path) -> Vec<Self> {
+        todo!()
+    }
+
+    fn decide_expect_file_path(&self, db: &dyn VfsDb, task_name: &str) -> PathBuf {
+        todo!()
+    }
+}
+
+impl VfsTestUnit for CratePath {
+    fn collect_from_dir(db: &dyn VfsDb, dir: &Path) -> Vec<Self> {
+        todo!()
+    }
+
+    fn decide_expect_file_path(&self, db: &dyn VfsDb, task_name: &str) -> PathBuf {
+        todo!()
+    }
+}
+
+impl VfsTestUnit for ModulePath {
+    fn collect_from_dir(db: &dyn VfsDb, dir: &Path) -> Vec<Self> {
+        let toolchain = db.dev_toolchain().unwrap();
+        collect_package_relative_dirs(dir)
+            .into_iter()
+            .map(|path| {
+                let package =
+                    PackagePath::new_local(db, toolchain, &path.to_logical_path(dir)).unwrap();
+                db.collect_probable_modules(package).into_iter()
+            })
+            .flatten()
+            .collect()
+    }
+
+    fn decide_expect_file_path(&self, db: &dyn VfsDb, task_name: &str) -> PathBuf {
+        todo!()
+        // match self.data(db) {
+        //     ModulePathData::Root(_) => self.package_expects_dir.join(self.name),
+        //     ModulePathData::Child { parent, ident } => parent
+        //         .decide_expect_file_path(db, task_name)
+        //         .join(db.dt_ident(ident)),
+        // }
+    }
+}
+
 pub trait VfsTestSupport: VfsDb {
     // toolchain
     fn dev_toolchain(&self) -> ToolchainResult<Toolchain>;
@@ -30,6 +80,11 @@ pub trait VfsTestSupport: VfsDb {
     where
         Self: Default,
         R: std::fmt::Debug;
+
+    fn vfs_expect_test_debug_with_db<'a, U, R>(&'a self, name: &str, f: impl Fn(&'a Self, U) -> R)
+    where
+        U: VfsTestUnit,
+        R: salsa::DebugWithDb<Self>;
 
     fn expect_test_crates_debug_with_db<R>(name: &str, f: impl Fn(&Self, CratePath) -> R)
     where
@@ -327,6 +382,14 @@ where
                 format!("{:#?}", r)
             });
         }
+    }
+
+    fn vfs_expect_test_debug_with_db<'a, U, R>(&'a self, name: &str, f: impl Fn(&'a Self, U) -> R)
+    where
+        U: VfsTestUnit,
+        R: salsa::DebugWithDb<Self>,
+    {
+        vfs_expect_test(self, name, &f, |_db, r| format!("{:#?}", &r.debug(self)))
     }
 
     fn dev_toolchain(&self) -> ToolchainResult<Toolchain> {
@@ -640,3 +703,40 @@ fn expect_test_probable_modules_debug<Db, R>(
             }
         });
 }
+
+fn vfs_expect_test<'a, Db, U, R>(
+    db: &'a Db,
+    name: &str,
+    f: &impl Fn(&'a Db, U) -> R,
+    p: impl Fn(&'a Db, R) -> String,
+) where
+    Db: VfsDb + ?Sized,
+    U: VfsTestUnit,
+{
+    let vfs_db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
+    for (base, out) in expect_test_base_outs() {
+        std::fs::create_dir_all(&out).expect("failed_to_create_dir_all");
+        for unit in <U as VfsTestUnit>::collect_from_dir(vfs_db, &base) {
+            let path = unit.decide_expect_file_path(vfs_db, name);
+            std::fs::create_dir_all(path.parent().unwrap()).unwrap();
+            expect_test::expect_file![path].assert_eq(&p(db, f(db, unit)))
+        }
+    }
+}
+// let toolchain = db.dev_toolchain().unwrap();
+// collect_package_relative_dirs(base)
+//     .into_iter()
+//     .for_each(|path| {
+//         let package =
+//             PackagePath::new_local(db, toolchain, &path.to_logical_path(base)).unwrap();
+//         let resolver = TestPathResolver {
+//             db,
+//             name,
+//             package_expects_dir: path.to_logical_path(&out),
+//         };
+//         for module in db.collect_probable_modules(package) {
+//             let path = resolver.decide_module_expect_file_path(module);
+//             std::fs::create_dir_all(path.parent().unwrap()).unwrap();
+//             expect_test::expect_file![path].assert_eq(&p(&db, f(&db, module)))
+//         }
+//     });

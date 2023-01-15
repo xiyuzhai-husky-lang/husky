@@ -11,39 +11,39 @@ use parsec::*;
 use salsa::DebugWithDb;
 use vec_like::{VecMapGetEntry, VecPairMap};
 
-pub(crate) fn module_item_decl(db: &dyn DeclDb, path: ModuleItemPath) -> DeclResult<Decl> {
-    Ok(match path {
-        ModuleItemPath::Type(path) => type_decl(db, path)?.into(),
-        ModuleItemPath::Trait(path) => trait_decl(db, path)?.into(),
-        ModuleItemPath::Form(path) => form_decl(db, path)?.into(),
-    })
+pub(crate) fn module_item_decl(db: &dyn DeclDb, path: ModuleItemPath) -> DeclResultBorrowed<Decl> {
+    match path {
+        ModuleItemPath::Type(path) => type_decl(db, path).as_ref().map(|decl| (*decl).into()),
+        ModuleItemPath::Trait(path) => trait_decl(db, path).as_ref().map(|decl| (*decl).into()),
+        ModuleItemPath::Form(path) => form_decl(db, path).as_ref().map(|decl| (*decl).into()),
+    }
 }
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(jar = DeclJar, return_ref)]
 pub(crate) fn type_decl(db: &dyn DeclDb, path: TypePath) -> DeclResult<TypeDecl> {
     let parser = DeclParser::new(db, path.module_path(db))?;
     parser.parse_ty_decl(path)
 }
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(jar = DeclJar, return_ref)]
 pub(crate) fn form_decl(db: &dyn DeclDb, path: FormPath) -> DeclResult<FormDecl> {
     let parser = DeclParser::new(db, path.module_path(db))?;
     parser.parse_form_decl(path)
 }
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(jar = DeclJar,return_ref)]
 pub(crate) fn trait_decl(db: &dyn DeclDb, path: TraitPath) -> DeclResult<TraitDecl> {
     let parser = DeclParser::new(db, path.module_path(db))?;
     parser.parse_trai_decl(path)
 }
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(jar = DeclJar,return_ref)]
 pub(crate) fn impl_block_decl(db: &dyn DeclDb, impl_block: ImplBlock) -> DeclResult<ImplBlockDecl> {
     let parser = DeclParser::new(db, impl_block.module_path(db))?;
     parser.parse_impl_block_decl(impl_block)
 }
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(jar = DeclJar,return_ref)]
 pub(crate) fn associated_item_decl(
     db: &dyn DeclDb,
     associated_item: AssociatedItem,

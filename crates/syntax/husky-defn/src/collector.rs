@@ -10,7 +10,7 @@ pub(crate) struct DefnCollector<'a> {
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     ast_range_sheet: &'a AstTokenIdxRangeSheet,
-    decl_sheet: &'a DeclSheet,
+    decl_sheet: DeclSheet<'a>,
 }
 
 impl<'a> DefnCollector<'a> {
