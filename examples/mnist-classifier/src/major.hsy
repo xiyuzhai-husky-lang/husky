@@ -2,6 +2,7 @@ use crate::connected_component::*
 use crate::raw_contour::*
 use crate::line_segment_sketch::*
 use crate::line_segment_sketch::concave_component::*
+use crate::*
 
 func connected_components -> []ConnectedComponent:
     find_connected_components(input)

@@ -14,7 +14,7 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            ast_idx: 22,
+                            ast_idx: 23,
                         },
                     ),
                 },
@@ -29,7 +29,7 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            ast_idx: 23,
+                            ast_idx: 24,
                         },
                     ),
                 },
@@ -44,7 +44,7 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            ast_idx: 24,
+                            ast_idx: 25,
                         },
                     ),
                 },
@@ -59,7 +59,7 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            ast_idx: 25,
+                            ast_idx: 26,
                         },
                     ),
                 },
@@ -74,7 +74,7 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            ast_idx: 26,
+                            ast_idx: 27,
                         },
                     ),
                 },
@@ -89,7 +89,7 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            ast_idx: 27,
+                            ast_idx: 28,
                         },
                     ),
                 },
@@ -104,7 +104,7 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            ast_idx: 28,
+                            ast_idx: 29,
                         },
                     ),
                 },
@@ -195,6 +195,28 @@ Ok(
                         ),
                         children: ArenaIdxRange(
                             11..12,
+                        ),
+                    },
+                    parent: None,
+                    state: Unresolved,
+                },
+                UseTracker {
+                    ast_idx: 22,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::major`,
+                        ),
+                    },
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    27,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            13..14,
                         ),
                     },
                     parent: None,

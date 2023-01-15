@@ -65,30 +65,22 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `LineSegmentStroke`,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::line_segment_sketch`,
-                    ),
+                    accessibility: Public,
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                            accessibility: PubicUnder(
-                                `mnist_classifier::line_segment_sketch`,
-                            ),
+                            accessibility: Public,
                             ast_idx: 168,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
                     ident: `LineSegmentSketch`,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::line_segment_sketch`,
-                    ),
+                    accessibility: Public,
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                            accessibility: PubicUnder(
-                                `mnist_classifier::line_segment_sketch`,
-                            ),
+                            accessibility: Public,
                             ast_idx: 170,
                         },
                     ),

@@ -1,4 +1,4 @@
-struct Point2d {
+pub struct Point2d {
     x: f32,
     y: f32,
 }
@@ -19,21 +19,21 @@ impl Point2d:
     func dist(other: Point2d) -> f32:
         self.to(other).norm()
 
-struct RelativePoint2d {
+pub struct RelativePoint2d {
     x: f32,
     y: f32,
 }
 
-struct Vector2d {
+pub struct Vector2d {
     x: f32,
     y: f32,
 }
 
 impl Vector2d:
-    func point() -> Point2d:
+    pub func point() -> Point2d:
         Point2d(self.x, self.y)
 
-    func to(other: Vector2d) -> Vector2d:
+    pub func to(other: Vector2d) -> Vector2d:
         Vector2d(other.x - self.x, other.y - self.y)
 
     func norm() -> f32:

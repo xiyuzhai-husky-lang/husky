@@ -506,6 +506,14 @@ Ok(
                     ),
                 ),
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -755,10 +763,10 @@ Ok(
             77,
             82,
             84,
-            93,
-            103,
-            108,
+            95,
+            105,
             110,
+            112,
         ],
         indents: [
             0,

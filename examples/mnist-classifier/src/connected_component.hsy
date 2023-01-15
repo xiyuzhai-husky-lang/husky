@@ -1,14 +1,15 @@
 use cv::datasets::mnist::BinaryImage28
 use crate::raw_contour::*
+use crate::*
 
-struct ConnectedComponentDistribution {
+pub struct ConnectedComponentDistribution {
     row_start: i32,
     row_end: i32,
     upper_mass: i32,
     lower_mass: i32,
 }
 
-struct EffHoles {
+pub struct EffHoles {
     matches: []?&RawContour,
 }
 
@@ -18,7 +19,7 @@ func hole_tmpl(ct: &RawContour) -> ?f32:
     // ad hoc
     len + 0.0
 
-struct ConnectedComponent {
+pub struct ConnectedComponent {
     mask: BinaryImage28
 }
 
@@ -122,7 +123,7 @@ proc horizontal_extend(a: r32, x: r32) -> r32:
         z = a & (y | (y << 1) | (y >> 1))
     return y
 
-proc find_connected_components(img: BinaryImage28) -> []ConnectedComponent:
+pub proc find_connected_components(img: BinaryImage28) -> []ConnectedComponent:
     let mut result = []ConnectedComponent()
     let mut unsearched = img.clone()
     for j < 30:

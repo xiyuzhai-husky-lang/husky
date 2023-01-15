@@ -6,7 +6,7 @@ Ok(
                     Feature(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
-                            ast_idx: 22,
+                            ast_idx: 23,
                             expr_sheet: ExprSheet(
                                 Id {
                                     value: 176,
@@ -21,7 +21,7 @@ Ok(
                     Feature(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
-                            ast_idx: 23,
+                            ast_idx: 24,
                             expr_sheet: ExprSheet(
                                 Id {
                                     value: 177,
@@ -36,7 +36,7 @@ Ok(
                     Feature(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
-                            ast_idx: 24,
+                            ast_idx: 25,
                             expr_sheet: ExprSheet(
                                 Id {
                                     value: 178,
@@ -51,7 +51,7 @@ Ok(
                     Feature(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
-                            ast_idx: 25,
+                            ast_idx: 26,
                             expr_sheet: ExprSheet(
                                 Id {
                                     value: 179,
@@ -66,7 +66,7 @@ Ok(
                     Feature(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
-                            ast_idx: 26,
+                            ast_idx: 27,
                             expr_sheet: ExprSheet(
                                 Id {
                                     value: 180,
@@ -81,7 +81,7 @@ Ok(
                     Feature(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
-                            ast_idx: 27,
+                            ast_idx: 28,
                             expr_sheet: ExprSheet(
                                 Id {
                                     value: 181,
@@ -96,7 +96,7 @@ Ok(
                     Feature(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
-                            ast_idx: 28,
+                            ast_idx: 29,
                             expr_sheet: ExprSheet(
                                 Id {
                                     value: 182,

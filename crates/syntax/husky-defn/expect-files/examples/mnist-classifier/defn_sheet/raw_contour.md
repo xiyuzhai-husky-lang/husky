@@ -36,7 +36,7 @@ Ok(
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 334,
+                                value: 335,
                             },
                         ),
                         body: Ok(
@@ -56,7 +56,7 @@ Ok(
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 335,
+                                value: 336,
                             },
                         ),
                         body: Ok(
@@ -76,7 +76,7 @@ Ok(
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 336,
+                                value: 337,
                             },
                         ),
                         body: Ok(
@@ -96,7 +96,7 @@ Ok(
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 337,
+                                value: 338,
                             },
                         ),
                         body: Ok(
@@ -116,7 +116,7 @@ Ok(
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 338,
+                                value: 339,
                             },
                         ),
                         body: Ok(
@@ -136,11 +136,23 @@ Ok(
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 339,
+                                value: 340,
                             },
                         ),
                         body: Ok(
                             8,
+                        ),
+                    },
+                ),
+            ),
+            Type(
+                PropsStruct(
+                    PropsStructTypeDefn {
+                        path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
+                        decl: PropsStructTypeDecl(
+                            Id {
+                                value: 15,
+                            },
                         ),
                     },
                 ),
@@ -156,7 +168,7 @@ Ok(
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 340,
+                                value: 341,
                             },
                         ),
                         body: Ok(
@@ -176,11 +188,11 @@ Ok(
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 341,
+                                value: 342,
                             },
                         ),
                         body: Ok(
-                            216,
+                            214,
                         ),
                     },
                 ),
@@ -188,7 +200,7 @@ Ok(
             ImplBlock(
                 TypeImplBlock(
                     TypeImplBlockDecl {
-                        ast_idx: 202,
+                        ast_idx: 200,
                         impl_block: ImplBlock(
                             Id {
                                 value: 18,
@@ -196,20 +208,20 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                41,
+                                42,
                             ),
                         },
                         ty: 0,
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    43,
+                                    44,
                                 ),
                             },
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 328,
+                                value: 329,
                             },
                         ),
                     },
@@ -233,11 +245,11 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 342,
+                                    value: 343,
                                 },
                             ),
                             body: Ok(
-                                6,
+                                4,
                             ),
                         },
                     ),
@@ -261,7 +273,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 343,
+                                    value: 344,
                                 },
                             ),
                             body: Ok(
@@ -289,7 +301,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 344,
+                                    value: 345,
                                 },
                             ),
                             body: Ok(
@@ -317,7 +329,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 345,
+                                    value: 346,
                                 },
                             ),
                             body: Ok(
@@ -345,7 +357,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 346,
+                                    value: 347,
                                 },
                             ),
                             body: Ok(

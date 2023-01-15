@@ -9,7 +9,7 @@ pub use concave_component::*
 pub use convex_component::*
 use line_segment::*
 
-struct LineSegmentStroke {
+pub struct LineSegmentStroke {
     points: [%]Point2d,
     start: Point2d := points.first()!.clone(),
     end: Point2d := points.last()!.clone(),
@@ -26,7 +26,7 @@ impl LineSegmentStroke:
     visual:
         <LineSegment start={this.start} end={this.end} />
 
-struct LineSegmentSketch {
+pub struct LineSegmentSketch {
     contour: &RawContour,
     strokes: []LineSegmentStroke,
 }

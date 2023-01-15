@@ -5,31 +5,23 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `ConnectedComponentDistribution`,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::connected_component`,
-                    ),
+                    accessibility: Public,
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-                            accessibility: PubicUnder(
-                                `mnist_classifier::connected_component`,
-                            ),
-                            ast_idx: 120,
+                            accessibility: Public,
+                            ast_idx: 121,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
                     ident: `EffHoles`,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::connected_component`,
-                    ),
+                    accessibility: Public,
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                            accessibility: PubicUnder(
-                                `mnist_classifier::connected_component`,
-                            ),
-                            ast_idx: 121,
+                            accessibility: Public,
+                            ast_idx: 122,
                         },
                     ),
                 },
@@ -44,22 +36,18 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            ast_idx: 122,
+                            ast_idx: 123,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
                     ident: `ConnectedComponent`,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::connected_component`,
-                    ),
+                    accessibility: Public,
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                            accessibility: PubicUnder(
-                                `mnist_classifier::connected_component`,
-                            ),
-                            ast_idx: 123,
+                            accessibility: Public,
+                            ast_idx: 124,
                         },
                     ),
                 },
@@ -74,22 +62,18 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            ast_idx: 125,
+                            ast_idx: 126,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
                     ident: `find_connected_components`,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::connected_component`,
-                    ),
+                    accessibility: Public,
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
-                            accessibility: PubicUnder(
-                                `mnist_classifier::connected_component`,
-                            ),
-                            ast_idx: 126,
+                            accessibility: Public,
+                            ast_idx: 127,
                         },
                     ),
                 },
@@ -143,6 +127,28 @@ Ok(
                         ),
                         children: ArenaIdxRange(
                             5..6,
+                        ),
+                    },
+                    parent: None,
+                    state: Unresolved,
+                },
+                UseTracker {
+                    ast_idx: 120,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::connected_component`,
+                        ),
+                    },
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    15,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            7..8,
                         ),
                     },
                     parent: None,

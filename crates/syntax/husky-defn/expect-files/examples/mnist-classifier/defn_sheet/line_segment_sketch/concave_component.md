@@ -36,7 +36,7 @@ Ok(
             ImplBlock(
                 TypeImplBlock(
                     TypeImplBlockDecl {
-                        ast_idx: 74,
+                        ast_idx: 75,
                         impl_block: ImplBlock(
                             Id {
                                 value: 26,
@@ -44,14 +44,14 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                45,
+                                49,
                             ),
                         },
                         ty: 0,
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    47,
+                                    51,
                                 ),
                             },
                         ),

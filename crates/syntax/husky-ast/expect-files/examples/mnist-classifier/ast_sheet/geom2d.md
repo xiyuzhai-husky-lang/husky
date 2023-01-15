@@ -59,13 +59,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `from_i_shift28`,
                         token_idx: TokenIdx(
-                            17,
+                            18,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        18,
+                        19,
                     ),
                 },
                 Defn {
@@ -91,13 +91,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `vector`,
                         token_idx: TokenIdx(
-                            49,
+                            50,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        50,
+                        51,
                     ),
                 },
                 Defn {
@@ -123,13 +123,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `to`,
                         token_idx: TokenIdx(
-                            66,
+                            67,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        67,
+                        68,
                     ),
                 },
                 Defn {
@@ -155,13 +155,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `norm`,
                         token_idx: TokenIdx(
-                            94,
+                            95,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        95,
+                        96,
                     ),
                 },
                 Defn {
@@ -187,13 +187,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `dist`,
                         token_idx: TokenIdx(
-                            122,
+                            123,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        123,
+                        124,
                     ),
                 },
                 Stmt {
@@ -455,13 +455,7 @@ Ok(
                     body: ArenaIdxRange(
                         10..11,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 27,
-                            },
-                        ),
-                    ),
+                    accessibility: Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             Method,
@@ -471,13 +465,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `point`,
                         token_idx: TokenIdx(
-                            169,
+                            173,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        170,
+                        174,
                     ),
                 },
                 Defn {
@@ -487,13 +481,7 @@ Ok(
                     body: ArenaIdxRange(
                         11..12,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 27,
-                            },
-                        ),
-                    ),
+                    accessibility: Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             Method,
@@ -503,13 +491,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `to`,
                         token_idx: TokenIdx(
-                            186,
+                            191,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        187,
+                        192,
                     ),
                 },
                 Defn {
@@ -535,13 +523,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `norm`,
                         token_idx: TokenIdx(
-                            214,
+                            219,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        215,
+                        220,
                     ),
                 },
                 Defn {
@@ -567,13 +555,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `dot`,
                         token_idx: TokenIdx(
-                            242,
+                            247,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        243,
+                        248,
                     ),
                 },
                 Defn {
@@ -599,13 +587,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `cross`,
                         token_idx: TokenIdx(
-                            267,
+                            272,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        268,
+                        273,
                     ),
                 },
                 Defn {
@@ -631,13 +619,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `angle`,
                         token_idx: TokenIdx(
-                            292,
+                            297,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        293,
+                        298,
                     ),
                 },
                 Defn {
@@ -663,13 +651,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `rotation_direction_to`,
                         token_idx: TokenIdx(
-                            361,
+                            366,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        362,
+                        367,
                     ),
                 },
                 Defn {
@@ -695,13 +683,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `angle_to`,
                         token_idx: TokenIdx(
-                            381,
+                            386,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        382,
+                        387,
                     ),
                 },
                 Stmt {
@@ -783,13 +771,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `relative_range`,
                         token_idx: TokenIdx(
-                            497,
+                            502,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        498,
+                        503,
                     ),
                 },
                 Defn {
@@ -815,13 +803,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `relative_point`,
                         token_idx: TokenIdx(
-                            560,
+                            565,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        561,
+                        566,
                     ),
                 },
                 Err {
@@ -907,13 +895,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `relative_bounding_box`,
                         token_idx: TokenIdx(
-                            607,
+                            612,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        608,
+                        613,
                     ),
                 },
                 Defn {
@@ -939,13 +927,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `relative_point`,
                         token_idx: TokenIdx(
-                            642,
+                            647,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        643,
+                        648,
                     ),
                 },
                 Defn {
@@ -971,13 +959,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `xmin`,
                         token_idx: TokenIdx(
-                            677,
+                            682,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        678,
+                        683,
                     ),
                 },
                 Defn {
@@ -1003,13 +991,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `xmax`,
                         token_idx: TokenIdx(
-                            689,
+                            694,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        690,
+                        695,
                     ),
                 },
                 Defn {
@@ -1035,13 +1023,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `ymin`,
                         token_idx: TokenIdx(
-                            701,
+                            706,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        702,
+                        707,
                     ),
                 },
                 Defn {
@@ -1067,13 +1055,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `ymax`,
                         token_idx: TokenIdx(
-                            713,
+                            718,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        714,
+                        719,
                     ),
                 },
                 Stmt {
@@ -1131,13 +1119,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `xmin`,
                         token_idx: TokenIdx(
-                            740,
+                            745,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        741,
+                        746,
                     ),
                 },
                 Defn {
@@ -1163,13 +1151,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `xmax`,
                         token_idx: TokenIdx(
-                            752,
+                            757,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        753,
+                        758,
                     ),
                 },
                 Defn {
@@ -1195,13 +1183,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `ymin`,
                         token_idx: TokenIdx(
-                            764,
+                            769,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        765,
+                        770,
                     ),
                 },
                 Defn {
@@ -1227,13 +1215,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `ymax`,
                         token_idx: TokenIdx(
-                            776,
+                            781,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        777,
+                        782,
                     ),
                 },
                 Defn {
@@ -1243,13 +1231,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 27,
-                            },
-                        ),
-                    ),
+                    accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1262,13 +1244,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `Point2d`,
                         token_idx: TokenIdx(
-                            1,
+                            2,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        2,
+                        3,
                     ),
                 },
                 Impl {
@@ -1286,13 +1268,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 27,
-                            },
-                        ),
-                    ),
+                    accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1305,13 +1281,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `RelativePoint2d`,
                         token_idx: TokenIdx(
-                            142,
+                            144,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        143,
+                        145,
                     ),
                 },
                 Defn {
@@ -1321,13 +1297,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 27,
-                            },
-                        ),
-                    ),
+                    accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1340,13 +1310,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `Vector2d`,
                         token_idx: TokenIdx(
-                            154,
+                            157,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        155,
+                        158,
                     ),
                 },
                 Impl {
@@ -1383,13 +1353,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `ClosedRange`,
                         token_idx: TokenIdx(
-                            482,
+                            487,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        483,
+                        488,
                     ),
                 },
                 Impl {
@@ -1420,13 +1390,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `BoundingBox`,
                         token_idx: TokenIdx(
-                            590,
+                            595,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        591,
+                        596,
                     ),
                 },
                 Err {
@@ -1469,13 +1439,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `RelativeBoundingBox`,
                         token_idx: TokenIdx(
-                            725,
+                            730,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        726,
+                        731,
                     ),
                 },
                 Impl {

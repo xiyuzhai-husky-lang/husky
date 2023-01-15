@@ -21,7 +21,7 @@ Ok(
             UseExpr {
                 use_expr_idx: 1,
                 rule_idx: UseExprRuleIdx(
-                    4,
+                    5,
                 ),
                 state: Resolved {
                     original_symbol: Submodule(
@@ -55,7 +55,7 @@ Ok(
             UseExpr {
                 use_expr_idx: 4,
                 rule_idx: UseExprRuleIdx(
-                    5,
+                    6,
                 ),
                 state: Resolved {
                     original_symbol: Submodule(
@@ -89,7 +89,7 @@ Ok(
             UseExpr {
                 use_expr_idx: 7,
                 rule_idx: UseExprRuleIdx(
-                    6,
+                    7,
                 ),
                 state: Resolved {
                     original_symbol: Submodule(
@@ -123,7 +123,7 @@ Ok(
             UseExpr {
                 use_expr_idx: 11,
                 rule_idx: UseExprRuleIdx(
-                    7,
+                    8,
                 ),
                 state: Resolved {
                     original_symbol: Submodule(
@@ -139,13 +139,31 @@ Ok(
             UseExpr {
                 use_expr_idx: 10,
                 rule_idx: UseExprRuleIdx(
-                    8,
+                    9,
                 ),
                 state: Resolved {
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
                                 value: 16,
+                            },
+                        ),
+                    ),
+                },
+            },
+            None,
+            None,
+            None,
+            UseExpr {
+                use_expr_idx: 14,
+                rule_idx: UseExprRuleIdx(
+                    4,
+                ),
+                state: Resolved {
+                    original_symbol: CrateRoot(
+                        ModulePath(
+                            Id {
+                                value: 13,
                             },
                         ),
                     ),
@@ -180,7 +198,20 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 8,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             None,

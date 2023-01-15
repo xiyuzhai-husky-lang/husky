@@ -21,7 +21,7 @@ Ok(
             UseExpr {
                 use_expr_idx: 1,
                 rule_idx: UseExprRuleIdx(
-                    4,
+                    5,
                 ),
                 state: Resolved {
                     original_symbol: Submodule(
@@ -55,7 +55,7 @@ Ok(
             UseExpr {
                 use_expr_idx: 5,
                 rule_idx: UseExprRuleIdx(
-                    5,
+                    6,
                 ),
                 state: Resolved {
                     original_symbol: Submodule(
@@ -71,7 +71,7 @@ Ok(
             UseExpr {
                 use_expr_idx: 4,
                 rule_idx: UseExprRuleIdx(
-                    8,
+                    9,
                 ),
                 state: Resolved {
                     original_symbol: Submodule(
@@ -105,7 +105,7 @@ Ok(
             UseExpr {
                 use_expr_idx: 9,
                 rule_idx: UseExprRuleIdx(
-                    6,
+                    7,
                 ),
                 state: Resolved {
                     original_symbol: Submodule(
@@ -121,7 +121,7 @@ Ok(
             UseExpr {
                 use_expr_idx: 8,
                 rule_idx: UseExprRuleIdx(
-                    9,
+                    10,
                 ),
                 state: Resolved {
                     original_symbol: Submodule(
@@ -155,13 +155,31 @@ Ok(
             UseExpr {
                 use_expr_idx: 12,
                 rule_idx: UseExprRuleIdx(
-                    7,
+                    8,
                 ),
                 state: Resolved {
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
                                 value: 11,
+                            },
+                        ),
+                    ),
+                },
+            },
+            None,
+            None,
+            None,
+            UseExpr {
+                use_expr_idx: 15,
+                rule_idx: UseExprRuleIdx(
+                    4,
+                ),
+                state: Resolved {
+                    original_symbol: CrateRoot(
+                        ModulePath(
+                            Id {
+                                value: 13,
                             },
                         ),
                     ),
@@ -1400,7 +1418,20 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 20,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             SelfValue,
             None,
@@ -1439,7 +1470,20 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 20,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             SelfValue,
             None,
@@ -1478,7 +1522,20 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 22,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             SelfValue,
             None,
@@ -1513,7 +1570,20 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 22,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             SelfValue,
             None,
@@ -1550,7 +1620,20 @@ Ok(
             None,
             None,
             None,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 22,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             SelfValue,
             None,
@@ -1561,6 +1644,7 @@ Ok(
             None,
             None,
             Method,
+            None,
             None,
             None,
             None,
@@ -1754,7 +1838,20 @@ Ok(
             },
             None,
             None,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 23,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
@@ -1892,7 +1989,20 @@ Ok(
             },
             None,
             None,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Form(
+                            FormPath(
+                                Id {
+                                    value: 23,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,

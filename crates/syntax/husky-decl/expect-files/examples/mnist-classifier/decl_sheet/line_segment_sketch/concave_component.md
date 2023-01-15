@@ -6,7 +6,7 @@ Ok(
                     PropsStruct(
                         PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                            ast_idx: 73,
+                            ast_idx: 74,
                             expr_sheet: ExprSheet(
                                 Id {
                                     value: 141,
@@ -15,7 +15,7 @@ Ok(
                             implicit_parameter_decl_list: None,
                             lcurl: LeftCurlyBraceToken {
                                 token_idx: TokenIdx(
-                                    31,
+                                    35,
                                 ),
                             },
                             fields: [
@@ -29,12 +29,12 @@ Ok(
                                             ),
                                         ),
                                         token_idx: TokenIdx(
-                                            32,
+                                            36,
                                         ),
                                     },
                                     colon: ColonToken {
                                         token_idx: TokenIdx(
-                                            33,
+                                            37,
                                         ),
                                     },
                                     ty: 1,
@@ -49,12 +49,12 @@ Ok(
                                             ),
                                         ),
                                         token_idx: TokenIdx(
-                                            37,
+                                            41,
                                         ),
                                     },
                                     colon: ColonToken {
                                         token_idx: TokenIdx(
-                                            38,
+                                            42,
                                         ),
                                     },
                                     ty: 6,
@@ -63,18 +63,18 @@ Ok(
                             separators: [
                                 CommaToken {
                                     token_idx: TokenIdx(
-                                        36,
+                                        40,
                                     ),
                                 },
                                 CommaToken {
                                     token_idx: TokenIdx(
-                                        43,
+                                        47,
                                     ),
                                 },
                             ],
                             rcurl: RightCurlyBraceToken {
                                 token_idx: TokenIdx(
-                                    44,
+                                    48,
                                 ),
                             },
                         },
@@ -86,7 +86,7 @@ Ok(
                     Function(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
-                            ast_idx: 75,
+                            ast_idx: 76,
                             expr_sheet: ExprSheet(
                                 Id {
                                     value: 142,
@@ -96,7 +96,7 @@ Ok(
                             parameter_decl_list: ParameterDeclList {
                                 lpar: LeftParenthesisToken {
                                     token_idx: TokenIdx(
-                                        512,
+                                        517,
                                     ),
                                 },
                                 decls: [
@@ -109,7 +109,7 @@ Ok(
                                         },
                                         colon: ColonToken {
                                             token_idx: TokenIdx(
-                                                514,
+                                                519,
                                             ),
                                         },
                                         ty: 1,
@@ -118,14 +118,14 @@ Ok(
                                 commas: [],
                                 rpar: RightParenthesisToken {
                                     token_idx: TokenIdx(
-                                        517,
+                                        522,
                                     ),
                                 },
                             },
                             curry_token: Ok(
                                 CurryToken {
                                     token_idx: TokenIdx(
-                                        518,
+                                        523,
                                     ),
                                 },
                             ),
@@ -135,7 +135,7 @@ Ok(
                             eol_colon: Ok(
                                 EolColonToken {
                                     token_idx: TokenIdx(
-                                        522,
+                                        527,
                                     ),
                                 },
                             ),
@@ -147,7 +147,7 @@ Ok(
                 ImplBlock(
                     TypeImplBlock(
                         TypeImplBlockDecl {
-                            ast_idx: 74,
+                            ast_idx: 75,
                             impl_block: ImplBlock(
                                 Id {
                                     value: 26,
@@ -155,14 +155,14 @@ Ok(
                             ),
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    45,
+                                    49,
                                 ),
                             },
                             ty: 0,
                             eol_colon: Ok(
                                 EolColonToken {
                                     token_idx: TokenIdx(
-                                        47,
+                                        51,
                                     ),
                                 },
                             ),
@@ -201,7 +201,7 @@ Ok(
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            50,
+                                            54,
                                         ),
                                     },
                                 ),
@@ -211,7 +211,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            52,
+                                            56,
                                         ),
                                     },
                                 ),
@@ -246,7 +246,7 @@ Ok(
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            58,
+                                            62,
                                         ),
                                     },
                                 ),
@@ -256,7 +256,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            60,
+                                            64,
                                         ),
                                     },
                                 ),
@@ -291,7 +291,7 @@ Ok(
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            76,
+                                            80,
                                         ),
                                     },
                                 ),
@@ -301,7 +301,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            78,
+                                            82,
                                         ),
                                     },
                                 ),
@@ -336,7 +336,7 @@ Ok(
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            163,
+                                            167,
                                         ),
                                     },
                                 ),
@@ -346,7 +346,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            165,
+                                            169,
                                         ),
                                     },
                                 ),
@@ -381,7 +381,7 @@ Ok(
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            234,
+                                            238,
                                         ),
                                     },
                                 ),
@@ -391,7 +391,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            236,
+                                            240,
                                         ),
                                     },
                                 ),
@@ -426,7 +426,7 @@ Ok(
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            363,
+                                            367,
                                         ),
                                     },
                                 ),
@@ -436,7 +436,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            365,
+                                            369,
                                         ),
                                     },
                                 ),
@@ -472,21 +472,21 @@ Ok(
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            380,
+                                            384,
                                         ),
                                     },
                                     decls: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            381,
+                                            385,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            382,
+                                            386,
                                         ),
                                     },
                                 ),
@@ -496,7 +496,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            384,
+                                            388,
                                         ),
                                     },
                                 ),
@@ -532,21 +532,21 @@ Ok(
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            417,
+                                            421,
                                         ),
                                     },
                                     decls: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            418,
+                                            422,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            419,
+                                            423,
                                         ),
                                     },
                                 ),
@@ -556,7 +556,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            421,
+                                            425,
                                         ),
                                     },
                                 ),
@@ -592,21 +592,21 @@ Ok(
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            437,
+                                            441,
                                         ),
                                     },
                                     decls: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            438,
+                                            442,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            439,
+                                            443,
                                         ),
                                     },
                                 ),
@@ -616,7 +616,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            441,
+                                            445,
                                         ),
                                     },
                                 ),
@@ -652,21 +652,21 @@ Ok(
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            457,
+                                            461,
                                         ),
                                     },
                                     decls: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            458,
+                                            462,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            459,
+                                            463,
                                         ),
                                     },
                                 ),
@@ -676,7 +676,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            461,
+                                            465,
                                         ),
                                     },
                                 ),
@@ -712,21 +712,21 @@ Ok(
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            473,
+                                            477,
                                         ),
                                     },
                                     decls: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            474,
+                                            478,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            475,
+                                            479,
                                         ),
                                     },
                                 ),
@@ -736,7 +736,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            477,
+                                            481,
                                         ),
                                     },
                                 ),
@@ -772,21 +772,21 @@ Ok(
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            491,
+                                            495,
                                         ),
                                     },
                                     decls: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            492,
+                                            496,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            493,
+                                            497,
                                         ),
                                     },
                                 ),
@@ -796,7 +796,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            495,
+                                            499,
                                         ),
                                     },
                                 ),

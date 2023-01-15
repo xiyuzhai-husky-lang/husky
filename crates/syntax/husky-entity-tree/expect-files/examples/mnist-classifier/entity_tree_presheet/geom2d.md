@@ -5,45 +5,33 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `Point2d`,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::geom2d`,
-                    ),
+                    accessibility: Public,
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                            accessibility: PubicUnder(
-                                `mnist_classifier::geom2d`,
-                            ),
+                            accessibility: Public,
                             ast_idx: 80,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
                     ident: `RelativePoint2d`,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::geom2d`,
-                    ),
+                    accessibility: Public,
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
-                            accessibility: PubicUnder(
-                                `mnist_classifier::geom2d`,
-                            ),
+                            accessibility: Public,
                             ast_idx: 82,
                         },
                     ),
                 },
                 NativeEntitySymbolEntry {
                     ident: `Vector2d`,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::geom2d`,
-                    ),
+                    accessibility: Public,
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                            accessibility: PubicUnder(
-                                `mnist_classifier::geom2d`,
-                            ),
+                            accessibility: Public,
                             ast_idx: 83,
                         },
                     ),
