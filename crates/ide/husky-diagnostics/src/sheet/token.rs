@@ -1,3 +1,5 @@
+use std::fmt::format;
+
 use husky_token::TokenError;
 
 use super::*;
@@ -20,11 +22,13 @@ pub(crate) fn token_diagnostic_sheet(
 
 fn token_error_message(error: &TokenError) -> String {
     match error {
-        TokenError::IncompleteStringLiteral => format!("Syntax Error: mismatching bracket"),
-        TokenError::UnexpectedCharAfterBackslash => todo!(),
-        TokenError::UnrecognizedChar(_) => todo!(),
-        TokenError::IllFormedLiteral(_) => todo!(),
-        TokenError::NumberPseudoLiteral(_) => todo!(),
-        TokenError::ParseIntError => todo!(),
+        TokenError::IncompleteStringLiteral => format!("Syntax Error: incomplete string literal"),
+        TokenError::UnexpectedCharAfterBackslash => {
+            format!("Syntax Error: unexpected char after backslash")
+        }
+        TokenError::UnrecognizedChar(_) => format!("Syntax Error: unrecognized char"),
+        TokenError::IllFormedLiteral(_) => format!("Syntax Error: ill-formed literal"),
+        TokenError::NumberPseudoLiteral(_) => format!("Syntax Error: number pseudoliteral"),
+        TokenError::ParseIntError => format!("Syntax Error: parse int error"),
     }
 }
