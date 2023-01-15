@@ -12,10 +12,15 @@ Ok(
                         1,
                     ),
                 },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        2,
+                    ),
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..2,
+            0..3,
         ),
     },
 )

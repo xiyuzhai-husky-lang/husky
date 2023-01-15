@@ -61,6 +61,18 @@ Ok(
                     ),
                 ),
             ),
+            Keyword(
+                Mod,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 6,
+                        },
+                    ),
+                ),
+            ),
         ],
         group_starts: [
             0,
@@ -68,8 +80,10 @@ Ok(
             4,
             6,
             8,
+            10,
         ],
         indents: [
+            0,
             0,
             0,
             0,

@@ -80,6 +80,21 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `raw_bits`,
+                            accessibility: PubicUnder(
+                                `core`,
+                            ),
+                            symbol: Submodule(
+                                SubmoduleSymbol {
+                                    path: `core::raw_bits`,
+                                    accessibility: PubicUnder(
+                                        `core`,
+                                    ),
+                                    ast_idx: 5,
+                                },
+                            ),
+                        },
                     ],
                 ),
             },
@@ -475,6 +490,43 @@ Ok(
                                     accessibility: Public,
                                     ast_idx: 1,
                                     use_expr_idx: 3,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `r32`,
+                            accessibility: Public,
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TypePath(`core::raw_bits::r32`, `Foreign`),
+                                            accessibility: Public,
+                                            ast_idx: 0,
+                                        },
+                                    ),
+                                    path: TypePath(`core::raw_bits::r32`, `Foreign`),
+                                    accessibility: Public,
+                                    ast_idx: 2,
+                                    use_expr_idx: 6,
+                                },
+                            ),
+                        },
+                    ],
+                ),
+            },
+            EntityTreeSheet {
+                module_path: `core::raw_bits`,
+                module_specific_symbols: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `r32`,
+                            accessibility: Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    path: TypePath(`core::raw_bits::r32`, `Foreign`),
+                                    accessibility: Public,
+                                    ast_idx: 0,
                                 },
                             ),
                         },

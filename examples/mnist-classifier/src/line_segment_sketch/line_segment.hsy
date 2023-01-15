@@ -1,6 +1,6 @@
 use crate::geom2d::*
 
-struct LineSegment {
+pub struct LineSegment {
     start: Point2d,
     end: Point2d,
 }

@@ -10,22 +10,12 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [160:37, 160:41),
+                range: [162:37, 162:41),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [168:37, 168:42),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [51:13, 51:24),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [52:13, 52:24),
+                range: [170:37, 170:42),
             },
         ],
     },

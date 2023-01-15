@@ -77,7 +77,7 @@ impl Vector2d:
             let arc_angle = (self.rotation_direction_to(other) as f32) * cos_value.acos()
             arc_angle * 180.0 / 3.1415926
 
-struct ClosedRange {
+pub struct ClosedRange {
     min: f32,
     max: f32,
 }
@@ -127,7 +127,7 @@ impl BoundingBox:
     func ymax() -> f32:
         self.yrange.max
 
-struct RelativeBoundingBox {
+pub struct RelativeBoundingBox {
     xrange: ClosedRange,
     yrange: ClosedRange,
 }

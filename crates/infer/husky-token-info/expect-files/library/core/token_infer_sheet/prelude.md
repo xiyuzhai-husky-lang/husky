@@ -22,7 +22,7 @@ Ok(
             UseExpr {
                 use_expr_idx: 1,
                 rule_idx: UseExprRuleIdx(
-                    2,
+                    3,
                 ),
                 state: Resolved {
                     original_symbol: Submodule(
@@ -57,13 +57,48 @@ Ok(
             UseExpr {
                 use_expr_idx: 4,
                 rule_idx: UseExprRuleIdx(
-                    3,
+                    4,
                 ),
                 state: Resolved {
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
                                 value: 3,
+                            },
+                        ),
+                    ),
+                },
+            },
+            None,
+            None,
+            None,
+            None,
+            UseExpr {
+                use_expr_idx: 8,
+                rule_idx: UseExprRuleIdx(
+                    2,
+                ),
+                state: Resolved {
+                    original_symbol: CrateRoot(
+                        ModulePath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                },
+            },
+            None,
+            UseExpr {
+                use_expr_idx: 7,
+                rule_idx: UseExprRuleIdx(
+                    5,
+                ),
+                state: Resolved {
+                    original_symbol: Submodule(
+                        SubmoduleSymbol(
+                            Id {
+                                value: 6,
                             },
                         ),
                     ),

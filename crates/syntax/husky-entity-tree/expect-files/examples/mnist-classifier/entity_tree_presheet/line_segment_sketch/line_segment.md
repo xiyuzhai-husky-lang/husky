@@ -5,15 +5,11 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `LineSegment`,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::line_segment_sketch::line_segment`,
-                    ),
+                    accessibility: Public,
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                            accessibility: PubicUnder(
-                                `mnist_classifier::line_segment_sketch::line_segment`,
-                            ),
+                            accessibility: Public,
                             ast_idx: 16,
                         },
                     ),

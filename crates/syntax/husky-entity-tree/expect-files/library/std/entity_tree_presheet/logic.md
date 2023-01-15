@@ -17,7 +17,7 @@ Ok(
                                 ident: Identifier(
                                     Word(
                                         Id {
-                                            value: 6,
+                                            value: 7,
                                         },
                                     ),
                                 ),
