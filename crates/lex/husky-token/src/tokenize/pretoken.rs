@@ -35,15 +35,15 @@ impl From<AmbiguousPretoken> for Pretoken {
     }
 }
 
-impl Into<Pretoken> for IntegerLiteral {
-    fn into(self) -> Pretoken {
-        Pretoken::Certain(Token::Literal(Literal::Integer(self)))
+impl From<IntegerLiteral> for Pretoken {
+    fn from(val: IntegerLiteral) -> Self {
+        Pretoken::Certain(Token::Literal(Literal::Integer(val)))
     }
 }
 
-impl Into<Pretoken> for FloatLiteral {
-    fn into(self) -> Pretoken {
-        Pretoken::Certain(Token::Literal(Literal::Float(self)))
+impl From<FloatLiteral> for Pretoken {
+    fn from(val: FloatLiteral) -> Self {
+        Pretoken::Certain(Token::Literal(Literal::Float(val)))
     }
 }
 
@@ -122,15 +122,21 @@ impl From<WordOpr> for Pretoken {
     }
 }
 
-impl Into<Pretoken> for FormKeyword {
-    fn into(self) -> Pretoken {
-        Pretoken::Certain(self.into())
+impl From<FormKeyword> for Pretoken {
+    fn from(val: FormKeyword) -> Self {
+        Pretoken::Certain(val.into())
     }
 }
 
-impl Into<Pretoken> for PronounKeyword {
-    fn into(self) -> Pretoken {
-        Pretoken::Certain(self.into())
+impl From<PronounKeyword> for Pretoken {
+    fn from(val: PronounKeyword) -> Self {
+        Pretoken::Certain(val.into())
+    }
+}
+
+impl From<BoolLiteral> for Pretoken {
+    fn from(value: BoolLiteral) -> Self {
+        Pretoken::Certain(value.into())
     }
 }
 

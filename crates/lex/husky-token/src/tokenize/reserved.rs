@@ -62,6 +62,8 @@ pub(crate) fn reserved_words(_db: &dyn TokenDb) -> VecPairMap<&'static str, Pret
         PronounKeyword::Super,
         EndKeyword::With,
         EndKeyword::Into,
+        BoolLiteral::True,
+        BoolLiteral::False,
     ]
     .into_iter()
     .collect()
