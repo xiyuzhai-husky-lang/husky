@@ -28,9 +28,9 @@ pub enum TermAtom {
     Universe(TermUniverse),
 }
 
-impl Into<TermData> for TermAtom {
-    fn into(self) -> TermData {
-        TermData::Atom(self)
+impl Into<Term> for TermAtom {
+    fn into(self) -> Term {
+        Term::Atom(self)
     }
 }
 
