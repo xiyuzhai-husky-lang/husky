@@ -9,6 +9,7 @@ serde_json = { version = "1.0.48", features = ["preserve_order"] }
 salsa = { path = "../../abstraction/salsa" }
 lsp-types = { version = "0.93", features = ["proposed"] }
 # abstraction
+outcome = { path = "../../abstraction/outcome" }
 reserve = { path = "../../abstraction/reserve" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }

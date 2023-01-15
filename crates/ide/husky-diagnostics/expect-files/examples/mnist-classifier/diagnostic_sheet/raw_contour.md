@@ -12,6 +12,16 @@ DiagnosticSheet {
                 severity: Error,
                 range: [171:35, 171:47),
             },
+            Diagnostic {
+                message: "entity tree error NoSubentity",
+                severity: Error,
+                range: [219:47, 219:61),
+            },
+            Diagnostic {
+                message: "entity tree error NoSubentity",
+                severity: Error,
+                range: [13:28, 13:31),
+            },
         ],
     },
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {

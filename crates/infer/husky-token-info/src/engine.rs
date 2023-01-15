@@ -340,7 +340,7 @@ impl<'a> AuxInferEngine<'a> {
                 .sheet
                 .add(*token_idx, TokenInfo::Entity(Some(*entity_path), None)),
             EntityPathExpr::Subentity {
-                entity_path: Ok(entity_path),
+                path: Success(entity_path),
                 ident_token: Ok(ident_token),
                 ..
             } => self.sheet.add(

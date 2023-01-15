@@ -71,7 +71,7 @@ pub enum Expr {
     Literal(TokenIdx),
     EntityPath {
         entity_path_expr: EntityPathExprIdx,
-        entity_path: ExprResult<EntityPath>,
+        entity_path: Option<EntityPath>,
     },
     InheritedSymbol {
         ident: Identifier,

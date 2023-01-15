@@ -6,6 +6,7 @@ mod seq;
 mod tests;
 
 pub use absent::*;
+use outcome::*;
 pub use rollback::*;
 pub use separated_list::*;
 pub use seq::*;
@@ -59,6 +60,13 @@ pub trait ParseContext: HasParseError + HasParseState {
     where
         Error: From<Self::Error>;
 
+    fn parse_expected_outcome<P: ParseFrom<Self>, Error, Abortion>(
+        &mut self,
+        f: impl FnOnce(Self::State) -> Stop<Error, Abortion>,
+    ) -> Outcome<P, Error, Abortion>
+    where
+        Error: From<Self::Error>;
+
     /// returns an optional and the rest of the stream,
     ///
     /// guarantees that stream state is not changed if result is Ok(None)
@@ -103,6 +111,20 @@ where
         match P::parse_from_with_rollback_when_no_error(self)? {
             Some(output) => Ok(output),
             None => Err(f(saved_state)),
+        }
+    }
+
+    fn parse_expected_outcome<P: ParseFrom<Self>, Error, Abortion>(
+        &mut self,
+        f: impl FnOnce(Self::State) -> Stop<Error, Abortion>,
+    ) -> Outcome<P, Error, Abortion>
+    where
+        Error: From<Self::Error>,
+    {
+        let saved_state = self.save_state();
+        match P::parse_from_with_rollback_when_no_error(self)? {
+            Some(output) => Outcome::Success(output),
+            None => f(saved_state).into(),
         }
     }
 

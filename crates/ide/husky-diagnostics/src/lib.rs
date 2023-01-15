@@ -16,6 +16,7 @@ use collect::collect_module_diagnostics;
 use husky_dev_utils::DevSource;
 use husky_text::TextRange;
 use husky_vfs::*;
+use outcome::*;
 use std::fmt::Write;
 use std::sync::Arc;
 
