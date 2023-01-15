@@ -70,9 +70,9 @@ Ok(
             start_character: Some(
                 4,
             ),
-            end_line: 24,
+            end_line: 26,
             end_character: Some(
-                17,
+                63,
             ),
             kind: Some(
                 Region,

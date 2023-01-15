@@ -489,7 +489,17 @@ Ok(
             None,
             None,
             None,
-            None,
+            LocalSymbol {
+                local_symbol_idx: 3,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 3,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 132,
+                    },
+                ),
+            },
             None,
             Field,
             None,
@@ -502,7 +512,17 @@ Ok(
             None,
             None,
             None,
-            None,
+            LocalSymbol {
+                local_symbol_idx: 3,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 3,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 132,
+                    },
+                ),
+            },
             None,
             Field,
             None,

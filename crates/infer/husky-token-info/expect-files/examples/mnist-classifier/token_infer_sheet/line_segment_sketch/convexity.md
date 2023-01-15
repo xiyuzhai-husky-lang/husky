@@ -861,7 +861,17 @@ Ok(
             None,
             None,
             None,
-            None,
+            LocalSymbol {
+                local_symbol_idx: 8,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 7,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 274,
+                    },
+                ),
+            },
             None,
             None,
         ],

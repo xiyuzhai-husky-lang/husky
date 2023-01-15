@@ -297,7 +297,17 @@ Ok(
             },
             None,
             None,
-            None,
+            LocalSymbol {
+                local_symbol_idx: 2,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 280,
+                    },
+                ),
+            },
             None,
             Method,
             None,
@@ -333,18 +343,48 @@ Ok(
             None,
             None,
             None,
+            LocalSymbol {
+                local_symbol_idx: 2,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 280,
+                    },
+                ),
+            },
+            None,
+            Method,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 280,
+                    },
+                ),
+            },
             None,
             None,
             Method,
             None,
             None,
             None,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
+            LocalSymbol {
+                local_symbol_idx: 2,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
+                expr_sheet: ExprSheet(
+                    Id {
+                        value: 280,
+                    },
+                ),
+            },
             None,
             Method,
             None,
