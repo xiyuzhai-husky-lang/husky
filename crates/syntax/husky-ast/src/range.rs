@@ -125,7 +125,7 @@ impl<'a> AstRangeCalculator<'a> {
                 let if_stmt_token_idx_range = self.ast_ranges[if_stmt.raw()].token_idx_range();
                 let start = if_stmt_token_idx_range.start();
                 let end = match else_stmt {
-                    Some(else_stmt) => if_stmt_token_idx_range.end(),
+                    Some(else_stmt) => self.ast_ranges[else_stmt.raw()].end(),
                     None => {
                         if let Some(last) = elif_stmts.last() {
                             self.ast_ranges[last.raw()].end()

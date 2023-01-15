@@ -96,9 +96,9 @@ Ok(
             start_character: Some(
                 8,
             ),
-            end_line: 51,
+            end_line: 53,
             end_character: Some(
-                21,
+                22,
             ),
             kind: Some(
                 Region,
@@ -148,9 +148,9 @@ Ok(
             start_character: Some(
                 8,
             ),
-            end_line: 72,
+            end_line: 74,
             end_character: Some(
-                21,
+                22,
             ),
             kind: Some(
                 Region,
@@ -239,9 +239,9 @@ Ok(
             start_character: Some(
                 4,
             ),
-            end_line: 51,
+            end_line: 55,
             end_character: Some(
-                21,
+                78,
             ),
             kind: Some(
                 Region,
@@ -265,9 +265,9 @@ Ok(
             start_character: Some(
                 4,
             ),
-            end_line: 72,
+            end_line: 77,
             end_character: Some(
-                21,
+                41,
             ),
             kind: Some(
                 Region,
@@ -447,9 +447,9 @@ Ok(
             start_character: Some(
                 0,
             ),
-            end_line: 72,
+            end_line: 77,
             end_character: Some(
-                21,
+                41,
             ),
             kind: Some(
                 Region,

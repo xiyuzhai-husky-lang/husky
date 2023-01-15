@@ -44,9 +44,9 @@ Ok(
             start_character: Some(
                 8,
             ),
-            end_line: 19,
+            end_line: 21,
             end_character: Some(
-                25,
+                44,
             ),
             kind: Some(
                 Region,
@@ -70,9 +70,9 @@ Ok(
             start_character: Some(
                 4,
             ),
-            end_line: 15,
+            end_line: 21,
             end_character: Some(
-                21,
+                44,
             ),
             kind: Some(
                 Region,
@@ -83,9 +83,9 @@ Ok(
             start_character: Some(
                 0,
             ),
-            end_line: 15,
+            end_line: 21,
             end_character: Some(
-                21,
+                44,
             ),
             kind: Some(
                 Region,
