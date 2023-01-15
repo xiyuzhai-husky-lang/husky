@@ -152,10 +152,40 @@ Ok(
                         10,
                     ),
                 },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        5,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        `core::raw_bits`,
+                    ),
+                    ident_token: IdentifierToken {
+                        ident: `raw_bits`,
+                        token_idx: TokenIdx(
+                            11,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        12,
+                    ),
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..5,
+            0..6,
         ),
     },
 )

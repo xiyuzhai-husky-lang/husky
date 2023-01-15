@@ -146,7 +146,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             accessibility: Public,
-                                            ast_idx: 168,
+                                            ast_idx: 169,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -169,7 +169,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             accessibility: Public,
-                                            ast_idx: 170,
+                                            ast_idx: 171,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -230,8 +230,8 @@ Ok(
                                             ),
                                             path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             accessibility: Public,
-                                            ast_idx: 165,
-                                            use_expr_idx: 6,
+                                            ast_idx: 163,
+                                            use_expr_idx: 0,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -261,11 +261,42 @@ Ok(
                                             ),
                                             path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             accessibility: Public,
-                                            ast_idx: 165,
-                                            use_expr_idx: 6,
+                                            ast_idx: 163,
+                                            use_expr_idx: 0,
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 24,
+                                    use_expr_idx: 10,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegment`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                    accessibility: Public,
+                                                    ast_idx: 16,
+                                                },
+                                            ),
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 165,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                     accessibility: PubicUnder(
                                         `mnist_classifier`,
                                     ),
@@ -578,7 +609,7 @@ Ok(
                                                 ModuleItemSymbol {
                                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                     accessibility: Public,
-                                                    ast_idx: 168,
+                                                    ast_idx: 169,
                                                 },
                                             ),
                                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -611,7 +642,7 @@ Ok(
                                                 ModuleItemSymbol {
                                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                     accessibility: Public,
-                                                    ast_idx: 170,
+                                                    ast_idx: 171,
                                                 },
                                             ),
                                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -715,8 +746,8 @@ Ok(
                                                     ),
                                                     path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     accessibility: Public,
-                                                    ast_idx: 165,
-                                                    use_expr_idx: 6,
+                                                    ast_idx: 163,
+                                                    use_expr_idx: 0,
                                                 },
                                             ),
                                             path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -756,8 +787,8 @@ Ok(
                                                     ),
                                                     path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                                     accessibility: Public,
-                                                    ast_idx: 165,
-                                                    use_expr_idx: 6,
+                                                    ast_idx: 163,
+                                                    use_expr_idx: 0,
                                                 },
                                             ),
                                             path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
@@ -769,6 +800,47 @@ Ok(
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 120,
+                                    use_expr_idx: 7,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegment`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: Use(
+                                                UseSymbol {
+                                                    original_symbol: ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                            accessibility: Public,
+                                                            ast_idx: 16,
+                                                        },
+                                                    ),
+                                                    path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                    accessibility: Public,
+                                                    ast_idx: 165,
+                                                    use_expr_idx: 4,
+                                                },
+                                            ),
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 24,
+                                            use_expr_idx: 10,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                     accessibility: PubicUnder(
                                         `mnist_classifier::connected_component`,
                                     ),
@@ -1015,6 +1087,29 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `ClosedRange`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 85,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 195,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `BoundingBox`,
                             accessibility: PubicUnder(
                                 `mnist_classifier::raw_contour`,
@@ -1029,6 +1124,29 @@ Ok(
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 195,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `RelativeBoundingBox`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 90,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                     accessibility: PubicUnder(
                                         `mnist_classifier::raw_contour`,
                                     ),
@@ -1140,7 +1258,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             accessibility: Public,
-                                            ast_idx: 168,
+                                            ast_idx: 169,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -1163,7 +1281,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             accessibility: Public,
-                                            ast_idx: 170,
+                                            ast_idx: 171,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -1193,8 +1311,8 @@ Ok(
                                             ),
                                             path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             accessibility: Public,
-                                            ast_idx: 165,
-                                            use_expr_idx: 6,
+                                            ast_idx: 163,
+                                            use_expr_idx: 0,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -1224,11 +1342,42 @@ Ok(
                                             ),
                                             path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             accessibility: Public,
-                                            ast_idx: 165,
-                                            use_expr_idx: 6,
+                                            ast_idx: 163,
+                                            use_expr_idx: 0,
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 197,
+                                    use_expr_idx: 6,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegment`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                    accessibility: Public,
+                                                    ast_idx: 16,
+                                                },
+                                            ),
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 165,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                     accessibility: PubicUnder(
                                         `mnist_classifier::raw_contour`,
                                     ),
@@ -1279,15 +1428,11 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `ClosedRange`,
-                            accessibility: PubicUnder(
-                                `mnist_classifier::geom2d`,
-                            ),
+                            accessibility: Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
                                     path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                    accessibility: PubicUnder(
-                                        `mnist_classifier::geom2d`,
-                                    ),
+                                    accessibility: Public,
                                     ast_idx: 85,
                                 },
                             ),
@@ -1305,15 +1450,11 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `RelativeBoundingBox`,
-                            accessibility: PubicUnder(
-                                `mnist_classifier::geom2d`,
-                            ),
+                            accessibility: Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
                                     path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                    accessibility: PubicUnder(
-                                        `mnist_classifier::geom2d`,
-                                    ),
+                                    accessibility: Public,
                                     ast_idx: 90,
                                 },
                             ),
@@ -1392,7 +1533,7 @@ Ok(
                                 ModuleItemSymbol {
                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                     accessibility: Public,
-                                    ast_idx: 168,
+                                    ast_idx: 169,
                                 },
                             ),
                         },
@@ -1403,7 +1544,7 @@ Ok(
                                 ModuleItemSymbol {
                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                     accessibility: Public,
-                                    ast_idx: 170,
+                                    ast_idx: 171,
                                 },
                             ),
                         },
@@ -1418,7 +1559,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 172,
+                                    ast_idx: 173,
                                 },
                             ),
                         },
@@ -1433,7 +1574,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 173,
+                                    ast_idx: 174,
                                 },
                             ),
                         },
@@ -1448,7 +1589,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 174,
+                                    ast_idx: 175,
                                 },
                             ),
                         },
@@ -1463,7 +1604,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 175,
+                                    ast_idx: 176,
                                 },
                             ),
                         },
@@ -1478,7 +1619,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 176,
+                                    ast_idx: 177,
                                 },
                             ),
                         },
@@ -1496,8 +1637,8 @@ Ok(
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     accessibility: Public,
-                                    ast_idx: 165,
-                                    use_expr_idx: 6,
+                                    ast_idx: 163,
+                                    use_expr_idx: 0,
                                 },
                             ),
                         },
@@ -1515,8 +1656,27 @@ Ok(
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                     accessibility: Public,
+                                    ast_idx: 163,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegment`,
+                            accessibility: Public,
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 16,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                    accessibility: Public,
                                     ast_idx: 165,
-                                    use_expr_idx: 6,
+                                    use_expr_idx: 4,
                                 },
                             ),
                         },
@@ -1538,8 +1698,8 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 164,
-                                    use_expr_idx: 3,
+                                    ast_idx: 167,
+                                    use_expr_idx: 9,
                                 },
                             ),
                         },
@@ -1561,8 +1721,8 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 163,
-                                    use_expr_idx: 0,
+                                    ast_idx: 166,
+                                    use_expr_idx: 6,
                                 },
                             ),
                         },
@@ -1584,8 +1744,8 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 163,
-                                    use_expr_idx: 0,
+                                    ast_idx: 166,
+                                    use_expr_idx: 6,
                                 },
                             ),
                         },
@@ -1607,8 +1767,31 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 163,
-                                    use_expr_idx: 0,
+                                    ast_idx: 166,
+                                    use_expr_idx: 6,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ClosedRange`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 85,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    ast_idx: 166,
+                                    use_expr_idx: 6,
                                 },
                             ),
                         },
@@ -1630,8 +1813,31 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    ast_idx: 163,
-                                    use_expr_idx: 0,
+                                    ast_idx: 166,
+                                    use_expr_idx: 6,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `RelativeBoundingBox`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 90,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    ast_idx: 166,
+                                    use_expr_idx: 6,
                                 },
                             ),
                         },
@@ -1887,7 +2093,7 @@ Ok(
                                                 ModuleItemSymbol {
                                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                     accessibility: Public,
-                                                    ast_idx: 168,
+                                                    ast_idx: 169,
                                                 },
                                             ),
                                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -1920,7 +2126,7 @@ Ok(
                                                 ModuleItemSymbol {
                                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                     accessibility: Public,
-                                                    ast_idx: 170,
+                                                    ast_idx: 171,
                                                 },
                                             ),
                                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -2053,7 +2259,7 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 172,
+                                            ast_idx: 173,
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
@@ -2078,7 +2284,7 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 173,
+                                            ast_idx: 174,
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
@@ -2103,7 +2309,7 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 174,
+                                            ast_idx: 175,
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
@@ -2128,7 +2334,7 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 175,
+                                            ast_idx: 176,
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
@@ -2153,10 +2359,41 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 176,
+                                            ast_idx: 177,
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 69,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegment`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                    accessibility: Public,
+                                                    ast_idx: 16,
+                                                },
+                                            ),
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 165,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                     accessibility: PubicUnder(
                                         `mnist_classifier::line_segment_sketch::concave_component`,
                                     ),
@@ -2185,8 +2422,8 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 164,
-                                            use_expr_idx: 3,
+                                            ast_idx: 167,
+                                            use_expr_idx: 9,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -2218,8 +2455,8 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 163,
-                                            use_expr_idx: 0,
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -2251,8 +2488,8 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 163,
-                                            use_expr_idx: 0,
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
@@ -2284,11 +2521,44 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 163,
-                                            use_expr_idx: 0,
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 69,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ClosedRange`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                    accessibility: Public,
+                                                    ast_idx: 85,
+                                                },
+                                            ),
+                                            path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                     accessibility: PubicUnder(
                                         `mnist_classifier::line_segment_sketch::concave_component`,
                                     ),
@@ -2317,11 +2587,44 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 163,
-                                            use_expr_idx: 0,
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 69,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `RelativeBoundingBox`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                    accessibility: Public,
+                                                    ast_idx: 90,
+                                                },
+                                            ),
+                                            path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                     accessibility: PubicUnder(
                                         `mnist_classifier::line_segment_sketch::concave_component`,
                                     ),
@@ -2527,7 +2830,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             accessibility: Public,
-                                            ast_idx: 168,
+                                            ast_idx: 169,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -2550,7 +2853,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             accessibility: Public,
-                                            ast_idx: 170,
+                                            ast_idx: 171,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -2575,7 +2878,7 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 172,
+                                            ast_idx: 173,
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
@@ -2600,7 +2903,7 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 173,
+                                            ast_idx: 174,
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
@@ -2625,7 +2928,7 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 174,
+                                            ast_idx: 175,
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
@@ -2650,7 +2953,7 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 175,
+                                            ast_idx: 176,
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
@@ -2675,7 +2978,7 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 176,
+                                            ast_idx: 177,
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
@@ -2705,8 +3008,8 @@ Ok(
                                             ),
                                             path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             accessibility: Public,
-                                            ast_idx: 165,
-                                            use_expr_idx: 6,
+                                            ast_idx: 163,
+                                            use_expr_idx: 0,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -2736,11 +3039,42 @@ Ok(
                                             ),
                                             path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             accessibility: Public,
-                                            ast_idx: 165,
-                                            use_expr_idx: 6,
+                                            ast_idx: 163,
+                                            use_expr_idx: 0,
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegment`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch::convex_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                    accessibility: Public,
+                                                    ast_idx: 16,
+                                                },
+                                            ),
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 165,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                     accessibility: PubicUnder(
                                         `mnist_classifier::line_segment_sketch::convex_component`,
                                     ),
@@ -2769,8 +3103,8 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 164,
-                                            use_expr_idx: 3,
+                                            ast_idx: 167,
+                                            use_expr_idx: 9,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -2802,8 +3136,8 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 163,
-                                            use_expr_idx: 0,
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -2835,8 +3169,8 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 163,
-                                            use_expr_idx: 0,
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
@@ -2868,11 +3202,44 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 163,
-                                            use_expr_idx: 0,
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ClosedRange`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch::convex_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                    accessibility: Public,
+                                                    ast_idx: 85,
+                                                },
+                                            ),
+                                            path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                     accessibility: PubicUnder(
                                         `mnist_classifier::line_segment_sketch::convex_component`,
                                     ),
@@ -2901,11 +3268,44 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 163,
-                                            use_expr_idx: 0,
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `RelativeBoundingBox`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch::convex_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                    accessibility: Public,
+                                                    ast_idx: 90,
+                                                },
+                                            ),
+                                            path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                     accessibility: PubicUnder(
                                         `mnist_classifier::line_segment_sketch::convex_component`,
                                     ),
@@ -3043,7 +3443,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             accessibility: Public,
-                                            ast_idx: 168,
+                                            ast_idx: 169,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -3066,7 +3466,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             accessibility: Public,
-                                            ast_idx: 170,
+                                            ast_idx: 171,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -3091,7 +3491,7 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 172,
+                                            ast_idx: 173,
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
@@ -3116,7 +3516,7 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 173,
+                                            ast_idx: 174,
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
@@ -3141,7 +3541,7 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 174,
+                                            ast_idx: 175,
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
@@ -3166,7 +3566,7 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 175,
+                                            ast_idx: 176,
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
@@ -3191,7 +3591,7 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 176,
+                                            ast_idx: 177,
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
@@ -3221,8 +3621,8 @@ Ok(
                                             ),
                                             path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             accessibility: Public,
-                                            ast_idx: 165,
-                                            use_expr_idx: 6,
+                                            ast_idx: 163,
+                                            use_expr_idx: 0,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -3252,11 +3652,42 @@ Ok(
                                             ),
                                             path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             accessibility: Public,
-                                            ast_idx: 165,
-                                            use_expr_idx: 6,
+                                            ast_idx: 163,
+                                            use_expr_idx: 0,
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegment`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch::convexity`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                    accessibility: Public,
+                                                    ast_idx: 16,
+                                                },
+                                            ),
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 165,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                     accessibility: PubicUnder(
                                         `mnist_classifier::line_segment_sketch::convexity`,
                                     ),
@@ -3285,8 +3716,8 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 164,
-                                            use_expr_idx: 3,
+                                            ast_idx: 167,
+                                            use_expr_idx: 9,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -3318,8 +3749,8 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 163,
-                                            use_expr_idx: 0,
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -3351,8 +3782,8 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 163,
-                                            use_expr_idx: 0,
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
@@ -3384,11 +3815,44 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 163,
-                                            use_expr_idx: 0,
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ClosedRange`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch::convexity`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                    accessibility: Public,
+                                                    ast_idx: 85,
+                                                },
+                                            ),
+                                            path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                     accessibility: PubicUnder(
                                         `mnist_classifier::line_segment_sketch::convexity`,
                                     ),
@@ -3417,11 +3881,44 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
-                                            ast_idx: 163,
-                                            use_expr_idx: 0,
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `RelativeBoundingBox`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch::convexity`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                    accessibility: Public,
+                                                    ast_idx: 90,
+                                                },
+                                            ),
+                                            path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                     accessibility: PubicUnder(
                                         `mnist_classifier::line_segment_sketch::convexity`,
                                     ),
@@ -3439,15 +3936,11 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `LineSegment`,
-                            accessibility: PubicUnder(
-                                `mnist_classifier::line_segment_sketch::line_segment`,
-                            ),
+                            accessibility: Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
                                     path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                    accessibility: PubicUnder(
-                                        `mnist_classifier::line_segment_sketch::line_segment`,
-                                    ),
+                                    accessibility: Public,
                                     ast_idx: 16,
                                 },
                             ),
@@ -3522,6 +4015,29 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `ClosedRange`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch::line_segment`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 85,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                    ),
+                                    ast_idx: 15,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `BoundingBox`,
                             accessibility: PubicUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
@@ -3536,6 +4052,29 @@ Ok(
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                    ),
+                                    ast_idx: 15,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `RelativeBoundingBox`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch::line_segment`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 90,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                     accessibility: PubicUnder(
                                         `mnist_classifier::line_segment_sketch::line_segment`,
                                     ),
@@ -3804,7 +4343,7 @@ Ok(
                                                 ModuleItemSymbol {
                                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                     accessibility: Public,
-                                                    ast_idx: 168,
+                                                    ast_idx: 169,
                                                 },
                                             ),
                                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -3837,7 +4376,7 @@ Ok(
                                                 ModuleItemSymbol {
                                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                     accessibility: Public,
-                                                    ast_idx: 170,
+                                                    ast_idx: 171,
                                                 },
                                             ),
                                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -3918,8 +4457,8 @@ Ok(
                                                     ),
                                                     path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     accessibility: Public,
-                                                    ast_idx: 165,
-                                                    use_expr_idx: 6,
+                                                    ast_idx: 163,
+                                                    use_expr_idx: 0,
                                                 },
                                             ),
                                             path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -3959,8 +4498,8 @@ Ok(
                                                     ),
                                                     path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                                     accessibility: Public,
-                                                    ast_idx: 165,
-                                                    use_expr_idx: 6,
+                                                    ast_idx: 163,
+                                                    use_expr_idx: 0,
                                                 },
                                             ),
                                             path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
@@ -3972,6 +4511,47 @@ Ok(
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegment`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: Use(
+                                                UseSymbol {
+                                                    original_symbol: ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                            accessibility: Public,
+                                                            ast_idx: 16,
+                                                        },
+                                                    ),
+                                                    path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                    accessibility: Public,
+                                                    ast_idx: 165,
+                                                    use_expr_idx: 4,
+                                                },
+                                            ),
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 24,
+                                            use_expr_idx: 10,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                     accessibility: PubicUnder(
                                         `mnist_classifier::fermi`,
                                     ),
@@ -6206,7 +6786,7 @@ Ok(
                                                 ModuleItemSymbol {
                                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                     accessibility: Public,
-                                                    ast_idx: 168,
+                                                    ast_idx: 169,
                                                 },
                                             ),
                                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -6239,7 +6819,7 @@ Ok(
                                                 ModuleItemSymbol {
                                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                     accessibility: Public,
-                                                    ast_idx: 170,
+                                                    ast_idx: 171,
                                                 },
                                             ),
                                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -6392,8 +6972,8 @@ Ok(
                                             ),
                                             path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             accessibility: Public,
-                                            ast_idx: 165,
-                                            use_expr_idx: 6,
+                                            ast_idx: 163,
+                                            use_expr_idx: 0,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -6423,11 +7003,42 @@ Ok(
                                             ),
                                             path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             accessibility: Public,
-                                            ast_idx: 165,
-                                            use_expr_idx: 6,
+                                            ast_idx: 163,
+                                            use_expr_idx: 0,
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 20,
+                                    use_expr_idx: 6,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegment`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                    accessibility: Public,
+                                                    ast_idx: 16,
+                                                },
+                                            ),
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                            accessibility: Public,
+                                            ast_idx: 165,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                     accessibility: PubicUnder(
                                         `mnist_classifier::major`,
                                     ),

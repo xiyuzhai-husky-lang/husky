@@ -9,7 +9,7 @@ Ok(
                             ast_idx: 80,
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 107,
+                                    value: 108,
                                 },
                             ),
                             implicit_parameter_decl_list: None,
@@ -24,7 +24,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 57,
+                                                    value: 58,
                                                 },
                                             ),
                                         ),
@@ -44,7 +44,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 58,
+                                                    value: 59,
                                                 },
                                             ),
                                         ),
@@ -89,7 +89,7 @@ Ok(
                             ast_idx: 82,
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 108,
+                                    value: 109,
                                 },
                             ),
                             implicit_parameter_decl_list: None,
@@ -104,7 +104,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 57,
+                                                    value: 58,
                                                 },
                                             ),
                                         ),
@@ -124,7 +124,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 58,
+                                                    value: 59,
                                                 },
                                             ),
                                         ),
@@ -169,7 +169,7 @@ Ok(
                             ast_idx: 83,
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 109,
+                                    value: 110,
                                 },
                             ),
                             implicit_parameter_decl_list: None,
@@ -184,7 +184,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 57,
+                                                    value: 58,
                                                 },
                                             ),
                                         ),
@@ -204,7 +204,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 58,
+                                                    value: 59,
                                                 },
                                             ),
                                         ),
@@ -249,13 +249,13 @@ Ok(
                             ast_idx: 85,
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 110,
+                                    value: 111,
                                 },
                             ),
                             implicit_parameter_decl_list: None,
                             lcurl: LeftCurlyBraceToken {
                                 token_idx: TokenIdx(
-                                    488,
+                                    489,
                                 ),
                             },
                             fields: [
@@ -264,17 +264,17 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 177,
+                                                    value: 178,
                                                 },
                                             ),
                                         ),
                                         token_idx: TokenIdx(
-                                            489,
+                                            490,
                                         ),
                                     },
                                     colon: ColonToken {
                                         token_idx: TokenIdx(
-                                            490,
+                                            491,
                                         ),
                                     },
                                     ty: 0,
@@ -284,17 +284,17 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 137,
+                                                    value: 138,
                                                 },
                                             ),
                                         ),
                                         token_idx: TokenIdx(
-                                            493,
+                                            494,
                                         ),
                                     },
                                     colon: ColonToken {
                                         token_idx: TokenIdx(
-                                            494,
+                                            495,
                                         ),
                                     },
                                     ty: 1,
@@ -303,18 +303,18 @@ Ok(
                             separators: [
                                 CommaToken {
                                     token_idx: TokenIdx(
-                                        492,
+                                        493,
                                     ),
                                 },
                                 CommaToken {
                                     token_idx: TokenIdx(
-                                        496,
+                                        497,
                                     ),
                                 },
                             ],
                             rcurl: RightCurlyBraceToken {
                                 token_idx: TokenIdx(
-                                    497,
+                                    498,
                                 ),
                             },
                         },
@@ -325,7 +325,7 @@ Ok(
                 Expr(
                     ExpectRightCurlyBrace(
                         TokenIdx(
-                            597,
+                            598,
                         ),
                     ),
                 ),
@@ -338,36 +338,16 @@ Ok(
                             ast_idx: 90,
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 111,
+                                    value: 112,
                                 },
                             ),
                             implicit_parameter_decl_list: None,
                             lcurl: LeftCurlyBraceToken {
                                 token_idx: TokenIdx(
-                                    731,
+                                    733,
                                 ),
                             },
                             fields: [
-                                PropsStructFieldDecl {
-                                    ident: IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 262,
-                                                },
-                                            ),
-                                        ),
-                                        token_idx: TokenIdx(
-                                            732,
-                                        ),
-                                    },
-                                    colon: ColonToken {
-                                        token_idx: TokenIdx(
-                                            733,
-                                        ),
-                                    },
-                                    ty: 0,
-                                },
                                 PropsStructFieldDecl {
                                     ident: IdentifierToken {
                                         ident: Identifier(
@@ -378,12 +358,32 @@ Ok(
                                             ),
                                         ),
                                         token_idx: TokenIdx(
-                                            736,
+                                            734,
                                         ),
                                     },
                                     colon: ColonToken {
                                         token_idx: TokenIdx(
-                                            737,
+                                            735,
+                                        ),
+                                    },
+                                    ty: 0,
+                                },
+                                PropsStructFieldDecl {
+                                    ident: IdentifierToken {
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 264,
+                                                },
+                                            ),
+                                        ),
+                                        token_idx: TokenIdx(
+                                            738,
+                                        ),
+                                    },
+                                    colon: ColonToken {
+                                        token_idx: TokenIdx(
+                                            739,
                                         ),
                                     },
                                     ty: 1,
@@ -392,18 +392,18 @@ Ok(
                             separators: [
                                 CommaToken {
                                     token_idx: TokenIdx(
-                                        735,
+                                        737,
                                     ),
                                 },
                                 CommaToken {
                                     token_idx: TokenIdx(
-                                        739,
+                                        741,
                                     ),
                                 },
                             ],
                             rcurl: RightCurlyBraceToken {
                                 token_idx: TokenIdx(
-                                    740,
+                                    742,
                                 ),
                             },
                         },
@@ -435,7 +435,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 112,
+                                    value: 113,
                                 },
                             ),
                         },
@@ -462,7 +462,7 @@ Ok(
                                 ast_idx: 5,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 113,
+                                        value: 114,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -557,7 +557,7 @@ Ok(
                                 ast_idx: 6,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 114,
+                                        value: 115,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -617,7 +617,7 @@ Ok(
                                 ast_idx: 7,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 115,
+                                        value: 116,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -692,7 +692,7 @@ Ok(
                                 ast_idx: 8,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 116,
+                                        value: 117,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -752,7 +752,7 @@ Ok(
                                 ast_idx: 9,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 117,
+                                        value: 118,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -832,7 +832,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 118,
+                                    value: 119,
                                 },
                             ),
                         },
@@ -859,7 +859,7 @@ Ok(
                                 ast_idx: 41,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 119,
+                                        value: 120,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -919,7 +919,7 @@ Ok(
                                 ast_idx: 42,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 120,
+                                        value: 121,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -994,7 +994,7 @@ Ok(
                                 ast_idx: 43,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 121,
+                                        value: 122,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -1054,7 +1054,7 @@ Ok(
                                 ast_idx: 44,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 122,
+                                        value: 123,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -1129,7 +1129,7 @@ Ok(
                                 ast_idx: 45,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 123,
+                                        value: 124,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -1204,7 +1204,7 @@ Ok(
                                 ast_idx: 46,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 124,
+                                        value: 125,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -1279,7 +1279,7 @@ Ok(
                                 ast_idx: 47,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 125,
+                                        value: 126,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -1354,7 +1354,7 @@ Ok(
                                 ast_idx: 48,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 126,
+                                        value: 127,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -1446,14 +1446,14 @@ Ok(
                                 ast_idx: 56,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 127,
+                                        value: 128,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            503,
+                                            504,
                                         ),
                                     },
                                     decls: [
@@ -1466,7 +1466,7 @@ Ok(
                                             },
                                             colon: ColonToken {
                                                 token_idx: TokenIdx(
-                                                    505,
+                                                    506,
                                                 ),
                                             },
                                             ty: 0,
@@ -1475,14 +1475,14 @@ Ok(
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            507,
+                                            508,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            508,
+                                            509,
                                         ),
                                     },
                                 ),
@@ -1492,7 +1492,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            510,
+                                            511,
                                         ),
                                     },
                                 ),
@@ -1515,14 +1515,14 @@ Ok(
                                 ast_idx: 57,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 128,
+                                        value: 129,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            566,
+                                            567,
                                         ),
                                     },
                                     decls: [
@@ -1535,7 +1535,7 @@ Ok(
                                             },
                                             colon: ColonToken {
                                                 token_idx: TokenIdx(
-                                                    568,
+                                                    569,
                                                 ),
                                             },
                                             ty: 0,
@@ -1544,14 +1544,14 @@ Ok(
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            570,
+                                            571,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            571,
+                                            572,
                                         ),
                                     },
                                 ),
@@ -1561,7 +1561,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            573,
+                                            574,
                                         ),
                                     },
                                 ),
@@ -1582,20 +1582,20 @@ Ok(
                             ),
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    608,
+                                    609,
                                 ),
                             },
                             ty: 0,
                             eol_colon: Ok(
                                 EolColonToken {
                                     token_idx: TokenIdx(
-                                        610,
+                                        611,
                                     ),
                                 },
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 129,
+                                    value: 130,
                                 },
                             ),
                         },
@@ -1622,14 +1622,14 @@ Ok(
                                 ast_idx: 66,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 130,
+                                        value: 131,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            613,
+                                            614,
                                         ),
                                     },
                                     decls: [
@@ -1642,7 +1642,7 @@ Ok(
                                             },
                                             colon: ColonToken {
                                                 token_idx: TokenIdx(
-                                                    615,
+                                                    616,
                                                 ),
                                             },
                                             ty: 0,
@@ -1651,14 +1651,14 @@ Ok(
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            617,
+                                            618,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            618,
+                                            619,
                                         ),
                                     },
                                 ),
@@ -1668,7 +1668,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            620,
+                                            621,
                                         ),
                                     },
                                 ),
@@ -1697,14 +1697,14 @@ Ok(
                                 ast_idx: 67,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 131,
+                                        value: 132,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            648,
+                                            649,
                                         ),
                                     },
                                     decls: [
@@ -1717,7 +1717,7 @@ Ok(
                                             },
                                             colon: ColonToken {
                                                 token_idx: TokenIdx(
-                                                    650,
+                                                    651,
                                                 ),
                                             },
                                             ty: 0,
@@ -1726,14 +1726,14 @@ Ok(
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            652,
+                                            653,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            653,
+                                            654,
                                         ),
                                     },
                                 ),
@@ -1743,7 +1743,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            655,
+                                            656,
                                         ),
                                     },
                                 ),
@@ -1772,28 +1772,28 @@ Ok(
                                 ast_idx: 68,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 132,
+                                        value: 133,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            683,
+                                            684,
                                         ),
                                     },
                                     decls: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            684,
+                                            685,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            685,
+                                            686,
                                         ),
                                     },
                                 ),
@@ -1803,7 +1803,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            687,
+                                            688,
                                         ),
                                     },
                                 ),
@@ -1832,28 +1832,28 @@ Ok(
                                 ast_idx: 69,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 133,
+                                        value: 134,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            695,
+                                            696,
                                         ),
                                     },
                                     decls: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            696,
+                                            697,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            697,
+                                            698,
                                         ),
                                     },
                                 ),
@@ -1863,7 +1863,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            699,
+                                            700,
                                         ),
                                     },
                                 ),
@@ -1892,28 +1892,28 @@ Ok(
                                 ast_idx: 70,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 134,
+                                        value: 135,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            707,
+                                            708,
                                         ),
                                     },
                                     decls: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            708,
+                                            709,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            709,
+                                            710,
                                         ),
                                     },
                                 ),
@@ -1923,7 +1923,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            711,
+                                            712,
                                         ),
                                     },
                                 ),
@@ -1952,28 +1952,28 @@ Ok(
                                 ast_idx: 71,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 135,
+                                        value: 136,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            719,
+                                            720,
                                         ),
                                     },
                                     decls: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            720,
+                                            721,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            721,
+                                            722,
                                         ),
                                     },
                                 ),
@@ -1983,7 +1983,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            723,
+                                            724,
                                         ),
                                     },
                                 ),
@@ -2004,20 +2004,20 @@ Ok(
                             ),
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    741,
+                                    743,
                                 ),
                             },
                             ty: 0,
                             eol_colon: Ok(
                                 EolColonToken {
                                     token_idx: TokenIdx(
-                                        743,
+                                        745,
                                     ),
                                 },
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 136,
+                                    value: 137,
                                 },
                             ),
                         },
@@ -2044,28 +2044,28 @@ Ok(
                                 ast_idx: 76,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 137,
+                                        value: 138,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            746,
+                                            748,
                                         ),
                                     },
                                     decls: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            747,
+                                            749,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            748,
+                                            750,
                                         ),
                                     },
                                 ),
@@ -2075,7 +2075,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            750,
+                                            752,
                                         ),
                                     },
                                 ),
@@ -2104,28 +2104,28 @@ Ok(
                                 ast_idx: 77,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 138,
+                                        value: 139,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            758,
+                                            760,
                                         ),
                                     },
                                     decls: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            759,
+                                            761,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            760,
+                                            762,
                                         ),
                                     },
                                 ),
@@ -2135,7 +2135,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            762,
+                                            764,
                                         ),
                                     },
                                 ),
@@ -2164,28 +2164,28 @@ Ok(
                                 ast_idx: 78,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 139,
+                                        value: 140,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            770,
+                                            772,
                                         ),
                                     },
                                     decls: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            771,
+                                            773,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            772,
+                                            774,
                                         ),
                                     },
                                 ),
@@ -2195,7 +2195,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            774,
+                                            776,
                                         ),
                                     },
                                 ),
@@ -2224,28 +2224,28 @@ Ok(
                                 ast_idx: 79,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 140,
+                                        value: 141,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            782,
+                                            784,
                                         ),
                                     },
                                     decls: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            783,
+                                            785,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            784,
+                                            786,
                                         ),
                                     },
                                 ),
@@ -2255,7 +2255,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            786,
+                                            788,
                                         ),
                                     },
                                 ),

@@ -78,6 +78,21 @@ Ok(
                         },
                     ),
                 },
+                NativeEntitySymbolEntry {
+                    ident: `raw_bits`,
+                    accessibility: PubicUnder(
+                        `core`,
+                    ),
+                    symbol: Submodule(
+                        SubmoduleSymbol {
+                            path: `core::raw_bits`,
+                            accessibility: PubicUnder(
+                                `core`,
+                            ),
+                            ast_idx: 5,
+                        },
+                    ),
+                },
             ],
         ),
         entity_use_roots: EntityUseExprTrackers(

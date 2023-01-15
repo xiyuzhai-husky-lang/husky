@@ -46,6 +46,26 @@ Ok(
                     parent: None,
                     state: Unresolved,
                 },
+                UseTracker {
+                    ast_idx: 2,
+                    accessibility: Done {
+                        accessibility: Public,
+                    },
+                    variant: Parent {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    16,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            7..8,
+                        ),
+                    },
+                    parent: None,
+                    state: Unresolved,
+                },
             ],
         ),
     },

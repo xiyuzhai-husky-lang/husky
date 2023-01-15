@@ -32,7 +32,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 21,
+                                value: 22,
                             },
                         ),
                     ),
@@ -48,7 +48,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 62,
+                                value: 63,
                             },
                         ),
                     ),
@@ -64,7 +64,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 22,
+                                value: 23,
                             },
                         ),
                     ),
@@ -80,7 +80,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 68,
+                                value: 69,
                             },
                         ),
                     ),
@@ -96,7 +96,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 20,
+                                value: 21,
                             },
                         ),
                     ),
@@ -112,7 +112,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 60,
+                                value: 61,
                             },
                         ),
                     ),
@@ -138,7 +138,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 23,
+                                value: 24,
                             },
                         ),
                     ),
@@ -154,7 +154,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 72,
+                                value: 73,
                             },
                         ),
                     ),
@@ -170,7 +170,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 25,
+                                value: 26,
                             },
                         ),
                     ),
@@ -194,7 +194,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 22,
+                                value: 23,
                             },
                         ),
                     ),
@@ -210,7 +210,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 68,
+                                value: 69,
                             },
                         ),
                     ),
@@ -226,7 +226,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                     ),
@@ -242,7 +242,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 88,
+                                value: 89,
                             },
                         ),
                     ),
@@ -258,7 +258,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 28,
+                                value: 29,
                             },
                         ),
                     ),
@@ -274,7 +274,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 90,
+                                value: 91,
                             },
                         ),
                     ),
@@ -290,7 +290,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 29,
+                                value: 30,
                             },
                         ),
                     ),
@@ -306,7 +306,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 94,
+                                value: 95,
                             },
                         ),
                     ),

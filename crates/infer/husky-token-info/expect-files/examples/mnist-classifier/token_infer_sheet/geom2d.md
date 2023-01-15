@@ -9,7 +9,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 20,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -67,7 +67,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 20,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -106,7 +106,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 190,
+                        value: 191,
                     },
                 ),
             },
@@ -133,7 +133,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 190,
+                        value: 191,
                     },
                 ),
             },
@@ -160,7 +160,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 20,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -175,7 +175,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 20,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -194,7 +194,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 218,
+                        value: 219,
                     },
                 ),
             },
@@ -225,7 +225,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 218,
+                        value: 219,
                     },
                 ),
             },
@@ -276,7 +276,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -291,7 +291,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -337,7 +337,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 192,
+                        value: 193,
                     },
                 ),
             },
@@ -348,7 +348,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 20,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -364,7 +364,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -379,7 +379,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -395,7 +395,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 220,
+                        value: 221,
                     },
                 ),
             },
@@ -413,7 +413,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 220,
+                        value: 221,
                     },
                 ),
             },
@@ -513,7 +513,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 194,
+                        value: 195,
                     },
                 ),
             },
@@ -524,7 +524,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 20,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -560,7 +560,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 222,
+                        value: 223,
                     },
                 ),
             },
@@ -577,65 +577,6 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 21,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Struct,
-                        ),
-                        connection: Connected,
-                    },
-                ),
-            ),
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 12,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 12,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
                                     value: 22,
                                 },
                             ),
@@ -688,13 +629,72 @@ Ok(
             None,
             None,
             None,
+            None,
             Entity(
                 Some(
                     ModuleItem(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Type(
+                            Struct,
+                        ),
+                        connection: Connected,
+                    },
+                ),
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 12,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 12,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -734,7 +734,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 20,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -749,7 +749,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 20,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -796,7 +796,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 197,
+                        value: 198,
                     },
                 ),
             },
@@ -807,7 +807,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -823,7 +823,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -838,7 +838,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -854,7 +854,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 224,
+                        value: 225,
                     },
                 ),
             },
@@ -872,7 +872,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 224,
+                        value: 225,
                     },
                 ),
             },
@@ -972,7 +972,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 199,
+                        value: 200,
                     },
                 ),
             },
@@ -983,7 +983,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -1019,7 +1019,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 226,
+                        value: 227,
                     },
                 ),
             },
@@ -1037,7 +1037,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 226,
+                        value: 227,
                     },
                 ),
             },
@@ -1072,7 +1072,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 200,
+                        value: 201,
                     },
                 ),
             },
@@ -1083,7 +1083,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -1119,7 +1119,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 227,
+                        value: 228,
                     },
                 ),
             },
@@ -1137,7 +1137,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 227,
+                        value: 228,
                     },
                 ),
             },
@@ -1172,7 +1172,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 201,
+                        value: 202,
                     },
                 ),
             },
@@ -1216,7 +1216,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 228,
+                        value: 229,
                     },
                 ),
             },
@@ -1245,7 +1245,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 228,
+                        value: 229,
                     },
                 ),
             },
@@ -1262,7 +1262,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 228,
+                        value: 229,
                     },
                 ),
             },
@@ -1339,7 +1339,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 202,
+                        value: 203,
                     },
                 ),
             },
@@ -1350,7 +1350,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -1386,7 +1386,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 229,
+                        value: 230,
                     },
                 ),
             },
@@ -1424,7 +1424,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 203,
+                        value: 204,
                     },
                 ),
             },
@@ -1435,7 +1435,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -1451,7 +1451,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 203,
+                        value: 204,
                     },
                 ),
             },
@@ -1495,7 +1495,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 230,
+                        value: 231,
                     },
                 ),
             },
@@ -1513,7 +1513,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 230,
+                        value: 231,
                     },
                 ),
             },
@@ -1527,7 +1527,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 230,
+                        value: 231,
                     },
                 ),
             },
@@ -1539,7 +1539,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 230,
+                        value: 231,
                     },
                 ),
             },
@@ -1555,7 +1555,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 230,
+                        value: 231,
                     },
                 ),
             },
@@ -1569,7 +1569,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 230,
+                        value: 231,
                     },
                 ),
             },
@@ -1586,7 +1586,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 230,
+                        value: 231,
                     },
                 ),
             },
@@ -1600,7 +1600,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 230,
+                        value: 231,
                     },
                 ),
             },
@@ -1612,7 +1612,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 230,
+                        value: 231,
                     },
                 ),
             },
@@ -1631,7 +1631,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 230,
+                        value: 231,
                     },
                 ),
             },
@@ -1648,7 +1648,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 230,
+                        value: 231,
                     },
                 ),
             },
@@ -1668,7 +1668,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 230,
+                        value: 231,
                     },
                 ),
             },
@@ -1685,7 +1685,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 230,
+                        value: 231,
                     },
                 ),
             },
@@ -1714,7 +1714,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 230,
+                        value: 231,
                     },
                 ),
             },
@@ -1729,10 +1729,11 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 230,
+                        value: 231,
                     },
                 ),
             },
+            None,
             None,
             None,
             None,
@@ -1744,7 +1745,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -1817,7 +1818,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 204,
+                        value: 205,
                     },
                 ),
             },
@@ -1828,7 +1829,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -1844,7 +1845,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -1869,7 +1870,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 231,
+                        value: 232,
                     },
                 ),
             },
@@ -1889,7 +1890,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 231,
+                        value: 232,
                     },
                 ),
             },
@@ -1902,7 +1903,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 231,
+                        value: 232,
                     },
                 ),
             },
@@ -1921,7 +1922,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 231,
+                        value: 232,
                     },
                 ),
             },
@@ -1933,7 +1934,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 231,
+                        value: 232,
                     },
                 ),
             },
@@ -1946,7 +1947,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 231,
+                        value: 232,
                     },
                 ),
             },
@@ -1965,7 +1966,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 231,
+                        value: 232,
                     },
                 ),
             },
@@ -1975,7 +1976,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -1991,7 +1992,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 231,
+                        value: 232,
                     },
                 ),
             },
@@ -2003,7 +2004,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 231,
+                        value: 232,
                     },
                 ),
             },
@@ -2028,7 +2029,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 205,
+                        value: 206,
                     },
                 ),
             },
@@ -2072,7 +2073,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 232,
+                        value: 233,
                     },
                 ),
             },
@@ -2092,7 +2093,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 232,
+                        value: 233,
                     },
                 ),
             },
@@ -2109,7 +2110,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 232,
+                        value: 233,
                     },
                 ),
             },
@@ -2135,7 +2136,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 24,
+                                    value: 25,
                                 },
                             ),
                         ),
@@ -2173,7 +2174,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 207,
+                        value: 208,
                     },
                 ),
             },
@@ -2184,7 +2185,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 24,
+                                    value: 25,
                                 },
                             ),
                         ),
@@ -2200,7 +2201,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 25,
+                                    value: 26,
                                 },
                             ),
                         ),
@@ -2215,7 +2216,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 25,
+                                    value: 26,
                                 },
                             ),
                         ),
@@ -2237,7 +2238,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 233,
+                        value: 234,
                     },
                 ),
             },
@@ -2258,7 +2259,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 233,
+                        value: 234,
                     },
                 ),
             },
@@ -2296,7 +2297,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 208,
+                        value: 209,
                     },
                 ),
             },
@@ -2307,7 +2308,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 20,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -2323,7 +2324,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 21,
+                                    value: 22,
                                 },
                             ),
                         ),
@@ -2338,7 +2339,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 21,
+                                    value: 22,
                                 },
                             ),
                         ),
@@ -2360,7 +2361,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 234,
+                        value: 235,
                     },
                 ),
             },
@@ -2381,7 +2382,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 234,
+                        value: 235,
                     },
                 ),
             },
@@ -2567,13 +2568,14 @@ Ok(
             None,
             Field,
             None,
+            None,
             Entity(
                 Some(
                     ModuleItem(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 25,
+                                    value: 26,
                                 },
                             ),
                         ),
@@ -2597,7 +2599,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -2614,7 +2616,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -2631,7 +2633,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 25,
+                                    value: 26,
                                 },
                             ),
                         ),

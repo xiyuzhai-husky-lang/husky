@@ -3,3 +3,4 @@ mod logic
 mod num
 mod ops
 mod prelude
+mod raw_bits

@@ -70,7 +70,7 @@ Ok(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                             accessibility: Public,
-                            ast_idx: 168,
+                            ast_idx: 169,
                         },
                     ),
                 },
@@ -81,7 +81,7 @@ Ok(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                             accessibility: Public,
-                            ast_idx: 170,
+                            ast_idx: 171,
                         },
                     ),
                 },
@@ -96,7 +96,7 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 172,
+                            ast_idx: 173,
                         },
                     ),
                 },
@@ -111,7 +111,7 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 173,
+                            ast_idx: 174,
                         },
                     ),
                 },
@@ -126,7 +126,7 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 174,
+                            ast_idx: 175,
                         },
                     ),
                 },
@@ -141,7 +141,7 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 175,
+                            ast_idx: 176,
                         },
                     ),
                 },
@@ -156,7 +156,7 @@ Ok(
                             accessibility: PubicUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            ast_idx: 176,
+                            ast_idx: 177,
                         },
                     ),
                 },
@@ -167,20 +167,25 @@ Ok(
                 UseTracker {
                     ast_idx: 163,
                     accessibility: Done {
-                        accessibility: PubicUnder(
-                            `mnist_classifier::line_segment_sketch`,
-                        ),
+                        accessibility: Public,
                     },
                     variant: Parent {
-                        parent_name_token: Crate(
-                            CrateToken {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 82,
+                                        },
+                                    ),
+                                ),
                                 token_idx: TokenIdx(
-                                    9,
+                                    10,
                                 ),
                             },
                         ),
                         children: ArenaIdxRange(
-                            1..2,
+                            0..1,
                         ),
                     },
                     parent: None,
@@ -189,20 +194,25 @@ Ok(
                 UseTracker {
                     ast_idx: 164,
                     accessibility: Done {
-                        accessibility: PubicUnder(
-                            `mnist_classifier::line_segment_sketch`,
-                        ),
+                        accessibility: Public,
                     },
                     variant: Parent {
-                        parent_name_token: Crate(
-                            CrateToken {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 83,
+                                        },
+                                    ),
+                                ),
                                 token_idx: TokenIdx(
                                     15,
                                 ),
                             },
                         ),
                         children: ArenaIdxRange(
-                            4..5,
+                            2..3,
                         ),
                     },
                     parent: None,
@@ -219,17 +229,17 @@ Ok(
                                 ident: Identifier(
                                     Word(
                                         Id {
-                                            value: 80,
+                                            value: 85,
                                         },
                                     ),
                                 ),
                                 token_idx: TokenIdx(
-                                    22,
+                                    20,
                                 ),
                             },
                         ),
                         children: ArenaIdxRange(
-                            6..7,
+                            4..5,
                         ),
                     },
                     parent: None,
@@ -238,25 +248,20 @@ Ok(
                 UseTracker {
                     ast_idx: 166,
                     accessibility: Done {
-                        accessibility: Public,
+                        accessibility: PubicUnder(
+                            `mnist_classifier::line_segment_sketch`,
+                        ),
                     },
                     variant: Parent {
-                        parent_name_token: Identifier(
-                            IdentifierToken {
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 81,
-                                        },
-                                    ),
-                                ),
+                        parent_name_token: Crate(
+                            CrateToken {
                                 token_idx: TokenIdx(
-                                    27,
+                                    24,
                                 ),
                             },
                         ),
                         children: ArenaIdxRange(
-                            8..9,
+                            7..8,
                         ),
                     },
                     parent: None,
@@ -270,22 +275,44 @@ Ok(
                         ),
                     },
                     variant: Parent {
-                        parent_name_token: Identifier(
-                            IdentifierToken {
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 83,
-                                        },
-                                    ),
-                                ),
+                        parent_name_token: Crate(
+                            CrateToken {
                                 token_idx: TokenIdx(
-                                    31,
+                                    30,
                                 ),
                             },
                         ),
                         children: ArenaIdxRange(
                             10..11,
+                        ),
+                    },
+                    parent: None,
+                    state: Unresolved,
+                },
+                UseTracker {
+                    ast_idx: 168,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier::line_segment_sketch`,
+                        ),
+                    },
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 85,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    36,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            12..13,
                         ),
                     },
                     parent: None,

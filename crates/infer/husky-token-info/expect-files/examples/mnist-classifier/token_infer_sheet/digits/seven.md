@@ -29,7 +29,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 13,
+                                value: 14,
                             },
                         ),
                     ),
@@ -45,7 +45,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 15,
+                                value: 16,
                             },
                         ),
                     ),
@@ -61,7 +61,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 103,
+                                value: 104,
                             },
                         ),
                     ),
@@ -77,7 +77,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 13,
+                                value: 14,
                             },
                         ),
                     ),
@@ -93,7 +93,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 15,
+                                value: 16,
                             },
                         ),
                     ),
@@ -109,7 +109,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 98,
+                                value: 99,
                             },
                         ),
                     ),
@@ -141,7 +141,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 13,
+                                value: 14,
                             },
                         ),
                     ),
@@ -157,7 +157,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 15,
+                                value: 16,
                             },
                         ),
                     ),
@@ -175,7 +175,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 13,
+                                value: 14,
                             },
                         ),
                     ),
@@ -191,7 +191,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 13,
+                                value: 14,
                             },
                         ),
                     ),
@@ -209,7 +209,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 13,
+                                value: 14,
                             },
                         ),
                     ),
@@ -225,7 +225,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 12,
+                                value: 13,
                             },
                         ),
                     ),
@@ -241,7 +241,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 16,
+                                value: 17,
                             },
                         ),
                     ),
@@ -259,7 +259,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 13,
+                                value: 14,
                             },
                         ),
                     ),
@@ -275,7 +275,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 14,
+                                value: 15,
                             },
                         ),
                     ),
@@ -372,7 +372,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 137,
+                        value: 138,
                     },
                 ),
             },
@@ -384,7 +384,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 29,
                                 },
                             ),
                         ),
@@ -418,7 +418,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 143,
+                        value: 144,
                     },
                 ),
             },
@@ -430,7 +430,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 143,
+                        value: 144,
                     },
                 ),
             },
@@ -446,7 +446,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 143,
+                        value: 144,
                     },
                 ),
             },
@@ -462,7 +462,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 143,
+                        value: 144,
                     },
                 ),
             },
@@ -572,7 +572,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 139,
+                        value: 140,
                     },
                 ),
             },
@@ -584,7 +584,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 29,
                                 },
                             ),
                         ),
@@ -618,7 +618,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 145,
+                        value: 146,
                     },
                 ),
             },
@@ -630,7 +630,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 145,
+                        value: 146,
                     },
                 ),
             },
@@ -646,7 +646,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 145,
+                        value: 146,
                     },
                 ),
             },
@@ -662,7 +662,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 145,
+                        value: 146,
                     },
                 ),
             },
@@ -681,7 +681,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 145,
+                        value: 146,
                     },
                 ),
             },
@@ -721,7 +721,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 140,
+                        value: 141,
                     },
                 ),
             },
@@ -733,7 +733,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 28,
+                                    value: 29,
                                 },
                             ),
                         ),
@@ -767,7 +767,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 146,
+                        value: 147,
                     },
                 ),
             },
@@ -779,7 +779,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 146,
+                        value: 147,
                     },
                 ),
             },
@@ -795,7 +795,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 146,
+                        value: 147,
                     },
                 ),
             },
@@ -811,7 +811,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 146,
+                        value: 147,
                     },
                 ),
             },
@@ -831,7 +831,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 146,
+                        value: 147,
                     },
                 ),
             },
@@ -843,7 +843,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 146,
+                        value: 147,
                     },
                 ),
             },
@@ -864,7 +864,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 146,
+                        value: 147,
                     },
                 ),
             },
@@ -877,7 +877,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 146,
+                        value: 147,
                     },
                 ),
             },
@@ -985,7 +985,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 147,
+                        value: 148,
                     },
                 ),
             },
@@ -1014,7 +1014,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 147,
+                        value: 148,
                     },
                 ),
             },
@@ -1051,7 +1051,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 147,
+                        value: 148,
                     },
                 ),
             },
@@ -1097,7 +1097,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 147,
+                        value: 148,
                     },
                 ),
             },
@@ -1112,7 +1112,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 147,
+                        value: 148,
                     },
                 ),
             },
@@ -1148,7 +1148,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 147,
+                        value: 148,
                     },
                 ),
             },
@@ -1160,7 +1160,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 147,
+                        value: 148,
                     },
                 ),
             },
@@ -1174,7 +1174,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 147,
+                        value: 148,
                     },
                 ),
             },
@@ -1192,7 +1192,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 147,
+                        value: 148,
                     },
                 ),
             },
@@ -1207,7 +1207,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 147,
+                        value: 148,
                     },
                 ),
             },
@@ -1253,7 +1253,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 147,
+                        value: 148,
                     },
                 ),
             },
@@ -1292,7 +1292,7 @@ Ok(
                 },
                 expr_sheet: ExprSheet(
                     Id {
-                        value: 147,
+                        value: 148,
                     },
                 ),
             },

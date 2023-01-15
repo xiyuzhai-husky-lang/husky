@@ -38,15 +38,11 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `ClosedRange`,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::geom2d`,
-                    ),
+                    accessibility: Public,
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                            accessibility: PubicUnder(
-                                `mnist_classifier::geom2d`,
-                            ),
+                            accessibility: Public,
                             ast_idx: 85,
                         },
                     ),
@@ -64,15 +60,11 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `RelativeBoundingBox`,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::geom2d`,
-                    ),
+                    accessibility: Public,
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                            accessibility: PubicUnder(
-                                `mnist_classifier::geom2d`,
-                            ),
+                            accessibility: Public,
                             ast_idx: 90,
                         },
                     ),

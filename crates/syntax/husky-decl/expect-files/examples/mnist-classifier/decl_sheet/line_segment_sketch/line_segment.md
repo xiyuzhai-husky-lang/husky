@@ -9,36 +9,16 @@ Ok(
                             ast_idx: 16,
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 159,
+                                    value: 160,
                                 },
                             ),
                             implicit_parameter_decl_list: None,
                             lcurl: LeftCurlyBraceToken {
                                 token_idx: TokenIdx(
-                                    8,
+                                    9,
                                 ),
                             },
                             fields: [
-                                PropsStructFieldDecl {
-                                    ident: IdentifierToken {
-                                        ident: Identifier(
-                                            Word(
-                                                Id {
-                                                    value: 182,
-                                                },
-                                            ),
-                                        ),
-                                        token_idx: TokenIdx(
-                                            9,
-                                        ),
-                                    },
-                                    colon: ColonToken {
-                                        token_idx: TokenIdx(
-                                            10,
-                                        ),
-                                    },
-                                    ty: 0,
-                                },
                                 PropsStructFieldDecl {
                                     ident: IdentifierToken {
                                         ident: Identifier(
@@ -49,12 +29,32 @@ Ok(
                                             ),
                                         ),
                                         token_idx: TokenIdx(
-                                            13,
+                                            10,
                                         ),
                                     },
                                     colon: ColonToken {
                                         token_idx: TokenIdx(
+                                            11,
+                                        ),
+                                    },
+                                    ty: 0,
+                                },
+                                PropsStructFieldDecl {
+                                    ident: IdentifierToken {
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 184,
+                                                },
+                                            ),
+                                        ),
+                                        token_idx: TokenIdx(
                                             14,
+                                        ),
+                                    },
+                                    colon: ColonToken {
+                                        token_idx: TokenIdx(
+                                            15,
                                         ),
                                     },
                                     ty: 1,
@@ -63,18 +63,18 @@ Ok(
                             separators: [
                                 CommaToken {
                                     token_idx: TokenIdx(
-                                        12,
+                                        13,
                                     ),
                                 },
                                 CommaToken {
                                     token_idx: TokenIdx(
-                                        16,
+                                        17,
                                     ),
                                 },
                             ],
                             rcurl: RightCurlyBraceToken {
                                 token_idx: TokenIdx(
-                                    17,
+                                    18,
                                 ),
                             },
                         },
@@ -93,20 +93,20 @@ Ok(
                             ),
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    18,
+                                    19,
                                 ),
                             },
                             ty: 0,
                             eol_colon: Ok(
                                 EolColonToken {
                                     token_idx: TokenIdx(
-                                        20,
+                                        21,
                                     ),
                                 },
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 160,
+                                    value: 161,
                                 },
                             ),
                         },
@@ -133,28 +133,28 @@ Ok(
                                 ast_idx: 13,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 161,
+                                        value: 162,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            23,
+                                            24,
                                         ),
                                     },
                                     decls: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            24,
+                                            25,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            25,
+                                            26,
                                         ),
                                     },
                                 ),
@@ -164,7 +164,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            27,
+                                            28,
                                         ),
                                     },
                                 ),
@@ -193,14 +193,14 @@ Ok(
                                 ast_idx: 14,
                                 expr_sheet: ExprSheet(
                                     Id {
-                                        value: 162,
+                                        value: 163,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            40,
+                                            41,
                                         ),
                                     },
                                     decls: [
@@ -213,7 +213,7 @@ Ok(
                                             },
                                             colon: ColonToken {
                                                 token_idx: TokenIdx(
-                                                    42,
+                                                    43,
                                                 ),
                                             },
                                             ty: 0,
@@ -222,14 +222,14 @@ Ok(
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            44,
+                                            45,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            45,
+                                            46,
                                         ),
                                     },
                                 ),
@@ -239,7 +239,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            47,
+                                            48,
                                         ),
                                     },
                                 ),

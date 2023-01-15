@@ -118,7 +118,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 32,
+                                value: 33,
                             },
                         ),
                     ),
@@ -131,13 +131,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `displacement`,
                         token_idx: TokenIdx(
-                            22,
+                            23,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        23,
+                        24,
                     ),
                 },
                 Defn {
@@ -150,7 +150,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 32,
+                                value: 33,
                             },
                         ),
                     ),
@@ -163,13 +163,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `dist_to_point`,
                         token_idx: TokenIdx(
-                            39,
+                            40,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        40,
+                        41,
                     ),
                 },
                 Use {
@@ -184,13 +184,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 32,
-                            },
-                        ),
-                    ),
+                    accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -203,13 +197,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `LineSegment`,
                         token_idx: TokenIdx(
-                            7,
+                            8,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        8,
+                        9,
                     ),
                 },
                 Impl {

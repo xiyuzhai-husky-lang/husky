@@ -24,7 +24,7 @@ Ok(
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 294,
+                                value: 295,
                             },
                         ),
                         body: Ok(
@@ -44,7 +44,7 @@ Ok(
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 295,
+                                value: 296,
                             },
                         ),
                         body: Ok(
@@ -64,7 +64,7 @@ Ok(
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 296,
+                                value: 297,
                             },
                         ),
                         body: Ok(
@@ -84,7 +84,7 @@ Ok(
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 297,
+                                value: 298,
                             },
                         ),
                         body: Ok(
@@ -104,7 +104,7 @@ Ok(
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 298,
+                                value: 299,
                             },
                         ),
                         body: Ok(
@@ -116,7 +116,7 @@ Ok(
             ImplBlock(
                 TypeImplBlock(
                     TypeImplBlockDecl {
-                        ast_idx: 169,
+                        ast_idx: 170,
                         impl_block: ImplBlock(
                             Id {
                                 value: 24,
@@ -124,20 +124,20 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                76,
+                                81,
                             ),
                         },
                         ty: 0,
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    78,
+                                    83,
                                 ),
                             },
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 287,
+                                value: 288,
                             },
                         ),
                     },
@@ -161,7 +161,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 299,
+                                    value: 300,
                                 },
                             ),
                             body: Ok(
@@ -189,7 +189,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 300,
+                                    value: 301,
                                 },
                             ),
                             body: Ok(
@@ -202,7 +202,7 @@ Ok(
             ImplBlock(
                 TypeImplBlock(
                     TypeImplBlockDecl {
-                        ast_idx: 171,
+                        ast_idx: 172,
                         impl_block: ImplBlock(
                             Id {
                                 value: 25,
@@ -210,20 +210,20 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                170,
+                                175,
                             ),
                         },
                         ty: 0,
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    172,
+                                    177,
                                 ),
                             },
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 290,
+                                value: 291,
                             },
                         ),
                     },
@@ -247,7 +247,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 301,
+                                    value: 302,
                                 },
                             ),
                             body: Ok(
@@ -275,7 +275,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 302,
+                                    value: 303,
                                 },
                             ),
                             body: Ok(
@@ -303,7 +303,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 303,
+                                    value: 304,
                                 },
                             ),
                             body: Ok(

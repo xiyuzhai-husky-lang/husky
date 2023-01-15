@@ -78,7 +78,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                     ),
@@ -110,7 +110,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                     ),
@@ -142,7 +142,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                     ),
@@ -174,7 +174,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                     ),
@@ -510,7 +510,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                     ),
@@ -542,7 +542,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                     ),
@@ -574,7 +574,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                     ),
@@ -606,7 +606,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                     ),
@@ -638,7 +638,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                     ),
@@ -670,7 +670,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                     ),
@@ -758,7 +758,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                     ),
@@ -771,13 +771,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `relative_range`,
                         token_idx: TokenIdx(
-                            502,
+                            503,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        503,
+                        504,
                     ),
                 },
                 Defn {
@@ -790,7 +790,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                     ),
@@ -803,13 +803,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `relative_point`,
                         token_idx: TokenIdx(
-                            565,
+                            566,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        566,
+                        567,
                     ),
                 },
                 Err {
@@ -882,7 +882,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                     ),
@@ -895,13 +895,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `relative_bounding_box`,
                         token_idx: TokenIdx(
-                            612,
+                            613,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        613,
+                        614,
                     ),
                 },
                 Defn {
@@ -914,7 +914,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                     ),
@@ -927,13 +927,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `relative_point`,
                         token_idx: TokenIdx(
-                            647,
+                            648,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        648,
+                        649,
                     ),
                 },
                 Defn {
@@ -946,7 +946,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                     ),
@@ -959,13 +959,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `xmin`,
                         token_idx: TokenIdx(
-                            682,
+                            683,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        683,
+                        684,
                     ),
                 },
                 Defn {
@@ -978,7 +978,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                     ),
@@ -991,13 +991,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `xmax`,
                         token_idx: TokenIdx(
-                            694,
+                            695,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        695,
+                        696,
                     ),
                 },
                 Defn {
@@ -1010,7 +1010,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                     ),
@@ -1023,13 +1023,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `ymin`,
                         token_idx: TokenIdx(
-                            706,
+                            707,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        707,
+                        708,
                     ),
                 },
                 Defn {
@@ -1042,7 +1042,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                     ),
@@ -1055,13 +1055,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `ymax`,
                         token_idx: TokenIdx(
-                            718,
+                            719,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        719,
+                        720,
                     ),
                 },
                 Stmt {
@@ -1106,7 +1106,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                     ),
@@ -1119,13 +1119,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `xmin`,
                         token_idx: TokenIdx(
-                            745,
+                            747,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        746,
+                        748,
                     ),
                 },
                 Defn {
@@ -1138,7 +1138,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                     ),
@@ -1151,13 +1151,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `xmax`,
                         token_idx: TokenIdx(
-                            757,
+                            759,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        758,
+                        760,
                     ),
                 },
                 Defn {
@@ -1170,7 +1170,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                     ),
@@ -1183,13 +1183,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `ymin`,
                         token_idx: TokenIdx(
-                            769,
+                            771,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        770,
+                        772,
                     ),
                 },
                 Defn {
@@ -1202,7 +1202,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                     ),
@@ -1215,13 +1215,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `ymax`,
                         token_idx: TokenIdx(
-                            781,
+                            783,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        782,
+                        784,
                     ),
                 },
                 Defn {
@@ -1334,13 +1334,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 27,
-                            },
-                        ),
-                    ),
+                    accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1353,13 +1347,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `ClosedRange`,
                         token_idx: TokenIdx(
-                            487,
+                            488,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        488,
+                        489,
                     ),
                 },
                 Impl {
@@ -1390,13 +1384,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `BoundingBox`,
                         token_idx: TokenIdx(
-                            595,
+                            596,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        596,
+                        597,
                     ),
                 },
                 Err {
@@ -1420,13 +1414,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 27,
-                            },
-                        ),
-                    ),
+                    accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1439,13 +1427,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `RelativeBoundingBox`,
                         token_idx: TokenIdx(
-                            730,
+                            732,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        731,
+                        733,
                     ),
                 },
                 Impl {

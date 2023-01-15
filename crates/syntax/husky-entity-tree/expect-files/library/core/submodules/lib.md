@@ -5,5 +5,6 @@ Ok(
         `core::num`,
         `core::ops`,
         `core::prelude`,
+        `core::raw_bits`,
     ],
 )

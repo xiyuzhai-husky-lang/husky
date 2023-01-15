@@ -3,10 +3,12 @@ mod convex_component
 mod convexity
 mod line_segment
 
-use crate::geom2d::*
-use crate::raw_contour::RawContour
 pub use concave_component::*
 pub use convex_component::*
+pub use line_segment::*
+
+use crate::geom2d::*
+use crate::raw_contour::RawContour
 use line_segment::*
 
 pub struct LineSegmentStroke {

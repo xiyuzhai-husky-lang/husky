@@ -300,5 +300,65 @@ Ok(
                 },
             ),
         ),
+        (
+            TokenIdx(
+                10,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "Other\ntoken_idx = 10;\n\ntoken = Keyword(\n    Mod,\n);\n\ntoken_info = None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 5,
+                                    character: 0,
+                                },
+                                end: Position {
+                                    line: 5,
+                                    character: 3,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                11,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 11;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 6,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 5,
+                                    character: 4,
+                                },
+                                end: Position {
+                                    line: 5,
+                                    character: 12,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
     ],
 )

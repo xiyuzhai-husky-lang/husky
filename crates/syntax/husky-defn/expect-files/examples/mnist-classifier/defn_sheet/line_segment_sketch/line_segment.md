@@ -24,20 +24,20 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                18,
+                                19,
                             ),
                         },
                         ty: 0,
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    20,
+                                    21,
                                 ),
                             },
                         ),
                         expr_sheet: ExprSheet(
                             Id {
-                                value: 276,
+                                value: 277,
                             },
                         ),
                     },
@@ -61,7 +61,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 279,
+                                    value: 280,
                                 },
                             ),
                             body: Ok(
@@ -89,7 +89,7 @@ Ok(
                             ),
                             expr_sheet: ExprSheet(
                                 Id {
-                                    value: 280,
+                                    value: 281,
                                 },
                             ),
                             body: Ok(
