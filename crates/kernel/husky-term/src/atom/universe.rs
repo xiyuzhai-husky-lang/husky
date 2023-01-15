@@ -3,15 +3,15 @@ use crate::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TermUniverse(u8);
 
-impl Into<TermAtom> for TermUniverse {
-    fn into(self) -> TermAtom {
-        TermAtom::Universe(self)
+impl From<TermUniverse> for TermAtom {
+    fn from(val: TermUniverse) -> Self {
+        TermAtom::Universe(val)
     }
 }
 
-impl Into<TermData> for TermUniverse {
-    fn into(self) -> TermData {
-        TermData::Atom(self.into())
+impl From<TermUniverse> for TermData {
+    fn from(val: TermUniverse) -> Self {
+        TermData::Atom(val.into())
     }
 }
 

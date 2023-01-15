@@ -48,8 +48,8 @@ impl XmlTagKind {
     }
 }
 
-impl Into<VisualData> for XmlValue {
-    fn into(self) -> VisualData {
+impl From<XmlValue> for VisualData {
+    fn from(val: XmlValue) -> Self {
         todo!()
         // let mut data = self.props.take_data();
         // msg_once!("ad hoc");

@@ -94,8 +94,8 @@ impl Deref for Keyword {
     }
 }
 
-impl const Into<Token> for ConfigKeyword {
-    fn into(self) -> Token {
-        Token::Keyword(self.into())
+impl const From<ConfigKeyword> for Token {
+    fn from(val: ConfigKeyword) -> Self {
+        Token::Keyword(val.into())
     }
 }

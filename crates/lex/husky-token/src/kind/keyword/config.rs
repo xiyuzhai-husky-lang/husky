@@ -7,9 +7,9 @@ pub enum ConfigKeyword {
     Task,
 }
 
-impl const Into<Keyword> for ConfigKeyword {
-    fn into(self) -> Keyword {
-        Keyword::Config(self)
+impl const From<ConfigKeyword> for Keyword {
+    fn from(val: ConfigKeyword) -> Self {
+        Keyword::Config(val)
     }
 }
 

@@ -6,9 +6,9 @@ pub struct TermApplication {
     n: Term,
 }
 
-impl Into<TermData> for TermApplication {
-    fn into(self) -> TermData {
-        TermData::Application(self)
+impl From<TermApplication> for TermData {
+    fn from(val: TermApplication) -> Self {
+        TermData::Application(val)
     }
 }
 

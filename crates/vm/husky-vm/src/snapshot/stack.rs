@@ -12,10 +12,10 @@ impl<'eval> StackSnapshot<'eval> {
     }
 }
 
-impl<'eval> Into<VMStack<'eval>> for &StackSnapshot<'eval> {
-    fn into(self) -> VMStack<'eval> {
+impl<'eval> From<&StackSnapshot<'eval>> for VMStack<'eval> {
+    fn from(val: &StackSnapshot<'eval>) -> Self {
         VMStack::new(
-            self.values
+            val.values
                 .iter()
                 .map(|value_snapshot| value_snapshot.clone()),
         )

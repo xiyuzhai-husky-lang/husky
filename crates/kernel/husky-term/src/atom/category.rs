@@ -7,14 +7,14 @@ pub enum TermCategory {
     TermData,
 }
 
-impl Into<TermAtom> for TermCategory {
-    fn into(self) -> TermAtom {
-        TermAtom::Category(self)
+impl From<TermCategory> for TermAtom {
+    fn from(val: TermCategory) -> Self {
+        TermAtom::Category(val)
     }
 }
 
-impl Into<TermData> for TermCategory {
-    fn into(self) -> TermData {
-        TermData::Atom(self.into())
+impl From<TermCategory> for TermData {
+    fn from(val: TermCategory) -> Self {
+        TermData::Atom(val.into())
     }
 }

@@ -55,8 +55,8 @@ impl const From<StmtKeyword> for Keyword {
     }
 }
 
-impl const Into<Token> for StmtKeyword {
-    fn into(self) -> Token {
-        Token::Keyword(self.into())
+impl const From<StmtKeyword> for Token {
+    fn from(val: StmtKeyword) -> Self {
+        Token::Keyword(val.into())
     }
 }

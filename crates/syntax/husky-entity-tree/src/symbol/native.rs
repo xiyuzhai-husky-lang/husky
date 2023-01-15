@@ -6,9 +6,9 @@ pub enum NativeEntitySymbol {
     ModuleItem(ModuleItemSymbol),
 }
 
-impl Into<EntitySymbol> for NativeEntitySymbol {
-    fn into(self) -> EntitySymbol {
-        match self {
+impl From<NativeEntitySymbol> for EntitySymbol {
+    fn from(val: NativeEntitySymbol) -> Self {
+        match val {
             NativeEntitySymbol::Submodule(symbol) => EntitySymbol::Submodule(symbol),
             NativeEntitySymbol::ModuleItem(symbol) => EntitySymbol::ModuleItem(symbol),
         }
@@ -23,45 +23,6 @@ impl NativeEntitySymbol {
         }
     }
 }
-
-// impl NativeEntitySymbol {
-//     pub(crate) fn ident(&self, db: &dyn EntityTreeDb) -> Identifier {
-//         match self {
-//             NativeEntitySymbol::Submodule(symbol) => symbol.ident(db),
-//             // NativeEntitySymbol::EntityUse(symbol) => symbol.ident(db),
-//             NativeEntitySymbol::ModuleItem(symbol) => symbol.ident(db),
-//         }
-//     }
-//     pub(crate) fn accessibility(&self) -> Accessibility {
-//         match self {
-//             NativeEntitySymbol::Submodule { accessibility, .. }
-//             | NativeEntitySymbol::ModuleItem(ModuleItem { accessibility, .. })
-//             | NativeEntitySymbol::EntityUse { accessibility, .. } => *accessibility,
-//         }
-//     }
-
-//     pub(crate) fn export(&self) -> EntitySymbol {
-//         EntitySymbol {
-//             path: self.path(),
-//             accessibility: self.accessibility(),
-//         }
-//     }
-
-//     pub fn path(&self) -> EntityPath {
-//         match self {
-//             NativeEntitySymbol::Submodule { module_path, .. } => (*module_path).into(),
-//             NativeEntitySymbol::ModuleItem(ModuleItem { path, .. }) => (*path).into(),
-//             NativeEntitySymbol::EntityUse { path, .. } => *path,
-//         }
-//     }
-
-//     pub fn module_item(&self) -> Option<&ModuleItem> {
-//         match self {
-//             NativeEntitySymbol::ModuleItem(module_item) => Some(module_item),
-//             _ => None,
-//         }
-//     }
-// }
 
 impl From<ModuleItemSymbol> for NativeEntitySymbol {
     fn from(v: ModuleItemSymbol) -> Self {
