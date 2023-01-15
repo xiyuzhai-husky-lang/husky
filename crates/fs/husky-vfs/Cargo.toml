@@ -15,6 +15,7 @@ dashmap = "5.4.0"
 eyre = "0.6.8"
 semver = "1.0.14"
 replace_with = "0.1.7"
+relative-path = { version = "1.7.2", optional = true }
 lsp-types = { version = "0.93", features = ["proposed"], optional = true }
 # abstraction
 vec-like = { path = "../../abstraction/vec-like" }
@@ -36,6 +37,6 @@ husky-minimal-toml-utils = { path = "../../utils/husky-minimal-toml-utils" }
 tempfile = "3.3.0"
 
 [features]
-default = []
+default = ["dep:relative-path"]
 test_utils = []
 lsp_support = ["dep:lsp-types", "husky-text/lsp_support"]

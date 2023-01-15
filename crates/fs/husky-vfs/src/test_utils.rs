@@ -1,10 +1,11 @@
 use crate::*;
 use husky_path_utils::*;
+use relative_path::RelativePathBuf;
 use salsa::DebugWithDb;
 use std::path::PathBuf;
 
 pub trait VfsTestUnit: Sized {
-    fn collect_from_dir(db: &dyn VfsDb, dir: &Path) -> Vec<Self>;
+    fn collect_from_package_path(db: &dyn VfsDb, package_path: PackagePath) -> Vec<Self>;
     fn decide_expect_file_path(
         &self,
         db: &dyn VfsDb,
@@ -14,7 +15,7 @@ pub trait VfsTestUnit: Sized {
 }
 
 impl VfsTestUnit for PackagePath {
-    fn collect_from_dir(db: &dyn VfsDb, dir: &Path) -> Vec<Self> {
+    fn collect_from_package_path(db: &dyn VfsDb, package_path: PackagePath) -> Vec<Self> {
         todo!()
     }
 
@@ -29,7 +30,7 @@ impl VfsTestUnit for PackagePath {
 }
 
 impl VfsTestUnit for CratePath {
-    fn collect_from_dir(db: &dyn VfsDb, dir: &Path) -> Vec<Self> {
+    fn collect_from_package_path(db: &dyn VfsDb, package_path: PackagePath) -> Vec<Self> {
         todo!()
     }
 
@@ -44,17 +45,8 @@ impl VfsTestUnit for CratePath {
 }
 
 impl VfsTestUnit for ModulePath {
-    fn collect_from_dir(db: &dyn VfsDb, dir: &Path) -> Vec<Self> {
-        let toolchain = db.dev_toolchain().unwrap();
-        collect_package_relative_dirs(dir)
-            .into_iter()
-            .map(|path| {
-                let package =
-                    PackagePath::new_local(db, toolchain, &path.to_logical_path(dir)).unwrap();
-                db.collect_probable_modules(package).into_iter()
-            })
-            .flatten()
-            .collect()
+    fn collect_from_package_path(db: &dyn VfsDb, package_path: PackagePath) -> Vec<Self> {
+        db.collect_probable_modules(package_path)
     }
 
     fn decide_expect_file_path(
@@ -63,13 +55,33 @@ impl VfsTestUnit for ModulePath {
         task_name: &str,
         package_expects_dir: &Path,
     ) -> PathBuf {
-        todo!()
-        // match self.data(db) {
-        //     ModulePathData::Root(_) => self.package_expects_dir.join(self.name),
-        //     ModulePathData::Child { parent, ident } => parent
-        //         .decide_expect_file_path(db, task_name)
-        //         .join(db.dt_ident(ident)),
-        // }
+        fn decide_expect_file_aux_path(
+            db: &dyn VfsDb,
+            module_path: ModulePath,
+            task_name: &str,
+            package_expects_dir: &Path,
+        ) -> PathBuf {
+            match module_path.data(db) {
+                ModulePathData::Root(_) => package_expects_dir.join(task_name),
+                ModulePathData::Child { parent, ident } => {
+                    decide_expect_file_aux_path(db, parent, task_name, package_expects_dir)
+                        .join(db.dt_ident(ident))
+                }
+            }
+        }
+        let aux_path = decide_expect_file_aux_path(db, *self, task_name, package_expects_dir);
+        match self.data(db) {
+            ModulePathData::Root(crate_path) => aux_path.join(format!(
+                "{}.{EXPECT_FILE_EXTENSION}",
+                match crate_path.crate_kind(db) {
+                    CrateKind::Library => "lib",
+                    CrateKind::Main => "main",
+                    CrateKind::Binary(_) => todo!(),
+                    CrateKind::StandaloneTest(_) => todo!(),
+                }
+            )),
+            ModulePathData::Child { .. } => aux_path.with_extension(EXPECT_FILE_EXTENSION),
+        }
     }
 }
 
@@ -734,29 +746,17 @@ fn vfs_expect_test<'a, Db, U, R>(
     U: VfsTestUnit,
 {
     let vfs_db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
+    let toolchain = db.dev_toolchain().unwrap();
     for (base, out) in expect_test_base_outs() {
         std::fs::create_dir_all(&out).expect("failed_to_create_dir_all");
-        for unit in <U as VfsTestUnit>::collect_from_dir(vfs_db, &base) {
-            let path = unit.decide_expect_file_path(vfs_db, name, todo!());
-            std::fs::create_dir_all(path.parent().unwrap()).unwrap();
-            expect_test::expect_file![path].assert_eq(&p(db, f(db, unit)))
+        for path in collect_package_relative_dirs(&base).into_iter() {
+            let package_path =
+                PackagePath::new_local(vfs_db, toolchain, &path.to_logical_path(&base)).unwrap();
+            for unit in <U as VfsTestUnit>::collect_from_package_path(vfs_db, package_path) {
+                let path = unit.decide_expect_file_path(vfs_db, name, &path.to_logical_path(&out));
+                std::fs::create_dir_all(path.parent().unwrap()).unwrap();
+                expect_test::expect_file![path].assert_eq(&p(db, f(db, unit)))
+            }
         }
     }
 }
-// let toolchain = db.dev_toolchain().unwrap();
-// collect_package_relative_dirs(base)
-//     .into_iter()
-//     .for_each(|path| {
-//         let package =
-//             PackagePath::new_local(db, toolchain, &path.to_logical_path(base)).unwrap();
-//         let resolver = TestPathResolver {
-//             db,
-//             name,
-//             package_expects_dir: path.to_logical_path(&out),
-//         };
-//         for module in db.collect_probable_modules(package) {
-//             let path = resolver.decide_module_expect_file_path(module);
-//             std::fs::create_dir_all(path.parent().unwrap()).unwrap();
-//             expect_test::expect_file![path].assert_eq(&p(&db, f(&db, module)))
-//         }
-//     });

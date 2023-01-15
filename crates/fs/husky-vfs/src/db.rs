@@ -24,7 +24,7 @@ pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {
         toolchain: Toolchain,
         package_path: PackagePath,
     ) -> VfsResult<Vec<CratePath>>;
-    fn collect_probable_modules(&self, package: PackagePath) -> Vec<ModulePath>;
+    fn collect_probable_modules(&self, package_path: PackagePath) -> Vec<ModulePath>;
     fn resolve_module_path(&self, toolchain: Toolchain, path: &Path) -> VfsResult<ModulePath>;
     fn toolchain_library_path(&self, toolchain: Toolchain) -> &Path;
     fn published_toolchain_library_path(&self, toolchain: PublishedToolchain) -> &Path;
