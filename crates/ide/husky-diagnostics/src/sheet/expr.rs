@@ -1,4 +1,4 @@
-use husky_expr::{Expr, ExprError, ExprSheet};
+use husky_expr::{Expr, ExprError, ExprSheet, Stmt, StmtError};
 use husky_token::RangedTokenSheet;
 
 use super::*;
@@ -61,6 +61,20 @@ fn collect_expr_diagnostics(
                         message,
                         severity: expr_error_severity(error),
                         range: expr_error_range(error, ranged_token_sheet),
+                    })
+                }
+            }
+            _ => (),
+        }
+    }
+    for stmt in expr_sheet.stmt_arena(db).data() {
+        match stmt {
+            Stmt::Err(error) => {
+                if let Some(message) = stmt_error_message(error) {
+                    diagnostics.push(Diagnostic {
+                        message,
+                        severity: stmt_error_severity(error),
+                        range: stmt_error_range(error, ranged_token_sheet),
                     })
                 }
             }
@@ -187,4 +201,16 @@ fn expr_error_range(error: &ExprError, ranged_token_sheet: &RangedTokenSheet) ->
         ExprError::Token(_) => todo!(),
         ExprError::MissingBlock(_) => todo!(),
     }
+}
+
+fn stmt_error_message(error: &StmtError) -> Option<String> {
+    todo!()
+}
+
+fn stmt_error_severity(error: &StmtError) -> DiagnosticSeverity {
+    todo!()
+}
+
+fn stmt_error_range(error: &StmtError, ranged_token_sheet: &RangedTokenSheet) -> TextRange {
+    todo!()
 }
