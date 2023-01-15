@@ -27,5 +27,5 @@ fn tokenize_works() {
 
 #[test]
 fn token_sheet_works() {
-    DB::expect_test_probable_modules_debug_ref_result("token_sheet", TokenDb::token_sheet_data)
+    DB::default().vfs_expect_test_debug_with_db("token_sheet", TokenDb::token_sheet_data)
 }

@@ -131,6 +131,21 @@ pub struct TokenSheetData {
     indents: Vec<u32>,
 }
 
+impl<Db: TokenDb + ?Sized> salsa::DebugWithDb<Db> for TokenSheetData {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        f.debug_struct("TokenSheetData")
+            .field("tokens", &self.tokens.debug(db))
+            .field("group_starts", &self.group_starts)
+            .field("indents", &self.indents)
+            .finish()
+    }
+}
+
 #[derive(Debug, PartialEq, Eq)]
 pub struct Comment {
     kind: CommentKind,

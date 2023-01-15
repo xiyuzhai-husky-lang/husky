@@ -50,7 +50,7 @@ fn collect_all_modules(
 
 #[test]
 fn submodules_works() {
-    DB::expect_test_probable_modules_debug_result_with_db("submodules", DB::submodules)
+    DB::default().vfs_expect_test_debug_with_db("submodules", DB::submodules)
 }
 
 #[test]
