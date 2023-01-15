@@ -24,5 +24,5 @@ impl ParallelDatabase for DB {
 #[test]
 fn ast_sheet_works() {
     use tests::*;
-    DB::expect_test_probable_modules_debug_result_with_db("ast_sheet", AstDb::ast_sheet);
+    DB::default().vfs_expect_test_debug_with_db("ast_sheet", AstDb::ast_sheet);
 }

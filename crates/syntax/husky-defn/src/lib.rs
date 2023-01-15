@@ -74,5 +74,5 @@ fn defn_sheet_works() {
     use husky_vfs::VfsTestSupport;
     use tests::*;
 
-    DB::expect_test_probable_modules_debug_result_with_db("defn_sheet", DefnDb::defn_sheet);
+    DB::default().vfs_expect_test_debug_with_db("defn_sheet", DefnDb::defn_sheet);
 }
