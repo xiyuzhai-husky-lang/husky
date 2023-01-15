@@ -24,7 +24,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 183,
+                                                    value: 182,
                                                 },
                                             ),
                                         ),
@@ -44,7 +44,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 184,
+                                                    value: 183,
                                                 },
                                             ),
                                         ),
@@ -200,7 +200,7 @@ Ok(
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            36,
+                                            40,
                                         ),
                                     },
                                     decls: [
@@ -213,7 +213,7 @@ Ok(
                                             },
                                             colon: ColonToken {
                                                 token_idx: TokenIdx(
-                                                    38,
+                                                    42,
                                                 ),
                                             },
                                             ty: 0,
@@ -222,14 +222,14 @@ Ok(
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            40,
+                                            44,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            41,
+                                            45,
                                         ),
                                     },
                                 ),
@@ -239,7 +239,7 @@ Ok(
                                 eol_colon: Ok(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            43,
+                                            47,
                                         ),
                                     },
                                 ),

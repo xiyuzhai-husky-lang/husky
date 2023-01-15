@@ -155,6 +155,14 @@ Ok(
             Punctuation(
                 Colon,
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -180,6 +188,14 @@ Ok(
                 Bra(
                     Par,
                 ),
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -257,6 +273,11 @@ Ok(
             Punctuation(
                 Colon,
             ),
+            Keyword(
+                Stmt(
+                    Let,
+                ),
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -273,13 +294,9 @@ Ok(
                     ),
                 ),
             ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 349,
-                        },
-                    ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
                 ),
             ),
             Punctuation(
@@ -304,11 +321,16 @@ Ok(
                     Par,
                 ),
             ),
+            Keyword(
+                Stmt(
+                    Let,
+                ),
+            ),
             Identifier(
                 Identifier(
                     Word(
                         Id {
-                            value: 350,
+                            value: 349,
                         },
                     ),
                 ),
@@ -319,6 +341,14 @@ Ok(
                         None,
                     ),
                 ),
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -395,7 +425,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 350,
+                            value: 349,
                         },
                     ),
                 ),
@@ -420,7 +450,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 350,
+                            value: 349,
                         },
                     ),
                 ),
@@ -455,11 +485,16 @@ Ok(
             Punctuation(
                 Colon,
             ),
+            Keyword(
+                Stmt(
+                    Let,
+                ),
+            ),
             Identifier(
                 Identifier(
                     Word(
                         Id {
-                            value: 351,
+                            value: 350,
                         },
                     ),
                 ),
@@ -546,7 +581,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 351,
+                            value: 350,
                         },
                     ),
                 ),
@@ -571,7 +606,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 351,
+                            value: 350,
                         },
                     ),
                 ),
@@ -636,7 +671,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 350,
+                            value: 349,
                         },
                     ),
                 ),
@@ -713,17 +748,17 @@ Ok(
             18,
             21,
             28,
-            34,
-            44,
-            51,
-            59,
-            69,
-            74,
-            76,
+            38,
+            48,
+            56,
+            67,
+            77,
+            82,
             84,
-            94,
-            99,
-            101,
+            93,
+            103,
+            108,
+            110,
         ],
         indents: [
             0,

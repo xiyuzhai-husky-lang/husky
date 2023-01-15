@@ -272,7 +272,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 354,
+                            value: 353,
                         },
                     ),
                 ),
@@ -282,13 +282,9 @@ Ok(
                     Par,
                 ),
             ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 349,
-                        },
-                    ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
                 ),
             ),
             Punctuation(
@@ -355,6 +351,14 @@ Ok(
                         None,
                     ),
                 ),
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -585,6 +589,14 @@ Ok(
             Punctuation(
                 LaOrLt,
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -639,6 +651,14 @@ Ok(
                         None,
                     ),
                 ),
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -1081,6 +1101,14 @@ Ok(
             Punctuation(
                 Colon,
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -1146,13 +1174,9 @@ Ok(
                     Par,
                 ),
             ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 349,
-                        },
-                    ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
                 ),
             ),
             Punctuation(
@@ -1259,6 +1283,14 @@ Ok(
             Punctuation(
                 LaOrLt,
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -1313,6 +1345,14 @@ Ok(
                         None,
                     ),
                 ),
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -1374,6 +1414,14 @@ Ok(
                         None,
                     ),
                 ),
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -1611,6 +1659,14 @@ Ok(
                     ),
                 ),
             ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -1624,6 +1680,14 @@ Ok(
                 Bra(
                     Box,
                 ),
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -1693,6 +1757,14 @@ Ok(
                         None,
                     ),
                 ),
+            ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Punctuation(
+                Dot,
             ),
             Identifier(
                 Identifier(
@@ -2005,6 +2077,11 @@ Ok(
             Punctuation(
                 Colon,
             ),
+            Keyword(
+                Stmt(
+                    Let,
+                ),
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -2021,13 +2098,9 @@ Ok(
                     ),
                 ),
             ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 349,
-                        },
-                    ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
                 ),
             ),
             Punctuation(
@@ -2064,6 +2137,11 @@ Ok(
                     Par,
                 ),
             ),
+            Keyword(
+                Stmt(
+                    Let,
+                ),
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -2080,13 +2158,9 @@ Ok(
                     ),
                 ),
             ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 349,
-                        },
-                    ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
                 ),
             ),
             Punctuation(
@@ -2136,6 +2210,11 @@ Ok(
                     Box,
                 ),
             ),
+            Keyword(
+                Stmt(
+                    Let,
+                ),
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -2152,13 +2231,9 @@ Ok(
                     ),
                 ),
             ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 349,
-                        },
-                    ),
+            Keyword(
+                Pronoun(
+                    SelfValue,
                 ),
             ),
             Punctuation(
@@ -2291,7 +2366,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 349,
+                            value: 355,
                         },
                     ),
                 ),
@@ -4140,6 +4215,11 @@ Ok(
             Punctuation(
                 Colon,
             ),
+            Keyword(
+                Stmt(
+                    Let,
+                ),
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -4194,6 +4274,11 @@ Ok(
             Punctuation(
                 Ket(
                     Par,
+                ),
+            ),
+            Keyword(
+                Stmt(
+                    Let,
                 ),
             ),
             Identifier(
@@ -5423,6 +5508,11 @@ Ok(
             Punctuation(
                 Colon,
             ),
+            Keyword(
+                Stmt(
+                    Let,
+                ),
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -5468,6 +5558,11 @@ Ok(
             Punctuation(
                 Ket(
                     Par,
+                ),
+            ),
+            Keyword(
+                Stmt(
+                    Let,
                 ),
             ),
             Identifier(
@@ -5524,6 +5619,11 @@ Ok(
             Punctuation(
                 Ket(
                     Box,
+                ),
+            ),
+            Keyword(
+                Stmt(
+                    Let,
                 ),
             ),
             Identifier(
@@ -9233,196 +9333,196 @@ Ok(
             49,
             57,
             62,
-            69,
-            76,
-            83,
-            90,
-            97,
-            106,
-            113,
-            123,
-            133,
-            143,
-            153,
-            171,
-            176,
-            191,
-            196,
-            201,
-            212,
-            221,
-            228,
-            257,
-            270,
-            277,
-            306,
-            308,
-            322,
-            331,
-            341,
-            351,
-            357,
-            359,
-            369,
-            371,
-            373,
-            375,
-            377,
-            379,
-            393,
-            404,
-            418,
-            425,
-            439,
-            450,
-            469,
-            478,
-            487,
-            490,
-            495,
-            498,
-            500,
-            507,
-            514,
-            519,
-            526,
-            531,
-            534,
-            541,
-            543,
-            550,
+            71,
+            78,
+            85,
+            92,
+            99,
+            110,
+            119,
+            129,
+            139,
+            149,
+            159,
+            177,
+            182,
+            199,
+            204,
+            209,
+            222,
+            233,
+            242,
+            271,
+            288,
+            297,
+            326,
+            328,
+            342,
+            352,
+            363,
+            374,
+            380,
+            382,
+            392,
+            394,
+            396,
+            398,
+            400,
+            402,
+            416,
+            427,
+            441,
+            448,
+            462,
+            473,
+            492,
+            501,
+            510,
+            513,
+            518,
+            521,
+            523,
+            530,
+            537,
+            542,
+            549,
+            554,
             557,
-            562,
-            567,
-            570,
-            572,
-            579,
-            586,
-            591,
-            596,
-            610,
-            635,
-            638,
-            640,
-            642,
-            649,
-            655,
-            660,
+            564,
+            566,
+            573,
+            580,
+            585,
+            590,
+            593,
+            595,
+            602,
+            609,
+            614,
+            619,
+            633,
+            658,
+            661,
+            663,
+            665,
+            672,
+            678,
             683,
-            691,
-            699,
-            702,
-            707,
-            710,
-            717,
-            719,
-            726,
-            731,
-            736,
-            739,
-            746,
-            753,
-            758,
+            706,
+            715,
+            724,
+            727,
+            732,
+            735,
+            742,
+            744,
+            751,
+            756,
             761,
-            770,
-            779,
-            784,
-            791,
-            796,
-            801,
+            764,
+            771,
+            778,
+            783,
+            786,
+            795,
             804,
-            806,
-            808,
-            815,
-            820,
-            823,
-            832,
-            841,
-            846,
-            851,
-            856,
-            859,
-            861,
-            868,
-            875,
-            880,
-            885,
-            888,
-            891,
-            894,
-            906,
+            809,
+            816,
+            821,
+            826,
+            829,
+            831,
+            833,
+            840,
+            845,
+            848,
+            857,
+            866,
+            871,
+            876,
+            881,
+            884,
+            886,
+            893,
+            900,
+            905,
+            910,
             913,
-            921,
-            929,
-            956,
-            969,
-            978,
-            985,
-            992,
-            1003,
-            1012,
-            1018,
-            1024,
-            1051,
-            1058,
-            1064,
-            1073,
-            1078,
-            1090,
-            1102,
-            1112,
-            1124,
-            1128,
-            1132,
-            1136,
-            1141,
-            1146,
-            1151,
-            1157,
-            1163,
+            916,
+            919,
+            931,
+            939,
+            948,
+            957,
+            984,
+            997,
+            1006,
+            1013,
+            1020,
+            1031,
+            1040,
+            1046,
+            1052,
+            1079,
+            1086,
+            1092,
+            1101,
+            1106,
+            1118,
+            1130,
+            1140,
+            1152,
+            1156,
+            1160,
+            1164,
             1169,
-            1186,
-            1199,
-            1208,
-            1226,
-            1229,
-            1253,
-            1263,
-            1276,
-            1280,
-            1284,
-            1298,
+            1174,
+            1179,
+            1185,
+            1191,
+            1197,
+            1214,
+            1227,
+            1236,
+            1254,
+            1257,
+            1281,
+            1291,
+            1304,
+            1308,
             1312,
-            1315,
-            1318,
-            1336,
-            1350,
-            1354,
-            1358,
-            1360,
-            1373,
-            1376,
-            1379,
+            1326,
+            1340,
+            1343,
+            1346,
+            1364,
+            1378,
             1382,
-            1385,
+            1386,
             1388,
-            1392,
-            1399,
+            1401,
             1404,
             1407,
-            1417,
-            1424,
-            1429,
+            1410,
+            1413,
+            1416,
+            1420,
+            1427,
             1432,
-            1440,
-            1451,
-            1462,
-            1465,
-            1471,
-            1473,
-            1487,
+            1435,
+            1445,
+            1452,
+            1457,
+            1460,
+            1468,
+            1479,
+            1490,
             1493,
-            1504,
+            1499,
+            1501,
+            1515,
+            1521,
+            1532,
         ],
         indents: [
             0,

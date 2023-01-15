@@ -10,16 +10,16 @@ struct RawContour {
 
 impl RawContour:
     func line_segment_sketch -> LineSegmentSketch:
-        LineSegmentSketch::new(this, 1.4)
+        LineSegmentSketch::new(self, 1.4)
 
     proc bounding_box -> BoundingBox:
-        let start_point = points[0]
+        let start_point = self.points[0]
         let mut xmin = start_point.x
         let mut xmax = start_point.x
         let mut ymin = start_point.y
         let mut ymax = start_point.y
-        for i < points.ilen():
-            let point = points[i]
+        for i < self.points.ilen():
+            let point = self.points[i]
             xmin = xmin.min(point.x)
             xmax = xmax.max(point.x)
             ymin = ymin.min(point.y)
@@ -30,23 +30,23 @@ impl RawContour:
         )
     
     func relative_bounding_box -> RelativeBoundingBox:
-        cc.raw_contours[0].bounding_box.relative_bounding_box(this.bounding_box)
+        self.cc.raw_contours[0].bounding_box.relative_bounding_box(self.bounding_box)
     
     proc contour_len -> f32:
         let mut contour_len = 0.0
-        for 0 < i < points.ilen():
-            let a = points[i-1]
-            let b = points[i]
+        for 0 < i < self.points.ilen():
+            let a = self.points[i-1]
+            let b = self.points[i]
             contour_len += (a.x - b.x).abs() + (a.y - b.y).abs()
-        let a = points[points.ilen() - 1]
-        let b = points[0]
+        let a = self.points[self.points.ilen() - 1]
+        let b = self.points[0]
         contour_len += (a.x - b.x).abs() + (a.y - b.y).abs()
         return contour_len
 
     func displacement(start: i32, end: i32) -> Vector2d:
-        N = this.points.ilen()
-        ct_start = this.points[start%N]
-        ct_end = this.points[end%N]
+        let N = self.points.ilen()
+        let ct_start = self.points[start%N]
+        let ct_end = self.points[end%N]
         ct_start.to(ct_end)
 
     visual:
@@ -112,8 +112,8 @@ func get_outward_direction(
     j: i32,
     inward_direction: Direction,
 ) -> Direction:
-    pixel_pair_above = get_pixel_pair(row_above, j)
-    pixel_pair_below = get_pixel_pair(row_below, j)
+    let pixel_pair_above = get_pixel_pair(row_above, j)
+    let pixel_pair_below = get_pixel_pair(row_below, j)
     match pixel_pair_above with
     | 0 =>:
         match pixel_pair_below with
@@ -157,9 +157,9 @@ struct StreakCache:
     prev2: i32
 
 func get_concave_middle_point(points: []Point2d) -> Point2d:
-    N = points.ilen()
-    p0 = points[N-2]
-    p2 = points[N-1]
+    let N = points.ilen()
+    let p0 = points[N-2]
+    let p2 = points[N-1]
     Point2d(
         (p0.x + p2.x) / 2.0, 
         (p0.y + p2.y) / 2.0,
