@@ -48,7 +48,7 @@ use husky_word::WordJar;
 #[derive(Default)]
 pub struct AnalyzerDB {
     storage: salsa::Storage<AnalyzerDB>,
-    semantic_tokens_ext_cache: Arc<DashMap<lsp_types::Url, Vec<lsp_types::SemanticToken>>>,
+    semantic_tokens_ext_cache: Arc<DashMap<lsp_types::Url, lsp_types::SemanticTokens>>,
 }
 
 impl salsa::Database for AnalyzerDB {}
@@ -63,13 +63,19 @@ impl salsa::ParallelDatabase for AnalyzerDB {
 }
 
 impl AnalyzerDB {
-    pub(crate) fn cache_semantic_tokens_ext(
+    pub(crate) fn cache_semantic_tokens(
         &self,
         uri: lsp_types::Url,
-        semantic_tokens_ext: &[lsp_types::SemanticToken],
+        semantic_tokens: lsp_types::SemanticTokens,
     ) {
-        self.semantic_tokens_ext_cache
-            .insert(uri, semantic_tokens_ext.to_vec());
+        self.semantic_tokens_ext_cache.insert(uri, semantic_tokens);
+    }
+
+    pub(crate) fn cached_semantic_tokens_entry(
+        &self,
+        uri: lsp_types::Url,
+    ) -> dashmap::mapref::entry::Entry<lsp_types::Url, lsp_types::SemanticTokens> {
+        self.semantic_tokens_ext_cache.entry(uri)
     }
 }
 
