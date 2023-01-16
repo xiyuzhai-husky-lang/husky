@@ -178,13 +178,7 @@
                 "configuration": "./language-configuration.json"
             }
         ],
-        "grammars": [
-            {
-                "language": "husky",
-                "scopeName": "source.husky",
-                "path": "./syntaxes/husky.tmLanguage.json"
-            }
-        ],
+        "grammars": [],
         "colors": [
             {
                 "id": "husky_analyzer.syntaxTreeBorder",
