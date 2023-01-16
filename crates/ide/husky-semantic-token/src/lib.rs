@@ -9,6 +9,7 @@ mod tests;
 mod token;
 
 pub use db::*;
+use husky_text::TextRange;
 pub use specs::*;
 
 use collect::*;
@@ -21,7 +22,7 @@ use husky_vfs::*;
 use token::*;
 
 #[salsa::jar(db = SemanticTokenDb)]
-pub struct SemanticTokenJar(semantic_tokens, semantic_tokens_ext);
+pub struct SemanticTokenJar(semantic_tokens, semantic_tokens_ext_without_range);
 
 #[salsa::tracked(jar = SemanticTokenJar, return_ref)]
 fn semantic_tokens(
@@ -32,12 +33,25 @@ fn semantic_tokens(
 }
 
 #[salsa::tracked(jar = SemanticTokenJar, return_ref)]
-fn semantic_tokens_ext(
+fn semantic_tokens_ext_without_range(
     db: &dyn SemanticTokenDb,
     module_path: ModulePath,
 ) -> EntityTreeResult<Vec<ext::SemanticToken>> {
     let tokens = semantic_tokens(db, module_path)
         .as_ref()
         .map_err(|e| e.clone())?;
+    Ok(to_semantic_tokens(tokens))
+}
+
+fn semantic_tokens_ext_within_range(
+    db: &dyn SemanticTokenDb,
+    module_path: ModulePath,
+    range: &TextRange,
+) -> EntityTreeResult<Vec<ext::SemanticToken>> {
+    let tokens = semantic_tokens(db, module_path)
+        .as_ref()
+        .map_err(|e| e.clone())?
+        .iter()
+        .filter(|token| token.range.is_within(range));
     Ok(to_semantic_tokens(tokens))
 }

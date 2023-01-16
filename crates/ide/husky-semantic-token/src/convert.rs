@@ -1,6 +1,8 @@
 use crate::*;
 
-pub(crate) fn to_semantic_tokens(tokens: &[RangedSemanticToken]) -> Vec<ext::SemanticToken> {
+pub(crate) fn to_semantic_tokens<'a>(
+    tokens: impl IntoIterator<Item = &'a RangedSemanticToken>,
+) -> Vec<ext::SemanticToken> {
     let mut semantic_tokens = vec![];
     let mut last_line = 0;
     let mut last_start = 0;
