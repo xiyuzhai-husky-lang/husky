@@ -53,7 +53,7 @@ fn token_to_semantic_token(
         } => match local_symbol_kind {
             LocalSymbolKind::LetVariable { .. } => SemanticToken::Variable,
             LocalSymbolKind::Parameter { .. } => SemanticToken::Parameter,
-            LocalSymbolKind::FrameVariable(_) =>  SemanticToken::FrameVariable,
+            LocalSymbolKind::FrameVariable(_) => SemanticToken::FrameVariable,
         },
         // SemanticToken::Variable,
         TokenInfo::InheritedSymbol {

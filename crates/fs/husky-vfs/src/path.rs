@@ -1,22 +1,25 @@
 mod crate_path;
+mod diff_path;
 mod menu;
 mod module_path;
 mod package_path;
-mod diff_path;
 
 pub use crate_path::*;
-pub use module_path::*;
-pub use menu::*;
-pub use package_path::*;
 pub use diff_path::*;
+pub use menu::*;
+pub use module_path::*;
+pub use package_path::*;
 
 use crate::*;
 
-pub(crate) fn package_manifest_path(
-    db: &dyn VfsDb,
-    package: PackagePath,
-) -> VfsResult<DiffPath> {
-    DiffPath::try_new(db, &package_dir(db, package).as_ref()?.path(db).join("Corgi.toml"))
+pub(crate) fn package_manifest_path(db: &dyn VfsDb, package: PackagePath) -> VfsResult<DiffPath> {
+    DiffPath::try_new(
+        db,
+        &package_dir(db, package)
+            .as_ref()?
+            .path(db)
+            .join("Corgi.toml"),
+    )
 }
 
 #[salsa::tracked(jar = VfsJar, return_ref)]
@@ -36,10 +39,7 @@ pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<Dif
 }
 
 #[salsa::tracked(jar = VfsJar)]
-pub(crate) fn module_diff_path(
-    db: &dyn VfsDb,
-    module_path: ModulePath,
-) -> VfsResult<DiffPath> {
+pub(crate) fn module_diff_path(db: &dyn VfsDb, module_path: ModulePath) -> VfsResult<DiffPath> {
     match module_path.data(db) {
         ModulePathData::Root(crate_path) => DiffPath::try_new(
             db,
@@ -64,8 +64,11 @@ pub(crate) fn module_diff_path(
 }
 
 // this shouldn't be tracked
-pub(crate) fn resolve_module_path(db: &dyn VfsDb,
-    toolchain: Toolchain, path: impl AsRef<Path>) -> VfsResult<ModulePath> {
+pub(crate) fn resolve_module_path(
+    db: &dyn VfsDb,
+    toolchain: Toolchain,
+    path: impl AsRef<Path>,
+) -> VfsResult<ModulePath> {
     let path = path.as_ref();
     if path.extension().and_then(|s| s.to_str()) != Some("hsy") {
         todo!()
@@ -97,17 +100,17 @@ pub(crate) fn resolve_module_path(db: &dyn VfsDb,
                  ),
                 _ => {
                     if let lib_path = parent.join("lib.hsy") && lib_path.exists() {
-                        ModulePath::new_child( db,
-                             resolve_module_path(db,toolchain, lib_path)?,
-                              db
-                                .it_ident_borrowed(file_stem)
+                        ModulePath::new_child(
+                            db,
+                            resolve_module_path(db,toolchain, lib_path)?,
+                            db.it_ident_borrowed(file_stem)
                                 .ok_or(VfsError::ModulePathResolveFailure)?,
                         )
                     } else if let main_path = parent.join("main.hsy") && main_path.exists() {
-                        ModulePath::new_child(db, 
+                        ModulePath::new_child(
+                            db,
                             resolve_module_path(db, toolchain,main_path)?,
-                            db
-                                .it_ident_borrowed(file_stem)
+                            db.it_ident_borrowed(file_stem)
                                 .ok_or(VfsError::ModulePathResolveFailure)?,
                          )
                     } else {
@@ -120,10 +123,10 @@ pub(crate) fn resolve_module_path(db: &dyn VfsDb,
             if !parent_module_path.exists() {
                 todo!()
             }
-            ModulePath::new_child(db,
-                resolve_module_path(db,toolchain, parent_module_path)?,
-                db
-                    .it_ident_borrowed(file_stem)
+            ModulePath::new_child(
+                db,
+                resolve_module_path(db, toolchain, parent_module_path)?,
+                db.it_ident_borrowed(file_stem)
                     .ok_or(VfsError::ModulePathResolveFailure)?,
             )
         },
@@ -135,7 +138,9 @@ fn resolve_module_path_works() {
     DB::default().vfs_test(|db, module_path| {
         let abs_path = module_diff_path(db, module_path).unwrap();
         let toolchain = module_path.toolchain(db);
-        let entity_path_resolved = db.resolve_module_path(toolchain, abs_path.path(db)).unwrap();
+        let entity_path_resolved = db
+            .resolve_module_path(toolchain, abs_path.path(db))
+            .unwrap();
         assert_eq!(module_path, entity_path_resolved)
     })
 }
