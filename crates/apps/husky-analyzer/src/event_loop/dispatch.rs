@@ -120,7 +120,6 @@ fn handle_lsp_notification(
             Ok(TaskSet::SendUpdates)
         })?
         .on_sync::<lsp_types::notification::DidChangeTextDocument>(|server, params| {
-            todo!();
             if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
                 eprintln!("apply live file changes for path {:?}", path);
                 let changes = params

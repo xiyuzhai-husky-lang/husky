@@ -25,7 +25,7 @@ impl FermiMatchResult:
             norm = norm.max(self.others[i].angle_change.abs())
         return norm
 
-proc fermi_match(
+pub proc fermi_match(
     concave_components: &[]ConcaveComponent,
     templates: []((&ConcaveComponent) -> ?f32)
 ) -> FermiMatchResult:

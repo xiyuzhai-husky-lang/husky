@@ -285,10 +285,22 @@ Ok(
                 None,
             ),
             None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 24,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
-            None,
-            None,
-            None,
+            SelfValue,
             None,
             Field,
             None,

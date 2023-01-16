@@ -241,7 +241,7 @@ Ok(
                                 ident: Identifier(
                                     Word(
                                         Id {
-                                            value: 86,
+                                            value: 78,
                                         },
                                     ),
                                 ),
@@ -270,12 +270,12 @@ Ok(
                                 ident: Identifier(
                                     Word(
                                         Id {
-                                            value: 80,
+                                            value: 86,
                                         },
                                     ),
                                 ),
                                 token_idx: TokenIdx(
-                                    42,
+                                    43,
                                 ),
                             },
                         ),
@@ -299,17 +299,46 @@ Ok(
                                 ident: Identifier(
                                     Word(
                                         Id {
+                                            value: 80,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    47,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            12..13,
+                        ),
+                    },
+                    parent: None,
+                    state: Unresolved,
+                },
+                UseTracker {
+                    ast_idx: 26,
+                    accessibility: Done {
+                        accessibility: PubicUnder(
+                            `mnist_classifier`,
+                        ),
+                    },
+                    variant: Parent {
+                        parent_name_token: Identifier(
+                            IdentifierToken {
+                                ident: Identifier(
+                                    Word(
+                                        Id {
                                             value: 92,
                                         },
                                     ),
                                 ),
                                 token_idx: TokenIdx(
-                                    46,
+                                    51,
                                 ),
                             },
                         ),
                         children: ArenaIdxRange(
-                            15..16,
+                            17..18,
                         ),
                     },
                     parent: None,

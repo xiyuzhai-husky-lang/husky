@@ -297,13 +297,7 @@ Ok(
                     body: ArenaIdxRange(
                         17..21,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 27,
-                            },
-                        ),
-                    ),
+                    accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Function,
@@ -316,13 +310,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `fermi_match`,
                         token_idx: TokenIdx(
-                            145,
+                            146,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        146,
+                        147,
                     ),
                 },
             ],

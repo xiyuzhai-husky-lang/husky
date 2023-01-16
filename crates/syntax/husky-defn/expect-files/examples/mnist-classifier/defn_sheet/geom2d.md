@@ -141,7 +141,7 @@ Ok(
                                 },
                             ),
                             body: Ok(
-                                8,
+                                6,
                             ),
                         },
                     ),
@@ -242,14 +242,14 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                169,
+                                168,
                             ),
                         },
                         ty: 0,
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    171,
+                                    170,
                                 ),
                             },
                         ),
@@ -540,14 +540,14 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                610,
+                                609,
                             ),
                         },
                         ty: 0,
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    612,
+                                    611,
                                 ),
                             },
                         ),
@@ -738,14 +738,14 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                744,
+                                743,
                             ),
                         },
                         ty: 0,
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    746,
+                                    745,
                                 ),
                             },
                         ),

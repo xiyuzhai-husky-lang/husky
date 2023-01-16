@@ -58,12 +58,12 @@ def is_nine -> ?MnistLabel:
     MnistLabel::Nine
 
 func downmost(cc: &ConcaveComponent) -> ?f32:
-    dp = cc.displacement()
+    let dp = cc.displacement()
     require dp.y < 0.0
     dp.y
 
 func big_cc(cc: &ConcaveComponent)-> ?f32:
-    dp=cc.displacement()
+    let dp = cc.displacement()
     require dp.y >0.0
     require cc.relative_bounding_box.ymin()>0.4
     // dp = cc.displacement()

@@ -177,13 +177,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 34,
-                            },
-                        ),
-                    ),
+                    accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Feature,
@@ -196,13 +190,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `connected_components`,
                         token_idx: TokenIdx(
-                            31,
+                            32,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        32,
+                        33,
                     ),
                 },
                 Defn {
@@ -212,13 +206,7 @@ Ok(
                     body: ArenaIdxRange(
                         6..10,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 34,
-                            },
-                        ),
-                    ),
+                    accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Feature,
@@ -231,13 +219,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `major_connected_component`,
                         token_idx: TokenIdx(
-                            42,
+                            44,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        43,
+                        45,
                     ),
                 },
                 Defn {
@@ -247,13 +235,7 @@ Ok(
                     body: ArenaIdxRange(
                         11..14,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 34,
-                            },
-                        ),
-                    ),
+                    accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Feature,
@@ -266,13 +248,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `ignored_connected_components_row_span_sum_sum`,
                         token_idx: TokenIdx(
-                            91,
+                            94,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        92,
+                        95,
                     ),
                 },
                 Defn {
@@ -282,13 +264,7 @@ Ok(
                     body: ArenaIdxRange(
                         14..15,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 34,
-                            },
-                        ),
-                    ),
+                    accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Feature,
@@ -301,13 +277,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `major_raw_contours`,
                         token_idx: TokenIdx(
-                            124,
+                            128,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        125,
+                        129,
                     ),
                 },
                 Defn {
@@ -317,13 +293,7 @@ Ok(
                     body: ArenaIdxRange(
                         15..16,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 34,
-                            },
-                        ),
-                    ),
+                    accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Feature,
@@ -336,13 +306,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `major_raw_contour`,
                         token_idx: TokenIdx(
-                            134,
+                            139,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        135,
+                        140,
                     ),
                 },
                 Defn {
@@ -352,13 +322,7 @@ Ok(
                     body: ArenaIdxRange(
                         16..17,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 34,
-                            },
-                        ),
-                    ),
+                    accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Feature,
@@ -371,13 +335,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `major_line_segment_sketch`,
                         token_idx: TokenIdx(
-                            145,
+                            151,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        146,
+                        152,
                     ),
                 },
                 Defn {
@@ -387,13 +351,7 @@ Ok(
                     body: ArenaIdxRange(
                         17..18,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 34,
-                            },
-                        ),
-                    ),
+                    accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Feature,
@@ -406,13 +364,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `major_concave_components`,
                         token_idx: TokenIdx(
-                            153,
+                            160,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        154,
+                        161,
                     ),
                 },
             ],

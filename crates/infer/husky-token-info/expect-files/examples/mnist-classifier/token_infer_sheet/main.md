@@ -88,6 +88,25 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
+                                value: 14,
+                            },
+                        ),
+                    ),
+                },
+            },
+            None,
+            None,
+            None,
+            None,
+            UseExpr {
+                use_expr_idx: 11,
+                rule_idx: UseExprRuleIdx(
+                    5,
+                ),
+                state: Resolved {
+                    original_symbol: Submodule(
+                        SubmoduleSymbol(
+                            Id {
                                 value: 11,
                             },
                         ),
@@ -96,9 +115,9 @@ Ok(
             },
             None,
             UseExpr {
-                use_expr_idx: 8,
+                use_expr_idx: 10,
                 rule_idx: UseExprRuleIdx(
-                    7,
+                    8,
                 ),
                 state: Resolved {
                     original_symbol: ModuleItem(
@@ -112,9 +131,9 @@ Ok(
             },
             None,
             UseExpr {
-                use_expr_idx: 11,
+                use_expr_idx: 13,
                 rule_idx: UseExprRuleIdx(
-                    5,
+                    6,
                 ),
                 state: Resolved {
                     original_symbol: Submodule(
@@ -130,9 +149,9 @@ Ok(
             None,
             None,
             UseExpr {
-                use_expr_idx: 16,
+                use_expr_idx: 18,
                 rule_idx: UseExprRuleIdx(
-                    6,
+                    7,
                 ),
                 state: Erroneous,
             },

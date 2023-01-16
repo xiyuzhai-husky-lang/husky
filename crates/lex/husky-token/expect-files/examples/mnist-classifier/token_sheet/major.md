@@ -131,6 +131,9 @@ Ok(
             Punctuation(
                 Star,
             ),
+            Attr(
+                Pub,
+            ),
             Keyword(
                 Paradigm(
                     Func,
@@ -190,7 +193,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 386,
+                            value: 385,
                         },
                     ),
                 ),
@@ -199,6 +202,9 @@ Ok(
                 Ket(
                     Par,
                 ),
+            ),
+            Attr(
+                Pub,
             ),
             Keyword(
                 Paradigm(
@@ -245,7 +251,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 387,
+                            value: 386,
                         },
                     ),
                 ),
@@ -276,7 +282,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 388,
+                            value: 387,
                         },
                     ),
                 ),
@@ -426,7 +432,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 388,
+                            value: 387,
                         },
                     ),
                 ),
@@ -438,7 +444,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 388,
+                            value: 387,
                         },
                     ),
                 ),
@@ -463,7 +469,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 387,
+                            value: 386,
                         },
                     ),
                 ),
@@ -507,7 +513,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 387,
+                            value: 386,
                         },
                     ),
                 ),
@@ -516,6 +522,9 @@ Ok(
                 Ket(
                     Box,
                 ),
+            ),
+            Attr(
+                Pub,
             ),
             Keyword(
                 Paradigm(
@@ -562,7 +571,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 389,
+                            value: 388,
                         },
                     ),
                 ),
@@ -634,7 +643,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 389,
+                            value: 388,
                         },
                     ),
                 ),
@@ -697,7 +706,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 389,
+                            value: 388,
                         },
                     ),
                 ),
@@ -730,6 +739,9 @@ Ok(
                     ),
                 ),
             ),
+            Attr(
+                Pub,
+            ),
             Keyword(
                 Paradigm(
                     Func,
@@ -739,7 +751,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 390,
+                            value: 389,
                         },
                     ),
                 ),
@@ -792,6 +804,9 @@ Ok(
                     ),
                 ),
             ),
+            Attr(
+                Pub,
+            ),
             Keyword(
                 Paradigm(
                     Func,
@@ -801,7 +816,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 391,
+                            value: 390,
                         },
                     ),
                 ),
@@ -859,6 +874,9 @@ Ok(
                     Box,
                 ),
             ),
+            Attr(
+                Pub,
+            ),
             Keyword(
                 Paradigm(
                     Func,
@@ -882,7 +900,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 319,
+                            value: 318,
                         },
                     ),
                 ),
@@ -894,7 +912,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 391,
+                            value: 390,
                         },
                     ),
                 ),
@@ -910,6 +928,9 @@ Ok(
                         },
                     ),
                 ),
+            ),
+            Attr(
+                Pub,
             ),
             Keyword(
                 Paradigm(
@@ -981,29 +1002,29 @@ Ok(
             18,
             26,
             30,
-            37,
-            41,
-            46,
-            51,
-            56,
-            65,
-            74,
-            79,
-            82,
-            85,
-            90,
-            95,
-            100,
-            109,
-            117,
-            123,
-            130,
-            133,
-            138,
-            144,
+            38,
+            42,
+            48,
+            53,
+            58,
+            67,
+            76,
+            81,
+            84,
+            87,
+            92,
+            98,
+            103,
+            112,
+            120,
+            126,
+            134,
+            137,
+            143,
             149,
-            152,
-            159,
+            155,
+            158,
+            166,
         ],
         indents: [
             0,
