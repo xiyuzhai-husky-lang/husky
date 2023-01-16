@@ -107,6 +107,7 @@ fn handle_lsp_notification(
         })?
         .on_sync::<lsp_types::notification::DidOpenTextDocument>(|server, params| {
             if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
+                eprintln!("set live file for path {:?}", path);
                 match set_live_file(&mut server.db, &path, params.text_document.text) {
                     Ok(_) => (),
                     Err(e) => {
@@ -121,6 +122,7 @@ fn handle_lsp_notification(
         })?
         .on_sync::<lsp_types::notification::DidChangeTextDocument>(|server, params| {
             if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
+                eprintln!("apply live file changes for path {:?}", path);
                 let changes = params
                     .content_changes
                     .into_iter()

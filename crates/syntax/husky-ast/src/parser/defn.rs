@@ -140,7 +140,7 @@ impl<'a> BasicAuxAstParser<'a> {
                 Keyword::Config(_) => todo!(),
                 Keyword::Paradigm(kw) => {
                     let trai_item_kind: TraitItemKind = if let Some(token) =
-                        self.token_stream_mut().peek()
+                        self.token_stream().peek()
                     {
                         match token {
                             Token::Punctuation(special_token) => match special_token {
@@ -158,10 +158,16 @@ impl<'a> BasicAuxAstParser<'a> {
                                     todo!()
                                 }
                                 unexpected_special_token => {
-                                    todo!("unexpected_special_token = {unexpected_special_token:?}")
+                                    return Err(AstError::UnexpectedTokenForTraitItem(
+                                        self.token_stream().state(),
+                                    ))
                                 }
                             },
-                            ref unexpected_token => todo!(),
+                            ref unexpected_token => {
+                                return Err(AstError::UnexpectedTokenForTraitItem(
+                                    self.token_stream().state(),
+                                ))
+                            }
                         }
                     } else {
                         todo!()
@@ -234,10 +240,16 @@ impl<'a> BasicAuxAstParser<'a> {
                                     TypeItemKind::Memo
                                 }
                                 unexpected_special_token => {
-                                    todo!("unexpected_special_token = {unexpected_special_token:?}")
+                                    return Err(AstError::UnexpectedTokenForTypeImplItem(
+                                        self.token_stream().state(),
+                                    ))
                                 }
                             },
-                            ref unexpected_token => todo!(),
+                            ref unexpected_token => {
+                                return Err(AstError::UnexpectedTokenForTypeImplItem(
+                                    self.token_stream().state(),
+                                ))
+                            }
                         }
                     } else {
                         todo!()

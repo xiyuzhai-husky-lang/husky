@@ -28,6 +28,10 @@ pub enum AstError {
     UnexpectedStmtInsideModule,
     #[error("unexpect stmt inside impl")]
     UnexpectedStmtInsideImpl,
+    #[error("unexpect token for trait item")]
+    UnexpectedTokenForTraitItem(TokenIdx),
+    #[error("unexpect token for type implementation item")]
+    UnexpectedTokenForTypeImplItem(TokenIdx),
 }
 
 impl<'a, Context> FromAbsent<IdentifierToken, Context> for AstError

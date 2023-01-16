@@ -297,44 +297,35 @@ pub(crate) fn handle_semantic_tokens_full(
 }
 
 pub(crate) fn handle_semantic_tokens_full_delta(
-    _snapshot: AnalyzerDBSnapshot,
-    _params: SemanticTokensDeltaParams,
+    snapshot: AnalyzerDBSnapshot,
+    params: SemanticTokensDeltaParams,
 ) -> Result<Option<SemanticTokensFullDeltaResult>> {
-    eprintln!("todo: handle_semantic_tokens_full_delta");
-    Ok(None)
-    // msg_once!("todo handle semantic tokens full delta");
-    // let file = snapshot.intern_path(convert::from_lsp_types::path_from_url(
-    //     &params.text_document.uri,
-    // )?);
-    // let ast_text = match snapshot.ast_text(file) {
-    //     Ok(ast_text) => ast_text,
-    //     Err(_) => return Ok(None),
-    // };
-    // Ok(Some(SemanticTokensFullDeltaResult::Tokens(
-    //     SemanticTokens {
-    //         result_id: None,
-    //         data: AbsSemanticToken::to_semantic_tokens(&ast_text.semantic_tokens),
-    //     },
-    // )))
+    // ad hoc
+    let path = from_lsp_types::path_from_url(&params.text_document.uri)?;
+    let module_path = snapshot.resolve_module_path(snapshot.current_toolchain()?, &path)?;
+    let semantic_tokens_ext = snapshot.semantic_tokens_ext(module_path)?;
+    Ok(Some(SemanticTokensFullDeltaResult::Tokens(
+        lsp_types::SemanticTokens {
+            result_id: None,
+            data: semantic_tokens_ext.to_vec(),
+        },
+    )))
 }
 
 pub(crate) fn handle_semantic_tokens_range(
-    _snapshot: AnalyzerDBSnapshot,
-    _params: SemanticTokensRangeParams,
+    snapshot: AnalyzerDBSnapshot,
+    params: SemanticTokensRangeParams,
 ) -> Result<Option<SemanticTokensRangeResult>> {
-    eprintln!("todo: handle_semantic_tokens_range");
-    Ok(None)
-    // let file = snapshot.intern_path(convert::from_lsp_types::path_from_url(
-    //     &params.text_document.uri,
-    // )?);
-    // let ast_text = match snapshot.ast_text(file) {
-    //     Ok(ast_text) => ast_text,
-    //     Err(_) => return Ok(None),
-    // };
-    // Ok(Some(SemanticTokensRangeResult::Tokens(SemanticTokens {
-    //     result_id: None,
-    //     data: AbsSemanticToken::to_semantic_tokens(&ast_text.semantic_tokens),
-    // })))
+    // ad hoc
+    let path = from_lsp_types::path_from_url(&params.text_document.uri)?;
+    let module_path = snapshot.resolve_module_path(snapshot.current_toolchain()?, &path)?;
+    let semantic_tokens_ext = snapshot.semantic_tokens_ext(module_path)?;
+    Ok(Some(SemanticTokensRangeResult::Tokens(
+        lsp_types::SemanticTokens {
+            result_id: None,
+            data: semantic_tokens_ext.to_vec(),
+        },
+    )))
 }
 
 pub(crate) fn handle_open_docs(

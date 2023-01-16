@@ -24,6 +24,7 @@ itertools = "^0.10.3"
 lsp-server = "0.5.2"
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
+vec-like = { path = "../../abstraction/vec-like" }
 # comptime
 husky-layout = { path = "../../comptime/husky-layout" }
 husky-linkage-table = { path = "../../comptime/husky-linkage-table" }

@@ -32,21 +32,27 @@ pub(crate) fn ast_diagnostic_sheet(
 fn ast_error_message(error: &AstError) -> String {
     match error {
         AstError::ExcessiveIndent => format!("Syntax Error: excessive indent"),
-        AstError::StandaloneElif => format!("Syntax Error:standalone elif"),
+        AstError::StandaloneElif => format!("Syntax Error: standalone elif"),
         AstError::StandaloneElse => format!("Syntax Error: standalone else"),
-        AstError::ExpectEntityKeyword => format!("Syntax Error: expect entity keyword"),
+        AstError::ExpectEntityKeyword => format!("Syntax Error: expected entity keyword"),
         AstError::ExpectDecoratorOrEntityKeyword => {
-            format!("Syntax Error:expect decorator or entity keyword")
+            format!("Syntax Error: expected decorator or entity keyword")
         }
-        AstError::ExpectIdentifier(_) => format!("Syntax Error: expect identifier"),
+        AstError::ExpectIdentifier(_) => format!("Syntax Error: expected identifier"),
         AstError::ExpectParBraOrDecoratorOrIdentifier(_) => {
-            format!("Syntax Error: expect `(` or decorator or identifier")
+            format!("Syntax Error: expected `(` or decorator or identifier")
         }
-        AstError::ExpectNothing => format!("Syntax Error: expect nothing"),
+        AstError::ExpectNothing => format!("Syntax Error: expected nothing"),
         AstError::Token(_) => format!("Syntax Error: token error"),
         AstError::UnexpectedStmtInsideModule => {
-            format!("Syntax Error: unexpect stmt inside module")
+            format!("Syntax Error: unexpected stmt inside module")
         }
-        AstError::UnexpectedStmtInsideImpl => format!("Syntax Error: unexpect stmt inside impl"),
+        AstError::UnexpectedStmtInsideImpl => format!("Syntax Error: unexpected stmt inside impl"),
+        AstError::UnexpectedTokenForTraitItem(_) => {
+            format!("Syntax Error: unexpected token for trait item")
+        }
+        AstError::UnexpectedTokenForTypeImplItem(_) => {
+            format!("Syntax Error: unexpected token for type implementation item")
+        }
     }
 }
