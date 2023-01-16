@@ -1,10 +1,12 @@
+use std::sync::atomic::Ordering;
+
 use crate::{convert::from_lsp_types, *};
 
 type AnalyzerDBSnapshot = salsa::Snapshot<AnalyzerDB>;
 
+use crate::lsp_ext::{self, InlayHint, InlayHintsParams, WorkspaceSymbolParams};
 use husky_folding_range::FoldingRangeDb;
 use husky_hover::{HoverDb, HoverResult};
-
 use husky_semantic_token::SemanticTokenDb;
 use husky_text::{TextPosition, TextRange};
 use husky_vfs::VfsDb;
@@ -16,8 +18,6 @@ use lsp_types::{
     SemanticTokensFullDeltaResult, SemanticTokensParams, SemanticTokensRangeParams,
     SemanticTokensRangeResult, SemanticTokensResult, SymbolInformation, WorkspaceEdit,
 };
-
-use crate::lsp_ext::{self, InlayHint, InlayHintsParams, WorkspaceSymbolParams};
 
 pub(crate) fn handle_selection_range(
     _snapshot: AnalyzerDBSnapshot,
@@ -300,13 +300,19 @@ pub(crate) fn handle_semantic_tokens_full_delta(
     snapshot: AnalyzerDBSnapshot,
     params: SemanticTokensDeltaParams,
 ) -> Result<Option<SemanticTokensFullDeltaResult>> {
+    use std::sync::atomic::AtomicU32;
+    static SEMANTIC_TOKENS_RESULT_ID_NEXT: AtomicU32 = AtomicU32::new(1);
     // ad hoc
     let path = from_lsp_types::path_from_url(&params.text_document.uri)?;
     let module_path = snapshot.resolve_module_path(snapshot.current_toolchain()?, &path)?;
     let semantic_tokens_ext = snapshot.semantic_tokens_ext(module_path)?;
     Ok(Some(SemanticTokensFullDeltaResult::Tokens(
         lsp_types::SemanticTokens {
-            result_id: None,
+            result_id: Some(
+                SEMANTIC_TOKENS_RESULT_ID_NEXT
+                    .fetch_add(1, Ordering::SeqCst)
+                    .to_string(),
+            ),
             data: semantic_tokens_ext.to_vec(),
         },
     )))
