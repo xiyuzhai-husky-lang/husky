@@ -1,3 +1,6 @@
+use std::sync::Arc;
+
+use dashmap::DashMap;
 use husky_ast::AstJar;
 use husky_decl::DeclJar;
 use husky_defn::DefnJar;
@@ -21,11 +24,11 @@ use husky_word::WordJar;
 #[salsa::db(
     TokenJar,
     VfsJar,
-    EntityTreeJar, 
+    EntityTreeJar,
     AstJar,
     WordJar,
     EntityPathJar,
-    TermJar, 
+    TermJar,
     SyntaxFormatJar,
     DiagnosticsJar,
     RustTranspileJar,
@@ -45,6 +48,7 @@ use husky_word::WordJar;
 #[derive(Default)]
 pub struct AnalyzerDB {
     storage: salsa::Storage<AnalyzerDB>,
+    semantic_tokens_ext_cache: Arc<DashMap<lsp_types::Url, Vec<lsp_types::SemanticToken>>>,
 }
 
 impl salsa::Database for AnalyzerDB {}
@@ -53,7 +57,19 @@ impl salsa::ParallelDatabase for AnalyzerDB {
     fn snapshot(&self) -> salsa::Snapshot<Self> {
         salsa::Snapshot::new(AnalyzerDB {
             storage: self.storage.snapshot(),
+            semantic_tokens_ext_cache: self.semantic_tokens_ext_cache.clone(),
         })
+    }
+}
+
+impl AnalyzerDB {
+    pub(crate) fn cache_semantic_tokens_ext(
+        &self,
+        uri: lsp_types::Url,
+        semantic_tokens_ext: &[lsp_types::SemanticToken],
+    ) {
+        self.semantic_tokens_ext_cache
+            .insert(uri, semantic_tokens_ext.to_vec());
     }
 }
 
