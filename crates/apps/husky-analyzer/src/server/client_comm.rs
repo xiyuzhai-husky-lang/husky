@@ -6,6 +6,7 @@ use dashmap::{mapref::entry::Entry, DashMap};
 use husky_diagnostics::{DiagnosticSheet, DiagnosticsDb};
 use husky_vfs::{ModulePath, VfsDb};
 use lsp_types::notification::Notification;
+use salsa::DebugWithDb;
 
 use crate::{convert::to_lsp_types::url_from_diff_path, db::AnalyzerDB};
 
@@ -14,7 +15,7 @@ use super::Server;
 pub(crate) struct ClientCommunicator {
     pub(crate) sender: Sender<lsp_server::Message>,
     pub(crate) req_queue: ReqQueue,
-    diagnostic_sheets_sent: DashMap<ModulePath, DiagnosticSheet>,
+    diagnostics_sent: DashMap<ModulePath, Vec<lsp_types::Diagnostic>>,
 }
 
 pub(crate) type ReqHandler = fn(&mut Server, lsp_server::Response);
@@ -25,7 +26,7 @@ impl ClientCommunicator {
         ClientCommunicator {
             sender,
             req_queue: Default::default(),
-            diagnostic_sheets_sent: Default::default(),
+            diagnostics_sent: Default::default(),
         }
     }
     fn send(&self, message: lsp_server::Message) {
@@ -42,31 +43,32 @@ impl ClientCommunicator {
 
     pub(crate) fn send_diagnostics(&self, db: &AnalyzerDB, module_path: ModulePath) {
         let diagnostic_sheet = db.diagnostic_sheet(module_path);
-        let send_flag = match self.diagnostic_sheets_sent.entry(module_path) {
-            Entry::Occupied(mut entry) => match *entry.get() == diagnostic_sheet {
+        let diagnostics: Vec<lsp_types::Diagnostic> = diagnostic_sheet
+            .diagnostic_iter(db)
+            .map(|diagnostic| diagnostic.into())
+            .collect();
+        let send_flag = match self.diagnostics_sent.entry(module_path) {
+            Entry::Occupied(mut entry) => match entry.get() == &diagnostics {
                 true => false,
                 false => {
-                    entry.insert(diagnostic_sheet);
+                    entry.insert(diagnostics.clone());
                     true
                 }
             },
             Entry::Vacant(entry) => {
-                entry.insert(diagnostic_sheet);
+                entry.insert(diagnostics.clone());
                 true
             }
         };
         if send_flag {
+            eprintln!(
+                "send updates for probable module {:?}",
+                &(module_path.debug(db))
+            );
             let Ok(module_diff_path) = db.module_diff_path(module_path) else { todo!() };
             let Ok(path) = &module_diff_path.abs_path(db) else { todo!() };
             match url_from_diff_path(path) {
-                Ok(url) => self.send_diagnostics_aux(
-                    url,
-                    diagnostic_sheet
-                        .diagnostic_iter(db)
-                        .map(|diagnostic| diagnostic.into())
-                        .collect(),
-                    None,
-                ),
+                Ok(url) => self.send_diagnostics_aux(url, diagnostics, None),
                 Err(_) => eprintln!("error in translating path {:?}", path),
             }
         }
