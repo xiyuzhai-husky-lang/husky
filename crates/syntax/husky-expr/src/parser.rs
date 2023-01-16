@@ -189,7 +189,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         env: ExprParseEnvironment,
         err: impl FnOnce(TokenIdx) -> Error,
     ) -> Result<ExprIdx, Error> {
-        let state = self.save_state();
+        let state = self.state();
         self.env.set(env);
         loop {
             let Some((token_idx, token)) = self.token_stream.next_indexed()

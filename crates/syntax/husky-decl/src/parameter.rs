@@ -118,7 +118,7 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ParameterDecl {
         let Some(pattern) = ctx.parse::<ParameterPattern >()? else {
             return Ok(None)
         };
-        let state = ctx.save_state();
+        let state = ctx.state();
         let colon = ctx.parse_expected::<ColonToken>()?;
         let Some(ty) = ctx.parse_expr(ExprParseEnvironment::WithinBracket(Bracket::Par)) else {
             todo!()

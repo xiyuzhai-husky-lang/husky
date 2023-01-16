@@ -56,7 +56,7 @@ impl<'a> TokenStream<'a> {
         self.next_relative
     }
 
-    pub fn save_state(&self) -> TokenIdx {
+    pub fn state(&self) -> TokenIdx {
         TokenIdx(self.base + self.next_relative)
     }
 
@@ -115,16 +115,12 @@ impl<'a> TokenStream<'a> {
         self.next_relative -= 1
     }
 
-    fn peek_raw(&self) -> Option<&'a Token> {
+    pub fn peek(&self) -> Option<&'a Token> {
         if self.next_relative < self.tokens.len() {
             Some(&self.tokens[self.next_relative])
         } else {
             None
         }
-    }
-
-    pub fn peek(&mut self) -> Option<&'a Token> {
-        self.peek_raw()
     }
 
     pub fn peek_next_bra(&mut self) -> Option<Bracket> {

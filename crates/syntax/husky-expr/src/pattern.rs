@@ -189,7 +189,7 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ParameterPattern {
             let symbols = ctx
                 .pattern_expr_sheet()
                 .pattern_symbol_map(pattern_expr_idx);
-            let access_start = ctx.save_state();
+            let access_start = ctx.state();
             let variables = symbols
                 .iter()
                 .map(|(ident, pattern_symbol)| {
@@ -231,12 +231,12 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         &mut self,
         access_end: TokenIdxRangeEnd,
     ) -> ExprResult<LetVariablePattern> {
-        let state = self.save_state();
+        let state = self.state();
         if let Some(pattern_expr_idx) = self.parse_pattern_expr(PatternInfo::Let)? {
             let symbols = self
                 .pattern_expr_sheet()
                 .pattern_symbol_map(pattern_expr_idx);
-            let access_start = self.save_state();
+            let access_start = self.state();
             let variables = symbols
                 .iter()
                 .map(|(ident, pattern_symbol)| {

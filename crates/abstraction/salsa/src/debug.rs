@@ -5,7 +5,7 @@ use std::{
     sync::Arc,
 };
 
-use vec_like::{AsVecMapEntry, InsertEntryRepeatError, VecMap};
+use vec_like::{AsVecMapEntry, InsertEntryRepeatError, VecMap, VecSet};
 
 pub trait DebugWithDb<Db: ?Sized> {
     fn debug<'me, 'db>(&'me self, db: &'me Db) -> DebugWith<'me, Db>
@@ -202,6 +202,19 @@ where
             )
         });
         f.debug_map().entries(elements).finish()
+    }
+}
+
+impl<Db: ?Sized, K> DebugWithDb<Db> for VecSet<K>
+where
+    K: PartialEq + Eq + DebugWithDb<Db>,
+{
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
+        let elements = self
+            .data()
+            .iter()
+            .map(|v| v.debug_with(db, include_all_fields));
+        f.debug_list().entries(elements).finish()
     }
 }
 
