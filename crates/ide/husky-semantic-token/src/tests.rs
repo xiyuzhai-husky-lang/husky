@@ -31,5 +31,7 @@ impl salsa::Database for DB {}
 
 #[test]
 fn semantic_tokens_works() {
-    DB::default().vfs_expect_test_debug("semantic_tokens", SemanticTokenDb::semantic_tokens_ext)
+    DB::default().vfs_expect_test_debug("semantic_tokens", |db, module_path| {
+        SemanticTokenDb::semantic_tokens_ext(db, module_path, None)
+    })
 }

@@ -113,6 +113,10 @@ impl TextRange {
     pub fn new(range: std::ops::Range<(u32, u32)>) -> Self {
         range.into()
     }
+
+    pub fn is_within(&self, other: &Self) -> bool {
+        self.start >= other.start && self.end <= other.end
+    }
 }
 
 impl From<__StaticDevSource> for TextRange {
