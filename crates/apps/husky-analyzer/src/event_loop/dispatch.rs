@@ -1,5 +1,4 @@
 mod dispatcher;
-mod handlers;
 
 use crate::{
     convert::from_lsp_types,
