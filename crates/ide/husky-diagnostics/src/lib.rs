@@ -7,7 +7,7 @@ mod sheet;
 mod tests;
 
 pub use db::DiagnosticsDb;
-use husky_token::RangedTokenSheet;
+use husky_token::{RangedTokenSheet, TokenSheetData};
 pub use severity::DiagnosticSeverity;
 pub use sheet::*;
 #[cfg(test)]
@@ -61,16 +61,21 @@ impl Into<lsp_types::Diagnostic> for &Diagnostic {
 trait Diagnose {
     fn message(&self, db: &dyn DiagnosticsDb) -> String;
     fn severity(&self) -> DiagnosticSeverity;
-    fn range(&self, ranged_token_sheet: &RangedTokenSheet) -> TextRange;
+    fn range(
+        &self,
+        ranged_token_sheet: &RangedTokenSheet,
+        token_sheet_data: &TokenSheetData,
+    ) -> TextRange;
     fn to_diagnostic(
         &self,
         db: &dyn DiagnosticsDb,
         ranged_token_sheet: &RangedTokenSheet,
+        token_sheet_data: &TokenSheetData,
     ) -> Diagnostic {
         Diagnostic {
             message: self.message(db),
             severity: self.severity(),
-            range: self.range(ranged_token_sheet),
+            range: self.range(ranged_token_sheet, token_sheet_data),
         }
     }
 }

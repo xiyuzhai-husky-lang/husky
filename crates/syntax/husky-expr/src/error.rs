@@ -101,7 +101,7 @@ impl<'a, 'b> FromAbsent<RightCurlyBraceToken, ExprParseContext<'a, 'b>> for Expr
 // impl<'a, Context> FromAbsent<IdentifierToken, Context> for ExprError
 // where
 //     Context: TokenParseContext<'a>,
-//     <Context as HasParseError>::Error: From<TokenError>,
+//
 // {
 //     fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
 //         ExprError::ExpectIdentifier(state)
@@ -111,7 +111,6 @@ impl<'a, 'b> FromAbsent<RightCurlyBraceToken, ExprParseContext<'a, 'b>> for Expr
 impl<'a, Context> FromAbsent<ColonToken, Context> for ExprError
 where
     Context: TokenParseContext<'a>,
-    <Context as HasParseError>::Error: From<TokenError>,
 {
     fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
         ExprError::ExpectColon(state)
@@ -121,7 +120,6 @@ where
 impl<'a, Context> FromAbsent<RightParenthesisToken, Context> for ExprError
 where
     Context: TokenParseContext<'a>,
-    <Context as HasParseError>::Error: From<TokenError>,
 {
     fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
         ExprError::ExpectRightParenthesis(state)
@@ -131,7 +129,6 @@ where
 impl<'a, Context> FromAbsent<LetVariablePattern, Context> for ExprError
 where
     Context: TokenParseContext<'a>,
-    <Context as HasParseError>::Error: From<TokenError>,
 {
     fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
         ExprError::ExpectLetVariablePattern(state)
@@ -141,7 +138,6 @@ where
 impl<'a, Context> FromAbsent<AssignToken, Context> for ExprError
 where
     Context: TokenParseContext<'a>,
-    <Context as HasParseError>::Error: From<TokenError>,
 {
     fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
         ExprError::ExpectAssignToken(state)
@@ -151,7 +147,6 @@ where
 impl<'a, Context> FromAbsent<BePattern, Context> for ExprError
 where
     Context: TokenParseContext<'a>,
-    <Context as HasParseError>::Error: From<TokenError>,
 {
     fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
         ExprError::ExpectBePattern(state)
@@ -161,7 +156,6 @@ where
 impl<'a, Context> FromAbsent<EolColonToken, Context> for ExprError
 where
     Context: TokenParseContext<'a>,
-    <Context as HasParseError>::Error: From<TokenError>,
 {
     fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
         ExprError::ExpectEolColon(state)

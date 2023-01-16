@@ -3,7 +3,18 @@ DiagnosticSheet {
         diagnostics: [],
     },
     ast_diagnostic_sheet: AstDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: expected identifier",
+                severity: Error,
+                range: [84:11, 84:12),
+            },
+            Diagnostic {
+                message: "Syntax Error: excessive indent",
+                severity: Error,
+                range: [85:9, 85:16),
+            },
+        ],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [

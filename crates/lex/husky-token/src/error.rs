@@ -6,7 +6,7 @@ use thiserror::Error;
 pub enum TokenError {
     #[error("incomplete string literal")]
     IncompleteStringLiteral,
-    #[error("unexpect char after backslash")]
+    #[error("unexpected char after backslash")]
     UnexpectedCharAfterBackslash,
     #[error("unrecognized char")]
     UnrecognizedChar(char),

@@ -33,16 +33,24 @@ pub(crate) fn expr_diagnostic_sheet(
         db.ranged_token_sheet(module_path),
         db.defn_sheet(module_path),
     ) {
+        let token_sheet_data = ranged_token_sheet.token_sheet_data(db);
         for defn in defn_sheet.defns() {
             let decl = defn.decl(db);
             collect_expr_diagnostics(
                 db,
                 ranged_token_sheet,
+                token_sheet_data,
                 decl.expr_sheet(db),
                 &mut diagnostics,
             );
             if let Some(expr_sheet) = defn.expr_sheet(db) {
-                collect_expr_diagnostics(db, ranged_token_sheet, expr_sheet, &mut diagnostics);
+                collect_expr_diagnostics(
+                    db,
+                    ranged_token_sheet,
+                    token_sheet_data,
+                    expr_sheet,
+                    &mut diagnostics,
+                );
             }
         }
     }
@@ -53,6 +61,7 @@ pub(crate) fn expr_diagnostic_sheet(
 fn collect_expr_diagnostics(
     db: &dyn DiagnosticsDb,
     ranged_token_sheet: &RangedTokenSheet,
+    token_sheet_data: &TokenSheetData,
     expr_sheet: ExprSheet,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
@@ -72,7 +81,9 @@ fn collect_expr_diagnostics(
     }
     for stmt in expr_sheet.stmt_arena(db).data() {
         match stmt {
-            Stmt::Err(e) => diagnostics.push(e.to_diagnostic(db, ranged_token_sheet)),
+            Stmt::Err(e) => {
+                diagnostics.push(e.to_diagnostic(db, ranged_token_sheet, token_sheet_data))
+            }
             _ => (),
         }
     }
@@ -90,7 +101,9 @@ fn collect_expr_diagnostics(
                 }
                 match entity_path {
                     Success(_) | Abort(_) => (),
-                    Failure(e) => diagnostics.push(e.to_diagnostic(db, ranged_token_sheet)),
+                    Failure(e) => {
+                        diagnostics.push(e.to_diagnostic(db, ranged_token_sheet, token_sheet_data))
+                    }
                 }
             }
         }
@@ -204,7 +217,7 @@ fn expr_error_range(error: &ExprError, ranged_token_sheet: &RangedTokenSheet) ->
         | ExprError::UnexpectedSheba(token_idx)
         | ExprError::UnrecognizedIdentifier { token_idx, .. }
         | ExprError::UnresolvedSubentity { token_idx, .. } => {
-            ranged_token_sheet.token_range(*token_idx)
+            ranged_token_sheet.token_text_range(*token_idx)
         }
         ExprError::Token(_) => todo!(),
         ExprError::MissingBlock(_) => todo!(),
@@ -230,10 +243,14 @@ impl Diagnose for EntityPathExprError {
         }
     }
 
-    fn range(&self, ranged_token_sheet: &RangedTokenSheet) -> TextRange {
+    fn range(
+        &self,
+        ranged_token_sheet: &RangedTokenSheet,
+        token_sheet_data: &TokenSheetData,
+    ) -> TextRange {
         match self {
             EntityPathExprError::EntityTree { token_idx, error } => {
-                ranged_token_sheet.token_range(*token_idx)
+                ranged_token_sheet.token_text_range(*token_idx)
             }
             EntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => todo!(),
         }
@@ -249,7 +266,11 @@ impl Diagnose for StmtError {
         todo!()
     }
 
-    fn range(&self, ranged_token_sheet: &RangedTokenSheet) -> TextRange {
+    fn range(
+        &self,
+        ranged_token_sheet: &RangedTokenSheet,
+        token_sheet_data: &TokenSheetData,
+    ) -> TextRange {
         todo!()
     }
 }

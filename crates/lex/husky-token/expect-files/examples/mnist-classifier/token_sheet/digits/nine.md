@@ -1701,6 +1701,11 @@ Ok(
             Punctuation(
                 Colon,
             ),
+            Keyword(
+                Stmt(
+                    Let,
+                ),
+            ),
             Identifier(
                 Identifier(
                     Word(
@@ -1870,6 +1875,11 @@ Ok(
             ),
             Punctuation(
                 Colon,
+            ),
+            Keyword(
+                Stmt(
+                    Let,
+                ),
             ),
             Identifier(
                 Identifier(
@@ -2094,13 +2104,13 @@ Ok(
             269,
             272,
             284,
-            291,
-            297,
-            300,
-            312,
-            319,
-            325,
-            335,
+            292,
+            298,
+            301,
+            313,
+            321,
+            327,
+            337,
         ],
         indents: [
             0,

@@ -229,7 +229,11 @@ impl RangedTokenSheet {
         self.token_ranges[start..end].text_range()
     }
 
-    pub fn token_ranges(&self) -> &[TextRange] {
+    pub fn token_sheet_data<'a>(&self, db: &'a dyn TokenDb) -> &'a TokenSheetData {
+        self.token_sheet.data(db)
+    }
+
+    pub fn token_text_ranges(&self) -> &[TextRange] {
         self.token_ranges.as_ref()
     }
 
@@ -456,7 +460,7 @@ impl RangedTokenSheet {
         }
     }
 
-    pub fn token_range(&self, token_idx: TokenIdx) -> TextRange {
+    pub fn token_text_range(&self, token_idx: TokenIdx) -> TextRange {
         self.token_ranges[token_idx.0]
     }
 }
