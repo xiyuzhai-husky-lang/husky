@@ -36,7 +36,7 @@ pub(crate) fn handle_semantic_tokens_full_delta(
                     let delta = semantic_token_delta(&cached_tokens, &current);
                     entry.insert(current);
                     if DEBUG_HANDLE_SEMANTIC_TOKENS_FULL_DELTA {
-                        eprintln!("end handle_semantic_tokens_full_delta");
+                        eprintln!("end handle_semantic_tokens_full_delta by delta");
                         eprintln!("time elapsed: {}", now.elapsed().as_secs());
                     }
                     return Ok(Some(delta.into()));
@@ -49,7 +49,7 @@ pub(crate) fn handle_semantic_tokens_full_delta(
         }
     }
     if DEBUG_HANDLE_SEMANTIC_TOKENS_FULL_DELTA {
-        eprintln!("end handle_semantic_tokens_full_delta");
+        eprintln!("end handle_semantic_tokens_full_delta by full");
         eprintln!("time elapsed: {}", now.elapsed().as_secs());
     }
     Ok(Some(SemanticTokensFullDeltaResult::Tokens(current)))
@@ -89,7 +89,7 @@ fn semantic_token_delta(
     previous: &SemanticTokens,
     current: &SemanticTokens,
 ) -> lsp_types::SemanticTokensDelta {
-    let edits = semantic_tokens::diff_tokens(&previous.data, &current.data);
+    let edits = diff_tokens(&previous.data, &current.data);
     lsp_types::SemanticTokensDelta {
         result_id: current.result_id.clone(),
         edits,
