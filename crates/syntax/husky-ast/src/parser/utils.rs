@@ -5,23 +5,19 @@ use husky_token::*;
 use parsec::{HasParseError, StreamWrapper};
 use std::iter::Peekable;
 
-pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a>
-where
-    <Self as HasParseError>::Error: From<TokenError>,
-{
+pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
     fn ast_context_kind(&self) -> AstContextKind;
     fn module_path(&self) -> ModulePath;
 
     fn parse_accessibility(&mut self) -> AstResult<Accessibility> {
-        let token_stream = &mut self.borrow_mut();
+        let token_stream = self.borrow_mut();
         Ok(match token_stream.peek().unwrap() {
             Token::Attr(decor) => match decor {
                 AttributeKeyword::Pub => {
                     token_stream.next();
-                    match token_stream
-                        .peek()
-                        .ok_or(AstError::ExpectParBraOrDecoratorOrIdentifier(None))?
-                    {
+                    match token_stream.peek().ok_or(
+                        AstError::UnexpectedEndOfTokenGroupAfterPubKeyword(token_stream.state()),
+                    )? {
                         Token::Punctuation(Punctuation::Bra(Bracket::Par)) => todo!(),
                         _ => Accessibility::Public,
                     }

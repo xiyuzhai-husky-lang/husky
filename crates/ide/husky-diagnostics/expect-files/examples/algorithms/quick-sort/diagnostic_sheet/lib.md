@@ -3,7 +3,18 @@ DiagnosticSheet {
         diagnostics: [],
     },
     ast_diagnostic_sheet: AstDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: unexpected stmt inside module",
+                severity: Error,
+                range: [31:1, 31:6),
+            },
+            Diagnostic {
+                message: "Syntax Error: unexpected stmt inside module",
+                severity: Error,
+                range: [37:1, 37:6),
+            },
+        ],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [

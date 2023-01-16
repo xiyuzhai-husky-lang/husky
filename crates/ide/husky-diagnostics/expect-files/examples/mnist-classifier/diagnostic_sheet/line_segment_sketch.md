@@ -3,7 +3,48 @@ DiagnosticSheet {
         diagnostics: [],
     },
     ast_diagnostic_sheet: AstDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: expected identifier",
+                severity: Error,
+                range: [28:11, 28:12),
+            },
+            Diagnostic {
+                message: "Syntax Error: excessive indent",
+                severity: Error,
+                range: [29:9, 29:58),
+            },
+            Diagnostic {
+                message: "Syntax Error: expected identifier",
+                severity: Error,
+                range: [60:11, 60:12),
+            },
+            Diagnostic {
+                message: "Syntax Error: excessive indent",
+                severity: Error,
+                range: [61:9, 61:21),
+            },
+            Diagnostic {
+                message: "Syntax Error: standalone elif",
+                severity: Error,
+                range: [98:9, 98:30),
+            },
+            Diagnostic {
+                message: "Syntax Error: excessive indent",
+                severity: Error,
+                range: [99:13, 99:28),
+            },
+            Diagnostic {
+                message: "Syntax Error: standalone elif",
+                severity: Error,
+                range: [129:9, 129:30),
+            },
+            Diagnostic {
+                message: "Syntax Error: excessive indent",
+                severity: Error,
+                range: [130:13, 130:28),
+            },
+        ],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [

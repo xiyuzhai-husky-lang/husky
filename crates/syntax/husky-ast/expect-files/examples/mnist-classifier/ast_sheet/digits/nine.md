@@ -492,13 +492,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `big_cc`,
                         token_idx: TokenIdx(
-                            301,
+                            302,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        302,
+                        303,
                     ),
                 },
             ],

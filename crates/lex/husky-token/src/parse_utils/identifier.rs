@@ -39,7 +39,6 @@ impl IdentifierToken {
 impl<'a, Context> parsec::ParseFrom<Context> for IdentifierToken
 where
     Context: TokenParseContext<'a>,
-    <Context as HasParseError>::Error: From<TokenError>,
 {
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut Context,
@@ -47,8 +46,8 @@ where
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
                 Token::Identifier(ident) => Ok(Some(IdentifierToken { ident, token_idx })),
-                Token::Err(ref e) => Err(e.clone().into()),
-                Token::Punctuation(_)
+                Token::Err(_)
+                | Token::Punctuation(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
                 | Token::Attr(_)

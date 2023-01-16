@@ -1,4 +1,6 @@
-use husky_token::{IdentifierToken, TokenError, TokenIdx, TokenIdxRange, TokenParseContext};
+use husky_token::{
+    IdentifierToken, TokenError, TokenGroupIdx, TokenIdx, TokenIdxRange, TokenParseContext,
+};
 use parsec::{FromAbsent, HasParseError};
 use thiserror::Error;
 
@@ -12,32 +14,33 @@ pub enum AstError {
     StandaloneElif,
     #[error("standalone else")]
     StandaloneElse,
-    #[error("expect entity keyword")]
+    #[error("expected entity keyword")]
     ExpectEntityKeyword,
-    #[error("expect decorator or entity keyword")]
+    #[error("expected decorator or entity keyword")]
     ExpectDecoratorOrEntityKeyword,
-    #[error("expect identifier")]
+    #[error("expected identifier")]
     ExpectIdentifier(TokenIdx),
-    #[error("expect `(` or decorator or identifier")]
-    ExpectParBraOrDecoratorOrIdentifier(Option<TokenIdxRange>),
-    #[error("expect nothing")]
+    #[error("unexpected end after `pub`")]
+    UnexpectedEndOfTokenGroupAfterPubKeyword(TokenIdx),
+    #[error("expected nothing")]
     ExpectNothing,
-    #[error("token error")]
-    Token(#[from] TokenError),
-    #[error("unexpect stmt inside module")]
+    #[error("unexpected stmt inside module")]
     UnexpectedStmtInsideModule,
-    #[error("unexpect stmt inside impl")]
+    #[error("unexpected stmt inside impl")]
     UnexpectedStmtInsideImpl,
-    #[error("unexpect token for trait item")]
+    #[error("unexpected token for trait item")]
     UnexpectedTokenForTraitItem(TokenIdx),
-    #[error("unexpect token for type implementation item")]
+    #[error("unexpected token for type implementation item")]
     UnexpectedTokenForTypeImplItem(TokenIdx),
+    #[error("unexpected token for trait implementation item")]
+    UnexpectedTokenForTraitImplItem(TokenIdx),
+    #[error("unexpected token for module item")]
+    UnexpectedTokenForModuleItem(TokenIdx),
 }
 
 impl<'a, Context> FromAbsent<IdentifierToken, Context> for AstError
 where
     Context: TokenParseContext<'a>,
-    <Context as HasParseError>::Error: From<TokenError>,
 {
     fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
         AstError::ExpectIdentifier(state)

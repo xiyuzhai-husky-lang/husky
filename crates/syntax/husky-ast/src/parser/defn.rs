@@ -294,10 +294,16 @@ impl<'a> BasicAuxAstParser<'a> {
                                     // TraitItemKind::Memo
                                 }
                                 unexpected_special_token => {
-                                    todo!("unexpected_special_token = {unexpected_special_token:?}")
+                                    return Err(AstError::UnexpectedTokenForTraitImplItem(
+                                        self.token_stream().state(),
+                                    ))
                                 }
                             },
-                            ref unexpected_token => todo!(),
+                            ref unexpected_token => {
+                                return Err(AstError::UnexpectedTokenForTraitImplItem(
+                                    self.token_stream().state(),
+                                ))
+                            }
                         }
                     } else {
                         todo!()
@@ -339,10 +345,16 @@ impl<'a> BasicAuxAstParser<'a> {
                                     FormKind::Feature
                                 }
                                 unexpected_special_token => {
-                                    todo!("unexpected_special_token = {unexpected_special_token:?}")
+                                    return Err(AstError::UnexpectedTokenForModuleItem(
+                                        self.token_stream().state(),
+                                    ))
                                 }
                             },
-                            ref unexpected_token => todo!(),
+                            ref unexpected_token => {
+                                return Err(AstError::UnexpectedTokenForModuleItem(
+                                    self.token_stream().state(),
+                                ))
+                            }
                         }
                     } else {
                         todo!()
