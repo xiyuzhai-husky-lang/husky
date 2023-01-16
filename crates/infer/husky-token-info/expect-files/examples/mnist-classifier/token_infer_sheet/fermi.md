@@ -495,6 +495,7 @@ Ok(
                 ),
             },
             None,
+            None,
             Entity(
                 Some(
                     ModuleItem(

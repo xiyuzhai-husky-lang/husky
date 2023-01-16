@@ -172,6 +172,7 @@ Ok(
             None,
             None,
             None,
+            None,
             Entity(
                 Some(
                     ModuleItem(
@@ -212,6 +213,7 @@ Ok(
                 ),
                 None,
             ),
+            None,
             None,
             None,
             None,
@@ -442,6 +444,7 @@ Ok(
                     },
                 ),
             },
+            None,
             None,
             None,
             Entity(
@@ -586,6 +589,7 @@ Ok(
             None,
             Field,
             None,
+            None,
             Entity(
                 Some(
                     ModuleItem(
@@ -629,6 +633,7 @@ Ok(
             None,
             Field,
             None,
+            None,
             Entity(
                 Some(
                     ModuleItem(
@@ -669,6 +674,7 @@ Ok(
             ),
             None,
             Field,
+            None,
             None,
             None,
             None,
@@ -713,6 +719,7 @@ Ok(
             ),
             None,
             Field,
+            None,
             None,
             Entity(
                 Some(

@@ -215,6 +215,27 @@ Ok(
                 Identifier(
                     Word(
                         Id {
+                            value: 77,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                ColonColon,
+            ),
+            Punctuation(
+                Star,
+            ),
+            Punctuation(
+                Semicolon,
+            ),
+            Keyword(
+                Use,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
                             value: 85,
                         },
                     ),
@@ -461,23 +482,25 @@ Ok(
             29,
             33,
             37,
-            41,
-            45,
-            55,
-            57,
-            59,
-            61,
-            63,
-            65,
-            67,
-            69,
-            71,
-            73,
-            75,
+            42,
+            46,
+            50,
+            60,
+            62,
+            64,
+            66,
+            68,
+            70,
+            72,
+            74,
+            76,
+            78,
+            80,
         ],
         indents: [
             0,
             4,
+            0,
             0,
             0,
             0,

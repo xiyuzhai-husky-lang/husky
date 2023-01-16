@@ -130,6 +130,190 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier`,
                                     ),
+                                    ast_idx: 24,
+                                    use_expr_idx: 10,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `connected_components`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 23,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 4,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_connected_component`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 24,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 4,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ignored_connected_components_row_span_sum_sum`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 25,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 4,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contours`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 26,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 4,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contour`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 27,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 4,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_line_segment_sketch`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 28,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 4,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_concave_components`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 29,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 4,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi_match`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                            accessibility: Public,
+                                            ast_idx: 24,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier`,
+                                    ),
                                     ast_idx: 23,
                                     use_expr_idx: 8,
                                 },
@@ -153,8 +337,8 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier`,
                                     ),
-                                    ast_idx: 24,
-                                    use_expr_idx: 10,
+                                    ast_idx: 25,
+                                    use_expr_idx: 12,
                                 },
                             ),
                         },
@@ -176,8 +360,8 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier`,
                                     ),
-                                    ast_idx: 24,
-                                    use_expr_idx: 10,
+                                    ast_idx: 25,
+                                    use_expr_idx: 12,
                                 },
                             ),
                         },
@@ -238,8 +422,8 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier`,
                                     ),
-                                    ast_idx: 24,
-                                    use_expr_idx: 10,
+                                    ast_idx: 25,
+                                    use_expr_idx: 12,
                                 },
                             ),
                         },
@@ -269,8 +453,8 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier`,
                                     ),
-                                    ast_idx: 24,
-                                    use_expr_idx: 10,
+                                    ast_idx: 25,
+                                    use_expr_idx: 12,
                                 },
                             ),
                         },
@@ -300,8 +484,8 @@ Ok(
                                     accessibility: PubicUnder(
                                         `mnist_classifier`,
                                     ),
-                                    ast_idx: 24,
-                                    use_expr_idx: 10,
+                                    ast_idx: 25,
+                                    use_expr_idx: 12,
                                 },
                             ),
                         },
@@ -583,11 +767,275 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier`,
                                             ),
+                                            ast_idx: 24,
+                                            use_expr_idx: 10,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 120,
+                                    use_expr_idx: 7,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `connected_components`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                                    accessibility: Public,
+                                                    ast_idx: 23,
+                                                },
+                                            ),
+                                            path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 120,
+                                    use_expr_idx: 7,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_connected_component`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                                    accessibility: Public,
+                                                    ast_idx: 24,
+                                                },
+                                            ),
+                                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 120,
+                                    use_expr_idx: 7,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ignored_connected_components_row_span_sum_sum`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                                    accessibility: Public,
+                                                    ast_idx: 25,
+                                                },
+                                            ),
+                                            path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 120,
+                                    use_expr_idx: 7,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contours`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                                    accessibility: Public,
+                                                    ast_idx: 26,
+                                                },
+                                            ),
+                                            path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 120,
+                                    use_expr_idx: 7,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contour`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                                    accessibility: Public,
+                                                    ast_idx: 27,
+                                                },
+                                            ),
+                                            path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 120,
+                                    use_expr_idx: 7,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_line_segment_sketch`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                                    accessibility: Public,
+                                                    ast_idx: 28,
+                                                },
+                                            ),
+                                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 120,
+                                    use_expr_idx: 7,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_concave_components`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                                    accessibility: Public,
+                                                    ast_idx: 29,
+                                                },
+                                            ),
+                                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 120,
+                                    use_expr_idx: 7,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi_match`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                                    accessibility: Public,
+                                                    ast_idx: 24,
+                                                },
+                                            ),
+                                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
                                             ast_idx: 23,
                                             use_expr_idx: 8,
                                         },
                                     ),
-                                    path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                                    path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                     accessibility: PubicUnder(
                                         `mnist_classifier::connected_component`,
                                     ),
@@ -616,8 +1064,8 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 24,
-                                            use_expr_idx: 10,
+                                            ast_idx: 25,
+                                            use_expr_idx: 12,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -649,8 +1097,8 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 24,
-                                            use_expr_idx: 10,
+                                            ast_idx: 25,
+                                            use_expr_idx: 12,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -754,8 +1202,8 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 24,
-                                            use_expr_idx: 10,
+                                            ast_idx: 25,
+                                            use_expr_idx: 12,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -795,8 +1243,8 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 24,
-                                            use_expr_idx: 10,
+                                            ast_idx: 25,
+                                            use_expr_idx: 12,
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
@@ -836,8 +1284,8 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 24,
-                                            use_expr_idx: 10,
+                                            ast_idx: 25,
+                                            use_expr_idx: 12,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -2067,11 +2515,275 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier`,
                                             ),
+                                            ast_idx: 24,
+                                            use_expr_idx: 10,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `connected_components`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                                    accessibility: Public,
+                                                    ast_idx: 23,
+                                                },
+                                            ),
+                                            path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_connected_component`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                                    accessibility: Public,
+                                                    ast_idx: 24,
+                                                },
+                                            ),
+                                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ignored_connected_components_row_span_sum_sum`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                                    accessibility: Public,
+                                                    ast_idx: 25,
+                                                },
+                                            ),
+                                            path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contours`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                                    accessibility: Public,
+                                                    ast_idx: 26,
+                                                },
+                                            ),
+                                            path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contour`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                                    accessibility: Public,
+                                                    ast_idx: 27,
+                                                },
+                                            ),
+                                            path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_line_segment_sketch`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                                    accessibility: Public,
+                                                    ast_idx: 28,
+                                                },
+                                            ),
+                                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_concave_components`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                                    accessibility: Public,
+                                                    ast_idx: 29,
+                                                },
+                                            ),
+                                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi_match`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                                    accessibility: Public,
+                                                    ast_idx: 24,
+                                                },
+                                            ),
+                                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
                                             ast_idx: 23,
                                             use_expr_idx: 8,
                                         },
                                     ),
-                                    path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                                    path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                     accessibility: PubicUnder(
                                         `mnist_classifier::line_segment_sketch::concave_component`,
                                     ),
@@ -2100,8 +2812,8 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 24,
-                                            use_expr_idx: 10,
+                                            ast_idx: 25,
+                                            use_expr_idx: 12,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -2133,8 +2845,8 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 24,
-                                            use_expr_idx: 10,
+                                            ast_idx: 25,
+                                            use_expr_idx: 12,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -4107,15 +4819,11 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `fermi_match`,
-                            accessibility: PubicUnder(
-                                `mnist_classifier::fermi`,
-                            ),
+                            accessibility: Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
                                     path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
-                                    accessibility: PubicUnder(
-                                        `mnist_classifier::fermi`,
-                                    ),
+                                    accessibility: Public,
                                     ast_idx: 24,
                                 },
                             ),
@@ -4317,11 +5025,242 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 23,
-                                            use_expr_idx: 8,
+                                            ast_idx: 24,
+                                            use_expr_idx: 10,
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `connected_components`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                                    accessibility: Public,
+                                                    ast_idx: 23,
+                                                },
+                                            ),
+                                            path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_connected_component`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                                    accessibility: Public,
+                                                    ast_idx: 24,
+                                                },
+                                            ),
+                                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ignored_connected_components_row_span_sum_sum`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                                    accessibility: Public,
+                                                    ast_idx: 25,
+                                                },
+                                            ),
+                                            path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contours`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                                    accessibility: Public,
+                                                    ast_idx: 26,
+                                                },
+                                            ),
+                                            path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contour`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                                    accessibility: Public,
+                                                    ast_idx: 27,
+                                                },
+                                            ),
+                                            path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_line_segment_sketch`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                                    accessibility: Public,
+                                                    ast_idx: 28,
+                                                },
+                                            ),
+                                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_concave_components`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                                    accessibility: Public,
+                                                    ast_idx: 29,
+                                                },
+                                            ),
+                                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                     accessibility: PubicUnder(
                                         `mnist_classifier::fermi`,
                                     ),
@@ -4350,8 +5289,8 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 24,
-                                            use_expr_idx: 10,
+                                            ast_idx: 25,
+                                            use_expr_idx: 12,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -4383,8 +5322,8 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 24,
-                                            use_expr_idx: 10,
+                                            ast_idx: 25,
+                                            use_expr_idx: 12,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -4465,8 +5404,8 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 24,
-                                            use_expr_idx: 10,
+                                            ast_idx: 25,
+                                            use_expr_idx: 12,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -4506,8 +5445,8 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 24,
-                                            use_expr_idx: 10,
+                                            ast_idx: 25,
+                                            use_expr_idx: 12,
                                         },
                                     ),
                                     path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
@@ -4547,8 +5486,8 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 24,
-                                            use_expr_idx: 10,
+                                            ast_idx: 25,
+                                            use_expr_idx: 12,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -4939,6 +5878,190 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `connected_components`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 23,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::zero`,
+                                    ),
+                                    ast_idx: 29,
+                                    use_expr_idx: 19,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_connected_component`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 24,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::zero`,
+                                    ),
+                                    ast_idx: 29,
+                                    use_expr_idx: 19,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ignored_connected_components_row_span_sum_sum`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 25,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::zero`,
+                                    ),
+                                    ast_idx: 29,
+                                    use_expr_idx: 19,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contours`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 26,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::zero`,
+                                    ),
+                                    ast_idx: 29,
+                                    use_expr_idx: 19,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contour`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 27,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::zero`,
+                                    ),
+                                    ast_idx: 29,
+                                    use_expr_idx: 19,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_line_segment_sketch`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 28,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::zero`,
+                                    ),
+                                    ast_idx: 29,
+                                    use_expr_idx: 19,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_concave_components`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 29,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::zero`,
+                                    ),
+                                    ast_idx: 29,
+                                    use_expr_idx: 19,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi_match`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                            accessibility: Public,
+                                            ast_idx: 24,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::zero`,
+                                    ),
+                                    ast_idx: 30,
+                                    use_expr_idx: 22,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `ConcaveComponent`,
                             accessibility: PubicUnder(
                                 `mnist_classifier::digits::zero`,
@@ -5059,6 +6182,190 @@ Ok(
                                         `mnist_classifier::digits::one`,
                                     ),
                                     ast_idx: 72,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `connected_components`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 23,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::one`,
+                                    ),
+                                    ast_idx: 65,
+                                    use_expr_idx: 19,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_connected_component`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 24,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::one`,
+                                    ),
+                                    ast_idx: 65,
+                                    use_expr_idx: 19,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ignored_connected_components_row_span_sum_sum`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 25,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::one`,
+                                    ),
+                                    ast_idx: 65,
+                                    use_expr_idx: 19,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contours`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 26,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::one`,
+                                    ),
+                                    ast_idx: 65,
+                                    use_expr_idx: 19,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contour`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 27,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::one`,
+                                    ),
+                                    ast_idx: 65,
+                                    use_expr_idx: 19,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_line_segment_sketch`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 28,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::one`,
+                                    ),
+                                    ast_idx: 65,
+                                    use_expr_idx: 19,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_concave_components`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 29,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::one`,
+                                    ),
+                                    ast_idx: 65,
+                                    use_expr_idx: 19,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi_match`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                            accessibility: Public,
+                                            ast_idx: 24,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::one`,
+                                    ),
+                                    ast_idx: 66,
+                                    use_expr_idx: 22,
                                 },
                             ),
                         },
@@ -5191,6 +6498,190 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `connected_components`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 23,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::six`,
+                                    ),
+                                    ast_idx: 53,
+                                    use_expr_idx: 19,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_connected_component`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 24,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::six`,
+                                    ),
+                                    ast_idx: 53,
+                                    use_expr_idx: 19,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ignored_connected_components_row_span_sum_sum`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 25,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::six`,
+                                    ),
+                                    ast_idx: 53,
+                                    use_expr_idx: 19,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contours`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 26,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::six`,
+                                    ),
+                                    ast_idx: 53,
+                                    use_expr_idx: 19,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contour`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 27,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::six`,
+                                    ),
+                                    ast_idx: 53,
+                                    use_expr_idx: 19,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_line_segment_sketch`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 28,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::six`,
+                                    ),
+                                    ast_idx: 53,
+                                    use_expr_idx: 19,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_concave_components`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 29,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::six`,
+                                    ),
+                                    ast_idx: 53,
+                                    use_expr_idx: 19,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi_match`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                            accessibility: Public,
+                                            ast_idx: 24,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::six`,
+                                    ),
+                                    ast_idx: 54,
+                                    use_expr_idx: 22,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `ConcaveComponent`,
                             accessibility: PubicUnder(
                                 `mnist_classifier::digits::six`,
@@ -5315,6 +6806,190 @@ Ok(
                                         `mnist_classifier::digits::three`,
                                     ),
                                     ast_idx: 38,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `connected_components`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 23,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::three`,
+                                    ),
+                                    ast_idx: 31,
+                                    use_expr_idx: 21,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_connected_component`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 24,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::three`,
+                                    ),
+                                    ast_idx: 31,
+                                    use_expr_idx: 21,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ignored_connected_components_row_span_sum_sum`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 25,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::three`,
+                                    ),
+                                    ast_idx: 31,
+                                    use_expr_idx: 21,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contours`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 26,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::three`,
+                                    ),
+                                    ast_idx: 31,
+                                    use_expr_idx: 21,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contour`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 27,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::three`,
+                                    ),
+                                    ast_idx: 31,
+                                    use_expr_idx: 21,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_line_segment_sketch`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 28,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::three`,
+                                    ),
+                                    ast_idx: 31,
+                                    use_expr_idx: 21,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_concave_components`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 29,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::three`,
+                                    ),
+                                    ast_idx: 31,
+                                    use_expr_idx: 21,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi_match`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                            accessibility: Public,
+                                            ast_idx: 24,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::three`,
+                                    ),
+                                    ast_idx: 32,
+                                    use_expr_idx: 24,
                                 },
                             ),
                         },
@@ -5477,6 +7152,190 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `connected_components`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 23,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 41,
+                                    use_expr_idx: 21,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_connected_component`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 24,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 41,
+                                    use_expr_idx: 21,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ignored_connected_components_row_span_sum_sum`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 25,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 41,
+                                    use_expr_idx: 21,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contours`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 26,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 41,
+                                    use_expr_idx: 21,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contour`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 27,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 41,
+                                    use_expr_idx: 21,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_line_segment_sketch`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 28,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 41,
+                                    use_expr_idx: 21,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_concave_components`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 29,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 41,
+                                    use_expr_idx: 21,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi_match`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                            accessibility: Public,
+                                            ast_idx: 24,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 42,
+                                    use_expr_idx: 24,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `ConcaveComponent`,
                             accessibility: PubicUnder(
                                 `mnist_classifier::digits::four`,
@@ -5635,9 +7494,7 @@ Ok(
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
                                             path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
-                                            accessibility: PubicUnder(
-                                                `mnist_classifier::major`,
-                                            ),
+                                            accessibility: Public,
                                             ast_idx: 29,
                                         },
                                     ),
@@ -5660,9 +7517,7 @@ Ok(
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
                                             path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
-                                            accessibility: PubicUnder(
-                                                `mnist_classifier::major`,
-                                            ),
+                                            accessibility: Public,
                                             ast_idx: 24,
                                         },
                                     ),
@@ -5672,6 +7527,144 @@ Ok(
                                     ),
                                     ast_idx: 41,
                                     use_expr_idx: 9,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `connected_components`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 23,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 43,
+                                    use_expr_idx: 17,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ignored_connected_components_row_span_sum_sum`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 25,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 43,
+                                    use_expr_idx: 17,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contours`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 26,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 43,
+                                    use_expr_idx: 17,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contour`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 27,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 43,
+                                    use_expr_idx: 17,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_line_segment_sketch`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 28,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 43,
+                                    use_expr_idx: 17,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi_match`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                            accessibility: Public,
+                                            ast_idx: 24,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 44,
+                                    use_expr_idx: 20,
                                 },
                             ),
                         },
@@ -6214,9 +8207,7 @@ Ok(
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
                                             path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
-                                            accessibility: PubicUnder(
-                                                `mnist_classifier::major`,
-                                            ),
+                                            accessibility: Public,
                                             ast_idx: 29,
                                         },
                                     ),
@@ -6239,9 +8230,7 @@ Ok(
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
                                             path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
-                                            accessibility: PubicUnder(
-                                                `mnist_classifier::major`,
-                                            ),
+                                            accessibility: Public,
                                             ast_idx: 24,
                                         },
                                     ),
@@ -6251,6 +8240,29 @@ Ok(
                                     ),
                                     ast_idx: 19,
                                     use_expr_idx: 9,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi_match`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                            accessibility: Public,
+                                            ast_idx: 24,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::eight`,
+                                    ),
+                                    ast_idx: 26,
+                                    use_expr_idx: 33,
                                 },
                             ),
                         },
@@ -6406,6 +8418,190 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `connected_components`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 23,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::nine`,
+                                    ),
+                                    ast_idx: 39,
+                                    use_expr_idx: 21,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_connected_component`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 24,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::nine`,
+                                    ),
+                                    ast_idx: 39,
+                                    use_expr_idx: 21,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ignored_connected_components_row_span_sum_sum`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 25,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::nine`,
+                                    ),
+                                    ast_idx: 39,
+                                    use_expr_idx: 21,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contours`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 26,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::nine`,
+                                    ),
+                                    ast_idx: 39,
+                                    use_expr_idx: 21,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contour`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 27,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::nine`,
+                                    ),
+                                    ast_idx: 39,
+                                    use_expr_idx: 21,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_line_segment_sketch`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 28,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::nine`,
+                                    ),
+                                    ast_idx: 39,
+                                    use_expr_idx: 21,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_concave_components`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                            accessibility: Public,
+                                            ast_idx: 29,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::nine`,
+                                    ),
+                                    ast_idx: 39,
+                                    use_expr_idx: 21,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi_match`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                            accessibility: Public,
+                                            ast_idx: 24,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::digits::nine`,
+                                    ),
+                                    ast_idx: 40,
+                                    use_expr_idx: 24,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `ConcaveComponent`,
                             accessibility: PubicUnder(
                                 `mnist_classifier::digits::nine`,
@@ -6460,105 +8656,77 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `connected_components`,
-                            accessibility: PubicUnder(
-                                `mnist_classifier::major`,
-                            ),
+                            accessibility: Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
                                     path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
-                                    accessibility: PubicUnder(
-                                        `mnist_classifier::major`,
-                                    ),
+                                    accessibility: Public,
                                     ast_idx: 23,
                                 },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_connected_component`,
-                            accessibility: PubicUnder(
-                                `mnist_classifier::major`,
-                            ),
+                            accessibility: Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
                                     path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
-                                    accessibility: PubicUnder(
-                                        `mnist_classifier::major`,
-                                    ),
+                                    accessibility: Public,
                                     ast_idx: 24,
                                 },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ignored_connected_components_row_span_sum_sum`,
-                            accessibility: PubicUnder(
-                                `mnist_classifier::major`,
-                            ),
+                            accessibility: Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
                                     path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
-                                    accessibility: PubicUnder(
-                                        `mnist_classifier::major`,
-                                    ),
+                                    accessibility: Public,
                                     ast_idx: 25,
                                 },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contours`,
-                            accessibility: PubicUnder(
-                                `mnist_classifier::major`,
-                            ),
+                            accessibility: Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
                                     path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
-                                    accessibility: PubicUnder(
-                                        `mnist_classifier::major`,
-                                    ),
+                                    accessibility: Public,
                                     ast_idx: 26,
                                 },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contour`,
-                            accessibility: PubicUnder(
-                                `mnist_classifier::major`,
-                            ),
+                            accessibility: Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
                                     path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
-                                    accessibility: PubicUnder(
-                                        `mnist_classifier::major`,
-                                    ),
+                                    accessibility: Public,
                                     ast_idx: 27,
                                 },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_line_segment_sketch`,
-                            accessibility: PubicUnder(
-                                `mnist_classifier::major`,
-                            ),
+                            accessibility: Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
                                     path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
-                                    accessibility: PubicUnder(
-                                        `mnist_classifier::major`,
-                                    ),
+                                    accessibility: Public,
                                     ast_idx: 28,
                                 },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_concave_components`,
-                            accessibility: PubicUnder(
-                                `mnist_classifier::major`,
-                            ),
+                            accessibility: Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
                                     path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
-                                    accessibility: PubicUnder(
-                                        `mnist_classifier::major`,
-                                    ),
+                                    accessibility: Public,
                                     ast_idx: 29,
                                 },
                             ),
@@ -6760,11 +8928,44 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier`,
                                             ),
+                                            ast_idx: 24,
+                                            use_expr_idx: 10,
+                                        },
+                                    ),
+                                    path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 22,
+                                    use_expr_idx: 13,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi_match`,
+                            accessibility: PubicUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: Use(
+                                        UseSymbol {
+                                            original_symbol: ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                                    accessibility: Public,
+                                                    ast_idx: 24,
+                                                },
+                                            ),
+                                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                            accessibility: PubicUnder(
+                                                `mnist_classifier`,
+                                            ),
                                             ast_idx: 23,
                                             use_expr_idx: 8,
                                         },
                                     ),
-                                    path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                                    path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                     accessibility: PubicUnder(
                                         `mnist_classifier::major`,
                                     ),
@@ -6793,8 +8994,8 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 24,
-                                            use_expr_idx: 10,
+                                            ast_idx: 25,
+                                            use_expr_idx: 12,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -6826,8 +9027,8 @@ Ok(
                                             accessibility: PubicUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 24,
-                                            use_expr_idx: 10,
+                                            ast_idx: 25,
+                                            use_expr_idx: 12,
                                         },
                                     ),
                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),

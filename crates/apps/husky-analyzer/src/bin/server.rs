@@ -25,6 +25,9 @@ fn try_main() -> Result<()> {
 
     init_connection(&connection)?;
 
+    // ad hoc
+    husky_profile_utils::init();
+
     event_loop(connection)?;
 
     io_threads.join()?;

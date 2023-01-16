@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_taxonomy::{EntityKind, FormKind, ModuleItemKind};
 use husky_print_utils::p;
 use husky_token::Punctuation;
 use salsa::DebugWithDb;
@@ -60,7 +61,31 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             BaseEntityPath::Uncertain {
                                 inclination: BaseEntityPathInclination::TypeOrVariant,
                             } => ResolvedToken::Bra(token_idx, Bracket::Angle),
-                            BaseEntityPath::Some(entity_path) => todo!(),
+                            BaseEntityPath::Some(entity_path) => {
+                                match entity_path.entity_kind(self.db()) {
+                                    EntityKind::Module => todo!(),
+                                    EntityKind::ModuleItem {
+                                        module_item_kind,
+                                        connection,
+                                    } => match module_item_kind {
+                                        ModuleItemKind::Form(FormKind::Value) => {
+                                            ResolvedToken::BinaryOpr(
+                                                token_idx,
+                                                BinaryComparisonOpr::Less.into(),
+                                            )
+                                        }
+                                        ModuleItemKind::Type(_)
+                                        | ModuleItemKind::Form(_)
+                                        | ModuleItemKind::Trait => {
+                                            ResolvedToken::Bra(token_idx, Bracket::Angle)
+                                        }
+                                    },
+                                    EntityKind::AssociatedItem {
+                                        associated_item_kind,
+                                    } => todo!(),
+                                    EntityKind::Variant => todo!(),
+                                }
+                            }
                             _ => ResolvedToken::BinaryOpr(
                                 token_idx,
                                 BinaryOpr::Comparison(BinaryComparisonOpr::Less),

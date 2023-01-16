@@ -20,15 +20,11 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `fermi_match`,
-                    accessibility: PubicUnder(
-                        `mnist_classifier::fermi`,
-                    ),
+                    accessibility: Public,
                     symbol: ModuleItem(
                         ModuleItemSymbol {
                             path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
-                            accessibility: PubicUnder(
-                                `mnist_classifier::fermi`,
-                            ),
+                            accessibility: Public,
                             ast_idx: 24,
                         },
                     ),

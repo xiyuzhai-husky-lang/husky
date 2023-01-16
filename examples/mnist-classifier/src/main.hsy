@@ -13,6 +13,7 @@ use mnist::BinaryImage28
 use mnist::MnistLabel
 use major::*
 use digits::*
+use fermi::*;
 use raw_contour::find_raw_contours
 use line_segment_sketch::*
 use domains::ml::models::naive::naive_i32

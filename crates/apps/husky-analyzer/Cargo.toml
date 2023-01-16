@@ -60,3 +60,4 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 winapi = "0.3.9"
+husky-profile-utils = { path = "../../utils/husky-profile-utils" }
