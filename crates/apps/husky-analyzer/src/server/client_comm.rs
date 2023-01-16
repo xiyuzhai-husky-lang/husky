@@ -42,24 +42,37 @@ impl ClientCommunicator {
     }
 
     pub(crate) fn send_diagnostics(&self, db: &AnalyzerDB, module_path: ModulePath) {
+        const DEBUG_SEND_DIAGNOSTICS: bool = false;
+        if DEBUG_SEND_DIAGNOSTICS {
+            eprintln!("send_diagnostics(module_path: {:?})", module_path.debug(db));
+        }
         let diagnostic_sheet = db.diagnostic_sheet(module_path);
         let diagnostics: Vec<lsp_types::Diagnostic> = diagnostic_sheet
             .diagnostic_iter(db)
             .map(|diagnostic| diagnostic.into())
             .collect();
+        if DEBUG_SEND_DIAGNOSTICS {
+            eprintln!("before send_flag is set");
+        }
         let send_flag = match self.diagnostics_sent.entry(module_path) {
-            Entry::Occupied(mut entry) => match entry.get() == &diagnostics {
-                true => false,
-                false => {
-                    entry.insert(diagnostics.clone());
-                    true
+            Entry::Occupied(mut entry) => {
+                let is_same = entry.get() == &diagnostics;
+                match is_same {
+                    true => false,
+                    false => {
+                        entry.insert(diagnostics.clone());
+                        true
+                    }
                 }
-            },
+            }
             Entry::Vacant(entry) => {
                 entry.insert(diagnostics.clone());
                 true
             }
         };
+        if DEBUG_SEND_DIAGNOSTICS {
+            eprintln!("after send_flag is set");
+        }
         if send_flag {
             let Ok(module_diff_path) = db.module_diff_path(module_path) else { todo!() };
             let Ok(path) = &module_diff_path.abs_path(db) else { todo!() };

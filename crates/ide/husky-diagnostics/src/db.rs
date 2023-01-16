@@ -20,10 +20,4 @@ where
     }
 }
 
-fn diagnostics_reserve(this: &dyn DiagnosticsDb, module: Term) -> Arc<DiagnosticReserve> {
-    Arc::new(DiagnosticReserve::new(collect_module_diagnostics(
-        this, module,
-    )))
-}
-
 pub type DiagnosticReserve = Reserve<Vec<Diagnostic>>;

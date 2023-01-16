@@ -238,10 +238,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 "u64" => todo!(),
                 "u128" => todo!(),
                 "u256" => todo!(),
-                invalid_integer_suffix => {
-                    p!(invalid_integer_suffix);
-                    todo!()
-                }
+                invalid_integer_suffix => return Pretoken::Err(TokenError::InvalidIntegerSuffix),
             };
             self.buffer.clear();
             token
@@ -258,8 +255,10 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
             // ad hoc
             token_kind
         } else {
-            let identifier = self.db.it_ident_owned(word).unwrap();
-            Token::Identifier(identifier).into()
+            match self.db.it_ident_owned(word) {
+                Some(identifier) => Token::Identifier(identifier).into(),
+                None => Pretoken::Err(TokenError::InvalidIdentifier),
+            }
         }
     }
 

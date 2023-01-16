@@ -30,5 +30,7 @@ fn token_error_message(error: &TokenError) -> String {
         TokenError::IllFormedLiteral(_) => format!("Syntax Error: ill-formed literal"),
         TokenError::NumberPseudoLiteral(_) => format!("Syntax Error: number pseudoliteral"),
         TokenError::ParseIntError => format!("Syntax Error: parse int error"),
+        TokenError::InvalidIntegerSuffix => format!("Syntax Error: invalid integer suffix"),
+        TokenError::InvalidIdentifier => format!("Syntax Error: invalid identifier"),
     }
 }

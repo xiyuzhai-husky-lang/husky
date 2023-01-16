@@ -32,11 +32,14 @@ impl<Db: DiagnosticsDb> salsa::DebugWithDb<Db> for DiagnosticSheet {
 
 #[salsa::tracked(jar = DiagnosticsJar)]
 pub(crate) fn diagnostic_sheet(db: &dyn DiagnosticsDb, module_path: ModulePath) -> DiagnosticSheet {
+    let token_diagnostic_sheet = token_diagnostic_sheet(db, module_path);
+    let ast_diagnostic_sheet = ast_diagnostic_sheet(db, module_path);
+    let expr_diagnostic_sheet = expr_diagnostic_sheet(db, module_path);
     DiagnosticSheet::new(
         db,
-        token_diagnostic_sheet(db, module_path),
-        ast_diagnostic_sheet(db, module_path),
-        expr_diagnostic_sheet(db, module_path),
+        token_diagnostic_sheet,
+        ast_diagnostic_sheet,
+        expr_diagnostic_sheet,
         entity_tree_diagnostic_sheet(db, module_path),
     )
 }

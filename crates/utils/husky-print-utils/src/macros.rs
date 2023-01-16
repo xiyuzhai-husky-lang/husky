@@ -13,16 +13,34 @@ macro_rules! test_print {
 }
 #[macro_export]
 macro_rules! p {
-    ($($v:expr),*) => {
-        println!(r#"{}
+    ($($v:expr),*) => {{
+        #[cfg(test)]
+        {
+            println!(
+                r#"{}
             --- {}{}:{}{}:{}"#,
-        husky_print_utils::show!($($v),*),
-        husky_print_utils::GREEN,
-        file!(),
-        husky_print_utils::YELLOW,
-        line!(),
-        husky_print_utils::RESET,
-    )};
+                husky_print_utils::show!($($v),*),
+                husky_print_utils::GREEN,
+                file!(),
+                husky_print_utils::YELLOW,
+                line!(),
+                husky_print_utils::RESET,
+            )
+        }
+        #[cfg(not(test))]
+        {
+            eprintln!(
+                r#"{}
+            --- {}{}:{}{}:{}"#,
+                husky_print_utils::show!($($v),*),
+                husky_print_utils::GREEN,
+                file!(),
+                husky_print_utils::YELLOW,
+                line!(),
+                husky_print_utils::RESET,
+            )
+        }
+    }};
 }
 
 #[macro_export]
@@ -69,7 +87,7 @@ macro_rules! ep_once {
 #[macro_export]
 macro_rules! msg_once {
     ($msg:expr) => {{
-        static ONCE: std::sync::Once = std::sync::Once::new();
+        static ONCE: ::std::sync::Once = ::std::sync::Once::new();
         ONCE.call_once(|| eprintln!("[message] {}, src: {}:{}", $msg, file!(), line!()))
     }};
 }

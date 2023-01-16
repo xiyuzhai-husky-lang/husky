@@ -16,6 +16,10 @@ pub enum TokenError {
     NumberPseudoLiteral(NumberPseudoLiteral),
     #[error("parse int error")]
     ParseIntError,
+    #[error("invalid integer suffix")]
+    InvalidIntegerSuffix,
+    #[error("invalid identifier")]
+    InvalidIdentifier,
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]

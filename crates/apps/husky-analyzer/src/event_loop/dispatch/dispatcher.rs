@@ -108,6 +108,8 @@ impl<'a> RequestDispatcher<'a> {
                     let _pctx = error_utils::panic_context::enter(panic_context);
                     f(snapshot, params)
                 });
+                // ad hoc
+                assert!(result.is_ok());
                 let response = thread_result_to_response::<R>(id, result);
                 sender.send(TaskSet::Respond(response)).expect("ok");
             }
