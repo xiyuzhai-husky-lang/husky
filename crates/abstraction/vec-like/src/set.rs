@@ -40,6 +40,12 @@ impl<K> VecSet<K> {
     {
         self.data.iter().find(|entry| **entry == key).is_some()
     }
+    pub fn has_ref(&self, key: &K) -> bool
+    where
+        K: PartialEq + Eq,
+    {
+        self.data.iter().find(|entry| *entry == key).is_some()
+    }
 
     pub fn contains(&self, key: &K) -> bool
     where
