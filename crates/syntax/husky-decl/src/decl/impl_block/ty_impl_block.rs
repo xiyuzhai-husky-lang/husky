@@ -9,5 +9,5 @@ pub struct TypeImplBlockDecl {
     pub ty: ExprIdx,
     #[return_ref]
     pub eol_colon: ExprResult<EolColonToken>,
-    pub expr_sheet: ExprSheet,
+    pub expr_page: ExprPage,
 }

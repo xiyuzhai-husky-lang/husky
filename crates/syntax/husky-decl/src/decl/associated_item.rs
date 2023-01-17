@@ -75,11 +75,11 @@ impl AssociatedItemDecl {
         }
     }
 
-    pub fn expr_sheet(self, db: &dyn DeclDb) -> ExprSheet {
+    pub fn expr_page(self, db: &dyn DeclDb) -> ExprPage {
         match self {
-            AssociatedItemDecl::TypeItem(decl) => decl.expr_sheet(db),
-            AssociatedItemDecl::TraitItem(decl) => decl.expr_sheet(db),
-            AssociatedItemDecl::TypeAsTraitItem(decl) => decl.expr_sheet(db),
+            AssociatedItemDecl::TypeItem(decl) => decl.expr_page(db),
+            AssociatedItemDecl::TraitItem(decl) => decl.expr_page(db),
+            AssociatedItemDecl::TypeAsTraitItem(decl) => decl.expr_page(db),
         }
     }
 

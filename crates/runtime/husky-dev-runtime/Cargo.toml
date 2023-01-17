@@ -31,7 +31,7 @@ husky-ast = { path = "../../syntax/husky-ast" }
 husky-syntax-fmt = { path = "../../syntax/husky-syntax-fmt" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 # infer
-husky-term-infer = { path = "../../infer/husky-term-infer" }
+husky-local-term = { path = "../../infer/husky-local-term" }
 # comptime
 husky-layout = { path = "../../comptime/husky-layout" }
 husky-linkage-table = { path = "../../comptime/husky-linkage-table" }

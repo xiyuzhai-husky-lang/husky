@@ -4,6 +4,6 @@ use crate::*;
 pub struct TypeAssociatedFunctionDefn {
     #[id]
     pub entity_path: EntityPath,
-    pub expr_sheet: ExprSheet,
+    pub expr_page: ExprPage,
     pub decl: TypeAssociatedFunctionDecl,
 }

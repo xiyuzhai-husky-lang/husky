@@ -114,7 +114,7 @@ impl<'a> DefnCollector<'a> {
         let path = decl.path(self.db);
         let mut parser = self.expr_parser(
             DefnExprPath::Entity(path.into()),
-            Some(decl.expr_sheet(self.db).symbol_sheet(self.db)),
+            Some(decl.expr_page(self.db).symbol_sheet(self.db)),
             AllowSelfType::False,
             AllowSelfValue::False,
         );
@@ -124,8 +124,8 @@ impl<'a> DefnCollector<'a> {
             Ast::Defn { body, .. } => parser.parse_block_expr(*body).ok_or(DefnError::MissingBody),
             _ => unreachable!(),
         };
-        let expr_sheet = parser.finish();
-        FunctionDefn::new(self.db, path, decl, expr_sheet, body)
+        let expr_page = parser.finish();
+        FunctionDefn::new(self.db, path, decl, expr_page, body)
     }
 
     fn parse_feature_defn(&self, decl: FeatureDecl) -> FeatureDefn {
@@ -142,8 +142,8 @@ impl<'a> DefnCollector<'a> {
             Ast::Defn { body, .. } => parser.parse_block_expr(*body).ok_or(DefnError::MissingBody),
             _ => unreachable!(),
         };
-        let expr_sheet = parser.finish();
-        FeatureDefn::new(self.db, path, decl, expr_sheet, body)
+        let expr_page = parser.finish();
+        FeatureDefn::new(self.db, path, decl, expr_page, body)
     }
 
     fn parse_associated_item_defn(&self, decl: AssociatedItemDecl) -> AssociatedItemDefn {
@@ -170,7 +170,7 @@ impl<'a> DefnCollector<'a> {
         let path = decl.path(self.db);
         let mut parser = self.expr_parser(
             DefnExprPath::AssociatedItem(decl.associated_item(self.db)),
-            Some(decl.expr_sheet(self.db).symbol_sheet(self.db)),
+            Some(decl.expr_page(self.db).symbol_sheet(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
         );
@@ -180,15 +180,15 @@ impl<'a> DefnCollector<'a> {
             Ast::Defn { body, .. } => parser.parse_block_expr(*body).ok_or(DefnError::MissingBody),
             _ => unreachable!(),
         };
-        let expr_sheet = parser.finish();
-        TypeMethodDefn::new(self.db, path, decl, expr_sheet, body)
+        let expr_page = parser.finish();
+        TypeMethodDefn::new(self.db, path, decl, expr_page, body)
     }
 
     fn parse_ty_memo_defn(&self, decl: TypeMemoDecl) -> TypeMemoDefn {
         let path = decl.path(self.db);
         let mut parser = self.expr_parser(
             DefnExprPath::AssociatedItem(decl.associated_item(self.db)),
-            Some(decl.expr_sheet(self.db).symbol_sheet(self.db)),
+            Some(decl.expr_page(self.db).symbol_sheet(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
         );
@@ -198,8 +198,8 @@ impl<'a> DefnCollector<'a> {
             Ast::Defn { body, .. } => parser.parse_block_expr(*body).ok_or(DefnError::MissingBody),
             _ => unreachable!(),
         };
-        let expr_sheet = parser.finish();
-        TypeMemoDefn::new(self.db, path, decl, expr_sheet, body)
+        let expr_page = parser.finish();
+        TypeMemoDefn::new(self.db, path, decl, expr_page, body)
     }
 
     fn parse_trai_item_defn(&self, decl: TraitItemDecl) -> TraitItemDefn {
@@ -219,7 +219,7 @@ impl<'a> DefnCollector<'a> {
         let path = decl.path(self.db);
         let mut parser = self.expr_parser(
             DefnExprPath::AssociatedItem(decl.associated_item(self.db)),
-            Some(decl.expr_sheet(self.db).symbol_sheet(self.db)),
+            Some(decl.expr_page(self.db).symbol_sheet(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
         );
@@ -229,8 +229,8 @@ impl<'a> DefnCollector<'a> {
             Ast::Defn { body, .. } => parser.parse_block_expr(*body).ok_or(DefnError::MissingBody),
             _ => unreachable!(),
         };
-        let expr_sheet = parser.finish();
-        TypeAsTraitMethodDefn::new(self.db, path, decl, expr_sheet, body)
+        let expr_page = parser.finish();
+        TypeAsTraitMethodDefn::new(self.db, path, decl, expr_page, body)
     }
 
     fn expr_parser(

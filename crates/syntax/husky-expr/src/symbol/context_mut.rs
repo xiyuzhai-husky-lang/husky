@@ -34,19 +34,19 @@ impl<'a> SymbolContextMut<'a> {
         todo!()
     }
 
-    pub(crate) fn into_expr_sheet(
+    pub(crate) fn into_expr_page(
         self,
         db: &dyn ExprDb,
         expr_arena: ExprArena,
         entity_path_expr_arena: EntityPathExprArena,
-        pattern_expr_sheet: PatternExprSheet,
+        pattern_expr_page: PatternExprPage,
         stmt_arena: StmtArena,
-    ) -> ExprSheet {
-        ExprSheet::new(
+    ) -> ExprPage {
+        ExprPage::new(
             db,
             expr_arena,
             entity_path_expr_arena,
-            pattern_expr_sheet,
+            pattern_expr_page,
             stmt_arena,
             self.symbol_sheet,
         )

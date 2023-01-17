@@ -73,13 +73,13 @@ impl TypeItemDecl {
         }
     }
 
-    pub fn expr_sheet(self, db: &dyn DeclDb) -> ExprSheet {
+    pub fn expr_page(self, db: &dyn DeclDb) -> ExprPage {
         match self {
-            TypeItemDecl::Function(defn) => defn.expr_sheet(db),
-            TypeItemDecl::Method(defn) => defn.expr_sheet(db),
-            TypeItemDecl::AlienType(defn) => defn.expr_sheet(db),
-            TypeItemDecl::Value(defn) => defn.expr_sheet(db),
-            TypeItemDecl::Memo(defn) => defn.expr_sheet(db),
+            TypeItemDecl::Function(defn) => defn.expr_page(db),
+            TypeItemDecl::Method(defn) => defn.expr_page(db),
+            TypeItemDecl::AlienType(defn) => defn.expr_page(db),
+            TypeItemDecl::Value(defn) => defn.expr_page(db),
+            TypeItemDecl::Memo(defn) => defn.expr_page(db),
         }
     }
 

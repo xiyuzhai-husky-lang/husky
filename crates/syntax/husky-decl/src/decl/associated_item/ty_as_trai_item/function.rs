@@ -5,7 +5,7 @@ pub struct TypeAsTraitAssociatedFunctionDecl {
     #[id]
     pub entity_path: EntityPath,
     pub ast_idx: AstIdx,
-    pub expr_sheet: ExprSheet,
+    pub expr_page: ExprPage,
     #[return_ref]
     pub curry_token: DeclResult<CurryToken>,
     #[return_ref]

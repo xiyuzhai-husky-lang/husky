@@ -80,9 +80,9 @@ impl<'a> InferEngine<'a> {
 
     fn visit_defn(&mut self, defn: Defn) {
         let decl = defn.decl(self.db);
-        self.visit_expr_sheet(decl.expr_sheet(self.db).into());
-        defn.expr_sheet(self.db)
-            .map(|expr_sheet| self.visit_expr_sheet(expr_sheet.into()));
+        self.visit_expr_page(decl.expr_page(self.db).into());
+        defn.expr_page(self.db)
+            .map(|expr_page| self.visit_expr_page(expr_page.into()));
         let ast_idx = defn.ast_idx(self.db);
         match self.ast_sheet[ast_idx] {
             Ast::Defn {
@@ -122,14 +122,14 @@ impl<'a> InferEngine<'a> {
         }
     }
 
-    fn visit_expr_sheet(&mut self, expr_sheet: ExprSheet) {
+    fn visit_expr_page(&mut self, expr_page: ExprPage) {
         AuxInferEngine {
             db: self.db,
             token_sheet_data: self.token_sheet_data,
             ast_sheet: self.ast_sheet,
             sheet: &mut self.sheet,
-            symbol_context: ExprContext::new(self.db, self.module_symbol_context, expr_sheet),
-            expr_sheet,
+            symbol_context: ExprContext::new(self.db, self.module_symbol_context, expr_page),
+            expr_page,
         }
         .visit_all()
     }
@@ -233,7 +233,7 @@ struct AuxInferEngine<'a> {
     ast_sheet: &'a AstSheet,
     symbol_context: ExprContext<'a>,
     sheet: &'a mut TokenInfoSheet,
-    expr_sheet: ExprSheet,
+    expr_page: ExprPage,
 }
 
 impl<'a> AuxInferEngine<'a> {
@@ -267,7 +267,7 @@ impl<'a> AuxInferEngine<'a> {
                 TokenInfo::LocalSymbol {
                     local_symbol_idx: *local_symbol_idx,
                     local_symbol_kind: *local_symbol_kind,
-                    expr_sheet: self.expr_sheet,
+                    expr_page: self.expr_page,
                 },
             ),
             Expr::InheritedSymbol {
@@ -279,7 +279,7 @@ impl<'a> AuxInferEngine<'a> {
                 *token_idx,
                 TokenInfo::InheritedSymbol {
                     inherited_symbol_idx: *inherited_symbol_idx,
-                    expr_sheet: self.expr_sheet,
+                    expr_page: self.expr_page,
                     inherited_symbol_kind: *inherited_symbol_kind,
                 },
             ),
@@ -366,7 +366,7 @@ impl<'a> AuxInferEngine<'a> {
                                 ident_token.token_idx(),
                                 TokenInfo::LocalSymbol {
                                     local_symbol_idx,
-                                    expr_sheet: self.expr_sheet,
+                                    expr_page: self.expr_page,
                                     local_symbol_kind,
                                 },
                             ),
@@ -383,23 +383,23 @@ impl<'a> AuxInferEngine<'a> {
     //     match pattern_expr {
     //         PatternExpr::Literal(_) => todo!(),
     //         PatternExpr::Identifier { ident_token, .. } => {
-    //             let env = self.pattern_expr_sheet.pattern_info(pattern_expr_idx);
+    //             let env = self.pattern_expr_page.pattern_info(pattern_expr_idx);
     //             let info = match env {
     //                 PatternInfo::Parameter => TokenInfo::Parameter,
     //                 PatternInfo::Let => TokenInfo::Variable {
     //                     // ad hoc
     //                     variable_idx: None,
-    //                     expr_sheet: self.expr_sheet,
+    //                     expr_page: self.expr_page,
     //                 },
     //                 PatternInfo::Match => TokenInfo::Variable {
     //                     // ad hoc
     //                     variable_idx: None,
-    //                     expr_sheet: self.expr_sheet,
+    //                     expr_page: self.expr_page,
     //                 },
     //                 PatternInfo::Be => TokenInfo::Variable {
     //                     // ad hoc
     //                     variable_idx: None,
-    //                     expr_sheet: self.expr_sheet,
+    //                     expr_page: self.expr_page,
     //                 },
     //             };
     //             self.sheet.add(ident_token.token_idx(), info)
