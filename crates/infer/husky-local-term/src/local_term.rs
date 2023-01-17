@@ -1,11 +1,26 @@
+mod abstraction;
+mod application;
+mod as_trai_subentity;
 mod curry;
+mod jordan;
+mod subentity;
 
+pub use abstraction::*;
+pub use application::*;
+pub use as_trai_subentity::*;
 pub use curry::*;
+pub use jordan::*;
+pub use subentity::*;
 
 use crate::*;
 
 pub enum LocalTerm {
     Term(Term),
     ImplicitLifetime(u8),
-    // Xin Jiang: add other variants
+    Curry(LocalTermCurryIdx),
+    Application(LocalTermApplicationIdx),
+    Abstraction(LocalTermAbstractionIdx),
+    Jordan(LocalTermJordanIdx),
+    Subentity(LocalTermSubentityIdx),
+    AsTraitSubentity(LocalTermAsTraitSubentityIdx),
 }
