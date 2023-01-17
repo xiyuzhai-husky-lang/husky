@@ -24,16 +24,14 @@ impl TermRewriteCopy for TermApplication {
     where
         Self: Copy,
     {
-        todo!()
-        // let old_parent = self.parent(db);
-        // let parent = old_parent.substitute_copy(db, substituation);
-        // let old_trai = self.trai(db);
-        // let trai = old_trai.substitute_copy(db, substituation);
-        // if old_parent == parent && old_trai == trai {
-        //     return self;
-        // }
-        // let ident = self.ident(db);
-        // TermAsTraitSubentity::new(db, parent, trai, ident)
+        let old_m = self.m(db);
+        let m = old_m.substitute_copy(db, substituation);
+        let old_n = self.n(db);
+        let n = old_n.substitute_copy(db, substituation);
+        if old_m == m && old_n == n {
+            return self;
+        }
+        TermApplication::new(db, m, n)
     }
 }
 

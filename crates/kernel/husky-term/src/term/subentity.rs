@@ -15,6 +15,12 @@ impl From<TermSubentity> for Term {
 
 impl TermRewriteCopy for TermSubentity {
     fn substitute_copy(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Self {
-        todo!()
+        let old_parent = self.parent(db);
+        let parent = old_parent.substitute_copy(db, substituation);
+        if old_parent == parent {
+            return self;
+        }
+        let ident = self.ident(db);
+        TermSubentity::new(db, parent, ident)
     }
 }

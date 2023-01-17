@@ -4,6 +4,7 @@ mod as_trai_subentity;
 mod category;
 mod constraint;
 mod curry;
+mod jordan;
 mod literal;
 mod subentity;
 mod universe;
@@ -14,6 +15,7 @@ pub use as_trai_subentity::*;
 pub use category::*;
 pub use constraint::*;
 pub use curry::*;
+pub use jordan::*;
 pub use literal::*;
 pub use subentity::*;
 pub use universe::*;
@@ -34,6 +36,7 @@ pub enum Term {
     Universe(TermUniverse),
     // X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
     Curry(TermCurry),
+    Jordan(TermJordan),
     // lambda x => expr
     Abstraction(TermAbstraction),
     // f x, apply a function to term
