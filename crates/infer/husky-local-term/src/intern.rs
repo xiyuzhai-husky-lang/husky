@@ -4,6 +4,7 @@ use crate::*;
 
 // abstraction
 
+#[derive(Debug, PartialEq, Eq)]
 pub struct LocalInterner<T: Eq>(Vec<T>);
 pub struct LocalInternerIdx<T: Eq>(usize, PhantomData<T>);
 impl<T: Eq> LocalInternerIdx<T> {
@@ -34,6 +35,7 @@ impl<T: Eq> std::ops::Index<LocalInternerIdx<T>> for LocalInterner<T> {
     }
 }
 
+#[derive(Debug, PartialEq, Eq)]
 pub struct LocalTermInterner {
     curries: LocalInterner<LocalTermCurry>,
     applications: LocalInterner<LocalTermApplication>,
@@ -41,7 +43,7 @@ pub struct LocalTermInterner {
     jordans: LocalInterner<LocalTermJordan>,
     subentities: LocalInterner<LocalTermSubentity>,
     as_trai_subentities: LocalInterner<LocalTermAsTraitSubentity>,
-    // Xin Jiang: add other variants
+    trai_constraints: LocalInterner<LocalTermTraitConstraint>,
 }
 
 impl LocalTermInterner {
@@ -78,7 +80,13 @@ impl LocalTermInterner {
     ) -> LocalTermAsTraitSubentityIdx {
         self.as_trai_subentities.intern(as_trai_subentity)
     }
-    // Xin Jiang: add other variants
+
+    pub(crate) fn intern_trai_constraint(
+        &mut self,
+        trai_constraint: LocalTermTraitConstraint,
+    ) -> LocalTermTraitConstraintIdx {
+        self.trai_constraints.intern(trai_constraint)
+    }
 }
 
 pub type LocalTermCurryIdx = LocalInternerIdx<LocalTermCurry>;
@@ -140,4 +148,13 @@ impl std::ops::Index<LocalTermAsTraitSubentityIdx> for LocalTermInterner {
         &self.as_trai_subentities[index]
     }
 }
-// Xin Jiang: add other variants
+
+pub type LocalTermTraitConstraintIdx = LocalInternerIdx<LocalTermTraitConstraint>;
+
+impl std::ops::Index<LocalTermTraitConstraintIdx> for LocalTermInterner {
+    type Output = LocalTermTraitConstraint;
+
+    fn index(&self, index: LocalTermTraitConstraintIdx) -> &Self::Output {
+        &self.trai_constraints[index]
+    }
+}
