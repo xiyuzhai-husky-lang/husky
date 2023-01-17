@@ -43,6 +43,7 @@ impl TermRewriteCopy for Term {
             Term::Subentity(term) => term.substitute_copy(db, substitution).into(),
             Term::AsTraitSubentity(term) => term.substitute_copy(db, substitution).into(),
             Term::TraitConstraint(term) => term.substitute_copy(db, substitution).into(),
+            Term::Jordan(_) => todo!(),
         }
     }
 }
