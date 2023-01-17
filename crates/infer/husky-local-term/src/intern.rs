@@ -13,7 +13,7 @@ impl<T: Eq> LocalInternerIdx<T> {
 }
 
 impl<T: Eq> LocalInterner<T> {
-    fn intern(&mut self, t: T) -> Option<LocalInternerIdx<T>> {
+    fn intern(&mut self, t: T) -> LocalInternerIdx<T> {
         let raw = match self.0.iter().position(|s| s == &t) {
             Some(raw) => raw,
             None => {
@@ -22,7 +22,7 @@ impl<T: Eq> LocalInterner<T> {
                 raw
             }
         };
-        Some(LocalInternerIdx::new(raw))
+        LocalInternerIdx::new(raw)
     }
 }
 
@@ -36,15 +36,47 @@ impl<T: Eq> std::ops::Index<LocalInternerIdx<T>> for LocalInterner<T> {
 
 pub struct LocalTermInterner {
     curries: LocalInterner<LocalTermCurry>,
+    applications: LocalInterner<LocalTermApplication>,
+    abstractions: LocalInterner<LocalTermAbstraction>,
+    jordans: LocalInterner<LocalTermJordan>,
+    subentities: LocalInterner<LocalTermSubentity>,
+    as_trai_subentities: LocalInterner<LocalTermAsTraitSubentity>,
     // Xin Jiang: add other variants
 }
 
 impl LocalTermInterner {
     pub(crate) fn intern_curry(&mut self, curry: LocalTermCurry) -> LocalTermCurryIdx {
-        match self.curries.intern(curry) {
-            Some(_) => todo!(),
-            None => todo!(),
-        }
+        self.curries.intern(curry)
+    }
+    pub(crate) fn intern_application(
+        &mut self,
+        application: LocalTermApplication,
+    ) -> LocalTermApplicationIdx {
+        self.applications.intern(application)
+    }
+    pub(crate) fn intern_abstraction(
+        &mut self,
+        abstraction: LocalTermAbstraction,
+    ) -> LocalTermAbstractionIdx {
+        self.abstractions.intern(abstraction)
+    }
+
+    pub(crate) fn intern_jordan(&mut self, jordan: LocalTermJordan) -> LocalTermJordanIdx {
+        self.jordans.intern(jordan)
+    }
+
+    pub(crate) fn intern_subentity(
+        &mut self,
+        subentity: LocalTermSubentity,
+    ) -> LocalTermSubentityIdx {
+        self.subentities.intern(subentity)
+    }
+
+    pub(crate) fn intern_as_trai_subentity(
+        &mut self,
+        as_trai_subentity: LocalTermAsTraitSubentity,
+    ) -> LocalTermAsTraitSubentityIdx {
+        self.as_trai_subentities.intern(as_trai_subentity)
     }
     // Xin Jiang: add other variants
 }
@@ -59,4 +91,53 @@ impl std::ops::Index<LocalTermCurryIdx> for LocalTermInterner {
     }
 }
 
+pub type LocalTermApplicationIdx = LocalInternerIdx<LocalTermApplication>;
+
+impl std::ops::Index<LocalTermApplicationIdx> for LocalTermInterner {
+    type Output = LocalTermApplication;
+
+    fn index(&self, index: LocalTermApplicationIdx) -> &Self::Output {
+        &self.applications[index]
+    }
+}
+
+pub type LocalTermAbstractionIdx = LocalInternerIdx<LocalTermAbstraction>;
+
+impl std::ops::Index<LocalTermAbstractionIdx> for LocalTermInterner {
+    type Output = LocalTermAbstraction;
+
+    fn index(&self, index: LocalTermAbstractionIdx) -> &Self::Output {
+        &self.abstractions[index]
+    }
+}
+
+pub type LocalTermJordanIdx = LocalInternerIdx<LocalTermJordan>;
+
+impl std::ops::Index<LocalTermJordanIdx> for LocalTermInterner {
+    type Output = LocalTermJordan;
+
+    fn index(&self, index: LocalTermJordanIdx) -> &Self::Output {
+        &self.jordans[index]
+    }
+}
+
+pub type LocalTermSubentityIdx = LocalInternerIdx<LocalTermSubentity>;
+
+impl std::ops::Index<LocalTermSubentityIdx> for LocalTermInterner {
+    type Output = LocalTermSubentity;
+
+    fn index(&self, index: LocalTermSubentityIdx) -> &Self::Output {
+        &self.subentities[index]
+    }
+}
+
+pub type LocalTermAsTraitSubentityIdx = LocalInternerIdx<LocalTermAsTraitSubentity>;
+
+impl std::ops::Index<LocalTermAsTraitSubentityIdx> for LocalTermInterner {
+    type Output = LocalTermAsTraitSubentity;
+
+    fn index(&self, index: LocalTermAsTraitSubentityIdx) -> &Self::Output {
+        &self.as_trai_subentities[index]
+    }
+}
 // Xin Jiang: add other variants
