@@ -16,8 +16,20 @@ impl TermAbstraction {
     // }
 }
 
+impl TermRewriteCopy for TermAbstraction {
+    fn substitute_copy(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Self {
+        todo!()
+    }
+}
+
 impl std::fmt::Display for TermAbstraction {
     fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
+    }
+}
+
+impl From<TermAbstraction> for Term {
+    fn from(val: TermAbstraction) -> Self {
+        Term::Abstraction(val)
     }
 }

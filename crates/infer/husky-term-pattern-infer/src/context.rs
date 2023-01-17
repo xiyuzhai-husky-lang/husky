@@ -165,6 +165,7 @@ impl<'a> TermPatternInferContext<'a> {
     }
 
     pub(crate) fn entity_path_term(&self, path: EntityPath) -> TermPatternInferResult<Term> {
-        self.map_original(self.term_ctx().entity_path_term(path))
+        todo!()
+        // self.map_original(self.term_ctx().entity_path_term(path))
     }
 }

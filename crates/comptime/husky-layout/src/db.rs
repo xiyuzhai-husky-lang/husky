@@ -1,5 +1,5 @@
 use crate::*;
-use husky_term::{Term, TermDb, Type};
+use husky_term::{Term, TermApplication, TermDb};
 use salsa::DbWithJar;
 
 pub trait LayoutDb: DbWithJar<LayoutJar> + TermDb {
@@ -15,8 +15,7 @@ where
     }
 }
 
-#[salsa::tracked(jar = LayoutJar)]
-pub(crate) fn reg_memory_kind(_db: &dyn LayoutDb, _ty: Type) -> RegMemoryKind {
+pub(crate) fn reg_memory_kind(_db: &dyn LayoutDb, ty: Term) -> RegMemoryKind {
     todo!()
     // let ty = ty.intrinsic();
     // if ty.is_primitive() {
@@ -28,6 +27,11 @@ pub(crate) fn reg_memory_kind(_db: &dyn LayoutDb, _ty: Type) -> RegMemoryKind {
     //         RegMemoryKind::BoxNonCopyable
     //     }
     // }
+}
+
+#[salsa::tracked(jar = LayoutJar)]
+pub(crate) fn application_reg_memory_kind(db: &dyn LayoutDb, ty: TermApplication) -> RegMemoryKind {
+    todo!()
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

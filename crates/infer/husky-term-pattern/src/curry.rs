@@ -2,7 +2,6 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermCurryPattern {
-    curry_kind: TermCurryVariant,
     x: TermPatternItd,
     y: TermPatternItd,
 }

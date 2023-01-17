@@ -19,6 +19,24 @@ impl TermApplication {
     }
 }
 
+impl TermRewriteCopy for TermApplication {
+    fn substitute_copy(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Self
+    where
+        Self: Copy,
+    {
+        todo!()
+        // let old_parent = self.parent(db);
+        // let parent = old_parent.substitute_copy(db, substituation);
+        // let old_trai = self.trai(db);
+        // let trai = old_trai.substitute_copy(db, substituation);
+        // if old_parent == parent && old_trai == trai {
+        //     return self;
+        // }
+        // let ident = self.ident(db);
+        // TermAsTraitSubentity::new(db, parent, trai, ident)
+    }
+}
+
 impl<'a> TermContext<'a> {
     pub(crate) fn sort(&self, _universe: TermUniverse) -> Term {
         todo!()

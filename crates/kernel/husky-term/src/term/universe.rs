@@ -3,15 +3,9 @@ use crate::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TermUniverse(u8);
 
-impl From<TermUniverse> for TermAtom {
-    fn from(val: TermUniverse) -> Self {
-        TermAtom::Universe(val)
-    }
-}
-
 impl From<TermUniverse> for Term {
     fn from(val: TermUniverse) -> Self {
-        Term::Atom(val.into())
+        Term::Universe(val)
     }
 }
 
@@ -53,26 +47,5 @@ impl TermUniverse {
 impl std::fmt::Display for TermUniverse {
     fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
-    }
-}
-
-impl Term {
-    pub(crate) fn as_universe(self: &Term) -> TermResult<TermUniverse> {
-        match self {
-            Term::Atom(a) => match a {
-                TermAtom::Literal(_) => todo!(),
-                TermAtom::Variable {
-                    variable_variant: _,
-                } => todo!(),
-                TermAtom::Entity { .. } => todo!(),
-                TermAtom::Category(_category_kind) => todo!(),
-                TermAtom::Universe(u) => Ok(*u),
-            },
-            Term::Curry(_) => todo!(),
-            Term::Abstraction(_) => todo!(),
-            Term::Application(_) => todo!(),
-            Term::Subentity(_) => todo!(),
-            Term::TraitImpl(_) => todo!(),
-        }
     }
 }
