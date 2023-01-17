@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_path::EntityPath;
 use husky_expr::{Expr, ExprIdx};
-use husky_term::{Term, TermAtom, TermContext, TermMenu};
+use husky_term::{Term, TermContext, TermMenu};
 use husky_word::WordDb;
 
 pub(crate) struct InferContext<'a> {
@@ -69,6 +69,7 @@ impl<'a> InferContext<'a> {
     }
 
     pub(crate) fn entity_path_term(&self, path: EntityPath) -> TermInferResult<Term> {
-        self.term_ctx().entity_path_term(path).map_err(|e| e.into())
+        todo!()
+        // self.term_ctx().entity_path_term(path).map_err(|e| e.into())
     }
 }

@@ -10,7 +10,6 @@ thin-vec = { path = "../../../forks/thin-vec" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
 # kernel
-husky-term = { path = "../../kernel/husky-term" }
 husky-word = { path = "../../kernel/husky-word" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
