@@ -5,6 +5,6 @@ pub struct TypeAsTraitMethodDefn {
     #[id]
     pub path: Option<TypeAsTraitItemPath>,
     pub decl: TypeAsTraitMethodDecl,
-    pub expr_sheet: ExprSheet,
+    pub expr_page: ExprPage,
     pub body: DefnResult<ExprIdx>,
 }

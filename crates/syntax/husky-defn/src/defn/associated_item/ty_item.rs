@@ -66,13 +66,13 @@ impl TypeItemDefn {
     pub fn path(self, db: &dyn DefnDb) -> AssociatedItemPath {
         todo!()
     }
-    pub fn expr_sheet(self, db: &dyn DefnDb) -> Option<ExprSheet> {
+    pub fn expr_page(self, db: &dyn DefnDb) -> Option<ExprPage> {
         match self {
-            TypeItemDefn::Function(defn) => defn.expr_sheet(db).into(),
-            TypeItemDefn::Method(defn) => defn.expr_sheet(db).into(),
-            TypeItemDefn::AlienType(defn) => defn.expr_sheet(db).into(),
-            TypeItemDefn::Value(defn) => defn.expr_sheet(db).into(),
-            TypeItemDefn::Memo(defn) => defn.expr_sheet(db).into(),
+            TypeItemDefn::Function(defn) => defn.expr_page(db).into(),
+            TypeItemDefn::Method(defn) => defn.expr_page(db).into(),
+            TypeItemDefn::AlienType(defn) => defn.expr_page(db).into(),
+            TypeItemDefn::Value(defn) => defn.expr_page(db).into(),
+            TypeItemDefn::Memo(defn) => defn.expr_page(db).into(),
         }
     }
 }

@@ -4,5 +4,5 @@ use crate::*;
 pub struct TupleVariantDecl {
     #[id]
     pub path: VariantPath,
-    pub expr_sheet: ExprSheet,
+    pub expr_page: ExprPage,
 }

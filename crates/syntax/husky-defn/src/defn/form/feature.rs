@@ -5,6 +5,6 @@ pub struct FeatureDefn {
     #[id]
     pub path: FormPath,
     pub decl: FeatureDecl,
-    pub expr_sheet: ExprSheet,
+    pub expr_page: ExprPage,
     pub body: DefnResult<ExprIdx>,
 }

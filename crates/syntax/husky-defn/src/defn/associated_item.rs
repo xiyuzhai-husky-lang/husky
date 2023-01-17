@@ -42,11 +42,11 @@ impl AssociatedItemDefn {
         }
     }
 
-    pub fn expr_sheet(self, db: &dyn DefnDb) -> Option<ExprSheet> {
+    pub fn expr_page(self, db: &dyn DefnDb) -> Option<ExprPage> {
         match self {
-            AssociatedItemDefn::TypeItem(defn) => defn.expr_sheet(db),
+            AssociatedItemDefn::TypeItem(defn) => defn.expr_page(db),
             AssociatedItemDefn::TraitItem(_) => todo!(),
-            AssociatedItemDefn::TypeAsTraitItem(defn) => Some(defn.expr_sheet(db)),
+            AssociatedItemDefn::TypeAsTraitItem(defn) => Some(defn.expr_page(db)),
         }
     }
 

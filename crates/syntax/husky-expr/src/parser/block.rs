@@ -386,7 +386,7 @@ impl<'a> BlockExprParser<'a> {
         }
     }
 
-    pub fn finish(self) -> ExprSheet {
+    pub fn finish(self) -> ExprPage {
         self.expr_parser.finish()
     }
 }

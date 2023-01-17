@@ -56,12 +56,12 @@ impl TypeAsTraitItemDefn {
     pub fn path(self, db: &dyn DefnDb) -> TypeAsTraitItemPath {
         todo!()
     }
-    pub fn expr_sheet(self, db: &dyn DefnDb) -> ExprSheet {
+    pub fn expr_page(self, db: &dyn DefnDb) -> ExprPage {
         match self {
-            TypeAsTraitItemDefn::Function(defn) => defn.expr_sheet(db),
-            TypeAsTraitItemDefn::Method(defn) => defn.expr_sheet(db),
-            TypeAsTraitItemDefn::AlienType(defn) => defn.expr_sheet(db),
-            TypeAsTraitItemDefn::Value(defn) => defn.expr_sheet(db),
+            TypeAsTraitItemDefn::Function(defn) => defn.expr_page(db),
+            TypeAsTraitItemDefn::Method(defn) => defn.expr_page(db),
+            TypeAsTraitItemDefn::AlienType(defn) => defn.expr_page(db),
+            TypeAsTraitItemDefn::Value(defn) => defn.expr_page(db),
         }
     }
 }

@@ -6,7 +6,7 @@ pub struct ExprContext<'a> {
     module_symbol_context: ModuleSymbolContext<'a>,
     expr_arena: &'a ExprArena,
     entity_path_expr_arena: &'a EntityPathExprArena,
-    pattern_expr_sheet: &'a PatternExprSheet,
+    pattern_expr_page: &'a PatternExprPage,
     stmt_arena: &'a StmtArena,
     symbol_sheet: &'a SymbolSheet,
 }
@@ -15,15 +15,15 @@ impl<'a> ExprContext<'a> {
     pub fn new(
         db: &'a dyn ExprDb,
         module_symbol_context: ModuleSymbolContext<'a>,
-        expr_sheet: ExprSheet,
+        expr_page: ExprPage,
     ) -> Self {
         Self {
             module_symbol_context,
-            expr_arena: expr_sheet.expr_arena(db),
-            entity_path_expr_arena: expr_sheet.entity_path_expr_arena(db),
-            pattern_expr_sheet: expr_sheet.pattern_expr_sheet(db),
-            stmt_arena: expr_sheet.stmt_arena(db),
-            symbol_sheet: expr_sheet.symbol_sheet(db),
+            expr_arena: expr_page.expr_arena(db),
+            entity_path_expr_arena: expr_page.entity_path_expr_arena(db),
+            pattern_expr_page: expr_page.pattern_expr_page(db),
+            stmt_arena: expr_page.stmt_arena(db),
+            symbol_sheet: expr_page.symbol_sheet(db),
         }
     }
 
@@ -46,7 +46,7 @@ impl<'a> std::ops::Index<PatternSymbolIdx> for ExprContext<'a> {
     type Output = PatternSymbol;
 
     fn index(&self, index: PatternSymbolIdx) -> &Self::Output {
-        &self.pattern_expr_sheet[index]
+        &self.pattern_expr_page[index]
     }
 }
 
@@ -54,7 +54,7 @@ impl<'a> std::ops::Index<PatternExprIdx> for ExprContext<'a> {
     type Output = PatternExpr;
 
     fn index(&self, index: PatternExprIdx) -> &Self::Output {
-        &self.pattern_expr_sheet[index]
+        &self.pattern_expr_page[index]
     }
 }
 

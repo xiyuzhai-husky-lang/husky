@@ -92,19 +92,19 @@ impl<'a> HoverResultCalculator<'a> {
             TokenInfo::Parameter => format!(""),
             TokenInfo::LocalSymbol {
                 local_symbol_idx,
-                expr_sheet,
+                expr_page,
                 ..
             } => {
-                format!("{:#?}", expr_sheet.symbol_sheet(self.db)[*local_symbol_idx])
+                format!("{:#?}", expr_page.symbol_sheet(self.db)[*local_symbol_idx])
             }
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx,
-                expr_sheet,
+                expr_page,
                 ..
             } => {
                 format!(
                     "{:#?}",
-                    expr_sheet.symbol_sheet(self.db)[*inherited_symbol_idx]
+                    expr_page.symbol_sheet(self.db)[*inherited_symbol_idx]
                 )
             }
             TokenInfo::Field => format!(""),

@@ -7,7 +7,7 @@ pub struct TypeMethodDecl {
     pub path: Option<TypeItemPath>,
     pub associated_item: AssociatedItem,
     pub ast_idx: AstIdx,
-    pub expr_sheet: ExprSheet,
+    pub expr_page: ExprPage,
     #[return_ref]
     pub implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     #[return_ref]

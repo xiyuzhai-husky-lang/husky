@@ -1,13 +1,13 @@
 use crate::*;
 
 #[salsa::tracked(jar = ExprJar)]
-pub struct ExprSheet {
+pub struct ExprPage {
     #[return_ref]
     pub expr_arena: ExprArena,
     #[return_ref]
     pub entity_path_expr_arena: EntityPathExprArena,
     #[return_ref]
-    pub pattern_expr_sheet: PatternExprSheet,
+    pub pattern_expr_page: PatternExprPage,
     #[return_ref]
     pub stmt_arena: StmtArena,
     #[return_ref]

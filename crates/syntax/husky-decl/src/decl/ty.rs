@@ -63,17 +63,17 @@ impl TypeDecl {
         }
     }
 
-    pub fn expr_sheet(self, db: &dyn DeclDb) -> ExprSheet {
+    pub fn expr_page(self, db: &dyn DeclDb) -> ExprPage {
         match self {
-            TypeDecl::Enum(decl) => decl.expr_sheet(db),
-            TypeDecl::UnitStruct(decl) => decl.expr_sheet(db),
-            TypeDecl::TupleStruct(decl) => decl.expr_sheet(db),
-            TypeDecl::PropsStruct(decl) => decl.expr_sheet(db),
-            TypeDecl::Record(decl) => decl.expr_sheet(db),
-            TypeDecl::Inductive(decl) => decl.expr_sheet(db),
-            TypeDecl::Structure(decl) => decl.expr_sheet(db),
-            TypeDecl::Foreign(decl) => decl.expr_sheet(db),
-            TypeDecl::Union(decl) => decl.expr_sheet(db),
+            TypeDecl::Enum(decl) => decl.expr_page(db),
+            TypeDecl::UnitStruct(decl) => decl.expr_page(db),
+            TypeDecl::TupleStruct(decl) => decl.expr_page(db),
+            TypeDecl::PropsStruct(decl) => decl.expr_page(db),
+            TypeDecl::Record(decl) => decl.expr_page(db),
+            TypeDecl::Inductive(decl) => decl.expr_page(db),
+            TypeDecl::Structure(decl) => decl.expr_page(db),
+            TypeDecl::Foreign(decl) => decl.expr_page(db),
+            TypeDecl::Union(decl) => decl.expr_page(db),
         }
     }
 

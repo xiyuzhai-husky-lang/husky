@@ -14,7 +14,7 @@ reserve = { path = "../../abstraction/reserve" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # infer
-husky-term-infer = { path = "../../infer/husky-term-infer" }
+husky-local-term = { path = "../../infer/husky-local-term" }
 # kernel
 husky-term = { path = "../../kernel/husky-term" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }

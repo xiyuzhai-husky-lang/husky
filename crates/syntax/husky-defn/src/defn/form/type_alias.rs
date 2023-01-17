@@ -5,5 +5,5 @@ pub struct TypeAliasDefn {
     #[id]
     pub path: FormPath,
     pub decl: TypeAliasDecl,
-    pub expr_sheet: ExprSheet,
+    pub expr_page: ExprPage,
 }

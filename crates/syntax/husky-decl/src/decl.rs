@@ -59,13 +59,13 @@ impl Decl {
         }
     }
 
-    pub fn expr_sheet(self, db: &dyn DeclDb) -> ExprSheet {
+    pub fn expr_page(self, db: &dyn DeclDb) -> ExprPage {
         match self {
-            Decl::Type(decl) => decl.expr_sheet(db).into(),
-            Decl::Form(decl) => decl.expr_sheet(db).into(),
-            Decl::Trait(decl) => decl.expr_sheet(db).into(),
-            Decl::ImplBlock(decl) => decl.expr_sheet(db).into(),
-            Decl::AssociatedItem(decl) => decl.expr_sheet(db).into(),
+            Decl::Type(decl) => decl.expr_page(db).into(),
+            Decl::Form(decl) => decl.expr_page(db).into(),
+            Decl::Trait(decl) => decl.expr_page(db).into(),
+            Decl::ImplBlock(decl) => decl.expr_page(db).into(),
+            Decl::AssociatedItem(decl) => decl.expr_page(db).into(),
             Decl::Variant(decl) => todo!(),
         }
     }

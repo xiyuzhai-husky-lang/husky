@@ -62,12 +62,12 @@ impl TypeAsTraitItemDecl {
         }
     }
 
-    pub fn expr_sheet(self, db: &dyn DeclDb) -> ExprSheet {
+    pub fn expr_page(self, db: &dyn DeclDb) -> ExprPage {
         match self {
-            TypeAsTraitItemDecl::Function(decl) => decl.expr_sheet(db),
-            TypeAsTraitItemDecl::Method(decl) => decl.expr_sheet(db),
-            TypeAsTraitItemDecl::AlienType(decl) => decl.expr_sheet(db),
-            TypeAsTraitItemDecl::Value(decl) => decl.expr_sheet(db),
+            TypeAsTraitItemDecl::Function(decl) => decl.expr_page(db),
+            TypeAsTraitItemDecl::Method(decl) => decl.expr_page(db),
+            TypeAsTraitItemDecl::AlienType(decl) => decl.expr_page(db),
+            TypeAsTraitItemDecl::Value(decl) => decl.expr_page(db),
         }
     }
 

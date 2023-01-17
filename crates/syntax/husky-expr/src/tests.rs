@@ -24,7 +24,7 @@ pub(crate) struct DB {
 
 impl salsa::Database for DB {}
 
-pub(crate) fn t<'a>(db: &'a DB, input: &str) -> &'a (ExprSheet, Option<ExprIdx>) {
+pub(crate) fn t<'a>(db: &'a DB, input: &str) -> &'a (ExprPage, Option<ExprIdx>) {
     let toolchain = db.dev_toolchain().unwrap();
     let path_menu = db.vfs_path_menu(toolchain).unwrap();
     let snippet = Snippet::new(db, input.to_owned());
@@ -38,7 +38,7 @@ fn parse_expr_works() {
     let db = DB::default();
     expect_test::expect![[r#"
         (
-            ExprSheet(
+            ExprPage(
                 Id {
                     value: 1,
                 },
@@ -52,7 +52,7 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprSheet(
+            ExprPage(
                 Id {
                     value: 2,
                 },
@@ -66,7 +66,7 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprSheet(
+            ExprPage(
                 Id {
                     value: 3,
                 },
@@ -80,7 +80,7 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprSheet(
+            ExprPage(
                 Id {
                     value: 4,
                 },
@@ -94,7 +94,7 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprSheet(
+            ExprPage(
                 Id {
                     value: 5,
                 },
@@ -108,7 +108,7 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprSheet(
+            ExprPage(
                 Id {
                     value: 6,
                 },
@@ -122,7 +122,7 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprSheet(
+            ExprPage(
                 Id {
                     value: 7,
                 },
@@ -136,7 +136,7 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprSheet(
+            ExprPage(
                 Id {
                     value: 8,
                 },
@@ -150,7 +150,7 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprSheet(
+            ExprPage(
                 Id {
                     value: 9,
                 },
@@ -164,7 +164,7 @@ fn parse_expr_works() {
 
     // expect_test::expect![[r#"
     //     (
-    //         ExprSheet {
+    //         ExprPage {
     //             expr_arena: Arena {
     //                 data: [
     //                     Unrecognized(
@@ -222,7 +222,7 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprSheet(
+            ExprPage(
                 Id {
                     value: 10,
                 },
@@ -236,7 +236,7 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprSheet(
+            ExprPage(
                 Id {
                     value: 11,
                 },
