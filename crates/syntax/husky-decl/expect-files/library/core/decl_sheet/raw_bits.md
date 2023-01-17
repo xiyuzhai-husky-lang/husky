@@ -7,7 +7,7 @@ Ok(
                         AlienTypeDecl {
                             path: TypePath(`core::raw_bits::r32`, `Foreign`),
                             ast_idx: 0,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 40,
                                 },

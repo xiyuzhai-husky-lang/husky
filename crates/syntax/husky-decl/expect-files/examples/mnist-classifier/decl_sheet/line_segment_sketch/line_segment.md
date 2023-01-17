@@ -7,7 +7,7 @@ Ok(
                         PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                             ast_idx: 16,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 161,
                                 },
@@ -104,7 +104,7 @@ Ok(
                                     ),
                                 },
                             ),
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 162,
                                 },
@@ -131,7 +131,7 @@ Ok(
                                     },
                                 ),
                                 ast_idx: 13,
-                                expr_sheet: ExprSheet(
+                                expr_page: ExprPage(
                                     Id {
                                         value: 163,
                                     },
@@ -191,7 +191,7 @@ Ok(
                                     },
                                 ),
                                 ast_idx: 14,
-                                expr_sheet: ExprSheet(
+                                expr_page: ExprPage(
                                     Id {
                                         value: 164,
                                     },

@@ -7,7 +7,7 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
                             ast_idx: 47,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 84,
                                 },
@@ -22,7 +22,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
                             ast_idx: 48,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 85,
                                 },
@@ -84,7 +84,7 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Feature`),
                             ast_idx: 49,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 86,
                                 },
@@ -99,7 +99,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
                             ast_idx: 50,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 87,
                                 },
@@ -161,7 +161,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
                             ast_idx: 51,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 88,
                                 },
@@ -223,7 +223,7 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
                             ast_idx: 52,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 89,
                                 },

@@ -6,7 +6,7 @@ Ok(
                     TraitDecl {
                         path: TraitPath(`core::ops::Add`),
                         ast_idx: 3,
-                        expr_sheet: ExprSheet(
+                        expr_page: ExprPage(
                             Id {
                                 value: 39,
                             },

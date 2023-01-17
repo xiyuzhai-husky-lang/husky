@@ -7,7 +7,7 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::six::six_match`, `Feature`),
                             ast_idx: 57,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 90,
                                 },
@@ -22,7 +22,7 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Feature`),
                             ast_idx: 58,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 91,
                                 },
@@ -37,7 +37,7 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
                             ast_idx: 59,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 92,
                                 },
@@ -52,7 +52,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::digits::six::upmost`, `Function`),
                             ast_idx: 60,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 93,
                                 },
@@ -114,7 +114,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::digits::six::bottom1`, `Function`),
                             ast_idx: 61,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 94,
                                 },

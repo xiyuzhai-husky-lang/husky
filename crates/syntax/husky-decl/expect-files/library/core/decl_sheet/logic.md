@@ -7,7 +7,7 @@ Ok(
                         AlienTypeDecl {
                             path: TypePath(`core::logic::Prop`, `Foreign`),
                             ast_idx: 0,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 4,
                                 },
@@ -23,7 +23,7 @@ Ok(
                         StructureTypeDecl {
                             path: TypePath(`core::logic::LogicAnd`, `Structure`),
                             ast_idx: 1,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 5,
                                 },
@@ -113,7 +113,7 @@ Ok(
                         InductiveTypeDecl {
                             path: TypePath(`core::logic::LogicOr`, `Inductive`),
                             ast_idx: 2,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 6,
                                 },
