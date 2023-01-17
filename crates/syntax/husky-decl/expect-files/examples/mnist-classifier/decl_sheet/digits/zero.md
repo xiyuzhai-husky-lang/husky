@@ -7,7 +7,7 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
                             ast_idx: 33,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 100,
                                 },
@@ -22,7 +22,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
                             ast_idx: 34,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 101,
                                 },
@@ -84,7 +84,7 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
                             ast_idx: 35,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 102,
                                 },

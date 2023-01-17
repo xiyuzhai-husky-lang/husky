@@ -400,7 +400,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 263,
                     },
@@ -414,7 +414,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 263,
                     },
@@ -436,7 +436,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 263,
                     },
@@ -454,7 +454,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 3,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 263,
                     },
@@ -466,7 +466,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 263,
                     },
@@ -492,7 +492,7 @@ Ok(
                 local_symbol_kind: FrameVariable(
                     13,
                 ),
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 263,
                     },
@@ -511,7 +511,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 4,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 263,
                     },
@@ -527,7 +527,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 263,
                     },
@@ -542,7 +542,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 5,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 263,
                     },
@@ -554,7 +554,7 @@ Ok(
                 local_symbol_kind: FrameVariable(
                     13,
                 ),
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 263,
                     },
@@ -568,7 +568,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 263,
                     },
@@ -581,7 +581,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 263,
                     },
@@ -593,7 +593,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 5,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 263,
                     },
@@ -605,7 +605,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 5,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 263,
                     },
@@ -617,7 +617,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 263,
                     },
@@ -629,7 +629,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 5,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 263,
                     },
@@ -679,7 +679,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 264,
                     },
@@ -694,7 +694,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 264,
                     },
@@ -727,7 +727,7 @@ Ok(
                 local_symbol_kind: FrameVariable(
                     11,
                 ),
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 264,
                     },
@@ -746,7 +746,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 264,
                     },
@@ -762,7 +762,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 264,
                     },
@@ -778,7 +778,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 264,
                     },
@@ -790,7 +790,7 @@ Ok(
                 local_symbol_kind: FrameVariable(
                     11,
                 ),
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 264,
                     },
@@ -804,7 +804,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 264,
                     },
@@ -818,7 +818,7 @@ Ok(
                 local_symbol_kind: FrameVariable(
                     11,
                 ),
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 264,
                     },
@@ -830,7 +830,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 264,
                     },
@@ -842,7 +842,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 264,
                     },
@@ -891,7 +891,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -914,7 +914,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -926,7 +926,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -941,7 +941,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -953,7 +953,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -968,7 +968,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 3,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -980,7 +980,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 3,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -995,7 +995,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 4,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -1007,7 +1007,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 4,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -1027,7 +1027,7 @@ Ok(
                 local_symbol_kind: FrameVariable(
                     15,
                 ),
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -1046,7 +1046,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 5,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -1062,7 +1062,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -1076,7 +1076,7 @@ Ok(
                 local_symbol_kind: FrameVariable(
                     15,
                 ),
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -1088,7 +1088,7 @@ Ok(
                 local_symbol_kind: FrameVariable(
                     15,
                 ),
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -1102,7 +1102,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -1116,7 +1116,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 4,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -1128,7 +1128,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 4,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -1142,7 +1142,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -1156,7 +1156,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 3,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -1168,7 +1168,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 3,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -1182,7 +1182,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -1196,7 +1196,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -1208,7 +1208,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -1222,7 +1222,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -1267,7 +1267,7 @@ Ok(
                 local_symbol_kind: FrameVariable(
                     15,
                 ),
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -1279,7 +1279,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 4,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -1307,7 +1307,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 3,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -1319,7 +1319,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 265,
                     },
@@ -1743,7 +1743,7 @@ Ok(
                 local_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 246,
                     },
@@ -1791,7 +1791,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -1822,7 +1822,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -1834,7 +1834,7 @@ Ok(
                 inherited_symbol_kind: Parameter {
                     original_local_symbol_idx: 0,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -1853,7 +1853,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -1868,7 +1868,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 3,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -1882,7 +1882,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -1895,7 +1895,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -1923,7 +1923,7 @@ Ok(
                 inherited_symbol_kind: Parameter {
                     original_local_symbol_idx: 0,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -1935,7 +1935,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -1948,7 +1948,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -1961,7 +1961,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 4,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -1973,7 +1973,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -1985,7 +1985,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -1997,7 +1997,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -2009,7 +2009,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 3,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -2022,7 +2022,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -2034,7 +2034,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -2046,7 +2046,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 3,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -2074,7 +2074,7 @@ Ok(
                 inherited_symbol_kind: Parameter {
                     original_local_symbol_idx: 0,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -2086,20 +2086,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_sheet: ExprSheet(
-                    Id {
-                        value: 260,
-                    },
-                ),
-            },
-            None,
-            None,
-            LocalSymbol {
-                local_symbol_idx: 1,
-                local_symbol_kind: LetVariable {
-                    pattern_symbol: 1,
-                },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -2112,7 +2099,20 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
+                    Id {
+                        value: 260,
+                    },
+                ),
+            },
+            None,
+            None,
+            LocalSymbol {
+                local_symbol_idx: 1,
+                local_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -2124,7 +2124,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -2138,7 +2138,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 4,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -2167,7 +2167,7 @@ Ok(
                 inherited_symbol_kind: Parameter {
                     original_local_symbol_idx: 0,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -2179,7 +2179,7 @@ Ok(
                 inherited_symbol_kind: Parameter {
                     original_local_symbol_idx: 0,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -2195,7 +2195,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -2207,7 +2207,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -2221,7 +2221,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -2233,7 +2233,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -2244,7 +2244,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -2256,7 +2256,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },
@@ -2270,7 +2270,7 @@ Ok(
                 local_symbol_kind: LetVariable {
                     pattern_symbol: 4,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 260,
                     },

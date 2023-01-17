@@ -7,7 +7,7 @@ Ok(
                         PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                             ast_idx: 3,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 158,
                                 },
@@ -104,7 +104,7 @@ Ok(
                                     ),
                                 },
                             ),
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 159,
                                 },

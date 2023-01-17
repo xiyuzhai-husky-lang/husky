@@ -16,7 +16,7 @@ Ok(
                         PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                             ast_idx: 171,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 165,
                                 },
@@ -96,7 +96,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
                             ast_idx: 173,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 166,
                                 },
@@ -178,7 +178,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
                             ast_idx: 174,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 167,
                                 },
@@ -260,7 +260,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
                             ast_idx: 175,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 168,
                                 },
@@ -361,7 +361,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
                             ast_idx: 176,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 169,
                                 },
@@ -481,7 +481,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
                             ast_idx: 177,
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 170,
                                 },
@@ -580,7 +580,7 @@ Ok(
                                     ),
                                 },
                             ),
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 171,
                                 },
@@ -607,7 +607,7 @@ Ok(
                                     },
                                 ),
                                 ast_idx: 3,
-                                expr_sheet: ExprSheet(
+                                expr_page: ExprPage(
                                     Id {
                                         value: 172,
                                     },
@@ -721,7 +721,7 @@ Ok(
                                     },
                                 ),
                                 ast_idx: 4,
-                                expr_sheet: ExprSheet(
+                                expr_page: ExprPage(
                                     Id {
                                         value: 173,
                                     },
@@ -786,7 +786,7 @@ Ok(
                                     ),
                                 },
                             ),
-                            expr_sheet: ExprSheet(
+                            expr_page: ExprPage(
                                 Id {
                                     value: 174,
                                 },
@@ -813,7 +813,7 @@ Ok(
                                     },
                                 ),
                                 ast_idx: 21,
-                                expr_sheet: ExprSheet(
+                                expr_page: ExprPage(
                                     Id {
                                         value: 175,
                                     },
@@ -858,7 +858,7 @@ Ok(
                                     },
                                 ),
                                 ast_idx: 22,
-                                expr_sheet: ExprSheet(
+                                expr_page: ExprPage(
                                     Id {
                                         value: 176,
                                     },
@@ -903,7 +903,7 @@ Ok(
                                     },
                                 ),
                                 ast_idx: 23,
-                                expr_sheet: ExprSheet(
+                                expr_page: ExprPage(
                                     Id {
                                         value: 177,
                                     },

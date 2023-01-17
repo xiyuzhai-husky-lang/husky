@@ -307,7 +307,7 @@ Ok(
                 local_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 171,
                     },
@@ -353,7 +353,7 @@ Ok(
                 inherited_symbol_kind: Parameter {
                     original_local_symbol_idx: 0,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 174,
                     },
@@ -372,7 +372,7 @@ Ok(
                 inherited_symbol_kind: Parameter {
                     original_local_symbol_idx: 0,
                 },
-                expr_sheet: ExprSheet(
+                expr_page: ExprPage(
                     Id {
                         value: 174,
                     },
