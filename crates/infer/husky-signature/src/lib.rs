@@ -41,7 +41,7 @@ pub struct SignatureJar(
     union_ty_signature,
     UnionTypeSignature,
     // trait
-    // trait_signature,
+    trai_signature,
     TraitSignature,
     // form
     // form_signature,

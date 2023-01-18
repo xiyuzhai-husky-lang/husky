@@ -18,7 +18,8 @@ impl ImplicitParameterSignature {
         parameter: &ImplicitParameterDecl,
         engine: &mut SignatureTermEngine,
     ) -> ImplicitParameterSignature {
-        todo!()
+        // Ad hoc
+        Self{ pattern: ImplicitParameterSignaturePattern{}, traits: vec![] }
     }
 }
 
