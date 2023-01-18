@@ -7,3 +7,10 @@ edition = "2021"
 [dependencies]
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
+
+# kernel
+husky-term = {path = "../../kernel/husky-term"}
+husky-word = {path = "../../kernel/husky-word"}
+
+# syntax
+husky-decl = {path = "../../syntax/husky-decl"}

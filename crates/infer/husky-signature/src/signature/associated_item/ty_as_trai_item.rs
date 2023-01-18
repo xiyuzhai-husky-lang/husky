@@ -43,37 +43,10 @@ impl From<TypeAsTraitAssociatedFunctionSignature> for TypeAsTraitItemSignature {
 }
 
 impl TypeAsTraitItemSignature {
-    pub fn ast_idx(self, db: &dyn SignatureDb) -> AstIdx {
-        match self {
-            TypeAsTraitItemSignature::Function(decl) => decl.ast_idx(db),
-            TypeAsTraitItemSignature::Method(decl) => decl.ast_idx(db),
-            TypeAsTraitItemSignature::AlienType(decl) => decl.ast_idx(db),
-            TypeAsTraitItemSignature::Value(decl) => decl.ast_idx(db),
-        }
-    }
-
     pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
         match self {
             TypeAsTraitItemSignature::Function(_) => todo!(),
             TypeAsTraitItemSignature::Method(_) => todo!(),
-            TypeAsTraitItemSignature::AlienType(_) => todo!(),
-            TypeAsTraitItemSignature::Value(_) => todo!(),
-        }
-    }
-
-    pub fn expr_page(self, db: &dyn SignatureDb) -> ExprPage {
-        match self {
-            TypeAsTraitItemSignature::Function(decl) => decl.expr_page(db),
-            TypeAsTraitItemSignature::Method(decl) => decl.expr_page(db),
-            TypeAsTraitItemSignature::AlienType(decl) => decl.expr_page(db),
-            TypeAsTraitItemSignature::Value(decl) => decl.expr_page(db),
-        }
-    }
-
-    pub fn path(self, db: &dyn SignatureDb) -> Option<TypeAsTraitItemPath> {
-        match self {
-            TypeAsTraitItemSignature::Function(_) => todo!(),
-            TypeAsTraitItemSignature::Method(decl) => decl.path(db),
             TypeAsTraitItemSignature::AlienType(_) => todo!(),
             TypeAsTraitItemSignature::Value(_) => todo!(),
         }

@@ -27,24 +27,6 @@ impl TraitItemSignature {
             TraitItemSignature::Value(_) => todo!(),
         }
     }
-
-    pub fn expr_page(self, db: &dyn SignatureDb) -> ExprPage {
-        match self {
-            TraitItemSignature::Function(_) => todo!(),
-            TraitItemSignature::Method(_) => todo!(),
-            TraitItemSignature::AlienType(_) => todo!(),
-            TraitItemSignature::Value(_) => todo!(),
-        }
-    }
-
-    pub fn path(self, db: &dyn SignatureDb) -> TraitItemPath {
-        match self {
-            TraitItemSignature::Function(_) => todo!(),
-            TraitItemSignature::Method(_) => todo!(),
-            TraitItemSignature::AlienType(_) => todo!(),
-            TraitItemSignature::Value(_) => todo!(),
-        }
-    }
 }
 
 impl<Db: SignatureDb + ?Sized> salsa::DebugWithDb<Db> for TraitItemSignature {

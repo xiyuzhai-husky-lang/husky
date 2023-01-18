@@ -17,26 +17,8 @@ impl PropsStructTypeSignature {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct PropsStructFieldSignature {
-    ident: IdentifierToken,
-    colon: ColonToken,
-    ty: ExprIdx,
-}
-
-impl<'a, 'b> parsec::ParseFrom<ExprParseContext<'a, 'b>> for PropsStructFieldSignature {
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> Result<Option<Self>, ExprError> {
-        let Some(ident) = ctx.parse::<IdentifierToken>()? else {
-                return Ok(None)
-            };
-        let colon: ColonToken = ctx.parse_expected()?;
-        let Some(expr) = ctx.parse_expr(ExprParseEnvironment::None) else { todo!() };
-        Ok(Some(PropsStructFieldSignature {
-            ident,
-            colon,
-            ty: expr,
-        }))
-    }
+    ident: Identifier,
+    ty: Term,
 }

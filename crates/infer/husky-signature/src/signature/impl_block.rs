@@ -28,13 +28,6 @@ impl ImplBlockSignature {
     pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
         todo!()
     }
-
-    pub fn expr_page(self, db: &dyn SignatureDb) -> ExprPage {
-        match self {
-            ImplBlockSignature::TypeImplBlock(decl) => decl.expr_page(db),
-            ImplBlockSignature::TypeAsTraitImplBlock(decl) => decl.expr_page(db),
-        }
-    }
 }
 
 impl<Db: SignatureDb + ?Sized> salsa::DebugWithDb<Db> for ImplBlockSignature {

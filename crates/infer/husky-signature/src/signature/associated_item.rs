@@ -66,20 +66,4 @@ impl AssociatedItemSignature {
             AssociatedItemSignature::TypeAsTraitItem(_) => todo!(),
         }
     }
-
-    pub fn expr_page(self, db: &dyn SignatureDb) -> ExprPage {
-        match self {
-            AssociatedItemSignature::TypeItem(decl) => decl.expr_page(db),
-            AssociatedItemSignature::TraitItem(decl) => decl.expr_page(db),
-            AssociatedItemSignature::TypeAsTraitItem(decl) => decl.expr_page(db),
-        }
-    }
-
-    pub fn path(self, db: &dyn SignatureDb) -> Option<AssociatedItemPath> {
-        match self {
-            AssociatedItemSignature::TypeItem(decl) => decl.path(db).map(|path| path.into()),
-            AssociatedItemSignature::TraitItem(decl) => Some(decl.path(db).into()),
-            AssociatedItemSignature::TypeAsTraitItem(decl) => decl.path(db).map(|path| path.into()),
-        }
-    }
 }
