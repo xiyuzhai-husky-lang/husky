@@ -1,5 +1,18 @@
 use crate::*;
 
+pub(crate) fn ty_as_trai_associated_method_signature(db: &dyn SignatureDb, decl: TypeAsTraitMethodDecl) -> TypeAsTraitMethodSignature{
+    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db));
+    // implementation
+    TypeAsTraitMethodSignature::new(
+        db,
+        todo!(),
+        todo!(),
+        todo!(),
+        // ImplicitParameterSignatureList::from_decl(decl.implicit_parameters(db), &mut engine),
+        engine.finish(),
+    )
+}
+
 #[salsa::tracked(jar = SignatureJar)]
 pub struct TypeAsTraitMethodSignature {
     #[return_ref]
