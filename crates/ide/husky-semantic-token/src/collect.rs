@@ -46,8 +46,6 @@ fn token_to_semantic_token(
                 return None;
             }
         }
-        TokenInfo::ImplicitParameter => SemanticToken::ImplicitParameter,
-        TokenInfo::Parameter => SemanticToken::Parameter,
         TokenInfo::LocalSymbol {
             local_symbol_kind, ..
         } => match local_symbol_kind {

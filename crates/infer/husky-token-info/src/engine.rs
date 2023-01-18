@@ -95,20 +95,10 @@ impl<'a> InferEngine<'a> {
                 is_generic,
                 body_kind,
                 saved_stream_state,
-            } => {
-                self.sheet.add(
-                    ident_token.token_idx(),
-                    TokenInfo::Entity(decl.path(self.db), Some(entity_kind)),
-                );
-                if is_generic {
-                    for implicit_parameter in defn.implicit_parameters(self.db) {
-                        self.sheet.add(
-                            implicit_parameter.ident().token_idx(),
-                            TokenInfo::ImplicitParameter,
-                        )
-                    }
-                }
-            }
+            } => self.sheet.add(
+                ident_token.token_idx(),
+                TokenInfo::Entity(decl.path(self.db), Some(entity_kind)),
+            ),
             Ast::Impl { .. } => (),
             _ => unreachable!(),
         }

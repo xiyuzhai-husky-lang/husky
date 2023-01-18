@@ -88,8 +88,6 @@ impl<'a> HoverResultCalculator<'a> {
         let additional_debug_content: String = match self.token_info {
             TokenInfo::None => format!(""),
             TokenInfo::Entity(_, _) => format!(""),
-            TokenInfo::ImplicitParameter => format!(""),
-            TokenInfo::Parameter => format!(""),
             TokenInfo::LocalSymbol {
                 local_symbol_idx,
                 expr_page,
