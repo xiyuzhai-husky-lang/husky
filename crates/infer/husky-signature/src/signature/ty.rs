@@ -35,20 +35,6 @@ pub enum TypeSignature {
 }
 
 impl TypeSignature {
-    pub fn ast_idx(self, db: &dyn SignatureDb) -> AstIdx {
-        match self {
-            TypeSignature::Enum(decl) => decl.ast_idx(db),
-            TypeSignature::UnitStruct(decl) => decl.ast_idx(db),
-            TypeSignature::TupleStruct(decl) => decl.ast_idx(db),
-            TypeSignature::PropsStruct(decl) => decl.ast_idx(db),
-            TypeSignature::Record(decl) => decl.ast_idx(db),
-            TypeSignature::Inductive(decl) => decl.ast_idx(db),
-            TypeSignature::Structure(decl) => decl.ast_idx(db),
-            TypeSignature::Foreign(decl) => decl.ast_idx(db),
-            TypeSignature::Union(decl) => decl.ast_idx(db),
-        }
-    }
-
     pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
         match self {
             TypeSignature::Enum(decl) => decl.implicit_parameters(db),
@@ -61,38 +47,6 @@ impl TypeSignature {
             TypeSignature::Foreign(decl) => decl.implicit_parameters(db),
             TypeSignature::Union(decl) => decl.implicit_parameters(db),
         }
-    }
-
-    pub fn expr_page(self, db: &dyn SignatureDb) -> ExprPage {
-        match self {
-            TypeSignature::Enum(decl) => decl.expr_page(db),
-            TypeSignature::UnitStruct(decl) => decl.expr_page(db),
-            TypeSignature::TupleStruct(decl) => decl.expr_page(db),
-            TypeSignature::PropsStruct(decl) => decl.expr_page(db),
-            TypeSignature::Record(decl) => decl.expr_page(db),
-            TypeSignature::Inductive(decl) => decl.expr_page(db),
-            TypeSignature::Structure(decl) => decl.expr_page(db),
-            TypeSignature::Foreign(decl) => decl.expr_page(db),
-            TypeSignature::Union(decl) => decl.expr_page(db),
-        }
-    }
-
-    pub fn path(self, db: &dyn SignatureDb) -> TypePath {
-        match self {
-            TypeSignature::Enum(decl) => decl.path(db),
-            TypeSignature::Inductive(decl) => decl.path(db),
-            TypeSignature::Record(decl) => decl.path(db),
-            TypeSignature::UnitStruct(decl) => decl.path(db),
-            TypeSignature::PropsStruct(decl) => decl.path(db),
-            TypeSignature::TupleStruct(decl) => decl.path(db),
-            TypeSignature::Structure(decl) => decl.path(db),
-            TypeSignature::Foreign(decl) => decl.path(db),
-            TypeSignature::Union(decl) => decl.path(db),
-        }
-    }
-
-    pub fn entity_path(self, db: &dyn SignatureDb) -> EntityPath {
-        self.path(db).into()
     }
 }
 

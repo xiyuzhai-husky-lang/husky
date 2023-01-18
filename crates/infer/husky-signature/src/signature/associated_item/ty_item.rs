@@ -52,16 +52,6 @@ impl From<TypeMethodSignature> for TypeItemSignature {
 }
 
 impl TypeItemSignature {
-    pub fn ast_idx(self, db: &dyn SignatureDb) -> AstIdx {
-        match self {
-            TypeItemSignature::Function(decl) => decl.ast_idx(db),
-            TypeItemSignature::Method(decl) => decl.ast_idx(db),
-            TypeItemSignature::AlienType(decl) => decl.ast_idx(db),
-            TypeItemSignature::Value(decl) => decl.ast_idx(db),
-            TypeItemSignature::Memo(decl) => decl.ast_idx(db),
-        }
-    }
-
     pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
         match self {
             TypeItemSignature::Function(_) => todo!(),
@@ -69,26 +59,6 @@ impl TypeItemSignature {
             TypeItemSignature::AlienType(_) => todo!(),
             TypeItemSignature::Value(_) => todo!(),
             TypeItemSignature::Memo(_) => todo!(),
-        }
-    }
-
-    pub fn expr_page(self, db: &dyn SignatureDb) -> ExprPage {
-        match self {
-            TypeItemSignature::Function(defn) => defn.expr_page(db),
-            TypeItemSignature::Method(defn) => defn.expr_page(db),
-            TypeItemSignature::AlienType(defn) => defn.expr_page(db),
-            TypeItemSignature::Value(defn) => defn.expr_page(db),
-            TypeItemSignature::Memo(defn) => defn.expr_page(db),
-        }
-    }
-
-    pub fn path(self, db: &dyn SignatureDb) -> Option<TypeItemPath> {
-        match self {
-            TypeItemSignature::Function(_) => todo!(),
-            TypeItemSignature::Method(defn) => defn.path(db),
-            TypeItemSignature::AlienType(_) => todo!(),
-            TypeItemSignature::Value(_) => todo!(),
-            TypeItemSignature::Memo(defn) => defn.path(db),
         }
     }
 }

@@ -14,11 +14,7 @@ pub enum VariantSignature {
     Unit(UnitVariantSignature),
     Tuple(TupleVariantSignature),
 }
-impl VariantSignature {
-    pub(crate) fn ast_idx(&self, db: &dyn SignatureDb) -> AstIdx {
-        todo!()
-    }
-}
+impl VariantSignature {}
 
 impl<Db: SignatureDb + ?Sized> salsa::DebugWithDb<Db> for VariantSignature {
     fn fmt(
