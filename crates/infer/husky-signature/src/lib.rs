@@ -1,12 +1,15 @@
+#![feature(trait_upcasting)]
 mod db;
 mod error;
 mod parameter;
 mod signature;
+mod term;
 
 pub use db::*;
 pub use error::*;
 pub use parameter::*;
 pub use signature::*;
+pub use term::*;
 
 use husky_decl::*;
 use husky_term::*;
