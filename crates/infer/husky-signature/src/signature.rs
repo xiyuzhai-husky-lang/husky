@@ -17,11 +17,11 @@ use crate::*;
 pub(crate) fn signature(db: &dyn SignatureDb, decl: Decl) -> Signature {
     match decl {
         Decl::Type(decl) => ty_signature(db, decl).into(),
-        Decl::Form(_) => todo!(),
-        Decl::Trait(_) => todo!(),
-        Decl::ImplBlock(_) => todo!(),
-        Decl::AssociatedItem(_) => todo!(),
-        Decl::Variant(_) => todo!(),
+        Decl::Form(decl) => form_signature(db, decl).into(),
+        Decl::Trait(decl) => trai_signature(db, decl).into(),
+        Decl::ImplBlock(decl) => impl_block_signature(db, decl).into(),
+        Decl::AssociatedItem(decl) => associated_item_signature(db, decl).into(),
+        Decl::Variant(decl) => variant_signature(db, decl).into(),
     }
 }
 

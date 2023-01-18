@@ -8,6 +8,16 @@ pub use ty_item::*;
 
 use super::*;
 
+pub(crate) fn associated_item_signature(db: &dyn SignatureDb, decl: AssociatedItemDecl) -> AssociatedItemSignature {
+    match decl {
+        AssociatedItemDecl::TypeItem(_) => todo!(),
+        AssociatedItemDecl::TraitItem(_) => todo!(),
+        AssociatedItemDecl::TypeAsTraitItem(_) => todo!(),
+        // TypeDecl::Enum(decl) => enum_ty_signature(db, decl).into(),
+    }
+}
+
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum AssociatedItemSignature {
     TypeItem(TypeItemSignature),
