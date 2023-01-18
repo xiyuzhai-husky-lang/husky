@@ -68,19 +68,32 @@ pub struct SignatureJar(
     // associated items
     // associated_item_signature,
     // type item
+    ty_associated_function_signature,
     TypeAssociatedFunctionSignature,
+    ty_method_signature,
     TypeMethodSignature,
+    ty_associated_ty_signature,
     TypeAssociatedTypeSignature,
+    ty_associated_value_signature,
     TypeAssociatedValueSignature,
+    ty_memo_signature,
     TypeMemoSignature,
     // trait item
+    trai_associated_function_signature,
     TraitAssociatedFunctionSignature,
+    trai_method_signature,
     TraitMethodSignature,
+    trai_associated_ty_signature,
     TraitAssociatedTypeSignature,
+    trai_associated_value_signature,
     TraitAssociatedValueSignature,
     // type as trait item
+    ty_as_trai_associated_function_signature,
     TypeAsTraitAssociatedFunctionSignature,
+    ty_as_trai_method_signature,
     TypeAsTraitMethodSignature,
+    ty_as_trai_associated_ty_signature,
     TypeAsTraitAssociatedTypeSignature,
+    ty_as_trai_associated_value_signature,
     TypeAsTraitAssociatedValueSignature,
 );

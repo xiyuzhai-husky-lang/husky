@@ -1,6 +1,7 @@
 use crate::*;
 
-pub(crate) fn ty_associated_method_signature(db: &dyn SignatureDb, decl: TypeMethodDecl) -> TypeMethodSignature{
+#[salsa::tracked(jar = SignatureJar)]
+pub(crate) fn ty_method_signature(db: &dyn SignatureDb, decl: TypeMethodDecl) -> TypeMethodSignature{
     let mut engine = SignatureTermEngine::new(db, decl.expr_page(db));
     // implementation
     TypeMethodSignature::new(

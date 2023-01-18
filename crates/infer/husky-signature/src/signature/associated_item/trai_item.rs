@@ -13,9 +13,9 @@ use super::*;
 pub(crate) fn trai_associated_item_signature(db: &dyn SignatureDb, decl: TraitItemDecl) -> TraitItemSignature {
     match decl {
         TraitItemDecl::Function(decl) => trai_associated_function_signature(db, decl).into(),
-        TraitItemDecl::Method(decl) => trai_associated_method_signature(db, decl).into(),
+        TraitItemDecl::Method(decl) => trai_method_signature(db, decl).into(),
         TraitItemDecl::AlienType(decl) => trai_associated_ty_signature(db, decl).into(),
-        TraitItemDecl::Value(decl) => trai_associated_val_signature(db, decl).into(),
+        TraitItemDecl::Value(decl) => trai_associated_value_signature(db, decl).into(),
     }
 }
 
