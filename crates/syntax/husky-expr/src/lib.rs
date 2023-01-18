@@ -79,17 +79,17 @@ pub enum Expr {
         inherited_symbol_idx: InheritedSymbolIdx,
         inherited_symbol_kind: InheritedSymbolKind,
     },
-    LocalSymbol {
+    CurrentSymbol {
         ident: Identifier,
         token_idx: TokenIdx,
-        local_symbol_idx: LocalSymbolIdx,
-        local_symbol_kind: LocalSymbolKind,
+        current_symbol_idx: CurrentSymbolIdx,
+        current_symbol_kind: CurrentSymbolKind,
     },
     FrameVarDecl {
         token_idx: TokenIdx,
         ident: Identifier,
-        local_symbol_idx: LocalSymbolIdx,
-        local_symbol_kind: LocalSymbolKind,
+        current_symbol_idx: CurrentSymbolIdx,
+        current_symbol_kind: CurrentSymbolKind,
     },
     SelfType(TokenIdx),
     SelfValue(TokenIdx),

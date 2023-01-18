@@ -2,7 +2,7 @@ use husky_entity_path::EntityPath;
 use husky_entity_taxonomy::EntityKind;
 use husky_entity_tree::{UseExprIdx, UseExprRuleIdx, UseExprRuleState};
 use husky_expr::{
-    ExprPage, InheritedSymbolIdx, InheritedSymbolKind, LocalSymbolIdx, LocalSymbolKind,
+    CurrentSymbolIdx, CurrentSymbolKind, ExprPage, InheritedSymbolIdx, InheritedSymbolKind,
 };
 
 #[derive(Debug, PartialEq, Eq)]
@@ -14,9 +14,9 @@ pub enum TokenInfo {
         inherited_symbol_kind: InheritedSymbolKind,
         expr_page: ExprPage,
     },
-    LocalSymbol {
-        local_symbol_idx: LocalSymbolIdx,
-        local_symbol_kind: LocalSymbolKind,
+    CurrentSymbol {
+        current_symbol_idx: CurrentSymbolIdx,
+        current_symbol_kind: CurrentSymbolKind,
         expr_page: ExprPage,
     },
     SelfType,

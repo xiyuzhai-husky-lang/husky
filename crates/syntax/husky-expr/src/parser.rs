@@ -134,7 +134,7 @@ impl<'a> ExprParser<'a> {
     }
 
     #[inline(always)]
-    fn define_variables(&mut self, variables: Vec<LocalSymbol>) -> LocalSymbolIdxRange {
+    fn define_variables(&mut self, variables: Vec<CurrentSymbol>) -> CurrentSymbolIdxRange {
         self.symbol_context.define_variables(variables)
     }
 }
@@ -216,7 +216,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         self.parser.pattern_expr_page()
     }
 
-    pub(crate) fn define_variables(&mut self, variables: Vec<LocalSymbol>) -> LocalSymbolIdxRange {
+    pub(crate) fn define_variables(
+        &mut self,
+        variables: Vec<CurrentSymbol>,
+    ) -> CurrentSymbolIdxRange {
         self.parser.define_variables(variables)
     }
 

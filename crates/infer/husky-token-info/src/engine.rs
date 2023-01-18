@@ -234,29 +234,31 @@ impl<'a> AuxInferEngine<'a> {
         for entity_path_expr in self.symbol_context.entity_path_exprs() {
             self.visit_entity_path_expr(entity_path_expr)
         }
-        for (local_symbol_idx, local_symbol) in self.symbol_context.indexed_local_symbol_iter() {
-            self.visit_local_symbol(local_symbol_idx, local_symbol)
+        for (current_symbol_idx, current_symbol) in
+            self.symbol_context.indexed_current_symbol_iter()
+        {
+            self.visit_current_symbol(current_symbol_idx, current_symbol)
         }
     }
 
     fn visit_expr(&mut self, expr: &Expr) {
         match expr {
-            Expr::LocalSymbol {
+            Expr::CurrentSymbol {
                 token_idx,
-                local_symbol_idx,
-                local_symbol_kind,
+                current_symbol_idx,
+                current_symbol_kind,
                 ..
             }
             | Expr::FrameVarDecl {
                 token_idx,
-                local_symbol_idx,
-                local_symbol_kind,
+                current_symbol_idx,
+                current_symbol_kind,
                 ..
             } => self.sheet.add(
                 *token_idx,
-                TokenInfo::LocalSymbol {
-                    local_symbol_idx: *local_symbol_idx,
-                    local_symbol_kind: *local_symbol_kind,
+                TokenInfo::CurrentSymbol {
+                    current_symbol_idx: *current_symbol_idx,
+                    current_symbol_kind: *current_symbol_kind,
                     expr_page: self.expr_page,
                 },
             ),
@@ -341,11 +343,15 @@ impl<'a> AuxInferEngine<'a> {
         }
     }
 
-    fn visit_local_symbol(&mut self, local_symbol_idx: LocalSymbolIdx, local_symbol: &LocalSymbol) {
-        let local_symbol_kind = local_symbol.kind();
-        match local_symbol_kind {
-            LocalSymbolKind::LetVariable { pattern_symbol }
-            | LocalSymbolKind::Parameter { pattern_symbol } => {
+    fn visit_current_symbol(
+        &mut self,
+        current_symbol_idx: CurrentSymbolIdx,
+        current_symbol: &CurrentSymbol,
+    ) {
+        let current_symbol_kind = current_symbol.kind();
+        match current_symbol_kind {
+            CurrentSymbolKind::LetVariable { pattern_symbol }
+            | CurrentSymbolKind::Parameter { pattern_symbol } => {
                 match self.symbol_context[pattern_symbol] {
                     PatternSymbol::Atom(pattern_expr_idx) => {
                         match self.symbol_context[pattern_expr_idx] {
@@ -354,10 +360,10 @@ impl<'a> AuxInferEngine<'a> {
                                 liason,
                             } => self.sheet.add(
                                 ident_token.token_idx(),
-                                TokenInfo::LocalSymbol {
-                                    local_symbol_idx,
+                                TokenInfo::CurrentSymbol {
+                                    current_symbol_idx,
                                     expr_page: self.expr_page,
-                                    local_symbol_kind,
+                                    current_symbol_kind,
                                 },
                             ),
                             _ => unreachable!(),
@@ -365,7 +371,7 @@ impl<'a> AuxInferEngine<'a> {
                     }
                 }
             }
-            LocalSymbolKind::FrameVariable(_) => (),
+            CurrentSymbolKind::FrameVariable(_) => (),
         }
     }
 

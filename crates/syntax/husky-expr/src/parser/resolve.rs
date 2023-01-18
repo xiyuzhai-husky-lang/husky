@@ -265,11 +265,11 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             inherited_symbol_kind,
                         }
                     }
-                    Symbol::Local(local_symbol_idx, local_symbol_kind) => Expr::LocalSymbol {
+                    Symbol::Local(current_symbol_idx, current_symbol_kind) => Expr::CurrentSymbol {
                         ident,
                         token_idx,
-                        local_symbol_idx,
-                        local_symbol_kind,
+                        current_symbol_idx,
+                        current_symbol_kind,
                     },
                     //  Expr::EntityPath(entity_path),
                 },

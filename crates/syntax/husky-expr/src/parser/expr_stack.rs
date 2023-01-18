@@ -48,7 +48,7 @@ impl Expr {
                 Some(entity_path) => BaseEntityPath::Some(*entity_path),
                 None => todo!(),
             },
-            Expr::InheritedSymbol { .. } | Expr::LocalSymbol { .. } => BaseEntityPath::None,
+            Expr::InheritedSymbol { .. } | Expr::CurrentSymbol { .. } => BaseEntityPath::None,
             Expr::SelfValue(_) => todo!(),
             Expr::SelfType(_) => todo!(),
             Expr::BinaryOpn {

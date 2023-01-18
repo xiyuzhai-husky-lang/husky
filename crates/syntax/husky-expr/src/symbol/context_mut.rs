@@ -52,7 +52,10 @@ impl<'a> SymbolContextMut<'a> {
         )
     }
 
-    pub(crate) fn define_variables(&mut self, variables: Vec<LocalSymbol>) -> LocalSymbolIdxRange {
+    pub(crate) fn define_variables(
+        &mut self,
+        variables: Vec<CurrentSymbol>,
+    ) -> CurrentSymbolIdxRange {
         self.symbol_sheet.define_variables(variables)
     }
 

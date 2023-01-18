@@ -1,6 +1,6 @@
 use husky_entity_taxonomy::{EntityKind, ModuleItemConnection, ModuleItemKind, TypeKind};
 use husky_entity_tree::UseExprRuleState;
-use husky_expr::{InheritedSymbolKind, LocalSymbolKind};
+use husky_expr::{CurrentSymbolKind, InheritedSymbolKind};
 
 use crate::*;
 
@@ -46,12 +46,13 @@ fn token_to_semantic_token(
                 return None;
             }
         }
-        TokenInfo::LocalSymbol {
-            local_symbol_kind, ..
-        } => match local_symbol_kind {
-            LocalSymbolKind::LetVariable { .. } => SemanticToken::Variable,
-            LocalSymbolKind::Parameter { .. } => SemanticToken::Parameter,
-            LocalSymbolKind::FrameVariable(_) => SemanticToken::FrameVariable,
+        TokenInfo::CurrentSymbol {
+            current_symbol_kind,
+            ..
+        } => match current_symbol_kind {
+            CurrentSymbolKind::LetVariable { .. } => SemanticToken::Variable,
+            CurrentSymbolKind::Parameter { .. } => SemanticToken::Parameter,
+            CurrentSymbolKind::FrameVariable(_) => SemanticToken::FrameVariable,
         },
         // SemanticToken::Variable,
         TokenInfo::InheritedSymbol {

@@ -244,9 +244,9 @@ Ok(
             None,
             None,
             None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: LetVariable {
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
                 expr_page: ExprPage(
@@ -259,9 +259,9 @@ Ok(
             None,
             None,
             None,
-            LocalSymbol {
-                local_symbol_idx: 1,
-                local_symbol_kind: LetVariable {
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
                 expr_page: ExprPage(
@@ -273,9 +273,9 @@ Ok(
             None,
             None,
             None,
-            LocalSymbol {
-                local_symbol_idx: 2,
-                local_symbol_kind: FrameVariable(
+            CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: FrameVariable(
                     3,
                 ),
                 expr_page: ExprPage(
@@ -305,9 +305,9 @@ Ok(
             None,
             None,
             None,
-            LocalSymbol {
-                local_symbol_idx: 3,
-                local_symbol_kind: LetVariable {
+            CurrentSymbol {
+                current_symbol_idx: 3,
+                current_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
                 expr_page: ExprPage(
@@ -332,9 +332,9 @@ Ok(
                 None,
             ),
             None,
-            LocalSymbol {
-                local_symbol_idx: 1,
-                local_symbol_kind: LetVariable {
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
                 expr_page: ExprPage(
@@ -347,9 +347,9 @@ Ok(
             None,
             Field,
             None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: LetVariable {
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
                 expr_page: ExprPage(
@@ -359,9 +359,9 @@ Ok(
                 ),
             },
             None,
-            LocalSymbol {
-                local_symbol_idx: 2,
-                local_symbol_kind: FrameVariable(
+            CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: FrameVariable(
                     3,
                 ),
                 expr_page: ExprPage(
@@ -371,9 +371,9 @@ Ok(
                 ),
             },
             None,
-            LocalSymbol {
-                local_symbol_idx: 2,
-                local_symbol_kind: FrameVariable(
+            CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: FrameVariable(
                     3,
                 ),
                 expr_page: ExprPage(
@@ -383,9 +383,9 @@ Ok(
                 ),
             },
             None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: LetVariable {
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
                 expr_page: ExprPage(
@@ -394,9 +394,9 @@ Ok(
                     },
                 ),
             },
-            LocalSymbol {
-                local_symbol_idx: 3,
-                local_symbol_kind: LetVariable {
+            CurrentSymbol {
+                current_symbol_idx: 3,
+                current_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
                 expr_page: ExprPage(
@@ -406,9 +406,9 @@ Ok(
                 ),
             },
             None,
-            LocalSymbol {
-                local_symbol_idx: 1,
-                local_symbol_kind: LetVariable {
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
                 expr_page: ExprPage(
@@ -433,9 +433,9 @@ Ok(
                 None,
             ),
             None,
-            LocalSymbol {
-                local_symbol_idx: 3,
-                local_symbol_kind: LetVariable {
+            CurrentSymbol {
+                current_symbol_idx: 3,
+                current_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
                 expr_page: ExprPage(
@@ -473,9 +473,9 @@ Ok(
             None,
             None,
             None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: LetVariable {
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
                 expr_page: ExprPage(
@@ -487,9 +487,9 @@ Ok(
             None,
             None,
             None,
-            LocalSymbol {
-                local_symbol_idx: 1,
-                local_symbol_kind: FrameVariable(
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: FrameVariable(
                     2,
                 ),
                 expr_page: ExprPage(
@@ -518,9 +518,9 @@ Ok(
             None,
             None,
             None,
-            LocalSymbol {
-                local_symbol_idx: 1,
-                local_symbol_kind: FrameVariable(
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: FrameVariable(
                     2,
                 ),
                 expr_page: ExprPage(
@@ -545,9 +545,9 @@ Ok(
                 None,
             ),
             None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: LetVariable {
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
                 expr_page: ExprPage(
@@ -560,9 +560,9 @@ Ok(
             None,
             Field,
             None,
-            LocalSymbol {
-                local_symbol_idx: 1,
-                local_symbol_kind: FrameVariable(
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: FrameVariable(
                     2,
                 ),
                 expr_page: ExprPage(
