@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::interned(jar = SignatureJar)]
+#[salsa::tracked(jar = SignatureJar)]
 pub struct TypeMemoSignature {
     #[return_ref]
     pub output_ty: SignatureResult<Term>,
