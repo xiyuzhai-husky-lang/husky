@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::interned(jar = SignatureJar)]
+#[salsa::tracked(jar = SignatureJar)]
 pub struct FunctionSignature {
     #[return_ref]
     pub implicit_parameter_decl_list: Option<ImplicitParameterSignatureList>,

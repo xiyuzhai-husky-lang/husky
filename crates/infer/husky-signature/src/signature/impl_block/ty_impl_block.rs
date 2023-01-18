@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::interned(jar = SignatureJar)]
+#[salsa::tracked(jar = SignatureJar)]
 pub struct TypeImplBlockSignature {
     pub ty: Term,
 }

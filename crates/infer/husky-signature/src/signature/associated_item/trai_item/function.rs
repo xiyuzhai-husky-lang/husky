@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::interned(jar = SignatureJar)]
+#[salsa::tracked(jar = SignatureJar)]
 pub struct TraitAssociatedFunctionSignature {
     pub output_ty: Term,
 }
