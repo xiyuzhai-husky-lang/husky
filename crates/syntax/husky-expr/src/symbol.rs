@@ -11,7 +11,7 @@ use husky_entity_tree::{CrateSymbolContext, ModuleSymbolContext, PreludeResult};
 pub enum Symbol {
     Entity(EntityPath),
     Inherited(InheritedSymbolIdx, InheritedSymbolKind),
-    Local(LocalSymbolIdx, LocalSymbolKind),
+    Local(CurrentSymbolIdx, CurrentSymbolKind),
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -23,25 +23,25 @@ pub struct InheritedSymbol {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum InheritedSymbolKind {
     Parameter {
-        original_local_symbol_idx: LocalSymbolIdx,
+        original_current_symbol_idx: CurrentSymbolIdx,
     },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct LocalSymbol {
+pub struct CurrentSymbol {
     ident: Identifier,
     access_start: TokenIdx,
     /// this is none only for lambda variable
     access_end: Option<TokenIdxRangeEnd>,
-    kind: LocalSymbolKind,
+    kind: CurrentSymbolKind,
 }
 
-impl LocalSymbol {
+impl CurrentSymbol {
     pub fn new(
         ident: Identifier,
         access_start: TokenIdx,
         access_end: Option<TokenIdxRangeEnd>,
-        kind: LocalSymbolKind,
+        kind: CurrentSymbolKind,
     ) -> Self {
         Self {
             ident,
@@ -51,13 +51,13 @@ impl LocalSymbol {
         }
     }
 
-    pub fn kind(&self) -> LocalSymbolKind {
+    pub fn kind(&self) -> CurrentSymbolKind {
         self.kind
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum LocalSymbolKind {
+pub enum CurrentSymbolKind {
     Parameter { pattern_symbol: PatternSymbolIdx },
     LetVariable { pattern_symbol: PatternSymbolIdx },
     FrameVariable(ExprIdx),
@@ -67,6 +67,6 @@ pub type InheritedSymbolArena = Arena<InheritedSymbol>;
 pub type InheritedSymbolIdx = ArenaIdx<InheritedSymbol>;
 pub type InheritedSymbolIdxRange = ArenaIdxRange<InheritedSymbol>;
 
-pub type LocalSymbolArena = Arena<LocalSymbol>;
-pub type LocalSymbolIdx = ArenaIdx<LocalSymbol>;
-pub type LocalSymbolIdxRange = ArenaIdxRange<LocalSymbol>;
+pub type CurrentSymbolArena = Arena<CurrentSymbol>;
+pub type CurrentSymbolIdx = ArenaIdx<CurrentSymbol>;
+pub type CurrentSymbolIdxRange = ArenaIdxRange<CurrentSymbol>;

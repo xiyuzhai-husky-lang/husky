@@ -208,18 +208,18 @@ impl<'a> BlockExprParser<'a> {
                 ropd,
             } => {
                 let particulars = self.parse_for_between_particulars(lopd, ropd, comparison_opr)?;
-                let local_symbol_kind =
-                    LocalSymbolKind::FrameVariable(particulars.frame_var_expr_idx);
+                let current_symbol_kind =
+                    CurrentSymbolKind::FrameVariable(particulars.frame_var_expr_idx);
                 let access_start = self.ast_token_idx_range_sheet[body.start()]
                     .start()
                     .token_idx();
                 let access_end = self.ast_token_idx_range_sheet[body.end() - 1].end();
-                let local_symbol_idx = self
-                    .define_variables(vec![LocalSymbol::new(
+                let current_symbol_idx = self
+                    .define_variables(vec![CurrentSymbol::new(
                         particulars.frame_var_ident,
                         access_start,
                         Some(access_end),
-                        local_symbol_kind,
+                        current_symbol_kind,
                     )])
                     .start();
                 unsafe {
@@ -228,8 +228,8 @@ impl<'a> BlockExprParser<'a> {
                         Expr::FrameVarDecl {
                             token_idx: particulars.frame_var_token_idx,
                             ident: particulars.frame_var_ident,
-                            local_symbol_idx,
-                            local_symbol_kind,
+                            current_symbol_idx,
+                            current_symbol_kind,
                         },
                     )
                 }

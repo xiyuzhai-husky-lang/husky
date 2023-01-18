@@ -113,9 +113,9 @@ Ok(
                 ),
             ),
             None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: Parameter {
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
                 expr_page: ExprPage(
@@ -268,9 +268,9 @@ Ok(
                 ),
             ),
             None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: Parameter {
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
                 expr_page: ExprPage(
@@ -422,9 +422,9 @@ Ok(
                 ),
             ),
             None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: Parameter {
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
                 expr_page: ExprPage(
@@ -577,9 +577,9 @@ Ok(
                 ),
             ),
             None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: Parameter {
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
                 expr_page: ExprPage(
@@ -732,9 +732,9 @@ Ok(
                 ),
             ),
             None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: Parameter {
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
                 expr_page: ExprPage(
@@ -887,9 +887,9 @@ Ok(
                 ),
             ),
             None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: Parameter {
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
                 expr_page: ExprPage(
@@ -1041,9 +1041,9 @@ Ok(
                 ),
             ),
             None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: Parameter {
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
                 expr_page: ExprPage(
@@ -1196,9 +1196,9 @@ Ok(
                 ),
             ),
             None,
-            LocalSymbol {
-                local_symbol_idx: 0,
-                local_symbol_kind: Parameter {
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
                 expr_page: ExprPage(

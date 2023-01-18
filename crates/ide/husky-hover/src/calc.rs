@@ -88,12 +88,15 @@ impl<'a> HoverResultCalculator<'a> {
         let additional_debug_content: String = match self.token_info {
             TokenInfo::None => format!(""),
             TokenInfo::Entity(_, _) => format!(""),
-            TokenInfo::LocalSymbol {
-                local_symbol_idx,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx,
                 expr_page,
                 ..
             } => {
-                format!("{:#?}", expr_page.symbol_sheet(self.db)[*local_symbol_idx])
+                format!(
+                    "{:#?}",
+                    expr_page.symbol_sheet(self.db)[*current_symbol_idx]
+                )
             }
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx,

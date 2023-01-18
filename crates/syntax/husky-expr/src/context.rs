@@ -35,10 +35,10 @@ impl<'a> ExprContext<'a> {
         self.expr_arena.data()
     }
 
-    pub fn indexed_local_symbol_iter(
+    pub fn indexed_current_symbol_iter(
         &self,
-    ) -> impl Iterator<Item = (LocalSymbolIdx, &'a LocalSymbol)> + 'a {
-        self.symbol_sheet.indexed_local_symbol_iter()
+    ) -> impl Iterator<Item = (CurrentSymbolIdx, &'a CurrentSymbol)> + 'a {
+        self.symbol_sheet.indexed_current_symbol_iter()
     }
 }
 

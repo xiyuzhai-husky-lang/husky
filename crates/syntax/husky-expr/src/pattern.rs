@@ -178,7 +178,7 @@ pub type PatternExprIdxRange = ArenaIdxRange<PatternExpr>;
 #[derive(Debug, PartialEq, Eq)]
 pub struct ParameterPattern {
     pattern_expr_idx: PatternExprIdx,
-    variables: LocalSymbolIdxRange,
+    variables: CurrentSymbolIdxRange,
 }
 
 impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ParameterPattern {
@@ -191,11 +191,11 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ParameterPattern {
             let variables = symbols
                 .iter()
                 .map(|(ident, pattern_symbol)| {
-                    LocalSymbol::new(
+                    CurrentSymbol::new(
                         *ident,
                         access_start,
                         None,
-                        LocalSymbolKind::Parameter {
+                        CurrentSymbolKind::Parameter {
                             pattern_symbol: *pattern_symbol,
                         },
                     )
@@ -221,7 +221,7 @@ impl ParameterPattern {
 #[derive(Debug, PartialEq, Eq)]
 pub struct LetVariablePattern {
     pattern_expr_idx: PatternExprIdx,
-    variables: LocalSymbolIdxRange,
+    variables: CurrentSymbolIdxRange,
 }
 
 impl<'a, 'b> ExprParseContext<'a, 'b> {
@@ -238,11 +238,11 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             let variables = symbols
                 .iter()
                 .map(|(ident, pattern_symbol)| {
-                    LocalSymbol::new(
+                    CurrentSymbol::new(
                         *ident,
                         access_start,
                         Some(access_end),
-                        LocalSymbolKind::LetVariable {
+                        CurrentSymbolKind::LetVariable {
                             pattern_symbol: *pattern_symbol,
                         },
                     )

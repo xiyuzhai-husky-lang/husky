@@ -33,7 +33,7 @@ impl AllowSelfType {
 #[derive(Debug, PartialEq, Eq)]
 pub struct SymbolSheet {
     inherited_symbol_arena: InheritedSymbolArena,
-    local_symbol_arena: LocalSymbolArena,
+    current_symbol_arena: CurrentSymbolArena,
     allow_self_type: AllowSelfType,
     allow_self_value: AllowSelfValue,
 }
@@ -65,7 +65,7 @@ impl SymbolSheet {
                 Some(parent_symbol_sheet) => parent_symbol_sheet.bequeath(),
                 None => Default::default(),
             },
-            local_symbol_arena: Default::default(),
+            current_symbol_arena: Default::default(),
             allow_self_type,
             allow_self_value,
         }
@@ -74,13 +74,13 @@ impl SymbolSheet {
     #[inline(always)]
     pub(crate) fn define_variables(
         &mut self,
-        variables: Vec<LocalSymbol>,
-    ) -> ArenaIdxRange<LocalSymbol> {
-        self.local_symbol_arena.alloc_batch(variables)
+        variables: Vec<CurrentSymbol>,
+    ) -> ArenaIdxRange<CurrentSymbol> {
+        self.current_symbol_arena.alloc_batch(variables)
     }
 
     pub(crate) fn resolve_ident(&self, token_idx: TokenIdx, ident: Identifier) -> Option<Symbol> {
-        self.local_symbol_arena
+        self.current_symbol_arena
             .find_rev_indexed(|symbol| {
                 let accessible = match symbol.access_end {
                     Some(access_end) => access_end.token_idx() > token_idx,
@@ -88,8 +88,8 @@ impl SymbolSheet {
                 };
                 symbol.ident == ident && accessible
             })
-            .map(|(local_symbol_idx, local_symbol)| {
-                Symbol::Local(local_symbol_idx, local_symbol.kind)
+            .map(|(current_symbol_idx, current_symbol)| {
+                Symbol::Local(current_symbol_idx, current_symbol.kind)
             })
             .or_else(|| {
                 self.inherited_symbol_arena
@@ -106,10 +106,10 @@ impl SymbolSheet {
         self.inherited_symbol_arena.indexed_iter()
     }
 
-    pub fn indexed_local_symbol_iter<'a>(
+    pub fn indexed_current_symbol_iter<'a>(
         &'a self,
-    ) -> impl Iterator<Item = (LocalSymbolIdx, &'a LocalSymbol)> + 'a {
-        self.local_symbol_arena.indexed_iter()
+    ) -> impl Iterator<Item = (CurrentSymbolIdx, &'a CurrentSymbol)> + 'a {
+        self.current_symbol_arena.indexed_iter()
     }
 
     fn bequeath(&self) -> InheritedSymbolArena {
@@ -117,16 +117,16 @@ impl SymbolSheet {
         for _ in self.indexed_inherited_symbol_iter() {
             todo!()
         }
-        for (original_local_symbol_idx, local_symbol) in self.indexed_local_symbol_iter() {
-            inherited_symbol_arena.alloc_one(match local_symbol.kind {
-                LocalSymbolKind::Parameter { .. } => InheritedSymbol {
-                    ident: local_symbol.ident,
+        for (original_current_symbol_idx, current_symbol) in self.indexed_current_symbol_iter() {
+            inherited_symbol_arena.alloc_one(match current_symbol.kind {
+                CurrentSymbolKind::Parameter { .. } => InheritedSymbol {
+                    ident: current_symbol.ident,
                     kind: InheritedSymbolKind::Parameter {
-                        original_local_symbol_idx,
+                        original_current_symbol_idx,
                     },
                 },
-                LocalSymbolKind::LetVariable { .. } => todo!(),
-                LocalSymbolKind::FrameVariable(_) => todo!(),
+                CurrentSymbolKind::LetVariable { .. } => todo!(),
+                CurrentSymbolKind::FrameVariable(_) => todo!(),
             });
         }
         inherited_symbol_arena
@@ -149,11 +149,11 @@ impl std::ops::Index<InheritedSymbolIdx> for SymbolSheet {
     }
 }
 
-impl std::ops::Index<LocalSymbolIdx> for SymbolSheet {
-    type Output = LocalSymbol;
+impl std::ops::Index<CurrentSymbolIdx> for SymbolSheet {
+    type Output = CurrentSymbol;
 
-    fn index(&self, index: LocalSymbolIdx) -> &Self::Output {
-        &self.local_symbol_arena[index]
+    fn index(&self, index: CurrentSymbolIdx) -> &Self::Output {
+        &self.current_symbol_arena[index]
     }
 }
 
