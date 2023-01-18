@@ -10,9 +10,9 @@ use super::*;
 
 pub(crate) fn associated_item_signature(db: &dyn SignatureDb, decl: AssociatedItemDecl) -> AssociatedItemSignature {
     match decl {
-        AssociatedItemDecl::TypeItem(_) => todo!(),
-        AssociatedItemDecl::TraitItem(_) => todo!(),
-        AssociatedItemDecl::TypeAsTraitItem(_) => todo!(),
+        AssociatedItemDecl::TypeItem(decl) => ty_associated_item_signature(db, decl).into(),
+        AssociatedItemDecl::TraitItem(decl) => trai_associated_item_signature(db, decl).into(),
+        AssociatedItemDecl::TypeAsTraitItem(decl) => ty_as_trai_associated_item_signature(db, decl).into(),
         // TypeDecl::Enum(decl) => enum_ty_signature(db, decl).into(),
     }
 }
