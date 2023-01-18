@@ -21,7 +21,7 @@ Ok(
                                 },
                                 decls: [
                                     ParameterDecl {
-                                        pattern: ParameterPattern {
+                                        pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -35,7 +35,7 @@ Ok(
                                         ty: 0,
                                     },
                                     ParameterDecl {
-                                        pattern: ParameterPattern {
+                                        pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 1,
                                             variables: ArenaIdxRange(
                                                 1..2,

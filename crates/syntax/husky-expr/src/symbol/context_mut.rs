@@ -39,7 +39,7 @@ impl<'a> SymbolContextMut<'a> {
         db: &dyn ExprDb,
         expr_arena: ExprArena,
         entity_path_expr_arena: EntityPathExprArena,
-        pattern_expr_page: PatternExprPage,
+        pattern_expr_page: PatternExprSubsheet,
         stmt_arena: StmtArena,
     ) -> ExprPage {
         ExprPage::new(
@@ -52,11 +52,11 @@ impl<'a> SymbolContextMut<'a> {
         )
     }
 
-    pub(crate) fn define_variables(
+    pub(crate) fn define_symbols(
         &mut self,
-        variables: Vec<CurrentSymbol>,
+        variables: impl IntoIterator<Item = CurrentSymbol>,
     ) -> CurrentSymbolIdxRange {
-        self.symbol_sheet.define_variables(variables)
+        self.symbol_sheet.define_symbols(variables)
     }
 
     pub(crate) fn symbol_sheet(&self) -> &SymbolSheet {

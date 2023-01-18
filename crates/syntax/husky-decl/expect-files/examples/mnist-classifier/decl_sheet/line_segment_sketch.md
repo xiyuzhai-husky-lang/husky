@@ -110,7 +110,7 @@ Ok(
                                 },
                                 decls: [
                                     ParameterDecl {
-                                        pattern: ParameterPattern {
+                                        pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -124,7 +124,7 @@ Ok(
                                         ty: 0,
                                     },
                                     ParameterDecl {
-                                        pattern: ParameterPattern {
+                                        pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 1,
                                             variables: ArenaIdxRange(
                                                 1..2,
@@ -192,7 +192,7 @@ Ok(
                                 },
                                 decls: [
                                     ParameterDecl {
-                                        pattern: ParameterPattern {
+                                        pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -206,7 +206,7 @@ Ok(
                                         ty: 0,
                                     },
                                     ParameterDecl {
-                                        pattern: ParameterPattern {
+                                        pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 1,
                                             variables: ArenaIdxRange(
                                                 1..2,
@@ -274,7 +274,7 @@ Ok(
                                 },
                                 decls: [
                                     ParameterDecl {
-                                        pattern: ParameterPattern {
+                                        pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -288,7 +288,7 @@ Ok(
                                         ty: 1,
                                     },
                                     ParameterDecl {
-                                        pattern: ParameterPattern {
+                                        pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 1,
                                             variables: ArenaIdxRange(
                                                 1..2,
@@ -302,7 +302,7 @@ Ok(
                                         ty: 2,
                                     },
                                     ParameterDecl {
-                                        pattern: ParameterPattern {
+                                        pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 2,
                                             variables: ArenaIdxRange(
                                                 2..3,
@@ -375,7 +375,7 @@ Ok(
                                 },
                                 decls: [
                                     ParameterDecl {
-                                        pattern: ParameterPattern {
+                                        pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -389,7 +389,7 @@ Ok(
                                         ty: 1,
                                     },
                                     ParameterDecl {
-                                        pattern: ParameterPattern {
+                                        pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 1,
                                             variables: ArenaIdxRange(
                                                 1..2,
@@ -403,7 +403,7 @@ Ok(
                                         ty: 2,
                                     },
                                     ParameterDecl {
-                                        pattern: ParameterPattern {
+                                        pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 2,
                                             variables: ArenaIdxRange(
                                                 2..3,
@@ -417,7 +417,7 @@ Ok(
                                         ty: 3,
                                     },
                                     ParameterDecl {
-                                        pattern: ParameterPattern {
+                                        pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 3,
                                             variables: ArenaIdxRange(
                                                 3..4,
@@ -495,7 +495,7 @@ Ok(
                                 },
                                 decls: [
                                     ParameterDecl {
-                                        pattern: ParameterPattern {
+                                        pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -509,7 +509,7 @@ Ok(
                                         ty: 1,
                                     },
                                     ParameterDecl {
-                                        pattern: ParameterPattern {
+                                        pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 1,
                                             variables: ArenaIdxRange(
                                                 1..2,
@@ -621,7 +621,7 @@ Ok(
                                     },
                                     decls: [
                                         ParameterDecl {
-                                            pattern: ParameterPattern {
+                                            pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -635,7 +635,7 @@ Ok(
                                             ty: 1,
                                         },
                                         ParameterDecl {
-                                            pattern: ParameterPattern {
+                                            pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 1,
                                                 variables: ArenaIdxRange(
                                                     1..2,
@@ -649,7 +649,7 @@ Ok(
                                             ty: 2,
                                         },
                                         ParameterDecl {
-                                            pattern: ParameterPattern {
+                                            pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 2,
                                                 variables: ArenaIdxRange(
                                                     2..3,
@@ -917,7 +917,7 @@ Ok(
                                     },
                                     decls: [
                                         ParameterDecl {
-                                            pattern: ParameterPattern {
+                                            pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -931,7 +931,7 @@ Ok(
                                             ty: 1,
                                         },
                                         ParameterDecl {
-                                            pattern: ParameterPattern {
+                                            pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 1,
                                                 variables: ArenaIdxRange(
                                                     1..2,

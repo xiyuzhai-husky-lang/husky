@@ -7,12 +7,12 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unexpected stmt inside module",
                 severity: Error,
-                range: [31:1, 31:6),
+                range: [30:1, 30:6),
             },
             Diagnostic {
                 message: "Syntax Error: unexpected stmt inside module",
                 severity: Error,
-                range: [37:1, 37:6),
+                range: [36:1, 36:6),
             },
         ],
     },
@@ -26,22 +26,12 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [1:41, 1:42),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
                 range: [3:41, 3:46),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
                 range: [5:24, 5:27),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [5:41, 5:42),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
@@ -57,11 +47,6 @@ DiagnosticSheet {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
                 range: [11:19, 11:22),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [11:36, 11:37),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
@@ -86,47 +71,32 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [16:5, 16:6),
-            },
-            Diagnostic {
-                message: "Syntax Error: unexpected `$`",
-                severity: Error,
-                range: [16:8, 16:9),
-            },
-            Diagnostic {
-                message: "Syntax Error: no right operand for binary operator",
-                severity: Error,
-                range: [16:9, 16:10),
+                range: [18:34, 18:39),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [19:34, 19:39),
+                range: [21:52, 21:57),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [22:52, 22:57),
+                range: [26:37, 26:42),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [27:37, 27:42),
+                range: [26:58, 26:63),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [27:58, 27:63),
+                range: [27:29, 27:34),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [28:29, 28:34),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [28:45, 28:50),
+                range: [27:45, 27:50),
             },
         ],
     },

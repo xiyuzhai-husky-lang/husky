@@ -25,7 +25,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(crate) fn alloc_pattern_expr(
         &mut self,
         expr: PatternExpr,
-        env: PatternInfo,
+        env: PatternExprInfo,
     ) -> PatternExprIdx {
         self.parser.pattern_expr_page.alloc_one(expr, env)
     }

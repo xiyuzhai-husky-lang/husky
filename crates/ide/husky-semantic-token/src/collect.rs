@@ -53,6 +53,7 @@ fn token_to_semantic_token(
             CurrentSymbolKind::LetVariable { .. } => SemanticToken::Variable,
             CurrentSymbolKind::Parameter { .. } => SemanticToken::Parameter,
             CurrentSymbolKind::FrameVariable(_) => SemanticToken::FrameVariable,
+            CurrentSymbolKind::ImplicitParameter { .. } => SemanticToken::ImplicitParameter,
         },
         // SemanticToken::Variable,
         TokenInfo::InheritedSymbol {
@@ -60,6 +61,7 @@ fn token_to_semantic_token(
             ..
         } => match inherited_symbol_kind {
             InheritedSymbolKind::Parameter => SemanticToken::Parameter,
+            InheritedSymbolKind::ImplicitParameter => SemanticToken::ImplicitParameter,
         },
         TokenInfo::SelfType => todo!(),
         TokenInfo::SelfValue => SemanticToken::Variable,

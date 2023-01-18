@@ -100,7 +100,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 3;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 83,\n            },\n        ),\n    ),\n);\n\ntoken_info = UseExpr {\n    use_expr_idx: 1,\n    rule_idx: UseExprRuleIdx(\n        1,\n    ),\n    state: Resolved {\n        original_symbol: Submodule(\n            SubmoduleSymbol(\n                Id {\n                    value: 13,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 3;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 79,\n            },\n        ),\n    ),\n);\n\ntoken_info = UseExpr {\n    use_expr_idx: 1,\n    rule_idx: UseExprRuleIdx(\n        1,\n    ),\n    state: Resolved {\n        original_symbol: Submodule(\n            SubmoduleSymbol(\n                Id {\n                    value: 13,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 9;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 83,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 9;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 79,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -370,7 +370,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 12;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 166,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 29,\n                    },\n                ),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
+                                value: "\ntoken_idx = 12;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 165,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 29,\n                    },\n                ),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
                             },
                         ),
                         range: Some(

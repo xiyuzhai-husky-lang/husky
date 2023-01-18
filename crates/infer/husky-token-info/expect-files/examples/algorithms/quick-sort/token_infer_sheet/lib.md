@@ -25,14 +25,37 @@ Ok(
                 ),
             ),
             None,
-            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: ImplicitParameter {
+                    implicit_parameter_kind: Type {
+                        ident_token: IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 42,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                4,
+                            ),
+                        },
+                    },
+                },
+                expr_page: ExprPage(
+                    Id {
+                        value: 58,
+                    },
+                ),
+            },
             None,
             None,
             None,
             None,
             None,
             CurrentSymbol {
-                current_symbol_idx: 0,
+                current_symbol_idx: 1,
                 current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
@@ -46,7 +69,17 @@ Ok(
             BoxColon,
             BoxColon,
             BoxColon,
-            None,
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: Parameter {
+                    pattern_symbol: 0,
+                },
+                expr_page: ExprPage(
+                    Id {
+                        value: 58,
+                    },
+                ),
+            },
             None,
             None,
             None,
@@ -64,7 +97,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: ImplicitParameter,
                 expr_page: ExprPage(
                     Id {
                         value: 63,
@@ -92,7 +125,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: ImplicitParameter,
                 expr_page: ExprPage(
                     Id {
                         value: 63,
@@ -143,14 +176,37 @@ Ok(
                 ),
             ),
             None,
-            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: ImplicitParameter {
+                    implicit_parameter_kind: Type {
+                        ident_token: IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 42,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                43,
+                            ),
+                        },
+                    },
+                },
+                expr_page: ExprPage(
+                    Id {
+                        value: 59,
+                    },
+                ),
+            },
             None,
             None,
             None,
             None,
             None,
             CurrentSymbol {
-                current_symbol_idx: 0,
+                current_symbol_idx: 1,
                 current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
@@ -164,10 +220,20 @@ Ok(
             BoxColon,
             BoxColon,
             BoxColon,
-            None,
-            None,
             CurrentSymbol {
                 current_symbol_idx: 1,
+                current_symbol_kind: Parameter {
+                    pattern_symbol: 0,
+                },
+                expr_page: ExprPage(
+                    Id {
+                        value: 59,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 2,
                 current_symbol_kind: Parameter {
                     pattern_symbol: 1,
                 },
@@ -181,7 +247,7 @@ Ok(
             None,
             None,
             CurrentSymbol {
-                current_symbol_idx: 2,
+                current_symbol_idx: 3,
                 current_symbol_kind: Parameter {
                     pattern_symbol: 2,
                 },
@@ -208,7 +274,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: ImplicitParameter,
                 expr_page: ExprPage(
                     Id {
                         value: 64,
@@ -266,7 +332,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: ImplicitParameter,
                 expr_page: ExprPage(
                     Id {
                         value: 64,
@@ -364,7 +430,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: ImplicitParameter,
                 expr_page: ExprPage(
                     Id {
                         value: 64,
@@ -395,14 +461,37 @@ Ok(
                 ),
             ),
             None,
-            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: ImplicitParameter {
+                    implicit_parameter_kind: Type {
+                        ident_token: IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 42,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                104,
+                            ),
+                        },
+                    },
+                },
+                expr_page: ExprPage(
+                    Id {
+                        value: 60,
+                    },
+                ),
+            },
             None,
             None,
             None,
             None,
             None,
             CurrentSymbol {
-                current_symbol_idx: 0,
+                current_symbol_idx: 1,
                 current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
@@ -416,10 +505,20 @@ Ok(
             BoxColon,
             BoxColon,
             BoxColon,
-            None,
-            None,
             CurrentSymbol {
                 current_symbol_idx: 1,
+                current_symbol_kind: Parameter {
+                    pattern_symbol: 0,
+                },
+                expr_page: ExprPage(
+                    Id {
+                        value: 60,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 2,
                 current_symbol_kind: Parameter {
                     pattern_symbol: 1,
                 },
@@ -433,7 +532,7 @@ Ok(
             None,
             None,
             CurrentSymbol {
-                current_symbol_idx: 2,
+                current_symbol_idx: 3,
                 current_symbol_kind: Parameter {
                     pattern_symbol: 2,
                 },
@@ -464,7 +563,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: ImplicitParameter,
                 expr_page: ExprPage(
                     Id {
                         value: 65,
@@ -514,26 +613,13 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
+                inherited_symbol_kind: ImplicitParameter,
                 expr_page: ExprPage(
                     Id {
                         value: 65,
                     },
                 ),
             },
-            None,
-            None,
-            Field,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
             None,
             None,
             None,

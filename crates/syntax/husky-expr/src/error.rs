@@ -144,7 +144,7 @@ where
     }
 }
 
-impl<'a, Context> FromAbsent<BePattern, Context> for ExprError
+impl<'a, Context> FromAbsent<BeVariableDeclPattern, Context> for ExprError
 where
     Context: TokenParseContext<'a>,
 {

@@ -6,7 +6,7 @@ pub struct ExprContext<'a> {
     module_symbol_context: ModuleSymbolContext<'a>,
     expr_arena: &'a ExprArena,
     entity_path_expr_arena: &'a EntityPathExprArena,
-    pattern_expr_page: &'a PatternExprPage,
+    pattern_expr_page: &'a PatternExprSubsheet,
     stmt_arena: &'a StmtArena,
     symbol_sheet: &'a SymbolSheet,
 }

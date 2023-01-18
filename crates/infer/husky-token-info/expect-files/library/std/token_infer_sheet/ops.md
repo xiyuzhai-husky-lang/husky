@@ -28,7 +28,30 @@ Ok(
                 ),
             ),
             None,
-            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: ImplicitParameter {
+                    implicit_parameter_kind: Type {
+                        ident_token: IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 33,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                9,
+                            ),
+                        },
+                    },
+                },
+                expr_page: ExprPage(
+                    Id {
+                        value: 57,
+                    },
+                ),
+            },
             None,
             None,
             None,

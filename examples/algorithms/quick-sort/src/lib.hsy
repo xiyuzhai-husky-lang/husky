@@ -13,7 +13,6 @@ proc partition<T: Ord>(mut arr: [:]T, low: isize, high: isize) -> isize:
     let mut store_index = low - 1
     let mut last_index = high
 
-    a.b$<,>$(x, y)
     while true:
         store_index += 1
         while arr[store_index as usize] < arr[pivot]:
