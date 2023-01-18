@@ -9,8 +9,6 @@ use husky_expr::{
 pub enum TokenInfo {
     None,
     Entity(Option<EntityPath>, Option<EntityKind>),
-    ImplicitParameter,
-    Parameter,
     InheritedSymbol {
         inherited_symbol_idx: InheritedSymbolIdx,
         inherited_symbol_kind: InheritedSymbolKind,

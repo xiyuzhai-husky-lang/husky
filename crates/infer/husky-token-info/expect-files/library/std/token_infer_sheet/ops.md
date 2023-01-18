@@ -28,7 +28,7 @@ Ok(
                 ),
             ),
             None,
-            ImplicitParameter,
+            None,
             None,
             None,
             None,
