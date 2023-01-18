@@ -2,10 +2,11 @@ use super::*;
 
 pub(crate) fn ty_impl_block_signature(db: &dyn SignatureDb, decl: TypeImplBlockDecl) -> TypeImplBlockSignature{
     let mut engine = SignatureTermEngine::new(db, decl.expr_page(db));
-    // implementation
+    let ty = decl.ty(db);
+    let ty = engine.query_new(ty);
     TypeImplBlockSignature::new(
         db,
-        todo!(),
+        ty,
         // ImplicitParameterSignatureList::from_decl(decl.implicit_parameters(db), &mut engine),
         engine.finish(),
     )
@@ -14,7 +15,7 @@ pub(crate) fn ty_impl_block_signature(db: &dyn SignatureDb, decl: TypeImplBlockD
 
 #[salsa::tracked(jar = SignatureJar)]
 pub struct TypeImplBlockSignature {
-    pub ty: Term,
+    pub ty: Option<Term>,
     #[return_ref]
     pub term_sheet: SignatureTermSheet,
 }
