@@ -29,7 +29,7 @@ pub struct DeclJar(
     EnumTypeDecl,
     UnitStructTypeDecl,
     TupleStructTypeDecl,
-    PropsStructTypeDecl,
+    RegularStructTypeDecl,
     RecordTypeDecl,
     InductiveTypeDecl,
     StructureTypeDecl,

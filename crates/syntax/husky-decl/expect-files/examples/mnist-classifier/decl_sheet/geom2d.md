@@ -3,8 +3,8 @@ Ok(
         decls: [
             Ok(
                 Type(
-                    PropsStruct(
-                        PropsStructTypeDecl {
+                    RegularStruct(
+                        RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                             ast_idx: 80,
                             expr_page: ExprPage(
@@ -19,7 +19,7 @@ Ok(
                                 ),
                             },
                             fields: [
-                                PropsStructFieldDecl {
+                                RegularStructFieldDecl {
                                     ident: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -39,7 +39,7 @@ Ok(
                                     },
                                     ty: 0,
                                 },
-                                PropsStructFieldDecl {
+                                RegularStructFieldDecl {
                                     ident: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -83,8 +83,8 @@ Ok(
             ),
             Ok(
                 Type(
-                    PropsStruct(
-                        PropsStructTypeDecl {
+                    RegularStruct(
+                        RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                             ast_idx: 82,
                             expr_page: ExprPage(
@@ -99,7 +99,7 @@ Ok(
                                 ),
                             },
                             fields: [
-                                PropsStructFieldDecl {
+                                RegularStructFieldDecl {
                                     ident: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -119,7 +119,7 @@ Ok(
                                     },
                                     ty: 0,
                                 },
-                                PropsStructFieldDecl {
+                                RegularStructFieldDecl {
                                     ident: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -163,8 +163,8 @@ Ok(
             ),
             Ok(
                 Type(
-                    PropsStruct(
-                        PropsStructTypeDecl {
+                    RegularStruct(
+                        RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                             ast_idx: 83,
                             expr_page: ExprPage(
@@ -179,7 +179,7 @@ Ok(
                                 ),
                             },
                             fields: [
-                                PropsStructFieldDecl {
+                                RegularStructFieldDecl {
                                     ident: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -199,7 +199,7 @@ Ok(
                                     },
                                     ty: 0,
                                 },
-                                PropsStructFieldDecl {
+                                RegularStructFieldDecl {
                                     ident: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -243,8 +243,8 @@ Ok(
             ),
             Ok(
                 Type(
-                    PropsStruct(
-                        PropsStructTypeDecl {
+                    RegularStruct(
+                        RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                             ast_idx: 85,
                             expr_page: ExprPage(
@@ -259,7 +259,7 @@ Ok(
                                 ),
                             },
                             fields: [
-                                PropsStructFieldDecl {
+                                RegularStructFieldDecl {
                                     ident: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -279,7 +279,7 @@ Ok(
                                     },
                                     ty: 0,
                                 },
-                                PropsStructFieldDecl {
+                                RegularStructFieldDecl {
                                     ident: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -332,8 +332,8 @@ Ok(
             ),
             Ok(
                 Type(
-                    PropsStruct(
-                        PropsStructTypeDecl {
+                    RegularStruct(
+                        RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                             ast_idx: 90,
                             expr_page: ExprPage(
@@ -348,7 +348,7 @@ Ok(
                                 ),
                             },
                             fields: [
-                                PropsStructFieldDecl {
+                                RegularStructFieldDecl {
                                     ident: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -368,7 +368,7 @@ Ok(
                                     },
                                     ty: 0,
                                 },
-                                PropsStructFieldDecl {
+                                RegularStructFieldDecl {
                                     ident: IdentifierToken {
                                         ident: Identifier(
                                             Word(

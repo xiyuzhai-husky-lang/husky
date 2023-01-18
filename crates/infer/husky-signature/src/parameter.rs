@@ -13,24 +13,43 @@ impl ImplicitParameterSignature {
     pub fn pattern(&self) -> &ImplicitParameterSignaturePattern {
         &self.pattern
     }
+
+    fn from_decl(
+        parameter: &ImplicitParameterDecl,
+        engine: &mut SignatureTermEngine,
+    ) -> ImplicitParameterSignature {
+        todo!()
+    }
 }
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct ImplicitParameterSignatureList {
-    decls: Vec<ImplicitParameterSignature>,
+    parameters: Vec<ImplicitParameterSignature>,
+}
+
+impl ImplicitParameterSignatureList {
+    pub(crate) fn from_decl(
+        parameters: &[ImplicitParameterDecl],
+        engine: &mut SignatureTermEngine,
+    ) -> Self {
+        Self {
+            parameters: parameters
+                .iter()
+                .map(|parameter| ImplicitParameterSignature::from_decl(parameter, engine))
+                .collect(),
+        }
+    }
+
+    pub fn decls(&self) -> &[ImplicitParameterSignature] {
+        self.parameters.as_ref()
+    }
 }
 
 impl std::ops::Deref for ImplicitParameterSignatureList {
     type Target = Vec<ImplicitParameterSignature>;
 
     fn deref(&self) -> &Self::Target {
-        &self.decls
-    }
-}
-
-impl ImplicitParameterSignatureList {
-    pub fn decls(&self) -> &[ImplicitParameterSignature] {
-        self.decls.as_ref()
+        &self.parameters
     }
 }
 

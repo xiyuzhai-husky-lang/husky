@@ -2,10 +2,10 @@ Ok(
     DefnSheet {
         defns: [
             Type(
-                PropsStruct(
-                    PropsStructTypeDefn {
+                RegularStruct(
+                    RegularStructTypeDefn {
                         path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                        decl: PropsStructTypeDecl(
+                        decl: RegularStructTypeDecl(
                             Id {
                                 value: 4,
                             },

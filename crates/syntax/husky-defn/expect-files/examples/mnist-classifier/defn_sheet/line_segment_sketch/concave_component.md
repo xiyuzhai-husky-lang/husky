@@ -2,10 +2,10 @@ Ok(
     DefnSheet {
         defns: [
             Type(
-                PropsStruct(
-                    PropsStructTypeDefn {
+                RegularStruct(
+                    RegularStructTypeDefn {
                         path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        decl: PropsStructTypeDecl(
+                        decl: RegularStructTypeDecl(
                             Id {
                                 value: 10,
                             },

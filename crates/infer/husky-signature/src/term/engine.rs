@@ -29,7 +29,7 @@ impl<'a> SignatureTermEngine<'a> {
     }
 
     pub(crate) fn finish(self) -> SignatureTermSheet {
-        todo!()
+        SignatureTermSheet {}
     }
 
     fn save(&mut self, expr_idx: ExprIdx, outcome: SignatureTermOutcome<Term>) {

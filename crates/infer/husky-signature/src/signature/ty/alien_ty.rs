@@ -1,16 +1,22 @@
 use super::*;
 
 #[salsa::tracked(jar = SignatureJar)]
-pub struct AlienTypeSignature {
-    #[return_ref]
-    pub implicit_parameter_decl_list: Option<ImplicitParameterSignatureList>,
+pub fn alien_ty_signature(db: &dyn SignatureDb, decl: AlienTypeDecl) -> AlienTypeSignature {
+    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db));
+    // implementation
+    AlienTypeSignature::new(
+        db,
+        ImplicitParameterSignatureList::from_decl(decl.implicit_parameters(db), &mut engine),
+        engine.finish(),
+    )
 }
 
-impl AlienTypeSignature {
-    pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
-        self.implicit_parameter_decl_list(db)
-            .as_ref()
-            .map(|l| -> &[ImplicitParameterSignature] { &l })
-            .unwrap_or(&[])
-    }
+#[salsa::tracked(jar = SignatureJar)]
+pub struct AlienTypeSignature {
+    #[return_ref]
+    pub implicit_parameters: ImplicitParameterSignatureList,
+    #[return_ref]
+    term_sheet: SignatureTermSheet,
 }
+
+impl AlienTypeSignature {}

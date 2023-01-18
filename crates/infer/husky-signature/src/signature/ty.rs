@@ -1,8 +1,8 @@
 mod alien_ty;
 mod enum_ty;
 mod inductive_ty;
-mod props_struct_ty;
 mod record_ty;
+mod regular_struct_ty;
 mod structure_ty;
 mod tuple_struct_ty;
 mod union_ty;
@@ -11,20 +11,34 @@ mod unit_struct_ty;
 pub use alien_ty::*;
 pub use enum_ty::*;
 pub use inductive_ty::*;
-pub use props_struct_ty::*;
 pub use record_ty::*;
-use salsa::DbWithJar;
+pub use regular_struct_ty::*;
 pub use structure_ty::*;
 pub use tuple_struct_ty::*;
 pub use union_ty::*;
 pub use unit_struct_ty::*;
 
-use crate::*;
+use super::*;
+use salsa::DbWithJar;
+
+pub(crate) fn ty_signature(db: &dyn SignatureDb, decl: TypeDecl) -> TypeSignature {
+    match decl {
+        TypeDecl::Enum(decl) => enum_ty_signature(db, decl).into(),
+        TypeDecl::RegularStruct(decl) => regular_struct_ty_signature(db, decl).into(),
+        TypeDecl::UnitStruct(decl) => unit_struct_ty_signature(db, decl).into(),
+        TypeDecl::TupleStruct(decl) => tuple_struct_ty_signature(db, decl).into(),
+        TypeDecl::Record(decl) => record_ty_signature(db, decl).into(),
+        TypeDecl::Inductive(decl) => inductive_ty_signature(db, decl).into(),
+        TypeDecl::Structure(decl) => structure_ty_signature(db, decl).into(),
+        TypeDecl::Foreign(decl) => alien_ty_signature(db, decl).into(),
+        TypeDecl::Union(decl) => union_ty_signature(db, decl).into(),
+    }
+}
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TypeSignature {
     Enum(EnumTypeSignature),
-    PropsStruct(PropsStructTypeSignature),
+    RegularStruct(RegularStructTypeSignature),
     UnitStruct(UnitStructTypeSignature),
     TupleStruct(TupleStructTypeSignature),
     Record(RecordTypeSignature),
@@ -40,13 +54,19 @@ impl TypeSignature {
             TypeSignature::Enum(decl) => decl.implicit_parameters(db),
             TypeSignature::UnitStruct(decl) => decl.implicit_parameters(db),
             TypeSignature::TupleStruct(decl) => decl.implicit_parameters(db),
-            TypeSignature::PropsStruct(decl) => decl.implicit_parameters(db),
+            TypeSignature::RegularStruct(decl) => decl.implicit_parameters(db),
             TypeSignature::Record(decl) => decl.implicit_parameters(db),
             TypeSignature::Inductive(decl) => decl.implicit_parameters(db),
             TypeSignature::Structure(decl) => decl.implicit_parameters(db),
             TypeSignature::Foreign(decl) => decl.implicit_parameters(db),
             TypeSignature::Union(decl) => decl.implicit_parameters(db),
         }
+    }
+}
+
+impl From<UnionTypeSignature> for TypeSignature {
+    fn from(v: UnionTypeSignature) -> Self {
+        Self::Union(v)
     }
 }
 
@@ -68,9 +88,9 @@ impl From<UnitStructTypeSignature> for TypeSignature {
     }
 }
 
-impl From<PropsStructTypeSignature> for TypeSignature {
-    fn from(v: PropsStructTypeSignature) -> Self {
-        Self::PropsStruct(v)
+impl From<RegularStructTypeSignature> for TypeSignature {
+    fn from(v: RegularStructTypeSignature) -> Self {
+        Self::RegularStruct(v)
     }
 }
 
@@ -119,8 +139,8 @@ impl<Db: SignatureDb + ?Sized> salsa::DebugWithDb<Db> for TypeSignature {
                 .debug_tuple("Record")
                 .field(&decl.debug_with(db, include_all_fields))
                 .finish(),
-            TypeSignature::PropsStruct(decl) => f
-                .debug_tuple("PropsStruct")
+            TypeSignature::RegularStruct(decl) => f
+                .debug_tuple("RegularStruct")
                 .field(&decl.debug_with(db, include_all_fields))
                 .finish(),
             TypeSignature::TupleStruct(decl) => f

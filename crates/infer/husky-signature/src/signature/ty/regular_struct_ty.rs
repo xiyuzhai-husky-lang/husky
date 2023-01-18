@@ -1,26 +1,26 @@
 use super::*;
-use husky_word::Identifier;
 
 #[salsa::tracked(jar = SignatureJar)]
-pub fn tuple_struct_ty_signature(
+pub fn regular_struct_ty_signature(
     db: &dyn SignatureDb,
-    decl: TupleStructTypeDecl,
-) -> TupleStructTypeSignature {
+    decl: RegularStructTypeDecl,
+) -> RegularStructTypeSignature {
     // implementation
     todo!()
 }
 
 #[salsa::tracked(jar = SignatureJar)]
-pub struct TupleStructTypeSignature {
+pub struct RegularStructTypeSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatureList,
     #[return_ref]
-    pub fields: Vec<TupleStructFieldSignature>,
+    pub fields: Vec<RegularStructFieldSignature>,
 }
 
-impl TupleStructTypeSignature {}
+impl RegularStructTypeSignature {}
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct TupleStructFieldSignature {
+pub struct RegularStructFieldSignature {
+    ident: Identifier,
     ty: Term,
 }

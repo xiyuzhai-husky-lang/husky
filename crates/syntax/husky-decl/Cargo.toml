@@ -27,7 +27,7 @@ husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
-# infer
-husky-manifest = { path = "../../infer/husky-manifest" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
+# infer
+husky-manifest = { path = "../../infer/husky-manifest" }

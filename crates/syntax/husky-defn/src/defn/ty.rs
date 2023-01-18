@@ -25,7 +25,7 @@ pub enum TypeDefn {
     Enum(EnumTypeDefn),
     Inductive(InductiveTypeDefn),
     Record(RecordTypeDefn),
-    PropsStruct(PropsStructTypeDefn),
+    RegularStruct(RegularStructTypeDefn),
     TupleStruct(TupleStructTypeDefn),
     UnitStruct(UnitStructTypeDefn),
     Structure(StructureTypeDefn),
@@ -44,9 +44,9 @@ impl From<TupleStructTypeDefn> for TypeDefn {
     }
 }
 
-impl From<PropsStructTypeDefn> for TypeDefn {
-    fn from(v: PropsStructTypeDefn) -> Self {
-        Self::PropsStruct(v)
+impl From<RegularStructTypeDefn> for TypeDefn {
+    fn from(v: RegularStructTypeDefn) -> Self {
+        Self::RegularStruct(v)
     }
 }
 
@@ -58,7 +58,7 @@ impl TypeDefn {
             TypeDefn::Record(defn) => defn.decl(db).into(),
             TypeDefn::UnitStruct(defn) => defn.decl(db).into(),
             TypeDefn::TupleStruct(defn) => defn.decl(db).into(),
-            TypeDefn::PropsStruct(defn) => defn.decl(db).into(),
+            TypeDefn::RegularStruct(defn) => defn.decl(db).into(),
             TypeDefn::Structure(defn) => defn.decl(db).into(),
             TypeDefn::Foreign(defn) => defn.decl(db).into(),
         }
@@ -71,7 +71,7 @@ impl TypeDefn {
             TypeDefn::Record(defn) => defn.path(db),
             TypeDefn::UnitStruct(defn) => defn.path(db),
             TypeDefn::TupleStruct(defn) => defn.path(db),
-            TypeDefn::PropsStruct(defn) => defn.path(db),
+            TypeDefn::RegularStruct(defn) => defn.path(db),
             TypeDefn::Structure(defn) => defn.path(db),
             TypeDefn::Foreign(defn) => defn.path(db),
         }
@@ -129,8 +129,8 @@ impl<Db: DefnDb + ?Sized> salsa::DebugWithDb<Db> for TypeDefn {
                 .debug_tuple("Record")
                 .field(&decl.debug_with(db, include_all_fields))
                 .finish(),
-            TypeDefn::PropsStruct(decl) => f
-                .debug_tuple("PropsStruct")
+            TypeDefn::RegularStruct(decl) => f
+                .debug_tuple("RegularStruct")
                 .field(&decl.debug_with(db, include_all_fields))
                 .finish(),
             TypeDefn::TupleStruct(decl) => f
