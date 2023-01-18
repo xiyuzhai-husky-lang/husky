@@ -1,6 +1,10 @@
 use super::*;
 
-pub(crate) fn ty_as_trai_impl_block_signature(db: &dyn SignatureDb, decl: TypeAsTraitImplBlockDecl) -> TypeAsTraitImplBlockSignature{
+#[salsa::tracked(jar = SignatureJar)]
+pub(crate) fn ty_as_trai_impl_block_signature(
+    db: &dyn SignatureDb,
+    decl: TypeAsTraitImplBlockDecl,
+) -> TypeAsTraitImplBlockSignature {
     let mut engine = SignatureTermEngine::new(db, decl.expr_page(db));
     // implementation
     TypeAsTraitImplBlockSignature::new(
