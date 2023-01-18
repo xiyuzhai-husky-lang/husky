@@ -1,6 +1,7 @@
 use crate::*;
 
-pub(crate) fn ty_as_trai_associated_val_signature(db: &dyn SignatureDb, decl: TypeAsTraitAssociatedValueDecl) -> TypeAsTraitAssociatedValueSignature{
+#[salsa::tracked(jar = SignatureJar)]
+pub(crate) fn ty_as_trai_associated_value_signature(db: &dyn SignatureDb, decl: TypeAsTraitAssociatedValueDecl) -> TypeAsTraitAssociatedValueSignature{
     let mut engine = SignatureTermEngine::new(db, decl.expr_page(db));
     // implementation
     TypeAsTraitAssociatedValueSignature::new(

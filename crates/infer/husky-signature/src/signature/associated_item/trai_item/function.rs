@@ -1,5 +1,6 @@
 use crate::*;
 
+#[salsa::tracked(jar = SignatureJar)]
 pub(crate) fn trai_associated_function_signature(db: &dyn SignatureDb, decl: TraitAssociatedFunctionDecl) -> TraitAssociatedFunctionSignature{
     let mut engine = SignatureTermEngine::new(db, decl.expr_page(db));
     // implementation
