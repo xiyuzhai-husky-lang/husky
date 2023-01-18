@@ -45,6 +45,17 @@ impl<T, E, A> Outcome<T, E, A> {
         }
     }
 
+    pub fn ok_copy_err_as_ref<'a>(&'a self) -> Outcome<T, &'a E, &'a A>
+    where
+        T: Copy,
+    {
+        match self {
+            Success(t) => Success(*t),
+            Failure(e) => Failure(e),
+            Abort(a) => Abort(a),
+        }
+    }
+
     fn into_result(self) -> Result<T, Stop<E, A>> {
         match self {
             Success(t) => Ok(t),
