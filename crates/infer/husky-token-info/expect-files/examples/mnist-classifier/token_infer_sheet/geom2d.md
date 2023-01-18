@@ -189,9 +189,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 220,
@@ -220,9 +218,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 1,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 220,
@@ -390,9 +386,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 222,
@@ -408,9 +402,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 222,
@@ -555,9 +547,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 224,
@@ -849,9 +839,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 226,
@@ -867,9 +855,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 226,
@@ -1014,9 +1000,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 228,
@@ -1032,9 +1016,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 228,
@@ -1114,9 +1096,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 229,
@@ -1132,9 +1112,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 229,
@@ -1257,9 +1235,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 230,
@@ -1381,9 +1357,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 231,
@@ -1534,9 +1508,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 1,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 232,
@@ -1581,9 +1553,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 1,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 232,
@@ -1643,9 +1613,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 232,
@@ -1680,9 +1648,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 1,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 232,
@@ -1898,9 +1864,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 233,
@@ -1942,9 +1906,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 233,
@@ -2088,9 +2050,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 234,
@@ -2233,9 +2193,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 235,
@@ -2254,9 +2212,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 235,
@@ -2356,9 +2312,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 236,
@@ -2377,9 +2331,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 236,
