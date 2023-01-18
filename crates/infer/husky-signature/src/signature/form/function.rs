@@ -7,7 +7,7 @@ pub struct FunctionSignature {
     #[return_ref]
     pub parameter_decl_list: ParameterSignatureList,
     #[return_ref]
-    pub output_ty: SignatureResult<Term>,
+    pub output_ty: SignatureTermOutcome<Term>,
 }
 
 impl FunctionSignature {
