@@ -22,9 +22,7 @@ pub struct InheritedSymbol {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum InheritedSymbolKind {
-    Parameter {
-        original_current_symbol_idx: CurrentSymbolIdx,
-    },
+    Parameter,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]

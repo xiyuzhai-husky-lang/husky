@@ -121,9 +121,7 @@ impl SymbolSheet {
             inherited_symbol_arena.alloc_one(match current_symbol.kind {
                 CurrentSymbolKind::Parameter { .. } => InheritedSymbol {
                     ident: current_symbol.ident,
-                    kind: InheritedSymbolKind::Parameter {
-                        original_current_symbol_idx,
-                    },
+                    kind: InheritedSymbolKind::Parameter,
                 },
                 CurrentSymbolKind::LetVariable { .. } => todo!(),
                 CurrentSymbolKind::FrameVariable(_) => todo!(),

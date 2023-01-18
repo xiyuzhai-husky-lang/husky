@@ -788,9 +788,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 167,
@@ -820,9 +818,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 167,
@@ -918,9 +914,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 168,
@@ -950,9 +944,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 168,
@@ -1048,9 +1040,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 169,
@@ -1080,9 +1070,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 169,

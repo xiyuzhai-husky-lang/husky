@@ -1260,9 +1260,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 1,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 349,
@@ -1301,9 +1299,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 349,
@@ -1487,9 +1483,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 1,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 337,
@@ -1500,9 +1494,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 337,
@@ -1611,9 +1603,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 1,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 338,
@@ -1623,9 +1613,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 338,
@@ -1731,9 +1719,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 1,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 339,
@@ -1744,9 +1730,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 339,
@@ -1910,9 +1894,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 2,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 2,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 340,
@@ -1922,9 +1904,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 340,
@@ -1962,9 +1942,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 1,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 340,
@@ -1974,9 +1952,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 340,
@@ -2204,9 +2180,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 341,
@@ -2233,9 +2207,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 1,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 341,
@@ -2483,9 +2455,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 3,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 3,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 342,
@@ -2495,9 +2465,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 1,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 342,
@@ -2535,9 +2503,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 2,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 2,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 342,
@@ -2547,9 +2513,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 1,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 342,
@@ -2884,9 +2848,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 343,
@@ -2912,9 +2874,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 343,
@@ -2951,9 +2911,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 343,
@@ -3205,9 +3163,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 344,
@@ -3246,9 +3202,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 344,
@@ -3607,9 +3561,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 344,
@@ -3649,9 +3601,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 344,
@@ -4760,9 +4710,7 @@ Ok(
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter {
-                    original_current_symbol_idx: 0,
-                },
+                inherited_symbol_kind: Parameter,
                 expr_page: ExprPage(
                     Id {
                         value: 344,
