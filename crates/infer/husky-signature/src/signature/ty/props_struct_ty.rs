@@ -17,7 +17,7 @@ impl PropsStructTypeSignature {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
+#[derive(Debug, PartialEq, Eq)]
 pub struct PropsStructFieldSignature {
     ident: Identifier,
     ty: Term,

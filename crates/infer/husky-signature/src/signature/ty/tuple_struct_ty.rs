@@ -18,7 +18,7 @@ impl TupleStructTypeSignature {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
+#[derive(Debug, PartialEq, Eq)]
 pub struct TupleStructFieldSignature {
     ty: Term,
 }
