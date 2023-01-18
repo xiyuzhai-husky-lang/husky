@@ -271,7 +271,7 @@ impl<'a> DeclParser<'a> {
         if let Some(lcurl) = ctx.parse::<LeftCurlyBraceToken>()? {
             let (fields, separators) = parse_separated_list(&mut ctx)?;
             let rcurl: RightCurlyBraceToken = ctx.parse_expected()?;
-            Ok(PropsStructTypeDecl::new(
+            Ok(RegularStructTypeDecl::new(
                 self.db,
                 path,
                 ast_idx,

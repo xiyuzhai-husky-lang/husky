@@ -28,7 +28,7 @@ pub struct DefnJar(
     EnumTypeDefn,
     UnitStructTypeDefn,
     TupleStructTypeDefn,
-    PropsStructTypeDefn,
+    RegularStructTypeDefn,
     RecordTypeDefn,
     InductiveTypeDefn,
     StructureTypeDefn,

@@ -2,16 +2,18 @@ use super::*;
 use husky_word::Identifier;
 
 #[salsa::tracked(jar = SignatureJar)]
-pub struct UnitStructTypeSignature {
-    #[return_ref]
-    pub implicit_parameter_decl_list: Option<ImplicitParameterSignatureList>,
+pub fn unit_struct_ty_signature(
+    db: &dyn SignatureDb,
+    decl: UnitStructTypeDecl,
+) -> UnitStructTypeSignature {
+    // implementation
+    UnitStructTypeSignature::new(db,todo!())
 }
 
-impl UnitStructTypeSignature {
-    pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
-        self.implicit_parameter_decl_list(db)
-            .as_ref()
-            .map(|l| -> &[ImplicitParameterSignature] { &l })
-            .unwrap_or(&[])
-    }
+#[salsa::tracked(jar = SignatureJar)]
+pub struct UnitStructTypeSignature {
+    #[return_ref]
+    pub implicit_parameters: ImplicitParameterSignatureList,
 }
+
+impl UnitStructTypeSignature {}

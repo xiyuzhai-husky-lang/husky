@@ -1,8 +1,8 @@
 use crate::*;
 
 #[salsa::tracked(jar = DefnJar)]
-pub struct PropsStructTypeDefn {
+pub struct RegularStructTypeDefn {
     #[id]
     pub path: TypePath,
-    pub decl: PropsStructTypeDecl,
+    pub decl: RegularStructTypeDecl,
 }

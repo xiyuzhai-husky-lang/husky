@@ -7,7 +7,7 @@ use husky_word::Identifier;
 use parsec::ParseContext;
 
 #[salsa::tracked(jar = DeclJar)]
-pub struct PropsStructTypeDecl {
+pub struct RegularStructTypeDecl {
     #[id]
     pub path: TypePath,
     pub ast_idx: AstIdx,
@@ -16,13 +16,13 @@ pub struct PropsStructTypeDecl {
     pub implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     pub lcurl: LeftCurlyBraceToken,
     #[return_ref]
-    pub fields: Vec<PropsStructFieldDecl>,
+    pub fields: Vec<RegularStructFieldDecl>,
     #[return_ref]
     pub separators: Vec<CommaToken>,
     pub rcurl: RightCurlyBraceToken,
 }
 
-impl PropsStructTypeDecl {
+impl RegularStructTypeDecl {
     pub fn implicit_parameters(self, db: &dyn DeclDb) -> &[ImplicitParameterDecl] {
         self.implicit_parameter_decl_list(db)
             .as_ref()
@@ -32,13 +32,13 @@ impl PropsStructTypeDecl {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct PropsStructFieldDecl {
+pub struct RegularStructFieldDecl {
     ident: IdentifierToken,
     colon: ColonToken,
     ty: ExprIdx,
 }
 
-impl<'a, 'b> parsec::ParseFrom<ExprParseContext<'a, 'b>> for PropsStructFieldDecl {
+impl<'a, 'b> parsec::ParseFrom<ExprParseContext<'a, 'b>> for RegularStructFieldDecl {
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
@@ -47,7 +47,7 @@ impl<'a, 'b> parsec::ParseFrom<ExprParseContext<'a, 'b>> for PropsStructFieldDec
             };
         let colon: ColonToken = ctx.parse_expected()?;
         let Some(expr) = ctx.parse_expr(ExprParseEnvironment::None) else { todo!() };
-        Ok(Some(PropsStructFieldDecl {
+        Ok(Some(RegularStructFieldDecl {
             ident,
             colon,
             ty: expr,

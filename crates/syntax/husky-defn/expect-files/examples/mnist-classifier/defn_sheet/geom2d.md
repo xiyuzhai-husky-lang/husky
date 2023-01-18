@@ -2,10 +2,10 @@ Ok(
     DefnSheet {
         defns: [
             Type(
-                PropsStruct(
-                    PropsStructTypeDefn {
+                RegularStruct(
+                    RegularStructTypeDefn {
                         path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                        decl: PropsStructTypeDecl(
+                        decl: RegularStructTypeDecl(
                             Id {
                                 value: 5,
                             },
@@ -14,10 +14,10 @@ Ok(
                 ),
             ),
             Type(
-                PropsStruct(
-                    PropsStructTypeDefn {
+                RegularStruct(
+                    RegularStructTypeDefn {
                         path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
-                        decl: PropsStructTypeDecl(
+                        decl: RegularStructTypeDecl(
                             Id {
                                 value: 6,
                             },
@@ -26,10 +26,10 @@ Ok(
                 ),
             ),
             Type(
-                PropsStruct(
-                    PropsStructTypeDefn {
+                RegularStruct(
+                    RegularStructTypeDefn {
                         path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        decl: PropsStructTypeDecl(
+                        decl: RegularStructTypeDecl(
                             Id {
                                 value: 7,
                             },
@@ -38,10 +38,10 @@ Ok(
                 ),
             ),
             Type(
-                PropsStruct(
-                    PropsStructTypeDefn {
+                RegularStruct(
+                    RegularStructTypeDefn {
                         path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                        decl: PropsStructTypeDecl(
+                        decl: RegularStructTypeDecl(
                             Id {
                                 value: 8,
                             },
@@ -50,10 +50,10 @@ Ok(
                 ),
             ),
             Type(
-                PropsStruct(
-                    PropsStructTypeDefn {
+                RegularStruct(
+                    RegularStructTypeDefn {
                         path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                        decl: PropsStructTypeDecl(
+                        decl: RegularStructTypeDecl(
                             Id {
                                 value: 9,
                             },

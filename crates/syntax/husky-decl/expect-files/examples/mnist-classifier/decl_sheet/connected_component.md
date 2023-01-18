@@ -3,8 +3,8 @@ Ok(
         decls: [
             Ok(
                 Type(
-                    PropsStruct(
-                        PropsStructTypeDecl {
+                    RegularStruct(
+                        RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                             ast_idx: 121,
                             expr_page: ExprPage(
@@ -19,7 +19,7 @@ Ok(
                                 ),
                             },
                             fields: [
-                                PropsStructFieldDecl {
+                                RegularStructFieldDecl {
                                     ident: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -39,7 +39,7 @@ Ok(
                                     },
                                     ty: 0,
                                 },
-                                PropsStructFieldDecl {
+                                RegularStructFieldDecl {
                                     ident: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -59,7 +59,7 @@ Ok(
                                     },
                                     ty: 1,
                                 },
-                                PropsStructFieldDecl {
+                                RegularStructFieldDecl {
                                     ident: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -79,7 +79,7 @@ Ok(
                                     },
                                     ty: 2,
                                 },
-                                PropsStructFieldDecl {
+                                RegularStructFieldDecl {
                                     ident: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -133,8 +133,8 @@ Ok(
             ),
             Ok(
                 Type(
-                    PropsStruct(
-                        PropsStructTypeDecl {
+                    RegularStruct(
+                        RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                             ast_idx: 122,
                             expr_page: ExprPage(
@@ -149,7 +149,7 @@ Ok(
                                 ),
                             },
                             fields: [
-                                PropsStructFieldDecl {
+                                RegularStructFieldDecl {
                                     ident: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -250,8 +250,8 @@ Ok(
             ),
             Ok(
                 Type(
-                    PropsStruct(
-                        PropsStructTypeDecl {
+                    RegularStruct(
+                        RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             ast_idx: 124,
                             expr_page: ExprPage(
@@ -266,7 +266,7 @@ Ok(
                                 ),
                             },
                             fields: [
-                                PropsStructFieldDecl {
+                                RegularStructFieldDecl {
                                     ident: IdentifierToken {
                                         ident: Identifier(
                                             Word(

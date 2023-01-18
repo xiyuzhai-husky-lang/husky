@@ -13,18 +13,18 @@ pub use enum_ty::*;
 pub use inductive_ty::*;
 pub use props_struct_ty::*;
 pub use record_ty::*;
-use salsa::DbWithJar;
 pub use structure_ty::*;
 pub use tuple_struct_ty::*;
 pub use union_ty::*;
 pub use unit_struct_ty::*;
 
-use crate::*;
+use super::*;
+use salsa::DbWithJar;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TypeDecl {
     Enum(EnumTypeDecl),
-    PropsStruct(PropsStructTypeDecl),
+    RegularStruct(RegularStructTypeDecl),
     UnitStruct(UnitStructTypeDecl),
     TupleStruct(TupleStructTypeDecl),
     Record(RecordTypeDecl),
@@ -34,13 +34,19 @@ pub enum TypeDecl {
     Union(UnionTypeDecl),
 }
 
+impl From<UnionTypeDecl> for TypeDecl {
+    fn from(v: UnionTypeDecl) -> Self {
+        Self::Union(v)
+    }
+}
+
 impl TypeDecl {
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
             TypeDecl::Enum(decl) => decl.ast_idx(db),
             TypeDecl::UnitStruct(decl) => decl.ast_idx(db),
             TypeDecl::TupleStruct(decl) => decl.ast_idx(db),
-            TypeDecl::PropsStruct(decl) => decl.ast_idx(db),
+            TypeDecl::RegularStruct(decl) => decl.ast_idx(db),
             TypeDecl::Record(decl) => decl.ast_idx(db),
             TypeDecl::Inductive(decl) => decl.ast_idx(db),
             TypeDecl::Structure(decl) => decl.ast_idx(db),
@@ -54,7 +60,7 @@ impl TypeDecl {
             TypeDecl::Enum(decl) => decl.implicit_parameters(db),
             TypeDecl::UnitStruct(decl) => decl.implicit_parameters(db),
             TypeDecl::TupleStruct(decl) => decl.implicit_parameters(db),
-            TypeDecl::PropsStruct(decl) => decl.implicit_parameters(db),
+            TypeDecl::RegularStruct(decl) => decl.implicit_parameters(db),
             TypeDecl::Record(decl) => decl.implicit_parameters(db),
             TypeDecl::Inductive(decl) => decl.implicit_parameters(db),
             TypeDecl::Structure(decl) => decl.implicit_parameters(db),
@@ -68,7 +74,7 @@ impl TypeDecl {
             TypeDecl::Enum(decl) => decl.expr_page(db),
             TypeDecl::UnitStruct(decl) => decl.expr_page(db),
             TypeDecl::TupleStruct(decl) => decl.expr_page(db),
-            TypeDecl::PropsStruct(decl) => decl.expr_page(db),
+            TypeDecl::RegularStruct(decl) => decl.expr_page(db),
             TypeDecl::Record(decl) => decl.expr_page(db),
             TypeDecl::Inductive(decl) => decl.expr_page(db),
             TypeDecl::Structure(decl) => decl.expr_page(db),
@@ -83,7 +89,7 @@ impl TypeDecl {
             TypeDecl::Inductive(decl) => decl.path(db),
             TypeDecl::Record(decl) => decl.path(db),
             TypeDecl::UnitStruct(decl) => decl.path(db),
-            TypeDecl::PropsStruct(decl) => decl.path(db),
+            TypeDecl::RegularStruct(decl) => decl.path(db),
             TypeDecl::TupleStruct(decl) => decl.path(db),
             TypeDecl::Structure(decl) => decl.path(db),
             TypeDecl::Foreign(decl) => decl.path(db),
@@ -114,9 +120,9 @@ impl From<UnitStructTypeDecl> for TypeDecl {
     }
 }
 
-impl From<PropsStructTypeDecl> for TypeDecl {
-    fn from(v: PropsStructTypeDecl) -> Self {
-        Self::PropsStruct(v)
+impl From<RegularStructTypeDecl> for TypeDecl {
+    fn from(v: RegularStructTypeDecl) -> Self {
+        Self::RegularStruct(v)
     }
 }
 
@@ -165,8 +171,8 @@ impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for TypeDecl {
                 .debug_tuple("Record")
                 .field(&decl.debug_with(db, include_all_fields))
                 .finish(),
-            TypeDecl::PropsStruct(decl) => f
-                .debug_tuple("PropsStruct")
+            TypeDecl::RegularStruct(decl) => f
+                .debug_tuple("RegularStruct")
                 .field(&decl.debug_with(db, include_all_fields))
                 .finish(),
             TypeDecl::TupleStruct(decl) => f

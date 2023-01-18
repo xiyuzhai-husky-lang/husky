@@ -50,7 +50,7 @@ impl<'a> DefnCollector<'a> {
     fn parse_ty_defn(&self, decl: TypeDecl) -> TypeDefn {
         match decl {
             TypeDecl::Enum(decl) => self.parse_enum_ty_defn(decl).into(),
-            TypeDecl::PropsStruct(decl) => self.parse_props_struct_ty_defn(decl).into(),
+            TypeDecl::RegularStruct(decl) => self.parse_props_struct_ty_defn(decl).into(),
             TypeDecl::TupleStruct(decl) => self.parse_tuple_struct_ty_defn(decl).into(),
             TypeDecl::UnitStruct(decl) => self.parse_unit_struct_ty_defn(decl).into(),
             TypeDecl::Record(_) => todo!(),
@@ -71,9 +71,9 @@ impl<'a> DefnCollector<'a> {
         EnumTypeDefn::new(self.db, path, decl)
     }
 
-    fn parse_props_struct_ty_defn(&self, decl: PropsStructTypeDecl) -> PropsStructTypeDefn {
+    fn parse_props_struct_ty_defn(&self, decl: RegularStructTypeDecl) -> RegularStructTypeDefn {
         let path = decl.path(self.db);
-        PropsStructTypeDefn::new(self.db, path, decl)
+        RegularStructTypeDefn::new(self.db, path, decl)
     }
 
     fn parse_tuple_struct_ty_defn(&self, decl: TupleStructTypeDecl) -> TupleStructTypeDefn {

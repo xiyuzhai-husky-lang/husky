@@ -2,10 +2,10 @@ Ok(
     DefnSheet {
         defns: [
             Type(
-                PropsStruct(
-                    PropsStructTypeDefn {
+                RegularStruct(
+                    RegularStructTypeDefn {
                         path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-                        decl: PropsStructTypeDecl(
+                        decl: RegularStructTypeDecl(
                             Id {
                                 value: 1,
                             },
@@ -14,10 +14,10 @@ Ok(
                 ),
             ),
             Type(
-                PropsStruct(
-                    PropsStructTypeDefn {
+                RegularStruct(
+                    RegularStructTypeDefn {
                         path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                        decl: PropsStructTypeDecl(
+                        decl: RegularStructTypeDecl(
                             Id {
                                 value: 2,
                             },
@@ -46,10 +46,10 @@ Ok(
                 ),
             ),
             Type(
-                PropsStruct(
-                    PropsStructTypeDefn {
+                RegularStruct(
+                    RegularStructTypeDefn {
                         path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                        decl: PropsStructTypeDecl(
+                        decl: RegularStructTypeDecl(
                             Id {
                                 value: 3,
                             },

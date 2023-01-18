@@ -131,7 +131,7 @@ impl<'a> InferEngine<'a> {
             TypeDefn::Record(defn) => self.visit_record_ty(defn),
             TypeDefn::UnitStruct(defn) => self.visit_unit_struct_ty(defn),
             TypeDefn::TupleStruct(defn) => self.visit_tuple_struct_ty(defn),
-            TypeDefn::PropsStruct(defn) => self.visit_props_struct_ty(defn),
+            TypeDefn::RegularStruct(defn) => self.visit_props_struct_ty(defn),
             TypeDefn::Structure(defn) => self.visit_structure_ty(defn),
             TypeDefn::Foreign(defn) => self.visit_alias_ty(defn),
         }
@@ -157,7 +157,7 @@ impl<'a> InferEngine<'a> {
         // todo!()
     }
 
-    fn visit_props_struct_ty(&mut self, defn: PropsStructTypeDefn) {
+    fn visit_props_struct_ty(&mut self, defn: RegularStructTypeDefn) {
         // todo!()
     }
 

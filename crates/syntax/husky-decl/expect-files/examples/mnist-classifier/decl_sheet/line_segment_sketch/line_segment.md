@@ -3,8 +3,8 @@ Ok(
         decls: [
             Ok(
                 Type(
-                    PropsStruct(
-                        PropsStructTypeDecl {
+                    RegularStruct(
+                        RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                             ast_idx: 16,
                             expr_page: ExprPage(
@@ -19,7 +19,7 @@ Ok(
                                 ),
                             },
                             fields: [
-                                PropsStructFieldDecl {
+                                RegularStructFieldDecl {
                                     ident: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -39,7 +39,7 @@ Ok(
                                     },
                                     ty: 0,
                                 },
-                                PropsStructFieldDecl {
+                                RegularStructFieldDecl {
                                     ident: IdentifierToken {
                                         ident: Identifier(
                                             Word(

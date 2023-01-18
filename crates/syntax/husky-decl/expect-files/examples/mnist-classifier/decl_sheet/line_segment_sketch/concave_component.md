@@ -3,8 +3,8 @@ Ok(
         decls: [
             Ok(
                 Type(
-                    PropsStruct(
-                        PropsStructTypeDecl {
+                    RegularStruct(
+                        RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                             ast_idx: 74,
                             expr_page: ExprPage(
@@ -19,7 +19,7 @@ Ok(
                                 ),
                             },
                             fields: [
-                                PropsStructFieldDecl {
+                                RegularStructFieldDecl {
                                     ident: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -39,7 +39,7 @@ Ok(
                                     },
                                     ty: 1,
                                 },
-                                PropsStructFieldDecl {
+                                RegularStructFieldDecl {
                                     ident: IdentifierToken {
                                         ident: Identifier(
                                             Word(
