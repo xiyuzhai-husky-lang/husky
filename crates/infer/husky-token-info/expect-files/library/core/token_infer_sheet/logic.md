@@ -49,7 +49,30 @@ Ok(
                 ),
             ),
             None,
-            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: ImplicitParameter {
+                    implicit_parameter_kind: Type {
+                        ident_token: IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 12,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                8,
+                            ),
+                        },
+                    },
+                },
+                expr_page: ExprPage(
+                    Id {
+                        value: 5,
+                    },
+                ),
+            },
             None,
             Entity(
                 Some(
@@ -66,7 +89,30 @@ Ok(
                 None,
             ),
             None,
-            None,
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: ImplicitParameter {
+                    implicit_parameter_kind: Type {
+                        ident_token: IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 13,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                12,
+                            ),
+                        },
+                    },
+                },
+                expr_page: ExprPage(
+                    Id {
+                        value: 5,
+                    },
+                ),
+            },
             None,
             Entity(
                 Some(
@@ -117,7 +163,30 @@ Ok(
                 ),
             ),
             None,
-            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: ImplicitParameter {
+                    implicit_parameter_kind: Type {
+                        ident_token: IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 12,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                30,
+                            ),
+                        },
+                    },
+                },
+                expr_page: ExprPage(
+                    Id {
+                        value: 6,
+                    },
+                ),
+            },
             None,
             Entity(
                 Some(
@@ -134,7 +203,30 @@ Ok(
                 None,
             ),
             None,
-            None,
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: ImplicitParameter {
+                    implicit_parameter_kind: Type {
+                        ident_token: IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 13,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                34,
+                            ),
+                        },
+                    },
+                },
+                expr_page: ExprPage(
+                    Id {
+                        value: 6,
+                    },
+                ),
+            },
             None,
             Entity(
                 Some(

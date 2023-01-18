@@ -89,7 +89,7 @@ pub struct ExprParser<'a> {
     symbol_context: SymbolContextMut<'a>,
     expr_arena: ExprArena,
     entity_path_expr_arena: EntityPathExprArena,
-    pattern_expr_page: PatternExprPage,
+    pattern_expr_page: PatternExprSubsheet,
     stmt_arena: StmtArena,
 }
 
@@ -129,13 +129,16 @@ impl<'a> ExprParser<'a> {
         ExprParseContext::new(self, token_stream)
     }
 
-    pub(crate) fn pattern_expr_page(&self) -> &PatternExprPage {
+    pub(crate) fn pattern_expr_page(&self) -> &PatternExprSubsheet {
         &self.pattern_expr_page
     }
 
     #[inline(always)]
-    fn define_variables(&mut self, variables: Vec<CurrentSymbol>) -> CurrentSymbolIdxRange {
-        self.symbol_context.define_variables(variables)
+    fn define_symbols(
+        &mut self,
+        variables: impl IntoIterator<Item = CurrentSymbol>,
+    ) -> CurrentSymbolIdxRange {
+        self.symbol_context.define_symbols(variables)
     }
 }
 
@@ -212,18 +215,21 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         }
     }
 
-    pub(crate) fn pattern_expr_page(&self) -> &PatternExprPage {
+    pub(crate) fn pattern_expr_page(&self) -> &PatternExprSubsheet {
         self.parser.pattern_expr_page()
     }
 
-    pub(crate) fn define_variables(
+    pub(crate) fn define_symbols(
         &mut self,
-        variables: Vec<CurrentSymbol>,
+        variables: impl IntoIterator<Item = CurrentSymbol>,
     ) -> CurrentSymbolIdxRange {
-        self.parser.define_variables(variables)
+        self.parser.define_symbols(variables)
     }
 
-    pub fn parse_pattern_expr(&mut self, env: PatternInfo) -> ExprResult<Option<PatternExprIdx>> {
+    pub fn parse_pattern_expr(
+        &mut self,
+        env: PatternExprInfo,
+    ) -> ExprResult<Option<PatternExprIdx>> {
         if let Some(mut_token) = self.parse::<MutToken>()? {
             let ident_token =
                 self.parse_expected2::<IdentifierToken, _>(ExprError::ExpectIdentifierAfterMut)?;

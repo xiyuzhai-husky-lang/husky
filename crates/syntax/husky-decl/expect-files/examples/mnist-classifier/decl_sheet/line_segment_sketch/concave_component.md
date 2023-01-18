@@ -24,7 +24,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 83,
+                                                    value: 79,
                                                 },
                                             ),
                                         ),
@@ -101,7 +101,7 @@ Ok(
                                 },
                                 decls: [
                                     ParameterDecl {
-                                        pattern: ParameterPattern {
+                                        pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,

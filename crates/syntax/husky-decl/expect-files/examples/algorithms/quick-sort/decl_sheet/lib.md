@@ -6,7 +6,7 @@ Ok(
                     Function(
                         FunctionDecl {
                             path: FormPath(`quick_sort::quick_sort`, `Function`),
-                            ast_idx: 31,
+                            ast_idx: 30,
                             expr_page: ExprPage(
                                 Id {
                                     value: 42,
@@ -21,17 +21,22 @@ Ok(
                                     },
                                     decls: [
                                         ImplicitParameterDecl {
-                                            ident: IdentifierToken {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 42,
-                                                        },
-                                                    ),
-                                                ),
-                                                token_idx: TokenIdx(
-                                                    4,
-                                                ),
+                                            pattern: ImplicitParameterDeclPattern {
+                                                symbol: 0,
+                                                variant: Type {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 42,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            4,
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             traits: Some(
                                                 (
@@ -63,10 +68,10 @@ Ok(
                                 },
                                 decls: [
                                     ParameterDecl {
-                                        pattern: ParameterPattern {
+                                        pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,
                                             variables: ArenaIdxRange(
-                                                0..1,
+                                                1..2,
                                             ),
                                         },
                                         colon: ColonToken {
@@ -110,7 +115,7 @@ Ok(
                     Function(
                         FunctionDecl {
                             path: FormPath(`quick_sort::quick_sort_aux`, `Function`),
-                            ast_idx: 32,
+                            ast_idx: 31,
                             expr_page: ExprPage(
                                 Id {
                                     value: 43,
@@ -125,17 +130,22 @@ Ok(
                                     },
                                     decls: [
                                         ImplicitParameterDecl {
-                                            ident: IdentifierToken {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 42,
-                                                        },
-                                                    ),
-                                                ),
-                                                token_idx: TokenIdx(
-                                                    43,
-                                                ),
+                                            pattern: ImplicitParameterDeclPattern {
+                                                symbol: 0,
+                                                variant: Type {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 42,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            43,
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             traits: Some(
                                                 (
@@ -167,10 +177,10 @@ Ok(
                                 },
                                 decls: [
                                     ParameterDecl {
-                                        pattern: ParameterPattern {
+                                        pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,
                                             variables: ArenaIdxRange(
-                                                0..1,
+                                                1..2,
                                             ),
                                         },
                                         colon: ColonToken {
@@ -181,10 +191,10 @@ Ok(
                                         ty: 3,
                                     },
                                     ParameterDecl {
-                                        pattern: ParameterPattern {
+                                        pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 1,
                                             variables: ArenaIdxRange(
-                                                1..2,
+                                                2..3,
                                             ),
                                         },
                                         colon: ColonToken {
@@ -195,10 +205,10 @@ Ok(
                                         ty: 4,
                                     },
                                     ParameterDecl {
-                                        pattern: ParameterPattern {
+                                        pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 2,
                                             variables: ArenaIdxRange(
-                                                2..3,
+                                                3..4,
                                             ),
                                         },
                                         colon: ColonToken {
@@ -253,7 +263,7 @@ Ok(
                     Function(
                         FunctionDecl {
                             path: FormPath(`quick_sort::partition`, `Function`),
-                            ast_idx: 33,
+                            ast_idx: 32,
                             expr_page: ExprPage(
                                 Id {
                                     value: 44,
@@ -268,17 +278,22 @@ Ok(
                                     },
                                     decls: [
                                         ImplicitParameterDecl {
-                                            ident: IdentifierToken {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 42,
-                                                        },
-                                                    ),
-                                                ),
-                                                token_idx: TokenIdx(
-                                                    104,
-                                                ),
+                                            pattern: ImplicitParameterDeclPattern {
+                                                symbol: 0,
+                                                variant: Type {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 42,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            104,
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             traits: Some(
                                                 (
@@ -310,10 +325,10 @@ Ok(
                                 },
                                 decls: [
                                     ParameterDecl {
-                                        pattern: ParameterPattern {
+                                        pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,
                                             variables: ArenaIdxRange(
-                                                0..1,
+                                                1..2,
                                             ),
                                         },
                                         colon: ColonToken {
@@ -324,10 +339,10 @@ Ok(
                                         ty: 3,
                                     },
                                     ParameterDecl {
-                                        pattern: ParameterPattern {
+                                        pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 1,
                                             variables: ArenaIdxRange(
-                                                1..2,
+                                                2..3,
                                             ),
                                         },
                                         colon: ColonToken {
@@ -338,10 +353,10 @@ Ok(
                                         ty: 4,
                                     },
                                     ParameterDecl {
-                                        pattern: ParameterPattern {
+                                        pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 2,
                                             variables: ArenaIdxRange(
-                                                2..3,
+                                                3..4,
                                             ),
                                         },
                                         colon: ColonToken {
@@ -396,7 +411,7 @@ Ok(
                     Feature(
                         FeatureDecl {
                             path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
-                            ast_idx: 35,
+                            ast_idx: 34,
                             expr_page: ExprPage(
                                 Id {
                                     value: 45,
@@ -411,7 +426,7 @@ Ok(
                     Feature(
                         FeatureDecl {
                             path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
-                            ast_idx: 37,
+                            ast_idx: 36,
                             expr_page: ExprPage(
                                 Id {
                                     value: 46,

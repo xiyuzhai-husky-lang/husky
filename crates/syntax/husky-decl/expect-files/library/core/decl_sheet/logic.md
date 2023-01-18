@@ -37,17 +37,22 @@ Ok(
                                     },
                                     decls: [
                                         ImplicitParameterDecl {
-                                            ident: IdentifierToken {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 12,
-                                                        },
-                                                    ),
-                                                ),
-                                                token_idx: TokenIdx(
-                                                    8,
-                                                ),
+                                            pattern: ImplicitParameterDeclPattern {
+                                                symbol: 0,
+                                                variant: Type {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 12,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            8,
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             traits: Some(
                                                 (
@@ -63,17 +68,22 @@ Ok(
                                             ),
                                         },
                                         ImplicitParameterDecl {
-                                            ident: IdentifierToken {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 13,
-                                                        },
-                                                    ),
-                                                ),
-                                                token_idx: TokenIdx(
-                                                    12,
-                                                ),
+                                            pattern: ImplicitParameterDeclPattern {
+                                                symbol: 1,
+                                                variant: Type {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 13,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            12,
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             traits: Some(
                                                 (
@@ -127,17 +137,22 @@ Ok(
                                     },
                                     decls: [
                                         ImplicitParameterDecl {
-                                            ident: IdentifierToken {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 12,
-                                                        },
-                                                    ),
-                                                ),
-                                                token_idx: TokenIdx(
-                                                    30,
-                                                ),
+                                            pattern: ImplicitParameterDeclPattern {
+                                                symbol: 0,
+                                                variant: Type {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 12,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            30,
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             traits: Some(
                                                 (
@@ -153,17 +168,22 @@ Ok(
                                             ),
                                         },
                                         ImplicitParameterDecl {
-                                            ident: IdentifierToken {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 13,
-                                                        },
-                                                    ),
-                                                ),
-                                                token_idx: TokenIdx(
-                                                    34,
-                                                ),
+                                            pattern: ImplicitParameterDeclPattern {
+                                                symbol: 1,
+                                                variant: Type {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 13,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            34,
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             traits: Some(
                                                 (

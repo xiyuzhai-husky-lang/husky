@@ -24,7 +24,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 58,
+                                                    value: 149,
                                                 },
                                             ),
                                         ),
@@ -44,7 +44,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 59,
+                                                    value: 150,
                                                 },
                                             ),
                                         ),
@@ -104,7 +104,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 58,
+                                                    value: 149,
                                                 },
                                             ),
                                         ),
@@ -124,7 +124,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 59,
+                                                    value: 150,
                                                 },
                                             ),
                                         ),
@@ -184,7 +184,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 58,
+                                                    value: 149,
                                                 },
                                             ),
                                         ),
@@ -204,7 +204,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 59,
+                                                    value: 150,
                                                 },
                                             ),
                                         ),
@@ -264,7 +264,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 176,
+                                                    value: 175,
                                                 },
                                             ),
                                         ),
@@ -284,7 +284,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 137,
+                                                    value: 133,
                                                 },
                                             ),
                                         ),
@@ -474,7 +474,7 @@ Ok(
                                     },
                                     decls: [
                                         ParameterDecl {
-                                            pattern: ParameterPattern {
+                                            pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -488,7 +488,7 @@ Ok(
                                             ty: 0,
                                         },
                                         ParameterDecl {
-                                            pattern: ParameterPattern {
+                                            pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 1,
                                                 variables: ArenaIdxRange(
                                                     1..2,
@@ -629,7 +629,7 @@ Ok(
                                     },
                                     decls: [
                                         ParameterDecl {
-                                            pattern: ParameterPattern {
+                                            pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -764,7 +764,7 @@ Ok(
                                     },
                                     decls: [
                                         ParameterDecl {
-                                            pattern: ParameterPattern {
+                                            pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -931,7 +931,7 @@ Ok(
                                     },
                                     decls: [
                                         ParameterDecl {
-                                            pattern: ParameterPattern {
+                                            pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -1066,7 +1066,7 @@ Ok(
                                     },
                                     decls: [
                                         ParameterDecl {
-                                            pattern: ParameterPattern {
+                                            pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -1141,7 +1141,7 @@ Ok(
                                     },
                                     decls: [
                                         ParameterDecl {
-                                            pattern: ParameterPattern {
+                                            pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -1216,7 +1216,7 @@ Ok(
                                     },
                                     decls: [
                                         ParameterDecl {
-                                            pattern: ParameterPattern {
+                                            pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -1291,7 +1291,7 @@ Ok(
                                     },
                                     decls: [
                                         ParameterDecl {
-                                            pattern: ParameterPattern {
+                                            pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -1366,7 +1366,7 @@ Ok(
                                     },
                                     decls: [
                                         ParameterDecl {
-                                            pattern: ParameterPattern {
+                                            pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -1380,7 +1380,7 @@ Ok(
                                             ty: 0,
                                         },
                                         ParameterDecl {
-                                            pattern: ParameterPattern {
+                                            pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 1,
                                                 variables: ArenaIdxRange(
                                                     1..2,
@@ -1458,7 +1458,7 @@ Ok(
                                     },
                                     decls: [
                                         ParameterDecl {
-                                            pattern: ParameterPattern {
+                                            pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -1527,7 +1527,7 @@ Ok(
                                     },
                                     decls: [
                                         ParameterDecl {
-                                            pattern: ParameterPattern {
+                                            pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -1634,7 +1634,7 @@ Ok(
                                     },
                                     decls: [
                                         ParameterDecl {
-                                            pattern: ParameterPattern {
+                                            pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -1709,7 +1709,7 @@ Ok(
                                     },
                                     decls: [
                                         ParameterDecl {
-                                            pattern: ParameterPattern {
+                                            pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,

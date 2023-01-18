@@ -20,17 +20,22 @@ Ok(
                                 },
                                 decls: [
                                     ImplicitParameterDecl {
-                                        ident: IdentifierToken {
-                                            ident: Identifier(
-                                                Word(
-                                                    Id {
-                                                        value: 33,
-                                                    },
-                                                ),
-                                            ),
-                                            token_idx: TokenIdx(
-                                                9,
-                                            ),
+                                        pattern: ImplicitParameterDeclPattern {
+                                            symbol: 0,
+                                            variant: Type {
+                                                ident_token: IdentifierToken {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 33,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    token_idx: TokenIdx(
+                                                        9,
+                                                    ),
+                                                },
+                                            },
                                         },
                                         traits: None,
                                     },

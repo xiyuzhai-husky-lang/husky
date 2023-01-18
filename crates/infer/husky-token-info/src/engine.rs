@@ -372,52 +372,18 @@ impl<'a> AuxInferEngine<'a> {
                 }
             }
             CurrentSymbolKind::FrameVariable(_) => (),
+            CurrentSymbolKind::ImplicitParameter {
+                implicit_parameter_kind,
+            } => match implicit_parameter_kind {
+                ImplicitParameterKind::Type { ident_token } => self.sheet.add(
+                    ident_token.token_idx(),
+                    TokenInfo::CurrentSymbol {
+                        current_symbol_idx,
+                        expr_page: self.expr_page,
+                        current_symbol_kind,
+                    },
+                ),
+            },
         }
     }
-
-    // fn visit_pattern_expr(&mut self, pattern_expr_idx: PatternExprIdx, pattern_expr: &PatternExpr) {
-    //     match pattern_expr {
-    //         PatternExpr::Literal(_) => todo!(),
-    //         PatternExpr::Identifier { ident_token, .. } => {
-    //             let env = self.pattern_expr_page.pattern_info(pattern_expr_idx);
-    //             let info = match env {
-    //                 PatternInfo::Parameter => TokenInfo::Parameter,
-    //                 PatternInfo::Let => TokenInfo::Variable {
-    //                     // ad hoc
-    //                     variable_idx: None,
-    //                     expr_page: self.expr_page,
-    //                 },
-    //                 PatternInfo::Match => TokenInfo::Variable {
-    //                     // ad hoc
-    //                     variable_idx: None,
-    //                     expr_page: self.expr_page,
-    //                 },
-    //                 PatternInfo::Be => TokenInfo::Variable {
-    //                     // ad hoc
-    //                     variable_idx: None,
-    //                     expr_page: self.expr_page,
-    //                 },
-    //             };
-    //             self.sheet.add(ident_token.token_idx(), info)
-    //         }
-    //         // TokenInfo::Parameter),
-    //         // PatternExpr::Identifier { ident_token } => {
-    //         //     self.sheet.add(ident_token.token_idx(), TokenInfo::Variable)
-    //         // }
-    //         PatternExpr::Entity(_) => todo!(),
-    //         PatternExpr::Tuple { name, fields } => todo!(),
-    //         PatternExpr::Struct { name, fields } => todo!(),
-    //         PatternExpr::OneOf { options } => todo!(),
-    //         PatternExpr::Binding {
-    //             ident_token,
-    //             asperand_token,
-    //             src,
-    //         } => todo!(),
-    //         PatternExpr::Range {
-    //             start,
-    //             dot_dot_token,
-    //             end,
-    //         } => todo!(),
-    //     }
-    // }
 }

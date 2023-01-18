@@ -72,9 +72,9 @@ impl SymbolSheet {
     }
 
     #[inline(always)]
-    pub(crate) fn define_variables(
+    pub(crate) fn define_symbols(
         &mut self,
-        variables: Vec<CurrentSymbol>,
+        variables: impl IntoIterator<Item = CurrentSymbol>,
     ) -> ArenaIdxRange<CurrentSymbol> {
         self.current_symbol_arena.alloc_batch(variables)
     }
@@ -89,7 +89,7 @@ impl SymbolSheet {
                 symbol.ident == ident && accessible
             })
             .map(|(current_symbol_idx, current_symbol)| {
-                Symbol::Local(current_symbol_idx, current_symbol.kind)
+                Symbol::Local(current_symbol_idx, current_symbol.kind())
             })
             .or_else(|| {
                 self.inherited_symbol_arena
@@ -118,13 +118,19 @@ impl SymbolSheet {
             todo!()
         }
         for (original_current_symbol_idx, current_symbol) in self.indexed_current_symbol_iter() {
-            inherited_symbol_arena.alloc_one(match current_symbol.kind {
-                CurrentSymbolKind::Parameter { .. } => InheritedSymbol {
+            inherited_symbol_arena.alloc_one(match current_symbol.variant {
+                CurrentSymbolVariant::Parameter { .. } => InheritedSymbol {
                     ident: current_symbol.ident,
                     kind: InheritedSymbolKind::Parameter,
                 },
-                CurrentSymbolKind::LetVariable { .. } => todo!(),
-                CurrentSymbolKind::FrameVariable(_) => todo!(),
+                CurrentSymbolVariant::LetVariable { .. } => todo!(),
+                CurrentSymbolVariant::FrameVariable(_) => todo!(),
+                CurrentSymbolVariant::ImplicitParameter {
+                    ref implicit_parameter_variant,
+                } => InheritedSymbol {
+                    ident: current_symbol.ident,
+                    kind: InheritedSymbolKind::ImplicitParameter,
+                },
             });
         }
         inherited_symbol_arena

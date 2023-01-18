@@ -7,13 +7,13 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct ImplicitParameterDecl {
-    ident: IdentifierToken,
+    pattern: ImplicitParameterDeclPattern,
     traits: Option<(ColonToken, Option<ExprIdx>)>,
 }
 
 impl ImplicitParameterDecl {
-    pub fn ident(&self) -> IdentifierToken {
-        self.ident
+    pub fn pattern(&self) -> &ImplicitParameterDeclPattern {
+        &self.pattern
     }
 
     pub fn traits(&self) -> Option<(ColonToken, Option<ExprIdx>)> {
@@ -25,12 +25,12 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDecl {
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
-        let Some(ident) = ctx.parse::<IdentifierToken>()? else {
+        let Some(pattern) = ctx.parse::<ImplicitParameterDeclPattern>()? else {
             return Ok(None)
         };
 
         Ok(Some(Self {
-            ident,
+            pattern,
             traits: if let Some(colon) = ctx.parse::<ColonToken>()? {
                 Some((
                     colon,
@@ -98,7 +98,7 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclList {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct ParameterDecl {
-    pattern: ParameterPattern,
+    pattern: ParameterDeclPattern,
     colon: ColonToken,
     ty: ExprIdx,
 }
@@ -115,7 +115,7 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ParameterDecl {
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
-        let Some(pattern) = ctx.parse::<ParameterPattern >()? else {
+        let Some(pattern) = ctx.parse::<ParameterDeclPattern>()? else {
             return Ok(None)
         };
         let state = ctx.state();
