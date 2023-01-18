@@ -1,4 +1,7 @@
 use crate::*;
 
 #[salsa::tracked(jar = SignatureJar)]
-pub struct UnitVariantSignature {}
+pub struct UnitVariantSignature {
+    #[return_ref]
+    pub term_sheet: SignatureTermSheet,
+}

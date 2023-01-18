@@ -16,7 +16,7 @@ pub struct AlienTypeSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatureList,
     #[return_ref]
-    term_sheet: SignatureTermSheet,
+    pub term_sheet: SignatureTermSheet,
 }
 
 impl AlienTypeSignature {}

@@ -45,10 +45,15 @@ pub struct SignatureJar(
     TraitSignature,
     // form
     // form_signature,
+    value_signature,
     ValueSignature,
+    feature_signature,
     FeatureSignature,
+    function_signature,
     FunctionSignature,
+    morphism_signature,
     MorphismSignature,
+    type_alias_signature,
     TypeAliasSignature,
     // impl block
     // impl_block_signature,
