@@ -472,7 +472,7 @@ Ok(
                                             19,
                                         ),
                                     },
-                                    decls: [
+                                    parameters: [
                                         ParameterDecl {
                                             pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
@@ -567,7 +567,7 @@ Ok(
                                             51,
                                         ),
                                     },
-                                    decls: [],
+                                    parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
@@ -627,7 +627,7 @@ Ok(
                                             68,
                                         ),
                                     },
-                                    decls: [
+                                    parameters: [
                                         ParameterDecl {
                                             pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
@@ -702,7 +702,7 @@ Ok(
                                             96,
                                         ),
                                     },
-                                    decls: [],
+                                    parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
@@ -762,7 +762,7 @@ Ok(
                                             124,
                                         ),
                                     },
-                                    decls: [
+                                    parameters: [
                                         ParameterDecl {
                                             pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
@@ -869,7 +869,7 @@ Ok(
                                             174,
                                         ),
                                     },
-                                    decls: [],
+                                    parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
@@ -929,7 +929,7 @@ Ok(
                                             192,
                                         ),
                                     },
-                                    decls: [
+                                    parameters: [
                                         ParameterDecl {
                                             pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
@@ -1004,7 +1004,7 @@ Ok(
                                             220,
                                         ),
                                     },
-                                    decls: [],
+                                    parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
@@ -1064,7 +1064,7 @@ Ok(
                                             248,
                                         ),
                                     },
-                                    decls: [
+                                    parameters: [
                                         ParameterDecl {
                                             pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
@@ -1139,7 +1139,7 @@ Ok(
                                             273,
                                         ),
                                     },
-                                    decls: [
+                                    parameters: [
                                         ParameterDecl {
                                             pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
@@ -1214,7 +1214,7 @@ Ok(
                                             298,
                                         ),
                                     },
-                                    decls: [
+                                    parameters: [
                                         ParameterDecl {
                                             pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
@@ -1289,7 +1289,7 @@ Ok(
                                             367,
                                         ),
                                     },
-                                    decls: [
+                                    parameters: [
                                         ParameterDecl {
                                             pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
@@ -1364,7 +1364,7 @@ Ok(
                                             387,
                                         ),
                                     },
-                                    decls: [
+                                    parameters: [
                                         ParameterDecl {
                                             pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
@@ -1456,7 +1456,7 @@ Ok(
                                             504,
                                         ),
                                     },
-                                    decls: [
+                                    parameters: [
                                         ParameterDecl {
                                             pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
@@ -1525,7 +1525,7 @@ Ok(
                                             567,
                                         ),
                                     },
-                                    decls: [
+                                    parameters: [
                                         ParameterDecl {
                                             pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
@@ -1632,7 +1632,7 @@ Ok(
                                             614,
                                         ),
                                     },
-                                    decls: [
+                                    parameters: [
                                         ParameterDecl {
                                             pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
@@ -1707,7 +1707,7 @@ Ok(
                                             649,
                                         ),
                                     },
-                                    decls: [
+                                    parameters: [
                                         ParameterDecl {
                                             pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
@@ -1782,7 +1782,7 @@ Ok(
                                             684,
                                         ),
                                     },
-                                    decls: [],
+                                    parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
@@ -1842,7 +1842,7 @@ Ok(
                                             696,
                                         ),
                                     },
-                                    decls: [],
+                                    parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
@@ -1902,7 +1902,7 @@ Ok(
                                             708,
                                         ),
                                     },
-                                    decls: [],
+                                    parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
@@ -1962,7 +1962,7 @@ Ok(
                                             720,
                                         ),
                                     },
-                                    decls: [],
+                                    parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
@@ -2054,7 +2054,7 @@ Ok(
                                             748,
                                         ),
                                     },
-                                    decls: [],
+                                    parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
@@ -2114,7 +2114,7 @@ Ok(
                                             760,
                                         ),
                                     },
-                                    decls: [],
+                                    parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
@@ -2174,7 +2174,7 @@ Ok(
                                             772,
                                         ),
                                     },
-                                    decls: [],
+                                    parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
@@ -2234,7 +2234,7 @@ Ok(
                                             784,
                                         ),
                                     },
-                                    decls: [],
+                                    parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(

@@ -19,7 +19,7 @@ Ok(
                                             3,
                                         ),
                                     },
-                                    decls: [
+                                    implicit_parameters: [
                                         ImplicitParameterDecl {
                                             pattern: ImplicitParameterDeclPattern {
                                                 symbol: 0,
@@ -66,7 +66,7 @@ Ok(
                                         8,
                                     ),
                                 },
-                                decls: [
+                                parameters: [
                                     ParameterDecl {
                                         pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,
@@ -128,7 +128,7 @@ Ok(
                                             42,
                                         ),
                                     },
-                                    decls: [
+                                    implicit_parameters: [
                                         ImplicitParameterDecl {
                                             pattern: ImplicitParameterDeclPattern {
                                                 symbol: 0,
@@ -175,7 +175,7 @@ Ok(
                                         47,
                                     ),
                                 },
-                                decls: [
+                                parameters: [
                                     ParameterDecl {
                                         pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,
@@ -276,7 +276,7 @@ Ok(
                                             103,
                                         ),
                                     },
-                                    decls: [
+                                    implicit_parameters: [
                                         ImplicitParameterDecl {
                                             pattern: ImplicitParameterDeclPattern {
                                                 symbol: 0,
@@ -323,7 +323,7 @@ Ok(
                                         108,
                                     ),
                                 },
-                                decls: [
+                                parameters: [
                                     ParameterDecl {
                                         pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,

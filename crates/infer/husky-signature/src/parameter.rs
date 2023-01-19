@@ -19,16 +19,19 @@ impl ImplicitParameterSignature {
         engine: &mut SignatureTermEngine,
     ) -> ImplicitParameterSignature {
         // Ad hoc
-        Self{ pattern: ImplicitParameterSignaturePattern{}, traits: vec![] }
+        Self {
+            pattern: ImplicitParameterSignaturePattern {},
+            traits: vec![],
+        }
     }
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct ImplicitParameterSignatureList {
+pub struct ImplicitParameterSignatures {
     parameters: Vec<ImplicitParameterSignature>,
 }
 
-impl ImplicitParameterSignatureList {
+impl ImplicitParameterSignatures {
     pub(crate) fn from_decl(
         parameters: &[ImplicitParameterDecl],
         engine: &mut SignatureTermEngine,
@@ -46,7 +49,7 @@ impl ImplicitParameterSignatureList {
     }
 }
 
-impl std::ops::Deref for ImplicitParameterSignatureList {
+impl std::ops::Deref for ImplicitParameterSignatures {
     type Target = Vec<ImplicitParameterSignature>;
 
     fn deref(&self) -> &Self::Target {
@@ -57,13 +60,33 @@ impl std::ops::Deref for ImplicitParameterSignatureList {
 #[derive(Debug, PartialEq, Eq)]
 pub struct ParameterSignature {
     pattern: ParameterSignaturePattern,
-    ty: Term,
+    ty: SignatureOutcome<Term>,
 }
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct ParameterSignaturePattern {}
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct ParameterSignatureList {
-    decls: Vec<ParameterSignature>,
+pub struct ParameterSignatures {
+    parameters: Vec<ParameterSignature>,
+}
+
+impl ParameterSignatures {
+    pub(crate) fn from_decl(
+        parameters: &[ParameterDecl],
+        engine: &mut SignatureTermEngine,
+    ) -> Self {
+        Self {
+            parameters: parameters
+                .iter()
+                .map(|parameter| ParameterSignature {
+                    pattern: ParameterSignaturePattern {},
+                    ty: match engine.query_new(parameter.ty()) {
+                        Some(ty) => Success(ty),
+                        None => Abort(SignatureAbortion::TermError),
+                    },
+                })
+                .collect(),
+        }
+    }
 }

@@ -18,7 +18,7 @@ Ok(
                                         8,
                                     ),
                                 },
-                                decls: [
+                                implicit_parameters: [
                                     ImplicitParameterDecl {
                                         pattern: ImplicitParameterDeclPattern {
                                             symbol: 0,

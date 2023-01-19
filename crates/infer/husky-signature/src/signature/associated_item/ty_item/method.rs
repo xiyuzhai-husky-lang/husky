@@ -1,28 +1,38 @@
 use crate::*;
 
 #[salsa::tracked(jar = SignatureJar)]
-pub(crate) fn ty_method_signature(db: &dyn SignatureDb, decl: TypeMethodDecl) -> TypeMethodSignature{
+pub(crate) fn ty_method_signature(
+    db: &dyn SignatureDb,
+    decl: TypeMethodDecl,
+) -> TypeMethodSignature {
     let mut engine = SignatureTermEngine::new(db, decl.expr_page(db));
-    // implementation
+    let output_ty = match decl.output_ty(db) {
+        Ok(output_ty) => match engine.query_new(*output_ty) {
+            Some(output_ty) => Success(output_ty),
+            None => Abort(SignatureAbortion::TermError),
+        },
+        Err(_) => Abort(SignatureAbortion::ExprError),
+    };
+    let parameters = ParameterSignatures::from_decl(decl.parameters(db), &mut engine);
+    let implicit_parameters =
+        ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), &mut engine);
     TypeMethodSignature::new(
         db,
-        todo!(),
-        todo!(),
-        todo!(),
-        // ImplicitParameterSignatureList::from_decl(decl.implicit_parameters(db), &mut engine),
+        implicit_parameters,
+        parameters,
+        output_ty,
         engine.finish(),
     )
 }
 
-
 #[salsa::tracked(jar = SignatureJar)]
 pub struct TypeMethodSignature {
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterSignatureList,
+    pub implicit_parameters: ImplicitParameterSignatures,
     #[return_ref]
-    pub parameter_decl_list: ParameterSignatureList,
+    pub parameters: ParameterSignatures,
     #[return_ref]
-    pub output_ty: SignatureTermOutcome<Term>,
+    pub output_ty: SignatureOutcome<Term>,
     #[return_ref]
     pub term_sheet: SignatureTermSheet,
 }

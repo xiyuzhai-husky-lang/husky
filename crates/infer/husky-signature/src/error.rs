@@ -1,4 +1,10 @@
-#[derive(Debug, PartialEq, Eq)]
-pub enum SignatureError {}
+use outcome::Outcome;
+use std::convert::Infallible;
 
-pub type SignatureResult<T> = Result<T, SignatureError>;
+#[derive(Debug, PartialEq, Eq)]
+pub enum SignatureAbortion {
+    ExprError,
+    TermError,
+}
+
+pub type SignatureOutcome<T> = Outcome<T, Infallible, SignatureAbortion>;

@@ -204,7 +204,7 @@ Ok(
                                         54,
                                     ),
                                 },
-                                decls: [
+                                parameters: [
                                     ParameterDecl {
                                         pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,
@@ -315,7 +315,7 @@ Ok(
                                         560,
                                     ),
                                 },
-                                decls: [
+                                parameters: [
                                     ParameterDecl {
                                         pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,
@@ -397,7 +397,7 @@ Ok(
                                         646,
                                     ),
                                 },
-                                decls: [
+                                parameters: [
                                     ParameterDecl {
                                         pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,
@@ -863,7 +863,7 @@ Ok(
                                             431,
                                         ),
                                     },
-                                    decls: [
+                                    parameters: [
                                         ParameterDecl {
                                             pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
@@ -938,7 +938,7 @@ Ok(
                                             494,
                                         ),
                                     },
-                                    decls: [
+                                    parameters: [
                                         ParameterDecl {
                                             pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,

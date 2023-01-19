@@ -7,13 +7,18 @@ pub fn tuple_struct_ty_signature(
     decl: TupleStructTypeDecl,
 ) -> TupleStructTypeSignature {
     let mut engine = SignatureTermEngine::new(db, decl.expr_page(db));
-    TupleStructTypeSignature::new(db,    ImplicitParameterSignatureList::from_decl(decl.implicit_parameters(db), &mut engine), todo!(), engine.finish())
+    TupleStructTypeSignature::new(
+        db,
+        ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), &mut engine),
+        todo!(),
+        engine.finish(),
+    )
 }
 
 #[salsa::tracked(jar = SignatureJar)]
 pub struct TupleStructTypeSignature {
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterSignatureList,
+    pub implicit_parameters: ImplicitParameterSignatures,
     #[return_ref]
     pub fields: Vec<TupleStructFieldSignature>,
     #[return_ref]

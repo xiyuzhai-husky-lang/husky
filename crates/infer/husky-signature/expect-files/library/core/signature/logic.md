@@ -2,7 +2,7 @@
     Type(
         Foreign(
             AlienTypeSignature {
-                implicit_parameters: ImplicitParameterSignatureList {
+                implicit_parameters: ImplicitParameterSignatures {
                     parameters: [],
                 },
                 term_sheet: SignatureTermSheet,
@@ -12,7 +12,7 @@
     Type(
         Structure(
             StructureTypeSignature {
-                implicit_parameters: ImplicitParameterSignatureList {
+                implicit_parameters: ImplicitParameterSignatures {
                     parameters: [
                         ImplicitParameterSignature {
                             pattern: ImplicitParameterSignaturePattern,
@@ -31,7 +31,7 @@
     Type(
         Inductive(
             InductiveTypeSignature {
-                implicit_parameters: ImplicitParameterSignatureList {
+                implicit_parameters: ImplicitParameterSignatures {
                     parameters: [
                         ImplicitParameterSignature {
                             pattern: ImplicitParameterSignaturePattern,

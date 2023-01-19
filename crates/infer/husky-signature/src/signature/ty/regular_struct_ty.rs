@@ -6,13 +6,18 @@ pub fn regular_struct_ty_signature(
     decl: RegularStructTypeDecl,
 ) -> RegularStructTypeSignature {
     let mut engine = SignatureTermEngine::new(db, decl.expr_page(db));
-    RegularStructTypeSignature::new(db,    ImplicitParameterSignatureList::from_decl(decl.implicit_parameters(db), &mut engine), todo!(), engine.finish())
+    RegularStructTypeSignature::new(
+        db,
+        ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), &mut engine),
+        todo!(),
+        engine.finish(),
+    )
 }
 
 #[salsa::tracked(jar = SignatureJar)]
 pub struct RegularStructTypeSignature {
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterSignatureList,
+    pub implicit_parameters: ImplicitParameterSignatures,
     #[return_ref]
     pub fields: Vec<RegularStructFieldSignature>,
     #[return_ref]

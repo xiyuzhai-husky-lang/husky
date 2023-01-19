@@ -108,7 +108,7 @@ Ok(
                                         347,
                                     ),
                                 },
-                                decls: [
+                                parameters: [
                                     ParameterDecl {
                                         pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,
@@ -190,7 +190,7 @@ Ok(
                                         444,
                                     ),
                                 },
-                                decls: [
+                                parameters: [
                                     ParameterDecl {
                                         pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,
@@ -272,7 +272,7 @@ Ok(
                                         541,
                                     ),
                                 },
-                                decls: [
+                                parameters: [
                                     ParameterDecl {
                                         pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,
@@ -373,7 +373,7 @@ Ok(
                                         774,
                                     ),
                                 },
-                                decls: [
+                                parameters: [
                                     ParameterDecl {
                                         pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,
@@ -493,7 +493,7 @@ Ok(
                                         1040,
                                     ),
                                 },
-                                decls: [
+                                parameters: [
                                     ParameterDecl {
                                         pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,
@@ -619,7 +619,7 @@ Ok(
                                             87,
                                         ),
                                     },
-                                    decls: [
+                                    parameters: [
                                         ParameterDecl {
                                             pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
@@ -733,7 +733,7 @@ Ok(
                                             125,
                                         ),
                                     },
-                                    decls: [],
+                                    parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
@@ -915,7 +915,7 @@ Ok(
                                             316,
                                         ),
                                     },
-                                    decls: [
+                                    parameters: [
                                         ParameterDecl {
                                             pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,

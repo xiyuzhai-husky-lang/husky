@@ -143,7 +143,7 @@ Ok(
                                             24,
                                         ),
                                     },
-                                    decls: [],
+                                    parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
@@ -203,7 +203,7 @@ Ok(
                                             41,
                                         ),
                                     },
-                                    decls: [
+                                    parameters: [
                                         ParameterDecl {
                                             pattern: ParameterDeclPattern {
                                                 pattern_expr_idx: 0,
