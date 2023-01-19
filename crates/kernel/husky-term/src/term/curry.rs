@@ -10,12 +10,6 @@ pub struct TermCurry {
     // ty: Term,
 }
 
-impl Into<Term> for TermCurry {
-    fn into(self) -> Term {
-        Term::Curry(self)
-    }
-}
-
 impl TermRewriteCopy for TermCurry {
     fn substitute_copy(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Self {
         todo!()

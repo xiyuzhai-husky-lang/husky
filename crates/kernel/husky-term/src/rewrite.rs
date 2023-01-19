@@ -24,12 +24,10 @@ where
 impl TermRewriteCopy for Term {
     fn substitute_copy(self, db: &dyn TermDb, substitution: &TermSubstitution) -> Self {
         match self {
-            Term::Variable(_) | Term::Lifetime(_) | Term::Binding(_) => {
-                match self == substitution.src() {
-                    true => substitution.dst(),
-                    false => self,
-                }
-            }
+            Term::Symbol(symbol) => match symbol == substitution.src() {
+                true => substitution.dst(),
+                false => self,
+            },
             Term::Literal(_) | Term::Entity(_) | Term::Category(_) | Term::Universe(_) => self,
             Term::Curry(term) => term.substitute_copy(db, substitution).into(),
             Term::Abstraction(term) => term.substitute_copy(db, substitution).into(),
@@ -37,7 +35,7 @@ impl TermRewriteCopy for Term {
             Term::Subentity(term) => term.substitute_copy(db, substitution).into(),
             Term::AsTraitSubentity(term) => term.substitute_copy(db, substitution).into(),
             Term::TraitConstraint(term) => term.substitute_copy(db, substitution).into(),
-            Term::Jordan(_) => todo!(),
+            Term::Durant(_) => todo!(),
         }
     }
 }

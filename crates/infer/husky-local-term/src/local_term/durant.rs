@@ -1,2 +1,2 @@
 #[derive(Debug, PartialEq, Eq)]
-pub struct LocalTermJordan {}
+pub struct LocalTermDurant {}

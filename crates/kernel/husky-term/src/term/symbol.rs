@@ -15,12 +15,21 @@ pub enum TermSymbolKind {
     Other,
 }
 
+#[derive(Default, Debug, PartialEq, Eq, Clone)]
 pub struct TermSymbolRegistry {
     next_ty0: u8,
     next_lifetime: u8,
     next_binding: u8,
     next_usize: u8,
     next_other: u8,
+}
+
+#[test]
+fn term_symbol_registry_size_is_small() {
+    assert_eq!(
+        std::mem::size_of::<TermSymbolRegistry>(),
+        5 * std::mem::size_of::<u8>()
+    )
 }
 
 impl TermSymbolRegistry {

@@ -29,10 +29,10 @@ impl std::ops::Index<LocalTermAbstractionIdx> for LocalTermSheet {
     }
 }
 
-impl std::ops::Index<LocalTermJordanIdx> for LocalTermSheet {
-    type Output = LocalTermJordan;
+impl std::ops::Index<LocalTermDurantIdx> for LocalTermSheet {
+    type Output = LocalTermDurant;
 
-    fn index(&self, index: LocalTermJordanIdx) -> &Self::Output {
+    fn index(&self, index: LocalTermDurantIdx) -> &Self::Output {
         &self.local_term_interner[index]
     }
 }
