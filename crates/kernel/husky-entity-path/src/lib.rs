@@ -88,6 +88,10 @@ impl EntityPath {
         self.module_path(db).crate_path(db)
     }
 
+    pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
+        self.crate_path(db).toolchain(db)
+    }
+
     pub fn entity_kind(self, db: &dyn EntityPathDb) -> EntityKind {
         match self {
             EntityPath::Module(path) => EntityKind::Module,

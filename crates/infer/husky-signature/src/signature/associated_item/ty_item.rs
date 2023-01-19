@@ -1,18 +1,21 @@
-mod assoc_ty;
-mod assoc_val;
+mod associated_ty;
+mod associated_value;
 mod function;
 mod memo;
 mod method;
 
-pub use assoc_ty::*;
-pub use assoc_val::*;
+pub use associated_ty::*;
+pub use associated_value::*;
 pub use function::*;
 pub use memo::*;
 pub use method::*;
 
 use crate::*;
 
-pub(crate) fn ty_associated_item_signature(db: &dyn SignatureDb, decl: TypeItemDecl) -> TypeItemSignature {
+pub(crate) fn ty_associated_item_signature(
+    db: &dyn SignatureDb,
+    decl: TypeItemDecl,
+) -> TypeItemSignature {
     match decl {
         TypeItemDecl::Function(decl) => ty_associated_function_signature(db, decl).into(),
         TypeItemDecl::Method(decl) => ty_method_signature(db, decl).into(),

@@ -21,6 +21,10 @@ pub struct FunctionDecl {
 }
 
 impl FunctionDecl {
+    pub fn parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ParameterDecl] {
+        self.parameter_decl_list(db).parameters()
+    }
+
     pub fn implicit_parameters(self, db: &dyn DeclDb) -> &[ImplicitParameterDecl] {
         self.implicit_parameter_decl_list(db)
             .as_ref()
