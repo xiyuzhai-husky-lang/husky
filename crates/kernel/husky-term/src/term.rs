@@ -7,6 +7,7 @@ mod curry;
 mod jordan;
 mod literal;
 mod subentity;
+mod symbol;
 mod universe;
 
 pub use abstraction::TermAbstraction;
@@ -18,6 +19,7 @@ pub use curry::*;
 pub use jordan::*;
 pub use literal::*;
 pub use subentity::*;
+pub use symbol::*;
 pub use universe::*;
 
 use crate::*;
@@ -29,7 +31,7 @@ pub enum Term {
     // atoms
     // literal: 1,1.0, true, false; variable, entityPath
     Literal(TermLiteral),
-    Variable(Identifier),
+    Variable(TermParameter),
     Lifetime(Identifier),
     Binding(Identifier),
     Entity(EntityPath),
@@ -50,8 +52,10 @@ pub enum Term {
     TraitConstraint(TermTraitConstraint),
 }
 
-impl Term {
-    pub fn new_application(db: &dyn TermDb, function: Term, argument: Term) -> Self {
-        todo!()
+impl From<TermCategory> for Term {
+    fn from(v: TermCategory) -> Self {
+        Self::Category(v)
     }
 }
+
+impl Term {}

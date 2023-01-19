@@ -2,8 +2,9 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermMenu0 {
-    // sort: Term,
-    // universe1: Term,
+    sort: TermCategory,
+    universe0: TermUniverse,
+    universe1: TermUniverse,
     unit: Term,
     // core: Term,
     // core_ops: Term,
@@ -55,8 +56,9 @@ impl TermMenu0 {
         let vfs_path_menu = db.vfs_path_menu(toolchain).unwrap();
         let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
         TermMenu0 {
-            // sort,
-            // universe1,
+            sort: TermCategory::Sort,
+            universe0: TermUniverse::new(0),
+            universe1: TermUniverse::new(1),
             // core: Term::Entity(entity_path_menu.core()),
             // core_ops: Term::Entity(entity_path_menu.core_ops()),
             core_ops_add: Term::Entity(entity_path_menu.core_ops_add().into()),
@@ -94,13 +96,17 @@ impl TermMenu0 {
         }
     }
 
-    // pub fn sort(&self) -> Term {
-    //     self.sort
-    // }
+    pub fn sort(&self) -> TermCategory {
+        self.sort
+    }
 
-    // pub fn universe1(&self) -> Term {
-    //     self.universe1
-    // }
+    pub fn universe0(&self) -> TermUniverse {
+        self.universe0
+    }
+
+    pub fn universe1(&self) -> TermUniverse {
+        self.universe1
+    }
 
     // pub fn core(&self) -> Term {
     //     self.core
