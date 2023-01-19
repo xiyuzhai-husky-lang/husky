@@ -93,7 +93,7 @@ pub struct ExprParser<'a> {
     symbol_context: SymbolContextMut<'a>,
     expr_arena: ExprArena,
     entity_path_expr_arena: EntityPathExprArena,
-    pattern_expr_page: PatternExprSubsheet,
+    pattern_expr_page: PatternExprPage,
     stmt_arena: StmtArena,
 }
 
@@ -134,7 +134,7 @@ impl<'a> ExprParser<'a> {
         ExprParseContext::new(self, token_stream)
     }
 
-    pub(crate) fn pattern_expr_page(&self) -> &PatternExprSubsheet {
+    pub(crate) fn pattern_expr_page(&self) -> &PatternExprPage {
         &self.pattern_expr_page
     }
 
@@ -220,7 +220,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         }
     }
 
-    pub(crate) fn pattern_expr_page(&self) -> &PatternExprSubsheet {
+    pub(crate) fn pattern_expr_page(&self) -> &PatternExprPage {
         self.parser.pattern_expr_page()
     }
 
@@ -319,11 +319,11 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     }
 
     fn allow_self_type(&self) -> AllowSelfType {
-        self.parser.symbol_context.symbol_sheet().allow_self_type()
+        self.parser.symbol_context.symbol_page().allow_self_type()
     }
 
     fn allow_self_value(&self) -> AllowSelfValue {
-        self.parser.symbol_context.symbol_sheet().allow_self_value()
+        self.parser.symbol_context.symbol_page().allow_self_value()
     }
 }
 

@@ -614,8 +614,8 @@ impl<'a> DeclParser<'a> {
         let eol_colon = ctx.parse_expected2(DeclError::MissingEolColon);
         Ok(TypeMethodDecl::new(
             self.db,
-            path,
             associated_item,
+            path,
             ast_idx,
             parser.finish(),
             implicit_parameter_decl_list,

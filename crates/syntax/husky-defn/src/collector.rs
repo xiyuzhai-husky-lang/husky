@@ -114,7 +114,7 @@ impl<'a> DefnCollector<'a> {
         let path = decl.path(self.db);
         let mut parser = self.expr_parser(
             DefnExprPath::Entity(path.into()),
-            Some(decl.expr_page(self.db).symbol_sheet(self.db)),
+            Some(decl.expr_page(self.db).symbol_page(self.db)),
             AllowSelfType::False,
             AllowSelfValue::False,
         );
@@ -170,7 +170,7 @@ impl<'a> DefnCollector<'a> {
         let path = decl.path(self.db);
         let mut parser = self.expr_parser(
             DefnExprPath::AssociatedItem(decl.associated_item(self.db)),
-            Some(decl.expr_page(self.db).symbol_sheet(self.db)),
+            Some(decl.expr_page(self.db).symbol_page(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
         );
@@ -188,7 +188,7 @@ impl<'a> DefnCollector<'a> {
         let path = decl.path(self.db);
         let mut parser = self.expr_parser(
             DefnExprPath::AssociatedItem(decl.associated_item(self.db)),
-            Some(decl.expr_page(self.db).symbol_sheet(self.db)),
+            Some(decl.expr_page(self.db).symbol_page(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
         );
@@ -219,7 +219,7 @@ impl<'a> DefnCollector<'a> {
         let path = decl.path(self.db);
         let mut parser = self.expr_parser(
             DefnExprPath::AssociatedItem(decl.associated_item(self.db)),
-            Some(decl.expr_page(self.db).symbol_sheet(self.db)),
+            Some(decl.expr_page(self.db).symbol_page(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
         );
@@ -236,7 +236,7 @@ impl<'a> DefnCollector<'a> {
     fn expr_parser(
         &self,
         expr_path: DefnExprPath,
-        decl_symbol_sheet: Option<&SymbolSheet>,
+        decl_symbol_page: Option<&SymbolPage>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
     ) -> BlockExprParser<'a> {
@@ -246,7 +246,7 @@ impl<'a> DefnCollector<'a> {
             self.token_sheet_data,
             SymbolContextMut::new(
                 self.module_symbol_context,
-                decl_symbol_sheet,
+                decl_symbol_page,
                 allow_self_type,
                 allow_self_value,
             ),

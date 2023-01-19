@@ -31,16 +31,16 @@ impl AllowSelfType {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct SymbolSheet {
+pub struct SymbolPage {
     inherited_symbol_arena: InheritedSymbolArena,
     current_symbol_arena: CurrentSymbolArena,
     allow_self_type: AllowSelfType,
     allow_self_value: AllowSelfValue,
 }
 
-impl SymbolSheet {
+impl SymbolPage {
     pub(crate) fn new(
-        parent_symbol_sheet: Option<&SymbolSheet>,
+        parent_symbol_page: Option<&SymbolPage>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
     ) -> Self {
@@ -49,20 +49,20 @@ impl SymbolSheet {
             if allow_self_value.to_bool() {
                 assert!(allow_self_type.to_bool());
             } else {
-                if let Some(parent_symbol_sheet) = parent_symbol_sheet {
-                    assert!(!parent_symbol_sheet.allow_self_value.to_bool());
+                if let Some(parent_symbol_page) = parent_symbol_page {
+                    assert!(!parent_symbol_page.allow_self_value.to_bool());
                 }
             }
             if !allow_self_type.to_bool() {
-                if let Some(parent_symbol_sheet) = parent_symbol_sheet {
-                    assert!(!parent_symbol_sheet.allow_self_type.to_bool());
+                if let Some(parent_symbol_page) = parent_symbol_page {
+                    assert!(!parent_symbol_page.allow_self_type.to_bool());
                 }
             }
         }
         Self {
             // ad hoc
-            inherited_symbol_arena: match parent_symbol_sheet {
-                Some(parent_symbol_sheet) => parent_symbol_sheet.bequeath(),
+            inherited_symbol_arena: match parent_symbol_page {
+                Some(parent_symbol_page) => parent_symbol_page.bequeath(),
                 None => Default::default(),
             },
             current_symbol_arena: Default::default(),
@@ -149,7 +149,7 @@ impl SymbolSheet {
     }
 }
 
-impl std::ops::Index<InheritedSymbolIdx> for SymbolSheet {
+impl std::ops::Index<InheritedSymbolIdx> for SymbolPage {
     type Output = InheritedSymbol;
 
     fn index(&self, index: InheritedSymbolIdx) -> &Self::Output {
@@ -157,7 +157,7 @@ impl std::ops::Index<InheritedSymbolIdx> for SymbolSheet {
     }
 }
 
-impl std::ops::Index<CurrentSymbolIdx> for SymbolSheet {
+impl std::ops::Index<CurrentSymbolIdx> for SymbolPage {
     type Output = CurrentSymbol;
 
     fn index(&self, index: CurrentSymbolIdx) -> &Self::Output {

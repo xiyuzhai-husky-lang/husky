@@ -9,11 +9,11 @@ pub struct ExprPage {
     #[return_ref]
     pub entity_path_expr_arena: EntityPathExprArena,
     #[return_ref]
-    pub pattern_expr_page: PatternExprSubsheet,
-    #[return_ref]
     pub stmt_arena: StmtArena,
     #[return_ref]
-    pub symbol_sheet: SymbolSheet,
+    pub pattern_expr_page: PatternExprPage,
+    #[return_ref]
+    pub symbol_page: SymbolPage,
 }
 
 impl ExprPage {

@@ -450,17 +450,17 @@ Ok(
                     TypeItem(
                         Method(
                             TypeMethodDecl {
+                                associated_item: AssociatedItem(
+                                    Id {
+                                        value: 61,
+                                    },
+                                ),
                                 path: Some(
                                     TypeItemPath(
                                         Id {
                                             value: 51,
                                         },
                                     ),
-                                ),
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 61,
-                                    },
                                 ),
                                 ast_idx: 45,
                                 expr_page: ExprPage(
@@ -510,17 +510,17 @@ Ok(
                     TypeItem(
                         Method(
                             TypeMethodDecl {
+                                associated_item: AssociatedItem(
+                                    Id {
+                                        value: 62,
+                                    },
+                                ),
                                 path: Some(
                                     TypeItemPath(
                                         Id {
                                             value: 52,
                                         },
                                     ),
-                                ),
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 62,
-                                    },
                                 ),
                                 ast_idx: 46,
                                 expr_page: ExprPage(
@@ -570,17 +570,17 @@ Ok(
                     TypeItem(
                         Method(
                             TypeMethodDecl {
+                                associated_item: AssociatedItem(
+                                    Id {
+                                        value: 63,
+                                    },
+                                ),
                                 path: Some(
                                     TypeItemPath(
                                         Id {
                                             value: 53,
                                         },
                                     ),
-                                ),
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 63,
-                                    },
                                 ),
                                 ast_idx: 47,
                                 expr_page: ExprPage(
@@ -630,17 +630,17 @@ Ok(
                     TypeItem(
                         Method(
                             TypeMethodDecl {
+                                associated_item: AssociatedItem(
+                                    Id {
+                                        value: 64,
+                                    },
+                                ),
                                 path: Some(
                                     TypeItemPath(
                                         Id {
                                             value: 54,
                                         },
                                     ),
-                                ),
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 64,
-                                    },
                                 ),
                                 ast_idx: 48,
                                 expr_page: ExprPage(
@@ -690,17 +690,17 @@ Ok(
                     TypeItem(
                         Method(
                             TypeMethodDecl {
+                                associated_item: AssociatedItem(
+                                    Id {
+                                        value: 65,
+                                    },
+                                ),
                                 path: Some(
                                     TypeItemPath(
                                         Id {
                                             value: 55,
                                         },
                                     ),
-                                ),
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 65,
-                                    },
                                 ),
                                 ast_idx: 49,
                                 expr_page: ExprPage(
@@ -750,17 +750,17 @@ Ok(
                     TypeItem(
                         Method(
                             TypeMethodDecl {
+                                associated_item: AssociatedItem(
+                                    Id {
+                                        value: 66,
+                                    },
+                                ),
                                 path: Some(
                                     TypeItemPath(
                                         Id {
                                             value: 56,
                                         },
                                     ),
-                                ),
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 66,
-                                    },
                                 ),
                                 ast_idx: 50,
                                 expr_page: ExprPage(

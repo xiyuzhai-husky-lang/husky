@@ -166,17 +166,17 @@ Ok(
                     TypeItem(
                         Method(
                             TypeMethodDecl {
+                                associated_item: AssociatedItem(
+                                    Id {
+                                        value: 1,
+                                    },
+                                ),
                                 path: Some(
                                     TypeItemPath(
                                         Id {
                                             value: 1,
                                         },
                                     ),
-                                ),
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 1,
-                                    },
                                 ),
                                 ast_idx: 0,
                                 expr_page: ExprPage(
@@ -330,17 +330,17 @@ Ok(
                     TypeItem(
                         Method(
                             TypeMethodDecl {
+                                associated_item: AssociatedItem(
+                                    Id {
+                                        value: 3,
+                                    },
+                                ),
                                 path: Some(
                                     TypeItemPath(
                                         Id {
                                             value: 2,
                                         },
                                     ),
-                                ),
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 3,
-                                    },
                                 ),
                                 ast_idx: 2,
                                 expr_page: ExprPage(
@@ -494,17 +494,17 @@ Ok(
                     TypeItem(
                         Method(
                             TypeMethodDecl {
+                                associated_item: AssociatedItem(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
                                 path: Some(
                                     TypeItemPath(
                                         Id {
                                             value: 3,
                                         },
                                     ),
-                                ),
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 5,
-                                    },
                                 ),
                                 ast_idx: 4,
                                 expr_page: ExprPage(
@@ -658,17 +658,17 @@ Ok(
                     TypeItem(
                         Method(
                             TypeMethodDecl {
+                                associated_item: AssociatedItem(
+                                    Id {
+                                        value: 7,
+                                    },
+                                ),
                                 path: Some(
                                     TypeItemPath(
                                         Id {
                                             value: 4,
                                         },
                                     ),
-                                ),
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 7,
-                                    },
                                 ),
                                 ast_idx: 6,
                                 expr_page: ExprPage(
@@ -822,17 +822,17 @@ Ok(
                     TypeItem(
                         Method(
                             TypeMethodDecl {
+                                associated_item: AssociatedItem(
+                                    Id {
+                                        value: 9,
+                                    },
+                                ),
                                 path: Some(
                                     TypeItemPath(
                                         Id {
                                             value: 5,
                                         },
                                     ),
-                                ),
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 9,
-                                    },
                                 ),
                                 ast_idx: 8,
                                 expr_page: ExprPage(
@@ -986,17 +986,17 @@ Ok(
                     TypeItem(
                         Method(
                             TypeMethodDecl {
+                                associated_item: AssociatedItem(
+                                    Id {
+                                        value: 11,
+                                    },
+                                ),
                                 path: Some(
                                     TypeItemPath(
                                         Id {
                                             value: 6,
                                         },
                                     ),
-                                ),
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 11,
-                                    },
                                 ),
                                 ast_idx: 10,
                                 expr_page: ExprPage(
@@ -1150,17 +1150,17 @@ Ok(
                     TypeItem(
                         Method(
                             TypeMethodDecl {
+                                associated_item: AssociatedItem(
+                                    Id {
+                                        value: 13,
+                                    },
+                                ),
                                 path: Some(
                                     TypeItemPath(
                                         Id {
                                             value: 7,
                                         },
                                     ),
-                                ),
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 13,
-                                    },
                                 ),
                                 ast_idx: 12,
                                 expr_page: ExprPage(
@@ -1314,17 +1314,17 @@ Ok(
                     TypeItem(
                         Method(
                             TypeMethodDecl {
+                                associated_item: AssociatedItem(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
                                 path: Some(
                                     TypeItemPath(
                                         Id {
                                             value: 8,
                                         },
                                     ),
-                                ),
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 15,
-                                    },
                                 ),
                                 ast_idx: 14,
                                 expr_page: ExprPage(

@@ -5,7 +5,13 @@ pub(crate) fn ty_method_signature(
     db: &dyn SignatureDb,
     decl: TypeMethodDecl,
 ) -> TypeMethodSignature {
-    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), todo!());
+    let impl_block = decl.associated_item(db).impl_block(db);
+    let parent_symbol_term_registry = db.impl_block_decl(impl_block).ok().map(|decl| {
+        impl_block_signature(db, decl)
+            .term_sheet(db)
+            .symbol_term_registry()
+    });
+    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), parent_symbol_term_registry);
     let output_ty = match decl.output_ty(db) {
         Ok(output_ty) => match engine.query_new(*output_ty) {
             Some(output_ty) => Success(output_ty),
