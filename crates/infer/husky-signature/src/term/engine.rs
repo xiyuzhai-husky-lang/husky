@@ -42,7 +42,7 @@ impl SymbolTermRegistry {
                 } => match implicit_parameter_variant {
                     ImplicitParameterVariant::Type { ident_token } => {
                         let ty0 = term_menu.ty0();
-                        TermParameter::new(idx)
+                        TermSymbol::new(idx)
                     }
                 },
                 CurrentSymbolVariant::Parameter { pattern_symbol } => todo!(),
