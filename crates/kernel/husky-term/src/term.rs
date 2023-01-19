@@ -50,6 +50,12 @@ pub enum Term {
     TraitConstraint(TermTraitConstraint),
 }
 
+impl From<TermLiteral> for Term {
+    fn from(v: TermLiteral) -> Self {
+        Self::Literal(v)
+    }
+}
+
 impl From<TermDurant> for Term {
     fn from(v: TermDurant) -> Self {
         Self::Durant(v)

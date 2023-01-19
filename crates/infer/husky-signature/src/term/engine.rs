@@ -145,7 +145,7 @@ impl<'a> SignatureTermEngine<'a> {
                     PrefixOpr::Minus => todo!(),
                     PrefixOpr::Not => todo!(),
                     PrefixOpr::BitNot => todo!(),
-                    PrefixOpr::Ref => todo!(),
+                    PrefixOpr::Ref => self.term_menu.eval_ref(),
                     PrefixOpr::Vector => todo!(),
                     PrefixOpr::Slice => todo!(),
                     PrefixOpr::CyclicSlice => todo!(),
@@ -177,19 +177,20 @@ impl<'a> SignatureTermEngine<'a> {
                         lbox_token_idx,
                         colon_token_idx,
                         rbox_token,
-                    } => Success({
-                        let db = self.db;
-                        let function = self.term_menu.slice_ty();
-                        TermApplication::new(db, function, argument).into()
-                    }),
+                    } => Success(
+                        TermApplication::new(self.db, self.term_menu.slice_ty(), argument).into(),
+                    ),
                     Expr::NewBoxList {
                         caller: None,
-                        lbox_token_idx,
                         items,
-                        rbox_token_idx,
-                    } => {
-                        todo!()
-                    }
+                        ..
+                    } => match items.len() {
+                        0 => Success(
+                            TermApplication::new(self.db, self.term_menu.vec_ty(), argument).into(),
+                        ),
+                        1 => todo!(),
+                        _ => todo!(),
+                    },
                     _ => {
                         let Success(function) = self.query_new(function) else {
                             return Abort(SignatureTermAbortion::CannotInferFunctionTermInApplication)

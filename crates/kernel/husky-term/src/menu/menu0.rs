@@ -5,6 +5,7 @@ pub struct TermMenu0 {
     sort: TermCategory,
     universe0: TermUniverse,
     universe1: TermUniverse,
+    eval_lifetime: TermLiteral,
     unit: Term,
     core: Term,
     core_ops: Term,
@@ -37,8 +38,10 @@ pub struct TermMenu0 {
     // Not	The unary logical negation operator !.
     core_ops_not: Term,
     core_option: Term,
-    core_option_option_ty: Term,
-    core_slice_slice_ty: Term,
+    option_ty: Term,
+    slice_ty: Term,
+    ref_ty: Term,
+    vec_ty: Term,
     std: Term,
     i32: Term,
     i64: Term,
@@ -59,6 +62,7 @@ impl TermMenu0 {
         let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
         TermMenu0 {
             sort: TermCategory::Sort,
+            eval_lifetime: TermLiteral::EvalLifetime,
             universe0: TermUniverse::new(0),
             universe1: TermUniverse::new(1),
             core: Term::Entity(vfs_path_menu.core().into()),
@@ -84,8 +88,10 @@ impl TermMenu0 {
             core_ops_neg: Term::Entity(entity_path_menu.core_ops_neg().into()),
             core_ops_not: Term::Entity(entity_path_menu.core_ops_not().into()),
             core_option: Term::Entity(vfs_path_menu.core_option().into()),
-            core_option_option_ty: Term::Entity(entity_path_menu.option_ty().into()),
-            core_slice_slice_ty: Term::Entity(entity_path_menu.slice_ty().into()),
+            option_ty: Term::Entity(entity_path_menu.option_ty().into()),
+            slice_ty: Term::Entity(entity_path_menu.slice_ty().into()),
+            ref_ty: Term::Entity(entity_path_menu.ref_ty().into()),
+            vec_ty: Term::Entity(entity_path_menu.vec_ty().into()),
             std: Term::Entity(vfs_path_menu.std().into()),
             unit: Term::Entity(entity_path_menu.unit().into()),
             bool: Term::Entity(entity_path_menu.bool().into()),
@@ -190,11 +196,19 @@ impl TermMenu0 {
     }
 
     pub fn option_ty(&self) -> Term {
-        self.core_option_option_ty
+        self.option_ty
     }
 
     pub fn slice_ty(&self) -> Term {
-        self.core_slice_slice_ty
+        self.slice_ty
+    }
+
+    pub fn ref_ty(&self) -> Term {
+        self.ref_ty
+    }
+
+    pub fn vec_ty(&self) -> Term {
+        self.vec_ty
     }
 
     pub fn unit(&self) -> Term {
@@ -235,5 +249,9 @@ impl TermMenu0 {
 
     pub fn b64(&self) -> Term {
         self.b64
+    }
+
+    pub fn eval_lifetime(&self) -> TermLiteral {
+        self.eval_lifetime
     }
 }

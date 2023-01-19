@@ -1,3 +1,4 @@
+use husky_print_utils::p;
 pub(crate) use husky_vfs::VfsTestUtils;
 
 use crate::*;
@@ -31,7 +32,9 @@ pub(crate) struct DB {
 impl salsa::Database for DB {}
 
 fn module_signatures(db: &DB, module_path: ModulePath) -> Vec<Signature> {
-    let decl_sheet = db.module_decl_sheet(module_path).unwrap();
+    let Ok(decl_sheet) = db.module_decl_sheet(module_path) else {
+        return vec![]
+    };
     decl_sheet
         .decls()
         .iter()

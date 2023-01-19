@@ -9,13 +9,15 @@ pub struct VfsPathMenu {
     /// core
     core: ModulePath,
     std: ModulePath,
-    core_prelude: ModulePath,
     core_basic: ModulePath,
-    core_ops: ModulePath,
-    core_option: ModulePath,
-    core_slice: ModulePath,
+    core_mem: ModulePath,
     /// core::num
     core_num: ModulePath,
+    core_slice: ModulePath,
+    core_ops: ModulePath,
+    core_option: ModulePath,
+    core_prelude: ModulePath,
+    core_vec: ModulePath,
 }
 
 #[salsa::tracked(jar = VfsJar, return_ref)]
@@ -32,13 +34,15 @@ impl VfsPathMenu {
         let std_library = CratePath::new(db, std_package, CrateKind::Library);
         let core = ModulePath::new_root(db, core_library);
         let std = ModulePath::new_root(db, std_library);
+        let core_basic = ModulePath::new_child(db, core, db.it_ident_borrowed("basic").unwrap());
         let core_prelude =
             ModulePath::new_child(db, core, db.it_ident_borrowed("prelude").unwrap());
-        let core_basic = ModulePath::new_child(db, core, db.it_ident_borrowed("basic").unwrap());
+        let core_mem = ModulePath::new_child(db, core, db.it_ident_borrowed("num").unwrap());
         let core_num = ModulePath::new_child(db, core, db.it_ident_borrowed("num").unwrap());
         let core_ops = ModulePath::new_child(db, core, db.it_ident_borrowed("ops").unwrap());
         let core_option = ModulePath::new_child(db, core, db.it_ident_borrowed("option").unwrap());
         let core_slice = ModulePath::new_child(db, core, db.it_ident_borrowed("slice").unwrap());
+        let core_vec = ModulePath::new_child(db, core, db.it_ident_borrowed("vec").unwrap());
         Ok(Self {
             core_package,
             std_package,
@@ -46,12 +50,14 @@ impl VfsPathMenu {
             std_library,
             core,
             std,
-            core_prelude,
+            core_basic,
+            core_mem,
+            core_num,
             core_ops,
             core_option,
+            core_prelude,
             core_slice,
-            core_num,
-            core_basic,
+            core_vec,
         })
     }
 
@@ -75,6 +81,11 @@ impl VfsPathMenu {
         self.core_basic
     }
 
+    /// core::mem
+    pub fn core_mem(&self) -> ModulePath {
+        self.core_mem
+    }
+
     /// core::num
     pub fn core_num(&self) -> ModulePath {
         self.core_num
@@ -82,6 +93,11 @@ impl VfsPathMenu {
 
     pub fn core_prelude(&self) -> ModulePath {
         self.core_prelude
+    }
+
+    /// core::vec
+    pub fn core_vec(&self) -> ModulePath {
+        self.core_vec
     }
 
     pub fn std(&self) -> ModulePath {
