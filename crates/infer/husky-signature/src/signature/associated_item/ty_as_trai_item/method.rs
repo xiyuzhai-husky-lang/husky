@@ -6,12 +6,12 @@ pub(crate) fn ty_as_trai_method_signature(
     decl: TypeAsTraitMethodDecl,
 ) -> TypeAsTraitMethodSignature {
     let impl_block = decl.associated_item(db).impl_block(db);
-    let parent_symbol_term_page = db.impl_block_decl(impl_block).ok().map(|decl| {
+    let parent_term_symbol_page = db.impl_block_decl(impl_block).ok().map(|decl| {
         impl_block_signature(db, decl)
             .term_sheet(db)
-            .symbol_term_page()
+            .term_symbol_page()
     });
-    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), parent_symbol_term_page);
+    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), parent_term_symbol_page);
     let output_ty = match decl.output_ty(db) {
         Ok(output_ty) => match engine.query_new(*output_ty) {
             Some(output_ty) => Success(output_ty),

@@ -9,25 +9,19 @@ pub(crate) struct SignatureTermEngine<'a> {
     term_menu: &'a TermMenu,
     symbol_page: &'a SymbolPage,
     expr_terms: ExprMap<SignatureTermOutcome<Term>>,
-    symbol_term_page: SymbolTermPage,
+    term_symbol_page: TermSymbolPage,
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct SymbolTermPage {
-    term_symbol_registry: TermSymbolRegistry,
-    inherited_symbol_terms: Vec<Option<Term>>,
-    current_symbol_terms: Vec<Term>,
+pub struct TermSymbolPage {
+    registry: TermSymbolRegistry,
+    inherited_symbol_terms: Vec<Option<TermSymbol>>,
+    current_symbol_terms: Vec<TermSymbol>,
 }
 
-impl SymbolTermPage {
-    fn new(
-        parent: Option<&SymbolTermPage>,
-        symbol_page: &SymbolPage,
-        term_menu: &TermMenu,
-    ) -> SymbolTermPage {
-        let mut term_symbol_registry = parent.map_or(Default::default(), |parent| {
-            parent.term_symbol_registry.clone()
-        });
+impl TermSymbolPage {
+    fn new(parent: Option<&TermSymbolPage>, symbol_page: &SymbolPage) -> TermSymbolPage {
+        let mut registry = parent.map_or(Default::default(), |parent| parent.registry.clone());
         let inherited_symbol_terms = symbol_page
             .indexed_inherited_symbol_iter()
             .map(|(idx, symbol)| todo!())
@@ -38,21 +32,22 @@ impl SymbolTermPage {
                 CurrentSymbolVariant::ImplicitParameter {
                     implicit_parameter_variant,
                 } => match implicit_parameter_variant {
-                    ImplicitParameterVariant::Type { ident_token } => {
-                        let ty0 = term_menu.ty0();
-                        term_symbol_registry.new_ty0().into()
-                    }
+                    ImplicitParameterVariant::Type { .. } => registry.new_ty0().into(),
                 },
-                CurrentSymbolVariant::Parameter { pattern_symbol } => todo!(),
+                CurrentSymbolVariant::Parameter { .. } => registry.new_parameter().into(),
                 CurrentSymbolVariant::LetVariable { pattern_symbol } => todo!(),
                 CurrentSymbolVariant::FrameVariable(_) => todo!(),
             })
             .collect();
-        SymbolTermPage {
-            term_symbol_registry,
+        TermSymbolPage {
+            registry,
             inherited_symbol_terms,
             current_symbol_terms,
         }
+    }
+
+    fn current_symbol_term(&self, current_symbol_idx: CurrentSymbolIdx) -> TermSymbol {
+        self.current_symbol_terms[current_symbol_idx.raw()]
     }
 }
 
@@ -60,7 +55,7 @@ impl<'a> SignatureTermEngine<'a> {
     pub(crate) fn new(
         db: &'a dyn SignatureDb,
         expr_page: ExprPage,
-        parent_symbol_term_page: Option<&'a SymbolTermPage>,
+        parent_term_symbol_page: Option<&'a TermSymbolPage>,
     ) -> Self {
         let expr_arena = &expr_page.expr_arena(db);
         let toolchain = expr_page.toolchain(db);
@@ -74,7 +69,7 @@ impl<'a> SignatureTermEngine<'a> {
             symbol_page,
             term_menu,
             expr_terms: ExprMap::new(expr_arena),
-            symbol_term_page: SymbolTermPage::new(parent_symbol_term_page, symbol_page, term_menu),
+            term_symbol_page: TermSymbolPage::new(parent_term_symbol_page, symbol_page),
         }
     }
 
@@ -87,7 +82,7 @@ impl<'a> SignatureTermEngine<'a> {
     }
 
     pub(crate) fn finish(self) -> SignatureTermSheet {
-        SignatureTermSheet::new(self.symbol_term_page)
+        SignatureTermSheet::new(self.term_symbol_page)
     }
 
     fn save(&mut self, expr_idx: ExprIdx, outcome: SignatureTermOutcome<Term>) {
@@ -111,15 +106,12 @@ impl<'a> SignatureTermEngine<'a> {
                 inherited_symbol_kind,
             } => todo!(),
             Expr::CurrentSymbol {
-                ident,
-                token_idx,
-                current_symbol_idx,
-                current_symbol_kind,
-            } => {
-                let base = self.symbol_page.inherited_symbol_arena().len();
-                // let symbol = Term::new_symbol();
-                todo!()
-            }
+                current_symbol_idx, ..
+            } => Success(
+                self.term_symbol_page
+                    .current_symbol_term(current_symbol_idx)
+                    .into(),
+            ),
             Expr::FrameVarDecl {
                 token_idx,
                 ident,
@@ -203,7 +195,7 @@ impl<'a> SignatureTermEngine<'a> {
             } => todo!(),
             Expr::Bracketed(_) => todo!(),
             Expr::Block { stmts } => todo!(),
-            Expr::Err(_) => todo!(),
+            Expr::Err(_) => Abort(SignatureTermAbortion::ExprError),
         }
     }
 }

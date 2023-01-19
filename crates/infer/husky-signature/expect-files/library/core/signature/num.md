@@ -6,7 +6,17 @@
                     parameters: [],
                 },
                 term_sheet: SignatureTermSheet {
-                    symbol_term_registry: SymbolTermRegistry,
+                    term_symbol_page: TermSymbolPage {
+                        registry: TermSymbolRegistry {
+                            next_ty0: 0,
+                            next_lifetime: 0,
+                            next_binding: 0,
+                            next_usize: 0,
+                            next_parameter: 0,
+                        },
+                        inherited_symbol_terms: [],
+                        current_symbol_terms: [],
+                    },
                 },
             },
         ),
@@ -18,7 +28,17 @@
                     parameters: [],
                 },
                 term_sheet: SignatureTermSheet {
-                    symbol_term_registry: SymbolTermRegistry,
+                    term_symbol_page: TermSymbolPage {
+                        registry: TermSymbolRegistry {
+                            next_ty0: 0,
+                            next_lifetime: 0,
+                            next_binding: 0,
+                            next_usize: 0,
+                            next_parameter: 0,
+                        },
+                        inherited_symbol_terms: [],
+                        current_symbol_terms: [],
+                    },
                 },
             },
         ),
@@ -30,7 +50,17 @@
                     parameters: [],
                 },
                 term_sheet: SignatureTermSheet {
-                    symbol_term_registry: SymbolTermRegistry,
+                    term_symbol_page: TermSymbolPage {
+                        registry: TermSymbolRegistry {
+                            next_ty0: 0,
+                            next_lifetime: 0,
+                            next_binding: 0,
+                            next_usize: 0,
+                            next_parameter: 0,
+                        },
+                        inherited_symbol_terms: [],
+                        current_symbol_terms: [],
+                    },
                 },
             },
         ),
@@ -42,7 +72,17 @@
                     parameters: [],
                 },
                 term_sheet: SignatureTermSheet {
-                    symbol_term_registry: SymbolTermRegistry,
+                    term_symbol_page: TermSymbolPage {
+                        registry: TermSymbolRegistry {
+                            next_ty0: 0,
+                            next_lifetime: 0,
+                            next_binding: 0,
+                            next_usize: 0,
+                            next_parameter: 0,
+                        },
+                        inherited_symbol_terms: [],
+                        current_symbol_terms: [],
+                    },
                 },
             },
         ),
@@ -54,7 +94,17 @@
                     parameters: [],
                 },
                 term_sheet: SignatureTermSheet {
-                    symbol_term_registry: SymbolTermRegistry,
+                    term_symbol_page: TermSymbolPage {
+                        registry: TermSymbolRegistry {
+                            next_ty0: 0,
+                            next_lifetime: 0,
+                            next_binding: 0,
+                            next_usize: 0,
+                            next_parameter: 0,
+                        },
+                        inherited_symbol_terms: [],
+                        current_symbol_terms: [],
+                    },
                 },
             },
         ),
@@ -66,7 +116,17 @@
                     parameters: [],
                 },
                 term_sheet: SignatureTermSheet {
-                    symbol_term_registry: SymbolTermRegistry,
+                    term_symbol_page: TermSymbolPage {
+                        registry: TermSymbolRegistry {
+                            next_ty0: 0,
+                            next_lifetime: 0,
+                            next_binding: 0,
+                            next_usize: 0,
+                            next_parameter: 0,
+                        },
+                        inherited_symbol_terms: [],
+                        current_symbol_terms: [],
+                    },
                 },
             },
         ),
@@ -78,7 +138,17 @@
                     parameters: [],
                 },
                 term_sheet: SignatureTermSheet {
-                    symbol_term_registry: SymbolTermRegistry,
+                    term_symbol_page: TermSymbolPage {
+                        registry: TermSymbolRegistry {
+                            next_ty0: 0,
+                            next_lifetime: 0,
+                            next_binding: 0,
+                            next_usize: 0,
+                            next_parameter: 0,
+                        },
+                        inherited_symbol_terms: [],
+                        current_symbol_terms: [],
+                    },
                 },
             },
         ),
@@ -90,7 +160,17 @@
                     parameters: [],
                 },
                 term_sheet: SignatureTermSheet {
-                    symbol_term_registry: SymbolTermRegistry,
+                    term_symbol_page: TermSymbolPage {
+                        registry: TermSymbolRegistry {
+                            next_ty0: 0,
+                            next_lifetime: 0,
+                            next_binding: 0,
+                            next_usize: 0,
+                            next_parameter: 0,
+                        },
+                        inherited_symbol_terms: [],
+                        current_symbol_terms: [],
+                    },
                 },
             },
         ),
@@ -112,7 +192,17 @@
                     ),
                 ),
                 term_sheet: SignatureTermSheet {
-                    symbol_term_registry: SymbolTermRegistry,
+                    term_symbol_page: TermSymbolPage {
+                        registry: TermSymbolRegistry {
+                            next_ty0: 0,
+                            next_lifetime: 0,
+                            next_binding: 0,
+                            next_usize: 0,
+                            next_parameter: 0,
+                        },
+                        inherited_symbol_terms: [],
+                        current_symbol_terms: [],
+                    },
                 },
             },
         ),
@@ -141,7 +231,17 @@
                         ),
                     ),
                     term_sheet: SignatureTermSheet {
-                        symbol_term_registry: SymbolTermRegistry,
+                        term_symbol_page: TermSymbolPage {
+                            registry: TermSymbolRegistry {
+                                next_ty0: 0,
+                                next_lifetime: 0,
+                                next_binding: 0,
+                                next_usize: 0,
+                                next_parameter: 0,
+                            },
+                            inherited_symbol_terms: [],
+                            current_symbol_terms: [],
+                        },
                     },
                 },
             ),
@@ -188,7 +288,22 @@
                         ),
                     ),
                     term_sheet: SignatureTermSheet {
-                        symbol_term_registry: SymbolTermRegistry,
+                        term_symbol_page: TermSymbolPage {
+                            registry: TermSymbolRegistry {
+                                next_ty0: 0,
+                                next_lifetime: 0,
+                                next_binding: 0,
+                                next_usize: 0,
+                                next_parameter: 1,
+                            },
+                            inherited_symbol_terms: [],
+                            current_symbol_terms: [
+                                TermSymbol {
+                                    idx: 0,
+                                    kind: Parameter,
+                                },
+                            ],
+                        },
                     },
                 },
             ),
@@ -211,7 +326,17 @@
                     ),
                 ),
                 term_sheet: SignatureTermSheet {
-                    symbol_term_registry: SymbolTermRegistry,
+                    term_symbol_page: TermSymbolPage {
+                        registry: TermSymbolRegistry {
+                            next_ty0: 0,
+                            next_lifetime: 0,
+                            next_binding: 0,
+                            next_usize: 0,
+                            next_parameter: 0,
+                        },
+                        inherited_symbol_terms: [],
+                        current_symbol_terms: [],
+                    },
                 },
             },
         ),
@@ -240,7 +365,17 @@
                         ),
                     ),
                     term_sheet: SignatureTermSheet {
-                        symbol_term_registry: SymbolTermRegistry,
+                        term_symbol_page: TermSymbolPage {
+                            registry: TermSymbolRegistry {
+                                next_ty0: 0,
+                                next_lifetime: 0,
+                                next_binding: 0,
+                                next_usize: 0,
+                                next_parameter: 0,
+                            },
+                            inherited_symbol_terms: [],
+                            current_symbol_terms: [],
+                        },
                     },
                 },
             ),
@@ -287,7 +422,22 @@
                         ),
                     ),
                     term_sheet: SignatureTermSheet {
-                        symbol_term_registry: SymbolTermRegistry,
+                        term_symbol_page: TermSymbolPage {
+                            registry: TermSymbolRegistry {
+                                next_ty0: 0,
+                                next_lifetime: 0,
+                                next_binding: 0,
+                                next_usize: 0,
+                                next_parameter: 1,
+                            },
+                            inherited_symbol_terms: [],
+                            current_symbol_terms: [
+                                TermSymbol {
+                                    idx: 0,
+                                    kind: Parameter,
+                                },
+                            ],
+                        },
                     },
                 },
             ),
@@ -310,7 +460,17 @@
                     ),
                 ),
                 term_sheet: SignatureTermSheet {
-                    symbol_term_registry: SymbolTermRegistry,
+                    term_symbol_page: TermSymbolPage {
+                        registry: TermSymbolRegistry {
+                            next_ty0: 0,
+                            next_lifetime: 0,
+                            next_binding: 0,
+                            next_usize: 0,
+                            next_parameter: 0,
+                        },
+                        inherited_symbol_terms: [],
+                        current_symbol_terms: [],
+                    },
                 },
             },
         ),
@@ -339,7 +499,17 @@
                         ),
                     ),
                     term_sheet: SignatureTermSheet {
-                        symbol_term_registry: SymbolTermRegistry,
+                        term_symbol_page: TermSymbolPage {
+                            registry: TermSymbolRegistry {
+                                next_ty0: 0,
+                                next_lifetime: 0,
+                                next_binding: 0,
+                                next_usize: 0,
+                                next_parameter: 0,
+                            },
+                            inherited_symbol_terms: [],
+                            current_symbol_terms: [],
+                        },
                     },
                 },
             ),
@@ -386,7 +556,22 @@
                         ),
                     ),
                     term_sheet: SignatureTermSheet {
-                        symbol_term_registry: SymbolTermRegistry,
+                        term_symbol_page: TermSymbolPage {
+                            registry: TermSymbolRegistry {
+                                next_ty0: 0,
+                                next_lifetime: 0,
+                                next_binding: 0,
+                                next_usize: 0,
+                                next_parameter: 1,
+                            },
+                            inherited_symbol_terms: [],
+                            current_symbol_terms: [
+                                TermSymbol {
+                                    idx: 0,
+                                    kind: Parameter,
+                                },
+                            ],
+                        },
                     },
                 },
             ),
@@ -409,7 +594,17 @@
                     ),
                 ),
                 term_sheet: SignatureTermSheet {
-                    symbol_term_registry: SymbolTermRegistry,
+                    term_symbol_page: TermSymbolPage {
+                        registry: TermSymbolRegistry {
+                            next_ty0: 0,
+                            next_lifetime: 0,
+                            next_binding: 0,
+                            next_usize: 0,
+                            next_parameter: 0,
+                        },
+                        inherited_symbol_terms: [],
+                        current_symbol_terms: [],
+                    },
                 },
             },
         ),
@@ -438,7 +633,17 @@
                         ),
                     ),
                     term_sheet: SignatureTermSheet {
-                        symbol_term_registry: SymbolTermRegistry,
+                        term_symbol_page: TermSymbolPage {
+                            registry: TermSymbolRegistry {
+                                next_ty0: 0,
+                                next_lifetime: 0,
+                                next_binding: 0,
+                                next_usize: 0,
+                                next_parameter: 0,
+                            },
+                            inherited_symbol_terms: [],
+                            current_symbol_terms: [],
+                        },
                     },
                 },
             ),
@@ -485,7 +690,22 @@
                         ),
                     ),
                     term_sheet: SignatureTermSheet {
-                        symbol_term_registry: SymbolTermRegistry,
+                        term_symbol_page: TermSymbolPage {
+                            registry: TermSymbolRegistry {
+                                next_ty0: 0,
+                                next_lifetime: 0,
+                                next_binding: 0,
+                                next_usize: 0,
+                                next_parameter: 1,
+                            },
+                            inherited_symbol_terms: [],
+                            current_symbol_terms: [
+                                TermSymbol {
+                                    idx: 0,
+                                    kind: Parameter,
+                                },
+                            ],
+                        },
                     },
                 },
             ),
@@ -508,7 +728,17 @@
                     ),
                 ),
                 term_sheet: SignatureTermSheet {
-                    symbol_term_registry: SymbolTermRegistry,
+                    term_symbol_page: TermSymbolPage {
+                        registry: TermSymbolRegistry {
+                            next_ty0: 0,
+                            next_lifetime: 0,
+                            next_binding: 0,
+                            next_usize: 0,
+                            next_parameter: 0,
+                        },
+                        inherited_symbol_terms: [],
+                        current_symbol_terms: [],
+                    },
                 },
             },
         ),
@@ -537,7 +767,17 @@
                         ),
                     ),
                     term_sheet: SignatureTermSheet {
-                        symbol_term_registry: SymbolTermRegistry,
+                        term_symbol_page: TermSymbolPage {
+                            registry: TermSymbolRegistry {
+                                next_ty0: 0,
+                                next_lifetime: 0,
+                                next_binding: 0,
+                                next_usize: 0,
+                                next_parameter: 0,
+                            },
+                            inherited_symbol_terms: [],
+                            current_symbol_terms: [],
+                        },
                     },
                 },
             ),
@@ -584,7 +824,22 @@
                         ),
                     ),
                     term_sheet: SignatureTermSheet {
-                        symbol_term_registry: SymbolTermRegistry,
+                        term_symbol_page: TermSymbolPage {
+                            registry: TermSymbolRegistry {
+                                next_ty0: 0,
+                                next_lifetime: 0,
+                                next_binding: 0,
+                                next_usize: 0,
+                                next_parameter: 1,
+                            },
+                            inherited_symbol_terms: [],
+                            current_symbol_terms: [
+                                TermSymbol {
+                                    idx: 0,
+                                    kind: Parameter,
+                                },
+                            ],
+                        },
                     },
                 },
             ),
@@ -607,7 +862,17 @@
                     ),
                 ),
                 term_sheet: SignatureTermSheet {
-                    symbol_term_registry: SymbolTermRegistry,
+                    term_symbol_page: TermSymbolPage {
+                        registry: TermSymbolRegistry {
+                            next_ty0: 0,
+                            next_lifetime: 0,
+                            next_binding: 0,
+                            next_usize: 0,
+                            next_parameter: 0,
+                        },
+                        inherited_symbol_terms: [],
+                        current_symbol_terms: [],
+                    },
                 },
             },
         ),
@@ -636,7 +901,17 @@
                         ),
                     ),
                     term_sheet: SignatureTermSheet {
-                        symbol_term_registry: SymbolTermRegistry,
+                        term_symbol_page: TermSymbolPage {
+                            registry: TermSymbolRegistry {
+                                next_ty0: 0,
+                                next_lifetime: 0,
+                                next_binding: 0,
+                                next_usize: 0,
+                                next_parameter: 0,
+                            },
+                            inherited_symbol_terms: [],
+                            current_symbol_terms: [],
+                        },
                     },
                 },
             ),
@@ -683,7 +958,22 @@
                         ),
                     ),
                     term_sheet: SignatureTermSheet {
-                        symbol_term_registry: SymbolTermRegistry,
+                        term_symbol_page: TermSymbolPage {
+                            registry: TermSymbolRegistry {
+                                next_ty0: 0,
+                                next_lifetime: 0,
+                                next_binding: 0,
+                                next_usize: 0,
+                                next_parameter: 1,
+                            },
+                            inherited_symbol_terms: [],
+                            current_symbol_terms: [
+                                TermSymbol {
+                                    idx: 0,
+                                    kind: Parameter,
+                                },
+                            ],
+                        },
                     },
                 },
             ),
@@ -706,7 +996,17 @@
                     ),
                 ),
                 term_sheet: SignatureTermSheet {
-                    symbol_term_registry: SymbolTermRegistry,
+                    term_symbol_page: TermSymbolPage {
+                        registry: TermSymbolRegistry {
+                            next_ty0: 0,
+                            next_lifetime: 0,
+                            next_binding: 0,
+                            next_usize: 0,
+                            next_parameter: 0,
+                        },
+                        inherited_symbol_terms: [],
+                        current_symbol_terms: [],
+                    },
                 },
             },
         ),
@@ -735,7 +1035,17 @@
                         ),
                     ),
                     term_sheet: SignatureTermSheet {
-                        symbol_term_registry: SymbolTermRegistry,
+                        term_symbol_page: TermSymbolPage {
+                            registry: TermSymbolRegistry {
+                                next_ty0: 0,
+                                next_lifetime: 0,
+                                next_binding: 0,
+                                next_usize: 0,
+                                next_parameter: 0,
+                            },
+                            inherited_symbol_terms: [],
+                            current_symbol_terms: [],
+                        },
                     },
                 },
             ),
@@ -782,7 +1092,22 @@
                         ),
                     ),
                     term_sheet: SignatureTermSheet {
-                        symbol_term_registry: SymbolTermRegistry,
+                        term_symbol_page: TermSymbolPage {
+                            registry: TermSymbolRegistry {
+                                next_ty0: 0,
+                                next_lifetime: 0,
+                                next_binding: 0,
+                                next_usize: 0,
+                                next_parameter: 1,
+                            },
+                            inherited_symbol_terms: [],
+                            current_symbol_terms: [
+                                TermSymbol {
+                                    idx: 0,
+                                    kind: Parameter,
+                                },
+                            ],
+                        },
                     },
                 },
             ),
@@ -805,7 +1130,17 @@
                     ),
                 ),
                 term_sheet: SignatureTermSheet {
-                    symbol_term_registry: SymbolTermRegistry,
+                    term_symbol_page: TermSymbolPage {
+                        registry: TermSymbolRegistry {
+                            next_ty0: 0,
+                            next_lifetime: 0,
+                            next_binding: 0,
+                            next_usize: 0,
+                            next_parameter: 0,
+                        },
+                        inherited_symbol_terms: [],
+                        current_symbol_terms: [],
+                    },
                 },
             },
         ),
@@ -834,7 +1169,17 @@
                         ),
                     ),
                     term_sheet: SignatureTermSheet {
-                        symbol_term_registry: SymbolTermRegistry,
+                        term_symbol_page: TermSymbolPage {
+                            registry: TermSymbolRegistry {
+                                next_ty0: 0,
+                                next_lifetime: 0,
+                                next_binding: 0,
+                                next_usize: 0,
+                                next_parameter: 0,
+                            },
+                            inherited_symbol_terms: [],
+                            current_symbol_terms: [],
+                        },
                     },
                 },
             ),
@@ -881,7 +1226,22 @@
                         ),
                     ),
                     term_sheet: SignatureTermSheet {
-                        symbol_term_registry: SymbolTermRegistry,
+                        term_symbol_page: TermSymbolPage {
+                            registry: TermSymbolRegistry {
+                                next_ty0: 0,
+                                next_lifetime: 0,
+                                next_binding: 0,
+                                next_usize: 0,
+                                next_parameter: 1,
+                            },
+                            inherited_symbol_terms: [],
+                            current_symbol_terms: [
+                                TermSymbol {
+                                    idx: 0,
+                                    kind: Parameter,
+                                },
+                            ],
+                        },
                     },
                 },
             ),
