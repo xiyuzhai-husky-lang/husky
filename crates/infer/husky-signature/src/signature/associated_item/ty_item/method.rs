@@ -12,13 +12,13 @@ pub(crate) fn ty_method_signature(
             .term_symbol_page()
     });
     let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), parent_term_symbol_page);
+    let implicit_parameters =
+        ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), &mut engine);
+    let parameters = ParameterSignatures::from_decl(decl.parameters(db), &mut engine);
     let output_ty = match decl.output_ty(db) {
         Ok(output_ty) => engine.query_new(*output_ty),
         Err(_) => Abort(SignatureTermAbortion::ExprError),
     };
-    let parameters = ParameterSignatures::from_decl(decl.parameters(db), &mut engine);
-    let implicit_parameters =
-        ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), &mut engine);
     TypeMethodSignature::new(
         db,
         implicit_parameters,

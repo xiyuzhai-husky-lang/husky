@@ -40,8 +40,10 @@ pub struct EntityPathMenu {
     core_ops_neg: TraitPath,
     // Not	The unary logical negation operator !.
     core_ops_not: TraitPath,
-    core_option_option_ty: TypePath,
-    core_slice_slice_ty: TypePath,
+    option_ty: TypePath,
+    slice_ty: TypePath,
+    ref_ty: TypePath,
+    vec_ty: TypePath,
     // prelude
     unit: TypePath,
     bool: TypePath,
@@ -66,6 +68,8 @@ impl EntityPathMenu {
         let core_slice = path_menu.core_slice();
         let core_basic = path_menu.core_basic();
         let core_num = path_menu.core_num();
+        let core_mem = path_menu.core_mem();
+        let core_vec = path_menu.core_vec();
         let core_ops_add = TraitPath::new(
             db,
             core_ops,
@@ -150,17 +154,31 @@ impl EntityPathMenu {
             db.it_ident_borrowed("Not").unwrap(),
             ModuleItemConnection::Connected,
         );
-        let core_option_option_ty = TypePath::new(
+        let option_ty = TypePath::new(
             db,
             core_option,
             db.it_ident_borrowed("Option").unwrap(),
             ModuleItemConnection::Connected,
             TypeKind::Enum,
         );
-        let core_slice_slice_ty = TypePath::new(
+        let ref_ty = TypePath::new(
+            db,
+            core_mem,
+            db.it_ident_borrowed("Ref").unwrap(),
+            ModuleItemConnection::Connected,
+            TypeKind::Alien,
+        );
+        let slice_ty = TypePath::new(
             db,
             core_slice,
             db.it_ident_borrowed("Slice").unwrap(),
+            ModuleItemConnection::Connected,
+            TypeKind::Alien,
+        );
+        let vec_ty = TypePath::new(
+            db,
+            core_vec,
+            db.it_ident_borrowed("Vec").unwrap(),
             ModuleItemConnection::Connected,
             TypeKind::Alien,
         );
@@ -263,8 +281,10 @@ impl EntityPathMenu {
             core_ops_mul_assign,
             core_ops_neg,
             core_ops_not,
-            core_option_option_ty,
-            core_slice_slice_ty,
+            option_ty,
+            slice_ty,
+            ref_ty,
+            vec_ty,
             unit,
             bool,
             i32,
@@ -369,11 +389,19 @@ impl EntityPathMenu {
     }
 
     pub fn option_ty(&self) -> TypePath {
-        self.core_option_option_ty
+        self.option_ty
     }
 
     pub fn slice_ty(&self) -> TypePath {
-        self.core_slice_slice_ty
+        self.slice_ty
+    }
+
+    pub fn ref_ty(&self) -> TypePath {
+        self.ref_ty
+    }
+
+    pub fn vec_ty(&self) -> TypePath {
+        self.vec_ty
     }
 
     pub fn trai(&self) -> TypePath {
