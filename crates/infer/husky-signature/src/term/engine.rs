@@ -9,27 +9,25 @@ pub(crate) struct SignatureTermEngine<'a> {
     term_menu: &'a TermMenu,
     symbol_page: &'a SymbolPage,
     expr_terms: ExprMap<SignatureTermOutcome<Term>>,
-    symbol_term_registry: SymbolTermRegistry,
+    symbol_term_page: SymbolTermPage,
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct SymbolTermRegistry {
-    next_parameter: usize,
-    next_lifetime: usize,
-    next_binding: usize,
+pub struct SymbolTermPage {
+    term_symbol_registry: TermSymbolRegistry,
     inherited_symbol_terms: Vec<Option<Term>>,
     current_symbol_terms: Vec<Term>,
 }
 
-impl SymbolTermRegistry {
+impl SymbolTermPage {
     fn new(
-        parent: Option<&SymbolTermRegistry>,
+        parent: Option<&SymbolTermPage>,
         symbol_page: &SymbolPage,
         term_menu: &TermMenu,
-    ) -> SymbolTermRegistry {
-        let mut next_parameter = parent.map_or(0, |parent| parent.next_parameter);
-        let mut next_lifetime = parent.map_or(0, |parent| parent.next_lifetime);
-        let mut next_binding = parent.map_or(0, |parent| parent.next_binding);
+    ) -> SymbolTermPage {
+        let mut term_symbol_registry = parent.map_or(Default::default(), |parent| {
+            parent.term_symbol_registry.clone()
+        });
         let inherited_symbol_terms = symbol_page
             .indexed_inherited_symbol_iter()
             .map(|(idx, symbol)| todo!())
@@ -42,7 +40,7 @@ impl SymbolTermRegistry {
                 } => match implicit_parameter_variant {
                     ImplicitParameterVariant::Type { ident_token } => {
                         let ty0 = term_menu.ty0();
-                        TermSymbol::new(idx)
+                        term_symbol_registry.new_ty0().into()
                     }
                 },
                 CurrentSymbolVariant::Parameter { pattern_symbol } => todo!(),
@@ -50,10 +48,8 @@ impl SymbolTermRegistry {
                 CurrentSymbolVariant::FrameVariable(_) => todo!(),
             })
             .collect();
-        SymbolTermRegistry {
-            next_parameter,
-            next_lifetime,
-            next_binding,
+        SymbolTermPage {
+            term_symbol_registry,
             inherited_symbol_terms,
             current_symbol_terms,
         }
@@ -64,7 +60,7 @@ impl<'a> SignatureTermEngine<'a> {
     pub(crate) fn new(
         db: &'a dyn SignatureDb,
         expr_page: ExprPage,
-        parent_symbol_term_registry: Option<&'a SymbolTermRegistry>,
+        parent_symbol_term_page: Option<&'a SymbolTermPage>,
     ) -> Self {
         let expr_arena = &expr_page.expr_arena(db);
         let toolchain = expr_page.toolchain(db);
@@ -78,11 +74,7 @@ impl<'a> SignatureTermEngine<'a> {
             symbol_page,
             term_menu,
             expr_terms: ExprMap::new(expr_arena),
-            symbol_term_registry: SymbolTermRegistry::new(
-                parent_symbol_term_registry,
-                symbol_page,
-                term_menu,
-            ),
+            symbol_term_page: SymbolTermPage::new(parent_symbol_term_page, symbol_page, term_menu),
         }
     }
 
@@ -95,7 +87,7 @@ impl<'a> SignatureTermEngine<'a> {
     }
 
     pub(crate) fn finish(self) -> SignatureTermSheet {
-        SignatureTermSheet::new(self.symbol_term_registry)
+        SignatureTermSheet::new(self.symbol_term_page)
     }
 
     fn save(&mut self, expr_idx: ExprIdx, outcome: SignatureTermOutcome<Term>) {

@@ -27,7 +27,7 @@ use husky_word::Identifier;
 #[salsa::jar(db = TermDb)]
 pub struct TermJar(
     TermCurry,
-    TermJordan,
+    TermDurant,
     TermAbstraction,
     TermApplication,
     TermSubentity,

@@ -4,7 +4,7 @@ mod as_trai_subentity;
 mod category;
 mod constraint;
 mod curry;
-mod jordan;
+mod durant;
 mod literal;
 mod subentity;
 mod symbol;
@@ -16,7 +16,7 @@ pub use as_trai_subentity::*;
 pub use category::*;
 pub use constraint::*;
 pub use curry::*;
-pub use jordan::*;
+pub use durant::*;
 pub use literal::*;
 pub use subentity::*;
 pub use symbol::*;
@@ -31,15 +31,13 @@ pub enum Term {
     // atoms
     // literal: 1,1.0, true, false; variable, entityPath
     Literal(TermLiteral),
-    Variable(TermSymbol),
-    Lifetime(Identifier),
-    Binding(Identifier),
+    Symbol(TermSymbol),
     Entity(EntityPath),
     Category(TermCategory),
     Universe(TermUniverse),
     // X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
     Curry(TermCurry),
-    Jordan(TermJordan),
+    Durant(TermDurant),
     // lambda x => expr
     Abstraction(TermAbstraction),
     // f x, apply a function to term
@@ -50,6 +48,30 @@ pub enum Term {
     AsTraitSubentity(TermAsTraitSubentity),
     /// <type> : <trait>
     TraitConstraint(TermTraitConstraint),
+}
+
+impl From<TermDurant> for Term {
+    fn from(v: TermDurant) -> Self {
+        Self::Durant(v)
+    }
+}
+
+impl From<TermCurry> for Term {
+    fn from(v: TermCurry) -> Self {
+        Self::Curry(v)
+    }
+}
+
+impl From<EntityPath> for Term {
+    fn from(v: EntityPath) -> Self {
+        Self::Entity(v)
+    }
+}
+
+impl From<TermSymbol> for Term {
+    fn from(v: TermSymbol) -> Self {
+        Self::Symbol(v)
+    }
 }
 
 impl From<TermCategory> for Term {

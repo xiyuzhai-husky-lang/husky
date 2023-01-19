@@ -40,7 +40,7 @@ pub struct LocalTermInterner {
     curries: LocalInterner<LocalTermCurry>,
     applications: LocalInterner<LocalTermApplication>,
     abstractions: LocalInterner<LocalTermAbstraction>,
-    jordans: LocalInterner<LocalTermJordan>,
+    durants: LocalInterner<LocalTermDurant>,
     subentities: LocalInterner<LocalTermSubentity>,
     as_trai_subentities: LocalInterner<LocalTermAsTraitSubentity>,
     trai_constraints: LocalInterner<LocalTermTraitConstraint>,
@@ -63,8 +63,8 @@ impl LocalTermInterner {
         self.abstractions.intern(abstraction)
     }
 
-    pub(crate) fn intern_jordan(&mut self, jordan: LocalTermJordan) -> LocalTermJordanIdx {
-        self.jordans.intern(jordan)
+    pub(crate) fn intern_durant(&mut self, durant: LocalTermDurant) -> LocalTermDurantIdx {
+        self.durants.intern(durant)
     }
 
     pub(crate) fn intern_subentity(
@@ -119,13 +119,13 @@ impl std::ops::Index<LocalTermAbstractionIdx> for LocalTermInterner {
     }
 }
 
-pub type LocalTermJordanIdx = LocalInternerIdx<LocalTermJordan>;
+pub type LocalTermDurantIdx = LocalInternerIdx<LocalTermDurant>;
 
-impl std::ops::Index<LocalTermJordanIdx> for LocalTermInterner {
-    type Output = LocalTermJordan;
+impl std::ops::Index<LocalTermDurantIdx> for LocalTermInterner {
+    type Output = LocalTermDurant;
 
-    fn index(&self, index: LocalTermJordanIdx) -> &Self::Output {
-        &self.jordans[index]
+    fn index(&self, index: LocalTermDurantIdx) -> &Self::Output {
+        &self.durants[index]
     }
 }
 

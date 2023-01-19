@@ -2,7 +2,7 @@ mod abstraction;
 mod application;
 mod as_trai_subentity;
 mod curry;
-mod jordan;
+mod durant;
 mod subentity;
 mod trai_constraint;
 
@@ -10,7 +10,7 @@ pub use abstraction::*;
 pub use application::*;
 pub use as_trai_subentity::*;
 pub use curry::*;
-pub use jordan::*;
+pub use durant::*;
 pub use subentity::*;
 pub use trai_constraint::*;
 
@@ -22,7 +22,7 @@ pub enum LocalTerm {
     Curry(LocalTermCurryIdx),
     Application(LocalTermApplicationIdx),
     Abstraction(LocalTermAbstractionIdx),
-    Jordan(LocalTermJordanIdx),
+    Durant(LocalTermDurantIdx),
     Subentity(LocalTermSubentityIdx),
     AsTraitSubentity(LocalTermAsTraitSubentityIdx),
     TraitConstraint(LocalTermTraitConstraint),
