@@ -143,6 +143,10 @@ impl SymbolSheet {
     pub fn allow_self_value(&self) -> AllowSelfValue {
         self.allow_self_value
     }
+
+    pub fn inherited_symbol_arena(&self) -> &InheritedSymbolArena {
+        &self.inherited_symbol_arena
+    }
 }
 
 impl std::ops::Index<InheritedSymbolIdx> for SymbolSheet {
