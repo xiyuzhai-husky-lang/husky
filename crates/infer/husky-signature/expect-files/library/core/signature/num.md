@@ -178,7 +178,7 @@
     ImplBlock(
         TypeImplBlock(
             TypeImplBlockSignature {
-                ty: Some(
+                ty: Success(
                     Entity(
                         ModuleItem(
                             Type(
@@ -312,7 +312,7 @@
     ImplBlock(
         TypeImplBlock(
             TypeImplBlockSignature {
-                ty: Some(
+                ty: Success(
                     Entity(
                         ModuleItem(
                             Type(
@@ -446,7 +446,7 @@
     ImplBlock(
         TypeImplBlock(
             TypeImplBlockSignature {
-                ty: Some(
+                ty: Success(
                     Entity(
                         ModuleItem(
                             Type(
@@ -580,7 +580,7 @@
     ImplBlock(
         TypeImplBlock(
             TypeImplBlockSignature {
-                ty: Some(
+                ty: Success(
                     Entity(
                         ModuleItem(
                             Type(
@@ -714,7 +714,7 @@
     ImplBlock(
         TypeImplBlock(
             TypeImplBlockSignature {
-                ty: Some(
+                ty: Success(
                     Entity(
                         ModuleItem(
                             Type(
@@ -848,7 +848,7 @@
     ImplBlock(
         TypeImplBlock(
             TypeImplBlockSignature {
-                ty: Some(
+                ty: Success(
                     Entity(
                         ModuleItem(
                             Type(
@@ -982,7 +982,7 @@
     ImplBlock(
         TypeImplBlock(
             TypeImplBlockSignature {
-                ty: Some(
+                ty: Success(
                     Entity(
                         ModuleItem(
                             Type(
@@ -1116,7 +1116,7 @@
     ImplBlock(
         TypeImplBlock(
             TypeImplBlockSignature {
-                ty: Some(
+                ty: Success(
                     Entity(
                         ModuleItem(
                             Type(

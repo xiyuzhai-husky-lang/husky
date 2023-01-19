@@ -18,7 +18,7 @@ pub(crate) fn trai_method_signature(
 #[salsa::tracked(jar = SignatureJar)]
 pub struct TraitMethodSignature {
     #[return_ref]
-    pub output_ty: SignatureOutcome<Term>,
+    pub output_ty: SignatureTermOutcome<Term>,
     #[return_ref]
     pub term_sheet: SignatureTermSheet,
 }

@@ -60,7 +60,7 @@ impl std::ops::Deref for ImplicitParameterSignatures {
 #[derive(Debug, PartialEq, Eq)]
 pub struct ParameterSignature {
     pattern: ParameterSignaturePattern,
-    ty: SignatureOutcome<Term>,
+    ty: SignatureTermOutcome<Term>,
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -81,10 +81,7 @@ impl ParameterSignatures {
                 .iter()
                 .map(|parameter| ParameterSignature {
                     pattern: ParameterSignaturePattern {},
-                    ty: match engine.query_new(parameter.ty()) {
-                        Some(ty) => Success(ty),
-                        None => Abort(SignatureAbortion::TermError),
-                    },
+                    ty: engine.query_new(parameter.ty()),
                 })
                 .collect(),
         }

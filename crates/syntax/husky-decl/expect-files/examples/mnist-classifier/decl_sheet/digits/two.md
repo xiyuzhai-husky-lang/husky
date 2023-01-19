@@ -2,7 +2,7 @@ Err(
     InvalidModulePath(
         ModulePath(
             Id {
-                value: 26,
+                value: 27,
             },
         ),
     ),

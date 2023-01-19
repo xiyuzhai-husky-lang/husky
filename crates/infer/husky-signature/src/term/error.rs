@@ -8,7 +8,9 @@ pub enum SignatureTermAbortion {
     InvalidEntityPath,
     CannotInferFunctionTermInApplication,
     CannotInferArgumentTermInApplication,
+    CannotInferOperandTermInPrefix,
     ExprError,
+    TermAbortion,
 }
 
 pub type SignatureTermResult<T> = Result<T, SignatureTermError>;

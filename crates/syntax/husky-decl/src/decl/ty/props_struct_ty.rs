@@ -33,9 +33,23 @@ impl RegularStructTypeDecl {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct RegularStructFieldDecl {
-    ident: IdentifierToken,
+    ident_token: IdentifierToken,
     colon: ColonToken,
     ty: ExprIdx,
+}
+
+impl RegularStructFieldDecl {
+    pub fn ident(&self) -> Identifier {
+        self.ident_token.ident()
+    }
+
+    pub fn colon(&self) -> ColonToken {
+        self.colon
+    }
+
+    pub fn ty(&self) -> ExprIdx {
+        self.ty
+    }
 }
 
 impl<'a, 'b> parsec::ParseFrom<ExprParseContext<'a, 'b>> for RegularStructFieldDecl {
@@ -48,7 +62,7 @@ impl<'a, 'b> parsec::ParseFrom<ExprParseContext<'a, 'b>> for RegularStructFieldD
         let colon: ColonToken = ctx.parse_expected()?;
         let Some(expr) = ctx.parse_expr(ExprParseEnvironment::None) else { todo!() };
         Ok(Some(RegularStructFieldDecl {
-            ident,
+            ident_token: ident,
             colon,
             ty: expr,
         }))

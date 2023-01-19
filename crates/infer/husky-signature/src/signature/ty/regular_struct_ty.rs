@@ -9,7 +9,13 @@ pub fn regular_struct_ty_signature(
     RegularStructTypeSignature::new(
         db,
         ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), &mut engine),
-        todo!(),
+        decl.fields(db)
+            .iter()
+            .map(|field| RegularStructFieldSignature {
+                ident: field.ident(),
+                ty: engine.query_new(field.ty()),
+            })
+            .collect(),
         engine.finish(),
     )
 }
@@ -29,5 +35,5 @@ impl RegularStructTypeSignature {}
 #[derive(Debug, PartialEq, Eq)]
 pub struct RegularStructFieldSignature {
     ident: Identifier,
-    ty: Term,
+    ty: SignatureTermOutcome<Term>,
 }
