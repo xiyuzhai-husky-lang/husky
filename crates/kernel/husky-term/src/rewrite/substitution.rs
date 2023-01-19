@@ -1,8 +1,17 @@
 use super::*;
 use husky_word::Identifier;
 
-pub enum TermSubstitution {
-    Variable { src: Identifier, dst: Term },
-    Lifetime { src: Identifier, dst: Identifier },
-    Binding { src: Identifier, dst: Identifier },
+pub struct TermSubstitution {
+    src: Term,
+    dst: Term,
+}
+
+impl TermSubstitution {
+    pub fn src(&self) -> Term {
+        self.src
+    }
+
+    pub fn dst(&self) -> Term {
+        self.dst
+    }
 }

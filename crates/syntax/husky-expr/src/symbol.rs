@@ -53,6 +53,10 @@ impl CurrentSymbol {
     pub fn kind(&self) -> CurrentSymbolKind {
         self.variant.kind()
     }
+
+    pub fn variant(&self) -> &CurrentSymbolVariant {
+        &self.variant
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

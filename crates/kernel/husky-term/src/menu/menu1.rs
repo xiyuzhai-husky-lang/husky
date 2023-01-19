@@ -2,7 +2,7 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermMenu1 {
-    // ty0: Term,
+    ty0: Term,
     parent: TermMenu0,
 }
 
@@ -17,14 +17,13 @@ impl std::ops::Deref for TermMenu1 {
 impl TermMenu1 {
     pub fn new(db: &dyn TermDb, _toolchain: Toolchain, menu0: TermMenu0) -> Self {
         // todo!()
-        // let ty0 = db.it_term(TermData::Application(
-        //     TermApplication::new(menu0.sort(), menu0.universe1()).unwrap(),
-        // ));
-        Self { parent: menu0 }
+        Self {
+            ty0: TermApplication::new(db, menu0.sort().into(), menu0.universe1().into()).into(),
+            parent: menu0,
+        }
     }
 
     pub fn ty0(&self) -> Term {
-        todo!()
-        // self.ty0
+        self.ty0
     }
 }

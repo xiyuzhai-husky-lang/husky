@@ -22,7 +22,11 @@ pub struct SymbolTermRegistry {
 }
 
 impl SymbolTermRegistry {
-    fn new(parent: Option<&SymbolTermRegistry>, symbol_page: &SymbolPage) -> SymbolTermRegistry {
+    fn new(
+        parent: Option<&SymbolTermRegistry>,
+        symbol_page: &SymbolPage,
+        term_menu: &TermMenu,
+    ) -> SymbolTermRegistry {
         let mut next_parameter = parent.map_or(0, |parent| parent.next_parameter);
         let mut next_lifetime = parent.map_or(0, |parent| parent.next_lifetime);
         let mut next_binding = parent.map_or(0, |parent| parent.next_binding);
@@ -32,7 +36,19 @@ impl SymbolTermRegistry {
             .collect();
         let current_symbol_terms = symbol_page
             .indexed_current_symbol_iter()
-            .map(|(idx, symbol)| todo!())
+            .map(|(idx, symbol)| match symbol.variant() {
+                CurrentSymbolVariant::ImplicitParameter {
+                    implicit_parameter_variant,
+                } => match implicit_parameter_variant {
+                    ImplicitParameterVariant::Type { ident_token } => {
+                        let ty0 = term_menu.ty0();
+                        TermParameter::new(idx)
+                    }
+                },
+                CurrentSymbolVariant::Parameter { pattern_symbol } => todo!(),
+                CurrentSymbolVariant::LetVariable { pattern_symbol } => todo!(),
+                CurrentSymbolVariant::FrameVariable(_) => todo!(),
+            })
             .collect();
         SymbolTermRegistry {
             next_parameter,
@@ -53,15 +69,20 @@ impl<'a> SignatureTermEngine<'a> {
         let expr_arena = &expr_page.expr_arena(db);
         let toolchain = expr_page.toolchain(db);
         let symbol_page = expr_page.symbol_page(db);
+        // ad hoc
+        let term_menu = &db.term_menu(toolchain).as_ref().unwrap();
         Self {
             db,
             expr_arena,
             entity_path_expr_arena: expr_page.entity_path_expr_arena(db),
             symbol_page,
-            // ad hoc
-            term_menu: db.term_menu(toolchain).as_ref().unwrap(),
+            term_menu,
             expr_terms: ExprMap::new(expr_arena),
-            symbol_term_registry: SymbolTermRegistry::new(parent_symbol_term_registry, symbol_page),
+            symbol_term_registry: SymbolTermRegistry::new(
+                parent_symbol_term_registry,
+                symbol_page,
+                term_menu,
+            ),
         }
     }
 
@@ -150,11 +171,11 @@ impl<'a> SignatureTermEngine<'a> {
                         lbox_token_idx,
                         colon_token_idx,
                         rbox_token,
-                    } => Success(Term::new_application(
-                        self.db,
-                        self.term_menu.slice_type(),
-                        argument,
-                    )),
+                    } => Success({
+                        let db = self.db;
+                        let function = self.term_menu.slice_type();
+                        TermApplication::new(db, function, argument).into()
+                    }),
                     Expr::NewBoxList {
                         caller: None,
                         lbox_token_idx,
