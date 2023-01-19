@@ -1,3 +1,5 @@
+use husky_vfs::ModulePath;
+
 use super::*;
 
 pub struct SymbolContextMut<'a> {
@@ -37,6 +39,7 @@ impl<'a> SymbolContextMut<'a> {
     pub(crate) fn into_expr_page(
         self,
         db: &dyn ExprDb,
+        path: ExprPath,
         expr_arena: ExprArena,
         entity_path_expr_arena: EntityPathExprArena,
         pattern_expr_page: PatternExprSubsheet,
@@ -44,6 +47,7 @@ impl<'a> SymbolContextMut<'a> {
     ) -> ExprPage {
         ExprPage::new(
             db,
+            path,
             expr_arena,
             entity_path_expr_arena,
             pattern_expr_page,

@@ -1,18 +1,23 @@
-mod assoc_ty;
-mod assoc_val;
+mod associated_ty;
+mod associated_value;
 mod function;
 mod method;
 
-pub use assoc_ty::*;
-pub use assoc_val::*;
+pub use associated_ty::*;
+pub use associated_value::*;
 pub use function::*;
 pub use method::*;
 
 use super::*;
 
-pub(crate) fn ty_as_trai_associated_item_signature(db: &dyn SignatureDb, decl: TypeAsTraitItemDecl) -> TypeAsTraitItemSignature {
+pub(crate) fn ty_as_trai_associated_item_signature(
+    db: &dyn SignatureDb,
+    decl: TypeAsTraitItemDecl,
+) -> TypeAsTraitItemSignature {
     match decl {
-        TypeAsTraitItemDecl::Function(decl) => ty_as_trai_associated_function_signature(db, decl).into(),
+        TypeAsTraitItemDecl::Function(decl) => {
+            ty_as_trai_associated_function_signature(db, decl).into()
+        }
         TypeAsTraitItemDecl::Method(decl) => ty_as_trai_method_signature(db, decl).into(),
         TypeAsTraitItemDecl::AlienType(decl) => ty_as_trai_associated_ty_signature(db, decl).into(),
         TypeAsTraitItemDecl::Value(decl) => ty_as_trai_associated_value_signature(db, decl).into(),

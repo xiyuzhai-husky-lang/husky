@@ -6,6 +6,8 @@ pub enum SignatureTermError {}
 #[derive(Debug, PartialEq, Eq)]
 pub enum SignatureTermAbortion {
     InvalidEntityPath,
+    CannotInferFunctionTermInApplication,
+    CannotInferArgumentTermInApplication,
 }
 
 pub type SignatureTermResult<T> = Result<T, SignatureTermError>;

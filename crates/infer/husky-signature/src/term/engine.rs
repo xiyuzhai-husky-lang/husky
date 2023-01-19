@@ -7,16 +7,20 @@ pub(crate) struct SignatureTermEngine<'a> {
     expr_arena: &'a ExprArena,
     entity_path_expr_arena: &'a EntityPathExprArena,
     expr_terms: ExprMap<SignatureTermOutcome<Term>>,
+    term_menu: &'a TermMenu,
 }
 
 impl<'a> SignatureTermEngine<'a> {
     pub(crate) fn new(db: &'a dyn SignatureDb, expr_page: ExprPage) -> Self {
         let expr_arena = &expr_page.expr_arena(db);
+        let toolchain = expr_page.toolchain(db);
         Self {
             db,
             expr_arena,
             entity_path_expr_arena: expr_page.entity_path_expr_arena(db),
             expr_terms: ExprMap::new(expr_arena),
+            // ad hoc
+            term_menu: db.term_menu(toolchain).as_ref().unwrap(),
         }
     }
 
@@ -91,7 +95,33 @@ impl<'a> SignatureTermEngine<'a> {
             } => todo!(),
             Expr::MethodCall { .. } => todo!(),
             Expr::TemplateInstantiation { .. } => todo!(),
-            Expr::Application { function, argument } => todo!(),
+            Expr::Application { function, argument } => match self.expr_arena[function] {
+                Expr::BoxColon {
+                    caller: None,
+                    lbox_token_idx,
+                    colon_token_idx,
+                    rbox_token,
+                } => {
+                    todo!()
+                }
+                Expr::NewBoxList {
+                    caller: None,
+                    lbox_token_idx,
+                    items,
+                    rbox_token_idx,
+                } => {
+                    todo!()
+                }
+                _ => {
+                    let Some(function) = self.query_new(function) else {
+                            return Abort(SignatureTermAbortion::CannotInferFunctionTermInApplication)
+                        };
+                    let Some(argument) = self.query_new(argument) else {
+                            return Abort(SignatureTermAbortion::CannotInferArgumentTermInApplication)
+                        };
+                    todo!()
+                }
+            },
             Expr::NewTuple {
                 lpar_token_idx,
                 items,

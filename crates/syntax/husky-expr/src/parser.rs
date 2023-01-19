@@ -11,6 +11,7 @@ mod unfinished_expr;
 pub use block::*;
 pub use env::*;
 use husky_print_utils::p;
+use husky_vfs::Toolchain;
 use outcome::Outcome;
 
 use crate::*;
@@ -42,8 +43,9 @@ macro_rules! report {
 }
 use report;
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ExprPath {
-    None,
+    Snippet(Toolchain),
     Decl(DeclExprPath),
     Defn(DefnExprPath),
 }
@@ -60,12 +62,14 @@ impl From<DeclExprPath> for ExprPath {
     }
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum DeclExprPath {
     Entity(EntityPath),
     ImplBlock(ImplBlock),
     AssociatedItem(AssociatedItem),
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum DefnExprPath {
     Entity(EntityPath),
     AssociatedItem(AssociatedItem),
@@ -115,6 +119,7 @@ impl<'a> ExprParser<'a> {
     pub fn finish(self) -> ExprPage {
         self.symbol_context.into_expr_page(
             self.db,
+            self.path,
             self.expr_arena,
             self.entity_path_expr_arena,
             self.pattern_expr_page,
