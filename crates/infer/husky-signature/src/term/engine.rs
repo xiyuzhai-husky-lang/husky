@@ -9,10 +9,17 @@ pub(crate) struct SignatureTermEngine<'a> {
     term_menu: &'a TermMenu,
     symbol_sheet: &'a SymbolSheet,
     expr_terms: ExprMap<SignatureTermOutcome<Term>>,
+    symbol_term_sheet: SymbolTermSheet,
 }
 
+pub(crate) struct SymbolTermSheet {}
+
 impl<'a> SignatureTermEngine<'a> {
-    pub(crate) fn new(db: &'a dyn SignatureDb, expr_page: ExprPage) -> Self {
+    pub(crate) fn new(
+        db: &'a dyn SignatureDb,
+        expr_page: ExprPage,
+        parent_signature: Option<Signature>,
+    ) -> Self {
         let expr_arena = &expr_page.expr_arena(db);
         let toolchain = expr_page.toolchain(db);
         Self {
@@ -23,6 +30,7 @@ impl<'a> SignatureTermEngine<'a> {
             // ad hoc
             term_menu: db.term_menu(toolchain).as_ref().unwrap(),
             expr_terms: ExprMap::new(expr_arena),
+            symbol_term_sheet: todo!(),
         }
     }
 
@@ -65,7 +73,7 @@ impl<'a> SignatureTermEngine<'a> {
                 current_symbol_kind,
             } => {
                 let base = self.symbol_sheet.inherited_symbol_arena().len();
-                let symbol = todo!();
+                let symbol = Term::new_symbol();
                 todo!()
             }
             Expr::FrameVarDecl {
