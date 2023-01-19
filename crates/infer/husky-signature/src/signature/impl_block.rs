@@ -6,11 +6,15 @@ pub use ty_impl_block::*;
 
 use super::*;
 
-pub(crate) fn impl_block_signature(db: &dyn SignatureDb, decl: ImplBlockDecl) -> ImplBlockSignature {
+pub(crate) fn impl_block_signature(
+    db: &dyn SignatureDb,
+    decl: ImplBlockDecl,
+) -> ImplBlockSignature {
     match decl {
         ImplBlockDecl::TypeImplBlock(decl) => ty_impl_block_signature(db, decl).into(),
-        ImplBlockDecl::TypeAsTraitImplBlock(decl) => ty_as_trai_impl_block_signature(db, decl).into(),
-        // TypeDecl::Union(decl) => union_ty_signature(db, decl).into(),
+        ImplBlockDecl::TypeAsTraitImplBlock(decl) => {
+            ty_as_trai_impl_block_signature(db, decl).into()
+        } // TypeDecl::Union(decl) => union_ty_signature(db, decl).into(),
     }
 }
 
@@ -33,6 +37,13 @@ impl From<TypeImplBlockSignature> for ImplBlockSignature {
 }
 
 impl ImplBlockSignature {
+    pub fn term_sheet<'a>(self, db: &'a dyn SignatureDb) -> &'a SignatureTermSheet {
+        match self {
+            ImplBlockSignature::TypeImplBlock(signature) => signature.term_sheet(db),
+            ImplBlockSignature::TypeAsTraitImplBlock(signature) => signature.term_sheet(db),
+        }
+    }
+
     pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
         todo!()
     }

@@ -35,6 +35,19 @@ pub enum Signature {
     Variant(VariantSignature),
 }
 
+impl Signature {
+    pub fn term_sheet<'a>(self, db: &'a dyn SignatureDb) -> &'a SignatureTermSheet {
+        match self {
+            Signature::Type(signature) => signature.term_sheet(db),
+            Signature::Form(signature) => signature.term_sheet(db),
+            Signature::Trait(signature) => signature.term_sheet(db),
+            Signature::ImplBlock(signature) => signature.term_sheet(db),
+            Signature::AssociatedItem(signature) => signature.term_sheet(db),
+            Signature::Variant(signature) => signature.term_sheet(db),
+        }
+    }
+}
+
 impl From<TypeSignature> for Signature {
     fn from(v: TypeSignature) -> Self {
         Self::Type(v)

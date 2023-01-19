@@ -31,6 +31,15 @@ pub enum TraitItemSignature {
 }
 
 impl TraitItemSignature {
+    pub fn term_sheet<'a>(self, db: &'a dyn SignatureDb) -> &'a SignatureTermSheet {
+        match self {
+            TraitItemSignature::Function(signature) => signature.term_sheet(db),
+            TraitItemSignature::Method(signature) => signature.term_sheet(db),
+            TraitItemSignature::AlienType(signature) => signature.term_sheet(db),
+            TraitItemSignature::Value(signature) => signature.term_sheet(db),
+        }
+    }
+
     pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
         match self {
             TraitItemSignature::Function(_) => todo!(),

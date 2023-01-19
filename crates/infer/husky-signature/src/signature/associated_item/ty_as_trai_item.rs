@@ -57,6 +57,15 @@ impl From<TypeAsTraitAssociatedFunctionSignature> for TypeAsTraitItemSignature {
 }
 
 impl TypeAsTraitItemSignature {
+    pub fn term_sheet<'a>(self, db: &'a dyn SignatureDb) -> &'a SignatureTermSheet {
+        match self {
+            TypeAsTraitItemSignature::Function(signature) => signature.term_sheet(db),
+            TypeAsTraitItemSignature::Method(signature) => signature.term_sheet(db),
+            TypeAsTraitItemSignature::AlienType(signature) => signature.term_sheet(db),
+            TypeAsTraitItemSignature::Value(signature) => signature.term_sheet(db),
+        }
+    }
+
     pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
         match self {
             TypeAsTraitItemSignature::Function(_) => todo!(),

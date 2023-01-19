@@ -31,7 +31,7 @@ pub struct FunctionSignature {
     #[return_ref]
     pub output_ty: SignatureOutcome<Term>,
     #[return_ref]
-    term_sheet: SignatureTermSheet,
+    pub term_sheet: SignatureTermSheet,
 }
 
 impl FunctionSignature {}

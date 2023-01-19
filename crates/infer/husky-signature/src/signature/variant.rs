@@ -23,7 +23,15 @@ pub enum VariantSignature {
     Unit(UnitVariantSignature),
     Tuple(TupleVariantSignature),
 }
-impl VariantSignature {}
+impl VariantSignature {
+    pub fn term_sheet<'a>(self, db: &'a dyn SignatureDb) -> &'a SignatureTermSheet {
+        match self {
+            VariantSignature::Props(signature) => signature.term_sheet(db),
+            VariantSignature::Unit(signature) => signature.term_sheet(db),
+            VariantSignature::Tuple(signature) => signature.term_sheet(db),
+        }
+    }
+}
 
 impl<Db: SignatureDb + ?Sized> salsa::DebugWithDb<Db> for VariantSignature {
     fn fmt(
