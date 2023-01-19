@@ -31,7 +31,7 @@ pub enum Term {
     // atoms
     // literal: 1,1.0, true, false; variable, entityPath
     Literal(TermLiteral),
-    Variable(TermParameter),
+    Variable(TermSymbol),
     Lifetime(Identifier),
     Binding(Identifier),
     Entity(EntityPath),
