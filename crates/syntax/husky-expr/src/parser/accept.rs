@@ -30,6 +30,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 bra,
                 bra_token_idx,
                 mut items,
+                commas,
             } => {
                 if bra != ket {
                     todo!()
@@ -40,10 +41,18 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     }
                     let items = this.alloc_expr_batch(items);
                     match opr {
-                        UnfinishedListOpr::NewTuple => Expr::NewTuple {
-                            lpar_token_idx: bra_token_idx,
-                            items,
-                            rpar_token_idx: ket_token_idx,
+                        UnfinishedListOpr::NewTuple => match (items.len(), commas.len()) {
+                            (1, 0) => Expr::Bracketed {
+                                lpar_token_idx: bra_token_idx,
+                                item: items.start(),
+                                rpar_token_idx: ket_token_idx,
+                            },
+                            _ => Expr::NewTuple {
+                                lpar_token_idx: bra_token_idx,
+                                items,
+                                commas,
+                                rpar_token_idx: ket_token_idx,
+                            },
                         }
                         .into(),
                         UnfinishedListOpr::NewBoxList { caller } => Expr::NewBoxList {
@@ -54,14 +63,26 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         }
                         .into(),
                         UnfinishedListOpr::NewLambdaHead => todo!(),
-                        UnfinishedListOpr::FunctionCall { function } => Expr::FunctionCall {
-                            function,
-                            implicit_arguments: None, // ad hoc
-                            lpar_token_idx: bra_token_idx,
-                            arguments: items,
-                            rpar_token_idx: ket_token_idx,
+                        UnfinishedListOpr::FunctionCall { function } => {
+                            // ad hoc
+                            let implicit_arguments: Option<ImplicitArgumentList> = None;
+                            match (items.len(), implicit_arguments) {
+                                (1, None) => Expr::ApplicationOrFunctionCall {
+                                    function,
+                                    lpar_token_idx: bra_token_idx,
+                                    argument: items.start(),
+                                    rpar_token_idx: ket_token_idx,
+                                },
+                                (_, implicit_arguments) => Expr::FunctionCall {
+                                    function,
+                                    implicit_arguments,
+                                    lpar_token_idx: bra_token_idx,
+                                    arguments: items,
+                                    rpar_token_idx: ket_token_idx,
+                                },
+                            }
+                            .into()
                         }
-                        .into(),
                         UnfinishedListOpr::MethodInstantiation { .. } => todo!(),
                         UnfinishedListOpr::MethodCall {
                             this_expr,
@@ -139,6 +160,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             bra: Bracket::Par,
                             bra_token_idx: lpar.token_idx(),
                             items: vec![],
+                            commas: vec![],
                         }
                         .into(),
                         Ok(None) => match this.parse::<ColonColonLeftAngleBracketToken>() {
@@ -151,6 +173,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                 bra: Bracket::Angle,
                                 bra_token_idx: langle.token_idx(),
                                 items: vec![],
+                                commas: vec![],
                             }
                             .into(),
                             Ok(None) => Expr::Field {
@@ -186,7 +209,11 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     bra,
                     bra_token_idx,
                     items,
-                } => items.push(item),
+                    commas,
+                } => {
+                    items.push(item);
+                    commas.push(comma_token_idx)
+                }
                 _ => unreachable!(),
             },
             None => unreachable!(),
@@ -229,6 +256,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 bra,
                 bra_token_idx,
                 items,
+                commas,
             } => {
                 assert!(items.is_empty());
                 self.set_top_expr(TopExpr::Finished(Expr::BoxColon {
@@ -252,6 +280,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         bra,
                         bra_token_idx,
                         items: vec![],
+                        commas: vec![],
                     }
                     .into(),
                     None => UnfinishedExpr::List {
@@ -259,6 +288,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         bra,
                         bra_token_idx,
                         items: vec![],
+                        commas: vec![],
                     }
                     .into(),
                 },
@@ -269,6 +299,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     bra,
                     bra_token_idx,
                     items: vec![],
+                    commas: vec![],
                 }
                 .into(),
                 Bracket::Angle => match finished_expr {
@@ -277,6 +308,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         bra,
                         bra_token_idx,
                         items: vec![],
+                        commas: vec![],
                     }
                     .into(),
                     None => todo!(),

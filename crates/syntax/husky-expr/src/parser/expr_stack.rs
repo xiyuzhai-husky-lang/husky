@@ -70,13 +70,16 @@ impl Expr {
             Expr::Field { .. } => BaseEntityPath::None,
             Expr::MethodCall { .. } => BaseEntityPath::None,
             Expr::Application { function, argument } => todo!(),
+            Expr::ApplicationOrFunctionCall { .. } => todo!(),
+            Expr::FunctionCall { .. } => todo!(),
             Expr::NewTuple {
                 lpar_token_idx,
                 items,
                 rpar_token_idx,
+                ..
             } => todo!(),
             Expr::NewBoxList { .. } => BaseEntityPath::None,
-            Expr::Bracketed(expr) => arena[expr].base_entity_path(db, arena),
+            Expr::Bracketed { item, .. } => arena[item].base_entity_path(db, arena),
             Expr::Err(e) => BaseEntityPath::Uncertain {
                 inclination: match e {
                     ExprError::UnrecognizedIdentifier { ident, .. } => {
@@ -90,7 +93,6 @@ impl Expr {
                 arena[template].base_entity_path(db, arena)
             }
             Expr::Block { stmts } => BaseEntityPath::None,
-            Expr::FunctionCall { .. } => todo!(),
             Expr::Be {
                 src,
                 be_token_idx,
@@ -242,6 +244,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     bra,
                     bra_token_idx,
                     items,
+                    commas,
                 } => return Some(*bra),
                 _ => (),
             }
@@ -258,6 +261,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     bra,
                     bra_token_idx,
                     items,
+                    commas,
                 } => {
                     bras.push(*bra);
                     if bras.len() >= 2 {

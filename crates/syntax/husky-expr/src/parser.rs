@@ -82,7 +82,45 @@ impl<Db: ExprDb + ?Sized> DebugWithDb<Db> for ExprPath {
         db: &Db,
         include_all_fields: bool,
     ) -> std::fmt::Result {
-        todo!()
+        let db = <Db as salsa::DbWithJar<ExprJar>>::as_jar_db(db);
+        match self {
+            ExprPath::Snippet(snippet) => {
+                f.debug_tuple("Snippet").field(&snippet.debug(db)).finish()
+            }
+            ExprPath::Decl(decl) => f.debug_tuple("Decl").field(&decl.debug(db)).finish(),
+            ExprPath::Defn(_) => todo!(),
+        }
+    }
+}
+
+impl<Db: ExprDb + ?Sized> DebugWithDb<Db> for DeclExprPath {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<ExprJar>>::as_jar_db(db);
+        match self {
+            DeclExprPath::Entity(path) => f.debug_tuple("Entity").field(&path.debug(db)).finish(),
+            DeclExprPath::ImplBlock(_) => todo!(),
+            DeclExprPath::AssociatedItem(_) => todo!(),
+        }
+    }
+}
+
+impl<Db: ExprDb + ?Sized> DebugWithDb<Db> for DefnExprPath {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<ExprJar>>::as_jar_db(db);
+        match self {
+            DefnExprPath::Entity(_) => todo!(),
+            DefnExprPath::AssociatedItem(_) => todo!(),
+        }
     }
 }
 
