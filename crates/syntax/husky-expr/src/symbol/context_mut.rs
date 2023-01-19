@@ -4,19 +4,19 @@ use super::*;
 
 pub struct SymbolContextMut<'a> {
     module_symbol_context: ModuleSymbolContext<'a>,
-    symbol_sheet: SymbolSheet,
+    symbol_page: SymbolPage,
 }
 
 impl<'a> SymbolContextMut<'a> {
     pub fn new(
         module_symbol_context: ModuleSymbolContext<'a>,
-        parent_symbol_sheet: Option<&SymbolSheet>,
+        parent_symbol_page: Option<&SymbolPage>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
     ) -> Self {
         Self {
             module_symbol_context,
-            symbol_sheet: SymbolSheet::new(parent_symbol_sheet, allow_self_type, allow_self_value),
+            symbol_page: SymbolPage::new(parent_symbol_page, allow_self_type, allow_self_value),
         }
     }
 
@@ -26,7 +26,7 @@ impl<'a> SymbolContextMut<'a> {
         token_idx: TokenIdx,
         ident: Identifier,
     ) -> Option<Symbol> {
-        self.symbol_sheet.resolve_ident(token_idx, ident).or(self
+        self.symbol_page.resolve_ident(token_idx, ident).or(self
             .module_symbol_context
             .resolve_ident(token_idx, ident)
             .map(|e| Symbol::Entity(e.path(db))))
@@ -42,7 +42,7 @@ impl<'a> SymbolContextMut<'a> {
         path: ExprPath,
         expr_arena: ExprArena,
         entity_path_expr_arena: EntityPathExprArena,
-        pattern_expr_page: PatternExprSubsheet,
+        pattern_expr_page: PatternExprPage,
         stmt_arena: StmtArena,
     ) -> ExprPage {
         ExprPage::new(
@@ -50,9 +50,9 @@ impl<'a> SymbolContextMut<'a> {
             path,
             expr_arena,
             entity_path_expr_arena,
-            pattern_expr_page,
             stmt_arena,
-            self.symbol_sheet,
+            pattern_expr_page,
+            self.symbol_page,
         )
     }
 
@@ -60,10 +60,10 @@ impl<'a> SymbolContextMut<'a> {
         &mut self,
         variables: impl IntoIterator<Item = CurrentSymbol>,
     ) -> CurrentSymbolIdxRange {
-        self.symbol_sheet.define_symbols(variables)
+        self.symbol_page.define_symbols(variables)
     }
 
-    pub(crate) fn symbol_sheet(&self) -> &SymbolSheet {
-        &self.symbol_sheet
+    pub(crate) fn symbol_page(&self) -> &SymbolPage {
+        &self.symbol_page
     }
 }

@@ -5,7 +5,9 @@
                 implicit_parameters: ImplicitParameterSignatures {
                     parameters: [],
                 },
-                term_sheet: SignatureTermSheet,
+                term_sheet: SignatureTermSheet {
+                    symbol_term_registry: SymbolTermRegistry,
+                },
             },
         ),
     ),
@@ -15,7 +17,9 @@
                 implicit_parameters: ImplicitParameterSignatures {
                     parameters: [],
                 },
-                term_sheet: SignatureTermSheet,
+                term_sheet: SignatureTermSheet {
+                    symbol_term_registry: SymbolTermRegistry,
+                },
             },
         ),
     ),
@@ -25,7 +29,9 @@
                 implicit_parameters: ImplicitParameterSignatures {
                     parameters: [],
                 },
-                term_sheet: SignatureTermSheet,
+                term_sheet: SignatureTermSheet {
+                    symbol_term_registry: SymbolTermRegistry,
+                },
             },
         ),
     ),
@@ -35,7 +41,9 @@
                 implicit_parameters: ImplicitParameterSignatures {
                     parameters: [],
                 },
-                term_sheet: SignatureTermSheet,
+                term_sheet: SignatureTermSheet {
+                    symbol_term_registry: SymbolTermRegistry,
+                },
             },
         ),
     ),
@@ -45,7 +53,9 @@
                 implicit_parameters: ImplicitParameterSignatures {
                     parameters: [],
                 },
-                term_sheet: SignatureTermSheet,
+                term_sheet: SignatureTermSheet {
+                    symbol_term_registry: SymbolTermRegistry,
+                },
             },
         ),
     ),
@@ -55,7 +65,9 @@
                 implicit_parameters: ImplicitParameterSignatures {
                     parameters: [],
                 },
-                term_sheet: SignatureTermSheet,
+                term_sheet: SignatureTermSheet {
+                    symbol_term_registry: SymbolTermRegistry,
+                },
             },
         ),
     ),
@@ -65,7 +77,9 @@
                 implicit_parameters: ImplicitParameterSignatures {
                     parameters: [],
                 },
-                term_sheet: SignatureTermSheet,
+                term_sheet: SignatureTermSheet {
+                    symbol_term_registry: SymbolTermRegistry,
+                },
             },
         ),
     ),
@@ -75,7 +89,9 @@
                 implicit_parameters: ImplicitParameterSignatures {
                     parameters: [],
                 },
-                term_sheet: SignatureTermSheet,
+                term_sheet: SignatureTermSheet {
+                    symbol_term_registry: SymbolTermRegistry,
+                },
             },
         ),
     ),
@@ -95,7 +111,9 @@
                         ),
                     ),
                 ),
-                term_sheet: SignatureTermSheet,
+                term_sheet: SignatureTermSheet {
+                    symbol_term_registry: SymbolTermRegistry,
+                },
             },
         ),
     ),
@@ -122,7 +140,9 @@
                             ),
                         ),
                     ),
-                    term_sheet: SignatureTermSheet,
+                    term_sheet: SignatureTermSheet {
+                        symbol_term_registry: SymbolTermRegistry,
+                    },
                 },
             ),
         ),
@@ -167,7 +187,9 @@
                             ),
                         ),
                     ),
-                    term_sheet: SignatureTermSheet,
+                    term_sheet: SignatureTermSheet {
+                        symbol_term_registry: SymbolTermRegistry,
+                    },
                 },
             ),
         ),
@@ -188,7 +210,9 @@
                         ),
                     ),
                 ),
-                term_sheet: SignatureTermSheet,
+                term_sheet: SignatureTermSheet {
+                    symbol_term_registry: SymbolTermRegistry,
+                },
             },
         ),
     ),
@@ -215,7 +239,9 @@
                             ),
                         ),
                     ),
-                    term_sheet: SignatureTermSheet,
+                    term_sheet: SignatureTermSheet {
+                        symbol_term_registry: SymbolTermRegistry,
+                    },
                 },
             ),
         ),
@@ -260,7 +286,9 @@
                             ),
                         ),
                     ),
-                    term_sheet: SignatureTermSheet,
+                    term_sheet: SignatureTermSheet {
+                        symbol_term_registry: SymbolTermRegistry,
+                    },
                 },
             ),
         ),
@@ -281,7 +309,9 @@
                         ),
                     ),
                 ),
-                term_sheet: SignatureTermSheet,
+                term_sheet: SignatureTermSheet {
+                    symbol_term_registry: SymbolTermRegistry,
+                },
             },
         ),
     ),
@@ -308,7 +338,9 @@
                             ),
                         ),
                     ),
-                    term_sheet: SignatureTermSheet,
+                    term_sheet: SignatureTermSheet {
+                        symbol_term_registry: SymbolTermRegistry,
+                    },
                 },
             ),
         ),
@@ -353,7 +385,9 @@
                             ),
                         ),
                     ),
-                    term_sheet: SignatureTermSheet,
+                    term_sheet: SignatureTermSheet {
+                        symbol_term_registry: SymbolTermRegistry,
+                    },
                 },
             ),
         ),
@@ -374,7 +408,9 @@
                         ),
                     ),
                 ),
-                term_sheet: SignatureTermSheet,
+                term_sheet: SignatureTermSheet {
+                    symbol_term_registry: SymbolTermRegistry,
+                },
             },
         ),
     ),
@@ -401,7 +437,9 @@
                             ),
                         ),
                     ),
-                    term_sheet: SignatureTermSheet,
+                    term_sheet: SignatureTermSheet {
+                        symbol_term_registry: SymbolTermRegistry,
+                    },
                 },
             ),
         ),
@@ -446,7 +484,9 @@
                             ),
                         ),
                     ),
-                    term_sheet: SignatureTermSheet,
+                    term_sheet: SignatureTermSheet {
+                        symbol_term_registry: SymbolTermRegistry,
+                    },
                 },
             ),
         ),
@@ -467,7 +507,9 @@
                         ),
                     ),
                 ),
-                term_sheet: SignatureTermSheet,
+                term_sheet: SignatureTermSheet {
+                    symbol_term_registry: SymbolTermRegistry,
+                },
             },
         ),
     ),
@@ -494,7 +536,9 @@
                             ),
                         ),
                     ),
-                    term_sheet: SignatureTermSheet,
+                    term_sheet: SignatureTermSheet {
+                        symbol_term_registry: SymbolTermRegistry,
+                    },
                 },
             ),
         ),
@@ -539,7 +583,9 @@
                             ),
                         ),
                     ),
-                    term_sheet: SignatureTermSheet,
+                    term_sheet: SignatureTermSheet {
+                        symbol_term_registry: SymbolTermRegistry,
+                    },
                 },
             ),
         ),
@@ -560,7 +606,9 @@
                         ),
                     ),
                 ),
-                term_sheet: SignatureTermSheet,
+                term_sheet: SignatureTermSheet {
+                    symbol_term_registry: SymbolTermRegistry,
+                },
             },
         ),
     ),
@@ -587,7 +635,9 @@
                             ),
                         ),
                     ),
-                    term_sheet: SignatureTermSheet,
+                    term_sheet: SignatureTermSheet {
+                        symbol_term_registry: SymbolTermRegistry,
+                    },
                 },
             ),
         ),
@@ -632,7 +682,9 @@
                             ),
                         ),
                     ),
-                    term_sheet: SignatureTermSheet,
+                    term_sheet: SignatureTermSheet {
+                        symbol_term_registry: SymbolTermRegistry,
+                    },
                 },
             ),
         ),
@@ -653,7 +705,9 @@
                         ),
                     ),
                 ),
-                term_sheet: SignatureTermSheet,
+                term_sheet: SignatureTermSheet {
+                    symbol_term_registry: SymbolTermRegistry,
+                },
             },
         ),
     ),
@@ -680,7 +734,9 @@
                             ),
                         ),
                     ),
-                    term_sheet: SignatureTermSheet,
+                    term_sheet: SignatureTermSheet {
+                        symbol_term_registry: SymbolTermRegistry,
+                    },
                 },
             ),
         ),
@@ -725,7 +781,9 @@
                             ),
                         ),
                     ),
-                    term_sheet: SignatureTermSheet,
+                    term_sheet: SignatureTermSheet {
+                        symbol_term_registry: SymbolTermRegistry,
+                    },
                 },
             ),
         ),
@@ -746,7 +804,9 @@
                         ),
                     ),
                 ),
-                term_sheet: SignatureTermSheet,
+                term_sheet: SignatureTermSheet {
+                    symbol_term_registry: SymbolTermRegistry,
+                },
             },
         ),
     ),
@@ -773,7 +833,9 @@
                             ),
                         ),
                     ),
-                    term_sheet: SignatureTermSheet,
+                    term_sheet: SignatureTermSheet {
+                        symbol_term_registry: SymbolTermRegistry,
+                    },
                 },
             ),
         ),
@@ -818,7 +880,9 @@
                             ),
                         ),
                     ),
-                    term_sheet: SignatureTermSheet,
+                    term_sheet: SignatureTermSheet {
+                        symbol_term_registry: SymbolTermRegistry,
+                    },
                 },
             ),
         ),

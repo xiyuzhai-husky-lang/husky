@@ -9,7 +9,9 @@
                     },
                 ],
             },
-            term_sheet: SignatureTermSheet,
+            term_sheet: SignatureTermSheet {
+                symbol_term_registry: SymbolTermRegistry,
+            },
         },
     ),
 ]

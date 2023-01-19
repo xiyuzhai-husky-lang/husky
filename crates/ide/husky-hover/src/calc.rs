@@ -1,5 +1,5 @@
 use husky_entity_tree::EntityTreeResult;
-use husky_expr::SymbolSheet;
+use husky_expr::SymbolPage;
 use husky_text::TextRange;
 use husky_token::Token;
 use husky_token_info::TokenInfo;
@@ -93,10 +93,7 @@ impl<'a> HoverResultCalculator<'a> {
                 expr_page,
                 ..
             } => {
-                format!(
-                    "{:#?}",
-                    expr_page.symbol_sheet(self.db)[*current_symbol_idx]
-                )
+                format!("{:#?}", expr_page.symbol_page(self.db)[*current_symbol_idx])
             }
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx,
@@ -105,7 +102,7 @@ impl<'a> HoverResultCalculator<'a> {
             } => {
                 format!(
                     "{:#?}",
-                    expr_page.symbol_sheet(self.db)[*inherited_symbol_idx]
+                    expr_page.symbol_page(self.db)[*inherited_symbol_idx]
                 )
             }
             TokenInfo::Field => format!(""),

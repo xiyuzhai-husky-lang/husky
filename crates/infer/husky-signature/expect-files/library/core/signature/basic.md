@@ -5,7 +5,15 @@
                 implicit_parameters: ImplicitParameterSignatures {
                     parameters: [],
                 },
-                term_sheet: SignatureTermSheet,
+                term_sheet: SignatureTermSheet {
+                    symbol_term_registry: SymbolTermRegistry {
+                        next_parameter: 0,
+                        next_lifetime: 0,
+                        next_binding: 0,
+                        inherited_symbol_terms: [],
+                        current_symbol_terms: [],
+                    },
+                },
             },
         ),
     ),
@@ -15,7 +23,15 @@
                 implicit_parameters: ImplicitParameterSignatures {
                     parameters: [],
                 },
-                term_sheet: SignatureTermSheet,
+                term_sheet: SignatureTermSheet {
+                    symbol_term_registry: SymbolTermRegistry {
+                        next_parameter: 0,
+                        next_lifetime: 0,
+                        next_binding: 0,
+                        inherited_symbol_terms: [],
+                        current_symbol_terms: [],
+                    },
+                },
             },
         ),
     ),
@@ -25,7 +41,15 @@
                 implicit_parameters: ImplicitParameterSignatures {
                     parameters: [],
                 },
-                term_sheet: SignatureTermSheet,
+                term_sheet: SignatureTermSheet {
+                    symbol_term_registry: SymbolTermRegistry {
+                        next_parameter: 0,
+                        next_lifetime: 0,
+                        next_binding: 0,
+                        inherited_symbol_terms: [],
+                        current_symbol_terms: [],
+                    },
+                },
             },
         ),
     ),

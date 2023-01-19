@@ -7,30 +7,61 @@ pub(crate) struct SignatureTermEngine<'a> {
     expr_arena: &'a ExprArena,
     entity_path_expr_arena: &'a EntityPathExprArena,
     term_menu: &'a TermMenu,
-    symbol_sheet: &'a SymbolSheet,
+    symbol_page: &'a SymbolPage,
     expr_terms: ExprMap<SignatureTermOutcome<Term>>,
-    symbol_term_sheet: SymbolTermSheet,
+    symbol_term_registry: SymbolTermRegistry,
 }
 
-pub(crate) struct SymbolTermSheet {}
+#[derive(Debug, PartialEq, Eq)]
+pub struct SymbolTermRegistry {
+    next_parameter: usize,
+    next_lifetime: usize,
+    next_binding: usize,
+    inherited_symbol_terms: Vec<Option<Term>>,
+    current_symbol_terms: Vec<Term>,
+}
+
+impl SymbolTermRegistry {
+    fn new(parent: Option<&SymbolTermRegistry>, symbol_page: &SymbolPage) -> SymbolTermRegistry {
+        let mut next_parameter = parent.map_or(0, |parent| parent.next_parameter);
+        let mut next_lifetime = parent.map_or(0, |parent| parent.next_lifetime);
+        let mut next_binding = parent.map_or(0, |parent| parent.next_binding);
+        let inherited_symbol_terms = symbol_page
+            .indexed_inherited_symbol_iter()
+            .map(|(idx, symbol)| todo!())
+            .collect();
+        let current_symbol_terms = symbol_page
+            .indexed_current_symbol_iter()
+            .map(|(idx, symbol)| todo!())
+            .collect();
+        SymbolTermRegistry {
+            next_parameter,
+            next_lifetime,
+            next_binding,
+            inherited_symbol_terms,
+            current_symbol_terms,
+        }
+    }
+}
 
 impl<'a> SignatureTermEngine<'a> {
     pub(crate) fn new(
         db: &'a dyn SignatureDb,
         expr_page: ExprPage,
-        parent_signature: Option<Signature>,
+        parent_symbol_term_registry: Option<&'a SymbolTermRegistry>,
     ) -> Self {
         let expr_arena = &expr_page.expr_arena(db);
         let toolchain = expr_page.toolchain(db);
+        let symbol_page = expr_page.symbol_page(db);
         Self {
             db,
             expr_arena,
             entity_path_expr_arena: expr_page.entity_path_expr_arena(db),
-            symbol_sheet: expr_page.symbol_sheet(db),
+            symbol_page,
             // ad hoc
             term_menu: db.term_menu(toolchain).as_ref().unwrap(),
             expr_terms: ExprMap::new(expr_arena),
-            symbol_term_sheet: todo!(),
+            symbol_term_registry: SymbolTermRegistry::new(parent_symbol_term_registry, symbol_page),
         }
     }
 
@@ -43,7 +74,7 @@ impl<'a> SignatureTermEngine<'a> {
     }
 
     pub(crate) fn finish(self) -> SignatureTermSheet {
-        SignatureTermSheet {}
+        SignatureTermSheet::new(self.symbol_term_registry)
     }
 
     fn save(&mut self, expr_idx: ExprIdx, outcome: SignatureTermOutcome<Term>) {
@@ -72,7 +103,7 @@ impl<'a> SignatureTermEngine<'a> {
                 current_symbol_idx,
                 current_symbol_kind,
             } => {
-                let base = self.symbol_sheet.inherited_symbol_arena().len();
+                let base = self.symbol_page.inherited_symbol_arena().len();
                 // let symbol = Term::new_symbol();
                 todo!()
             }

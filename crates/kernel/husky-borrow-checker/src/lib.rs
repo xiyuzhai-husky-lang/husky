@@ -12,7 +12,7 @@ pub use error::*;
 
 pub use instruction::*;
 
-use husky_symbol_registry::*;
+use husky_symbol_page::*;
 use lifetime::*;
 use local_stack::LocalStack;
 

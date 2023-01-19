@@ -6,9 +6,9 @@ pub struct ExprContext<'a> {
     module_symbol_context: ModuleSymbolContext<'a>,
     expr_arena: &'a ExprArena,
     entity_path_expr_arena: &'a EntityPathExprArena,
-    pattern_expr_page: &'a PatternExprSubsheet,
+    pattern_expr_page: &'a PatternExprPage,
     stmt_arena: &'a StmtArena,
-    symbol_sheet: &'a SymbolSheet,
+    symbol_page: &'a SymbolPage,
 }
 
 impl<'a> ExprContext<'a> {
@@ -23,7 +23,7 @@ impl<'a> ExprContext<'a> {
             entity_path_expr_arena: expr_page.entity_path_expr_arena(db),
             pattern_expr_page: expr_page.pattern_expr_page(db),
             stmt_arena: expr_page.stmt_arena(db),
-            symbol_sheet: expr_page.symbol_sheet(db),
+            symbol_page: expr_page.symbol_page(db),
         }
     }
 
@@ -38,7 +38,7 @@ impl<'a> ExprContext<'a> {
     pub fn indexed_current_symbol_iter(
         &self,
     ) -> impl Iterator<Item = (CurrentSymbolIdx, &'a CurrentSymbol)> + 'a {
-        self.symbol_sheet.indexed_current_symbol_iter()
+        self.symbol_page.indexed_current_symbol_iter()
     }
 }
 

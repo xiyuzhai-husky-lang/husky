@@ -118,17 +118,17 @@ Ok(
                     TypeItem(
                         Method(
                             TypeMethodDecl {
+                                associated_item: AssociatedItem(
+                                    Id {
+                                        value: 67,
+                                    },
+                                ),
                                 path: Some(
                                     TypeItemPath(
                                         Id {
                                             value: 57,
                                         },
                                     ),
-                                ),
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 67,
-                                    },
                                 ),
                                 ast_idx: 13,
                                 expr_page: ExprPage(
@@ -178,17 +178,17 @@ Ok(
                     TypeItem(
                         Method(
                             TypeMethodDecl {
+                                associated_item: AssociatedItem(
+                                    Id {
+                                        value: 68,
+                                    },
+                                ),
                                 path: Some(
                                     TypeItemPath(
                                         Id {
                                             value: 58,
                                         },
                                     ),
-                                ),
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 68,
-                                    },
                                 ),
                                 ast_idx: 14,
                                 expr_page: ExprPage(
