@@ -5,7 +5,7 @@ pub fn regular_struct_ty_signature(
     db: &dyn SignatureDb,
     decl: RegularStructTypeDecl,
 ) -> RegularStructTypeSignature {
-    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db));
+    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), None);
     RegularStructTypeSignature::new(
         db,
         ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), &mut engine),

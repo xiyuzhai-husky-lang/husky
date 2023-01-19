@@ -5,7 +5,7 @@ pub(crate) fn trai_method_signature(
     db: &dyn SignatureDb,
     decl: TraitMethodDecl,
 ) -> TraitMethodSignature {
-    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db));
+    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), todo!());
     // implementation
     TraitMethodSignature::new(
         db,

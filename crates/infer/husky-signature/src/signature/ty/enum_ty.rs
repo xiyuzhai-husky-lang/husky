@@ -2,7 +2,7 @@ use super::*;
 
 #[salsa::tracked(jar = SignatureJar)]
 pub fn enum_ty_signature(db: &dyn SignatureDb, decl: EnumTypeDecl) -> EnumTypeSignature {
-    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db));
+    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), None);
     EnumTypeSignature::new(
         db,
         ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), &mut engine),

@@ -5,7 +5,7 @@ pub fn inductive_ty_signature(
     db: &dyn SignatureDb,
     decl: InductiveTypeDecl,
 ) -> InductiveTypeSignature {
-    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db));
+    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), None);
     InductiveTypeSignature::new(
         db,
         ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), &mut engine),

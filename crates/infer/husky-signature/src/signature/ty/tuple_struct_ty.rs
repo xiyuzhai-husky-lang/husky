@@ -6,7 +6,7 @@ pub fn tuple_struct_ty_signature(
     db: &dyn SignatureDb,
     decl: TupleStructTypeDecl,
 ) -> TupleStructTypeSignature {
-    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db));
+    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), None);
     TupleStructTypeSignature::new(
         db,
         ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), &mut engine),
