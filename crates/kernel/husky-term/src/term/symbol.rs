@@ -12,7 +12,7 @@ pub enum TermSymbolKind {
     Lifetime,
     Binding,
     Usize,
-    Other,
+    Parameter,
 }
 
 #[derive(Default, Debug, PartialEq, Eq, Clone)]
@@ -21,7 +21,7 @@ pub struct TermSymbolRegistry {
     next_lifetime: u8,
     next_binding: u8,
     next_usize: u8,
-    next_other: u8,
+    next_parameter: u8,
 }
 
 #[test]
@@ -65,12 +65,12 @@ impl TermSymbolRegistry {
             kind: TermSymbolKind::Usize,
         }
     }
-    pub fn new_other(&mut self) -> TermSymbol {
-        let idx = self.next_other;
-        self.next_other += 1;
+    pub fn new_parameter(&mut self) -> TermSymbol {
+        let idx = self.next_parameter;
+        self.next_parameter += 1;
         TermSymbol {
             idx,
-            kind: TermSymbolKind::Other,
+            kind: TermSymbolKind::Parameter,
         }
     }
 }

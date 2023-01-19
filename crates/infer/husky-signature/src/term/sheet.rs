@@ -2,15 +2,15 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SignatureTermSheet {
-    symbol_term_page: SymbolTermPage,
+    term_symbol_page: TermSymbolPage,
 }
 
 impl SignatureTermSheet {
-    pub fn new(symbol_term_page: SymbolTermPage) -> Self {
-        Self { symbol_term_page }
+    pub fn new(term_symbol_page: TermSymbolPage) -> Self {
+        Self { term_symbol_page }
     }
 
-    pub fn symbol_term_page(&self) -> &SymbolTermPage {
-        &self.symbol_term_page
+    pub fn term_symbol_page(&self) -> &TermSymbolPage {
+        &self.term_symbol_page
     }
 }
