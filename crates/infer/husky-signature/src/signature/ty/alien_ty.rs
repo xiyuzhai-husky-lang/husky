@@ -6,7 +6,7 @@ pub fn alien_ty_signature(db: &dyn SignatureDb, decl: AlienTypeDecl) -> AlienTyp
     // implementation
     AlienTypeSignature::new(
         db,
-        ImplicitParameterSignatureList::from_decl(decl.implicit_parameters(db), &mut engine),
+        ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), &mut engine),
         engine.finish(),
     )
 }
@@ -14,7 +14,7 @@ pub fn alien_ty_signature(db: &dyn SignatureDb, decl: AlienTypeDecl) -> AlienTyp
 #[salsa::tracked(jar = SignatureJar)]
 pub struct AlienTypeSignature {
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterSignatureList,
+    pub implicit_parameters: ImplicitParameterSignatures,
     #[return_ref]
     pub term_sheet: SignatureTermSheet,
 }

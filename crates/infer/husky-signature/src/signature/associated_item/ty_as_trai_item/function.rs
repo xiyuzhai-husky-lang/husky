@@ -1,7 +1,10 @@
 use crate::*;
 
 #[salsa::tracked(jar = SignatureJar)]
-pub(crate) fn ty_as_trai_associated_function_signature(db: &dyn SignatureDb, decl: TypeAsTraitAssociatedFunctionDecl) -> TypeAsTraitAssociatedFunctionSignature{
+pub(crate) fn ty_as_trai_associated_function_signature(
+    db: &dyn SignatureDb,
+    decl: TypeAsTraitAssociatedFunctionDecl,
+) -> TypeAsTraitAssociatedFunctionSignature {
     let mut engine = SignatureTermEngine::new(db, decl.expr_page(db));
     // implementation
     TypeAsTraitAssociatedFunctionSignature::new(
@@ -14,7 +17,8 @@ pub(crate) fn ty_as_trai_associated_function_signature(db: &dyn SignatureDb, dec
 
 #[salsa::tracked(jar = SignatureJar)]
 pub struct TypeAsTraitAssociatedFunctionSignature {
-    pub output_ty: Term,
+    #[return_ref]
+    pub output_ty: SignatureOutcome<Term>,
     #[return_ref]
     pub term_sheet: SignatureTermSheet,
 }

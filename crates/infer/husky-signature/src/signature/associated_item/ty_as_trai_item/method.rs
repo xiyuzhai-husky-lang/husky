@@ -1,15 +1,26 @@
 use crate::*;
 
 #[salsa::tracked(jar = SignatureJar)]
-pub(crate) fn ty_as_trai_method_signature(db: &dyn SignatureDb, decl: TypeAsTraitMethodDecl) -> TypeAsTraitMethodSignature{
+pub(crate) fn ty_as_trai_method_signature(
+    db: &dyn SignatureDb,
+    decl: TypeAsTraitMethodDecl,
+) -> TypeAsTraitMethodSignature {
     let mut engine = SignatureTermEngine::new(db, decl.expr_page(db));
-    // implementation
+    let output_ty = match decl.output_ty(db) {
+        Ok(output_ty) => match engine.query_new(*output_ty) {
+            Some(output_ty) => Success(output_ty),
+            None => Abort(SignatureAbortion::TermError),
+        },
+        Err(_) => Abort(SignatureAbortion::ExprError),
+    };
+    let parameters = ParameterSignatures::from_decl(decl.parameters(db), &mut engine);
+    let implicit_parameters =
+        ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), &mut engine);
     TypeAsTraitMethodSignature::new(
         db,
-        todo!(),
-        todo!(),
-        todo!(),
-        // ImplicitParameterSignatureList::from_decl(decl.implicit_parameters(db), &mut engine),
+        implicit_parameters,
+        parameters,
+        output_ty,
         engine.finish(),
     )
 }
@@ -17,10 +28,11 @@ pub(crate) fn ty_as_trai_method_signature(db: &dyn SignatureDb, decl: TypeAsTrai
 #[salsa::tracked(jar = SignatureJar)]
 pub struct TypeAsTraitMethodSignature {
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterSignatureList,
+    pub implicit_parameters: ImplicitParameterSignatures,
     #[return_ref]
-    pub parameter_decl_list: ParameterSignatureList,
-    pub output_ty: Term,
+    pub parameters: ParameterSignatures,
+    #[return_ref]
+    pub output_ty: SignatureOutcome<Term>,
     #[return_ref]
     pub term_sheet: SignatureTermSheet,
 }

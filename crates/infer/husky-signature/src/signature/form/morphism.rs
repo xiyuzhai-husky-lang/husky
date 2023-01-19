@@ -6,17 +6,15 @@ pub fn morphism_signature(db: &dyn SignatureDb, decl: MorphismDecl) -> MorphismS
     // implementation
     MorphismSignature::new(
         db,
-        ImplicitParameterSignatureList::from_decl(decl.implicit_parameters(db), &mut engine),
+        ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), &mut engine),
         engine.finish(),
     )
 }
 
-
-
 #[salsa::tracked(jar = SignatureJar)]
 pub struct MorphismSignature {
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterSignatureList,
+    pub implicit_parameters: ImplicitParameterSignatures,
     #[return_ref]
     pub term_sheet: SignatureTermSheet,
 }

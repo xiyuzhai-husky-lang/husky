@@ -35,7 +35,7 @@ Ok(
                                             7,
                                         ),
                                     },
-                                    decls: [
+                                    implicit_parameters: [
                                         ImplicitParameterDecl {
                                             pattern: ImplicitParameterDeclPattern {
                                                 symbol: 0,
@@ -135,7 +135,7 @@ Ok(
                                             29,
                                         ),
                                     },
-                                    decls: [
+                                    implicit_parameters: [
                                         ImplicitParameterDecl {
                                             pattern: ImplicitParameterDeclPattern {
                                                 symbol: 0,

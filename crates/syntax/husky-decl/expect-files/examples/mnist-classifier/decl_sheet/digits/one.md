@@ -49,7 +49,7 @@ Ok(
                                         555,
                                     ),
                                 },
-                                decls: [
+                                parameters: [
                                     ParameterDecl {
                                         pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,
@@ -111,7 +111,7 @@ Ok(
                                         584,
                                     ),
                                 },
-                                decls: [
+                                parameters: [
                                     ParameterDecl {
                                         pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,
@@ -173,7 +173,7 @@ Ok(
                                         618,
                                     ),
                                 },
-                                decls: [
+                                parameters: [
                                     ParameterDecl {
                                         pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,

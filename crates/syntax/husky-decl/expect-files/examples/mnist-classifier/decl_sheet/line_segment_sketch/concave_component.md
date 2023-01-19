@@ -99,7 +99,7 @@ Ok(
                                         517,
                                     ),
                                 },
-                                decls: [
+                                parameters: [
                                     ParameterDecl {
                                         pattern: ParameterDeclPattern {
                                             pattern_expr_idx: 0,
@@ -475,7 +475,7 @@ Ok(
                                             384,
                                         ),
                                     },
-                                    decls: [],
+                                    parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
@@ -535,7 +535,7 @@ Ok(
                                             421,
                                         ),
                                     },
-                                    decls: [],
+                                    parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
@@ -595,7 +595,7 @@ Ok(
                                             441,
                                         ),
                                     },
-                                    decls: [],
+                                    parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
@@ -655,7 +655,7 @@ Ok(
                                             461,
                                         ),
                                     },
-                                    decls: [],
+                                    parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
@@ -715,7 +715,7 @@ Ok(
                                             477,
                                         ),
                                     },
-                                    decls: [],
+                                    parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
@@ -775,7 +775,7 @@ Ok(
                                             495,
                                         ),
                                     },
-                                    decls: [],
+                                    parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
