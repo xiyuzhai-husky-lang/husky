@@ -73,7 +73,7 @@ impl<'a> SignatureTermEngine<'a> {
                 current_symbol_kind,
             } => {
                 let base = self.symbol_sheet.inherited_symbol_arena().len();
-                let symbol = Term::new_symbol();
+                // let symbol = Term::new_symbol();
                 todo!()
             }
             Expr::FrameVarDecl {

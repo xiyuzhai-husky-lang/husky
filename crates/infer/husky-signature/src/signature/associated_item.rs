@@ -8,15 +8,18 @@ pub use ty_item::*;
 
 use super::*;
 
-pub(crate) fn associated_item_signature(db: &dyn SignatureDb, decl: AssociatedItemDecl) -> AssociatedItemSignature {
+pub(crate) fn associated_item_signature(
+    db: &dyn SignatureDb,
+    decl: AssociatedItemDecl,
+) -> AssociatedItemSignature {
     match decl {
         AssociatedItemDecl::TypeItem(decl) => ty_associated_item_signature(db, decl).into(),
         AssociatedItemDecl::TraitItem(decl) => trai_associated_item_signature(db, decl).into(),
-        AssociatedItemDecl::TypeAsTraitItem(decl) => ty_as_trai_associated_item_signature(db, decl).into(),
-        // TypeDecl::Enum(decl) => enum_ty_signature(db, decl).into(),
+        AssociatedItemDecl::TypeAsTraitItem(decl) => {
+            ty_as_trai_associated_item_signature(db, decl).into()
+        } // TypeDecl::Enum(decl) => enum_ty_signature(db, decl).into(),
     }
 }
-
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum AssociatedItemSignature {
@@ -69,6 +72,14 @@ impl<Db: SignatureDb + ?Sized> salsa::DebugWithDb<Db> for AssociatedItemSignatur
 }
 
 impl AssociatedItemSignature {
+    pub fn term_sheet<'a>(self, db: &'a dyn SignatureDb) -> &'a SignatureTermSheet {
+        match self {
+            AssociatedItemSignature::TypeItem(signature) => signature.term_sheet(db),
+            AssociatedItemSignature::TraitItem(signature) => signature.term_sheet(db),
+            AssociatedItemSignature::TypeAsTraitItem(signature) => signature.term_sheet(db),
+        }
+    }
+
     pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
         match self {
             AssociatedItemSignature::TypeItem(decl) => decl.implicit_parameters(db),
