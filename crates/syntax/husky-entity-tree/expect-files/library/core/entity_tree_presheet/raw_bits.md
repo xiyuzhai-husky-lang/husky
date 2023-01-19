@@ -8,7 +8,7 @@ Ok(
                     accessibility: Public,
                     symbol: ModuleItem(
                         ModuleItemSymbol {
-                            path: TypePath(`core::raw_bits::r32`, `Foreign`),
+                            path: TypePath(`core::raw_bits::r32`, `Alien`),
                             accessibility: Public,
                             ast_idx: 0,
                         },

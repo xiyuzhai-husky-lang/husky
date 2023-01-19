@@ -12,12 +12,12 @@ Ok(
                     accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Foreign,
+                            Alien,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::raw_bits::r32`, `Foreign`),
+                        TypePath(`core::raw_bits::r32`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `r32`,

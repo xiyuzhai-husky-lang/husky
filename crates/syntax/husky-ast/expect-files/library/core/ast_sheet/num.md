@@ -445,12 +445,12 @@ Ok(
                     accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Foreign,
+                            Alien,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::num::i8`, `Foreign`),
+                        TypePath(`core::num::i8`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `i8`,
@@ -495,12 +495,12 @@ Ok(
                     accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Foreign,
+                            Alien,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::num::i16`, `Foreign`),
+                        TypePath(`core::num::i16`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `i16`,
@@ -545,12 +545,12 @@ Ok(
                     accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Foreign,
+                            Alien,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::num::i32`, `Foreign`),
+                        TypePath(`core::num::i32`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `i32`,
@@ -595,12 +595,12 @@ Ok(
                     accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Foreign,
+                            Alien,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::num::i64`, `Foreign`),
+                        TypePath(`core::num::i64`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `i64`,
@@ -645,12 +645,12 @@ Ok(
                     accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Foreign,
+                            Alien,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::num::f8`, `Foreign`),
+                        TypePath(`core::num::f8`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `f8`,
@@ -695,12 +695,12 @@ Ok(
                     accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Foreign,
+                            Alien,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::num::f16`, `Foreign`),
+                        TypePath(`core::num::f16`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `f16`,
@@ -745,12 +745,12 @@ Ok(
                     accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Foreign,
+                            Alien,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::num::f32`, `Foreign`),
+                        TypePath(`core::num::f32`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `f32`,
@@ -795,12 +795,12 @@ Ok(
                     accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Foreign,
+                            Alien,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::num::f64`, `Foreign`),
+                        TypePath(`core::num::f64`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `f64`,

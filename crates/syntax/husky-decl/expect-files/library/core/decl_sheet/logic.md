@@ -5,7 +5,7 @@ Ok(
                 Type(
                     Foreign(
                         AlienTypeDecl {
-                            path: TypePath(`core::logic::Prop`, `Foreign`),
+                            path: TypePath(`core::logic::Prop`, `Alien`),
                             ast_idx: 0,
                             expr_page: ExprPage(
                                 Id {

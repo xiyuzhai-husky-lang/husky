@@ -366,7 +366,7 @@ impl<'a> BasicAuxAstParser<'a> {
                 }
                 Keyword::Type(kw) => {
                     let type_kind = match kw {
-                        TypeKeyword::Type => TypeKind::Foreign,
+                        TypeKeyword::Type => TypeKind::Alien,
                         TypeKeyword::Struct => TypeKind::Struct,
                         TypeKeyword::Enum => TypeKind::Enum,
                         TypeKeyword::Record => TypeKind::Record,

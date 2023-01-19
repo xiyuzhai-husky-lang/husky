@@ -40,6 +40,7 @@ pub struct EntityPathMenu {
     core_ops_neg: TraitPath,
     // Not	The unary logical negation operator !.
     core_ops_not: TraitPath,
+    core_slice_slice_type: TypePath,
     // prelude
     unit: TypePath,
     bool: TypePath,
@@ -60,6 +61,7 @@ impl EntityPathMenu {
         let word_menu = db.word_menu();
         let path_menu = db.vfs_path_menu(toolchain)?;
         let core_ops = path_menu.core_ops();
+        let core_slice = path_menu.core_slice();
         let core_basic = path_menu.core_basic();
         let core_num = path_menu.core_num();
         let core_ops_add = TraitPath::new(
@@ -146,89 +148,96 @@ impl EntityPathMenu {
             db.it_ident_borrowed("Not").unwrap(),
             ModuleItemConnection::Connected,
         );
+        let core_slice_slice_type = TypePath::new(
+            db,
+            core_slice,
+            db.it_ident_borrowed("Slice").unwrap(),
+            ModuleItemConnection::Connected,
+            TypeKind::Alien,
+        );
         let i32 = TypePath::new(
             db,
             core_num,
             word_menu.i32(),
             ModuleItemConnection::Connected,
-            TypeKind::Foreign,
+            TypeKind::Alien,
         );
         let i64 = TypePath::new(
             db,
             core_num,
             word_menu.i64(),
             ModuleItemConnection::Connected,
-            TypeKind::Foreign,
+            TypeKind::Alien,
         );
         let unit = TypePath::new(
             db,
             core_basic,
             word_menu.unit(),
             ModuleItemConnection::Connected,
-            TypeKind::Foreign,
+            TypeKind::Alien,
         );
         let bool = TypePath::new(
             db,
             core_basic,
             word_menu.bool(),
             ModuleItemConnection::Connected,
-            TypeKind::Foreign,
+            TypeKind::Alien,
         );
         let f32 = TypePath::new(
             db,
             core_num,
             word_menu.f32(),
             ModuleItemConnection::Connected,
-            TypeKind::Foreign,
+            TypeKind::Alien,
         );
         let f64 = TypePath::new(
             db,
             core_num,
             word_menu.f64(),
             ModuleItemConnection::Connected,
-            TypeKind::Foreign,
+            TypeKind::Alien,
         );
         let r32 = TypePath::new(
             db,
             core_num,
             word_menu.r32(),
             ModuleItemConnection::Connected,
-            TypeKind::Foreign,
+            TypeKind::Alien,
         );
         let b64 = TypePath::new(
             db,
             core_num,
             word_menu.b64(),
             ModuleItemConnection::Connected,
-            TypeKind::Foreign,
+            TypeKind::Alien,
         );
         let u32 = TypePath::new(
             db,
             core_num,
             word_menu.u32(),
             ModuleItemConnection::Connected,
-            TypeKind::Foreign,
+            TypeKind::Alien,
         );
         let u64 = TypePath::new(
             db,
             core_num,
             word_menu.u64(),
             ModuleItemConnection::Connected,
-            TypeKind::Foreign,
+            TypeKind::Alien,
         );
         let trai = TypePath::new(
             db,
             core_num,
             word_menu.trai(),
             ModuleItemConnection::Connected,
-            TypeKind::Foreign,
+            TypeKind::Alien,
         );
         let module = TypePath::new(
             db,
             core_num,
             word_menu.module(),
             ModuleItemConnection::Connected,
-            TypeKind::Foreign,
+            TypeKind::Alien,
         );
         Ok(Self {
             core_ops_add,
@@ -245,6 +254,7 @@ impl EntityPathMenu {
             core_ops_mul_assign,
             core_ops_neg,
             core_ops_not,
+            core_slice_slice_type,
             unit,
             bool,
             i32,
@@ -346,6 +356,10 @@ impl EntityPathMenu {
 
     pub fn core_ops_not(&self) -> TraitPath {
         self.core_ops_not
+    }
+
+    pub fn core_slice_slice_type(&self) -> TypePath {
+        self.core_slice_slice_type
     }
 
     pub fn trai(&self) -> TypePath {

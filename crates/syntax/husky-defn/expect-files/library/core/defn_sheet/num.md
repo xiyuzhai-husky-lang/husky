@@ -4,7 +4,7 @@ Ok(
             Type(
                 Foreign(
                     AlienTypeDefn {
-                        path: TypePath(`core::num::i8`, `Foreign`),
+                        path: TypePath(`core::num::i8`, `Alien`),
                         decl: AlienTypeDecl(
                             Id {
                                 value: 3,
@@ -16,7 +16,7 @@ Ok(
             Type(
                 Foreign(
                     AlienTypeDefn {
-                        path: TypePath(`core::num::i16`, `Foreign`),
+                        path: TypePath(`core::num::i16`, `Alien`),
                         decl: AlienTypeDecl(
                             Id {
                                 value: 4,
@@ -28,7 +28,7 @@ Ok(
             Type(
                 Foreign(
                     AlienTypeDefn {
-                        path: TypePath(`core::num::i32`, `Foreign`),
+                        path: TypePath(`core::num::i32`, `Alien`),
                         decl: AlienTypeDecl(
                             Id {
                                 value: 5,
@@ -40,7 +40,7 @@ Ok(
             Type(
                 Foreign(
                     AlienTypeDefn {
-                        path: TypePath(`core::num::i64`, `Foreign`),
+                        path: TypePath(`core::num::i64`, `Alien`),
                         decl: AlienTypeDecl(
                             Id {
                                 value: 6,
@@ -52,7 +52,7 @@ Ok(
             Type(
                 Foreign(
                     AlienTypeDefn {
-                        path: TypePath(`core::num::f8`, `Foreign`),
+                        path: TypePath(`core::num::f8`, `Alien`),
                         decl: AlienTypeDecl(
                             Id {
                                 value: 7,
@@ -64,7 +64,7 @@ Ok(
             Type(
                 Foreign(
                     AlienTypeDefn {
-                        path: TypePath(`core::num::f16`, `Foreign`),
+                        path: TypePath(`core::num::f16`, `Alien`),
                         decl: AlienTypeDecl(
                             Id {
                                 value: 8,
@@ -76,7 +76,7 @@ Ok(
             Type(
                 Foreign(
                     AlienTypeDefn {
-                        path: TypePath(`core::num::f32`, `Foreign`),
+                        path: TypePath(`core::num::f32`, `Alien`),
                         decl: AlienTypeDecl(
                             Id {
                                 value: 9,
@@ -88,7 +88,7 @@ Ok(
             Type(
                 Foreign(
                     AlienTypeDefn {
-                        path: TypePath(`core::num::f64`, `Foreign`),
+                        path: TypePath(`core::num::f64`, `Alien`),
                         decl: AlienTypeDecl(
                             Id {
                                 value: 10,
