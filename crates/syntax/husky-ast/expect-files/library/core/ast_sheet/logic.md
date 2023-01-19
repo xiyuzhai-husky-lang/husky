@@ -12,12 +12,12 @@ Ok(
                     accessibility: Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
-                            Foreign,
+                            Alien,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`core::logic::Prop`, `Foreign`),
+                        TypePath(`core::logic::Prop`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
                         ident: `Prop`,

@@ -5,7 +5,7 @@ Ok(
                 Type(
                     Foreign(
                         AlienTypeDecl {
-                            path: TypePath(`core::basic::bool`, `Foreign`),
+                            path: TypePath(`core::basic::bool`, `Alien`),
                             ast_idx: 0,
                             expr_page: ExprPage(
                                 Id {

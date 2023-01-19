@@ -143,7 +143,7 @@ impl<'a> DeclParser<'a> {
                 body,
                 saved_stream_state,
             ),
-            TypeKind::Foreign => self.parse_foreign_type_decl(
+            TypeKind::Alien => self.parse_foreign_type_decl(
                 ast_idx,
                 path,
                 token_group_idx,

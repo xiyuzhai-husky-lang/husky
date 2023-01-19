@@ -5,7 +5,7 @@ Ok(
                 Type(
                     Foreign(
                         AlienTypeDecl {
-                            path: TypePath(`core::num::i8`, `Foreign`),
+                            path: TypePath(`core::num::i8`, `Alien`),
                             ast_idx: 17,
                             expr_page: ExprPage(
                                 Id {
@@ -21,7 +21,7 @@ Ok(
                 Type(
                     Foreign(
                         AlienTypeDecl {
-                            path: TypePath(`core::num::i16`, `Foreign`),
+                            path: TypePath(`core::num::i16`, `Alien`),
                             ast_idx: 21,
                             expr_page: ExprPage(
                                 Id {
@@ -37,7 +37,7 @@ Ok(
                 Type(
                     Foreign(
                         AlienTypeDecl {
-                            path: TypePath(`core::num::i32`, `Foreign`),
+                            path: TypePath(`core::num::i32`, `Alien`),
                             ast_idx: 25,
                             expr_page: ExprPage(
                                 Id {
@@ -53,7 +53,7 @@ Ok(
                 Type(
                     Foreign(
                         AlienTypeDecl {
-                            path: TypePath(`core::num::i64`, `Foreign`),
+                            path: TypePath(`core::num::i64`, `Alien`),
                             ast_idx: 29,
                             expr_page: ExprPage(
                                 Id {
@@ -69,7 +69,7 @@ Ok(
                 Type(
                     Foreign(
                         AlienTypeDecl {
-                            path: TypePath(`core::num::f8`, `Foreign`),
+                            path: TypePath(`core::num::f8`, `Alien`),
                             ast_idx: 33,
                             expr_page: ExprPage(
                                 Id {
@@ -85,7 +85,7 @@ Ok(
                 Type(
                     Foreign(
                         AlienTypeDecl {
-                            path: TypePath(`core::num::f16`, `Foreign`),
+                            path: TypePath(`core::num::f16`, `Alien`),
                             ast_idx: 37,
                             expr_page: ExprPage(
                                 Id {
@@ -101,7 +101,7 @@ Ok(
                 Type(
                     Foreign(
                         AlienTypeDecl {
-                            path: TypePath(`core::num::f32`, `Foreign`),
+                            path: TypePath(`core::num::f32`, `Alien`),
                             ast_idx: 41,
                             expr_page: ExprPage(
                                 Id {
@@ -117,7 +117,7 @@ Ok(
                 Type(
                     Foreign(
                         AlienTypeDecl {
-                            path: TypePath(`core::num::f64`, `Foreign`),
+                            path: TypePath(`core::num::f64`, `Alien`),
                             ast_idx: 45,
                             expr_page: ExprPage(
                                 Id {

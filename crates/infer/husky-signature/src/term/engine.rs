@@ -1,6 +1,6 @@
 use super::*;
 use husky_expr::*;
-use outcome::*;
+use outcome::{Success, *};
 
 pub(crate) struct SignatureTermEngine<'a> {
     db: &'a dyn SignatureDb,
@@ -95,33 +95,37 @@ impl<'a> SignatureTermEngine<'a> {
             } => todo!(),
             Expr::MethodCall { .. } => todo!(),
             Expr::TemplateInstantiation { .. } => todo!(),
-            Expr::Application { function, argument } => match self.expr_arena[function] {
-                Expr::BoxColon {
-                    caller: None,
-                    lbox_token_idx,
-                    colon_token_idx,
-                    rbox_token,
-                } => {
-                    todo!()
-                }
-                Expr::NewBoxList {
-                    caller: None,
-                    lbox_token_idx,
-                    items,
-                    rbox_token_idx,
-                } => {
-                    todo!()
-                }
-                _ => {
-                    let Some(function) = self.query_new(function) else {
+            Expr::Application { function, argument } => {
+                let Some(argument) = self.query_new(argument) else {
+                        return Abort(SignatureTermAbortion::CannotInferArgumentTermInApplication)
+                    };
+                match self.expr_arena[function] {
+                    Expr::BoxColon {
+                        caller: None,
+                        lbox_token_idx,
+                        colon_token_idx,
+                        rbox_token,
+                    } => Success(Term::new_application(
+                        self.db,
+                        self.term_menu.slice_type(),
+                        argument,
+                    )),
+                    Expr::NewBoxList {
+                        caller: None,
+                        lbox_token_idx,
+                        items,
+                        rbox_token_idx,
+                    } => {
+                        todo!()
+                    }
+                    _ => {
+                        let Some(function) = self.query_new(function) else {
                             return Abort(SignatureTermAbortion::CannotInferFunctionTermInApplication)
                         };
-                    let Some(argument) = self.query_new(argument) else {
-                            return Abort(SignatureTermAbortion::CannotInferArgumentTermInApplication)
-                        };
-                    todo!()
+                        todo!()
+                    }
                 }
-            },
+            }
             Expr::NewTuple {
                 lpar_token_idx,
                 items,

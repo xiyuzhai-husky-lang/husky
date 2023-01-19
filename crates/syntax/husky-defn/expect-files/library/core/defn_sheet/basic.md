@@ -4,7 +4,7 @@ Ok(
             Type(
                 Foreign(
                     AlienTypeDefn {
-                        path: TypePath(`core::basic::bool`, `Foreign`),
+                        path: TypePath(`core::basic::bool`, `Alien`),
                         decl: AlienTypeDecl(
                             Id {
                                 value: 1,

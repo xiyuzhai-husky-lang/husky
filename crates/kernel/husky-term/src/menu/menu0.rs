@@ -2,11 +2,11 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermMenu0 {
-    sort: Term,
-    universe1: Term,
+    // sort: Term,
+    // universe1: Term,
     unit: Term,
-    core: Term,
-    core_ops: Term,
+    // core: Term,
+    // core_ops: Term,
     // core::ops::Add	The addition operator +.
     core_ops_add: Term,
     // core::ops::AddAssign	The addition assignment operator +=.
@@ -35,6 +35,7 @@ pub struct TermMenu0 {
     core_ops_neg: Term,
     // Not	The unary logical negation operator !.
     core_ops_not: Term,
+    core_slice_slice_type: Term,
     std: Term,
     i32: Term,
     i64: Term,
@@ -49,63 +50,65 @@ pub struct TermMenu0 {
 
 impl TermMenu0 {
     pub fn new(db: &dyn TermDb, toolchain: Toolchain) -> Self {
-        todo!()
         // let sort = db.it_term(TermAtom::new_category(TermCategory::Sort).into());
         // let universe1 = db.it_term(TermAtom::new_universe(1).into());
-        // let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
-        // TermMenu0 {
-        //     sort,
-        //     universe1,
-        //     core: db.it_entity_path_term(entity_path_menu.core()),
-        //     core_ops: db.it_entity_path_term(entity_path_menu.core_ops()),
-        //     core_ops_add: db.it_entity_path_term(entity_path_menu.core_ops_add()),
-        //     // start here
-        //     // db.it_entity_path_term(entity_path_menu.core_ops_())
-        //     core_ops_add_assign: db.it_entity_path_term(entity_path_menu.core_ops_add_assign()),
-        //     core_ops_bit_and: db.it_entity_path_term(entity_path_menu.core_ops_bit_and()),
-        //     core_ops_bit_and_assign: db
-        //         .it_entity_path_term(entity_path_menu.core_ops_bit_and_assign()),
-        //     core_ops_bit_or: db.it_entity_path_term(entity_path_menu.core_ops_bit_or()),
-        //     core_ops_bit_or_assign: db
-        //         .it_entity_path_term(entity_path_menu.core_ops_bit_or_assign()),
-        //     core_ops_bit_xor: db.it_entity_path_term(entity_path_menu.core_ops_bit_xor()),
-        //     core_ops_bit_xor_assign: db
-        //         .it_entity_path_term(entity_path_menu.core_ops_bit_xor_assign()),
-        //     core_ops_div: db.it_entity_path_term(entity_path_menu.core_ops_div()),
-        //     core_ops_div_assign: db.it_entity_path_term(entity_path_menu.core_ops_div_assign()),
-        //     core_ops_mul: db.it_entity_path_term(entity_path_menu.core_ops_mul()),
-        //     core_ops_mul_assign: db.it_entity_path_term(entity_path_menu.core_ops_mul_assign()),
-        //     core_ops_neg: db.it_entity_path_term(entity_path_menu.core_ops_neg()),
-        //     core_ops_not: db.it_entity_path_term(entity_path_menu.core_ops_not()),
-        //     std: db.it_entity_path_term(entity_path_menu.std()),
-        //     unit: db.it_entity_path_term(entity_path_menu.unit()),
-        //     bool: db.it_entity_path_term(entity_path_menu.bool()),
-        //     trai: db.it_entity_path_term(entity_path_menu.trai()),
-        //     module: db.it_entity_path_term(entity_path_menu.module()),
-        //     i32: db.it_entity_path_term(entity_path_menu.i32()),
-        //     i64: db.it_entity_path_term(entity_path_menu.i64()),
-        //     f32: db.it_entity_path_term(entity_path_menu.f32()),
-        //     f64: db.it_entity_path_term(entity_path_menu.f64()),
-        //     r32: db.it_entity_path_term(entity_path_menu.r32()),
-        //     b64: db.it_entity_path_term(entity_path_menu.b64()),
-        // }
+        let vfs_path_menu = db.vfs_path_menu(toolchain).unwrap();
+        let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
+        TermMenu0 {
+            // sort,
+            // universe1,
+            // core: Term::Entity(entity_path_menu.core()),
+            // core_ops: Term::Entity(entity_path_menu.core_ops()),
+            core_ops_add: Term::Entity(entity_path_menu.core_ops_add().into()),
+            // start here
+            // Term::Entity(entity_path_menu.core_ops_())
+            core_ops_add_assign: Term::Entity(entity_path_menu.core_ops_add_assign().into()),
+            core_ops_bit_and: Term::Entity(entity_path_menu.core_ops_bit_and().into()),
+            core_ops_bit_and_assign: Term::Entity(
+                entity_path_menu.core_ops_bit_and_assign().into(),
+            ),
+            core_ops_bit_or: Term::Entity(entity_path_menu.core_ops_bit_or().into()),
+            core_ops_bit_or_assign: Term::Entity(entity_path_menu.core_ops_bit_or_assign().into()),
+            core_ops_bit_xor: Term::Entity(entity_path_menu.core_ops_bit_xor().into()),
+            core_ops_bit_xor_assign: Term::Entity(
+                entity_path_menu.core_ops_bit_xor_assign().into(),
+            ),
+            core_ops_div: Term::Entity(entity_path_menu.core_ops_div().into()),
+            core_ops_div_assign: Term::Entity(entity_path_menu.core_ops_div_assign().into()),
+            core_ops_mul: Term::Entity(entity_path_menu.core_ops_mul().into()),
+            core_ops_mul_assign: Term::Entity(entity_path_menu.core_ops_mul_assign().into()),
+            core_ops_neg: Term::Entity(entity_path_menu.core_ops_neg().into()),
+            core_ops_not: Term::Entity(entity_path_menu.core_ops_not().into()),
+            core_slice_slice_type: Term::Entity(entity_path_menu.core_slice_slice_type().into()),
+            std: Term::Entity(vfs_path_menu.std().into()),
+            unit: Term::Entity(entity_path_menu.unit().into()),
+            bool: Term::Entity(entity_path_menu.bool().into()),
+            trai: Term::Entity(entity_path_menu.trai().into()),
+            module: Term::Entity(entity_path_menu.module().into()),
+            i32: Term::Entity(entity_path_menu.i32().into()),
+            i64: Term::Entity(entity_path_menu.i64().into()),
+            f32: Term::Entity(entity_path_menu.f32().into()),
+            f64: Term::Entity(entity_path_menu.f64().into()),
+            r32: Term::Entity(entity_path_menu.r32().into()),
+            b64: Term::Entity(entity_path_menu.b64().into()),
+        }
     }
 
-    pub fn sort(&self) -> Term {
-        self.sort
-    }
+    // pub fn sort(&self) -> Term {
+    //     self.sort
+    // }
 
-    pub fn universe1(&self) -> Term {
-        self.universe1
-    }
+    // pub fn universe1(&self) -> Term {
+    //     self.universe1
+    // }
 
-    pub fn core(&self) -> Term {
-        self.core
-    }
+    // pub fn core(&self) -> Term {
+    //     self.core
+    // }
 
-    pub fn core_ops(&self) -> Term {
-        self.core_ops
-    }
+    // pub fn core_ops(&self) -> Term {
+    //     self.core_ops
+    // }
 
     // Add	The addition operator +.
     pub fn core_ops_add(&self) -> Term {
@@ -174,6 +177,10 @@ impl TermMenu0 {
     // Not	The unary logical negation operator !.
     pub fn core_ops_not(&self) -> Term {
         self.core_ops_not
+    }
+
+    pub fn slice_type(&self) -> Term {
+        self.core_slice_slice_type
     }
 
     pub fn unit(&self) -> Term {

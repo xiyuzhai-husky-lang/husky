@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 160;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 44,\n            },\n        ),\n    ),\n);\n\ntoken_info = InheritedSymbol {\n    inherited_symbol_idx: 2,\n    inherited_symbol_kind: Parameter,\n    expr_page: ExprPage(\n        Id {\n            value: 65,\n        },\n    ),\n};\n\nInheritedSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 48,\n            },\n        ),\n    ),\n    kind: Parameter,\n}\n",
+                                value: "\ntoken_idx = 160;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 45,\n            },\n        ),\n    ),\n);\n\ntoken_info = InheritedSymbol {\n    inherited_symbol_idx: 2,\n    inherited_symbol_kind: Parameter,\n    expr_page: ExprPage(\n        Id {\n            value: 65,\n        },\n    ),\n};\n\nInheritedSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 49,\n            },\n        ),\n    ),\n    kind: Parameter,\n}\n",
                             },
                         ),
                         range: Some(
@@ -340,7 +340,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 176;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 44,\n            },\n        ),\n    ),\n);\n\ntoken_info = InheritedSymbol {\n    inherited_symbol_idx: 2,\n    inherited_symbol_kind: Parameter,\n    expr_page: ExprPage(\n        Id {\n            value: 65,\n        },\n    ),\n};\n\nInheritedSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 48,\n            },\n        ),\n    ),\n    kind: Parameter,\n}\n",
+                                value: "\ntoken_idx = 176;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 45,\n            },\n        ),\n    ),\n);\n\ntoken_info = InheritedSymbol {\n    inherited_symbol_idx: 2,\n    inherited_symbol_kind: Parameter,\n    expr_page: ExprPage(\n        Id {\n            value: 65,\n        },\n    ),\n};\n\nInheritedSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 49,\n            },\n        ),\n    ),\n    kind: Parameter,\n}\n",
                             },
                         ),
                         range: Some(
@@ -370,7 +370,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 192;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 54,\n            },\n        ),\n    ),\n);\n\ntoken_info = CurrentSymbol {\n    current_symbol_idx: 1,\n    current_symbol_kind: LetVariable {\n        pattern_symbol: 1,\n    },\n    expr_page: ExprPage(\n        Id {\n            value: 65,\n        },\n    ),\n};\n\nCurrentSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 54,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        137,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                224,\n            ),\n        ),\n    ),\n    variant: LetVariable {\n        pattern_symbol: 1,\n    },\n}\n",
+                                value: "\ntoken_idx = 192;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 55,\n            },\n        ),\n    ),\n);\n\ntoken_info = CurrentSymbol {\n    current_symbol_idx: 1,\n    current_symbol_kind: LetVariable {\n        pattern_symbol: 1,\n    },\n    expr_page: ExprPage(\n        Id {\n            value: 65,\n        },\n    ),\n};\n\nCurrentSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 55,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        137,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                224,\n            ),\n        ),\n    ),\n    variant: LetVariable {\n        pattern_symbol: 1,\n    },\n}\n",
                             },
                         ),
                         range: Some(

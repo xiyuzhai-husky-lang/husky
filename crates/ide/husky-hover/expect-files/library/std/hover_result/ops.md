@@ -70,7 +70,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 2;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 40,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 2;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 41,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(

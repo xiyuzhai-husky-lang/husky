@@ -20,6 +20,7 @@ pub use literal::*;
 pub use subentity::*;
 pub use universe::*;
 
+use crate::*;
 use husky_entity_path::EntityPath;
 use husky_word::Identifier;
 
@@ -47,4 +48,10 @@ pub enum Term {
     AsTraitSubentity(TermAsTraitSubentity),
     /// <type> : <trait>
     TraitConstraint(TermTraitConstraint),
+}
+
+impl Term {
+    pub fn new_application(db: &dyn TermDb, function: Term, argument: Term) -> Self {
+        todo!()
+    }
 }

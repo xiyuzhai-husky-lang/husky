@@ -70,7 +70,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 2;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 62,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 2;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 63,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -130,7 +130,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 4;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 63,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 4;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 64,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -190,7 +190,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 6;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 64,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 6;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 65,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(

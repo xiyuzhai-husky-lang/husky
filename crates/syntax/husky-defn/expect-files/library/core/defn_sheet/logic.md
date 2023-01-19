@@ -4,7 +4,7 @@ Ok(
             Type(
                 Foreign(
                     AlienTypeDefn {
-                        path: TypePath(`core::logic::Prop`, `Foreign`),
+                        path: TypePath(`core::logic::Prop`, `Alien`),
                         decl: AlienTypeDecl(
                             Id {
                                 value: 2,

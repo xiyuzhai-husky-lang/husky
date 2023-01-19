@@ -24,7 +24,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 79,
+                                                    value: 80,
                                                 },
                                             ),
                                         ),
@@ -44,7 +44,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 295,
+                                                    value: 296,
                                                 },
                                             ),
                                         ),
