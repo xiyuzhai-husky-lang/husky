@@ -1,11 +1,13 @@
 use super::*;
 use husky_expr::*;
-use husky_opn_syntax::PrefixOpr;
+use husky_opn_syntax::{BinaryOpr, PrefixOpr};
 use husky_print_utils::p;
 use outcome::{Success, *};
+use salsa::DebugWithDb;
 
 pub(crate) struct SignatureTermEngine<'a> {
     db: &'a dyn SignatureDb,
+    path: ExprPath,
     expr_arena: &'a ExprArena,
     entity_path_expr_arena: &'a EntityPathExprArena,
     term_menu: &'a TermMenu,
@@ -66,6 +68,7 @@ impl<'a> SignatureTermEngine<'a> {
         let term_menu = &db.term_menu(toolchain).as_ref().unwrap();
         Self {
             db,
+            path: expr_page.path(db),
             expr_arena,
             entity_path_expr_arena: expr_page.entity_path_expr_arena(db),
             symbol_page,
@@ -127,11 +130,26 @@ impl<'a> SignatureTermEngine<'a> {
             Expr::SelfType(_) => todo!(),
             Expr::SelfValue(_) => todo!(),
             Expr::BinaryOpn {
-                lopd,
-                opr,
-                opr_token_idx,
-                ropd,
-            } => todo!(),
+                lopd, opr, ropd, ..
+            } => {
+                let Success(lopd) = self.query_new(lopd) else {
+                    return Abort(SignatureTermAbortion::CannotInferOperandTermInPrefix);
+                };
+                let Success(ropd) = self.query_new(ropd) else {
+                    return Abort(SignatureTermAbortion::CannotInferOperandTermInPrefix);
+                };
+                match opr {
+                    BinaryOpr::PureClosed(_) => todo!(),
+                    BinaryOpr::Comparison(_) => todo!(),
+                    BinaryOpr::ShortcuitLogic(_) => todo!(),
+                    BinaryOpr::Assign(_) => todo!(),
+                    BinaryOpr::ScopeResolution => todo!(),
+                    BinaryOpr::Curry => Success(TermCurry::new(self.db, lopd, ropd).into()),
+                    BinaryOpr::As => todo!(),
+                    BinaryOpr::Is => todo!(),
+                    BinaryOpr::In => todo!(),
+                }
+            }
             Expr::Be { .. } => todo!(),
             Expr::PrefixOpn {
                 opr,
@@ -159,7 +177,9 @@ impl<'a> SignatureTermEngine<'a> {
                 punctuation,
                 punctuation_token_idx,
             } => todo!(),
-            Expr::FunctionCall { .. } => todo!(),
+            Expr::FunctionCall { function, .. } => {
+                todo!()
+            }
             Expr::Field {
                 this_expr,
                 dot_token_idx,
@@ -167,7 +187,10 @@ impl<'a> SignatureTermEngine<'a> {
             } => todo!(),
             Expr::MethodCall { .. } => todo!(),
             Expr::TemplateInstantiation { .. } => todo!(),
-            Expr::Application { function, argument } => {
+            Expr::ApplicationOrFunctionCall {
+                function, argument, ..
+            }
+            | Expr::Application { function, argument } => {
                 let Success(argument) = self.query_new(argument) else {
                         return Abort(SignatureTermAbortion::CannotInferArgumentTermInApplication)
                     };
@@ -203,7 +226,12 @@ impl<'a> SignatureTermEngine<'a> {
                 lpar_token_idx,
                 items,
                 rpar_token_idx,
-            } => todo!(),
+                ..
+            } => {
+                p!(self.path.debug(self.db));
+                p!(items.len());
+                todo!()
+            }
             Expr::NewBoxList {
                 caller,
                 lbox_token_idx,
@@ -216,7 +244,7 @@ impl<'a> SignatureTermEngine<'a> {
                 colon_token_idx,
                 rbox_token,
             } => todo!(),
-            Expr::Bracketed(_) => todo!(),
+            Expr::Bracketed { item, .. } => self.query_new(item),
             Expr::Block { stmts } => todo!(),
             Expr::Err(_) => Abort(SignatureTermAbortion::ExprError),
         }

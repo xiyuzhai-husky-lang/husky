@@ -114,6 +114,12 @@ pub enum Expr {
         punctuation: SuffixOpr,
         punctuation_token_idx: TokenIdx,
     },
+    ApplicationOrFunctionCall {
+        function: ExprIdx,
+        lpar_token_idx: TokenIdx,
+        argument: ExprIdx,
+        rpar_token_idx: TokenIdx,
+    },
     FunctionCall {
         function: ExprIdx,
         implicit_arguments: Option<ImplicitArgumentList>,
@@ -143,9 +149,15 @@ pub enum Expr {
         function: ExprIdx,
         argument: ExprIdx,
     },
+    Bracketed {
+        lpar_token_idx: TokenIdx,
+        item: ExprIdx,
+        rpar_token_idx: TokenIdx,
+    },
     NewTuple {
         lpar_token_idx: TokenIdx,
         items: ExprIdxRange,
+        commas: Vec<TokenIdx>,
         rpar_token_idx: TokenIdx,
     },
     NewBoxList {
@@ -160,7 +172,6 @@ pub enum Expr {
         colon_token_idx: TokenIdx,
         rbox_token: RightBoxBracketToken,
     },
-    Bracketed(ExprIdx),
     Block {
         stmts: StmtIdxRange,
     },

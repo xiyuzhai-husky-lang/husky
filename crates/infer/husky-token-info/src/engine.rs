@@ -291,13 +291,14 @@ impl<'a> AuxInferEngine<'a> {
             | Expr::TemplateInstantiation { .. }
             | Expr::NewTuple { .. }
             | Expr::NewBoxList { .. }
-            | Expr::Bracketed(_)
+            | Expr::Bracketed { .. }
             | Expr::Err(_)
             | Expr::Block { .. }
             | Expr::FunctionCall { .. }
             | Expr::Be { .. } => (),
             Expr::BoxColon { .. } => (),
-            Expr::Application { function, .. } => match self.symbol_context[*function] {
+            Expr::ApplicationOrFunctionCall { function, .. }
+            | Expr::Application { function, .. } => match self.symbol_context[*function] {
                 Expr::NewBoxList {
                     caller: None,
                     lbox_token_idx,
