@@ -58,8 +58,8 @@ impl Expr {
                 ropd,
             } => todo!(),
             Expr::PrefixOpn {
-                punctuation,
-                punctuation_token_idx,
+                opr: punctuation,
+                opr_token_idx: punctuation_token_idx,
                 opd,
             } => todo!(),
             Expr::SuffixOpn {
@@ -201,8 +201,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     let finished_expr = self.take_finished_expr();
                     self.stack.finished_expr = Some(match finished_expr {
                         Some(opd) => Expr::PrefixOpn {
-                            punctuation,
-                            punctuation_token_idx,
+                            opr: punctuation,
+                            opr_token_idx: punctuation_token_idx,
                             opd: self.alloc_expr(opd),
                         },
                         None => Expr::Err(ExprError::NoOperandForPrefixOperator {

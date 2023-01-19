@@ -105,8 +105,8 @@ pub enum Expr {
         target: ExprResult<BeVariableDeclPattern>,
     },
     PrefixOpn {
-        punctuation: PrefixOpr,
-        punctuation_token_idx: TokenIdx,
+        opr: PrefixOpr,
+        opr_token_idx: TokenIdx,
         opd: ExprIdx,
     },
     SuffixOpn {

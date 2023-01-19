@@ -1,5 +1,7 @@
 use super::*;
 use husky_expr::*;
+use husky_opn_syntax::PrefixOpr;
+use husky_print_utils::p;
 use outcome::{Success, *};
 
 pub(crate) struct SignatureTermEngine<'a> {
@@ -74,9 +76,13 @@ impl<'a> SignatureTermEngine<'a> {
     }
 
     // ask about the term for expr, assuming it hasn't been computed before
-    pub(crate) fn query_new(&mut self, expr_idx: ExprIdx) -> Option<Term> {
+    pub(crate) fn query_new(&mut self, expr_idx: ExprIdx) -> SignatureTermOutcome<Term> {
         let outcome = self.calc(expr_idx);
-        let term = outcome.ok_copy();
+        let term = match outcome {
+            Success(term) => Success(term),
+            Failure(_) => todo!(),
+            Abort(_) => Abort(SignatureTermAbortion::TermAbortion),
+        };
         self.save(expr_idx, outcome);
         term
     }
@@ -128,10 +134,26 @@ impl<'a> SignatureTermEngine<'a> {
             } => todo!(),
             Expr::Be { .. } => todo!(),
             Expr::PrefixOpn {
-                punctuation,
-                punctuation_token_idx,
+                opr,
+                opr_token_idx,
                 opd,
-            } => todo!(),
+            } => {
+                let Success(opd) = self.query_new(opd) else {
+                    return Abort(SignatureTermAbortion::CannotInferOperandTermInPrefix);
+                };
+                let tmpl = match opr {
+                    PrefixOpr::Minus => todo!(),
+                    PrefixOpr::Not => todo!(),
+                    PrefixOpr::BitNot => todo!(),
+                    PrefixOpr::Ref => todo!(),
+                    PrefixOpr::Vector => todo!(),
+                    PrefixOpr::Slice => todo!(),
+                    PrefixOpr::CyclicSlice => todo!(),
+                    PrefixOpr::Array(_) => todo!(),
+                    PrefixOpr::Option => self.term_menu.option_ty(),
+                };
+                Success(TermApplication::new(self.db, tmpl, opd).into())
+            }
             Expr::SuffixOpn {
                 opd,
                 punctuation,
@@ -146,7 +168,7 @@ impl<'a> SignatureTermEngine<'a> {
             Expr::MethodCall { .. } => todo!(),
             Expr::TemplateInstantiation { .. } => todo!(),
             Expr::Application { function, argument } => {
-                let Some(argument) = self.query_new(argument) else {
+                let Success(argument) = self.query_new(argument) else {
                         return Abort(SignatureTermAbortion::CannotInferArgumentTermInApplication)
                     };
                 match self.expr_arena[function] {
@@ -157,7 +179,7 @@ impl<'a> SignatureTermEngine<'a> {
                         rbox_token,
                     } => Success({
                         let db = self.db;
-                        let function = self.term_menu.slice_type();
+                        let function = self.term_menu.slice_ty();
                         TermApplication::new(db, function, argument).into()
                     }),
                     Expr::NewBoxList {
@@ -169,7 +191,7 @@ impl<'a> SignatureTermEngine<'a> {
                         todo!()
                     }
                     _ => {
-                        let Some(function) = self.query_new(function) else {
+                        let Success(function) = self.query_new(function) else {
                             return Abort(SignatureTermAbortion::CannotInferFunctionTermInApplication)
                         };
                         todo!()

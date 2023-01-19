@@ -20,11 +20,11 @@ Ok(
                             },
                             fields: [
                                 RegularStructFieldDecl {
-                                    ident: IdentifierToken {
+                                    ident_token: IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 115,
+                                                    value: 116,
                                                 },
                                             ),
                                         ),
@@ -40,11 +40,11 @@ Ok(
                                     ty: 4,
                                 },
                                 RegularStructFieldDecl {
-                                    ident: IdentifierToken {
+                                    ident_token: IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 332,
+                                                    value: 333,
                                                 },
                                             ),
                                         ),

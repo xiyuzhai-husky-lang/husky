@@ -40,7 +40,8 @@ pub struct EntityPathMenu {
     core_ops_neg: TraitPath,
     // Not	The unary logical negation operator !.
     core_ops_not: TraitPath,
-    core_slice_slice_type: TypePath,
+    core_option_option_ty: TypePath,
+    core_slice_slice_ty: TypePath,
     // prelude
     unit: TypePath,
     bool: TypePath,
@@ -61,6 +62,7 @@ impl EntityPathMenu {
         let word_menu = db.word_menu();
         let path_menu = db.vfs_path_menu(toolchain)?;
         let core_ops = path_menu.core_ops();
+        let core_option = path_menu.core_option();
         let core_slice = path_menu.core_slice();
         let core_basic = path_menu.core_basic();
         let core_num = path_menu.core_num();
@@ -148,7 +150,14 @@ impl EntityPathMenu {
             db.it_ident_borrowed("Not").unwrap(),
             ModuleItemConnection::Connected,
         );
-        let core_slice_slice_type = TypePath::new(
+        let core_option_option_ty = TypePath::new(
+            db,
+            core_option,
+            db.it_ident_borrowed("Option").unwrap(),
+            ModuleItemConnection::Connected,
+            TypeKind::Enum,
+        );
+        let core_slice_slice_ty = TypePath::new(
             db,
             core_slice,
             db.it_ident_borrowed("Slice").unwrap(),
@@ -254,7 +263,8 @@ impl EntityPathMenu {
             core_ops_mul_assign,
             core_ops_neg,
             core_ops_not,
-            core_slice_slice_type,
+            core_option_option_ty,
+            core_slice_slice_ty,
             unit,
             bool,
             i32,
@@ -358,8 +368,12 @@ impl EntityPathMenu {
         self.core_ops_not
     }
 
-    pub fn core_slice_slice_type(&self) -> TypePath {
-        self.core_slice_slice_type
+    pub fn option_ty(&self) -> TypePath {
+        self.core_option_option_ty
+    }
+
+    pub fn slice_ty(&self) -> TypePath {
+        self.core_slice_slice_ty
     }
 
     pub fn trai(&self) -> TypePath {

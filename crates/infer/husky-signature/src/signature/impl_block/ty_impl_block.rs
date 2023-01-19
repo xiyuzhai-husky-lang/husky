@@ -18,7 +18,8 @@ pub(crate) fn ty_impl_block_signature(
 
 #[salsa::tracked(jar = SignatureJar)]
 pub struct TypeImplBlockSignature {
-    pub ty: Option<Term>,
+    #[return_ref]
+    pub ty: SignatureTermOutcome<Term>,
     #[return_ref]
     pub term_sheet: SignatureTermSheet,
 }

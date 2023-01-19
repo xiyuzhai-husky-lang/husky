@@ -82,13 +82,13 @@
                         ParameterSignature {
                             pattern: ParameterSignaturePattern,
                             ty: Abort(
-                                TermError,
+                                TermAbortion,
                             ),
                         },
                         ParameterSignature {
                             pattern: ParameterSignaturePattern,
                             ty: Abort(
-                                TermError,
+                                TermAbortion,
                             ),
                         },
                     ],
@@ -157,19 +157,19 @@
                         ParameterSignature {
                             pattern: ParameterSignaturePattern,
                             ty: Abort(
-                                TermError,
+                                TermAbortion,
                             ),
                         },
                         ParameterSignature {
                             pattern: ParameterSignaturePattern,
                             ty: Abort(
-                                TermError,
+                                TermAbortion,
                             ),
                         },
                     ],
                 },
                 output_ty: Abort(
-                    TermError,
+                    TermAbortion,
                 ),
                 term_sheet: SignatureTermSheet {
                     term_symbol_page: TermSymbolPage {

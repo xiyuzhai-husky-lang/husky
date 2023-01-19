@@ -6,8 +6,8 @@ pub struct TermMenu0 {
     universe0: TermUniverse,
     universe1: TermUniverse,
     unit: Term,
-    // core: Term,
-    // core_ops: Term,
+    core: Term,
+    core_ops: Term,
     // core::ops::Add	The addition operator +.
     core_ops_add: Term,
     // core::ops::AddAssign	The addition assignment operator +=.
@@ -36,7 +36,9 @@ pub struct TermMenu0 {
     core_ops_neg: Term,
     // Not	The unary logical negation operator !.
     core_ops_not: Term,
-    core_slice_slice_type: Term,
+    core_option: Term,
+    core_option_option_ty: Term,
+    core_slice_slice_ty: Term,
     std: Term,
     i32: Term,
     i64: Term,
@@ -59,8 +61,8 @@ impl TermMenu0 {
             sort: TermCategory::Sort,
             universe0: TermUniverse::new(0),
             universe1: TermUniverse::new(1),
-            // core: Term::Entity(entity_path_menu.core()),
-            // core_ops: Term::Entity(entity_path_menu.core_ops()),
+            core: Term::Entity(vfs_path_menu.core().into()),
+            core_ops: Term::Entity(vfs_path_menu.core_ops().into()),
             core_ops_add: Term::Entity(entity_path_menu.core_ops_add().into()),
             // start here
             // Term::Entity(entity_path_menu.core_ops_())
@@ -81,7 +83,9 @@ impl TermMenu0 {
             core_ops_mul_assign: Term::Entity(entity_path_menu.core_ops_mul_assign().into()),
             core_ops_neg: Term::Entity(entity_path_menu.core_ops_neg().into()),
             core_ops_not: Term::Entity(entity_path_menu.core_ops_not().into()),
-            core_slice_slice_type: Term::Entity(entity_path_menu.core_slice_slice_type().into()),
+            core_option: Term::Entity(vfs_path_menu.core_option().into()),
+            core_option_option_ty: Term::Entity(entity_path_menu.option_ty().into()),
+            core_slice_slice_ty: Term::Entity(entity_path_menu.slice_ty().into()),
             std: Term::Entity(vfs_path_menu.std().into()),
             unit: Term::Entity(entity_path_menu.unit().into()),
             bool: Term::Entity(entity_path_menu.bool().into()),
@@ -185,8 +189,12 @@ impl TermMenu0 {
         self.core_ops_not
     }
 
-    pub fn slice_type(&self) -> Term {
-        self.core_slice_slice_type
+    pub fn option_ty(&self) -> Term {
+        self.core_option_option_ty
+    }
+
+    pub fn slice_ty(&self) -> Term {
+        self.core_slice_slice_ty
     }
 
     pub fn unit(&self) -> Term {

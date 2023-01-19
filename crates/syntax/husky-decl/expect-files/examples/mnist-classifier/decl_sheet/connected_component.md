@@ -20,11 +20,11 @@ Ok(
                             },
                             fields: [
                                 RegularStructFieldDecl {
-                                    ident: IdentifierToken {
+                                    ident_token: IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 110,
+                                                    value: 111,
                                                 },
                                             ),
                                         ),
@@ -40,11 +40,11 @@ Ok(
                                     ty: 0,
                                 },
                                 RegularStructFieldDecl {
-                                    ident: IdentifierToken {
+                                    ident_token: IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 111,
+                                                    value: 112,
                                                 },
                                             ),
                                         ),
@@ -60,11 +60,11 @@ Ok(
                                     ty: 1,
                                 },
                                 RegularStructFieldDecl {
-                                    ident: IdentifierToken {
+                                    ident_token: IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 112,
+                                                    value: 113,
                                                 },
                                             ),
                                         ),
@@ -80,11 +80,11 @@ Ok(
                                     ty: 2,
                                 },
                                 RegularStructFieldDecl {
-                                    ident: IdentifierToken {
+                                    ident_token: IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 113,
+                                                    value: 114,
                                                 },
                                             ),
                                         ),
@@ -150,11 +150,11 @@ Ok(
                             },
                             fields: [
                                 RegularStructFieldDecl {
-                                    ident: IdentifierToken {
+                                    ident_token: IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 115,
+                                                    value: 116,
                                                 },
                                             ),
                                         ),
@@ -267,11 +267,11 @@ Ok(
                             },
                             fields: [
                                 RegularStructFieldDecl {
-                                    ident: IdentifierToken {
+                                    ident_token: IdentifierToken {
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 121,
+                                                    value: 122,
                                                 },
                                             ),
                                         ),

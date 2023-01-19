@@ -13,11 +13,8 @@ pub(crate) fn ty_as_trai_method_signature(
     });
     let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), parent_term_symbol_page);
     let output_ty = match decl.output_ty(db) {
-        Ok(output_ty) => match engine.query_new(*output_ty) {
-            Some(output_ty) => Success(output_ty),
-            None => Abort(SignatureAbortion::TermError),
-        },
-        Err(_) => Abort(SignatureAbortion::ExprError),
+        Ok(output_ty) => engine.query_new(*output_ty),
+        Err(_) => Abort(SignatureTermAbortion::ExprError),
     };
     let parameters = ParameterSignatures::from_decl(decl.parameters(db), &mut engine);
     let implicit_parameters =
@@ -38,7 +35,7 @@ pub struct TypeAsTraitMethodSignature {
     #[return_ref]
     pub parameters: ParameterSignatures,
     #[return_ref]
-    pub output_ty: SignatureOutcome<Term>,
+    pub output_ty: SignatureTermOutcome<Term>,
     #[return_ref]
     pub term_sheet: SignatureTermSheet,
 }
