@@ -2,12 +2,9 @@ use crate::*;
 
 #[salsa::tracked(jar = SignatureJar)]
 pub fn value_signature(db: &dyn SignatureDb, decl: ValueDecl) -> ValueSignature {
-    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db));
+    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), None);
     // implementation
-    ValueSignature::new(
-        db,
-        engine.finish(),
-    )
+    ValueSignature::new(db, engine.finish())
 }
 
 #[salsa::tracked(jar = SignatureJar)]

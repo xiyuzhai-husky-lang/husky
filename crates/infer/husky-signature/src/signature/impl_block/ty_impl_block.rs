@@ -1,8 +1,11 @@
 use super::*;
 
 #[salsa::tracked(jar = SignatureJar)]
-pub(crate) fn ty_impl_block_signature(db: &dyn SignatureDb, decl: TypeImplBlockDecl) -> TypeImplBlockSignature{
-    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db));
+pub(crate) fn ty_impl_block_signature(
+    db: &dyn SignatureDb,
+    decl: TypeImplBlockDecl,
+) -> TypeImplBlockSignature {
+    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), None);
     let ty = decl.ty(db);
     let ty = engine.query_new(ty);
     TypeImplBlockSignature::new(
@@ -12,7 +15,6 @@ pub(crate) fn ty_impl_block_signature(db: &dyn SignatureDb, decl: TypeImplBlockD
         engine.finish(),
     )
 }
-
 
 #[salsa::tracked(jar = SignatureJar)]
 pub struct TypeImplBlockSignature {

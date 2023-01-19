@@ -2,7 +2,7 @@ use crate::*;
 
 #[salsa::tracked(jar = SignatureJar)]
 pub fn trai_signature(db: &dyn SignatureDb, decl: TraitDecl) -> TraitSignature {
-    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db));
+    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), None);
     // implementation
     TraitSignature::new(
         db,

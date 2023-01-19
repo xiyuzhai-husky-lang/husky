@@ -2,7 +2,7 @@ use crate::*;
 
 #[salsa::tracked(jar = SignatureJar)]
 pub fn function_signature(db: &dyn SignatureDb, decl: FunctionDecl) -> FunctionSignature {
-    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db));
+    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), None);
     let output_ty = match decl.output_ty(db) {
         Ok(output_ty) => match engine.query_new(*output_ty) {
             Some(output_ty) => Success(output_ty),

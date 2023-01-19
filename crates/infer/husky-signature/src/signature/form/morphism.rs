@@ -2,7 +2,7 @@ use crate::*;
 
 #[salsa::tracked(jar = SignatureJar)]
 pub fn morphism_signature(db: &dyn SignatureDb, decl: MorphismDecl) -> MorphismSignature {
-    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db));
+    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), None);
     // implementation
     MorphismSignature::new(
         db,

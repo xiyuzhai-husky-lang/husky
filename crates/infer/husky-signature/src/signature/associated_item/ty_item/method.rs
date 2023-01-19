@@ -5,7 +5,7 @@ pub(crate) fn ty_method_signature(
     db: &dyn SignatureDb,
     decl: TypeMethodDecl,
 ) -> TypeMethodSignature {
-    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db));
+    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), todo!());
     let output_ty = match decl.output_ty(db) {
         Ok(output_ty) => match engine.query_new(*output_ty) {
             Some(output_ty) => Success(output_ty),
