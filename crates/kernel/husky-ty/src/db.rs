@@ -15,7 +15,16 @@ where
             EntityPath::ModuleItem(path) => match path {
                 ModuleItemPath::Type(path) => {
                     let signature = self.ty_signature(path);
-                    todo!()
+                    let implicit_parameters = signature.implicit_parameters(self);
+                    let term_menu = self
+                        .term_menu(entity_path.toolchain(self))
+                        .as_ref()
+                        .unwrap();
+                    let mut term = term_menu.ty0();
+                    for implicit_parameter in implicit_parameters.iter().rev() {
+                        todo!()
+                    }
+                    Ok(term)
                 }
                 ModuleItemPath::Trait(_) => todo!(),
                 ModuleItemPath::Form(_) => todo!(),
