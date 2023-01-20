@@ -6,9 +6,19 @@ pub struct ImplicitParameterDeclPattern {
     variant: ImplicitParameterDeclPatternVariant,
 }
 
+impl ImplicitParameterDeclPattern {
+    pub fn symbol(&self) -> ArenaIdx<CurrentSymbol> {
+        self.symbol
+    }
+
+    pub fn variant(&self) -> &ImplicitParameterDeclPatternVariant {
+        &self.variant
+    }
+}
+
 #[derive(Debug, PartialEq, Eq)]
 pub enum ImplicitParameterDeclPatternVariant {
-    Type { ident_token: IdentifierToken },
+    Type0 { ident_token: IdentifierToken },
     Constant,
     Lifetime,
     Binding,
@@ -30,7 +40,7 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclPatter
             )]);
             Ok(Some(ImplicitParameterDeclPattern {
                 symbol: symbols.start(),
-                variant: ImplicitParameterDeclPatternVariant::Type { ident_token },
+                variant: ImplicitParameterDeclPatternVariant::Type0 { ident_token },
             }))
         } else {
             Ok(None)

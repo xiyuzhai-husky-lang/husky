@@ -5,7 +5,19 @@
                 implicit_parameters: ImplicitParameterSignatures {
                     parameters: [
                         ImplicitParameterSignature {
-                            pattern: ImplicitParameterSignaturePattern,
+                            term_symbol: TermSymbol {
+                                idx: 0,
+                                kind: Type0,
+                            },
+                            ty: Success(
+                                Application(
+                                    TermApplication(
+                                        Id {
+                                            value: 1,
+                                        },
+                                    ),
+                                ),
+                            ),
                             traits: [],
                         },
                     ],
@@ -60,7 +72,19 @@
                 implicit_parameters: ImplicitParameterSignatures {
                     parameters: [
                         ImplicitParameterSignature {
-                            pattern: ImplicitParameterSignaturePattern,
+                            term_symbol: TermSymbol {
+                                idx: 0,
+                                kind: Type0,
+                            },
+                            ty: Success(
+                                Application(
+                                    TermApplication(
+                                        Id {
+                                            value: 1,
+                                        },
+                                    ),
+                                ),
+                            ),
                             traits: [],
                         },
                     ],
@@ -135,7 +159,19 @@
                 implicit_parameters: ImplicitParameterSignatures {
                     parameters: [
                         ImplicitParameterSignature {
-                            pattern: ImplicitParameterSignaturePattern,
+                            term_symbol: TermSymbol {
+                                idx: 0,
+                                kind: Type0,
+                            },
+                            ty: Success(
+                                Application(
+                                    TermApplication(
+                                        Id {
+                                            value: 1,
+                                        },
+                                    ),
+                                ),
+                            ),
                             traits: [],
                         },
                     ],

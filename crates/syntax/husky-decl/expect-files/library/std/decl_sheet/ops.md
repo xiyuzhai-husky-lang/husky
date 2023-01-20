@@ -22,7 +22,7 @@ Ok(
                                     ImplicitParameterDecl {
                                         pattern: ImplicitParameterDeclPattern {
                                             symbol: 0,
-                                            variant: Type {
+                                            variant: Type0 {
                                                 ident_token: IdentifierToken {
                                                     ident: Identifier(
                                                         Word(

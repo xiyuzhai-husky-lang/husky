@@ -1,32 +1,46 @@
+use husky_expr::ImplicitParameterDeclPatternVariant;
+
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct ImplicitParameterSignaturePattern {
-    term_symbol: TermSymbol,
-}
-
-#[derive(Debug, PartialEq, Eq)]
 pub struct ImplicitParameterSignature {
-    pattern: ImplicitParameterSignaturePattern,
+    term_symbol: TermSymbol,
+    ty: SignatureTermOutcome<Term>,
     traits: Vec<Term>,
 }
 
 impl ImplicitParameterSignature {
-    pub fn pattern(&self) -> &ImplicitParameterSignaturePattern {
-        &self.pattern
-    }
-
     fn from_decl(
         parameter: &ImplicitParameterDecl,
         engine: &mut SignatureTermEngine,
     ) -> ImplicitParameterSignature {
-        // Ad hoc
-        Self {
-            pattern: ImplicitParameterSignaturePattern {
-                term_symbol: todo!(),
-            },
-            traits: vec![],
+        let symbol = parameter.pattern().symbol();
+        let variant = parameter.pattern().variant();
+        match variant {
+            ImplicitParameterDeclPatternVariant::Type0 { .. } => {
+                ImplicitParameterSignature {
+                    term_symbol: engine.current_symbol_term_symbol(symbol),
+                    ty: Success(engine.term_menu().ty0()),
+                    // ad hoc
+                    traits: vec![],
+                }
+            }
+            ImplicitParameterDeclPatternVariant::Constant => todo!(),
+            ImplicitParameterDeclPatternVariant::Lifetime => todo!(),
+            ImplicitParameterDeclPatternVariant::Binding => todo!(),
         }
+    }
+
+    pub fn term_symbol(&self) -> TermSymbol {
+        self.term_symbol
+    }
+
+    pub fn ty(&self) -> SignatureTermOutcomeBorrowed<Term> {
+        self.ty.ok_copy_err_as_ref()
+    }
+
+    pub fn traits(&self) -> &[Term] {
+        self.traits.as_ref()
     }
 }
 

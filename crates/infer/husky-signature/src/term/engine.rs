@@ -355,4 +355,12 @@ impl<'a> SignatureTermEngine<'a> {
             Expr::Err(_) => Abort(SignatureTermAbortion::ExprError),
         }
     }
+
+    pub(crate) fn current_symbol_term_symbol(&self, symbol: CurrentSymbolIdx) -> TermSymbol {
+        self.term_symbol_page.current_symbol_terms[symbol.raw()]
+    }
+
+    pub(crate) fn term_menu(&self) -> &TermMenu {
+        self.term_menu
+    }
 }

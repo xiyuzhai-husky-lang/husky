@@ -36,7 +36,7 @@ pub struct DeclJar(
     AlienTypeDecl,
     UnionTypeDecl,
     // trait
-    trait_decl,
+    trai_decl,
     TraitDecl,
     // form
     form_decl,
