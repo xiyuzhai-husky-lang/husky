@@ -1,5 +1,5 @@
 use crate::*;
-use husky_vfs::{ModulePath, Toolchain, VfsTestUtils};
+use husky_vfs::{ModulePath, Toolchain};
 
 #[salsa::tracked(jar = ExprJar)]
 pub struct ExprPage {
