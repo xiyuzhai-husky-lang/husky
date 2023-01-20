@@ -14,7 +14,7 @@ use vec_like::{VecMapGetEntry, VecPairMap};
 pub(crate) fn module_item_decl(db: &dyn DeclDb, path: ModuleItemPath) -> DeclResultBorrowed<Decl> {
     match path {
         ModuleItemPath::Type(path) => ty_decl(db, path).as_ref().map(|decl| (*decl).into()),
-        ModuleItemPath::Trait(path) => trait_decl(db, path).as_ref().map(|decl| (*decl).into()),
+        ModuleItemPath::Trait(path) => trai_decl(db, path).as_ref().map(|decl| (*decl).into()),
         ModuleItemPath::Form(path) => form_decl(db, path).as_ref().map(|decl| (*decl).into()),
     }
 }
@@ -32,7 +32,7 @@ pub(crate) fn form_decl(db: &dyn DeclDb, path: FormPath) -> DeclResult<FormDecl>
 }
 
 #[salsa::tracked(jar = DeclJar,return_ref)]
-pub(crate) fn trait_decl(db: &dyn DeclDb, path: TraitPath) -> DeclResult<TraitDecl> {
+pub(crate) fn trai_decl(db: &dyn DeclDb, path: TraitPath) -> DeclResult<TraitDecl> {
     let parser = DeclParser::new(db, path.module_path(db))?;
     parser.parse_trai_decl(path)
 }

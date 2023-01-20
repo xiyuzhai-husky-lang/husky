@@ -6,6 +6,7 @@ use salsa::DbWithJar;
 pub trait DeclDb: DbWithJar<DeclJar> + ExprDb {
     fn module_item_decl(&self, module_path: ModuleItemPath) -> DeclResultBorrowed<Decl>;
     fn ty_decl(&self, path: TypePath) -> DeclResultBorrowed<TypeDecl>;
+    fn trai_decl(&self, path: TraitPath) -> DeclResultBorrowed<TraitDecl>;
     fn impl_block_decl(&self, impl_block: ImplBlock) -> DeclResultBorrowed<ImplBlockDecl>;
     fn associated_item_decl(
         &self,
@@ -24,6 +25,10 @@ where
 
     fn ty_decl(&self, path: TypePath) -> DeclResultBorrowed<TypeDecl> {
         ty_decl(self, path).as_ref().map(|decl| *decl)
+    }
+
+    fn trai_decl(&self, path: TraitPath) -> DeclResultBorrowed<TraitDecl> {
+        trai_decl(self, path).as_ref().map(|decl| *decl)
     }
 
     fn module_decl_sheet<'a>(&'a self, module_path: ModulePath) -> EntityTreeResult<DeclSheet<'a>> {
