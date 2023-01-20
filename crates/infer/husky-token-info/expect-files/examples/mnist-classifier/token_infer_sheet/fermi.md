@@ -11,7 +11,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 14,
+                                value: 17,
                             },
                         ),
                     ),
@@ -560,8 +560,8 @@ Ok(
                 ),
             },
             None,
-            None,
-            None,
+            BoxPrefix,
+            BoxPrefix,
             None,
             None,
             None,

@@ -211,7 +211,113 @@ impl<'a> SignatureTermEngine<'a> {
                         0 => Success(
                             TermApplication::new(self.db, self.term_menu.vec_ty(), argument).into(),
                         ),
-                        1 => todo!(),
+                        1 => match self.expr_arena[items.start()] {
+                            Expr::Literal(_) => todo!(),
+                            Expr::EntityPath {
+                                entity_path_expr,
+                                entity_path,
+                            } => todo!(),
+                            Expr::InheritedSymbol {
+                                ident,
+                                token_idx,
+                                inherited_symbol_idx,
+                                inherited_symbol_kind,
+                            } => todo!(),
+                            Expr::CurrentSymbol {
+                                ident,
+                                token_idx,
+                                current_symbol_idx,
+                                current_symbol_kind,
+                            } => todo!(),
+                            Expr::FrameVarDecl {
+                                token_idx,
+                                ident,
+                                current_symbol_idx,
+                                current_symbol_kind,
+                            } => todo!(),
+                            Expr::SelfType(_) => todo!(),
+                            Expr::SelfValue(_) => todo!(),
+                            Expr::BinaryOpn {
+                                lopd,
+                                opr,
+                                opr_token_idx,
+                                ropd,
+                            } => todo!(),
+                            Expr::Be {
+                                src,
+                                be_token_idx,
+                                ref target,
+                            } => todo!(),
+                            Expr::PrefixOpn {
+                                opr,
+                                opr_token_idx,
+                                opd,
+                            } => todo!(),
+                            Expr::SuffixOpn {
+                                opd,
+                                punctuation,
+                                punctuation_token_idx,
+                            } => todo!(),
+                            Expr::ApplicationOrFunctionCall {
+                                function,
+                                lpar_token_idx,
+                                argument,
+                                rpar_token_idx,
+                            } => todo!(),
+                            Expr::FunctionCall {
+                                function,
+                                ref implicit_arguments,
+                                lpar_token_idx,
+                                arguments,
+                                rpar_token_idx,
+                            } => todo!(),
+                            Expr::Field {
+                                this_expr,
+                                dot_token_idx,
+                                ident_token,
+                            } => todo!(),
+                            Expr::MethodCall {
+                                this_expr,
+                                dot_token_idx,
+                                ident_token,
+                                ref implicit_arguments,
+                                lpar_token_idx,
+                                arguments,
+                                rpar_token_idx,
+                            } => todo!(),
+                            Expr::TemplateInstantiation {
+                                template,
+                                ref implicit_arguments,
+                            } => todo!(),
+                            Expr::Application { function, argument } => todo!(),
+                            Expr::Bracketed {
+                                lpar_token_idx,
+                                item,
+                                rpar_token_idx,
+                            } => todo!(),
+                            Expr::NewTuple {
+                                lpar_token_idx,
+                                items,
+                                ref commas,
+                                rpar_token_idx,
+                            } => todo!(),
+                            Expr::NewBoxList {
+                                caller,
+                                lbox_token_idx,
+                                items,
+                                rbox_token_idx,
+                            } => todo!(),
+                            Expr::BoxColon {
+                                caller,
+                                lbox_token_idx,
+                                colon_token_idx,
+                                rbox_token,
+                            } => todo!(),
+                            Expr::Block { stmts } => todo!(),
+                            Expr::Err(_) => {
+                                Abort(SignatureTermAbortion::CannotInferArgumentTermInBoxList)
+                            }
+                        },
                         _ => todo!(),
                     },
                     _ => {

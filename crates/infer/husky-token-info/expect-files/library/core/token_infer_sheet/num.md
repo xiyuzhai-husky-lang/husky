@@ -25,7 +25,7 @@ Ok(
                 Some(
                     ModuleItem {
                         module_item_kind: Type(
-                            Foreign,
+                            Alien,
                         ),
                         connection: Connected,
                     },
@@ -180,7 +180,7 @@ Ok(
                 Some(
                     ModuleItem {
                         module_item_kind: Type(
-                            Foreign,
+                            Alien,
                         ),
                         connection: Connected,
                     },
@@ -335,7 +335,7 @@ Ok(
                 Some(
                     ModuleItem {
                         module_item_kind: Type(
-                            Foreign,
+                            Alien,
                         ),
                         connection: Connected,
                     },
@@ -489,7 +489,7 @@ Ok(
                 Some(
                     ModuleItem {
                         module_item_kind: Type(
-                            Foreign,
+                            Alien,
                         ),
                         connection: Connected,
                     },
@@ -644,7 +644,7 @@ Ok(
                 Some(
                     ModuleItem {
                         module_item_kind: Type(
-                            Foreign,
+                            Alien,
                         ),
                         connection: Connected,
                     },
@@ -799,7 +799,7 @@ Ok(
                 Some(
                     ModuleItem {
                         module_item_kind: Type(
-                            Foreign,
+                            Alien,
                         ),
                         connection: Connected,
                     },
@@ -954,7 +954,7 @@ Ok(
                 Some(
                     ModuleItem {
                         module_item_kind: Type(
-                            Foreign,
+                            Alien,
                         ),
                         connection: Connected,
                     },
@@ -1108,7 +1108,7 @@ Ok(
                 Some(
                     ModuleItem {
                         module_item_kind: Type(
-                            Foreign,
+                            Alien,
                         ),
                         connection: Connected,
                     },

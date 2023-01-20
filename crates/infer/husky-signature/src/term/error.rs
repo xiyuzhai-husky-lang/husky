@@ -11,6 +11,7 @@ pub enum SignatureTermAbortion {
     CannotInferOperandTermInPrefix,
     ExprError,
     TermAbortion,
+    CannotInferArgumentTermInBoxList,
 }
 
 pub type SignatureTermResult<T> = Result<T, SignatureTermError>;
