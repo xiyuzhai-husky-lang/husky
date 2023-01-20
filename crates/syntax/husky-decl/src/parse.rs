@@ -13,14 +13,14 @@ use vec_like::{VecMapGetEntry, VecPairMap};
 
 pub(crate) fn module_item_decl(db: &dyn DeclDb, path: ModuleItemPath) -> DeclResultBorrowed<Decl> {
     match path {
-        ModuleItemPath::Type(path) => type_decl(db, path).as_ref().map(|decl| (*decl).into()),
+        ModuleItemPath::Type(path) => ty_decl(db, path).as_ref().map(|decl| (*decl).into()),
         ModuleItemPath::Trait(path) => trait_decl(db, path).as_ref().map(|decl| (*decl).into()),
         ModuleItemPath::Form(path) => form_decl(db, path).as_ref().map(|decl| (*decl).into()),
     }
 }
 
 #[salsa::tracked(jar = DeclJar, return_ref)]
-pub(crate) fn type_decl(db: &dyn DeclDb, path: TypePath) -> DeclResult<TypeDecl> {
+pub(crate) fn ty_decl(db: &dyn DeclDb, path: TypePath) -> DeclResult<TypeDecl> {
     let parser = DeclParser::new(db, path.module_path(db))?;
     parser.parse_ty_decl(path)
 }
@@ -119,9 +119,9 @@ impl<'a> DeclParser<'a> {
     ) -> DeclResult<TypeDecl> {
         match type_kind {
             TypeKind::Enum => {
-                self.parse_enum_type_decl(ast_idx, path, token_group_idx, body, saved_stream_state)
+                self.parse_enum_ty_decl(ast_idx, path, token_group_idx, body, saved_stream_state)
             }
-            TypeKind::Inductive => self.parse_inductive_type_decl(
+            TypeKind::Inductive => self.parse_inductive_ty_decl(
                 ast_idx,
                 path,
                 token_group_idx,
@@ -129,31 +129,23 @@ impl<'a> DeclParser<'a> {
                 saved_stream_state,
             ),
             TypeKind::Record => todo!(),
-            TypeKind::Struct => self.parse_struct_type_decl(
+            TypeKind::Struct => {
+                self.parse_struct_ty_decl(ast_idx, path, token_group_idx, body, saved_stream_state)
+            }
+            TypeKind::Structure => self.parse_structure_ty_decl(
                 ast_idx,
                 path,
                 token_group_idx,
                 body,
                 saved_stream_state,
             ),
-            TypeKind::Structure => self.parse_structure_type_decl(
-                ast_idx,
-                path,
-                token_group_idx,
-                body,
-                saved_stream_state,
-            ),
-            TypeKind::Alien => self.parse_foreign_type_decl(
-                ast_idx,
-                path,
-                token_group_idx,
-                body,
-                saved_stream_state,
-            ),
+            TypeKind::Alien => {
+                self.parse_foreign_ty_decl(ast_idx, path, token_group_idx, body, saved_stream_state)
+            }
         }
     }
 
-    fn parse_enum_type_decl(
+    fn parse_enum_ty_decl(
         &self,
         ast_idx: AstIdx,
         path: TypePath,
@@ -226,7 +218,7 @@ impl<'a> DeclParser<'a> {
         ))
     }
 
-    fn parse_inductive_type_decl(
+    fn parse_inductive_ty_decl(
         &self,
         ast_idx: AstIdx,
         path: TypePath,
@@ -250,7 +242,7 @@ impl<'a> DeclParser<'a> {
         )
     }
 
-    fn parse_struct_type_decl(
+    fn parse_struct_ty_decl(
         &self,
         ast_idx: AstIdx,
         path: TypePath,
@@ -309,7 +301,7 @@ impl<'a> DeclParser<'a> {
         )
     }
 
-    fn parse_structure_type_decl(
+    fn parse_structure_ty_decl(
         &self,
         ast_idx: AstIdx,
         path: TypePath,
@@ -338,7 +330,7 @@ impl<'a> DeclParser<'a> {
     }
 
     // get declaration from tokens
-    fn parse_foreign_type_decl(
+    fn parse_foreign_ty_decl(
         &self,
         ast_idx: AstIdx,
         path: TypePath,

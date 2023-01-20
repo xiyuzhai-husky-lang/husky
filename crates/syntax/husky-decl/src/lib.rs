@@ -25,7 +25,7 @@ use parse::*;
 #[salsa::jar(db = DeclDb)]
 pub struct DeclJar(
     // type
-    type_decl,
+    ty_decl,
     EnumTypeDecl,
     UnitStructTypeDecl,
     TupleStructTypeDecl,
