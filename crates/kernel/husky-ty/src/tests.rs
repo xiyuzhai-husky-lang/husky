@@ -6,8 +6,8 @@ pub(crate) use husky_vfs::VfsTestUtils;
 
 use crate::*;
 use husky_ast::AstJar;
-use husky_entity_path::EntityPathJar;
-use husky_entity_tree::EntityTreeJar;
+use husky_entity_path::{EntityPathJar, ModuleItemPath, TypePath};
+use husky_entity_tree::{EntityTreeDb, EntityTreeJar};
 use husky_expr::ExprJar;
 use husky_manifest::ManifestJar;
 use husky_token::TokenJar;
@@ -25,7 +25,8 @@ use husky_word::WordJar;
     ExprJar,
     DeclJar,
     TermJar,
-    SignatureJar
+    SignatureJar,
+    TypeJar
 )]
 #[derive(Default)]
 pub(crate) struct DB {
@@ -34,21 +35,17 @@ pub(crate) struct DB {
 
 impl salsa::Database for DB {}
 
-// fn module_signatures(db: &DB, module_path: ModulePath) -> Vec<Signature> {
-//     let Ok(decl_sheet) = db.module_decl_sheet(module_path) else {
-//         return vec![]
-//     };
-//     decl_sheet
-//         .decls()
-//         .iter()
-//         .filter_map(|decl| match decl {
-//             Ok(decl) => Some(db.signature(*decl)),
-//             Err(_) => None,
-//         })
-//         .collect()
-// }
+fn entity_tys(db: &DB, module_path: ModulePath) -> Vec<(EntityPath, TypeResult<Term>)> {
+    let Ok(entity_tree_sheet) = db.entity_tree_sheet(module_path) else {
+        return vec![]
+    };
+    entity_tree_sheet
+        .module_item_path_iter(db)
+        .map(|path| (path.into(), db.entity_ty(path.into())))
+        .collect()
+}
 
-// #[test]
-// fn module_signatures_works() {
-//     DB::default().vfs_expect_test_debug_with_db("signature", module_signatures)
-// }
+#[test]
+fn entity_tys_works() {
+    DB::default().vfs_expect_test_debug_with_db("entity_tys", entity_tys)
+}

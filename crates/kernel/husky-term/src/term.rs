@@ -86,4 +86,33 @@ impl From<TermCategory> for Term {
     }
 }
 
-impl Term {}
+impl<Db: TermDb + ?Sized> salsa::DebugWithDb<Db> for Term {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
+        match self {
+            Term::Literal(term) => f.debug_tuple("Literal").field(&term).finish(),
+            Term::Symbol(term) => f.debug_tuple("Symbol").field(&term).finish(),
+            Term::Entity(term) => f.debug_tuple("Entity").field(&term.debug(db)).finish(),
+            Term::Category(term) => f.debug_tuple("Category").field(&term).finish(),
+            Term::Universe(term) => f.debug_tuple("Universe").field(&term).finish(),
+            Term::Curry(term) => f.debug_tuple("Curry").field(&term.debug(db)).finish(),
+            Term::Durant(term) => f.debug_tuple("Durant").field(&term.debug(db)).finish(),
+            Term::Abstraction(term) => f.debug_tuple("Abstraction").field(&term.debug(db)).finish(),
+            Term::Application(term) => f.debug_tuple("Application").field(&term.debug(db)).finish(),
+            Term::Subentity(term) => f.debug_tuple("Subentity").field(&term.debug(db)).finish(),
+            Term::AsTraitSubentity(term) => f
+                .debug_tuple("AsTraitSubentity")
+                .field(&term.debug(db))
+                .finish(),
+            Term::TraitConstraint(term) => f
+                .debug_tuple("TraitConstraint")
+                .field(&term.debug(db))
+                .finish(),
+        }
+    }
+}

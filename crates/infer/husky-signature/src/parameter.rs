@@ -1,7 +1,9 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct ImplicitParameterSignaturePattern {}
+pub struct ImplicitParameterSignaturePattern {
+    term_symbol: TermSymbol,
+}
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct ImplicitParameterSignature {
@@ -20,7 +22,9 @@ impl ImplicitParameterSignature {
     ) -> ImplicitParameterSignature {
         // Ad hoc
         Self {
-            pattern: ImplicitParameterSignaturePattern {},
+            pattern: ImplicitParameterSignaturePattern {
+                term_symbol: todo!(),
+            },
             traits: vec![],
         }
     }
