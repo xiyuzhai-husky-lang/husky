@@ -19,7 +19,7 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 18,
+                        value: 21,
                     },
                 ),
             ),
@@ -43,7 +43,7 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 19,
+                        value: 22,
                     },
                 ),
             ),
@@ -78,7 +78,7 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 20,
+                        value: 23,
                     },
                 ),
             ),
@@ -113,7 +113,7 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 21,
+                        value: 24,
                     },
                 ),
             ),
@@ -148,7 +148,7 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 22,
+                        value: 25,
                     },
                 ),
             ),
@@ -183,7 +183,7 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 23,
+                        value: 26,
                     },
                 ),
             ),
@@ -218,7 +218,7 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 24,
+                        value: 27,
                     },
                 ),
             ),
@@ -242,7 +242,7 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 25,
+                        value: 28,
                     },
                 ),
             ),
@@ -256,7 +256,7 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 26,
+                        value: 29,
                     },
                 ),
             ),
@@ -280,7 +280,7 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 25,
+                        value: 28,
                     },
                 ),
             ),
@@ -310,7 +310,7 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 27,
+                        value: 30,
                     },
                 ),
             ),
@@ -355,7 +355,7 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 28,
+                        value: 31,
                     },
                 ),
             ),
@@ -379,7 +379,7 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 29,
+                        value: 32,
                     },
                 ),
             ),
@@ -403,7 +403,7 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 25,
+                        value: 28,
                     },
                 ),
             ),
@@ -417,7 +417,7 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 30,
+                        value: 33,
                     },
                 ),
             ),
@@ -441,7 +441,7 @@ TomlTokenSheet {
             variant: Word(
                 Word(
                     Id {
-                        value: 25,
+                        value: 28,
                     },
                 ),
             ),
