@@ -101,18 +101,18 @@ Ok(
                                 },
                                 parameters: [
                                     ParameterDecl {
-                                        pattern: ParameterDeclPattern {
-                                            pattern_expr_idx: 0,
+                                        pattern: RegularParameterDeclPattern {
+                                            pattern: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,
                                             ),
+                                            colon: ColonToken {
+                                                token_idx: TokenIdx(
+                                                    519,
+                                                ),
+                                            },
+                                            ty: 1,
                                         },
-                                        colon: ColonToken {
-                                            token_idx: TokenIdx(
-                                                519,
-                                            ),
-                                        },
-                                        ty: 1,
                                     },
                                 ],
                                 commas: [],

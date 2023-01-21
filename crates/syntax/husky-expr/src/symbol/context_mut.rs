@@ -49,6 +49,7 @@ impl<'a> SymbolContextMut<'a> {
         entity_path_expr_arena: EntityPathExprArena,
         pattern_expr_region: PatternExprRegion,
         stmt_arena: StmtArena,
+        ty_annotations: Vec<TypeAnnotation>,
     ) -> ExprRegion {
         ExprRegion::new(
             db,
@@ -59,6 +60,7 @@ impl<'a> SymbolContextMut<'a> {
             stmt_arena,
             pattern_expr_region,
             self.symbol_region,
+            ty_annotations,
         )
     }
 

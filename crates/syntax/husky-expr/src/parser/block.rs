@@ -216,12 +216,15 @@ impl<'a> BlockExprParser<'a> {
                     .token_idx();
                 let access_end = self.ast_token_idx_range_sheet[body.end() - 1].end();
                 let current_symbol_idx = self
-                    .define_symbols(vec![CurrentSymbol::new(
-                        particulars.frame_var_ident,
-                        access_start,
-                        Some(access_end),
-                        current_symbol_variant,
-                    )])
+                    .define_symbols(
+                        vec![CurrentSymbol::new(
+                            particulars.frame_var_ident,
+                            access_start,
+                            Some(access_end),
+                            current_symbol_variant,
+                        )],
+                        Some(TypeAnnotation::FrameVariable),
+                    )
                     .start();
                 unsafe {
                     self.expr_arena.set(

@@ -2,8 +2,10 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct LetVariablePattern {
-    pattern_expr_idx: PatternExprIdx,
+    pattern: PatternExprIdx,
     variables: CurrentSymbolIdxRange,
+    colon_token: ExprResult<Option<ColonToken>>,
+    ty: Option<ExprIdx>,
 }
 
 impl<'a, 'b> ExprParseContext<'a, 'b> {
@@ -12,10 +14,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         access_end: TokenIdxRangeEnd,
     ) -> ExprResult<LetVariablePattern> {
         let state = self.state();
-        if let Some(pattern_expr_idx) = self.parse_pattern_expr(PatternExprInfo::Let)? {
-            let symbols = self
-                .pattern_expr_region()
-                .pattern_symbol_map(pattern_expr_idx);
+        if let Some(pattern) = self.parse_pattern_expr(PatternExprInfo::Let)? {
+            let symbols = self.pattern_expr_region().pattern_symbol_map(pattern);
             let access_start = self.state();
             let symbols = symbols
                 .iter()
@@ -30,10 +30,18 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     )
                 })
                 .collect::<Vec<_>>();
-            let variables = self.define_symbols(symbols);
+            let colon_token = self.parse::<ColonToken>();
+            let ty = match colon_token {
+                Ok(Some(_)) => self.parse_expr(ExprParseEnvironment::None),
+                _ => None,
+            };
+            let ty_annotation = ty.map(|ty| TypeAnnotation::LetVariables { pattern, ty });
+            let variables = self.define_symbols(symbols, todo!());
             Ok(LetVariablePattern {
-                pattern_expr_idx,
+                pattern,
                 variables,
+                colon_token,
+                ty,
             })
         } else {
             Err(ExprError::ExpectLetVariablePattern(state))
@@ -43,6 +51,6 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
 impl LetVariablePattern {
     pub fn pattern_expr_idx(&self) -> ArenaIdx<PatternExpr> {
-        self.pattern_expr_idx
+        self.pattern
     }
 }
