@@ -7,7 +7,7 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::four::left_components`, `Feature`),
                             ast_idx: 44,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 67,
                                 },
@@ -22,7 +22,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Function`),
                             ast_idx: 45,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 68,
                                 },
@@ -84,7 +84,7 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Feature`),
                             ast_idx: 46,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 69,
                                 },
@@ -99,7 +99,7 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::four::components_max_heights`, `Feature`),
                             ast_idx: 47,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 70,
                                 },
@@ -114,7 +114,7 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
                             ast_idx: 48,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 71,
                                 },
@@ -129,7 +129,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Function`),
                             ast_idx: 49,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 72,
                                 },
@@ -191,7 +191,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Function`),
                             ast_idx: 50,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 73,
                                 },

@@ -1,4 +1,6 @@
-use husky_expr::{EntityPathExpr, EntityPathExprError, Expr, ExprError, ExprPage, Stmt, StmtError};
+use husky_expr::{
+    EntityPathExpr, EntityPathExprError, Expr, ExprError, ExprRegion, Stmt, StmtError,
+};
 use husky_token::RangedTokenSheet;
 use salsa::DebugWithDb;
 
@@ -38,15 +40,15 @@ pub(crate) fn expr_diagnostic_sheet(
                 db,
                 ranged_token_sheet,
                 token_sheet_data,
-                decl.expr_page(db),
+                decl.expr_region(db),
                 &mut diagnostics,
             );
-            if let Some(expr_page) = defn.expr_page(db) {
+            if let Some(expr_region) = defn.expr_region(db) {
                 collect_expr_diagnostics(
                     db,
                     ranged_token_sheet,
                     token_sheet_data,
-                    expr_page,
+                    expr_region,
                     &mut diagnostics,
                 );
             }
@@ -60,10 +62,10 @@ fn collect_expr_diagnostics(
     db: &dyn DiagnosticsDb,
     ranged_token_sheet: &RangedTokenSheet,
     token_sheet_data: &TokenSheetData,
-    expr_page: ExprPage,
+    expr_region: ExprRegion,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
-    for expr in expr_page.expr_arena(db).data() {
+    for expr in expr_region.expr_arena(db).data() {
         match expr {
             Expr::Err(error) => {
                 if let Some(message) = expr_error_message(error) {
@@ -77,7 +79,7 @@ fn collect_expr_diagnostics(
             _ => (),
         }
     }
-    for stmt in expr_page.stmt_arena(db).data() {
+    for stmt in expr_region.stmt_arena(db).data() {
         match stmt {
             Stmt::Err(e) => {
                 diagnostics.push(e.to_diagnostic(db, ranged_token_sheet, token_sheet_data))
@@ -85,7 +87,7 @@ fn collect_expr_diagnostics(
             _ => (),
         }
     }
-    for entity_path_expr in expr_page.entity_path_expr_arena(db).data() {
+    for entity_path_expr in expr_region.entity_path_expr_arena(db).data() {
         match entity_path_expr {
             EntityPathExpr::Root { .. } => (),
             EntityPathExpr::Subentity {

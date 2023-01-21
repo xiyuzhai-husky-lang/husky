@@ -7,7 +7,7 @@ Ok(
                         RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                             ast_idx: 80,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 109,
                                 },
@@ -87,7 +87,7 @@ Ok(
                         RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                             ast_idx: 82,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 110,
                                 },
@@ -167,7 +167,7 @@ Ok(
                         RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                             ast_idx: 83,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 111,
                                 },
@@ -247,7 +247,7 @@ Ok(
                         RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                             ast_idx: 85,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 112,
                                 },
@@ -336,7 +336,7 @@ Ok(
                         RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                             ast_idx: 90,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 113,
                                 },
@@ -433,7 +433,7 @@ Ok(
                                     ),
                                 },
                             ),
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 114,
                                 },
@@ -460,7 +460,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 5,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 115,
                                     },
@@ -555,7 +555,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 6,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 116,
                                     },
@@ -615,7 +615,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 7,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 117,
                                     },
@@ -690,7 +690,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 8,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 118,
                                     },
@@ -750,7 +750,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 9,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 119,
                                     },
@@ -830,7 +830,7 @@ Ok(
                                     ),
                                 },
                             ),
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 120,
                                 },
@@ -857,7 +857,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 41,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 121,
                                     },
@@ -917,7 +917,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 42,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 122,
                                     },
@@ -992,7 +992,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 43,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 123,
                                     },
@@ -1052,7 +1052,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 44,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 124,
                                     },
@@ -1127,7 +1127,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 45,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 125,
                                     },
@@ -1202,7 +1202,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 46,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 126,
                                     },
@@ -1277,7 +1277,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 47,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 127,
                                     },
@@ -1352,7 +1352,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 48,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 128,
                                     },
@@ -1444,7 +1444,7 @@ Ok(
                                 ),
                                 path: None,
                                 ast_idx: 56,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 129,
                                     },
@@ -1513,7 +1513,7 @@ Ok(
                                 ),
                                 path: None,
                                 ast_idx: 57,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 130,
                                     },
@@ -1593,7 +1593,7 @@ Ok(
                                     ),
                                 },
                             ),
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 131,
                                 },
@@ -1620,7 +1620,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 66,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 132,
                                     },
@@ -1695,7 +1695,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 67,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 133,
                                     },
@@ -1770,7 +1770,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 68,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 134,
                                     },
@@ -1830,7 +1830,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 69,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 135,
                                     },
@@ -1890,7 +1890,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 70,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 136,
                                     },
@@ -1950,7 +1950,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 71,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 137,
                                     },
@@ -2015,7 +2015,7 @@ Ok(
                                     ),
                                 },
                             ),
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 138,
                                 },
@@ -2042,7 +2042,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 76,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 139,
                                     },
@@ -2102,7 +2102,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 77,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 140,
                                     },
@@ -2162,7 +2162,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 78,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 141,
                                     },
@@ -2222,7 +2222,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 79,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 142,
                                     },

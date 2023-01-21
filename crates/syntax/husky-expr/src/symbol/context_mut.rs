@@ -4,19 +4,23 @@ use super::*;
 
 pub struct SymbolContextMut<'a> {
     module_symbol_context: ModuleSymbolContext<'a>,
-    symbol_page: SymbolPage,
+    symbol_region: SymbolRegion,
 }
 
 impl<'a> SymbolContextMut<'a> {
     pub fn new(
         module_symbol_context: ModuleSymbolContext<'a>,
-        parent_symbol_page: Option<&SymbolPage>,
+        parent_symbol_region: Option<&SymbolRegion>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
     ) -> Self {
         Self {
             module_symbol_context,
-            symbol_page: SymbolPage::new(parent_symbol_page, allow_self_type, allow_self_value),
+            symbol_region: SymbolRegion::new(
+                parent_symbol_region,
+                allow_self_type,
+                allow_self_value,
+            ),
         }
     }
 
@@ -26,7 +30,7 @@ impl<'a> SymbolContextMut<'a> {
         token_idx: TokenIdx,
         ident: Identifier,
     ) -> Option<Symbol> {
-        self.symbol_page.resolve_ident(token_idx, ident).or(self
+        self.symbol_region.resolve_ident(token_idx, ident).or(self
             .module_symbol_context
             .resolve_ident(token_idx, ident)
             .map(|e| Symbol::Entity(e.path(db))))
@@ -36,23 +40,23 @@ impl<'a> SymbolContextMut<'a> {
         todo!()
     }
 
-    pub(crate) fn into_expr_page(
+    pub(crate) fn into_expr_region(
         self,
         db: &dyn ExprDb,
         path: ExprPath,
         expr_arena: ExprArena,
         entity_path_expr_arena: EntityPathExprArena,
-        pattern_expr_page: PatternExprPage,
+        pattern_expr_region: PatternExprRegion,
         stmt_arena: StmtArena,
-    ) -> ExprPage {
-        ExprPage::new(
+    ) -> ExprRegion {
+        ExprRegion::new(
             db,
             path,
             expr_arena,
             entity_path_expr_arena,
             stmt_arena,
-            pattern_expr_page,
-            self.symbol_page,
+            pattern_expr_region,
+            self.symbol_region,
         )
     }
 
@@ -60,10 +64,10 @@ impl<'a> SymbolContextMut<'a> {
         &mut self,
         variables: impl IntoIterator<Item = CurrentSymbol>,
     ) -> CurrentSymbolIdxRange {
-        self.symbol_page.define_symbols(variables)
+        self.symbol_region.define_symbols(variables)
     }
 
-    pub(crate) fn symbol_page(&self) -> &SymbolPage {
-        &self.symbol_page
+    pub(crate) fn symbol_region(&self) -> &SymbolRegion {
+        &self.symbol_region
     }
 }

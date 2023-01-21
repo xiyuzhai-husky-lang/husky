@@ -5,7 +5,7 @@ pub(crate) fn ty_associated_function_signature(
     db: &dyn SignatureDb,
     decl: TypeAssociatedFunctionDecl,
 ) -> TypeAssociatedFunctionSignature {
-    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), todo!());
+    let mut engine = SignatureTermEngine::new(db, decl.expr_region(db), todo!());
     // implementation
     TypeAssociatedFunctionSignature::new(
         db,

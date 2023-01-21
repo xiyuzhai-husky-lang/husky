@@ -2,7 +2,7 @@ use super::*;
 
 #[salsa::tracked(jar = SignatureJar)]
 pub fn union_ty_signature(db: &dyn SignatureDb, decl: UnionTypeDecl) -> UnionTypeSignature {
-    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), None);
+    let mut engine = SignatureTermEngine::new(db, decl.expr_region(db), None);
     UnionTypeSignature::new(
         db,
         ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), &mut engine),

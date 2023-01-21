@@ -8,7 +8,7 @@ pub struct TypeAssociatedFunctionDecl {
     pub path: Option<TypeItemPath>,
     pub associated_item: AssociatedItem,
     pub ast_idx: AstIdx,
-    pub expr_page: ExprPage,
+    pub expr_region: ExprRegion,
     #[return_ref]
     pub curry_token: DeclResult<CurryToken>,
     #[return_ref]

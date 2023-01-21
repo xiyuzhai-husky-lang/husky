@@ -7,7 +7,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
                             ast_idx: 22,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 160,
                                 },

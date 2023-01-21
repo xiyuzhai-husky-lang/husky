@@ -7,7 +7,7 @@ Ok(
                         InductiveTypeDecl {
                             path: TypePath(`natural_number_game::Nat`, `Inductive`),
                             ast_idx: 3,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 202,
                                 },
@@ -23,7 +23,7 @@ Ok(
                         StructureTypeDecl {
                             path: TypePath(`natural_number_game::OddNat`, `Structure`),
                             ast_idx: 9,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 203,
                                 },
@@ -39,7 +39,7 @@ Ok(
                         StructureTypeDecl {
                             path: TypePath(`natural_number_game::EvenNat`, `Structure`),
                             ast_idx: 10,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 204,
                                 },
@@ -72,7 +72,7 @@ Ok(
                                     ),
                                 },
                             ),
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 205,
                                 },
@@ -99,7 +99,7 @@ Ok(
                                     },
                                 ),
                                 ast_idx: 0,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 206,
                                     },

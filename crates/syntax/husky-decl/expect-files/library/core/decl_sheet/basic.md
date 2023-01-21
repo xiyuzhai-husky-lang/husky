@@ -7,7 +7,7 @@ Ok(
                         AlienTypeDecl {
                             path: TypePath(`core::basic::bool`, `Alien`),
                             ast_idx: 0,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 1,
                                 },
@@ -23,7 +23,7 @@ Ok(
                         StructureTypeDecl {
                             path: TypePath(`core::basic::Trait`, `Structure`),
                             ast_idx: 1,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 2,
                                 },
@@ -39,7 +39,7 @@ Ok(
                         StructureTypeDecl {
                             path: TypePath(`core::basic::Module`, `Structure`),
                             ast_idx: 2,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 3,
                                 },

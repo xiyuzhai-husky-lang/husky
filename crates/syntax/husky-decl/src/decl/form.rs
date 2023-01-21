@@ -40,12 +40,12 @@ impl FormDecl {
         }
     }
 
-    pub fn expr_page(self, db: &dyn DeclDb) -> ExprPage {
+    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
         match self {
-            FormDecl::Function(decl) => decl.expr_page(db),
-            FormDecl::Feature(decl) => decl.expr_page(db),
-            FormDecl::Morphism(decl) => decl.expr_page(db),
-            FormDecl::Value(decl) => decl.expr_page(db),
+            FormDecl::Function(decl) => decl.expr_region(db),
+            FormDecl::Feature(decl) => decl.expr_region(db),
+            FormDecl::Morphism(decl) => decl.expr_region(db),
+            FormDecl::Value(decl) => decl.expr_region(db),
         }
     }
 

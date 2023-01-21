@@ -4,6 +4,6 @@ use crate::*;
 pub struct TraitAssociatedFunctionDefn {
     #[id]
     pub entity_path: EntityPath,
-    pub expr_page: ExprPage,
+    pub expr_region: ExprRegion,
     pub decl: TraitAssociatedFunctionDecl,
 }

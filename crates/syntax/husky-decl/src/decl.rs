@@ -59,13 +59,13 @@ impl Decl {
         }
     }
 
-    pub fn expr_page(self, db: &dyn DeclDb) -> ExprPage {
+    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
         match self {
-            Decl::Type(decl) => decl.expr_page(db).into(),
-            Decl::Form(decl) => decl.expr_page(db).into(),
-            Decl::Trait(decl) => decl.expr_page(db).into(),
-            Decl::ImplBlock(decl) => decl.expr_page(db).into(),
-            Decl::AssociatedItem(decl) => decl.expr_page(db).into(),
+            Decl::Type(decl) => decl.expr_region(db).into(),
+            Decl::Form(decl) => decl.expr_region(db).into(),
+            Decl::Trait(decl) => decl.expr_region(db).into(),
+            Decl::ImplBlock(decl) => decl.expr_region(db).into(),
+            Decl::AssociatedItem(decl) => decl.expr_region(db).into(),
             Decl::Variant(decl) => todo!(),
         }
     }

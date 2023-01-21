@@ -6,7 +6,7 @@ Ok(
                     TraitDecl {
                         path: TraitPath(`std::ops::Add`),
                         ast_idx: 3,
-                        expr_page: ExprPage(
+                        expr_region: ExprRegion(
                             Id {
                                 value: 41,
                             },

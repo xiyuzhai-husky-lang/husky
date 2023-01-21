@@ -38,12 +38,12 @@ impl FormDefn {
             FormDefn::Value(defn) => defn.path(db),
         }
     }
-    pub fn expr_page(self, db: &dyn DefnDb) -> ExprPage {
+    pub fn expr_region(self, db: &dyn DefnDb) -> ExprRegion {
         match self {
-            FormDefn::Function(defn) => defn.expr_page(db),
-            FormDefn::Feature(defn) => defn.expr_page(db),
-            FormDefn::Morphism(defn) => defn.expr_page(db),
-            FormDefn::Value(defn) => defn.expr_page(db),
+            FormDefn::Function(defn) => defn.expr_region(db),
+            FormDefn::Feature(defn) => defn.expr_region(db),
+            FormDefn::Morphism(defn) => defn.expr_region(db),
+            FormDefn::Value(defn) => defn.expr_region(db),
         }
     }
 }

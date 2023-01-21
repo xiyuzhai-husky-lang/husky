@@ -7,7 +7,7 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Feature`),
                             ast_idx: 34,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 95,
                                 },
@@ -22,7 +22,7 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
                             ast_idx: 35,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 96,
                                 },
@@ -37,7 +37,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::digits::three::uparc`, `Function`),
                             ast_idx: 36,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 97,
                                 },
@@ -99,7 +99,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::digits::three::downarc`, `Function`),
                             ast_idx: 37,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 98,
                                 },
@@ -161,7 +161,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::digits::three::back`, `Function`),
                             ast_idx: 38,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 99,
                                 },

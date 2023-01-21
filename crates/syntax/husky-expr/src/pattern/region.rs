@@ -1,14 +1,14 @@
 use super::*;
 
 #[derive(Debug, Default, PartialEq, Eq)]
-pub struct PatternExprPage {
+pub struct PatternExprRegion {
     arena: PatternExprArena,
     pattern_infos: Vec<PatternExprInfo>,
     pattern_symbol_maps: Vec<IdentPairMap<PatternSymbolIdx>>,
     pattern_symbol_arena: PatternSymbolArena,
 }
 
-impl PatternExprPage {
+impl PatternExprRegion {
     pub fn alloc_one(&mut self, expr: PatternExpr, env: PatternExprInfo) -> PatternExprIdx {
         let expr_idx = self.arena.alloc_one(expr);
         assert_eq!(expr_idx.raw(), self.pattern_infos.len());
@@ -73,7 +73,7 @@ fn collect_symbols(
     }
 }
 
-impl std::ops::Index<PatternExprIdx> for PatternExprPage {
+impl std::ops::Index<PatternExprIdx> for PatternExprRegion {
     type Output = PatternExpr;
 
     fn index(&self, index: PatternExprIdx) -> &Self::Output {
@@ -81,7 +81,7 @@ impl std::ops::Index<PatternExprIdx> for PatternExprPage {
     }
 }
 
-impl std::ops::Index<PatternSymbolIdx> for PatternExprPage {
+impl std::ops::Index<PatternSymbolIdx> for PatternExprRegion {
     type Output = PatternSymbol;
 
     fn index(&self, index: PatternSymbolIdx) -> &Self::Output {

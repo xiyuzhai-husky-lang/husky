@@ -38,7 +38,7 @@ impl TraitItemDecl {
         }
     }
 
-    pub fn expr_page(self, db: &dyn DeclDb) -> ExprPage {
+    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
         match self {
             TraitItemDecl::Function(_) => todo!(),
             TraitItemDecl::Method(_) => todo!(),

@@ -2,7 +2,7 @@ use super::*;
 
 #[salsa::tracked(jar = SignatureJar)]
 pub fn alien_ty_signature(db: &dyn SignatureDb, decl: AlienTypeDecl) -> AlienTypeSignature {
-    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), None);
+    let mut engine = SignatureTermEngine::new(db, decl.expr_region(db), None);
     // implementation
     AlienTypeSignature::new(
         db,

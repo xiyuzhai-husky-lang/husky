@@ -7,7 +7,7 @@ Ok(
                         RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                             ast_idx: 121,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 47,
                                 },
@@ -137,7 +137,7 @@ Ok(
                         RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                             ast_idx: 122,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 48,
                                 },
@@ -192,7 +192,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
                             ast_idx: 123,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 49,
                                 },
@@ -254,7 +254,7 @@ Ok(
                         RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             ast_idx: 124,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 50,
                                 },
@@ -303,7 +303,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
                             ast_idx: 126,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 51,
                                 },
@@ -385,7 +385,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
                             ast_idx: 127,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 52,
                                 },
@@ -464,7 +464,7 @@ Ok(
                                     ),
                                 },
                             ),
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 53,
                                 },
@@ -491,7 +491,7 @@ Ok(
                                     },
                                 ),
                                 ast_idx: 67,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 54,
                                     },
@@ -536,7 +536,7 @@ Ok(
                                     },
                                 ),
                                 ast_idx: 68,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 55,
                                     },
@@ -581,7 +581,7 @@ Ok(
                                     },
                                 ),
                                 ast_idx: 69,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 56,
                                     },
@@ -626,7 +626,7 @@ Ok(
                                     },
                                 ),
                                 ast_idx: 70,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 57,
                                     },
@@ -671,7 +671,7 @@ Ok(
                                     },
                                 ),
                                 ast_idx: 71,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 58,
                                     },
@@ -716,7 +716,7 @@ Ok(
                                     },
                                 ),
                                 ast_idx: 72,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 59,
                                     },
@@ -761,7 +761,7 @@ Ok(
                                     },
                                 ),
                                 ast_idx: 73,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 60,
                                     },
@@ -806,7 +806,7 @@ Ok(
                                     },
                                 ),
                                 ast_idx: 74,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 61,
                                     },
@@ -851,7 +851,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 75,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 62,
                                     },
@@ -926,7 +926,7 @@ Ok(
                                     ),
                                 ),
                                 ast_idx: 76,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 63,
                                     },

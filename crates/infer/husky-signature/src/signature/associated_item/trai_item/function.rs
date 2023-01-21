@@ -5,7 +5,7 @@ pub(crate) fn trai_associated_function_signature(
     db: &dyn SignatureDb,
     decl: TraitAssociatedFunctionDecl,
 ) -> TraitAssociatedFunctionSignature {
-    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), todo!());
+    let mut engine = SignatureTermEngine::new(db, decl.expr_region(db), todo!());
     // implementation
     TraitAssociatedFunctionSignature::new(
         db,

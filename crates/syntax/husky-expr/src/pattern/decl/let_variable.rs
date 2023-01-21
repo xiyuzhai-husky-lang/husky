@@ -14,7 +14,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         let state = self.state();
         if let Some(pattern_expr_idx) = self.parse_pattern_expr(PatternExprInfo::Let)? {
             let symbols = self
-                .pattern_expr_page()
+                .pattern_expr_region()
                 .pattern_symbol_map(pattern_expr_idx);
             let access_start = self.state();
             let symbols = symbols

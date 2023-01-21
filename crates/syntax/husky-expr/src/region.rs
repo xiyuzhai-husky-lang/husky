@@ -2,7 +2,7 @@ use crate::*;
 use husky_vfs::{ModulePath, Toolchain};
 
 #[salsa::tracked(jar = ExprJar)]
-pub struct ExprPage {
+pub struct ExprRegion {
     pub path: ExprPath,
     #[return_ref]
     pub expr_arena: ExprArena,
@@ -11,12 +11,12 @@ pub struct ExprPage {
     #[return_ref]
     pub stmt_arena: StmtArena,
     #[return_ref]
-    pub pattern_expr_page: PatternExprPage,
+    pub pattern_expr_region: PatternExprRegion,
     #[return_ref]
-    pub symbol_page: SymbolPage,
+    pub symbol_region: SymbolRegion,
 }
 
-impl ExprPage {
+impl ExprRegion {
     pub fn toolchain(self, db: &dyn ExprDb) -> Toolchain {
         // ad hoc
         match self.path(db) {

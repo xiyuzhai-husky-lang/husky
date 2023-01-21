@@ -2,18 +2,18 @@ use crate::*;
 
 #[test]
 fn new_resource_works() {
-    let mut symbol_page = SymbolRegistry::default();
-    let _immutable0 = symbol_page.new_variable();
-    let _lifetime1 = symbol_page.new_lifetime();
+    let mut symbol_region = SymbolRegistry::default();
+    let _immutable0 = symbol_region.new_variable();
+    let _lifetime1 = symbol_region.new_lifetime();
     let borrow_table = DependencyTable::default();
     let _time_machine = BorrowChecker::new(&borrow_table);
 }
 
 #[test]
 fn new_borrow_works() {
-    let mut symbol_page = SymbolRegistry::default();
-    let x = symbol_page.new_variable();
-    let a = symbol_page.new_lifetime();
+    let mut symbol_region = SymbolRegistry::default();
+    let x = symbol_region.new_variable();
+    let a = symbol_region.new_lifetime();
     let mut dependencies = DependencyTable::default();
     dependencies.add_borrow(x, a);
     let mut borrow_checker = BorrowChecker::new(&dependencies);
@@ -29,10 +29,10 @@ fn new_borrow_works() {
 }
 
 fn multiple_borrows() {
-    let mut symbol_page = SymbolRegistry::default();
-    let x = symbol_page.new_variable();
-    let a = symbol_page.new_lifetime();
-    let b = symbol_page.new_lifetime();
+    let mut symbol_region = SymbolRegistry::default();
+    let x = symbol_region.new_variable();
+    let a = symbol_region.new_lifetime();
+    let b = symbol_region.new_lifetime();
     let mut dependencies = DependencyTable::default();
     dependencies.add_borrow(x, a);
     dependencies.add_borrow(x, b);
@@ -53,10 +53,10 @@ fn multiple_borrows() {
 
 #[test]
 fn borrow_then_borrow_mut() {
-    let mut symbol_page = SymbolRegistry::default();
-    let x = symbol_page.new_variable();
-    let a = symbol_page.new_lifetime();
-    let b = symbol_page.new_lifetime();
+    let mut symbol_region = SymbolRegistry::default();
+    let x = symbol_region.new_variable();
+    let a = symbol_region.new_lifetime();
+    let b = symbol_region.new_lifetime();
     let mut dependencies = DependencyTable::default();
     dependencies.add_borrow(x, a);
     dependencies.add_borrow(x, b);
@@ -75,9 +75,9 @@ fn borrow_then_borrow_mut() {
 
 #[test]
 fn new_borrow_err() {
-    let mut symbol_page = SymbolRegistry::default();
-    let x = symbol_page.new_variable();
-    let a = symbol_page.new_lifetime();
+    let mut symbol_region = SymbolRegistry::default();
+    let x = symbol_region.new_variable();
+    let a = symbol_region.new_lifetime();
     let mut dependencies = DependencyTable::default();
     dependencies.add_borrow(x, a);
     let mut borrow_checker = BorrowChecker::new(&dependencies);
@@ -97,9 +97,9 @@ fn new_borrow_err() {
 
 #[test]
 fn move_err() {
-    let mut symbol_page = SymbolRegistry::default();
-    let x = symbol_page.new_variable();
-    let a = symbol_page.new_lifetime();
+    let mut symbol_region = SymbolRegistry::default();
+    let x = symbol_region.new_variable();
+    let a = symbol_region.new_lifetime();
     let mut dependencies = DependencyTable::default();
     dependencies.add_borrow(x, a);
     let mut borrow_checker = BorrowChecker::new(&dependencies);

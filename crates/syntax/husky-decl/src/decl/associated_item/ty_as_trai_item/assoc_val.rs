@@ -5,5 +5,5 @@ pub struct TypeAsTraitAssociatedValueDecl {
     #[id]
     pub entity_path: EntityPath,
     pub ast_idx: AstIdx,
-    pub expr_page: ExprPage,
+    pub expr_region: ExprRegion,
 }

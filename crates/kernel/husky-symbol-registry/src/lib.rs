@@ -21,9 +21,9 @@ pub enum SymbolRegistration {
 
 #[test]
 fn it_works() {
-    let mut symbol_page = SymbolRegistry::default();
-    let immutable0 = symbol_page.new_variable();
+    let mut symbol_region = SymbolRegistry::default();
+    let immutable0 = symbol_region.new_variable();
     assert_eq!(immutable0.to_string(), "#0");
-    let lifetime1 = symbol_page.new_lifetime();
+    let lifetime1 = symbol_region.new_lifetime();
     assert_eq!(lifetime1.to_string(), "'#1");
 }

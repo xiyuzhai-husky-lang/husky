@@ -6,7 +6,7 @@ pub fn unit_struct_ty_signature(
     db: &dyn SignatureDb,
     decl: UnitStructTypeDecl,
 ) -> UnitStructTypeSignature {
-    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), None);
+    let mut engine = SignatureTermEngine::new(db, decl.expr_region(db), None);
     UnitStructTypeSignature::new(
         db,
         ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), &mut engine),
