@@ -1,4 +1,4 @@
-use husky_expr::ImplicitParameterDeclPatternVariant;
+use husky_expr::{ImplicitParameterDeclPatternVariant, RegularParameterDeclPattern};
 
 use crate::*;
 
@@ -12,23 +12,24 @@ pub struct ImplicitParameterSignature {
 impl ImplicitParameterSignature {
     fn from_decl(
         parameter: &ImplicitParameterDecl,
-        engine: &mut SignatureTermEngine,
+        sheet: &SignatureTermSheet,
     ) -> ImplicitParameterSignature {
-        let symbol = parameter.pattern().symbol();
-        let variant = parameter.pattern().variant();
-        match variant {
-            ImplicitParameterDeclPatternVariant::Type0 { .. } => {
-                ImplicitParameterSignature {
-                    term_symbol: engine.current_symbol_term_symbol(symbol),
-                    ty: Success(engine.term_menu().ty0()),
-                    // ad hoc
-                    traits: vec![],
-                }
-            }
-            ImplicitParameterDeclPatternVariant::Constant => todo!(),
-            ImplicitParameterDeclPatternVariant::Lifetime => todo!(),
-            ImplicitParameterDeclPatternVariant::Binding => todo!(),
-        }
+        todo!()
+        // let symbol = parameter.pattern().symbol();
+        // let variant = parameter.pattern().variant();
+        // match variant {
+        //     ImplicitParameterDeclPatternVariant::Type0 { .. } => {
+        //         ImplicitParameterSignature {
+        //             term_symbol: sheet.current_symbol_term_symbol(symbol),
+        //             ty: Success(sheet.term_menu().ty0()),
+        //             // ad hoc
+        //             traits: vec![],
+        //         }
+        //     }
+        //     ImplicitParameterDeclPatternVariant::Constant => todo!(),
+        //     ImplicitParameterDeclPatternVariant::Lifetime => todo!(),
+        //     ImplicitParameterDeclPatternVariant::Binding => todo!(),
+        // }
     }
 
     pub fn term_symbol(&self) -> TermSymbol {
@@ -52,12 +53,12 @@ pub struct ImplicitParameterSignatures {
 impl ImplicitParameterSignatures {
     pub(crate) fn from_decl(
         parameters: &[ImplicitParameterDecl],
-        engine: &mut SignatureTermEngine,
+        sheet: &SignatureTermSheet,
     ) -> Self {
         Self {
             parameters: parameters
                 .iter()
-                .map(|parameter| ImplicitParameterSignature::from_decl(parameter, engine))
+                .map(|parameter| ImplicitParameterSignature::from_decl(parameter, sheet))
                 .collect(),
         }
     }
@@ -91,15 +92,15 @@ pub struct ParameterSignatures {
 
 impl ParameterSignatures {
     pub(crate) fn from_decl(
-        parameters: &[ParameterDecl],
-        engine: &mut SignatureTermEngine,
+        parameters: &[RegularParameterDeclPattern],
+        sheet: &SignatureTermSheet,
     ) -> Self {
         Self {
             parameters: parameters
                 .iter()
                 .map(|parameter| ParameterSignature {
                     pattern: ParameterSignaturePattern {},
-                    ty: engine.query_new(parameter.ty()),
+                    ty: todo!(),
                 })
                 .collect(),
         }

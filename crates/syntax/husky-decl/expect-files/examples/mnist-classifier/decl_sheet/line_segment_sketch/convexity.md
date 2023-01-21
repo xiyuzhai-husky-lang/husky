@@ -20,33 +20,29 @@ Ok(
                                     ),
                                 },
                                 parameters: [
-                                    ParameterDecl {
-                                        pattern: RegularParameterDeclPattern {
-                                            pattern: 0,
-                                            variables: ArenaIdxRange(
-                                                0..1,
+                                    RegularParameterDeclPattern {
+                                        pattern: 0,
+                                        variables: ArenaIdxRange(
+                                            0..1,
+                                        ),
+                                        colon: ColonToken {
+                                            token_idx: TokenIdx(
+                                                23,
                                             ),
-                                            colon: ColonToken {
-                                                token_idx: TokenIdx(
-                                                    23,
-                                                ),
-                                            },
-                                            ty: 0,
                                         },
+                                        ty: 0,
                                     },
-                                    ParameterDecl {
-                                        pattern: RegularParameterDeclPattern {
-                                            pattern: 1,
-                                            variables: ArenaIdxRange(
-                                                1..2,
+                                    RegularParameterDeclPattern {
+                                        pattern: 1,
+                                        variables: ArenaIdxRange(
+                                            1..2,
+                                        ),
+                                        colon: ColonToken {
+                                            token_idx: TokenIdx(
+                                                27,
                                             ),
-                                            colon: ColonToken {
-                                                token_idx: TokenIdx(
-                                                    27,
-                                                ),
-                                            },
-                                            ty: 1,
                                         },
+                                        ty: 1,
                                     },
                                 ],
                                 commas: [
