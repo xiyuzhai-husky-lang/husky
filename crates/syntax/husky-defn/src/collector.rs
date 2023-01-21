@@ -114,7 +114,7 @@ impl<'a> DefnCollector<'a> {
         let path = decl.path(self.db);
         let mut parser = self.expr_parser(
             DefnExprPath::Entity(path.into()),
-            Some(decl.expr_region(self.db).symbol_region(self.db)),
+            Some(decl.expr_region(self.db)),
             AllowSelfType::False,
             AllowSelfValue::False,
         );
@@ -170,7 +170,7 @@ impl<'a> DefnCollector<'a> {
         let path = decl.path(self.db);
         let mut parser = self.expr_parser(
             DefnExprPath::AssociatedItem(decl.associated_item(self.db)),
-            Some(decl.expr_region(self.db).symbol_region(self.db)),
+            Some(decl.expr_region(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
         );
@@ -188,7 +188,7 @@ impl<'a> DefnCollector<'a> {
         let path = decl.path(self.db);
         let mut parser = self.expr_parser(
             DefnExprPath::AssociatedItem(decl.associated_item(self.db)),
-            Some(decl.expr_region(self.db).symbol_region(self.db)),
+            Some(decl.expr_region(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
         );
@@ -219,7 +219,7 @@ impl<'a> DefnCollector<'a> {
         let path = decl.path(self.db);
         let mut parser = self.expr_parser(
             DefnExprPath::AssociatedItem(decl.associated_item(self.db)),
-            Some(decl.expr_region(self.db).symbol_region(self.db)),
+            Some(decl.expr_region(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
         );
@@ -236,7 +236,7 @@ impl<'a> DefnCollector<'a> {
     fn expr_parser(
         &self,
         expr_path: DefnExprPath,
-        decl_symbol_region: Option<&SymbolRegion>,
+        decl_expr_region: Option<ExprRegion>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
     ) -> BlockExprParser<'a> {
@@ -244,12 +244,10 @@ impl<'a> DefnCollector<'a> {
             self.db,
             expr_path.into(),
             self.token_sheet_data,
-            SymbolContextMut::new(
-                self.module_symbol_context,
-                decl_symbol_region,
-                allow_self_type,
-                allow_self_value,
-            ),
+            self.module_symbol_context,
+            decl_expr_region,
+            allow_self_type,
+            allow_self_value,
         );
         BlockExprParser::new(parser, self.ast_sheet, self.ast_range_sheet)
     }

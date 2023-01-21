@@ -3,6 +3,7 @@ use husky_vfs::{ModulePath, Toolchain};
 
 #[salsa::tracked(jar = ExprJar)]
 pub struct ExprRegion {
+    pub parent: Option<ExprRegion>,
     pub path: ExprPath,
     #[return_ref]
     pub expr_arena: ExprArena,

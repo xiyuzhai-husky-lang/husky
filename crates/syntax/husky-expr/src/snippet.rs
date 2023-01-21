@@ -15,12 +15,10 @@ pub(crate) fn parse_expr_from_snippet(
         db,
         ExprPath::Snippet(crate_path.toolchain(db)),
         token_sheet_data,
-        SymbolContextMut::new(
-            ModuleSymbolContext::new_default(db, crate_path)?,
-            None,
-            AllowSelfType::False,
-            AllowSelfValue::False,
-        ),
+        ModuleSymbolContext::new_default(db, crate_path)?,
+        None,
+        AllowSelfType::False,
+        AllowSelfValue::False,
     );
     let expr = expr_parser
         .ctx(token_iter)

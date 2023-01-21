@@ -1,8 +1,8 @@
 mod context_mut;
-mod page;
+mod region;
 
 pub use context_mut::*;
-pub use page::*;
+pub use region::*;
 
 use crate::*;
 use husky_entity_tree::{CrateSymbolContext, ModuleSymbolContext, PreludeResult};

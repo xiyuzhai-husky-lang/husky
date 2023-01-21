@@ -128,6 +128,7 @@ pub struct ExprParser<'a> {
     db: &'a dyn ExprDb,
     path: ExprPath,
     token_sheet_data: &'a TokenSheetData,
+    parent_expr_region: Option<ExprRegion>,
     symbol_context: SymbolContextMut<'a>,
     expr_arena: ExprArena,
     entity_path_expr_arena: EntityPathExprArena,
@@ -140,13 +141,22 @@ impl<'a> ExprParser<'a> {
         db: &'a dyn ExprDb,
         path: ExprPath,
         token_sheet_data: &'a TokenSheetData,
-        symbol_context: SymbolContextMut<'a>,
+        module_symbol_context: ModuleSymbolContext<'a>,
+        parent_expr_region: Option<ExprRegion>,
+        allow_self_type: AllowSelfType,
+        allow_self_value: AllowSelfValue,
     ) -> Self {
         Self {
             db,
             path: path.into(),
             token_sheet_data,
-            symbol_context,
+            parent_expr_region,
+            symbol_context: SymbolContextMut::new(
+                module_symbol_context,
+                parent_expr_region.map(|er| er.symbol_region(db)),
+                allow_self_type,
+                allow_self_value,
+            ),
             expr_arena: Default::default(),
             entity_path_expr_arena: Default::default(),
             pattern_expr_region: Default::default(),
@@ -157,6 +167,7 @@ impl<'a> ExprParser<'a> {
     pub fn finish(self) -> ExprRegion {
         self.symbol_context.into_expr_region(
             self.db,
+            self.parent_expr_region,
             self.path,
             self.expr_arena,
             self.entity_path_expr_arena,
