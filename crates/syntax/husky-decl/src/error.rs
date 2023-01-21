@@ -26,6 +26,10 @@ pub enum DeclError {
     MissingCurry(TokenIdx),
     #[error("missing `:` at end of line")]
     MissingEolColon(TokenIdx),
+    #[error("unable to parse impl block decl for ty as trai method decl")]
+    UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
+    #[error("unable to parse impl block decl for ty method decl")]
+    UnableToParseImplBlockDeclForTyMethodDecl,
 }
 
 pub type DeclResult<T> = Result<T, DeclError>;

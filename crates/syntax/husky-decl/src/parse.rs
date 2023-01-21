@@ -155,6 +155,7 @@ impl<'a> DeclParser<'a> {
     ) -> DeclResult<TypeDecl> {
         let mut parser = self.expr_parser(
             DeclExprPath::Entity(path.into()),
+            None,
             AllowSelfType::True,
             AllowSelfValue::False,
         );
@@ -201,6 +202,7 @@ impl<'a> DeclParser<'a> {
     ) -> DeclResult<TraitDecl> {
         let mut parser = self.expr_parser(
             DeclExprPath::Entity(path.into()),
+            None,
             AllowSelfType::True,
             AllowSelfValue::False,
         );
@@ -228,6 +230,7 @@ impl<'a> DeclParser<'a> {
     ) -> DeclResult<TypeDecl> {
         let mut parser = self.expr_parser(
             DeclExprPath::Entity(path.into()),
+            None,
             AllowSelfType::True,
             AllowSelfValue::False,
         );
@@ -252,6 +255,7 @@ impl<'a> DeclParser<'a> {
     ) -> DeclResult<TypeDecl> {
         let mut parser = self.expr_parser(
             DeclExprPath::Entity(path.into()),
+            None,
             AllowSelfType::True,
             AllowSelfValue::False,
         );
@@ -314,6 +318,7 @@ impl<'a> DeclParser<'a> {
 
         let mut parser = self.expr_parser(
             DeclExprPath::Entity(path.into()),
+            None,
             AllowSelfType::True,
             AllowSelfValue::False,
         );
@@ -343,6 +348,7 @@ impl<'a> DeclParser<'a> {
 
         let mut parser = self.expr_parser(
             DeclExprPath::Entity(path.into()),
+            None,
             AllowSelfType::True,
             AllowSelfValue::False,
         );
@@ -416,6 +422,7 @@ impl<'a> DeclParser<'a> {
     ) -> Result<FormDecl, DeclError> {
         let mut parser = self.expr_parser(
             DeclExprPath::Entity(path.into()),
+            None,
             AllowSelfType::False,
             AllowSelfValue::False,
         );
@@ -435,6 +442,7 @@ impl<'a> DeclParser<'a> {
     ) -> Result<FormDecl, DeclError> {
         let mut parser = self.expr_parser(
             DeclExprPath::Entity(path.into()),
+            None,
             AllowSelfType::False,
             AllowSelfValue::False,
         );
@@ -491,6 +499,7 @@ impl<'a> DeclParser<'a> {
     ) -> DeclResult<TypeImplBlockDecl> {
         let mut parser = self.expr_parser(
             DeclExprPath::ImplBlock(impl_block),
+            None,
             AllowSelfType::True,
             AllowSelfValue::False,
         );
@@ -579,8 +588,11 @@ impl<'a> DeclParser<'a> {
         associated_item: AssociatedItem,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeMethodDecl> {
+        let Ok(impl_block_decl) = self.db.impl_block_decl(associated_item.impl_block(self.db))
+            else { return Err(DeclError::UnableToParseImplBlockDeclForTyMethodDecl) };
         let mut parser = self.expr_parser(
             DeclExprPath::AssociatedItem(associated_item),
+            Some(impl_block_decl.expr_region(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
         );
@@ -625,8 +637,11 @@ impl<'a> DeclParser<'a> {
         associated_item: AssociatedItem,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeMemoDecl> {
+        let Ok(impl_block_decl) = self.db.impl_block_decl(associated_item.impl_block(self.db))
+            else { todo!() };
         let mut parser = self.expr_parser(
             DeclExprPath::AssociatedItem(associated_item),
+            Some(impl_block_decl.expr_region(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
         );
@@ -664,8 +679,11 @@ impl<'a> DeclParser<'a> {
         associated_item: AssociatedItem,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeAsTraitMethodDecl> {
+        let Ok(impl_block_decl) = self.db.impl_block_decl(associated_item.impl_block(self.db))
+            else { return Err(DeclError::UnableToParseImplBlockDeclForTyAsTraitMethodDecl) };
         let mut parser = self.expr_parser(
             DeclExprPath::AssociatedItem(associated_item),
+            Some(impl_block_decl.expr_region(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
         );

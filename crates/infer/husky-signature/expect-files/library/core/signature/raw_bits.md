@@ -6,7 +6,7 @@
                     parameters: [],
                 },
                 term_sheet: SignatureTermSheet {
-                    term_symbol_page: TermSymbolPage {
+                    term_symbol_region: TermSymbolRegion {
                         registry: TermSymbolRegistry {
                             tys: [],
                         },

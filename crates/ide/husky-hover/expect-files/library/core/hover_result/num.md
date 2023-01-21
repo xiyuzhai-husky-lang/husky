@@ -160,7 +160,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 85;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 27,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 9,\n                    },\n                ),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
+                                value: "\ntoken_idx = 85;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 27,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 170;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 24,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    None,\n    Some(\n        AssociatedItem {\n            associated_item_kind: TypeAsTraitItem(\n                Method,\n            ),\n        },\n    ),\n);\n\n\n",
+                                value: "\ntoken_idx = 170;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 24,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -550,7 +550,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 306;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 25,\n            },\n        ),\n    ),\n);\n\ntoken_info = CurrentSymbol {\n    current_symbol_idx: 0,\n    current_symbol_kind: Parameter {\n        pattern_symbol: 0,\n    },\n    expr_region: ExprRegion(\n        Id {\n            value: 35,\n        },\n    ),\n};\n\nCurrentSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 25,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        307,\n    ),\n    access_end: None,\n    variant: Parameter {\n        pattern_symbol: 0,\n    },\n}\n",
+                                value: "\ntoken_idx = 306;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 25,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(

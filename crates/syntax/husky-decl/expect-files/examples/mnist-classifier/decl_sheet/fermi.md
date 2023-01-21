@@ -9,7 +9,7 @@ Ok(
                             ast_idx: 22,
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 103,
+                                    value: 95,
                                 },
                             ),
                             implicit_parameter_decl_list: None,
@@ -89,7 +89,7 @@ Ok(
                             ast_idx: 24,
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 104,
+                                    value: 96,
                                 },
                             ),
                             implicit_parameter_decl_list: None,
@@ -188,7 +188,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 105,
+                                    value: 97,
                                 },
                             ),
                         },
@@ -215,7 +215,7 @@ Ok(
                                 ast_idx: 12,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 106,
+                                        value: 98,
                                     },
                                 ),
                                 curry_token: Ok(
@@ -260,7 +260,7 @@ Ok(
                                 ast_idx: 13,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 107,
+                                        value: 99,
                                     },
                                 ),
                                 curry_token: Ok(
@@ -305,7 +305,7 @@ Ok(
                                 ast_idx: 14,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 108,
+                                        value: 100,
                                     },
                                 ),
                                 curry_token: Ok(
