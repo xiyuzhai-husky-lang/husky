@@ -2,18 +2,22 @@ use super::*;
 
 #[derive(Debug, Default, PartialEq, Eq)]
 pub struct PatternExprRegion {
-    arena: PatternExprArena,
+    pattern_expr_arena: PatternExprArena,
     pattern_infos: Vec<PatternExprInfo>,
     pattern_symbol_maps: Vec<IdentPairMap<PatternSymbolIdx>>,
     pattern_symbol_arena: PatternSymbolArena,
 }
 
 impl PatternExprRegion {
-    pub fn alloc_one(&mut self, expr: PatternExpr, env: PatternExprInfo) -> PatternExprIdx {
-        let expr_idx = self.arena.alloc_one(expr);
+    pub fn alloc_one_pattern_expr(
+        &mut self,
+        expr: PatternExpr,
+        env: PatternExprInfo,
+    ) -> PatternExprIdx {
+        let expr_idx = self.pattern_expr_arena.alloc_one(expr);
         assert_eq!(expr_idx.raw(), self.pattern_infos.len());
         self.pattern_infos.push(env);
-        let expr = &self.arena[expr_idx];
+        let expr = &self.pattern_expr_arena[expr_idx];
         assert_eq!(expr_idx.raw(), self.pattern_symbol_maps.len());
         self.pattern_symbol_maps.push(collect_symbols(
             expr_idx,
@@ -26,7 +30,7 @@ impl PatternExprRegion {
     pub fn pattern_exprs<'a>(
         &'a self,
     ) -> impl Iterator<Item = (PatternExprIdx, &'a PatternExpr)> + 'a {
-        self.arena.indexed_iter()
+        self.pattern_expr_arena.indexed_iter()
     }
 
     pub fn pattern_symbol_map(
@@ -77,7 +81,7 @@ impl std::ops::Index<PatternExprIdx> for PatternExprRegion {
     type Output = PatternExpr;
 
     fn index(&self, index: PatternExprIdx) -> &Self::Output {
-        &self.arena[index]
+        &self.pattern_expr_arena[index]
     }
 }
 
