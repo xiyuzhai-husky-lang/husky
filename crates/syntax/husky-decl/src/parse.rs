@@ -285,6 +285,7 @@ impl<'a> DeclParser<'a> {
     fn expr_parser(
         &self,
         expr_path: DeclExprPath,
+        parent_expr_region: Option<ExprRegion>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
     ) -> ExprParser<'a> {
@@ -293,7 +294,7 @@ impl<'a> DeclParser<'a> {
             expr_path.into(),
             self.token_sheet_data,
             self.module_symbol_context,
-            None,
+            parent_expr_region,
             allow_self_type,
             allow_self_value,
         )
