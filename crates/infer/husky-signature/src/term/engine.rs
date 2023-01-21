@@ -19,34 +19,21 @@ pub(crate) struct SignatureTermEngine<'a> {
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermSymbolPage {
     registry: TermSymbolRegistry,
-    inherited_symbol_terms: Vec<Option<TermSymbol>>,
+    inherited_symbol_terms: Vec<TermSymbol>,
     current_symbol_terms: Vec<TermSymbol>,
 }
 
 impl TermSymbolPage {
-    fn new(parent: Option<&TermSymbolPage>, symbol_page: &SymbolPage) -> TermSymbolPage {
-        let mut registry = parent.map_or(Default::default(), |parent| parent.registry.clone());
+    fn new(parent: Option<&TermSymbolPage>, symbol_page: &SymbolPage) -> Self {
+        let registry = parent.map_or(Default::default(), |parent| parent.registry.clone());
         let inherited_symbol_terms = symbol_page
             .indexed_inherited_symbol_iter()
             .map(|(idx, symbol)| todo!())
             .collect();
-        let current_symbol_terms = symbol_page
-            .indexed_current_symbol_iter()
-            .map(|(idx, symbol)| match symbol.variant() {
-                CurrentSymbolVariant::ImplicitParameter {
-                    implicit_parameter_variant,
-                } => match implicit_parameter_variant {
-                    ImplicitParameterVariant::Type { .. } => registry.new_ty0().into(),
-                },
-                CurrentSymbolVariant::Parameter { .. } => registry.new_parameter().into(),
-                CurrentSymbolVariant::LetVariable { pattern_symbol } => todo!(),
-                CurrentSymbolVariant::FrameVariable(_) => todo!(),
-            })
-            .collect();
-        TermSymbolPage {
+        Self {
             registry,
             inherited_symbol_terms,
-            current_symbol_terms,
+            current_symbol_terms: Default::default(),
         }
     }
 
@@ -65,8 +52,8 @@ impl<'a> SignatureTermEngine<'a> {
         let toolchain = expr_page.toolchain(db);
         let symbol_page = expr_page.symbol_page(db);
         // ad hoc
-        let term_menu = &db.term_menu(toolchain).as_ref().unwrap();
-        Self {
+        let term_menu = db.term_menu(toolchain).as_ref().unwrap();
+        let mut this = Self {
             db,
             path: expr_page.path(db),
             expr_arena,
@@ -75,7 +62,32 @@ impl<'a> SignatureTermEngine<'a> {
             term_menu,
             expr_terms: ExprMap::new(expr_arena),
             term_symbol_page: TermSymbolPage::new(parent_term_symbol_page, symbol_page),
-        }
+        };
+        this.init_current_symbol_term_symbols();
+        this
+    }
+
+    fn init_current_symbol_term_symbols(&mut self) {
+        let current_symbol_terms = self
+            .symbol_page
+            .indexed_current_symbol_iter()
+            .map(|(idx, symbol)| {
+                let ty = match symbol.variant() {
+                    CurrentSymbolVariant::ImplicitParameter {
+                        implicit_parameter_variant,
+                    } => match implicit_parameter_variant {
+                        ImplicitParameterVariant::Type { .. } => Ok(self.term_menu.ty0()),
+                    },
+                    CurrentSymbolVariant::Parameter { .. } => {
+                        todo!()
+                    }
+                    CurrentSymbolVariant::LetVariable { pattern_symbol } => todo!(),
+                    CurrentSymbolVariant::FrameVariable(_) => todo!(),
+                };
+                self.term_symbol_page.registry.new_symbol(self.db, ty)
+            })
+            .collect();
+        self.term_symbol_page.current_symbol_terms = current_symbol_terms;
     }
 
     // ask about the term for expr, assuming it hasn't been computed before
