@@ -83,7 +83,7 @@ impl<'a> SignatureTermEngine<'a> {
                     CurrentSymbolVariant::Parameter { pattern_symbol } => {
                         let pattern_symbol = &self.pattern_expr_region[*pattern_symbol];
                         match pattern_symbol {
-                            PatternSymbol::Atom(_) => todo!(),
+                            PatternSymbol::Atom(pattern) => todo!(),
                         }
                     }
                     CurrentSymbolVariant::LetVariable { pattern_symbol } => todo!(),

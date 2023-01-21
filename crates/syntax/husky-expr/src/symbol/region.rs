@@ -36,6 +36,21 @@ pub struct SymbolRegion {
     current_symbol_arena: CurrentSymbolArena,
     allow_self_type: AllowSelfType,
     allow_self_value: AllowSelfValue,
+    ty_annotations: Vec<TypeAnnotation>,
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub enum TypeAnnotation {
+    LetVariables {
+        pattern: PatternExprIdx,
+        ty: ExprIdx,
+    },
+    FrameVariable,
+    ImplicitTypeParameter,
+    RegularParameter {
+        pattern: PatternExprIdx,
+        ty: ExprIdx,
+    },
 }
 
 impl SymbolRegion {
@@ -68,6 +83,7 @@ impl SymbolRegion {
             current_symbol_arena: Default::default(),
             allow_self_type,
             allow_self_value,
+            ty_annotations: vec![],
         }
     }
 
@@ -75,7 +91,9 @@ impl SymbolRegion {
     pub(crate) fn define_symbols(
         &mut self,
         variables: impl IntoIterator<Item = CurrentSymbol>,
+        ty_annotation: Option<TypeAnnotation>,
     ) -> ArenaIdxRange<CurrentSymbol> {
+        self.ty_annotations.extend(ty_annotation.into_iter());
         self.current_symbol_arena.alloc_batch(variables)
     }
 
