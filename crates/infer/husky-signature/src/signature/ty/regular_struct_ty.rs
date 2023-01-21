@@ -5,19 +5,18 @@ pub fn regular_struct_ty_signature(
     db: &dyn SignatureDb,
     decl: RegularStructTypeDecl,
 ) -> RegularStructTypeSignature {
-    let mut engine = SignatureTermEngine::new(db, decl.expr_region(db), None);
-    RegularStructTypeSignature::new(
-        db,
-        ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), &mut engine),
-        decl.fields(db)
-            .iter()
-            .map(|field| RegularStructFieldSignature {
-                ident: field.ident(),
-                ty: engine.query_new(field.ty()),
-            })
-            .collect(),
-        engine.finish(),
-    )
+    todo!()
+    // RegularStructTypeSignature::new(
+    //     db,
+    //     ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), &mut engine),
+    //     decl.fields(db)
+    //         .iter()
+    //         .map(|field| RegularStructFieldSignature {
+    //             ident: field.ident(),
+    //             ty: engine.query_new(field.ty()),
+    //         })
+    //         .collect(),
+    // )
 }
 
 #[salsa::tracked(jar = SignatureJar)]

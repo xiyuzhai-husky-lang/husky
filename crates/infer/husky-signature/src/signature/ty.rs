@@ -49,20 +49,6 @@ pub enum TypeSignature {
 }
 
 impl TypeSignature {
-    pub fn term_sheet<'a>(self, db: &'a dyn SignatureDb) -> &'a SignatureTermSheet {
-        match self {
-            TypeSignature::Enum(signature) => signature.term_sheet(db),
-            TypeSignature::RegularStruct(signature) => signature.term_sheet(db),
-            TypeSignature::UnitStruct(signature) => signature.term_sheet(db),
-            TypeSignature::TupleStruct(signature) => signature.term_sheet(db),
-            TypeSignature::Record(signature) => signature.term_sheet(db),
-            TypeSignature::Inductive(signature) => signature.term_sheet(db),
-            TypeSignature::Structure(signature) => signature.term_sheet(db),
-            TypeSignature::Foreign(signature) => signature.term_sheet(db),
-            TypeSignature::Union(signature) => signature.term_sheet(db),
-        }
-    }
-
     pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
         match self {
             TypeSignature::Enum(decl) => decl.implicit_parameters(db),

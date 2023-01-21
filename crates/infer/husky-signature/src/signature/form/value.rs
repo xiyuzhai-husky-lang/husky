@@ -2,16 +2,12 @@ use crate::*;
 
 #[salsa::tracked(jar = SignatureJar)]
 pub fn value_signature(db: &dyn SignatureDb, decl: ValueDecl) -> ValueSignature {
-    let mut engine = SignatureTermEngine::new(db, decl.expr_region(db), None);
     // implementation
-    ValueSignature::new(db, engine.finish())
+    ValueSignature::new(db)
 }
 
-#[salsa::tracked(jar = SignatureJar)]
-pub struct ValueSignature {
-    #[return_ref]
-    pub term_sheet: SignatureTermSheet,
-}
+#[salsa::interned(jar = SignatureJar)]
+pub struct ValueSignature {}
 
 impl ValueSignature {
     pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {

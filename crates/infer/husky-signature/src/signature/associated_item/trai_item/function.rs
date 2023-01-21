@@ -5,20 +5,11 @@ pub(crate) fn trai_associated_function_signature(
     db: &dyn SignatureDb,
     decl: TraitAssociatedFunctionDecl,
 ) -> TraitAssociatedFunctionSignature {
-    let mut engine = SignatureTermEngine::new(db, decl.expr_region(db), todo!());
     // implementation
-    TraitAssociatedFunctionSignature::new(
-        db,
-        todo!(),
-        // ImplicitParameterSignatureList::from_decl(decl.implicit_parameters(db), &mut engine),
-        engine.finish(),
-    )
+    TraitAssociatedFunctionSignature::new(db, todo!())
 }
 
-#[salsa::tracked(jar = SignatureJar)]
+#[salsa::interned(jar = SignatureJar)]
 pub struct TraitAssociatedFunctionSignature {
-    #[return_ref]
-    pub output_ty: SignatureTermOutcome<Term>,
-    #[return_ref]
-    pub term_sheet: SignatureTermSheet,
+    pub output_ty: Term,
 }

@@ -68,16 +68,6 @@ impl From<TypeMethodSignature> for TypeItemSignature {
 }
 
 impl TypeItemSignature {
-    pub fn term_sheet<'a>(self, db: &'a dyn SignatureDb) -> &'a SignatureTermSheet {
-        match self {
-            TypeItemSignature::Function(signature) => signature.term_sheet(db),
-            TypeItemSignature::Method(signature) => signature.term_sheet(db),
-            TypeItemSignature::AlienType(signature) => signature.term_sheet(db),
-            TypeItemSignature::Value(signature) => signature.term_sheet(db),
-            TypeItemSignature::Memo(signature) => signature.term_sheet(db),
-        }
-    }
-
     pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
         match self {
             TypeItemSignature::Function(_) => todo!(),

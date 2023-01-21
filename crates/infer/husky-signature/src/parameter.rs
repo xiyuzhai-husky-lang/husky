@@ -2,10 +2,10 @@ use husky_expr::{ImplicitParameterDeclPatternVariant, RegularParameterDeclPatter
 
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct ImplicitParameterSignature {
     term_symbol: TermSymbol,
-    ty: SignatureTermOutcome<Term>,
+    ty: Term,
     traits: Vec<Term>,
 }
 
@@ -36,8 +36,8 @@ impl ImplicitParameterSignature {
         self.term_symbol
     }
 
-    pub fn ty(&self) -> SignatureTermOutcomeBorrowed<Term> {
-        self.ty.ok_copy_err_as_ref()
+    pub fn ty(&self) -> Term {
+        self.ty
     }
 
     pub fn traits(&self) -> &[Term] {
@@ -45,7 +45,7 @@ impl ImplicitParameterSignature {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct ImplicitParameterSignatures {
     parameters: Vec<ImplicitParameterSignature>,
 }
@@ -76,16 +76,16 @@ impl std::ops::Deref for ImplicitParameterSignatures {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct ParameterSignature {
     pattern: ParameterSignaturePattern,
-    ty: SignatureTermOutcome<Term>,
+    ty: Term,
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct ParameterSignaturePattern {}
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct ParameterSignatures {
     parameters: Vec<ParameterSignature>,
 }

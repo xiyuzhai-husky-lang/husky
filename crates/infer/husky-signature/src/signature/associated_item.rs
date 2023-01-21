@@ -72,14 +72,6 @@ impl<Db: SignatureDb + ?Sized> salsa::DebugWithDb<Db> for AssociatedItemSignatur
 }
 
 impl AssociatedItemSignature {
-    pub fn term_sheet<'a>(self, db: &'a dyn SignatureDb) -> &'a SignatureTermSheet {
-        match self {
-            AssociatedItemSignature::TypeItem(signature) => signature.term_sheet(db),
-            AssociatedItemSignature::TraitItem(signature) => signature.term_sheet(db),
-            AssociatedItemSignature::TypeAsTraitItem(signature) => signature.term_sheet(db),
-        }
-    }
-
     pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
         match self {
             AssociatedItemSignature::TypeItem(decl) => decl.implicit_parameters(db),

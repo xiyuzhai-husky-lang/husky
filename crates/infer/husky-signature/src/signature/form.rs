@@ -31,15 +31,6 @@ pub enum FormSignature {
 }
 
 impl FormSignature {
-    pub fn term_sheet<'a>(self, db: &'a dyn SignatureDb) -> &'a SignatureTermSheet {
-        match self {
-            FormSignature::Function(signature) => signature.term_sheet(db),
-            FormSignature::Feature(signature) => signature.term_sheet(db),
-            FormSignature::Morphism(signature) => signature.term_sheet(db),
-            FormSignature::Value(signature) => signature.term_sheet(db),
-        }
-    }
-
     pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
         match self {
             FormSignature::Function(decl) => decl.implicit_parameters(db),
