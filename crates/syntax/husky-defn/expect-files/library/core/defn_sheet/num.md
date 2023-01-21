@@ -145,29 +145,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 39,
-                                },
-                            ),
-                            body: Err(
-                                MissingBody,
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            AssociatedItem(
-                TypeAsTraitItem(
-                    Method(
-                        TypeAsTraitMethodDefn {
-                            path: None,
-                            decl: TypeAsTraitMethodDecl(
-                                Id {
-                                    value: 1,
-                                },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 40,
+                                    value: 31,
                                 },
                             ),
                             body: Err(
@@ -201,7 +179,7 @@ Ok(
                         ),
                         expr_region: ExprRegion(
                             Id {
-                                value: 18,
+                                value: 17,
                             },
                         ),
                     },
@@ -225,29 +203,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 41,
-                                },
-                            ),
-                            body: Err(
-                                MissingBody,
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            AssociatedItem(
-                TypeAsTraitItem(
-                    Method(
-                        TypeAsTraitMethodDefn {
-                            path: None,
-                            decl: TypeAsTraitMethodDecl(
-                                Id {
-                                    value: 2,
-                                },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 42,
+                                    value: 32,
                                 },
                             ),
                             body: Err(
@@ -281,7 +237,7 @@ Ok(
                         ),
                         expr_region: ExprRegion(
                             Id {
-                                value: 21,
+                                value: 19,
                             },
                         ),
                     },
@@ -305,29 +261,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 43,
-                                },
-                            ),
-                            body: Err(
-                                MissingBody,
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            AssociatedItem(
-                TypeAsTraitItem(
-                    Method(
-                        TypeAsTraitMethodDefn {
-                            path: None,
-                            decl: TypeAsTraitMethodDecl(
-                                Id {
-                                    value: 3,
-                                },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 44,
+                                    value: 33,
                                 },
                             ),
                             body: Err(
@@ -361,7 +295,7 @@ Ok(
                         ),
                         expr_region: ExprRegion(
                             Id {
-                                value: 24,
+                                value: 21,
                             },
                         ),
                     },
@@ -385,29 +319,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 45,
-                                },
-                            ),
-                            body: Err(
-                                MissingBody,
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            AssociatedItem(
-                TypeAsTraitItem(
-                    Method(
-                        TypeAsTraitMethodDefn {
-                            path: None,
-                            decl: TypeAsTraitMethodDecl(
-                                Id {
-                                    value: 4,
-                                },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 46,
+                                    value: 34,
                                 },
                             ),
                             body: Err(
@@ -441,7 +353,7 @@ Ok(
                         ),
                         expr_region: ExprRegion(
                             Id {
-                                value: 27,
+                                value: 23,
                             },
                         ),
                     },
@@ -465,29 +377,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 47,
-                                },
-                            ),
-                            body: Err(
-                                MissingBody,
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            AssociatedItem(
-                TypeAsTraitItem(
-                    Method(
-                        TypeAsTraitMethodDefn {
-                            path: None,
-                            decl: TypeAsTraitMethodDecl(
-                                Id {
-                                    value: 5,
-                                },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 48,
+                                    value: 35,
                                 },
                             ),
                             body: Err(
@@ -521,7 +411,7 @@ Ok(
                         ),
                         expr_region: ExprRegion(
                             Id {
-                                value: 30,
+                                value: 25,
                             },
                         ),
                     },
@@ -545,29 +435,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 49,
-                                },
-                            ),
-                            body: Err(
-                                MissingBody,
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            AssociatedItem(
-                TypeAsTraitItem(
-                    Method(
-                        TypeAsTraitMethodDefn {
-                            path: None,
-                            decl: TypeAsTraitMethodDecl(
-                                Id {
-                                    value: 6,
-                                },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 50,
+                                    value: 36,
                                 },
                             ),
                             body: Err(
@@ -601,7 +469,7 @@ Ok(
                         ),
                         expr_region: ExprRegion(
                             Id {
-                                value: 33,
+                                value: 27,
                             },
                         ),
                     },
@@ -625,29 +493,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 51,
-                                },
-                            ),
-                            body: Err(
-                                MissingBody,
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            AssociatedItem(
-                TypeAsTraitItem(
-                    Method(
-                        TypeAsTraitMethodDefn {
-                            path: None,
-                            decl: TypeAsTraitMethodDecl(
-                                Id {
-                                    value: 7,
-                                },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 52,
+                                    value: 37,
                                 },
                             ),
                             body: Err(
@@ -681,7 +527,7 @@ Ok(
                         ),
                         expr_region: ExprRegion(
                             Id {
-                                value: 36,
+                                value: 29,
                             },
                         ),
                     },
@@ -705,29 +551,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 53,
-                                },
-                            ),
-                            body: Err(
-                                MissingBody,
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            AssociatedItem(
-                TypeAsTraitItem(
-                    Method(
-                        TypeAsTraitMethodDefn {
-                            path: None,
-                            decl: TypeAsTraitMethodDecl(
-                                Id {
-                                    value: 8,
-                                },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 54,
+                                    value: 38,
                                 },
                             ),
                             body: Err(

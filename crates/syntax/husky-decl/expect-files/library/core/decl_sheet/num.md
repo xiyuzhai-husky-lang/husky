@@ -224,74 +224,8 @@ Ok(
             Err(
                 ImplBlockErr,
             ),
-            Ok(
-                AssociatedItem(
-                    TypeAsTraitItem(
-                        Method(
-                            TypeAsTraitMethodDecl {
-                                path: None,
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
-                                ast_idx: 1,
-                                expr_region: ExprRegion(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
-                                implicit_parameter_decl_list: None,
-                                parameter_decl_list: ParameterDeclList {
-                                    lpar: LeftParenthesisToken {
-                                        token_idx: TokenIdx(
-                                            37,
-                                        ),
-                                    },
-                                    parameters: [
-                                        ParameterDecl {
-                                            pattern: ParameterDeclPattern {
-                                                pattern_expr_idx: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                            },
-                                            colon: ColonToken {
-                                                token_idx: TokenIdx(
-                                                    39,
-                                                ),
-                                            },
-                                            ty: 0,
-                                        },
-                                    ],
-                                    commas: [],
-                                    rpar: RightParenthesisToken {
-                                        token_idx: TokenIdx(
-                                            41,
-                                        ),
-                                    },
-                                },
-                                curry_token: Ok(
-                                    CurryToken {
-                                        token_idx: TokenIdx(
-                                            42,
-                                        ),
-                                    },
-                                ),
-                                output_ty: Ok(
-                                    1,
-                                ),
-                                eol_colon: Err(
-                                    MissingEolColon(
-                                        TokenIdx(
-                                            44,
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ),
-                    ),
-                ),
+            Err(
+                UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
             ),
             Ok(
                 ImplBlock(
@@ -318,7 +252,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 18,
+                                    value: 17,
                                 },
                             ),
                         },
@@ -345,7 +279,7 @@ Ok(
                                 ast_idx: 2,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 19,
+                                        value: 18,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -388,74 +322,8 @@ Ok(
             Err(
                 ImplBlockErr,
             ),
-            Ok(
-                AssociatedItem(
-                    TypeAsTraitItem(
-                        Method(
-                            TypeAsTraitMethodDecl {
-                                path: None,
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 4,
-                                    },
-                                ),
-                                ast_idx: 3,
-                                expr_region: ExprRegion(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
-                                implicit_parameter_decl_list: None,
-                                parameter_decl_list: ParameterDeclList {
-                                    lpar: LeftParenthesisToken {
-                                        token_idx: TokenIdx(
-                                            82,
-                                        ),
-                                    },
-                                    parameters: [
-                                        ParameterDecl {
-                                            pattern: ParameterDeclPattern {
-                                                pattern_expr_idx: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                            },
-                                            colon: ColonToken {
-                                                token_idx: TokenIdx(
-                                                    84,
-                                                ),
-                                            },
-                                            ty: 0,
-                                        },
-                                    ],
-                                    commas: [],
-                                    rpar: RightParenthesisToken {
-                                        token_idx: TokenIdx(
-                                            86,
-                                        ),
-                                    },
-                                },
-                                curry_token: Ok(
-                                    CurryToken {
-                                        token_idx: TokenIdx(
-                                            87,
-                                        ),
-                                    },
-                                ),
-                                output_ty: Ok(
-                                    1,
-                                ),
-                                eol_colon: Err(
-                                    MissingEolColon(
-                                        TokenIdx(
-                                            89,
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ),
-                    ),
-                ),
+            Err(
+                UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
             ),
             Ok(
                 ImplBlock(
@@ -482,7 +350,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 21,
+                                    value: 19,
                                 },
                             ),
                         },
@@ -509,7 +377,7 @@ Ok(
                                 ast_idx: 4,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 22,
+                                        value: 20,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -552,74 +420,8 @@ Ok(
             Err(
                 ImplBlockErr,
             ),
-            Ok(
-                AssociatedItem(
-                    TypeAsTraitItem(
-                        Method(
-                            TypeAsTraitMethodDecl {
-                                path: None,
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 6,
-                                    },
-                                ),
-                                ast_idx: 5,
-                                expr_region: ExprRegion(
-                                    Id {
-                                        value: 23,
-                                    },
-                                ),
-                                implicit_parameter_decl_list: None,
-                                parameter_decl_list: ParameterDeclList {
-                                    lpar: LeftParenthesisToken {
-                                        token_idx: TokenIdx(
-                                            126,
-                                        ),
-                                    },
-                                    parameters: [
-                                        ParameterDecl {
-                                            pattern: ParameterDeclPattern {
-                                                pattern_expr_idx: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                            },
-                                            colon: ColonToken {
-                                                token_idx: TokenIdx(
-                                                    128,
-                                                ),
-                                            },
-                                            ty: 0,
-                                        },
-                                    ],
-                                    commas: [],
-                                    rpar: RightParenthesisToken {
-                                        token_idx: TokenIdx(
-                                            130,
-                                        ),
-                                    },
-                                },
-                                curry_token: Ok(
-                                    CurryToken {
-                                        token_idx: TokenIdx(
-                                            131,
-                                        ),
-                                    },
-                                ),
-                                output_ty: Ok(
-                                    1,
-                                ),
-                                eol_colon: Err(
-                                    MissingEolColon(
-                                        TokenIdx(
-                                            133,
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ),
-                    ),
-                ),
+            Err(
+                UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
             ),
             Ok(
                 ImplBlock(
@@ -646,7 +448,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 24,
+                                    value: 21,
                                 },
                             ),
                         },
@@ -673,7 +475,7 @@ Ok(
                                 ast_idx: 6,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 25,
+                                        value: 22,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -716,74 +518,8 @@ Ok(
             Err(
                 ImplBlockErr,
             ),
-            Ok(
-                AssociatedItem(
-                    TypeAsTraitItem(
-                        Method(
-                            TypeAsTraitMethodDecl {
-                                path: None,
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
-                                ast_idx: 7,
-                                expr_region: ExprRegion(
-                                    Id {
-                                        value: 26,
-                                    },
-                                ),
-                                implicit_parameter_decl_list: None,
-                                parameter_decl_list: ParameterDeclList {
-                                    lpar: LeftParenthesisToken {
-                                        token_idx: TokenIdx(
-                                            171,
-                                        ),
-                                    },
-                                    parameters: [
-                                        ParameterDecl {
-                                            pattern: ParameterDeclPattern {
-                                                pattern_expr_idx: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                            },
-                                            colon: ColonToken {
-                                                token_idx: TokenIdx(
-                                                    173,
-                                                ),
-                                            },
-                                            ty: 0,
-                                        },
-                                    ],
-                                    commas: [],
-                                    rpar: RightParenthesisToken {
-                                        token_idx: TokenIdx(
-                                            175,
-                                        ),
-                                    },
-                                },
-                                curry_token: Ok(
-                                    CurryToken {
-                                        token_idx: TokenIdx(
-                                            176,
-                                        ),
-                                    },
-                                ),
-                                output_ty: Ok(
-                                    1,
-                                ),
-                                eol_colon: Err(
-                                    MissingEolColon(
-                                        TokenIdx(
-                                            178,
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ),
-                    ),
-                ),
+            Err(
+                UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
             ),
             Ok(
                 ImplBlock(
@@ -810,7 +546,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 27,
+                                    value: 23,
                                 },
                             ),
                         },
@@ -837,7 +573,7 @@ Ok(
                                 ast_idx: 8,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 28,
+                                        value: 24,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -880,74 +616,8 @@ Ok(
             Err(
                 ImplBlockErr,
             ),
-            Ok(
-                AssociatedItem(
-                    TypeAsTraitItem(
-                        Method(
-                            TypeAsTraitMethodDecl {
-                                path: None,
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 10,
-                                    },
-                                ),
-                                ast_idx: 9,
-                                expr_region: ExprRegion(
-                                    Id {
-                                        value: 29,
-                                    },
-                                ),
-                                implicit_parameter_decl_list: None,
-                                parameter_decl_list: ParameterDeclList {
-                                    lpar: LeftParenthesisToken {
-                                        token_idx: TokenIdx(
-                                            216,
-                                        ),
-                                    },
-                                    parameters: [
-                                        ParameterDecl {
-                                            pattern: ParameterDeclPattern {
-                                                pattern_expr_idx: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                            },
-                                            colon: ColonToken {
-                                                token_idx: TokenIdx(
-                                                    218,
-                                                ),
-                                            },
-                                            ty: 0,
-                                        },
-                                    ],
-                                    commas: [],
-                                    rpar: RightParenthesisToken {
-                                        token_idx: TokenIdx(
-                                            220,
-                                        ),
-                                    },
-                                },
-                                curry_token: Ok(
-                                    CurryToken {
-                                        token_idx: TokenIdx(
-                                            221,
-                                        ),
-                                    },
-                                ),
-                                output_ty: Ok(
-                                    1,
-                                ),
-                                eol_colon: Err(
-                                    MissingEolColon(
-                                        TokenIdx(
-                                            223,
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ),
-                    ),
-                ),
+            Err(
+                UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
             ),
             Ok(
                 ImplBlock(
@@ -974,7 +644,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 30,
+                                    value: 25,
                                 },
                             ),
                         },
@@ -1001,7 +671,7 @@ Ok(
                                 ast_idx: 10,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 31,
+                                        value: 26,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -1044,74 +714,8 @@ Ok(
             Err(
                 ImplBlockErr,
             ),
-            Ok(
-                AssociatedItem(
-                    TypeAsTraitItem(
-                        Method(
-                            TypeAsTraitMethodDecl {
-                                path: None,
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 12,
-                                    },
-                                ),
-                                ast_idx: 11,
-                                expr_region: ExprRegion(
-                                    Id {
-                                        value: 32,
-                                    },
-                                ),
-                                implicit_parameter_decl_list: None,
-                                parameter_decl_list: ParameterDeclList {
-                                    lpar: LeftParenthesisToken {
-                                        token_idx: TokenIdx(
-                                            261,
-                                        ),
-                                    },
-                                    parameters: [
-                                        ParameterDecl {
-                                            pattern: ParameterDeclPattern {
-                                                pattern_expr_idx: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                            },
-                                            colon: ColonToken {
-                                                token_idx: TokenIdx(
-                                                    263,
-                                                ),
-                                            },
-                                            ty: 0,
-                                        },
-                                    ],
-                                    commas: [],
-                                    rpar: RightParenthesisToken {
-                                        token_idx: TokenIdx(
-                                            265,
-                                        ),
-                                    },
-                                },
-                                curry_token: Ok(
-                                    CurryToken {
-                                        token_idx: TokenIdx(
-                                            266,
-                                        ),
-                                    },
-                                ),
-                                output_ty: Ok(
-                                    1,
-                                ),
-                                eol_colon: Err(
-                                    MissingEolColon(
-                                        TokenIdx(
-                                            268,
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ),
-                    ),
-                ),
+            Err(
+                UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
             ),
             Ok(
                 ImplBlock(
@@ -1138,7 +742,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 33,
+                                    value: 27,
                                 },
                             ),
                         },
@@ -1165,7 +769,7 @@ Ok(
                                 ast_idx: 12,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 34,
+                                        value: 28,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -1208,74 +812,8 @@ Ok(
             Err(
                 ImplBlockErr,
             ),
-            Ok(
-                AssociatedItem(
-                    TypeAsTraitItem(
-                        Method(
-                            TypeAsTraitMethodDecl {
-                                path: None,
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
-                                ast_idx: 13,
-                                expr_region: ExprRegion(
-                                    Id {
-                                        value: 35,
-                                    },
-                                ),
-                                implicit_parameter_decl_list: None,
-                                parameter_decl_list: ParameterDeclList {
-                                    lpar: LeftParenthesisToken {
-                                        token_idx: TokenIdx(
-                                            305,
-                                        ),
-                                    },
-                                    parameters: [
-                                        ParameterDecl {
-                                            pattern: ParameterDeclPattern {
-                                                pattern_expr_idx: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                            },
-                                            colon: ColonToken {
-                                                token_idx: TokenIdx(
-                                                    307,
-                                                ),
-                                            },
-                                            ty: 0,
-                                        },
-                                    ],
-                                    commas: [],
-                                    rpar: RightParenthesisToken {
-                                        token_idx: TokenIdx(
-                                            309,
-                                        ),
-                                    },
-                                },
-                                curry_token: Ok(
-                                    CurryToken {
-                                        token_idx: TokenIdx(
-                                            310,
-                                        ),
-                                    },
-                                ),
-                                output_ty: Ok(
-                                    1,
-                                ),
-                                eol_colon: Err(
-                                    MissingEolColon(
-                                        TokenIdx(
-                                            312,
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ),
-                    ),
-                ),
+            Err(
+                UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
             ),
             Ok(
                 ImplBlock(
@@ -1302,7 +840,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 36,
+                                    value: 29,
                                 },
                             ),
                         },
@@ -1329,7 +867,7 @@ Ok(
                                 ast_idx: 14,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 37,
+                                        value: 30,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -1372,74 +910,8 @@ Ok(
             Err(
                 ImplBlockErr,
             ),
-            Ok(
-                AssociatedItem(
-                    TypeAsTraitItem(
-                        Method(
-                            TypeAsTraitMethodDecl {
-                                path: None,
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 16,
-                                    },
-                                ),
-                                ast_idx: 15,
-                                expr_region: ExprRegion(
-                                    Id {
-                                        value: 38,
-                                    },
-                                ),
-                                implicit_parameter_decl_list: None,
-                                parameter_decl_list: ParameterDeclList {
-                                    lpar: LeftParenthesisToken {
-                                        token_idx: TokenIdx(
-                                            350,
-                                        ),
-                                    },
-                                    parameters: [
-                                        ParameterDecl {
-                                            pattern: ParameterDeclPattern {
-                                                pattern_expr_idx: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                            },
-                                            colon: ColonToken {
-                                                token_idx: TokenIdx(
-                                                    352,
-                                                ),
-                                            },
-                                            ty: 0,
-                                        },
-                                    ],
-                                    commas: [],
-                                    rpar: RightParenthesisToken {
-                                        token_idx: TokenIdx(
-                                            354,
-                                        ),
-                                    },
-                                },
-                                curry_token: Ok(
-                                    CurryToken {
-                                        token_idx: TokenIdx(
-                                            355,
-                                        ),
-                                    },
-                                ),
-                                output_ty: Ok(
-                                    1,
-                                ),
-                                eol_colon: Err(
-                                    MissingEolColon(
-                                        TokenIdx(
-                                            357,
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ),
-                    ),
-                ),
+            Err(
+                UnableToParseImplBlockDeclForTyAsTraitMethodDecl,
             ),
         ],
     },

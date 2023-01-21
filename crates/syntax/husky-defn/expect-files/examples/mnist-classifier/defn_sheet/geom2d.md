@@ -85,7 +85,7 @@ Ok(
                         ),
                         expr_region: ExprRegion(
                             Id {
-                                value: 191,
+                                value: 175,
                             },
                         ),
                     },
@@ -109,7 +109,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 220,
+                                    value: 202,
                                 },
                             ),
                             body: Ok(
@@ -137,7 +137,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 221,
+                                    value: 203,
                                 },
                             ),
                             body: Ok(
@@ -165,7 +165,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 222,
+                                    value: 204,
                                 },
                             ),
                             body: Ok(
@@ -193,7 +193,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 223,
+                                    value: 205,
                                 },
                             ),
                             body: Ok(
@@ -221,7 +221,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 224,
+                                    value: 206,
                                 },
                             ),
                             body: Ok(
@@ -255,7 +255,7 @@ Ok(
                         ),
                         expr_region: ExprRegion(
                             Id {
-                                value: 197,
+                                value: 181,
                             },
                         ),
                     },
@@ -279,7 +279,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 225,
+                                    value: 207,
                                 },
                             ),
                             body: Ok(
@@ -307,7 +307,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 226,
+                                    value: 208,
                                 },
                             ),
                             body: Ok(
@@ -335,7 +335,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 227,
+                                    value: 209,
                                 },
                             ),
                             body: Ok(
@@ -363,7 +363,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 228,
+                                    value: 210,
                                 },
                             ),
                             body: Ok(
@@ -391,7 +391,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 229,
+                                    value: 211,
                                 },
                             ),
                             body: Ok(
@@ -419,7 +419,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 230,
+                                    value: 212,
                                 },
                             ),
                             body: Ok(
@@ -447,7 +447,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 231,
+                                    value: 213,
                                 },
                             ),
                             body: Ok(
@@ -475,55 +475,11 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 232,
+                                    value: 214,
                                 },
                             ),
                             body: Ok(
                                 44,
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
-                        TypeMethodDefn {
-                            path: None,
-                            decl: TypeMethodDecl(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 233,
-                                },
-                            ),
-                            body: Ok(
-                                30,
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            AssociatedItem(
-                TypeItem(
-                    Method(
-                        TypeMethodDefn {
-                            path: None,
-                            decl: TypeMethodDecl(
-                                Id {
-                                    value: 25,
-                                },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 234,
-                                },
-                            ),
-                            body: Ok(
-                                12,
                             ),
                         },
                     ),
@@ -553,7 +509,7 @@ Ok(
                         ),
                         expr_region: ExprRegion(
                             Id {
-                                value: 208,
+                                value: 190,
                             },
                         ),
                     },
@@ -572,12 +528,12 @@ Ok(
                             ),
                             decl: TypeMethodDecl(
                                 Id {
-                                    value: 26,
+                                    value: 24,
                                 },
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 235,
+                                    value: 215,
                                 },
                             ),
                             body: Ok(
@@ -600,12 +556,12 @@ Ok(
                             ),
                             decl: TypeMethodDecl(
                                 Id {
-                                    value: 27,
+                                    value: 25,
                                 },
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 236,
+                                    value: 216,
                                 },
                             ),
                             body: Ok(
@@ -628,12 +584,12 @@ Ok(
                             ),
                             decl: TypeMethodDecl(
                                 Id {
-                                    value: 28,
+                                    value: 26,
                                 },
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 237,
+                                    value: 217,
                                 },
                             ),
                             body: Ok(
@@ -656,12 +612,12 @@ Ok(
                             ),
                             decl: TypeMethodDecl(
                                 Id {
-                                    value: 29,
+                                    value: 27,
                                 },
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 238,
+                                    value: 218,
                                 },
                             ),
                             body: Ok(
@@ -684,12 +640,12 @@ Ok(
                             ),
                             decl: TypeMethodDecl(
                                 Id {
-                                    value: 30,
+                                    value: 28,
                                 },
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 239,
+                                    value: 219,
                                 },
                             ),
                             body: Ok(
@@ -712,12 +668,12 @@ Ok(
                             ),
                             decl: TypeMethodDecl(
                                 Id {
-                                    value: 31,
+                                    value: 29,
                                 },
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 240,
+                                    value: 220,
                                 },
                             ),
                             body: Ok(
@@ -751,7 +707,7 @@ Ok(
                         ),
                         expr_region: ExprRegion(
                             Id {
-                                value: 215,
+                                value: 197,
                             },
                         ),
                     },
@@ -770,12 +726,12 @@ Ok(
                             ),
                             decl: TypeMethodDecl(
                                 Id {
-                                    value: 32,
+                                    value: 30,
                                 },
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 241,
+                                    value: 221,
                                 },
                             ),
                             body: Ok(
@@ -798,12 +754,12 @@ Ok(
                             ),
                             decl: TypeMethodDecl(
                                 Id {
-                                    value: 33,
+                                    value: 31,
                                 },
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 242,
+                                    value: 222,
                                 },
                             ),
                             body: Ok(
@@ -826,12 +782,12 @@ Ok(
                             ),
                             decl: TypeMethodDecl(
                                 Id {
-                                    value: 34,
+                                    value: 32,
                                 },
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 243,
+                                    value: 223,
                                 },
                             ),
                             body: Ok(
@@ -854,12 +810,12 @@ Ok(
                             ),
                             decl: TypeMethodDecl(
                                 Id {
-                                    value: 35,
+                                    value: 33,
                                 },
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 244,
+                                    value: 224,
                                 },
                             ),
                             body: Ok(

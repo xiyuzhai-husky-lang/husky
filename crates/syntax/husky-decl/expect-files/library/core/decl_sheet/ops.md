@@ -8,7 +8,7 @@ Ok(
                         ast_idx: 3,
                         expr_region: ExprRegion(
                             Id {
-                                value: 39,
+                                value: 31,
                             },
                         ),
                         implicit_parameter_decl_list: Some(

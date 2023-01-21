@@ -37,7 +37,7 @@ Ok(
                         ),
                         expr_region: ExprRegion(
                             Id {
-                                value: 278,
+                                value: 258,
                             },
                         ),
                     },
@@ -56,12 +56,12 @@ Ok(
                             ),
                             decl: TypeMethodDecl(
                                 Id {
-                                    value: 42,
+                                    value: 40,
                                 },
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 281,
+                                    value: 261,
                                 },
                             ),
                             body: Ok(
@@ -84,12 +84,12 @@ Ok(
                             ),
                             decl: TypeMethodDecl(
                                 Id {
-                                    value: 43,
+                                    value: 41,
                                 },
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 282,
+                                    value: 262,
                                 },
                             ),
                             body: Ok(

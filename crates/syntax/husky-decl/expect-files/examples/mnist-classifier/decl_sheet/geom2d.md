@@ -9,7 +9,7 @@ Ok(
                             ast_idx: 80,
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 109,
+                                    value: 101,
                                 },
                             ),
                             implicit_parameter_decl_list: None,
@@ -89,7 +89,7 @@ Ok(
                             ast_idx: 82,
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 110,
+                                    value: 102,
                                 },
                             ),
                             implicit_parameter_decl_list: None,
@@ -169,7 +169,7 @@ Ok(
                             ast_idx: 83,
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 111,
+                                    value: 103,
                                 },
                             ),
                             implicit_parameter_decl_list: None,
@@ -249,7 +249,7 @@ Ok(
                             ast_idx: 85,
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 112,
+                                    value: 104,
                                 },
                             ),
                             implicit_parameter_decl_list: None,
@@ -338,7 +338,7 @@ Ok(
                             ast_idx: 90,
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 113,
+                                    value: 105,
                                 },
                             ),
                             implicit_parameter_decl_list: None,
@@ -435,7 +435,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 114,
+                                    value: 106,
                                 },
                             ),
                         },
@@ -462,7 +462,7 @@ Ok(
                                 ast_idx: 5,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 115,
+                                        value: 107,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -557,7 +557,7 @@ Ok(
                                 ast_idx: 6,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 116,
+                                        value: 108,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -617,7 +617,7 @@ Ok(
                                 ast_idx: 7,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 117,
+                                        value: 109,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -692,7 +692,7 @@ Ok(
                                 ast_idx: 8,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 118,
+                                        value: 110,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -752,7 +752,7 @@ Ok(
                                 ast_idx: 9,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 119,
+                                        value: 111,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -832,7 +832,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 120,
+                                    value: 112,
                                 },
                             ),
                         },
@@ -859,7 +859,7 @@ Ok(
                                 ast_idx: 41,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 121,
+                                        value: 113,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -919,7 +919,7 @@ Ok(
                                 ast_idx: 42,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 122,
+                                        value: 114,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -994,7 +994,7 @@ Ok(
                                 ast_idx: 43,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 123,
+                                        value: 115,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -1054,7 +1054,7 @@ Ok(
                                 ast_idx: 44,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 124,
+                                        value: 116,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -1129,7 +1129,7 @@ Ok(
                                 ast_idx: 45,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 125,
+                                        value: 117,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -1204,7 +1204,7 @@ Ok(
                                 ast_idx: 46,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 126,
+                                        value: 118,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -1279,7 +1279,7 @@ Ok(
                                 ast_idx: 47,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 127,
+                                        value: 119,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -1354,7 +1354,7 @@ Ok(
                                 ast_idx: 48,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 128,
+                                        value: 120,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -1432,143 +1432,11 @@ Ok(
             Err(
                 ImplBlockErr,
             ),
-            Ok(
-                AssociatedItem(
-                    TypeItem(
-                        Method(
-                            TypeMethodDecl {
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 43,
-                                    },
-                                ),
-                                path: None,
-                                ast_idx: 56,
-                                expr_region: ExprRegion(
-                                    Id {
-                                        value: 129,
-                                    },
-                                ),
-                                implicit_parameter_decl_list: None,
-                                parameter_decl_list: ParameterDeclList {
-                                    lpar: LeftParenthesisToken {
-                                        token_idx: TokenIdx(
-                                            504,
-                                        ),
-                                    },
-                                    parameters: [
-                                        ParameterDecl {
-                                            pattern: ParameterDeclPattern {
-                                                pattern_expr_idx: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                            },
-                                            colon: ColonToken {
-                                                token_idx: TokenIdx(
-                                                    506,
-                                                ),
-                                            },
-                                            ty: 0,
-                                        },
-                                    ],
-                                    commas: [],
-                                    rpar: RightParenthesisToken {
-                                        token_idx: TokenIdx(
-                                            508,
-                                        ),
-                                    },
-                                },
-                                curry_token: Ok(
-                                    CurryToken {
-                                        token_idx: TokenIdx(
-                                            509,
-                                        ),
-                                    },
-                                ),
-                                output_ty: Ok(
-                                    1,
-                                ),
-                                eol_colon: Ok(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
-                                            511,
-                                        ),
-                                    },
-                                ),
-                            },
-                        ),
-                    ),
-                ),
+            Err(
+                UnableToParseImplBlockDeclForTyMethodDecl,
             ),
-            Ok(
-                AssociatedItem(
-                    TypeItem(
-                        Method(
-                            TypeMethodDecl {
-                                associated_item: AssociatedItem(
-                                    Id {
-                                        value: 44,
-                                    },
-                                ),
-                                path: None,
-                                ast_idx: 57,
-                                expr_region: ExprRegion(
-                                    Id {
-                                        value: 130,
-                                    },
-                                ),
-                                implicit_parameter_decl_list: None,
-                                parameter_decl_list: ParameterDeclList {
-                                    lpar: LeftParenthesisToken {
-                                        token_idx: TokenIdx(
-                                            567,
-                                        ),
-                                    },
-                                    parameters: [
-                                        ParameterDecl {
-                                            pattern: ParameterDeclPattern {
-                                                pattern_expr_idx: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                            },
-                                            colon: ColonToken {
-                                                token_idx: TokenIdx(
-                                                    569,
-                                                ),
-                                            },
-                                            ty: 0,
-                                        },
-                                    ],
-                                    commas: [],
-                                    rpar: RightParenthesisToken {
-                                        token_idx: TokenIdx(
-                                            571,
-                                        ),
-                                    },
-                                },
-                                curry_token: Ok(
-                                    CurryToken {
-                                        token_idx: TokenIdx(
-                                            572,
-                                        ),
-                                    },
-                                ),
-                                output_ty: Ok(
-                                    1,
-                                ),
-                                eol_colon: Ok(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
-                                            574,
-                                        ),
-                                    },
-                                ),
-                            },
-                        ),
-                    ),
-                ),
+            Err(
+                UnableToParseImplBlockDeclForTyMethodDecl,
             ),
             Ok(
                 ImplBlock(
@@ -1595,7 +1463,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 131,
+                                    value: 121,
                                 },
                             ),
                         },
@@ -1622,7 +1490,7 @@ Ok(
                                 ast_idx: 66,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 132,
+                                        value: 122,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -1697,7 +1565,7 @@ Ok(
                                 ast_idx: 67,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 133,
+                                        value: 123,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -1772,7 +1640,7 @@ Ok(
                                 ast_idx: 68,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 134,
+                                        value: 124,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -1832,7 +1700,7 @@ Ok(
                                 ast_idx: 69,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 135,
+                                        value: 125,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -1892,7 +1760,7 @@ Ok(
                                 ast_idx: 70,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 136,
+                                        value: 126,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -1952,7 +1820,7 @@ Ok(
                                 ast_idx: 71,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 137,
+                                        value: 127,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -2017,7 +1885,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 138,
+                                    value: 128,
                                 },
                             ),
                         },
@@ -2044,7 +1912,7 @@ Ok(
                                 ast_idx: 76,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 139,
+                                        value: 129,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -2104,7 +1972,7 @@ Ok(
                                 ast_idx: 77,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 140,
+                                        value: 130,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -2164,7 +2032,7 @@ Ok(
                                 ast_idx: 78,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 141,
+                                        value: 131,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
@@ -2224,7 +2092,7 @@ Ok(
                                 ast_idx: 79,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 142,
+                                        value: 132,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
