@@ -49,7 +49,6 @@ impl<'a> SymbolContextMut<'a> {
         entity_path_expr_arena: EntityPathExprArena,
         pattern_expr_region: PatternExprRegion,
         stmt_arena: StmtArena,
-        ty_annotations: Vec<TypeAnnotation>,
     ) -> ExprRegion {
         ExprRegion::new(
             db,
@@ -60,15 +59,15 @@ impl<'a> SymbolContextMut<'a> {
             stmt_arena,
             pattern_expr_region,
             self.symbol_region,
-            ty_annotations,
         )
     }
 
     pub(crate) fn define_symbols(
         &mut self,
         variables: impl IntoIterator<Item = CurrentSymbol>,
+        ty_annotation: Option<TypeAnnotation>,
     ) -> CurrentSymbolIdxRange {
-        self.symbol_region.define_symbols(variables)
+        self.symbol_region.define_symbols(variables, ty_annotation)
     }
 
     pub(crate) fn symbol_region(&self) -> &SymbolRegion {
