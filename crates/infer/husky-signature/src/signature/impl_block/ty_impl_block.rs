@@ -5,21 +5,18 @@ pub(crate) fn ty_impl_block_signature(
     db: &dyn SignatureDb,
     decl: TypeImplBlockDecl,
 ) -> TypeImplBlockSignature {
-    let mut engine = SignatureTermEngine::new(db, decl.expr_region(db), None);
-    let ty = decl.ty(db);
-    let ty = engine.query_new(ty);
-    TypeImplBlockSignature::new(
-        db,
-        ty,
-        // ImplicitParameterSignatureList::from_decl(decl.implicit_parameters(db), &mut engine),
-        engine.finish(),
-    )
+    todo!()
+    // let ty = decl.ty(db);
+    // let ty = engine.query_new(ty);
+    // TypeImplBlockSignature::new(
+    //     db,
+    //     ty,
+    //     // ImplicitParameterSignatureList::from_decl(decl.implicit_parameters(db), &mut engine),
+    //     engine.finish(),
+    // )
 }
 
-#[salsa::tracked(jar = SignatureJar)]
+#[salsa::interned(jar = SignatureJar)]
 pub struct TypeImplBlockSignature {
-    #[return_ref]
-    pub ty: SignatureTermOutcome<Term>,
-    #[return_ref]
-    pub term_sheet: SignatureTermSheet,
+    pub ty: Term,
 }

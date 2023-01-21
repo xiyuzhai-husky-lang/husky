@@ -71,31 +71,32 @@ impl<'a> SignatureTermEngine<'a> {
 
     fn init_current_symbol_term_symbols(&mut self) {
         for (idx, symbol) in self.symbol_region.indexed_current_symbol_iter() {
-            let ty = match symbol.variant() {
-                CurrentSymbolVariant::ImplicitParameter {
-                    implicit_parameter_variant,
-                } => match implicit_parameter_variant {
-                    ImplicitParameterVariant::Type { .. } => Ok(self.term_menu.ty0()),
-                },
-                CurrentSymbolVariant::Parameter { pattern_symbol } => {
-                    let pattern_symbol = &self.pattern_expr_region[*pattern_symbol];
-                    match pattern_symbol {
-                        PatternSymbol::Atom(pattern) => {
-                            let ty = self.symbol_region.parameter_pattern_ty(*pattern).unwrap();
-                            match self.query_new(ty) {
-                                Success(ty) => Ok(ty),
-                                Failure(_) => todo!(),
-                                Abort(_) => todo!(),
-                            }
-                        }
-                    }
-                }
-                CurrentSymbolVariant::LetVariable { pattern_symbol } => todo!(),
-                CurrentSymbolVariant::FrameVariable(_) => todo!(),
-            };
-            self.term_symbol_region
-                .current_symbol_terms
-                .push(self.term_symbol_region.registry.new_symbol(self.db, ty))
+            // let ty = match symbol.variant() {
+            //     CurrentSymbolVariant::ImplicitParameter {
+            //         implicit_parameter_variant,
+            //     } => match implicit_parameter_variant {
+            //         ImplicitParameterVariant::Type { .. } => Ok(self.term_menu.ty0()),
+            //     },
+            //     CurrentSymbolVariant::Parameter { pattern_symbol } => {
+            //         let pattern_symbol = &self.pattern_expr_region[*pattern_symbol];
+            //         match pattern_symbol {
+            //             PatternSymbol::Atom(pattern) => {
+            //                 let ty = self.symbol_region.parameter_pattern_ty(*pattern).unwrap();
+            //                 match self.query_new(ty) {
+            //                     Success(ty) => Ok(ty),
+            //                     Failure(_) => todo!(),
+            //                     Abort(_) => todo!(),
+            //                 }
+            //             }
+            //         }
+            //     }
+            //     CurrentSymbolVariant::LetVariable { pattern_symbol } => todo!(),
+            //     CurrentSymbolVariant::FrameVariable(_) => todo!(),
+            // };
+            todo!()
+            // self.term_symbol_region
+            //     .current_symbol_terms
+            //     .push(self.term_symbol_region.registry.new_symbol(self.db, ty))
         }
     }
 

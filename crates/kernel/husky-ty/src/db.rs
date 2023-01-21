@@ -39,11 +39,7 @@ where
             EntityPath::Variant(_) => todo!(),
         };
         for implicit_parameter in implicit_parameters.iter().rev() {
-            match implicit_parameter.ty() {
-                Success(ty) => term = TermCurry::new(self, ty, term).into(),
-                Failure(_) => todo!(),
-                Abort(_) => todo!(),
-            }
+            term = TermCurry::new(self, implicit_parameter.ty(), term).into()
         }
         Ok(term)
     }

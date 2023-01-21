@@ -6,26 +6,26 @@ pub(crate) fn ty_method_signature(
     decl: TypeMethodDecl,
 ) -> TypeMethodSignature {
     let impl_block = decl.associated_item(db).impl_block(db);
-    let parent_term_symbol_region = db.impl_block_decl(impl_block).ok().map(|decl| {
-        impl_block_signature(db, decl)
-            .term_sheet(db)
-            .term_symbol_region()
-    });
-    let mut engine = SignatureTermEngine::new(db, decl.expr_region(db), parent_term_symbol_region);
-    let implicit_parameters =
-        ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), &mut engine);
-    let parameters = ParameterSignatures::from_decl(decl.parameters(db), &mut engine);
-    let output_ty = match decl.output_ty(db) {
-        Ok(output_ty) => engine.query_new(*output_ty),
-        Err(_) => Abort(SignatureTermAbortion::ExprError),
-    };
-    TypeMethodSignature::new(
-        db,
-        implicit_parameters,
-        parameters,
-        output_ty,
-        engine.finish(),
-    )
+    // let parent_term_symbol_region = db.impl_block_decl(impl_block).ok().map(|decl| {
+    //     impl_block_signature(db, decl)
+    //         .term_sheet(db)
+    //         .term_symbol_region()
+    // });
+    todo!()
+    // let implicit_parameters =
+    //     ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), &mut engine);
+    // let parameters = ParameterSignatures::from_decl(decl.parameters(db), &mut engine);
+    // let output_ty = match decl.output_ty(db) {
+    //     Ok(output_ty) => engine.query_new(*output_ty),
+    //     Err(_) => Abort(SignatureTermAbortion::ExprError),
+    // };
+    // TypeMethodSignature::new(
+    //     db,
+    //     implicit_parameters,
+    //     parameters,
+    //     output_ty,
+    //     engine.finish(),
+    // )
 }
 
 #[salsa::tracked(jar = SignatureJar)]
@@ -34,8 +34,5 @@ pub struct TypeMethodSignature {
     pub implicit_parameters: ImplicitParameterSignatures,
     #[return_ref]
     pub parameters: ParameterSignatures,
-    #[return_ref]
-    pub output_ty: SignatureTermOutcome<Term>,
-    #[return_ref]
-    pub term_sheet: SignatureTermSheet,
+    pub output_ty: Term,
 }

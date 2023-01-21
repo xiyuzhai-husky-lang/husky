@@ -37,13 +37,6 @@ impl From<TypeImplBlockSignature> for ImplBlockSignature {
 }
 
 impl ImplBlockSignature {
-    pub fn term_sheet<'a>(self, db: &'a dyn SignatureDb) -> &'a SignatureTermSheet {
-        match self {
-            ImplBlockSignature::TypeImplBlock(signature) => signature.term_sheet(db),
-            ImplBlockSignature::TypeAsTraitImplBlock(signature) => signature.term_sheet(db),
-        }
-    }
-
     pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
         todo!()
     }
