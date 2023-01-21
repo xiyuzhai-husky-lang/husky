@@ -1,19 +1,19 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct ParameterDeclPattern {
-    pattern_expr_idx: PatternExprIdx,
+pub struct RegularParameterDeclPattern {
+    pattern: PatternExprIdx,
     variables: CurrentSymbolIdxRange,
+    colon: ColonToken,
+    ty: ExprIdx,
 }
 
-impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ParameterDeclPattern {
+impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for RegularParameterDeclPattern {
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
-        if let Some(pattern_expr_idx) = ctx.parse_pattern_expr(PatternExprInfo::Parameter)? {
-            let symbols = ctx
-                .pattern_expr_region()
-                .pattern_symbol_map(pattern_expr_idx);
+        if let Some(pattern) = ctx.parse_pattern_expr(PatternExprInfo::Parameter)? {
+            let symbols = ctx.pattern_expr_region().pattern_symbol_map(pattern);
             let access_start = ctx.state();
             let variables = symbols
                 .iter()
@@ -28,10 +28,19 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ParameterDeclPattern {
                     )
                 })
                 .collect::<Vec<_>>();
-            let variables = ctx.define_symbols(variables);
-            Ok(Some(ParameterDeclPattern {
-                pattern_expr_idx,
+            let colon = ctx.parse_expected::<ColonToken>()?;
+            let Some(ty) = ctx.parse_expr(ExprParseEnvironment::WithinBracket(Bracket::Par)) else {
+                todo!()
+            };
+            let variables = ctx.define_symbols(
                 variables,
+                Some(TypeAnnotation::RegularParameter { pattern, ty }),
+            );
+            Ok(Some(RegularParameterDeclPattern {
+                pattern,
+                variables,
+                colon,
+                ty,
             }))
         } else {
             Ok(None)
@@ -39,8 +48,8 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ParameterDeclPattern {
     }
 }
 
-impl ParameterDeclPattern {
+impl RegularParameterDeclPattern {
     pub fn pattern_expr_idx(&self) -> ArenaIdx<PatternExpr> {
-        self.pattern_expr_idx
+        self.pattern
     }
 }

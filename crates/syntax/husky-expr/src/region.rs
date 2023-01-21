@@ -15,6 +15,22 @@ pub struct ExprRegion {
     pub pattern_expr_region: PatternExprRegion,
     #[return_ref]
     pub symbol_region: SymbolRegion,
+    #[return_ref]
+    pub ty_annotations: Vec<TypeAnnotation>,
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub enum TypeAnnotation {
+    LetVariables {
+        pattern: PatternExprIdx,
+        ty: ExprIdx,
+    },
+    FrameVariable,
+    ImplicitTypeParameter,
+    RegularParameter {
+        pattern: PatternExprIdx,
+        ty: ExprIdx,
+    },
 }
 
 impl ExprRegion {

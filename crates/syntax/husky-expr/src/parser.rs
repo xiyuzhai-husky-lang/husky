@@ -134,6 +134,7 @@ pub struct ExprParser<'a> {
     entity_path_expr_arena: EntityPathExprArena,
     pattern_expr_region: PatternExprRegion,
     stmt_arena: StmtArena,
+    ty_annotations: Vec<TypeAnnotation>,
 }
 
 impl<'a> ExprParser<'a> {
@@ -161,6 +162,7 @@ impl<'a> ExprParser<'a> {
             entity_path_expr_arena: Default::default(),
             pattern_expr_region: Default::default(),
             stmt_arena: Default::default(),
+            ty_annotations: vec![],
         }
     }
 
@@ -173,6 +175,7 @@ impl<'a> ExprParser<'a> {
             self.entity_path_expr_arena,
             self.pattern_expr_region,
             self.stmt_arena,
+            self.ty_annotations,
         )
     }
 
@@ -191,7 +194,9 @@ impl<'a> ExprParser<'a> {
     fn define_symbols(
         &mut self,
         variables: impl IntoIterator<Item = CurrentSymbol>,
+        ty_annotation: Option<TypeAnnotation>,
     ) -> CurrentSymbolIdxRange {
+        self.ty_annotations.extend(ty_annotation.into_iter());
         self.symbol_context.define_symbols(variables)
     }
 }
@@ -276,8 +281,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(crate) fn define_symbols(
         &mut self,
         variables: impl IntoIterator<Item = CurrentSymbol>,
+        ty_annotation: Option<TypeAnnotation>,
     ) -> CurrentSymbolIdxRange {
-        self.parser.define_symbols(variables)
+        self.parser.define_symbols(variables, ty_annotation)
     }
 
     pub fn parse_pattern_expr(

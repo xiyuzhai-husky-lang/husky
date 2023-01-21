@@ -30,14 +30,17 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclPatter
     ) -> Result<Option<Self>, ExprError> {
         if let Some(ident_token) = ctx.parse::<IdentifierToken>()? {
             let access_start = ctx.state();
-            let symbols = ctx.define_symbols([CurrentSymbol::new(
-                ident_token.ident(),
-                access_start,
-                None,
-                CurrentSymbolVariant::ImplicitParameter {
-                    implicit_parameter_variant: ImplicitParameterVariant::Type { ident_token },
-                },
-            )]);
+            let symbols = ctx.define_symbols(
+                [CurrentSymbol::new(
+                    ident_token.ident(),
+                    access_start,
+                    None,
+                    CurrentSymbolVariant::ImplicitParameter {
+                        implicit_parameter_variant: ImplicitParameterVariant::Type { ident_token },
+                    },
+                )],
+                Some(TypeAnnotation::ImplicitTypeParameter),
+            );
             Ok(Some(ImplicitParameterDeclPattern {
                 symbol: symbols.start(),
                 variant: ImplicitParameterDeclPatternVariant::Type0 { ident_token },

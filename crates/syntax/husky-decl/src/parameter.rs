@@ -98,14 +98,13 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclList {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct ParameterDecl {
-    pattern: ParameterDeclPattern,
-    colon: ColonToken,
-    ty: ExprIdx,
+    pattern: RegularParameterDeclPattern,
 }
 
 impl ParameterDecl {
     pub fn ty(&self) -> ExprIdx {
-        self.ty
+        todo!()
+        // self.ty
     }
 }
 
@@ -127,15 +126,11 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ParameterDecl {
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
-        let Some(pattern) = ctx.parse::<ParameterDeclPattern>()? else {
+        let Some(pattern) = ctx.parse::<RegularParameterDeclPattern>()? else {
             return Ok(None)
         };
         let state = ctx.state();
-        let colon = ctx.parse_expected::<ColonToken>()?;
-        let Some(ty) = ctx.parse_expr(ExprParseEnvironment::WithinBracket(Bracket::Par)) else {
-            todo!()
-        };
-        Ok(Some(ParameterDecl { pattern, colon, ty }))
+        Ok(Some(ParameterDecl { pattern }))
     }
 }
 

@@ -117,32 +117,32 @@ Ok(
                                 },
                                 parameters: [
                                     ParameterDecl {
-                                        pattern: ParameterDeclPattern {
-                                            pattern_expr_idx: 0,
+                                        pattern: RegularParameterDeclPattern {
+                                            pattern: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,
                                             ),
+                                            colon: ColonToken {
+                                                token_idx: TokenIdx(
+                                                    407,
+                                                ),
+                                            },
+                                            ty: 0,
                                         },
-                                        colon: ColonToken {
-                                            token_idx: TokenIdx(
-                                                407,
-                                            ),
-                                        },
-                                        ty: 0,
                                     },
                                     ParameterDecl {
-                                        pattern: ParameterDeclPattern {
-                                            pattern_expr_idx: 1,
+                                        pattern: RegularParameterDeclPattern {
+                                            pattern: 1,
                                             variables: ArenaIdxRange(
                                                 1..2,
                                             ),
+                                            colon: ColonToken {
+                                                token_idx: TokenIdx(
+                                                    411,
+                                                ),
+                                            },
+                                            ty: 1,
                                         },
-                                        colon: ColonToken {
-                                            token_idx: TokenIdx(
-                                                411,
-                                            ),
-                                        },
-                                        ty: 1,
                                     },
                                 ],
                                 commas: [
@@ -199,32 +199,32 @@ Ok(
                                 },
                                 parameters: [
                                     ParameterDecl {
-                                        pattern: ParameterDeclPattern {
-                                            pattern_expr_idx: 0,
+                                        pattern: RegularParameterDeclPattern {
+                                            pattern: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,
                                             ),
+                                            colon: ColonToken {
+                                                token_idx: TokenIdx(
+                                                    432,
+                                                ),
+                                            },
+                                            ty: 0,
                                         },
-                                        colon: ColonToken {
-                                            token_idx: TokenIdx(
-                                                432,
-                                            ),
-                                        },
-                                        ty: 0,
                                     },
                                     ParameterDecl {
-                                        pattern: ParameterDeclPattern {
-                                            pattern_expr_idx: 1,
+                                        pattern: RegularParameterDeclPattern {
+                                            pattern: 1,
                                             variables: ArenaIdxRange(
                                                 1..2,
                                             ),
+                                            colon: ColonToken {
+                                                token_idx: TokenIdx(
+                                                    436,
+                                                ),
+                                            },
+                                            ty: 1,
                                         },
-                                        colon: ColonToken {
-                                            token_idx: TokenIdx(
-                                                436,
-                                            ),
-                                        },
-                                        ty: 1,
                                     },
                                 ],
                                 commas: [
@@ -281,32 +281,32 @@ Ok(
                                 },
                                 parameters: [
                                     ParameterDecl {
-                                        pattern: ParameterDeclPattern {
-                                            pattern_expr_idx: 0,
+                                        pattern: RegularParameterDeclPattern {
+                                            pattern: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,
                                             ),
+                                            colon: ColonToken {
+                                                token_idx: TokenIdx(
+                                                    453,
+                                                ),
+                                            },
+                                            ty: 0,
                                         },
-                                        colon: ColonToken {
-                                            token_idx: TokenIdx(
-                                                453,
-                                            ),
-                                        },
-                                        ty: 0,
                                     },
                                     ParameterDecl {
-                                        pattern: ParameterDeclPattern {
-                                            pattern_expr_idx: 1,
+                                        pattern: RegularParameterDeclPattern {
+                                            pattern: 1,
                                             variables: ArenaIdxRange(
                                                 1..2,
                                             ),
+                                            colon: ColonToken {
+                                                token_idx: TokenIdx(
+                                                    457,
+                                                ),
+                                            },
+                                            ty: 1,
                                         },
-                                        colon: ColonToken {
-                                            token_idx: TokenIdx(
-                                                457,
-                                            ),
-                                        },
-                                        ty: 1,
                                     },
                                 ],
                                 commas: [
@@ -363,46 +363,46 @@ Ok(
                                 },
                                 parameters: [
                                     ParameterDecl {
-                                        pattern: ParameterDeclPattern {
-                                            pattern_expr_idx: 0,
+                                        pattern: RegularParameterDeclPattern {
+                                            pattern: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,
                                             ),
+                                            colon: ColonToken {
+                                                token_idx: TokenIdx(
+                                                    478,
+                                                ),
+                                            },
+                                            ty: 0,
                                         },
-                                        colon: ColonToken {
-                                            token_idx: TokenIdx(
-                                                478,
-                                            ),
-                                        },
-                                        ty: 0,
                                     },
                                     ParameterDecl {
-                                        pattern: ParameterDeclPattern {
-                                            pattern_expr_idx: 1,
+                                        pattern: RegularParameterDeclPattern {
+                                            pattern: 1,
                                             variables: ArenaIdxRange(
                                                 1..2,
                                             ),
+                                            colon: ColonToken {
+                                                token_idx: TokenIdx(
+                                                    482,
+                                                ),
+                                            },
+                                            ty: 1,
                                         },
-                                        colon: ColonToken {
-                                            token_idx: TokenIdx(
-                                                482,
-                                            ),
-                                        },
-                                        ty: 1,
                                     },
                                     ParameterDecl {
-                                        pattern: ParameterDeclPattern {
-                                            pattern_expr_idx: 2,
+                                        pattern: RegularParameterDeclPattern {
+                                            pattern: 2,
                                             variables: ArenaIdxRange(
                                                 2..3,
                                             ),
+                                            colon: ColonToken {
+                                                token_idx: TokenIdx(
+                                                    486,
+                                                ),
+                                            },
+                                            ty: 2,
                                         },
-                                        colon: ColonToken {
-                                            token_idx: TokenIdx(
-                                                486,
-                                            ),
-                                        },
-                                        ty: 2,
                                     },
                                 ],
                                 commas: [
@@ -469,32 +469,32 @@ Ok(
                                 },
                                 parameters: [
                                     ParameterDecl {
-                                        pattern: ParameterDeclPattern {
-                                            pattern_expr_idx: 0,
+                                        pattern: RegularParameterDeclPattern {
+                                            pattern: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,
                                             ),
+                                            colon: ColonToken {
+                                                token_idx: TokenIdx(
+                                                    624,
+                                                ),
+                                            },
+                                            ty: 0,
                                         },
-                                        colon: ColonToken {
-                                            token_idx: TokenIdx(
-                                                624,
-                                            ),
-                                        },
-                                        ty: 0,
                                     },
                                     ParameterDecl {
-                                        pattern: ParameterDeclPattern {
-                                            pattern_expr_idx: 1,
+                                        pattern: RegularParameterDeclPattern {
+                                            pattern: 1,
                                             variables: ArenaIdxRange(
                                                 1..2,
                                             ),
+                                            colon: ColonToken {
+                                                token_idx: TokenIdx(
+                                                    628,
+                                                ),
+                                            },
+                                            ty: 1,
                                         },
-                                        colon: ColonToken {
-                                            token_idx: TokenIdx(
-                                                628,
-                                            ),
-                                        },
-                                        ty: 1,
                                     },
                                 ],
                                 commas: [
@@ -551,60 +551,60 @@ Ok(
                                 },
                                 parameters: [
                                     ParameterDecl {
-                                        pattern: ParameterDeclPattern {
-                                            pattern_expr_idx: 0,
+                                        pattern: RegularParameterDeclPattern {
+                                            pattern: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,
                                             ),
+                                            colon: ColonToken {
+                                                token_idx: TokenIdx(
+                                                    688,
+                                                ),
+                                            },
+                                            ty: 0,
                                         },
-                                        colon: ColonToken {
-                                            token_idx: TokenIdx(
-                                                688,
-                                            ),
-                                        },
-                                        ty: 0,
                                     },
                                     ParameterDecl {
-                                        pattern: ParameterDeclPattern {
-                                            pattern_expr_idx: 1,
+                                        pattern: RegularParameterDeclPattern {
+                                            pattern: 1,
                                             variables: ArenaIdxRange(
                                                 1..2,
                                             ),
+                                            colon: ColonToken {
+                                                token_idx: TokenIdx(
+                                                    692,
+                                                ),
+                                            },
+                                            ty: 1,
                                         },
-                                        colon: ColonToken {
-                                            token_idx: TokenIdx(
-                                                692,
-                                            ),
-                                        },
-                                        ty: 1,
                                     },
                                     ParameterDecl {
-                                        pattern: ParameterDeclPattern {
-                                            pattern_expr_idx: 2,
+                                        pattern: RegularParameterDeclPattern {
+                                            pattern: 2,
                                             variables: ArenaIdxRange(
                                                 2..3,
                                             ),
+                                            colon: ColonToken {
+                                                token_idx: TokenIdx(
+                                                    696,
+                                                ),
+                                            },
+                                            ty: 2,
                                         },
-                                        colon: ColonToken {
-                                            token_idx: TokenIdx(
-                                                696,
-                                            ),
-                                        },
-                                        ty: 2,
                                     },
                                     ParameterDecl {
-                                        pattern: ParameterDeclPattern {
-                                            pattern_expr_idx: 3,
+                                        pattern: RegularParameterDeclPattern {
+                                            pattern: 3,
                                             variables: ArenaIdxRange(
                                                 3..4,
                                             ),
+                                            colon: ColonToken {
+                                                token_idx: TokenIdx(
+                                                    700,
+                                                ),
+                                            },
+                                            ty: 3,
                                         },
-                                        colon: ColonToken {
-                                            token_idx: TokenIdx(
-                                                700,
-                                            ),
-                                        },
-                                        ty: 3,
                                     },
                                 ],
                                 commas: [
@@ -756,18 +756,18 @@ Ok(
                                 },
                                 parameters: [
                                     ParameterDecl {
-                                        pattern: ParameterDeclPattern {
-                                            pattern_expr_idx: 0,
+                                        pattern: RegularParameterDeclPattern {
+                                            pattern: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,
                                             ),
+                                            colon: ColonToken {
+                                                token_idx: TokenIdx(
+                                                    927,
+                                                ),
+                                            },
+                                            ty: 2,
                                         },
-                                        colon: ColonToken {
-                                            token_idx: TokenIdx(
-                                                927,
-                                            ),
-                                        },
-                                        ty: 2,
                                     },
                                 ],
                                 commas: [],
@@ -818,18 +818,18 @@ Ok(
                                 },
                                 parameters: [
                                     ParameterDecl {
-                                        pattern: ParameterDeclPattern {
-                                            pattern_expr_idx: 0,
+                                        pattern: RegularParameterDeclPattern {
+                                            pattern: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,
                                             ),
+                                            colon: ColonToken {
+                                                token_idx: TokenIdx(
+                                                    992,
+                                                ),
+                                            },
+                                            ty: 1,
                                         },
-                                        colon: ColonToken {
-                                            token_idx: TokenIdx(
-                                                992,
-                                            ),
-                                        },
-                                        ty: 1,
                                     },
                                 ],
                                 commas: [],
@@ -1104,32 +1104,32 @@ Ok(
                                     },
                                     parameters: [
                                         ParameterDecl {
-                                            pattern: ParameterDeclPattern {
-                                                pattern_expr_idx: 0,
+                                            pattern: RegularParameterDeclPattern {
+                                                pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
                                                 ),
+                                                colon: ColonToken {
+                                                    token_idx: TokenIdx(
+                                                        333,
+                                                    ),
+                                                },
+                                                ty: 0,
                                             },
-                                            colon: ColonToken {
-                                                token_idx: TokenIdx(
-                                                    333,
-                                                ),
-                                            },
-                                            ty: 0,
                                         },
                                         ParameterDecl {
-                                            pattern: ParameterDeclPattern {
-                                                pattern_expr_idx: 1,
+                                            pattern: RegularParameterDeclPattern {
+                                                pattern: 1,
                                                 variables: ArenaIdxRange(
                                                     1..2,
                                                 ),
+                                                colon: ColonToken {
+                                                    token_idx: TokenIdx(
+                                                        337,
+                                                    ),
+                                                },
+                                                ty: 1,
                                             },
-                                            colon: ColonToken {
-                                                token_idx: TokenIdx(
-                                                    337,
-                                                ),
-                                            },
-                                            ty: 1,
                                         },
                                     ],
                                     commas: [
