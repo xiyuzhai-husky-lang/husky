@@ -39,6 +39,17 @@ pub struct SymbolRegion {
     ty_annotations: Vec<TypeAnnotation>,
 }
 
+impl SymbolRegion {
+    pub fn parameter_pattern_ty(&self, target: PatternExprIdx) -> Option<ExprIdx> {
+        self.ty_annotations
+            .iter()
+            .find_map(|ty_annotation| match ty_annotation {
+                TypeAnnotation::RegularParameter { pattern, ty } if *pattern == target => Some(*ty),
+                _ => None,
+            })
+    }
+}
+
 #[derive(Debug, PartialEq, Eq)]
 pub enum TypeAnnotation {
     LetVariables {

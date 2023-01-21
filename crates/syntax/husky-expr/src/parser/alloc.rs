@@ -27,7 +27,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         expr: PatternExpr,
         env: PatternExprInfo,
     ) -> PatternExprIdx {
-        self.parser.pattern_expr_region.alloc_one(expr, env)
+        self.parser
+            .pattern_expr_region
+            .alloc_one_pattern_expr(expr, env)
     }
 
     pub(super) fn alloc_entity_path_expr(&mut self, expr: EntityPathExpr) -> EntityPathExprIdx {
