@@ -292,12 +292,10 @@ impl<'a> DeclParser<'a> {
             self.db,
             expr_path.into(),
             self.token_sheet_data,
-            SymbolContextMut::new(
-                self.module_symbol_context,
-                None,
-                allow_self_type,
-                allow_self_value,
-            ),
+            self.module_symbol_context,
+            None,
+            allow_self_type,
+            allow_self_value,
         )
     }
 

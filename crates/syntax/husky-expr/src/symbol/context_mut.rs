@@ -43,6 +43,7 @@ impl<'a> SymbolContextMut<'a> {
     pub(crate) fn into_expr_region(
         self,
         db: &dyn ExprDb,
+        parent: Option<ExprRegion>,
         path: ExprPath,
         expr_arena: ExprArena,
         entity_path_expr_arena: EntityPathExprArena,
@@ -51,6 +52,7 @@ impl<'a> SymbolContextMut<'a> {
     ) -> ExprRegion {
         ExprRegion::new(
             db,
+            parent,
             path,
             expr_arena,
             entity_path_expr_arena,
