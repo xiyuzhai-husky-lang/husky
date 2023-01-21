@@ -1,11 +1,11 @@
 mod decl;
 mod expr;
-mod subsheet;
+mod page;
 mod symbol;
 
 pub use decl::*;
 pub use expr::*;
-pub use subsheet::*;
+pub use page::*;
 pub use symbol::*;
 
 use super::*;

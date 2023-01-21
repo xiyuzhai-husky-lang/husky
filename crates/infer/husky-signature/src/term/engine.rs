@@ -9,6 +9,7 @@ pub(crate) struct SignatureTermEngine<'a> {
     db: &'a dyn SignatureDb,
     path: ExprPath,
     expr_arena: &'a ExprArena,
+    pattern_expr_page: &'a PatternExprPage,
     entity_path_expr_arena: &'a EntityPathExprArena,
     term_menu: &'a TermMenu,
     symbol_page: &'a SymbolPage,
@@ -57,6 +58,7 @@ impl<'a> SignatureTermEngine<'a> {
             db,
             path: expr_page.path(db),
             expr_arena,
+            pattern_expr_page: expr_page.pattern_expr_page(db),
             entity_path_expr_arena: expr_page.entity_path_expr_arena(db),
             symbol_page,
             term_menu,
@@ -78,8 +80,11 @@ impl<'a> SignatureTermEngine<'a> {
                     } => match implicit_parameter_variant {
                         ImplicitParameterVariant::Type { .. } => Ok(self.term_menu.ty0()),
                     },
-                    CurrentSymbolVariant::Parameter { .. } => {
-                        todo!()
+                    CurrentSymbolVariant::Parameter { pattern_symbol } => {
+                        let pattern_symbol = &self.pattern_expr_page[*pattern_symbol];
+                        match pattern_symbol {
+                            PatternSymbol::Atom(_) => todo!(),
+                        }
                     }
                     CurrentSymbolVariant::LetVariable { pattern_symbol } => todo!(),
                     CurrentSymbolVariant::FrameVariable(_) => todo!(),
