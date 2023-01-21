@@ -101,7 +101,7 @@ impl<'a> SignatureTermEngine<'a> {
     }
 
     // ask about the term for expr, assuming it hasn't been computed before
-    pub(crate) fn query_new(&mut self, expr_idx: ExprIdx) -> SignatureTermOutcome<Term> {
+    fn query_new(&mut self, expr_idx: ExprIdx) -> SignatureTermOutcome<Term> {
         let outcome = self.calc(expr_idx);
         let term = match outcome {
             Success(term) => Success(term),
@@ -112,8 +112,8 @@ impl<'a> SignatureTermEngine<'a> {
         term
     }
 
-    pub(crate) fn finish(self) -> SignatureTermSheet {
-        SignatureTermSheet::new(self.term_symbol_region)
+    pub(crate) fn finish(self) -> SignatureTermRegion {
+        SignatureTermRegion::new(self.term_symbol_region)
     }
 
     fn save(&mut self, expr_idx: ExprIdx, outcome: SignatureTermOutcome<Term>) {
