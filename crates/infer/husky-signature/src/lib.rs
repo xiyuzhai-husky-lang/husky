@@ -23,6 +23,7 @@ use tests::*;
 
 #[salsa::jar(db = SignatureDb)]
 pub struct SignatureJar(
+    signature_term_region,
     // type
     enum_ty_signature,
     EnumTypeSignature,

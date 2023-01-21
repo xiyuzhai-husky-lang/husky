@@ -26,7 +26,7 @@ pub struct RegularStructTypeSignature {
     #[return_ref]
     pub fields: Vec<RegularStructFieldSignature>,
     #[return_ref]
-    pub term_sheet: SignatureTermSheet,
+    pub term_sheet: SignatureTermRegion,
 }
 
 impl RegularStructTypeSignature {}

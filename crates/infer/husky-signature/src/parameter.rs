@@ -12,7 +12,7 @@ pub struct ImplicitParameterSignature {
 impl ImplicitParameterSignature {
     fn from_decl(
         parameter: &ImplicitParameterDecl,
-        sheet: &SignatureTermSheet,
+        sheet: &SignatureTermRegion,
     ) -> ImplicitParameterSignature {
         todo!()
         // let symbol = parameter.pattern().symbol();
@@ -53,7 +53,7 @@ pub struct ImplicitParameterSignatures {
 impl ImplicitParameterSignatures {
     pub(crate) fn from_decl(
         parameters: &[ImplicitParameterDecl],
-        sheet: &SignatureTermSheet,
+        sheet: &SignatureTermRegion,
     ) -> Self {
         Self {
             parameters: parameters
@@ -93,7 +93,7 @@ pub struct ParameterSignatures {
 impl ParameterSignatures {
     pub(crate) fn from_decl(
         parameters: &[RegularParameterDeclPattern],
-        sheet: &SignatureTermSheet,
+        sheet: &SignatureTermRegion,
     ) -> Self {
         Self {
             parameters: parameters
