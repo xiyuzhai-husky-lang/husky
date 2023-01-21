@@ -8,11 +8,7 @@
                 term_sheet: SignatureTermSheet {
                     term_symbol_page: TermSymbolPage {
                         registry: TermSymbolRegistry {
-                            next_ty0: 0,
-                            next_lifetime: 0,
-                            next_binding: 0,
-                            next_usize: 0,
-                            next_parameter: 0,
+                            tys: [],
                         },
                         inherited_symbol_terms: [],
                         current_symbol_terms: [],
@@ -27,10 +23,11 @@
                 implicit_parameters: ImplicitParameterSignatures {
                     parameters: [
                         ImplicitParameterSignature {
-                            term_symbol: TermSymbol {
-                                idx: 0,
-                                kind: Type0,
-                            },
+                            term_symbol: TermSymbol(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
                             ty: Success(
                                 Application(
                                     TermApplication(
@@ -43,10 +40,11 @@
                             traits: [],
                         },
                         ImplicitParameterSignature {
-                            term_symbol: TermSymbol {
-                                idx: 1,
-                                kind: Type0,
-                            },
+                            term_symbol: TermSymbol(
+                                Id {
+                                    value: 2,
+                                },
+                            ),
                             ty: Success(
                                 Application(
                                     TermApplication(
@@ -63,22 +61,39 @@
                 term_sheet: SignatureTermSheet {
                     term_symbol_page: TermSymbolPage {
                         registry: TermSymbolRegistry {
-                            next_ty0: 2,
-                            next_lifetime: 0,
-                            next_binding: 0,
-                            next_usize: 0,
-                            next_parameter: 0,
+                            tys: [
+                                Ok(
+                                    Application(
+                                        TermApplication(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                Ok(
+                                    Application(
+                                        TermApplication(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ],
                         },
                         inherited_symbol_terms: [],
                         current_symbol_terms: [
-                            TermSymbol {
-                                idx: 0,
-                                kind: Type0,
-                            },
-                            TermSymbol {
-                                idx: 1,
-                                kind: Type0,
-                            },
+                            TermSymbol(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                            TermSymbol(
+                                Id {
+                                    value: 2,
+                                },
+                            ),
                         ],
                     },
                 },
@@ -91,10 +106,11 @@
                 implicit_parameters: ImplicitParameterSignatures {
                     parameters: [
                         ImplicitParameterSignature {
-                            term_symbol: TermSymbol {
-                                idx: 0,
-                                kind: Type0,
-                            },
+                            term_symbol: TermSymbol(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
                             ty: Success(
                                 Application(
                                     TermApplication(
@@ -107,10 +123,11 @@
                             traits: [],
                         },
                         ImplicitParameterSignature {
-                            term_symbol: TermSymbol {
-                                idx: 1,
-                                kind: Type0,
-                            },
+                            term_symbol: TermSymbol(
+                                Id {
+                                    value: 2,
+                                },
+                            ),
                             ty: Success(
                                 Application(
                                     TermApplication(
@@ -127,22 +144,39 @@
                 term_sheet: SignatureTermSheet {
                     term_symbol_page: TermSymbolPage {
                         registry: TermSymbolRegistry {
-                            next_ty0: 2,
-                            next_lifetime: 0,
-                            next_binding: 0,
-                            next_usize: 0,
-                            next_parameter: 0,
+                            tys: [
+                                Ok(
+                                    Application(
+                                        TermApplication(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                Ok(
+                                    Application(
+                                        TermApplication(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ],
                         },
                         inherited_symbol_terms: [],
                         current_symbol_terms: [
-                            TermSymbol {
-                                idx: 0,
-                                kind: Type0,
-                            },
-                            TermSymbol {
-                                idx: 1,
-                                kind: Type0,
-                            },
+                            TermSymbol(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                            TermSymbol(
+                                Id {
+                                    value: 2,
+                                },
+                            ),
                         ],
                     },
                 },
