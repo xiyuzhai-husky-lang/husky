@@ -5,7 +5,7 @@ pub(crate) fn ty_as_trai_associated_value_signature(
     db: &dyn SignatureDb,
     decl: TypeAsTraitAssociatedValueDecl,
 ) -> TypeAsTraitAssociatedValueSignature {
-    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), todo!());
+    let mut engine = SignatureTermEngine::new(db, decl.expr_region(db), todo!());
     // implementation
     TypeAsTraitAssociatedValueSignature::new(
         db,

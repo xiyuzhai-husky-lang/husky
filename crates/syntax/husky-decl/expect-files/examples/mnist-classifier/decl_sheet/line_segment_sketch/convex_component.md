@@ -7,7 +7,7 @@ Ok(
                         RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                             ast_idx: 3,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 158,
                                 },
@@ -104,7 +104,7 @@ Ok(
                                     ),
                                 },
                             ),
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 159,
                                 },

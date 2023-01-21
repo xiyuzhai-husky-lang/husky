@@ -7,7 +7,7 @@ Ok(
                         RegularStructTypeDecl {
                             path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                             ast_idx: 22,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 103,
                                 },
@@ -87,7 +87,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                             ast_idx: 24,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 104,
                                 },
@@ -186,7 +186,7 @@ Ok(
                                     ),
                                 },
                             ),
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 105,
                                 },
@@ -213,7 +213,7 @@ Ok(
                                     },
                                 ),
                                 ast_idx: 12,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 106,
                                     },
@@ -258,7 +258,7 @@ Ok(
                                     },
                                 ),
                                 ast_idx: 13,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 107,
                                     },
@@ -303,7 +303,7 @@ Ok(
                                     },
                                 ),
                                 ast_idx: 14,
-                                expr_page: ExprPage(
+                                expr_region: ExprRegion(
                                     Id {
                                         value: 108,
                                     },

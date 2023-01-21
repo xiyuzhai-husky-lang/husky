@@ -27,7 +27,7 @@ impl TraitItemDefn {
     pub fn path(self, db: &dyn DefnDb) -> AssociatedItemPath {
         todo!()
     }
-    pub fn expr_page(self, db: &dyn DefnDb) -> ExprPage {
+    pub fn expr_region(self, db: &dyn DefnDb) -> ExprRegion {
         todo!()
     }
 }

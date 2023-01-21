@@ -80,9 +80,9 @@ impl<'a> InferEngine<'a> {
 
     fn visit_defn(&mut self, defn: Defn) {
         let decl = defn.decl(self.db);
-        self.visit_expr_page(decl.expr_page(self.db).into());
-        defn.expr_page(self.db)
-            .map(|expr_page| self.visit_expr_page(expr_page.into()));
+        self.visit_expr_region(decl.expr_region(self.db).into());
+        defn.expr_region(self.db)
+            .map(|expr_region| self.visit_expr_region(expr_region.into()));
         let ast_idx = defn.ast_idx(self.db);
         match self.ast_sheet[ast_idx] {
             Ast::Defn {
@@ -112,14 +112,14 @@ impl<'a> InferEngine<'a> {
         }
     }
 
-    fn visit_expr_page(&mut self, expr_page: ExprPage) {
+    fn visit_expr_region(&mut self, expr_region: ExprRegion) {
         AuxInferEngine {
             db: self.db,
             token_sheet_data: self.token_sheet_data,
             ast_sheet: self.ast_sheet,
             sheet: &mut self.sheet,
-            symbol_context: ExprContext::new(self.db, self.module_symbol_context, expr_page),
-            expr_page,
+            symbol_context: ExprContext::new(self.db, self.module_symbol_context, expr_region),
+            expr_region,
         }
         .visit_all()
     }
@@ -223,7 +223,7 @@ struct AuxInferEngine<'a> {
     ast_sheet: &'a AstSheet,
     symbol_context: ExprContext<'a>,
     sheet: &'a mut TokenInfoSheet,
-    expr_page: ExprPage,
+    expr_region: ExprRegion,
 }
 
 impl<'a> AuxInferEngine<'a> {
@@ -259,7 +259,7 @@ impl<'a> AuxInferEngine<'a> {
                 TokenInfo::CurrentSymbol {
                     current_symbol_idx: *current_symbol_idx,
                     current_symbol_kind: *current_symbol_kind,
-                    expr_page: self.expr_page,
+                    expr_region: self.expr_region,
                 },
             ),
             Expr::InheritedSymbol {
@@ -271,7 +271,7 @@ impl<'a> AuxInferEngine<'a> {
                 *token_idx,
                 TokenInfo::InheritedSymbol {
                     inherited_symbol_idx: *inherited_symbol_idx,
-                    expr_page: self.expr_page,
+                    expr_region: self.expr_region,
                     inherited_symbol_kind: *inherited_symbol_kind,
                 },
             ),
@@ -363,7 +363,7 @@ impl<'a> AuxInferEngine<'a> {
                                 ident_token.token_idx(),
                                 TokenInfo::CurrentSymbol {
                                     current_symbol_idx,
-                                    expr_page: self.expr_page,
+                                    expr_region: self.expr_region,
                                     current_symbol_kind,
                                 },
                             ),
@@ -380,7 +380,7 @@ impl<'a> AuxInferEngine<'a> {
                     ident_token.token_idx(),
                     TokenInfo::CurrentSymbol {
                         current_symbol_idx,
-                        expr_page: self.expr_page,
+                        expr_region: self.expr_region,
                         current_symbol_kind,
                     },
                 ),

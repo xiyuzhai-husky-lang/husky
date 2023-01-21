@@ -7,7 +7,7 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Feature`),
                             ast_idx: 68,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 79,
                                 },
@@ -22,7 +22,7 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                             ast_idx: 69,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 80,
                                 },
@@ -37,7 +37,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::digits::one::upmost`, `Function`),
                             ast_idx: 70,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 81,
                                 },
@@ -99,7 +99,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::digits::one::downmost`, `Function`),
                             ast_idx: 71,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 82,
                                 },
@@ -161,7 +161,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::digits::one::hat`, `Function`),
                             ast_idx: 72,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 83,
                                 },

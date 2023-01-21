@@ -11,7 +11,9 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ParameterDeclPattern {
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
         if let Some(pattern_expr_idx) = ctx.parse_pattern_expr(PatternExprInfo::Parameter)? {
-            let symbols = ctx.pattern_expr_page().pattern_symbol_map(pattern_expr_idx);
+            let symbols = ctx
+                .pattern_expr_region()
+                .pattern_symbol_map(pattern_expr_idx);
             let access_start = ctx.state();
             let variables = symbols
                 .iter()

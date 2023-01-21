@@ -131,7 +131,7 @@ pub struct ExprParser<'a> {
     symbol_context: SymbolContextMut<'a>,
     expr_arena: ExprArena,
     entity_path_expr_arena: EntityPathExprArena,
-    pattern_expr_page: PatternExprPage,
+    pattern_expr_region: PatternExprRegion,
     stmt_arena: StmtArena,
 }
 
@@ -149,18 +149,18 @@ impl<'a> ExprParser<'a> {
             symbol_context,
             expr_arena: Default::default(),
             entity_path_expr_arena: Default::default(),
-            pattern_expr_page: Default::default(),
+            pattern_expr_region: Default::default(),
             stmt_arena: Default::default(),
         }
     }
 
-    pub fn finish(self) -> ExprPage {
-        self.symbol_context.into_expr_page(
+    pub fn finish(self) -> ExprRegion {
+        self.symbol_context.into_expr_region(
             self.db,
             self.path,
             self.expr_arena,
             self.entity_path_expr_arena,
-            self.pattern_expr_page,
+            self.pattern_expr_region,
             self.stmt_arena,
         )
     }
@@ -172,8 +172,8 @@ impl<'a> ExprParser<'a> {
         ExprParseContext::new(self, token_stream)
     }
 
-    pub(crate) fn pattern_expr_page(&self) -> &PatternExprPage {
-        &self.pattern_expr_page
+    pub(crate) fn pattern_expr_region(&self) -> &PatternExprRegion {
+        &self.pattern_expr_region
     }
 
     #[inline(always)]
@@ -258,8 +258,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         }
     }
 
-    pub(crate) fn pattern_expr_page(&self) -> &PatternExprPage {
-        self.parser.pattern_expr_page()
+    pub(crate) fn pattern_expr_region(&self) -> &PatternExprRegion {
+        self.parser.pattern_expr_region()
     }
 
     pub(crate) fn define_symbols(
@@ -357,11 +357,14 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     }
 
     fn allow_self_type(&self) -> AllowSelfType {
-        self.parser.symbol_context.symbol_page().allow_self_type()
+        self.parser.symbol_context.symbol_region().allow_self_type()
     }
 
     fn allow_self_value(&self) -> AllowSelfValue {
-        self.parser.symbol_context.symbol_page().allow_self_value()
+        self.parser
+            .symbol_context
+            .symbol_region()
+            .allow_self_value()
     }
 }
 

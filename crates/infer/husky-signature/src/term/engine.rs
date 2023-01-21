@@ -9,25 +9,25 @@ pub(crate) struct SignatureTermEngine<'a> {
     db: &'a dyn SignatureDb,
     path: ExprPath,
     expr_arena: &'a ExprArena,
-    pattern_expr_page: &'a PatternExprPage,
+    pattern_expr_region: &'a PatternExprRegion,
     entity_path_expr_arena: &'a EntityPathExprArena,
     term_menu: &'a TermMenu,
-    symbol_page: &'a SymbolPage,
+    symbol_region: &'a SymbolRegion,
     expr_terms: ExprMap<SignatureTermOutcome<Term>>,
-    term_symbol_page: TermSymbolPage,
+    term_symbol_region: TermSymbolRegion,
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct TermSymbolPage {
+pub struct TermSymbolRegion {
     registry: TermSymbolRegistry,
     inherited_symbol_terms: Vec<TermSymbol>,
     current_symbol_terms: Vec<TermSymbol>,
 }
 
-impl TermSymbolPage {
-    fn new(parent: Option<&TermSymbolPage>, symbol_page: &SymbolPage) -> Self {
+impl TermSymbolRegion {
+    fn new(parent: Option<&TermSymbolRegion>, symbol_region: &SymbolRegion) -> Self {
         let registry = parent.map_or(Default::default(), |parent| parent.registry.clone());
-        let inherited_symbol_terms = symbol_page
+        let inherited_symbol_terms = symbol_region
             .indexed_inherited_symbol_iter()
             .map(|(idx, symbol)| todo!())
             .collect();
@@ -46,24 +46,24 @@ impl TermSymbolPage {
 impl<'a> SignatureTermEngine<'a> {
     pub(crate) fn new(
         db: &'a dyn SignatureDb,
-        expr_page: ExprPage,
-        parent_term_symbol_page: Option<&'a TermSymbolPage>,
+        expr_region: ExprRegion,
+        parent_term_symbol_region: Option<&'a TermSymbolRegion>,
     ) -> Self {
-        let expr_arena = &expr_page.expr_arena(db);
-        let toolchain = expr_page.toolchain(db);
-        let symbol_page = expr_page.symbol_page(db);
+        let expr_arena = &expr_region.expr_arena(db);
+        let toolchain = expr_region.toolchain(db);
+        let symbol_region = expr_region.symbol_region(db);
         // ad hoc
         let term_menu = db.term_menu(toolchain).as_ref().unwrap();
         let mut this = Self {
             db,
-            path: expr_page.path(db),
+            path: expr_region.path(db),
             expr_arena,
-            pattern_expr_page: expr_page.pattern_expr_page(db),
-            entity_path_expr_arena: expr_page.entity_path_expr_arena(db),
-            symbol_page,
+            pattern_expr_region: expr_region.pattern_expr_region(db),
+            entity_path_expr_arena: expr_region.entity_path_expr_arena(db),
+            symbol_region,
             term_menu,
             expr_terms: ExprMap::new(expr_arena),
-            term_symbol_page: TermSymbolPage::new(parent_term_symbol_page, symbol_page),
+            term_symbol_region: TermSymbolRegion::new(parent_term_symbol_region, symbol_region),
         };
         this.init_current_symbol_term_symbols();
         this
@@ -71,7 +71,7 @@ impl<'a> SignatureTermEngine<'a> {
 
     fn init_current_symbol_term_symbols(&mut self) {
         let current_symbol_terms = self
-            .symbol_page
+            .symbol_region
             .indexed_current_symbol_iter()
             .map(|(idx, symbol)| {
                 let ty = match symbol.variant() {
@@ -81,7 +81,7 @@ impl<'a> SignatureTermEngine<'a> {
                         ImplicitParameterVariant::Type { .. } => Ok(self.term_menu.ty0()),
                     },
                     CurrentSymbolVariant::Parameter { pattern_symbol } => {
-                        let pattern_symbol = &self.pattern_expr_page[*pattern_symbol];
+                        let pattern_symbol = &self.pattern_expr_region[*pattern_symbol];
                         match pattern_symbol {
                             PatternSymbol::Atom(_) => todo!(),
                         }
@@ -89,10 +89,10 @@ impl<'a> SignatureTermEngine<'a> {
                     CurrentSymbolVariant::LetVariable { pattern_symbol } => todo!(),
                     CurrentSymbolVariant::FrameVariable(_) => todo!(),
                 };
-                self.term_symbol_page.registry.new_symbol(self.db, ty)
+                self.term_symbol_region.registry.new_symbol(self.db, ty)
             })
             .collect();
-        self.term_symbol_page.current_symbol_terms = current_symbol_terms;
+        self.term_symbol_region.current_symbol_terms = current_symbol_terms;
     }
 
     // ask about the term for expr, assuming it hasn't been computed before
@@ -108,7 +108,7 @@ impl<'a> SignatureTermEngine<'a> {
     }
 
     pub(crate) fn finish(self) -> SignatureTermSheet {
-        SignatureTermSheet::new(self.term_symbol_page)
+        SignatureTermSheet::new(self.term_symbol_region)
     }
 
     fn save(&mut self, expr_idx: ExprIdx, outcome: SignatureTermOutcome<Term>) {
@@ -134,7 +134,7 @@ impl<'a> SignatureTermEngine<'a> {
             Expr::CurrentSymbol {
                 current_symbol_idx, ..
             } => Success(
-                self.term_symbol_page
+                self.term_symbol_region
                     .current_symbol_term(current_symbol_idx)
                     .into(),
             ),
@@ -374,7 +374,7 @@ impl<'a> SignatureTermEngine<'a> {
     }
 
     pub(crate) fn current_symbol_term_symbol(&self, symbol: CurrentSymbolIdx) -> TermSymbol {
-        self.term_symbol_page.current_symbol_terms[symbol.raw()]
+        self.term_symbol_region.current_symbol_terms[symbol.raw()]
     }
 
     pub(crate) fn term_menu(&self) -> &TermMenu {

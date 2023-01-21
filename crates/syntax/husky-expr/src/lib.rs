@@ -4,10 +4,10 @@ mod context;
 mod db;
 mod entity_path_expr;
 mod error;
-mod page;
 mod parser;
 mod pattern;
 mod precedence;
+mod region;
 mod snippet;
 mod stmt;
 mod symbol;
@@ -19,9 +19,9 @@ pub use db::*;
 pub use entity_path_expr::*;
 pub use error::*;
 use husky_entity_tree::EntityTreeResult;
-pub use page::*;
 pub use parser::*;
 pub use pattern::*;
+pub use region::*;
 pub use stmt::*;
 pub use symbol::*;
 
@@ -34,7 +34,7 @@ use precedence::*;
 use snippet::*;
 
 #[salsa::jar(db = ExprDb)]
-pub struct ExprJar(ExprPage, parse_expr_from_snippet);
+pub struct ExprJar(ExprRegion, parse_expr_from_snippet);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum BaseEntityPath {

@@ -10,7 +10,7 @@ Ok(
                                 value: 3,
                             },
                         ),
-                        expr_page: ExprPage(
+                        expr_region: ExprRegion(
                             Id {
                                 value: 101,
                             },
@@ -30,7 +30,7 @@ Ok(
                                 value: 4,
                             },
                         ),
-                        expr_page: ExprPage(
+                        expr_region: ExprRegion(
                             Id {
                                 value: 102,
                             },
@@ -50,7 +50,7 @@ Ok(
                                 value: 7,
                             },
                         ),
-                        expr_page: ExprPage(
+                        expr_region: ExprRegion(
                             Id {
                                 value: 103,
                             },

@@ -11,7 +11,7 @@ pub struct RegularStructTypeDecl {
     #[id]
     pub path: TypePath,
     pub ast_idx: AstIdx,
-    pub expr_page: ExprPage,
+    pub expr_region: ExprRegion,
     #[return_ref]
     pub implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     pub lcurl: LeftCurlyBraceToken,

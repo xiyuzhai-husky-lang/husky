@@ -5,7 +5,7 @@ pub(crate) fn ty_impl_block_signature(
     db: &dyn SignatureDb,
     decl: TypeImplBlockDecl,
 ) -> TypeImplBlockSignature {
-    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), None);
+    let mut engine = SignatureTermEngine::new(db, decl.expr_region(db), None);
     let ty = decl.ty(db);
     let ty = engine.query_new(ty);
     TypeImplBlockSignature::new(

@@ -7,7 +7,7 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Feature`),
                             ast_idx: 28,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 64,
                                 },
@@ -22,7 +22,7 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
                             ast_idx: 29,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 65,
                                 },
@@ -37,7 +37,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::digits::eight::big_mouth`, `Function`),
                             ast_idx: 30,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 66,
                                 },

@@ -48,11 +48,11 @@ impl Defn {
     pub fn implicit_parameters(self, db: &dyn DefnDb) -> &[ImplicitParameterDecl] {
         self.decl(db).implicit_parameters(db)
     }
-    pub fn expr_page(self, db: &dyn DefnDb) -> Option<ExprPage> {
+    pub fn expr_region(self, db: &dyn DefnDb) -> Option<ExprRegion> {
         match self {
             Defn::Type(_) | Defn::Trait(_) => None,
-            Defn::Form(defn) => Some(defn.expr_page(db)),
-            Defn::AssociatedItem(defn) => defn.expr_page(db),
+            Defn::Form(defn) => Some(defn.expr_region(db)),
+            Defn::AssociatedItem(defn) => defn.expr_region(db),
             Defn::Variant(defn) => None,
             Defn::ImplBlock(_) => None,
         }

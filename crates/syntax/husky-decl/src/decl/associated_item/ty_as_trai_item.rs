@@ -62,12 +62,12 @@ impl TypeAsTraitItemDecl {
         }
     }
 
-    pub fn expr_page(self, db: &dyn DeclDb) -> ExprPage {
+    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
         match self {
-            TypeAsTraitItemDecl::Function(decl) => decl.expr_page(db),
-            TypeAsTraitItemDecl::Method(decl) => decl.expr_page(db),
-            TypeAsTraitItemDecl::AlienType(decl) => decl.expr_page(db),
-            TypeAsTraitItemDecl::Value(decl) => decl.expr_page(db),
+            TypeAsTraitItemDecl::Function(decl) => decl.expr_region(db),
+            TypeAsTraitItemDecl::Method(decl) => decl.expr_region(db),
+            TypeAsTraitItemDecl::AlienType(decl) => decl.expr_region(db),
+            TypeAsTraitItemDecl::Value(decl) => decl.expr_region(db),
         }
     }
 

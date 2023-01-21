@@ -38,10 +38,10 @@ impl ImplBlockDecl {
         todo!()
     }
 
-    pub fn expr_page(self, db: &dyn DeclDb) -> ExprPage {
+    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
         match self {
-            ImplBlockDecl::TypeImplBlock(decl) => decl.expr_page(db),
-            ImplBlockDecl::TypeAsTraitImplBlock(decl) => decl.expr_page(db),
+            ImplBlockDecl::TypeImplBlock(decl) => decl.expr_region(db),
+            ImplBlockDecl::TypeAsTraitImplBlock(decl) => decl.expr_region(db),
         }
     }
 }

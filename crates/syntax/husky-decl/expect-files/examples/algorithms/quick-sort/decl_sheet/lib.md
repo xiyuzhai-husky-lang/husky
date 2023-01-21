@@ -7,7 +7,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`quick_sort::quick_sort`, `Function`),
                             ast_idx: 30,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 42,
                                 },
@@ -116,7 +116,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`quick_sort::quick_sort_aux`, `Function`),
                             ast_idx: 31,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 43,
                                 },
@@ -264,7 +264,7 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`quick_sort::partition`, `Function`),
                             ast_idx: 32,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 44,
                                 },
@@ -412,7 +412,7 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
                             ast_idx: 34,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 45,
                                 },
@@ -427,7 +427,7 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
                             ast_idx: 36,
-                            expr_page: ExprPage(
+                            expr_region: ExprRegion(
                                 Id {
                                     value: 46,
                                 },

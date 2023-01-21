@@ -4,6 +4,6 @@ use crate::*;
 pub struct TypeAsTraitAssociatedValueDefn {
     #[id]
     pub path: Option<TypeAsTraitItemPath>,
-    pub expr_page: ExprPage,
+    pub expr_region: ExprRegion,
     pub decl: TypeAsTraitAssociatedValueDecl,
 }

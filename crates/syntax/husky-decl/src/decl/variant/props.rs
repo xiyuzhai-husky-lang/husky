@@ -4,5 +4,5 @@ use crate::*;
 pub struct PropsVariantDecl {
     #[id]
     pub path: VariantPath,
-    pub expr_page: ExprPage,
+    pub expr_region: ExprRegion,
 }

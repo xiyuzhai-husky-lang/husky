@@ -6,12 +6,12 @@ pub(crate) fn ty_method_signature(
     decl: TypeMethodDecl,
 ) -> TypeMethodSignature {
     let impl_block = decl.associated_item(db).impl_block(db);
-    let parent_term_symbol_page = db.impl_block_decl(impl_block).ok().map(|decl| {
+    let parent_term_symbol_region = db.impl_block_decl(impl_block).ok().map(|decl| {
         impl_block_signature(db, decl)
             .term_sheet(db)
-            .term_symbol_page()
+            .term_symbol_region()
     });
-    let mut engine = SignatureTermEngine::new(db, decl.expr_page(db), parent_term_symbol_page);
+    let mut engine = SignatureTermEngine::new(db, decl.expr_region(db), parent_term_symbol_region);
     let implicit_parameters =
         ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), &mut engine);
     let parameters = ParameterSignatures::from_decl(decl.parameters(db), &mut engine);

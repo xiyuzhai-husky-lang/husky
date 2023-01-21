@@ -31,16 +31,16 @@ impl AllowSelfType {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct SymbolPage {
+pub struct SymbolRegion {
     inherited_symbol_arena: InheritedSymbolArena,
     current_symbol_arena: CurrentSymbolArena,
     allow_self_type: AllowSelfType,
     allow_self_value: AllowSelfValue,
 }
 
-impl SymbolPage {
+impl SymbolRegion {
     pub(crate) fn new(
-        parent_symbol_page: Option<&SymbolPage>,
+        parent_symbol_region: Option<&SymbolRegion>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
     ) -> Self {
@@ -49,20 +49,20 @@ impl SymbolPage {
             if allow_self_value.to_bool() {
                 assert!(allow_self_type.to_bool());
             } else {
-                if let Some(parent_symbol_page) = parent_symbol_page {
-                    assert!(!parent_symbol_page.allow_self_value.to_bool());
+                if let Some(parent_symbol_region) = parent_symbol_region {
+                    assert!(!parent_symbol_region.allow_self_value.to_bool());
                 }
             }
             if !allow_self_type.to_bool() {
-                if let Some(parent_symbol_page) = parent_symbol_page {
-                    assert!(!parent_symbol_page.allow_self_type.to_bool());
+                if let Some(parent_symbol_region) = parent_symbol_region {
+                    assert!(!parent_symbol_region.allow_self_type.to_bool());
                 }
             }
         }
         Self {
             // ad hoc
-            inherited_symbol_arena: match parent_symbol_page {
-                Some(parent_symbol_page) => parent_symbol_page.bequeath(),
+            inherited_symbol_arena: match parent_symbol_region {
+                Some(parent_symbol_region) => parent_symbol_region.bequeath(),
                 None => Default::default(),
             },
             current_symbol_arena: Default::default(),
@@ -149,7 +149,7 @@ impl SymbolPage {
     }
 }
 
-impl std::ops::Index<InheritedSymbolIdx> for SymbolPage {
+impl std::ops::Index<InheritedSymbolIdx> for SymbolRegion {
     type Output = InheritedSymbol;
 
     fn index(&self, index: InheritedSymbolIdx) -> &Self::Output {
@@ -157,7 +157,7 @@ impl std::ops::Index<InheritedSymbolIdx> for SymbolPage {
     }
 }
 
-impl std::ops::Index<CurrentSymbolIdx> for SymbolPage {
+impl std::ops::Index<CurrentSymbolIdx> for SymbolRegion {
     type Output = CurrentSymbol;
 
     fn index(&self, index: CurrentSymbolIdx) -> &Self::Output {
