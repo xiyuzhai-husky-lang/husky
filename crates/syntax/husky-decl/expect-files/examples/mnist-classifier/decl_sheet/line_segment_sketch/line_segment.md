@@ -204,19 +204,17 @@ Ok(
                                         ),
                                     },
                                     parameters: [
-                                        ParameterDecl {
-                                            pattern: RegularParameterDeclPattern {
-                                                pattern: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
+                                        RegularParameterDeclPattern {
+                                            pattern: 0,
+                                            variables: ArenaIdxRange(
+                                                0..1,
+                                            ),
+                                            colon: ColonToken {
+                                                token_idx: TokenIdx(
+                                                    43,
                                                 ),
-                                                colon: ColonToken {
-                                                    token_idx: TokenIdx(
-                                                        43,
-                                                    ),
-                                                },
-                                                ty: 0,
                                             },
+                                            ty: 0,
                                         },
                                     ],
                                     commas: [],

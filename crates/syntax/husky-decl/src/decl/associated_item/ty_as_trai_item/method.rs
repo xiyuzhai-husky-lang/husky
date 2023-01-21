@@ -21,7 +21,7 @@ pub struct TypeAsTraitMethodDecl {
 }
 
 impl TypeAsTraitMethodDecl {
-    pub fn parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ParameterDecl] {
+    pub fn parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [RegularParameterDeclPattern] {
         self.parameter_decl_list(db).parameters()
     }
     pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {

@@ -52,4 +52,20 @@ impl RegularParameterDeclPattern {
     pub fn pattern_expr_idx(&self) -> ArenaIdx<PatternExpr> {
         self.pattern
     }
+
+    pub fn pattern(&self) -> ArenaIdx<PatternExpr> {
+        self.pattern
+    }
+
+    pub fn variables(&self) -> ArenaIdxRange<CurrentSymbol> {
+        self.variables
+    }
+
+    pub fn colon(&self) -> ColonToken {
+        self.colon
+    }
+
+    pub fn ty(&self) -> ArenaIdx<Expr> {
+        self.ty
+    }
 }

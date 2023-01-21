@@ -5,7 +5,7 @@ use husky_print_utils::p;
 use outcome::{Success, *};
 use salsa::DebugWithDb;
 
-pub(crate) struct SignatureTermEngine<'a> {
+pub(super) struct SignatureTermEngine<'a> {
     db: &'a dyn SignatureDb,
     path: ExprPath,
     expr_arena: &'a ExprArena,
@@ -44,7 +44,7 @@ impl TermSymbolRegion {
 }
 
 impl<'a> SignatureTermEngine<'a> {
-    pub(crate) fn new(
+    pub(super) fn new(
         db: &'a dyn SignatureDb,
         expr_region: ExprRegion,
         parent_term_symbol_region: Option<&'a TermSymbolRegion>,
@@ -70,36 +70,33 @@ impl<'a> SignatureTermEngine<'a> {
     }
 
     fn init_current_symbol_term_symbols(&mut self) {
-        let current_symbol_terms = self
-            .symbol_region
-            .indexed_current_symbol_iter()
-            .map(|(idx, symbol)| {
-                let ty = match symbol.variant() {
-                    CurrentSymbolVariant::ImplicitParameter {
-                        implicit_parameter_variant,
-                    } => match implicit_parameter_variant {
-                        ImplicitParameterVariant::Type { .. } => Ok(self.term_menu.ty0()),
-                    },
-                    CurrentSymbolVariant::Parameter { pattern_symbol } => {
-                        let pattern_symbol = &self.pattern_expr_region[*pattern_symbol];
-                        match pattern_symbol {
-                            PatternSymbol::Atom(pattern) => {
-                                let ty = self.symbol_region.parameter_pattern_ty(*pattern).unwrap();
-                                match self.query_new(ty) {
-                                    Success(ty) => Ok(ty),
-                                    Failure(_) => todo!(),
-                                    Abort(_) => todo!(),
-                                }
+        for (idx, symbol) in self.symbol_region.indexed_current_symbol_iter() {
+            let ty = match symbol.variant() {
+                CurrentSymbolVariant::ImplicitParameter {
+                    implicit_parameter_variant,
+                } => match implicit_parameter_variant {
+                    ImplicitParameterVariant::Type { .. } => Ok(self.term_menu.ty0()),
+                },
+                CurrentSymbolVariant::Parameter { pattern_symbol } => {
+                    let pattern_symbol = &self.pattern_expr_region[*pattern_symbol];
+                    match pattern_symbol {
+                        PatternSymbol::Atom(pattern) => {
+                            let ty = self.symbol_region.parameter_pattern_ty(*pattern).unwrap();
+                            match self.query_new(ty) {
+                                Success(ty) => Ok(ty),
+                                Failure(_) => todo!(),
+                                Abort(_) => todo!(),
                             }
                         }
                     }
-                    CurrentSymbolVariant::LetVariable { pattern_symbol } => todo!(),
-                    CurrentSymbolVariant::FrameVariable(_) => todo!(),
-                };
-                self.term_symbol_region.registry.new_symbol(self.db, ty)
-            })
-            .collect();
-        self.term_symbol_region.current_symbol_terms = current_symbol_terms;
+                }
+                CurrentSymbolVariant::LetVariable { pattern_symbol } => todo!(),
+                CurrentSymbolVariant::FrameVariable(_) => todo!(),
+            };
+            self.term_symbol_region
+                .current_symbol_terms
+                .push(self.term_symbol_region.registry.new_symbol(self.db, ty))
+        }
     }
 
     // ask about the term for expr, assuming it hasn't been computed before

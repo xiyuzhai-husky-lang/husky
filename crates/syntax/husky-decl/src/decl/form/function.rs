@@ -21,7 +21,7 @@ pub struct FunctionDecl {
 }
 
 impl FunctionDecl {
-    pub fn parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ParameterDecl] {
+    pub fn parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [RegularParameterDeclPattern] {
         self.parameter_decl_list(db).parameters()
     }
 
