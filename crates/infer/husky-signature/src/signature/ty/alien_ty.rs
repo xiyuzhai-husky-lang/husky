@@ -4,11 +4,14 @@ use super::*;
 pub fn alien_ty_signature(db: &dyn SignatureDb, decl: AlienTypeDecl) -> AlienTypeSignature {
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);
-    // implementation
+    let term_menu = db.term_menu(expr_region.toolchain(db)).as_ref().unwrap();
     AlienTypeSignature::new(
         db,
-        todo!(), // ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), &mut engine),
-                 // engine.finish(),
+        ImplicitParameterSignatures::from_decl(
+            decl.implicit_parameters(db),
+            &signature_term_region,
+            term_menu,
+        ),
     )
 }
 

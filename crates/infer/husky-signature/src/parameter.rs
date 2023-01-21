@@ -12,24 +12,24 @@ pub struct ImplicitParameterSignature {
 impl ImplicitParameterSignature {
     fn from_decl(
         parameter: &ImplicitParameterDecl,
-        sheet: &SignatureTermRegion,
+        region: &SignatureTermRegion,
+        term_menu: &TermMenu,
     ) -> ImplicitParameterSignature {
-        todo!()
-        // let symbol = parameter.pattern().symbol();
-        // let variant = parameter.pattern().variant();
-        // match variant {
-        //     ImplicitParameterDeclPatternVariant::Type0 { .. } => {
-        //         ImplicitParameterSignature {
-        //             term_symbol: sheet.current_symbol_term_symbol(symbol),
-        //             ty: Success(sheet.term_menu().ty0()),
-        //             // ad hoc
-        //             traits: vec![],
-        //         }
-        //     }
-        //     ImplicitParameterDeclPatternVariant::Constant => todo!(),
-        //     ImplicitParameterDeclPatternVariant::Lifetime => todo!(),
-        //     ImplicitParameterDeclPatternVariant::Binding => todo!(),
-        // }
+        let symbol = parameter.pattern().symbol();
+        let variant = parameter.pattern().variant();
+        match variant {
+            ImplicitParameterDeclPatternVariant::Type0 { .. } => {
+                ImplicitParameterSignature {
+                    term_symbol: region.current_symbol_term(symbol),
+                    ty: term_menu.ty0(),
+                    // ad hoc
+                    traits: vec![],
+                }
+            }
+            ImplicitParameterDeclPatternVariant::Constant => todo!(),
+            ImplicitParameterDeclPatternVariant::Lifetime => todo!(),
+            ImplicitParameterDeclPatternVariant::Binding => todo!(),
+        }
     }
 
     pub fn term_symbol(&self) -> TermSymbol {
@@ -53,12 +53,19 @@ pub struct ImplicitParameterSignatures {
 impl ImplicitParameterSignatures {
     pub(crate) fn from_decl(
         parameters: &[ImplicitParameterDecl],
-        sheet: &SignatureTermRegion,
+        signature_term_region: &SignatureTermRegion,
+        term_menu: &TermMenu,
     ) -> Self {
         Self {
             parameters: parameters
                 .iter()
-                .map(|parameter| ImplicitParameterSignature::from_decl(parameter, sheet))
+                .map(|parameter| {
+                    ImplicitParameterSignature::from_decl(
+                        parameter,
+                        signature_term_region,
+                        term_menu,
+                    )
+                })
                 .collect(),
         }
     }
