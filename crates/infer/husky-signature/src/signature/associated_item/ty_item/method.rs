@@ -6,19 +6,25 @@ pub(crate) fn ty_method_signature(
     decl: TypeMethodDecl,
 ) -> TypeMethodSignature {
     let impl_block = decl.associated_item(db).impl_block(db);
-    // let parent_term_symbol_region = db.impl_block_decl(impl_block).ok().map(|decl| {
-    //     impl_block_signature(db, decl)
-    //         .term_sheet(db)
-    //         .term_symbol_region()
-    // });
-    todo!()
-    // let implicit_parameters =
-    //     ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), &mut engine);
-    // let parameters = ParameterSignatures::from_decl(decl.parameters(db), &mut engine);
-    // let output_ty = match decl.output_ty(db) {
-    //     Ok(output_ty) => engine.query_new(*output_ty),
-    //     Err(_) => Abort(SignatureTermAbortion::ExprError),
-    // };
+    let expr_region = decl.expr_region(db);
+    let signature_term_region = signature_term_region(db, expr_region);
+    let term_menu = db.term_menu(expr_region.toolchain(db)).as_ref().unwrap();
+
+    let implicit_parameters = ImplicitParameterSignatures::from_decl(
+        decl.implicit_parameters(db),
+        signature_term_region,
+        term_menu,
+    );
+
+    let parameters = ParameterSignatures::from_decl(decl.parameters(db), signature_term_region);
+    let output_ty = match decl.output_ty(db) {
+        Ok(output_ty) => match signature_term_region.expr_term(*output_ty) {
+            Success(output_ty) => output_ty,
+            Failure(_) => todo!(),
+            Abort(_) => todo!(),
+        },
+        Err(_) => todo!(), // Abort(SignatureTermAbortion::ExprError),
+    };
     // TypeMethodSignature::new(
     //     db,
     //     implicit_parameters,
@@ -26,6 +32,7 @@ pub(crate) fn ty_method_signature(
     //     output_ty,
     //     engine.finish(),
     // )
+    todo!()
 }
 
 #[salsa::tracked(jar = SignatureJar)]

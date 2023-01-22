@@ -3,11 +3,9 @@ use crate::*;
 #[salsa::tracked(jar = SignatureJar)]
 pub(crate) fn ty_memo_signature(db: &dyn SignatureDb, decl: TypeMemoDecl) -> TypeMemoSignature {
     let impl_block = decl.associated_item(db).impl_block(db);
-    // let parent_term_symbol_region = db.impl_block_decl(impl_block).ok().map(|decl| {
-    //     impl_block_signature(db, decl)
-    //         .term_sheet(db)
-    //         .term_symbol_region()
-    // });
+    let expr_region = decl.expr_region(db);
+    let signature_term_region = signature_term_region(db, expr_region);
+    let term_menu = db.term_menu(expr_region.toolchain(db)).as_ref().unwrap();
     todo!()
     // let output_ty = match decl.output_ty(db) {
     //     Ok(output_ty) => engine.query_new(*output_ty),
