@@ -71,16 +71,17 @@ impl<'a> SignatureTermEngine<'a> {
     }
 
     fn init_ty_constraints(&mut self) {
-        for ty_constraint in self.symbol_region.ty_constraints() {
-            match ty_constraint {
-                TypeConstraint::LetVariables { ty: expr, .. }
-                | TypeConstraint::RegularParameter { ty: expr, .. }
-                | TypeConstraint::TypeExpr { expr }
-                | TypeConstraint::TraitExpr { expr }
-                | TypeConstraint::OutputTypeExpr { expr } => self.cache_new(*expr),
-                TypeConstraint::FrameVariable | TypeConstraint::ImplicitTypeParameter => (),
-            }
-        }
+        todo!(" buggy")
+        // for ty_constraint in self.symbol_region.ty_constraints() {
+        //     match ty_constraint {
+        //         TypeConstraint::LetVariables { ty: expr, .. }
+        //         | TypeConstraint::RegularParameter { ty: expr, .. }
+        //         | TypeConstraint::TypeExpr { expr }
+        //         | TypeConstraint::TraitExpr { expr }
+        //         | TypeConstraint::OutputTypeExpr { expr } => self.cache_new(*expr),
+        //         TypeConstraint::FrameVariable | TypeConstraint::ImplicitTypeParameter => (),
+        //     }
+        // }
     }
 
     fn init_current_symbol_term_symbols(&mut self) {
@@ -125,7 +126,7 @@ impl<'a> SignatureTermEngine<'a> {
         term
     }
 
-    // ask about the term for expr, assuming it hasn't been computed before
+    // cache the term for expr, assuming it hasn't been computed before
     fn cache_new(&mut self, expr_idx: ExprIdx) {
         let outcome = self.calc(expr_idx);
         self.save(expr_idx, outcome)
