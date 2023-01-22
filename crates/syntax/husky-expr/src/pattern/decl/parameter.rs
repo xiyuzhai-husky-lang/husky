@@ -34,7 +34,7 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for RegularParameterDeclPattern
             };
             let variables = ctx.define_symbols(
                 variables,
-                Some(TypeAnnotation::RegularParameter { pattern, ty }),
+                Some(TypeConstraint::RegularParameter { pattern, ty }),
             );
             Ok(Some(RegularParameterDeclPattern {
                 pattern,

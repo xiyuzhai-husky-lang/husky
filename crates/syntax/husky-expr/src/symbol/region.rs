@@ -36,22 +36,30 @@ pub struct SymbolRegion {
     current_symbol_arena: CurrentSymbolArena,
     allow_self_type: AllowSelfType,
     allow_self_value: AllowSelfValue,
-    ty_annotations: Vec<TypeAnnotation>,
+    ty_constraints: Vec<TypeConstraint>,
 }
 
 impl SymbolRegion {
     pub fn parameter_pattern_ty(&self, target: PatternExprIdx) -> Option<ExprIdx> {
-        self.ty_annotations
+        self.ty_constraints
             .iter()
-            .find_map(|ty_annotation| match ty_annotation {
-                TypeAnnotation::RegularParameter { pattern, ty } if *pattern == target => Some(*ty),
+            .find_map(|ty_constraint| match ty_constraint {
+                TypeConstraint::RegularParameter { pattern, ty } if *pattern == target => Some(*ty),
                 _ => None,
             })
+    }
+
+    pub(crate) fn add_ty_constraint(&mut self, constraint: TypeConstraint) {
+        self.ty_constraints.push(constraint)
+    }
+
+    pub fn ty_constraints(&self) -> &[TypeConstraint] {
+        self.ty_constraints.as_ref()
     }
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum TypeAnnotation {
+pub enum TypeConstraint {
     LetVariables {
         pattern: PatternExprIdx,
         ty: ExprIdx,
@@ -61,6 +69,12 @@ pub enum TypeAnnotation {
     RegularParameter {
         pattern: PatternExprIdx,
         ty: ExprIdx,
+    },
+    TypeExpr {
+        expr: ExprIdx,
+    },
+    TraitExpr {
+        expr: ExprIdx,
     },
 }
 
@@ -94,7 +108,7 @@ impl SymbolRegion {
             current_symbol_arena: Default::default(),
             allow_self_type,
             allow_self_value,
-            ty_annotations: vec![],
+            ty_constraints: vec![],
         }
     }
 
@@ -102,9 +116,9 @@ impl SymbolRegion {
     pub(crate) fn define_symbols(
         &mut self,
         variables: impl IntoIterator<Item = CurrentSymbol>,
-        ty_annotation: Option<TypeAnnotation>,
+        ty_constraint: Option<TypeConstraint>,
     ) -> ArenaIdxRange<CurrentSymbol> {
-        self.ty_annotations.extend(ty_annotation.into_iter());
+        self.ty_constraints.extend(ty_constraint.into_iter());
         self.current_symbol_arena.alloc_batch(variables)
     }
 
