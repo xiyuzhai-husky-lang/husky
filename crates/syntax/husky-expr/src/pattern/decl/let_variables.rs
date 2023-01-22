@@ -35,8 +35,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 Ok(Some(_)) => self.parse_expr(ExprParseEnvironment::None),
                 _ => None,
             };
-            let ty_annotation = ty.map(|ty| TypeAnnotation::LetVariables { pattern, ty });
-            let variables = self.define_symbols(symbols, ty_annotation);
+            let ty_constraint = ty.map(|ty| TypeConstraint::LetVariables { pattern, ty });
+            let variables = self.define_symbols(symbols, ty_constraint);
             Ok(LetVariablePattern {
                 pattern,
                 variables,

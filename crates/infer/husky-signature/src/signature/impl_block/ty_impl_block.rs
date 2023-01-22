@@ -5,18 +5,34 @@ pub(crate) fn ty_impl_block_signature(
     db: &dyn SignatureDb,
     decl: TypeImplBlockDecl,
 ) -> TypeImplBlockSignature {
-    todo!()
-    // let ty = decl.ty(db);
-    // let ty = engine.query_new(ty);
-    // TypeImplBlockSignature::new(
-    //     db,
-    //     ty,
-    //     // ImplicitParameterSignatureList::from_decl(decl.implicit_parameters(db), &mut engine),
-    //     engine.finish(),
-    // )
+    let expr_region = decl.expr_region(db);
+    let signature_term_region = signature_term_region(db, expr_region);
+    let term_menu = db.term_menu(expr_region.toolchain(db)).as_ref().unwrap();
+    let implicit_parameters = ImplicitParameterSignatures::from_decl(
+        decl.implicit_parameters(db),
+        &signature_term_region,
+        term_menu,
+    );
+    let ty = decl.ty(db);
+    let ty = match signature_term_region.expr_term(ty.expr()) {
+        Success(ty) => ty,
+        Failure(_) => todo!(),
+        Abort(_) => todo!(),
+    };
+    TypeImplBlockSignature::new(
+        db,
+        ImplicitParameterSignatures::from_decl(
+            decl.implicit_parameters(db),
+            signature_term_region,
+            term_menu,
+        ),
+        ty,
+    )
 }
 
 #[salsa::interned(jar = SignatureJar)]
 pub struct TypeImplBlockSignature {
+    #[return_ref]
+    pub implicit_parameters: ImplicitParameterSignatures,
     pub ty: Term,
 }

@@ -65,8 +65,21 @@ impl<'a> SignatureTermEngine<'a> {
             expr_terms: ExprMap::new(expr_arena),
             term_symbol_region: TermSymbolRegion::new(parent_term_symbol_region, symbol_region),
         };
+        this.init_ty_constraints();
         this.init_current_symbol_term_symbols();
         this
+    }
+
+    fn init_ty_constraints(&mut self) {
+        for ty_constraint in self.symbol_region.ty_constraints() {
+            match ty_constraint {
+                TypeConstraint::LetVariables { ty: expr, .. }
+                | TypeConstraint::RegularParameter { ty: expr, .. }
+                | TypeConstraint::TypeExpr { expr }
+                | TypeConstraint::TraitExpr { expr } => self.cache_new(*expr),
+                TypeConstraint::FrameVariable | TypeConstraint::ImplicitTypeParameter => (),
+            }
+        }
     }
 
     fn init_current_symbol_term_symbols(&mut self) {
@@ -82,7 +95,7 @@ impl<'a> SignatureTermEngine<'a> {
                     match pattern_symbol {
                         PatternSymbol::Atom(pattern) => {
                             let ty = self.symbol_region.parameter_pattern_ty(*pattern).unwrap();
-                            match self.query_new(ty) {
+                            match self.query_old(ty) {
                                 Success(ty) => Ok(ty),
                                 Failure(_) => todo!(),
                                 Abort(_) => todo!(),
@@ -109,6 +122,17 @@ impl<'a> SignatureTermEngine<'a> {
         };
         self.save(expr_idx, outcome);
         term
+    }
+
+    // ask about the term for expr, assuming it hasn't been computed before
+    fn cache_new(&mut self, expr_idx: ExprIdx) {
+        let outcome = self.calc(expr_idx);
+        self.save(expr_idx, outcome)
+    }
+
+    // ask about the term for expr, assuming it has been computed before
+    fn query_old(&self, expr_idx: ExprIdx) -> SignatureTermOutcomeBorrowed<Term> {
+        self.expr_terms[expr_idx].ok_copy_err_as_ref()
     }
 
     pub(crate) fn finish(self) -> SignatureTermRegion {

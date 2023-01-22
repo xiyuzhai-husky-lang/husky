@@ -1,5 +1,5 @@
 use super::*;
-use husky_expr::{CurrentSymbolIdx, ExprMap, ExprPath, ExprRegion};
+use husky_expr::{CurrentSymbolIdx, ExprIdx, ExprMap, ExprPath, ExprRegion};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SignatureTermRegion {
@@ -28,6 +28,10 @@ impl SignatureTermRegion {
     pub fn current_symbol_term(&self, current_symbol_idx: CurrentSymbolIdx) -> TermSymbol {
         self.term_symbol_region
             .current_symbol_term(current_symbol_idx)
+    }
+
+    pub fn expr_term(&self, expr: ExprIdx) -> SignatureTermOutcomeBorrowed<Term> {
+        self.expr_terms[expr].ok_copy_err_as_ref()
     }
 
     pub fn expr_path(&self) -> ExprPath {

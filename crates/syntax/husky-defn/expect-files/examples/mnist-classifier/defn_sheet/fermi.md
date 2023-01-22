@@ -47,7 +47,10 @@ Ok(
                                 23,
                             ),
                         },
-                        ty: 0,
+                        implicit_parameter_decl_list: None,
+                        ty: TypeExpr {
+                            expr: 0,
+                        },
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(

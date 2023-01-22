@@ -425,7 +425,10 @@ Ok(
                                     13,
                                 ),
                             },
-                            ty: 0,
+                            implicit_parameter_decl_list: None,
+                            ty: TypeExpr {
+                                expr: 0,
+                            },
                             eol_colon: Ok(
                                 EolColonToken {
                                     token_idx: TokenIdx(
@@ -814,7 +817,10 @@ Ok(
                                     168,
                                 ),
                             },
-                            ty: 0,
+                            implicit_parameter_decl_list: None,
+                            ty: TypeExpr {
+                                expr: 0,
+                            },
                             eol_colon: Ok(
                                 EolColonToken {
                                     token_idx: TokenIdx(
@@ -1431,7 +1437,10 @@ Ok(
                                     609,
                                 ),
                             },
-                            ty: 0,
+                            implicit_parameter_decl_list: None,
+                            ty: TypeExpr {
+                                expr: 0,
+                            },
                             eol_colon: Ok(
                                 EolColonToken {
                                     token_idx: TokenIdx(
@@ -1849,7 +1858,10 @@ Ok(
                                     743,
                                 ),
                             },
-                            ty: 0,
+                            implicit_parameter_decl_list: None,
+                            ty: TypeExpr {
+                                expr: 0,
+                            },
                             eol_colon: Ok(
                                 EolColonToken {
                                     token_idx: TokenIdx(

@@ -223,7 +223,7 @@ impl<'a> BlockExprParser<'a> {
                             Some(access_end),
                             current_symbol_variant,
                         )],
-                        Some(TypeAnnotation::FrameVariable),
+                        Some(TypeConstraint::FrameVariable),
                     )
                     .start();
                 unsafe {

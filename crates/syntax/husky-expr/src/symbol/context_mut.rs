@@ -65,12 +65,16 @@ impl<'a> SymbolContextMut<'a> {
     pub(crate) fn define_symbols(
         &mut self,
         variables: impl IntoIterator<Item = CurrentSymbol>,
-        ty_annotation: Option<TypeAnnotation>,
+        ty_constraint: Option<TypeConstraint>,
     ) -> CurrentSymbolIdxRange {
-        self.symbol_region.define_symbols(variables, ty_annotation)
+        self.symbol_region.define_symbols(variables, ty_constraint)
     }
 
     pub(crate) fn symbol_region(&self) -> &SymbolRegion {
         &self.symbol_region
+    }
+
+    pub(crate) fn add_ty_constraint(&mut self, constraint: TypeConstraint) {
+        self.symbol_region.add_ty_constraint(constraint)
     }
 }
