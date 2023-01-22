@@ -2,14 +2,17 @@ use crate::*;
 
 #[salsa::tracked(jar = SignatureJar)]
 pub fn function_signature(db: &dyn SignatureDb, decl: FunctionDecl) -> FunctionSignature {
+    let expr_region = decl.expr_region(db);
+    let signature_term_region = signature_term_region(db, expr_region);
+    let term_menu = db.term_menu(expr_region.toolchain(db)).as_ref().unwrap();
     todo!()
     // let output_ty = match decl.output_ty(db) {
     //     Ok(output_ty) => engine.query_new(*output_ty),
     //     Err(_) => Abort(SignatureTermAbortion::ExprError),
     // };
-    // let parameters = ParameterSignatures::from_decl(decl.parameters(db), &mut engine);
+    // let parameters = ParameterSignatures::from_decl(decl.parameters(db), signature_term_region);
     // let implicit_parameters =
-    //     ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), &mut engine);
+    //     ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), signature_term_region);
     // FunctionSignature::new(
     //     db,
     //     implicit_parameters,

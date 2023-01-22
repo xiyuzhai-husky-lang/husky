@@ -6,19 +6,17 @@ pub(crate) fn ty_as_trai_method_signature(
     decl: TypeAsTraitMethodDecl,
 ) -> TypeAsTraitMethodSignature {
     let impl_block = decl.associated_item(db).impl_block(db);
-    // let parent_term_symbol_region = db.impl_block_decl(impl_block).ok().map(|decl| {
-    //     impl_block_signature(db, decl)
-    //         .term_sheet(db)
-    //         .term_symbol_region()
-    // });
+    let expr_region = decl.expr_region(db);
+    let signature_term_region = signature_term_region(db, expr_region);
+    let term_menu = db.term_menu(expr_region.toolchain(db)).as_ref().unwrap();
     todo!()
     // let output_ty = match decl.output_ty(db) {
     //     Ok(output_ty) => engine.query_new(*output_ty),
     //     Err(_) => Abort(SignatureTermAbortion::ExprError),
     // };
-    // let parameters = ParameterSignatures::from_decl(decl.parameters(db), &mut engine);
+    // let parameters = ParameterSignatures::from_decl(decl.parameters(db), signature_term_region);
     // let implicit_parameters =
-    //     ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), &mut engine);
+    //     ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), signature_term_region);
     // TypeAsTraitMethodSignature::new(db, implicit_parameters, parameters, output_ty)
 }
 
