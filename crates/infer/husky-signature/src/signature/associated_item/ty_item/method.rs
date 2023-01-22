@@ -18,7 +18,7 @@ pub(crate) fn ty_method_signature(
 
     let parameters = ParameterSignatures::from_decl(decl.parameters(db), signature_term_region);
     let output_ty = match decl.output_ty(db) {
-        Ok(output_ty) => match signature_term_region.expr_term(*output_ty) {
+        Ok(output_ty) => match signature_term_region.expr_term(output_ty.expr()) {
             Success(output_ty) => output_ty,
             Failure(_) => todo!(),
             Abort(_) => todo!(),
