@@ -128,7 +128,9 @@ Ok(
                                 },
                             ),
                             output_ty: Ok(
-                                4,
+                                OutputTypeExpr {
+                                    expr: 4,
+                                },
                             ),
                             eol_colon: Ok(
                                 EolColonToken {
@@ -207,7 +209,9 @@ Ok(
                                     },
                                 ),
                                 output_ty: Ok(
-                                    0,
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
                                 ),
                                 eol_colon: Ok(
                                     EolColonToken {
@@ -252,7 +256,9 @@ Ok(
                                     },
                                 ),
                                 output_ty: Ok(
-                                    0,
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
                                 ),
                                 eol_colon: Ok(
                                     EolColonToken {
@@ -297,7 +303,9 @@ Ok(
                                     },
                                 ),
                                 output_ty: Ok(
-                                    0,
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
                                 ),
                                 eol_colon: Ok(
                                     EolColonToken {
@@ -342,7 +350,9 @@ Ok(
                                     },
                                 ),
                                 output_ty: Ok(
-                                    0,
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
                                 ),
                                 eol_colon: Ok(
                                     EolColonToken {
@@ -387,7 +397,9 @@ Ok(
                                     },
                                 ),
                                 output_ty: Ok(
-                                    0,
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
                                 ),
                                 eol_colon: Ok(
                                     EolColonToken {
@@ -432,7 +444,9 @@ Ok(
                                     },
                                 ),
                                 output_ty: Ok(
-                                    0,
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
                                 ),
                                 eol_colon: Ok(
                                     EolColonToken {
@@ -492,7 +506,9 @@ Ok(
                                     },
                                 ),
                                 output_ty: Ok(
-                                    0,
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
                                 ),
                                 eol_colon: Ok(
                                     EolColonToken {
@@ -552,7 +568,9 @@ Ok(
                                     },
                                 ),
                                 output_ty: Ok(
-                                    0,
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
                                 ),
                                 eol_colon: Ok(
                                     EolColonToken {
@@ -612,7 +630,9 @@ Ok(
                                     },
                                 ),
                                 output_ty: Ok(
-                                    0,
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
                                 ),
                                 eol_colon: Ok(
                                     EolColonToken {
@@ -672,7 +692,9 @@ Ok(
                                     },
                                 ),
                                 output_ty: Ok(
-                                    0,
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
                                 ),
                                 eol_colon: Ok(
                                     EolColonToken {
@@ -732,7 +754,9 @@ Ok(
                                     },
                                 ),
                                 output_ty: Ok(
-                                    0,
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
                                 ),
                                 eol_colon: Ok(
                                     EolColonToken {
@@ -792,7 +816,9 @@ Ok(
                                     },
                                 ),
                                 output_ty: Ok(
-                                    0,
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
                                 ),
                                 eol_colon: Ok(
                                     EolColonToken {

@@ -95,7 +95,11 @@ Ok(
                                 ),
                             ),
                             output_ty: Err(
-                                MissingOutputType,
+                                MissingOutputType(
+                                    TokenIdx(
+                                        17,
+                                    ),
+                                ),
                             ),
                             eol_colon: Ok(
                                 EolColonToken {
@@ -237,7 +241,11 @@ Ok(
                                 ),
                             ),
                             output_ty: Err(
-                                MissingOutputType,
+                                MissingOutputType(
+                                    TokenIdx(
+                                        64,
+                                    ),
+                                ),
                             ),
                             eol_colon: Ok(
                                 EolColonToken {
@@ -379,7 +387,9 @@ Ok(
                                 },
                             ),
                             output_ty: Ok(
-                                6,
+                                OutputTypeExpr {
+                                    expr: 6,
+                                },
                             ),
                             eol_colon: Ok(
                                 EolColonToken {
