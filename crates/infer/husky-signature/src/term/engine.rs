@@ -71,17 +71,17 @@ impl<'a> SignatureTermEngine<'a> {
     }
 
     fn init_ty_constraints(&mut self) {
-        todo!(" buggy")
-        // for ty_constraint in self.symbol_region.ty_constraints() {
-        //     match ty_constraint {
-        //         TypeConstraint::LetVariables { ty: expr, .. }
-        //         | TypeConstraint::RegularParameter { ty: expr, .. }
-        //         | TypeConstraint::TypeExpr { expr }
-        //         | TypeConstraint::TraitExpr { expr }
-        //         | TypeConstraint::OutputTypeExpr { expr } => self.cache_new(*expr),
-        //         TypeConstraint::FrameVariable | TypeConstraint::ImplicitTypeParameter => (),
-        //     }
-        // }
+        for ty_constraint in self.symbol_region.ty_constraints() {
+            match ty_constraint {
+                TypeConstraint::RegularParameter { .. }
+                | TypeConstraint::FrameVariable
+                | TypeConstraint::ImplicitTypeParameter => (),
+                TypeConstraint::TypeExpr { expr }
+                | TypeConstraint::TraitExpr { expr }
+                | TypeConstraint::OutputTypeExpr { expr } => self.cache_new(*expr),
+                TypeConstraint::LetVariables { ty: expr, .. } => unreachable!(),
+            }
+        }
     }
 
     fn init_current_symbol_term_symbols(&mut self) {
@@ -97,7 +97,7 @@ impl<'a> SignatureTermEngine<'a> {
                     match pattern_symbol {
                         PatternSymbol::Atom(pattern) => {
                             let ty = self.symbol_region.parameter_pattern_ty(*pattern).unwrap();
-                            match self.query_old(ty) {
+                            match self.query_new(ty) {
                                 Success(ty) => Ok(ty),
                                 Failure(_) => todo!(),
                                 Abort(_) => todo!(),
@@ -130,11 +130,6 @@ impl<'a> SignatureTermEngine<'a> {
     fn cache_new(&mut self, expr_idx: ExprIdx) {
         let outcome = self.calc(expr_idx);
         self.save(expr_idx, outcome)
-    }
-
-    // ask about the term for expr, assuming it has been computed before
-    fn query_old(&self, expr_idx: ExprIdx) -> SignatureTermOutcomeBorrowed<Term> {
-        self.expr_terms[expr_idx].ok_copy_err_as_ref()
     }
 
     pub(crate) fn finish(self) -> SignatureTermRegion {
