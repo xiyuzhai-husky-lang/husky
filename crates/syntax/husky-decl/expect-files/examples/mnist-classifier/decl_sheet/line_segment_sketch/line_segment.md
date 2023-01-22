@@ -162,7 +162,9 @@ Ok(
                                     },
                                 ),
                                 output_ty: Ok(
-                                    0,
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
                                 ),
                                 eol_colon: Ok(
                                     EolColonToken {
@@ -235,7 +237,9 @@ Ok(
                                     },
                                 ),
                                 output_ty: Ok(
-                                    1,
+                                    OutputTypeExpr {
+                                        expr: 1,
+                                    },
                                 ),
                                 eol_colon: Ok(
                                     EolColonToken {

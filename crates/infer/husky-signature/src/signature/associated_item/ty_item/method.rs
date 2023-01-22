@@ -25,14 +25,7 @@ pub(crate) fn ty_method_signature(
         },
         Err(_) => todo!(), // Abort(SignatureTermAbortion::ExprError),
     };
-    // TypeMethodSignature::new(
-    //     db,
-    //     implicit_parameters,
-    //     parameters,
-    //     output_ty,
-    //     engine.finish(),
-    // )
-    todo!()
+    TypeMethodSignature::new(db, implicit_parameters, parameters, output_ty)
 }
 
 #[salsa::tracked(jar = SignatureJar)]

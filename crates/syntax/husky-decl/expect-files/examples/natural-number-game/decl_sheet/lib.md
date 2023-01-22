@@ -115,7 +115,9 @@ Ok(
                                     ),
                                 ),
                                 output_ty: Ok(
-                                    4,
+                                    OutputTypeExpr {
+                                        expr: 4,
+                                    },
                                 ),
                                 eol_colon: Err(
                                     MissingEolColon(

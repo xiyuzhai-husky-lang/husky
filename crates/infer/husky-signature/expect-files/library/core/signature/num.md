@@ -5,14 +5,14 @@
                 implicit_parameters: ImplicitParameterSignatures {
                     parameters: [],
                 },
-                term_sheet: SignatureTermSheet {
-                    term_symbol_region: TermSymbolRegion {
-                        registry: TermSymbolRegistry {
-                            tys: [],
-                        },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
+            },
+        ),
+    ),
+    Type(
+        Foreign(
+            AlienTypeSignature {
+                implicit_parameters: ImplicitParameterSignatures {
+                    parameters: [],
                 },
             },
         ),
@@ -23,14 +23,14 @@
                 implicit_parameters: ImplicitParameterSignatures {
                     parameters: [],
                 },
-                term_sheet: SignatureTermSheet {
-                    term_symbol_region: TermSymbolRegion {
-                        registry: TermSymbolRegistry {
-                            tys: [],
-                        },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
+            },
+        ),
+    ),
+    Type(
+        Foreign(
+            AlienTypeSignature {
+                implicit_parameters: ImplicitParameterSignatures {
+                    parameters: [],
                 },
             },
         ),
@@ -41,14 +41,14 @@
                 implicit_parameters: ImplicitParameterSignatures {
                     parameters: [],
                 },
-                term_sheet: SignatureTermSheet {
-                    term_symbol_region: TermSymbolRegion {
-                        registry: TermSymbolRegistry {
-                            tys: [],
-                        },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
+            },
+        ),
+    ),
+    Type(
+        Foreign(
+            AlienTypeSignature {
+                implicit_parameters: ImplicitParameterSignatures {
+                    parameters: [],
                 },
             },
         ),
@@ -59,15 +59,6 @@
                 implicit_parameters: ImplicitParameterSignatures {
                     parameters: [],
                 },
-                term_sheet: SignatureTermSheet {
-                    term_symbol_region: TermSymbolRegion {
-                        registry: TermSymbolRegistry {
-                            tys: [],
-                        },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
-                },
             },
         ),
     ),
@@ -77,97 +68,76 @@
                 implicit_parameters: ImplicitParameterSignatures {
                     parameters: [],
                 },
-                term_sheet: SignatureTermSheet {
-                    term_symbol_region: TermSymbolRegion {
-                        registry: TermSymbolRegistry {
-                            tys: [],
-                        },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
-                },
             },
         ),
     ),
-    Type(
-        Foreign(
-            AlienTypeSignature {
+    ImplBlock(
+        TypeImplBlock(
+            TypeImplBlockSignature {
                 implicit_parameters: ImplicitParameterSignatures {
                     parameters: [],
                 },
-                term_sheet: SignatureTermSheet {
-                    term_symbol_region: TermSymbolRegion {
-                        registry: TermSymbolRegistry {
-                            tys: [],
-                        },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
-                },
+                ty: Entity(
+                    TypePath(`core::num::i8`, `Alien`),
+                ),
             },
         ),
     ),
-    Type(
-        Foreign(
-            AlienTypeSignature {
+    AssociatedItem(
+        TypeItem(
+            Method(
+                TypeMethodSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        parameters: [],
+                    },
+                    parameters: ParameterSignatures {
+                        parameters: [],
+                    },
+                    output_ty: Entity(
+                        TypePath(`core::num::i8`, `Alien`),
+                    ),
+                },
+            ),
+        ),
+    ),
+    ImplBlock(
+        TypeImplBlock(
+            TypeImplBlockSignature {
                 implicit_parameters: ImplicitParameterSignatures {
                     parameters: [],
                 },
-                term_sheet: SignatureTermSheet {
-                    term_symbol_region: TermSymbolRegion {
-                        registry: TermSymbolRegistry {
-                            tys: [],
-                        },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
-                },
+                ty: Entity(
+                    TypePath(`core::num::i16`, `Alien`),
+                ),
             },
         ),
     ),
-    Type(
-        Foreign(
-            AlienTypeSignature {
+    AssociatedItem(
+        TypeItem(
+            Method(
+                TypeMethodSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        parameters: [],
+                    },
+                    parameters: ParameterSignatures {
+                        parameters: [],
+                    },
+                    output_ty: Entity(
+                        TypePath(`core::num::i16`, `Alien`),
+                    ),
+                },
+            ),
+        ),
+    ),
+    ImplBlock(
+        TypeImplBlock(
+            TypeImplBlockSignature {
                 implicit_parameters: ImplicitParameterSignatures {
                     parameters: [],
                 },
-                term_sheet: SignatureTermSheet {
-                    term_symbol_region: TermSymbolRegion {
-                        registry: TermSymbolRegistry {
-                            tys: [],
-                        },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
-                },
-            },
-        ),
-    ),
-    ImplBlock(
-        TypeImplBlock(
-            TypeImplBlockSignature {
-                ty: Success(
-                    Entity(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 7,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
+                ty: Entity(
+                    TypePath(`core::num::i32`, `Alien`),
                 ),
-                term_sheet: SignatureTermSheet {
-                    term_symbol_region: TermSymbolRegion {
-                        registry: TermSymbolRegistry {
-                            tys: [],
-                        },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
-                },
             },
         ),
     ),
@@ -181,28 +151,9 @@
                     parameters: ParameterSignatures {
                         parameters: [],
                     },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 7,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
+                    output_ty: Entity(
+                        TypePath(`core::num::i32`, `Alien`),
                     ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_region: TermSymbolRegion {
-                            registry: TermSymbolRegistry {
-                                tys: [],
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [],
-                        },
-                    },
                 },
             ),
         ),
@@ -210,28 +161,12 @@
     ImplBlock(
         TypeImplBlock(
             TypeImplBlockSignature {
-                ty: Success(
-                    Entity(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                term_sheet: SignatureTermSheet {
-                    term_symbol_region: TermSymbolRegion {
-                        registry: TermSymbolRegistry {
-                            tys: [],
-                        },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
+                implicit_parameters: ImplicitParameterSignatures {
+                    parameters: [],
                 },
+                ty: Entity(
+                    TypePath(`core::num::i64`, `Alien`),
+                ),
             },
         ),
     ),
@@ -245,28 +180,9 @@
                     parameters: ParameterSignatures {
                         parameters: [],
                     },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 8,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
+                    output_ty: Entity(
+                        TypePath(`core::num::i64`, `Alien`),
                     ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_region: TermSymbolRegion {
-                            registry: TermSymbolRegistry {
-                                tys: [],
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [],
-                        },
-                    },
                 },
             ),
         ),
@@ -274,28 +190,12 @@
     ImplBlock(
         TypeImplBlock(
             TypeImplBlockSignature {
-                ty: Success(
-                    Entity(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 9,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                term_sheet: SignatureTermSheet {
-                    term_symbol_region: TermSymbolRegion {
-                        registry: TermSymbolRegistry {
-                            tys: [],
-                        },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
+                implicit_parameters: ImplicitParameterSignatures {
+                    parameters: [],
                 },
+                ty: Entity(
+                    TypePath(`core::num::f8`, `Alien`),
+                ),
             },
         ),
     ),
@@ -309,28 +209,9 @@
                     parameters: ParameterSignatures {
                         parameters: [],
                     },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 9,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
+                    output_ty: Entity(
+                        TypePath(`core::num::f8`, `Alien`),
                     ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_region: TermSymbolRegion {
-                            registry: TermSymbolRegistry {
-                                tys: [],
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [],
-                        },
-                    },
                 },
             ),
         ),
@@ -338,28 +219,12 @@
     ImplBlock(
         TypeImplBlock(
             TypeImplBlockSignature {
-                ty: Success(
-                    Entity(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 10,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                term_sheet: SignatureTermSheet {
-                    term_symbol_region: TermSymbolRegion {
-                        registry: TermSymbolRegistry {
-                            tys: [],
-                        },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
+                implicit_parameters: ImplicitParameterSignatures {
+                    parameters: [],
                 },
+                ty: Entity(
+                    TypePath(`core::num::f16`, `Alien`),
+                ),
             },
         ),
     ),
@@ -373,28 +238,9 @@
                     parameters: ParameterSignatures {
                         parameters: [],
                     },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 10,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
+                    output_ty: Entity(
+                        TypePath(`core::num::f16`, `Alien`),
                     ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_region: TermSymbolRegion {
-                            registry: TermSymbolRegistry {
-                                tys: [],
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [],
-                        },
-                    },
                 },
             ),
         ),
@@ -402,28 +248,12 @@
     ImplBlock(
         TypeImplBlock(
             TypeImplBlockSignature {
-                ty: Success(
-                    Entity(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 11,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                term_sheet: SignatureTermSheet {
-                    term_symbol_region: TermSymbolRegion {
-                        registry: TermSymbolRegistry {
-                            tys: [],
-                        },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
+                implicit_parameters: ImplicitParameterSignatures {
+                    parameters: [],
                 },
+                ty: Entity(
+                    TypePath(`core::num::f32`, `Alien`),
+                ),
             },
         ),
     ),
@@ -437,28 +267,9 @@
                     parameters: ParameterSignatures {
                         parameters: [],
                     },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 11,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
+                    output_ty: Entity(
+                        TypePath(`core::num::f32`, `Alien`),
                     ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_region: TermSymbolRegion {
-                            registry: TermSymbolRegistry {
-                                tys: [],
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [],
-                        },
-                    },
                 },
             ),
         ),
@@ -466,28 +277,12 @@
     ImplBlock(
         TypeImplBlock(
             TypeImplBlockSignature {
-                ty: Success(
-                    Entity(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 12,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                term_sheet: SignatureTermSheet {
-                    term_symbol_region: TermSymbolRegion {
-                        registry: TermSymbolRegistry {
-                            tys: [],
-                        },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
+                implicit_parameters: ImplicitParameterSignatures {
+                    parameters: [],
                 },
+                ty: Entity(
+                    TypePath(`core::num::f64`, `Alien`),
+                ),
             },
         ),
     ),
@@ -501,156 +296,9 @@
                     parameters: ParameterSignatures {
                         parameters: [],
                     },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 12,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
+                    output_ty: Entity(
+                        TypePath(`core::num::f64`, `Alien`),
                     ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_region: TermSymbolRegion {
-                            registry: TermSymbolRegistry {
-                                tys: [],
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [],
-                        },
-                    },
-                },
-            ),
-        ),
-    ),
-    ImplBlock(
-        TypeImplBlock(
-            TypeImplBlockSignature {
-                ty: Success(
-                    Entity(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 13,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                term_sheet: SignatureTermSheet {
-                    term_symbol_region: TermSymbolRegion {
-                        registry: TermSymbolRegistry {
-                            tys: [],
-                        },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
-                },
-            },
-        ),
-    ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
-                    },
-                    parameters: ParameterSignatures {
-                        parameters: [],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_region: TermSymbolRegion {
-                            registry: TermSymbolRegistry {
-                                tys: [],
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [],
-                        },
-                    },
-                },
-            ),
-        ),
-    ),
-    ImplBlock(
-        TypeImplBlock(
-            TypeImplBlockSignature {
-                ty: Success(
-                    Entity(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                term_sheet: SignatureTermSheet {
-                    term_symbol_region: TermSymbolRegion {
-                        registry: TermSymbolRegistry {
-                            tys: [],
-                        },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
-                },
-            },
-        ),
-    ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
-                    },
-                    parameters: ParameterSignatures {
-                        parameters: [],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 14,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_region: TermSymbolRegion {
-                            registry: TermSymbolRegistry {
-                                tys: [],
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [],
-                        },
-                    },
                 },
             ),
         ),

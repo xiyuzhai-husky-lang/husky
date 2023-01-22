@@ -63,7 +63,9 @@ Ok(
                                 },
                             ),
                             output_ty: Ok(
-                                3,
+                                OutputTypeExpr {
+                                    expr: 3,
+                                },
                             ),
                             eol_colon: Ok(
                                 EolColonToken {
