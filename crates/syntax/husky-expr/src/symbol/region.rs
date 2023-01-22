@@ -76,6 +76,9 @@ pub enum TypeConstraint {
     TraitExpr {
         expr: ExprIdx,
     },
+    OutputTypeExpr {
+        expr: ExprIdx,
+    },
 }
 
 impl SymbolRegion {

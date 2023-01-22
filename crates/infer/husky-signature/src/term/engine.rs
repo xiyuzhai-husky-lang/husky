@@ -76,7 +76,8 @@ impl<'a> SignatureTermEngine<'a> {
                 TypeConstraint::LetVariables { ty: expr, .. }
                 | TypeConstraint::RegularParameter { ty: expr, .. }
                 | TypeConstraint::TypeExpr { expr }
-                | TypeConstraint::TraitExpr { expr } => self.cache_new(*expr),
+                | TypeConstraint::TraitExpr { expr }
+                | TypeConstraint::OutputTypeExpr { expr } => self.cache_new(*expr),
                 TypeConstraint::FrameVariable | TypeConstraint::ImplicitTypeParameter => (),
             }
         }

@@ -12,7 +12,7 @@ pub struct TypeMemoDecl {
     #[return_ref]
     pub curry_token: DeclResult<CurryToken>,
     #[return_ref]
-    pub output_ty: DeclResult<ExprIdx>,
+    pub output_ty: DeclResult<OutputTypeExpr>,
     #[return_ref]
     pub eol_colon: DeclResult<EolColonToken>,
 }

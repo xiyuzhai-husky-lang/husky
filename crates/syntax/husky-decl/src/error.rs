@@ -21,7 +21,7 @@ pub enum DeclError {
     #[error("impl block error")]
     ImplBlockErr,
     #[error("missing output type")]
-    MissingOutputType,
+    MissingOutputType(TokenIdx),
     #[error("missing `->`")]
     MissingCurry(TokenIdx),
     #[error("missing `:` at end of line")]
