@@ -7,6 +7,25 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::six::six_match`, `Feature`),
                             ast_idx: 57,
+                            curry_token: Ok(
+                                CurryToken {
+                                    token_idx: TokenIdx(
+                                        66,
+                                    ),
+                                },
+                            ),
+                            output_ty: Ok(
+                                OutputTypeExpr {
+                                    expr: 0,
+                                },
+                            ),
+                            eol_colon: Ok(
+                                EolColonToken {
+                                    token_idx: TokenIdx(
+                                        68,
+                                    ),
+                                },
+                            ),
                             expr_region: ExprRegion(
                                 Id {
                                     value: 82,
@@ -22,6 +41,25 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Feature`),
                             ast_idx: 58,
+                            curry_token: Ok(
+                                CurryToken {
+                                    token_idx: TokenIdx(
+                                        79,
+                                    ),
+                                },
+                            ),
+                            output_ty: Ok(
+                                OutputTypeExpr {
+                                    expr: 0,
+                                },
+                            ),
+                            eol_colon: Ok(
+                                EolColonToken {
+                                    token_idx: TokenIdx(
+                                        81,
+                                    ),
+                                },
+                            ),
                             expr_region: ExprRegion(
                                 Id {
                                     value: 83,
@@ -37,6 +75,25 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
                             ast_idx: 59,
+                            curry_token: Ok(
+                                CurryToken {
+                                    token_idx: TokenIdx(
+                                        94,
+                                    ),
+                                },
+                            ),
+                            output_ty: Ok(
+                                OutputTypeExpr {
+                                    expr: 1,
+                                },
+                            ),
+                            eol_colon: Ok(
+                                EolColonToken {
+                                    token_idx: TokenIdx(
+                                        97,
+                                    ),
+                                },
+                            ),
                             expr_region: ExprRegion(
                                 Id {
                                     value: 84,

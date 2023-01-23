@@ -7,6 +7,25 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Feature`),
                             ast_idx: 28,
+                            curry_token: Ok(
+                                CurryToken {
+                                    token_idx: TokenIdx(
+                                        80,
+                                    ),
+                                },
+                            ),
+                            output_ty: Ok(
+                                OutputTypeExpr {
+                                    expr: 0,
+                                },
+                            ),
+                            eol_colon: Ok(
+                                EolColonToken {
+                                    token_idx: TokenIdx(
+                                        82,
+                                    ),
+                                },
+                            ),
                             expr_region: ExprRegion(
                                 Id {
                                     value: 56,
@@ -22,6 +41,25 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
                             ast_idx: 29,
+                            curry_token: Ok(
+                                CurryToken {
+                                    token_idx: TokenIdx(
+                                        93,
+                                    ),
+                                },
+                            ),
+                            output_ty: Ok(
+                                OutputTypeExpr {
+                                    expr: 1,
+                                },
+                            ),
+                            eol_colon: Ok(
+                                EolColonToken {
+                                    token_idx: TokenIdx(
+                                        96,
+                                    ),
+                                },
+                            ),
                             expr_region: ExprRegion(
                                 Id {
                                     value: 57,

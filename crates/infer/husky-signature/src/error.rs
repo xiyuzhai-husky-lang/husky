@@ -23,4 +23,4 @@ impl<Db: ?Sized + SignatureDb> salsa::DebugWithDb<Db> for SignatureError {
 }
 
 pub type SignatureResult<T> = Result<T, SignatureError>;
-pub type SignatureResultBorrowed<'a, T> = Result<T, &'a SignatureError>;
+pub type SignatureResultRef<'a, T> = Result<T, &'a SignatureError>;

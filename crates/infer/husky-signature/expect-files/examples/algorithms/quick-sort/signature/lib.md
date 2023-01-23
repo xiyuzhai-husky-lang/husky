@@ -12,18 +12,10 @@
             1,
         ),
     ),
-    Ok(
-        Form(
-            Feature(
-                FeatureSignature,
-            ),
-        ),
+    Err(
+        ExprError,
     ),
-    Ok(
-        Form(
-            Feature(
-                FeatureSignature,
-            ),
-        ),
+    Err(
+        ExprError,
     ),
 ]

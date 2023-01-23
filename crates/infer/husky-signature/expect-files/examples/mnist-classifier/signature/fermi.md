@@ -51,7 +51,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         parameters: [],
                     },
-                    parameter_decl_list: ParameterSignatures {
+                    parameters: ParameterSignatures {
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,

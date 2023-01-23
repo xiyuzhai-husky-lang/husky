@@ -34,7 +34,7 @@ impl salsa::Database for DB {}
 fn module_signatures<'a>(
     db: &'a DB,
     module_path: ModulePath,
-) -> Vec<SignatureResultBorrowed<'a, Signature>> {
+) -> Vec<SignatureResultRef<'a, Signature>> {
     let Ok(decl_sheet) = db.module_decl_sheet(module_path) else {
         return vec![]
     };

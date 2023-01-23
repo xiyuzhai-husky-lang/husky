@@ -14,7 +14,7 @@ pub use variant::*;
 
 use crate::*;
 
-pub(crate) fn signature(db: &dyn SignatureDb, decl: Decl) -> SignatureResultBorrowed<Signature> {
+pub(crate) fn signature(db: &dyn SignatureDb, decl: Decl) -> SignatureResultRef<Signature> {
     match decl {
         Decl::Type(decl) => ty_signature(db, decl).map(|s| s.into()),
         Decl::Form(decl) => form_signature(db, decl).map(|s| s.into()),

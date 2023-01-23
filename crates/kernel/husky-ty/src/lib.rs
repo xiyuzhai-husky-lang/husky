@@ -13,4 +13,4 @@ use husky_signature::*;
 use husky_term::*;
 
 #[salsa::jar(db=TypeDb)]
-pub struct TypeJar(ty_entity_ty, trai_entity_ty);
+pub struct TypeJar(ty_entity_ty, trai_entity_ty, form_entity_ty);

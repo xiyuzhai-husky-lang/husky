@@ -408,6 +408,27 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
                             ast_idx: 34,
+                            curry_token: Err(
+                                MissingCurry(
+                                    TokenIdx(
+                                        228,
+                                    ),
+                                ),
+                            ),
+                            output_ty: Err(
+                                MissingOutputType(
+                                    TokenIdx(
+                                        228,
+                                    ),
+                                ),
+                            ),
+                            eol_colon: Ok(
+                                EolColonToken {
+                                    token_idx: TokenIdx(
+                                        228,
+                                    ),
+                                },
+                            ),
                             expr_region: ExprRegion(
                                 Id {
                                     value: 37,
@@ -423,6 +444,27 @@ Ok(
                         FeatureDecl {
                             path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
                             ast_idx: 36,
+                            curry_token: Err(
+                                MissingCurry(
+                                    TokenIdx(
+                                        288,
+                                    ),
+                                ),
+                            ),
+                            output_ty: Err(
+                                MissingOutputType(
+                                    TokenIdx(
+                                        288,
+                                    ),
+                                ),
+                            ),
+                            eol_colon: Ok(
+                                EolColonToken {
+                                    token_idx: TokenIdx(
+                                        288,
+                                    ),
+                                },
+                            ),
                             expr_region: ExprRegion(
                                 Id {
                                     value: 38,

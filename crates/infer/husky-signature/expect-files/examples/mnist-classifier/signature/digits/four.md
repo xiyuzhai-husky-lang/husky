@@ -1,10 +1,6 @@
 [
-    Ok(
-        Form(
-            Feature(
-                FeatureSignature,
-            ),
-        ),
+    Err(
+        OutputTypeTermError,
     ),
     Ok(
         Form(
@@ -13,7 +9,51 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         parameters: [],
                     },
-                    parameter_decl_list: ParameterSignatures {
+                    parameters: ParameterSignatures {
+                        parameters: [
+                            ParameterSignature {
+                                pattern: ParameterSignaturePattern,
+                                ty: Application(
+                                    TermApplication(
+                                        Id {
+                                            value: 10,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                    output_ty: Application(
+                        TermApplication {
+                            m: Entity(
+                                TypePath(`core::option::Option`, `Enum`),
+                            ),
+                            n: Entity(
+                                TypePath(`core::num::f32`, `Alien`),
+                            ),
+                        },
+                    ),
+                },
+            ),
+        ),
+    ),
+    Err(
+        OutputTypeTermError,
+    ),
+    Err(
+        OutputTypeTermError,
+    ),
+    Err(
+        OutputTypeTermError,
+    ),
+    Ok(
+        Form(
+            Function(
+                FunctionSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        parameters: [],
+                    },
+                    parameters: ParameterSignatures {
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
@@ -43,68 +83,12 @@
     ),
     Ok(
         Form(
-            Feature(
-                FeatureSignature,
-            ),
-        ),
-    ),
-    Ok(
-        Form(
-            Feature(
-                FeatureSignature,
-            ),
-        ),
-    ),
-    Ok(
-        Form(
-            Feature(
-                FeatureSignature,
-            ),
-        ),
-    ),
-    Ok(
-        Form(
             Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         parameters: [],
                     },
-                    parameter_decl_list: ParameterSignatures {
-                        parameters: [
-                            ParameterSignature {
-                                pattern: ParameterSignaturePattern,
-                                ty: Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 10,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ],
-                    },
-                    output_ty: Application(
-                        TermApplication {
-                            m: Entity(
-                                TypePath(`core::option::Option`, `Enum`),
-                            ),
-                            n: Entity(
-                                TypePath(`core::num::f32`, `Alien`),
-                            ),
-                        },
-                    ),
-                },
-            ),
-        ),
-    ),
-    Ok(
-        Form(
-            Function(
-                FunctionSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
-                    },
-                    parameter_decl_list: ParameterSignatures {
+                    parameters: ParameterSignatures {
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
