@@ -23,6 +23,6 @@ where
 
     fn trai_signature(&self, path: TraitPath) -> SignatureOutcomeBorrowed<TraitSignature> {
         let Ok(decl) = self.trai_decl(path) else{todo!()};
-        trai_signature(self, decl).ok_copy_into_abort_as_ref()
+        trai_signature(self, decl).ok_copy_abort_as_ref()
     }
 }

@@ -99,8 +99,9 @@ impl<'a> SignatureTermEngine<'a> {
                             let ty = self.symbol_region.parameter_pattern_ty(*pattern).unwrap();
                             match self.query_new(ty) {
                                 Success(ty) => Ok(ty),
-                                Failure(_) => todo!(),
-                                Abort(_) => todo!(),
+                                Failure(_) | Abort(_) => {
+                                    Err(TermSymbolTypeErrorKind::SignatureTermError)
+                                }
                             }
                         }
                     }
