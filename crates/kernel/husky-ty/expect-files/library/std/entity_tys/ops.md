@@ -16,8 +16,17 @@
                             ),
                         },
                     ),
-                    y: Entity(
-                        TypePath(`core::num::Trait`, `Alien`),
+                    y: Application(
+                        TermApplication {
+                            m: Category(
+                                Sort,
+                            ),
+                            n: Universe(
+                                TermUniverse(
+                                    1,
+                                ),
+                            ),
+                        },
                     ),
                 },
             ),

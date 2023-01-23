@@ -2,6 +2,7 @@ use crate::*;
 use thiserror::Error;
 
 pub type TypeResult<T> = Result<T, TypeError>;
+pub type TypeResultRef<'a, T> = Result<T, &'a TypeError>;
 
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum TypeError {}
