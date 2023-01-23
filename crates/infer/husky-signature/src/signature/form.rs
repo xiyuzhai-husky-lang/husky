@@ -13,12 +13,15 @@ pub use value::*;
 use crate::*;
 use salsa::DbWithJar;
 
-pub(crate) fn form_signature(db: &dyn SignatureDb, decl: FormDecl) -> FormSignature {
+pub(crate) fn form_signature(
+    db: &dyn SignatureDb,
+    decl: FormDecl,
+) -> SignatureOutcomeBorrowed<FormSignature> {
     match decl {
-        FormDecl::Function(decl) => function_signature(db, decl).into(),
-        FormDecl::Feature(decl) => feature_signature(db, decl).into(),
-        FormDecl::Morphism(decl) => morphism_signature(db, decl).into(),
-        FormDecl::Value(decl) => value_signature(db, decl).into(),
+        FormDecl::Function(decl) => function_signature(db, decl).ok_copy_into_abort_as_ref(),
+        FormDecl::Feature(decl) => feature_signature(db, decl).ok_copy_into_abort_as_ref(),
+        FormDecl::Morphism(decl) => morphism_signature(db, decl).ok_copy_into_abort_as_ref(),
+        FormDecl::Value(decl) => value_signature(db, decl).ok_copy_into_abort_as_ref(),
     }
 }
 

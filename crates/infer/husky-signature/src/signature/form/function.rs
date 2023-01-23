@@ -1,25 +1,35 @@
 use crate::*;
 
-#[salsa::tracked(jar = SignatureJar)]
-pub fn function_signature(db: &dyn SignatureDb, decl: FunctionDecl) -> FunctionSignature {
+#[salsa::tracked(jar = SignatureJar,return_ref)]
+pub fn function_signature(
+    db: &dyn SignatureDb,
+    decl: FunctionDecl,
+) -> SignatureOutcome<FunctionSignature> {
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);
     let term_menu = db.term_menu(expr_region.toolchain(db)).as_ref().unwrap();
-    todo!()
-    // let output_ty = match decl.output_ty(db) {
-    //     Ok(output_ty) => engine.query_new(*output_ty),
-    //     Err(_) => Abort(SignatureTermAbortion::ExprError),
-    // };
-    // let parameters = ParameterSignatures::from_decl(decl.parameters(db), signature_term_region);
-    // let implicit_parameters =
-    //     ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), signature_term_region);
-    // FunctionSignature::new(
-    //     db,
-    //     implicit_parameters,
-    //     parameters,
-    //     output_ty,
-    //     engine.finish(),
-    // )
+
+    let implicit_parameters = ImplicitParameterSignatures::from_decl(
+        decl.implicit_parameters(db),
+        signature_term_region,
+        term_menu,
+    );
+
+    let parameters = ParameterSignatures::from_decl(decl.parameters(db), signature_term_region);
+    let output_ty = match decl.output_ty(db) {
+        Ok(output_ty) => match signature_term_region.expr_term(output_ty.expr()) {
+            Success(output_ty) => output_ty,
+            Failure(_) => todo!(),
+            Abort(_) => todo!(),
+        },
+        Err(_) => todo!(), // Abort(SignatureTermAbortion::ExprError),
+    };
+    Success(FunctionSignature::new(
+        db,
+        implicit_parameters,
+        parameters,
+        output_ty,
+    ))
 }
 
 #[salsa::interned(jar = SignatureJar)]

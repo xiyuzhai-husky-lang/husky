@@ -56,6 +56,17 @@ impl<T, E, A> Outcome<T, E, A> {
         }
     }
 
+    pub fn ok_copy_into_err_as_ref<'a, S>(&'a self) -> Outcome<S, &'a E, &'a A>
+    where
+        T: Copy + Into<S>,
+    {
+        match self {
+            Success(t) => Success((*t).into()),
+            Failure(e) => Failure(e),
+            Abort(a) => Abort(a),
+        }
+    }
+
     fn into_result(self) -> Result<T, Stop<E, A>> {
         match self {
             Success(t) => Ok(t),
@@ -95,5 +106,18 @@ where
 {
     fn from_residual(residual: Result<Infallible, E1>) -> Self {
         todo!()
+    }
+}
+
+impl<T, A> Outcome<T, Infallible, A> {
+    pub fn ok_copy_into_abort_as_ref<'a, S>(&'a self) -> Outcome<S, Infallible, &'a A>
+    where
+        T: Copy + Into<S>,
+    {
+        match self {
+            Success(t) => Success((*t).into()),
+            Abort(a) => Abort(a),
+            Failure(_) => unreachable!(),
+        }
     }
 }
