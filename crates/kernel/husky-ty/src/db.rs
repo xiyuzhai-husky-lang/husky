@@ -2,39 +2,23 @@ use crate::*;
 use husky_entity_path::{EntityPath, ModuleItemPath};
 
 pub trait TypeDb: salsa::DbWithJar<TypeJar> + SignatureDb {
-    fn entity_ty(&self, entity_path: EntityPath) -> TypeResult<Term>;
+    fn entity_ty(&self, entity_path: EntityPath) -> TypeResultRef<Term>;
 }
 
 impl<Db> TypeDb for Db
 where
     Db: salsa::DbWithJar<TypeJar> + SignatureDb,
 {
-    fn entity_ty(&self, entity_path: EntityPath) -> TypeResult<Term> {
+    fn entity_ty(&self, entity_path: EntityPath) -> TypeResultRef<Term> {
         let term_menu = self
             .term_menu(entity_path.toolchain(self))
             .as_ref()
             .unwrap();
-        let (implicit_parameters, mut term) = match entity_path {
+        match entity_path {
             EntityPath::Module(_) => todo!(),
             EntityPath::ModuleItem(path) => match path {
-                ModuleItemPath::Type(path) => {
-                    let signature = match self.ty_signature(path) {
-                        Ok(signature) => signature,
-                        Err(_) => todo!(),
-                    };
-                    (signature.implicit_parameters(self), term_menu.ty0())
-                }
-                ModuleItemPath::Trait(path) => {
-                    let signature = self.trai_signature(path);
-                    let signature = match signature {
-                        Ok(signature) => signature,
-                        Err(_) => todo!(),
-                    };
-                    (
-                        signature.implicit_parameters(self).as_ref(),
-                        term_menu.trai(),
-                    )
-                }
+                ModuleItemPath::Type(path) => ty_entity_ty(self, path).as_ref().map(|t| *t),
+                ModuleItemPath::Trait(path) => trai_entity_ty(self, path).as_ref().map(|t| *t),
                 ModuleItemPath::Form(path) => match path.form_kind(self) {
                     FormKind::Feature => todo!(),
                     FormKind::Function => todo!(),
@@ -44,10 +28,45 @@ where
             },
             EntityPath::AssociatedItem(_) => todo!(),
             EntityPath::Variant(_) => todo!(),
-        };
-        for implicit_parameter in implicit_parameters.iter().rev() {
-            term = TermCurry::new(self, implicit_parameter.ty(), term).into()
         }
-        Ok(term)
     }
+}
+
+#[salsa::tracked(jar = TypeJar, return_ref)]
+pub(crate) fn ty_entity_ty(db: &dyn TypeDb, ty_path: TypePath) -> TypeResult<Term> {
+    let term_menu = db.term_menu(ty_path.toolchain(db)).as_ref().unwrap();
+    let signature = match db.ty_signature(ty_path) {
+        Ok(signature) => signature,
+        Err(_) => todo!(),
+    };
+    Ok(curry_from_implicit_parameter_tys(
+        db,
+        signature.implicit_parameters(db),
+        term_menu.ty0(),
+    ))
+}
+
+#[salsa::tracked(jar = TypeJar, return_ref)]
+pub(crate) fn trai_entity_ty(db: &dyn TypeDb, trai_path: TraitPath) -> TypeResult<Term> {
+    let term_menu = db.term_menu(trai_path.toolchain(db)).as_ref().unwrap();
+    let signature = match db.trai_signature(trai_path) {
+        Ok(signature) => signature,
+        Err(_) => todo!(),
+    };
+    Ok(curry_from_implicit_parameter_tys(
+        db,
+        signature.implicit_parameters(db),
+        term_menu.ty0(),
+    ))
+}
+
+fn curry_from_implicit_parameter_tys(
+    db: &dyn TypeDb,
+    implicit_parameters: &[ImplicitParameterSignature],
+    mut term: Term,
+) -> Term {
+    for implicit_parameter in implicit_parameters.iter().rev() {
+        term = TermCurry::new(db, implicit_parameter.ty(), term).into()
+    }
+    term
 }

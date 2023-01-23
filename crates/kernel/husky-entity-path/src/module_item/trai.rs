@@ -17,6 +17,14 @@ impl TraitPath {
         f.write_str(show_connection(self.connection(db)))?;
         f.write_str(self.ident(db).data(db))
     }
+
+    pub fn crate_path(self, db: &dyn EntityPathDb) -> CratePath {
+        self.module_path(db).crate_path(db)
+    }
+
+    pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
+        self.crate_path(db).toolchain(db)
+    }
 }
 
 impl<Db: EntityPathDb + ?Sized> salsa::DebugWithDb<Db> for TraitPath {
