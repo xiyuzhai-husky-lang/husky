@@ -24,7 +24,7 @@ use salsa::DbWithJar;
 pub(crate) fn ty_signature(
     db: &dyn SignatureDb,
     decl: TypeDecl,
-) -> SignatureResultBorrowed<TypeSignature> {
+) -> SignatureResultRef<TypeSignature> {
     match decl {
         TypeDecl::Enum(decl) => enum_ty_signature(db, decl).as_ref().map(|s| (*s).into()),
         TypeDecl::RegularStruct(decl) => regular_struct_ty_signature(db, decl)

@@ -16,7 +16,7 @@ use salsa::DbWithJar;
 pub(crate) fn form_signature(
     db: &dyn SignatureDb,
     decl: FormDecl,
-) -> SignatureResultBorrowed<FormSignature> {
+) -> SignatureResultRef<FormSignature> {
     match decl {
         FormDecl::Function(decl) => function_signature(db, decl).as_ref().map(|s| (*s).into()),
         FormDecl::Feature(decl) => feature_signature(db, decl).as_ref().map(|s| (*s).into()),

@@ -15,7 +15,7 @@ use crate::*;
 pub(crate) fn ty_associated_item_signature(
     db: &dyn SignatureDb,
     decl: TypeItemDecl,
-) -> SignatureResultBorrowed<TypeItemSignature> {
+) -> SignatureResultRef<TypeItemSignature> {
     match decl {
         TypeItemDecl::Function(decl) => ty_associated_function_signature(db, decl)
             .as_ref()

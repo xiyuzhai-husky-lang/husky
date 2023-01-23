@@ -13,7 +13,7 @@ use super::*;
 pub(crate) fn ty_as_trai_associated_item_signature(
     db: &dyn SignatureDb,
     decl: TypeAsTraitItemDecl,
-) -> SignatureResultBorrowed<TypeAsTraitItemSignature> {
+) -> SignatureResultRef<TypeAsTraitItemSignature> {
     match decl {
         TypeAsTraitItemDecl::Function(decl) => ty_as_trai_associated_function_signature(db, decl)
             .as_ref()

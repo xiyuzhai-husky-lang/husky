@@ -13,10 +13,23 @@ pub struct TermDurant {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct TermDurantParameter {}
+pub struct TermDurantParameter {
+    ty: Term,
+}
+
+impl TermDurantParameter {
+    pub fn new(ty: Term) -> Self {
+        Self { ty }
+    }
+
+    pub fn ty(&self) -> Term {
+        self.ty
+    }
+}
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TermDurantKind {
+    Fp,
     Fn,
     FnMut,
 }

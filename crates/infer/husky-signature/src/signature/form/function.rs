@@ -36,7 +36,7 @@ pub struct FunctionSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,
     #[return_ref]
-    pub parameter_decl_list: ParameterSignatures,
+    pub parameters: ParameterSignatures,
     pub output_ty: Term,
 }
 

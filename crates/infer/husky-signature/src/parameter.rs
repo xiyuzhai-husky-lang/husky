@@ -89,12 +89,26 @@ pub struct ParameterSignature {
     ty: Term,
 }
 
+impl ParameterSignature {
+    pub fn ty(&self) -> Term {
+        self.ty
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct ParameterSignaturePattern {}
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct ParameterSignatures {
     parameters: Vec<ParameterSignature>,
+}
+
+impl std::ops::Deref for ParameterSignatures {
+    type Target = Vec<ParameterSignature>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.parameters
+    }
 }
 
 impl ParameterSignatures {

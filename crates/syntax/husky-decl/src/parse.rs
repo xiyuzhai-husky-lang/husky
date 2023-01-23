@@ -430,7 +430,19 @@ impl<'a> DeclParser<'a> {
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
-        Ok(FeatureDecl::new(self.db, path, ast_idx, parser.finish()).into())
+        let curry_token = ctx.parse_expected2(DeclError::MissingCurry);
+        let output_ty = ctx.parse_expected2(DeclError::MissingOutputType);
+        let eol_colon = ctx.parse_expected2(DeclError::MissingEolColon);
+        Ok(FeatureDecl::new(
+            self.db,
+            path,
+            ast_idx,
+            curry_token,
+            output_ty,
+            eol_colon,
+            parser.finish(),
+        )
+        .into())
     }
 
     fn parse_function_decl(

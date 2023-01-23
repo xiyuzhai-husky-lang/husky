@@ -1,10 +1,6 @@
 [
-    Ok(
-        Form(
-            Feature(
-                FeatureSignature,
-            ),
-        ),
+    Err(
+        OutputTypeTermError,
     ),
     Ok(
         Form(
@@ -13,7 +9,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         parameters: [],
                     },
-                    parameter_decl_list: ParameterSignatures {
+                    parameters: ParameterSignatures {
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
@@ -41,12 +37,8 @@
             ),
         ),
     ),
-    Ok(
-        Form(
-            Feature(
-                FeatureSignature,
-            ),
-        ),
+    Err(
+        OutputTypeTermError,
     ),
     Ok(
         Form(
@@ -55,7 +47,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         parameters: [],
                     },
-                    parameter_decl_list: ParameterSignatures {
+                    parameters: ParameterSignatures {
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
@@ -90,7 +82,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         parameters: [],
                     },
-                    parameter_decl_list: ParameterSignatures {
+                    parameters: ParameterSignatures {
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
@@ -118,11 +110,7 @@
             ),
         ),
     ),
-    Ok(
-        Form(
-            Feature(
-                FeatureSignature,
-            ),
-        ),
+    Err(
+        OutputTypeTermError,
     ),
 ]

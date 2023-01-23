@@ -9,7 +9,7 @@ use super::*;
 pub(crate) fn impl_block_signature(
     db: &dyn SignatureDb,
     decl: ImplBlockDecl,
-) -> SignatureResultBorrowed<ImplBlockSignature> {
+) -> SignatureResultRef<ImplBlockSignature> {
     match decl {
         ImplBlockDecl::TypeImplBlock(decl) => ty_impl_block_signature(db, decl)
             .as_ref()
