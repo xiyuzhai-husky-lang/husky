@@ -8,3 +8,4 @@ pub enum SignatureAbortion {
 }
 
 pub type SignatureOutcome<T> = Outcome<T, Infallible, SignatureAbortion>;
+pub type SignatureOutcomeBorrowed<'a, T> = Outcome<T, Infallible, &'a SignatureAbortion>;

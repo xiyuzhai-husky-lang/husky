@@ -105,9 +105,17 @@ impl ParameterSignatures {
         Self {
             parameters: parameters
                 .iter()
-                .map(|parameter| ParameterSignature {
-                    pattern: ParameterSignaturePattern {},
-                    ty: todo!(),
+                .map(|parameter| {
+                    let ty = parameter.ty();
+                    let ty = match sheet.expr_term(ty) {
+                        Success(ty) => ty,
+                        Failure(_) => todo!(),
+                        Abort(_) => todo!(),
+                    };
+                    ParameterSignature {
+                        pattern: ParameterSignaturePattern {},
+                        ty,
+                    }
                 })
                 .collect(),
         }
