@@ -3,7 +3,7 @@
 pub use Outcome::*;
 
 use std::convert::Infallible;
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Outcome<T, E, A> {
     Success(T),
     Failure(E),
@@ -121,6 +121,16 @@ where
 }
 
 impl<T, A> Outcome<T, Infallible, A> {
+    pub fn ok_copy_abort_as_ref<'a>(&'a self) -> Outcome<T, Infallible, &'a A>
+    where
+        T: Copy,
+    {
+        match self {
+            Success(t) => Success(*t),
+            Abort(a) => Abort(a),
+            Failure(_) => unreachable!(),
+        }
+    }
     pub fn ok_copy_into_abort_as_ref<'a, S>(&'a self) -> Outcome<S, Infallible, &'a A>
     where
         T: Copy + Into<S>,
@@ -128,6 +138,18 @@ impl<T, A> Outcome<T, Infallible, A> {
         match self {
             Success(t) => Success((*t).into()),
             Abort(a) => Abort(a),
+            Failure(_) => unreachable!(),
+        }
+    }
+
+    pub fn copy_as_result(self) -> Result<T, A>
+    where
+        T: Copy,
+        A: Copy,
+    {
+        match self {
+            Success(t) => Ok(t),
+            Abort(a) => Err(a),
             Failure(_) => unreachable!(),
         }
     }

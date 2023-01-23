@@ -31,7 +31,10 @@ pub(crate) struct DB {
 
 impl salsa::Database for DB {}
 
-fn module_signatures(db: &DB, module_path: ModulePath) -> Vec<Signature> {
+fn module_signatures<'a>(
+    db: &'a DB,
+    module_path: ModulePath,
+) -> Vec<SignatureOutcomeBorrowed<'a, Signature>> {
     let Ok(decl_sheet) = db.module_decl_sheet(module_path) else {
         return vec![]
     };

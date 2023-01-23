@@ -22,7 +22,7 @@ pub fn function_signature(
             Failure(_) => todo!(),
             Abort(_) => todo!(),
         },
-        Err(_) => todo!(), // Abort(SignatureTermAbortion::ExprError),
+        Err(_) => return Abort(SignatureAbortion::ExprError),
     };
     Success(FunctionSignature::new(
         db,

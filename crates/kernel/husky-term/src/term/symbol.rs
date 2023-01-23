@@ -10,7 +10,10 @@ pub struct TermSymbol {
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum TermSymbolTypeErrorKind {}
+pub enum TermSymbolTypeErrorKind {
+    #[error("signature term error")]
+    SignatureTermError,
+}
 pub type TermSymbolTypeResult<T> = Result<T, TermSymbolTypeErrorKind>;
 
 #[derive(Default, Debug, PartialEq, Eq, Clone)]
