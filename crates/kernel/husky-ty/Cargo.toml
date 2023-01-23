@@ -8,7 +8,6 @@ edition = "2021"
 thiserror = "1.0.37"
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
-outcome = { path = "../../abstraction/outcome" }
 # infer
 husky-signature = { path = "../../infer/husky-signature" }
 # kernel

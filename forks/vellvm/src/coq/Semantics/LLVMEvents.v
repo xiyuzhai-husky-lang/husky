@@ -53,7 +53,7 @@ Import ITreeNotations.
    * Interactions with the memory                                            [MemoryE]
    * Concretization of a under-defined value                                 [PickE]
    * Undefined behaviour                                                     [UBE]
-   * Failure                                                                 [FailureE]
+   * Err                                                                 [FailureE]
    * Debugging messages                                                      [DebugE]
 *)
 

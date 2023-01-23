@@ -101,23 +101,22 @@ impl ParameterSignatures {
     pub(crate) fn from_decl(
         parameters: &[RegularParameterDeclPattern],
         sheet: &SignatureTermRegion,
-    ) -> Self {
-        Self {
+    ) -> SignatureResult<Self> {
+        Ok(Self {
             parameters: parameters
                 .iter()
                 .map(|parameter| {
                     let ty = parameter.ty();
                     let ty = match sheet.expr_term(ty) {
-                        Success(ty) => ty,
-                        Failure(_) => todo!(),
-                        Abort(_) => todo!(),
+                        Ok(ty) => ty,
+                        Err(_) => todo!(),
                     };
-                    ParameterSignature {
+                    Ok(ParameterSignature {
                         pattern: ParameterSignaturePattern {},
                         ty,
-                    }
+                    })
                 })
-                .collect(),
-        }
+                .collect::<Result<Vec<ParameterSignature>, SignatureError>>()?,
+        })
     }
 }

@@ -71,7 +71,7 @@ Open Scope N_scope.
      - Manipulation of the memory                     (MemoryE)
      - Determination of undef                         (PickE)
      - Undefined behavior                             (UBE)
-     - Failure                                        (FailureE)
+     - Err                                        (FailureE)
      - Debugging                                      (DebugE)
 
 

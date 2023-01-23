@@ -1,14 +1,14 @@
 use crate::*;
-use outcome::Outcome;
+
 use std::convert::Infallible;
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum SignatureAbortion {
+pub enum SignatureError {
     ExprError,
     TermError,
 }
 
-impl<Db: ?Sized + SignatureDb> salsa::DebugWithDb<Db> for SignatureAbortion {
+impl<Db: ?Sized + SignatureDb> salsa::DebugWithDb<Db> for SignatureError {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -19,5 +19,5 @@ impl<Db: ?Sized + SignatureDb> salsa::DebugWithDb<Db> for SignatureAbortion {
     }
 }
 
-pub type SignatureOutcome<T> = Outcome<T, Infallible, SignatureAbortion>;
-pub type SignatureOutcomeBorrowed<'a, T> = Outcome<T, Infallible, &'a SignatureAbortion>;
+pub type SignatureResult<T> = Result<T, SignatureError>;
+pub type SignatureResultBorrowed<'a, T> = Result<T, &'a SignatureError>;

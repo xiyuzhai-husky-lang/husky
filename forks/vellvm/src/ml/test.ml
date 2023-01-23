@@ -81,7 +81,7 @@ let run_parsefail_test path prefix =
       ignore (run_ll_file path);
       (false,"")
     with
-      Failure msg -> (sting_begins_with msg prefix, msg)
+      Err msg -> (sting_begins_with msg prefix, msg)
   in
   if not failed then failwith (path ^ " test failed to produce expected parsing error. Got ubstead: " ^ msg); ()
 
