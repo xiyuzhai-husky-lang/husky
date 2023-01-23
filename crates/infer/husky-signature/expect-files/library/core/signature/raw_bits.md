@@ -1,5 +1,5 @@
 [
-    Success(
+    Ok(
         Type(
             Foreign(
                 AlienTypeSignature {

@@ -1,5 +1,5 @@
 [
-    Success(
+    Ok(
         Type(
             Foreign(
                 AlienTypeSignature {
@@ -10,7 +10,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         Type(
             Structure(
                 StructureTypeSignature {
@@ -52,7 +52,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         Type(
             Inductive(
                 InductiveTypeSignature {

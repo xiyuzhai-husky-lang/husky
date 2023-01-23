@@ -1,5 +1,5 @@
 [
-    Success(
+    Ok(
         Type(
             Foreign(
                 AlienTypeSignature {
@@ -10,7 +10,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         Type(
             Foreign(
                 AlienTypeSignature {
@@ -21,7 +21,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         Type(
             Foreign(
                 AlienTypeSignature {
@@ -32,7 +32,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         Type(
             Foreign(
                 AlienTypeSignature {
@@ -43,7 +43,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         Type(
             Foreign(
                 AlienTypeSignature {
@@ -54,7 +54,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         Type(
             Foreign(
                 AlienTypeSignature {
@@ -65,7 +65,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         Type(
             Foreign(
                 AlienTypeSignature {
@@ -76,7 +76,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         Type(
             Foreign(
                 AlienTypeSignature {
@@ -87,7 +87,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         ImplBlock(
             TypeImplBlock(
                 TypeImplBlockSignature {
@@ -101,7 +101,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         AssociatedItem(
             TypeItem(
                 Method(
@@ -120,7 +120,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         ImplBlock(
             TypeImplBlock(
                 TypeImplBlockSignature {
@@ -134,7 +134,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         AssociatedItem(
             TypeItem(
                 Method(
@@ -153,7 +153,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         ImplBlock(
             TypeImplBlock(
                 TypeImplBlockSignature {
@@ -167,7 +167,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         AssociatedItem(
             TypeItem(
                 Method(
@@ -186,7 +186,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         ImplBlock(
             TypeImplBlock(
                 TypeImplBlockSignature {
@@ -200,7 +200,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         AssociatedItem(
             TypeItem(
                 Method(
@@ -219,7 +219,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         ImplBlock(
             TypeImplBlock(
                 TypeImplBlockSignature {
@@ -233,7 +233,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         AssociatedItem(
             TypeItem(
                 Method(
@@ -252,7 +252,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         ImplBlock(
             TypeImplBlock(
                 TypeImplBlockSignature {
@@ -266,7 +266,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         AssociatedItem(
             TypeItem(
                 Method(
@@ -285,7 +285,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         ImplBlock(
             TypeImplBlock(
                 TypeImplBlockSignature {
@@ -299,7 +299,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         AssociatedItem(
             TypeItem(
                 Method(
@@ -318,7 +318,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         ImplBlock(
             TypeImplBlock(
                 TypeImplBlockSignature {
@@ -332,7 +332,7 @@
             ),
         ),
     ),
-    Success(
+    Ok(
         AssociatedItem(
             TypeItem(
                 Method(
