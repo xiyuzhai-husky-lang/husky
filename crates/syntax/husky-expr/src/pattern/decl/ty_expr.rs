@@ -16,7 +16,7 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for TypeExpr {
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, ExprError> {
         if let Some(expr) = ctx.parse_expr(ExprParseEnvironment::None) {
-            ctx.add_ty_constraint(TypeConstraint::TypeExpr { expr });
+            ctx.add_ty_constraint(TypeConstraint::Type { ty: expr });
             Ok(Some(TypeExpr { expr }))
         } else {
             Ok(None)

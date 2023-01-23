@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct LetVariablePattern {
+pub struct LetVariablesPattern {
     pattern: PatternExprIdx,
     variables: CurrentSymbolIdxRange,
     colon_token: ExprResult<Option<ColonToken>>,
@@ -12,7 +12,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(crate) fn parse_let_variable_pattern(
         &mut self,
         access_end: TokenIdxRangeEnd,
-    ) -> ExprResult<LetVariablePattern> {
+    ) -> ExprResult<LetVariablesPattern> {
         let state = self.state();
         if let Some(pattern) = self.parse_pattern_expr(PatternExprInfo::Let)? {
             let symbols = self.pattern_expr_region().pattern_symbol_map(pattern);
@@ -32,12 +32,15 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 .collect::<Vec<_>>();
             let colon_token = self.parse::<ColonToken>();
             let ty = match colon_token {
-                Ok(Some(_)) => self.parse_expr(ExprParseEnvironment::None),
+                Ok(Some(_)) => Some(self.parse_expr_expected2(
+                    ExprParseEnvironment::None,
+                    ExprError::MissingLetVariablesType,
+                )),
                 _ => None,
             };
             let ty_constraint = ty.map(|ty| TypeConstraint::LetVariables { pattern, ty });
             let variables = self.define_symbols(symbols, ty_constraint);
-            Ok(LetVariablePattern {
+            Ok(LetVariablesPattern {
                 pattern,
                 variables,
                 colon_token,
@@ -49,7 +52,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     }
 }
 
-impl LetVariablePattern {
+impl LetVariablesPattern {
     pub fn pattern_expr_idx(&self) -> ArenaIdx<PatternExpr> {
         self.pattern
     }

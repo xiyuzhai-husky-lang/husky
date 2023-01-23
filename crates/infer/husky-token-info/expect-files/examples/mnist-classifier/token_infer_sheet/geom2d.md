@@ -104,9 +104,9 @@ Ok(
                 current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 192,
+                        value: 176,
                     },
                 ),
             },
@@ -131,9 +131,9 @@ Ok(
                 current_symbol_kind: Parameter {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 192,
+                        value: 176,
                     },
                 ),
             },
@@ -190,9 +190,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 220,
+                        value: 202,
                     },
                 ),
             },
@@ -219,9 +219,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 1,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 220,
+                        value: 202,
                     },
                 ),
             },
@@ -331,9 +331,9 @@ Ok(
                 current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 194,
+                        value: 178,
                     },
                 ),
             },
@@ -387,9 +387,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 222,
+                        value: 204,
                     },
                 ),
             },
@@ -403,9 +403,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 222,
+                        value: 204,
                     },
                 ),
             },
@@ -503,9 +503,9 @@ Ok(
                 current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 196,
+                        value: 180,
                     },
                 ),
             },
@@ -548,9 +548,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 224,
+                        value: 206,
                     },
                 ),
             },
@@ -784,9 +784,9 @@ Ok(
                 current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 199,
+                        value: 183,
                     },
                 ),
             },
@@ -840,9 +840,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 226,
+                        value: 208,
                     },
                 ),
             },
@@ -856,9 +856,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 226,
+                        value: 208,
                     },
                 ),
             },
@@ -956,9 +956,9 @@ Ok(
                 current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 201,
+                        value: 185,
                     },
                 ),
             },
@@ -1001,9 +1001,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 228,
+                        value: 210,
                     },
                 ),
             },
@@ -1017,9 +1017,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 228,
+                        value: 210,
                     },
                 ),
             },
@@ -1052,9 +1052,9 @@ Ok(
                 current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 202,
+                        value: 186,
                     },
                 ),
             },
@@ -1097,9 +1097,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 229,
+                        value: 211,
                     },
                 ),
             },
@@ -1113,9 +1113,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 229,
+                        value: 211,
                     },
                 ),
             },
@@ -1148,9 +1148,9 @@ Ok(
                 current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 203,
+                        value: 187,
                     },
                 ),
             },
@@ -1192,9 +1192,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 230,
+                        value: 212,
                     },
                 ),
             },
@@ -1221,9 +1221,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 230,
+                        value: 212,
                     },
                 ),
             },
@@ -1236,9 +1236,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 230,
+                        value: 212,
                     },
                 ),
             },
@@ -1313,9 +1313,9 @@ Ok(
                 current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 204,
+                        value: 188,
                     },
                 ),
             },
@@ -1358,9 +1358,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 231,
+                        value: 213,
                     },
                 ),
             },
@@ -1396,9 +1396,9 @@ Ok(
                 current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 205,
+                        value: 189,
                     },
                 ),
             },
@@ -1423,9 +1423,9 @@ Ok(
                 current_symbol_kind: Parameter {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 205,
+                        value: 189,
                     },
                 ),
             },
@@ -1467,9 +1467,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 232,
+                        value: 214,
                     },
                 ),
             },
@@ -1485,9 +1485,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 232,
+                        value: 214,
                     },
                 ),
             },
@@ -1499,9 +1499,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 232,
+                        value: 214,
                     },
                 ),
             },
@@ -1509,9 +1509,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 1,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 232,
+                        value: 214,
                     },
                 ),
             },
@@ -1525,9 +1525,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 232,
+                        value: 214,
                     },
                 ),
             },
@@ -1539,9 +1539,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 232,
+                        value: 214,
                     },
                 ),
             },
@@ -1554,9 +1554,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 1,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 232,
+                        value: 214,
                     },
                 ),
             },
@@ -1568,9 +1568,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 232,
+                        value: 214,
                     },
                 ),
             },
@@ -1580,9 +1580,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 232,
+                        value: 214,
                     },
                 ),
             },
@@ -1599,9 +1599,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 232,
+                        value: 214,
                     },
                 ),
             },
@@ -1614,9 +1614,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 232,
+                        value: 214,
                     },
                 ),
             },
@@ -1634,9 +1634,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 3,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 232,
+                        value: 214,
                     },
                 ),
             },
@@ -1649,9 +1649,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 1,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 232,
+                        value: 214,
                     },
                 ),
             },
@@ -1678,9 +1678,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 232,
+                        value: 214,
                     },
                 ),
             },
@@ -1693,9 +1693,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 232,
+                        value: 214,
                     },
                 ),
             },
@@ -1766,314 +1766,97 @@ Ok(
             None,
             None,
             None,
-            Entity(
-                None,
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            Method,
-                        ),
-                    },
-                ),
-            ),
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: Parameter {
-                    pattern_symbol: 0,
-                },
-                expr_page: ExprPage(
-                    Id {
-                        value: 206,
-                    },
-                ),
-            },
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 25,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 25,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol: 0,
-                },
-                expr_page: ExprPage(
-                    Id {
-                        value: 233,
-                    },
-                ),
-            },
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol: 1,
-                },
-                expr_page: ExprPage(
-                    Id {
-                        value: 233,
-                    },
-                ),
-            },
-            None,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
-                    Id {
-                        value: 233,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol: 1,
-                },
-                expr_page: ExprPage(
-                    Id {
-                        value: 233,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol: 2,
-                },
-                expr_page: ExprPage(
-                    Id {
-                        value: 233,
-                    },
-                ),
-            },
-            None,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
-                    Id {
-                        value: 233,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol: 2,
-                },
-                expr_page: ExprPage(
-                    Id {
-                        value: 233,
-                    },
-                ),
-            },
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 25,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol: 1,
-                },
-                expr_page: ExprPage(
-                    Id {
-                        value: 233,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol: 0,
-                },
-                expr_page: ExprPage(
-                    Id {
-                        value: 233,
-                    },
-                ),
-            },
             None,
             None,
             None,
-            Entity(
-                None,
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            Method,
-                        ),
-                    },
-                ),
-            ),
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: Parameter {
-                    pattern_symbol: 0,
-                },
-                expr_page: ExprPage(
-                    Id {
-                        value: 207,
-                    },
-                ),
-            },
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
             None,
             None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
             None,
             None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol: 0,
-                },
-                expr_page: ExprPage(
-                    Id {
-                        value: 234,
-                    },
-                ),
-            },
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
-                    Id {
-                        value: 234,
-                    },
-                ),
-            },
-            None,
-            SelfValue,
-            None,
-            Field,
             None,
             None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol: 0,
-                },
-                expr_page: ExprPage(
-                    Id {
-                        value: 234,
-                    },
-                ),
-            },
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
             None,
             None,
             None,
@@ -2132,9 +1915,9 @@ Ok(
                 current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 209,
+                        value: 191,
                     },
                 ),
             },
@@ -2194,9 +1977,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 235,
+                        value: 215,
                     },
                 ),
             },
@@ -2213,9 +1996,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 235,
+                        value: 215,
                     },
                 ),
             },
@@ -2251,9 +2034,9 @@ Ok(
                 current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 210,
+                        value: 192,
                     },
                 ),
             },
@@ -2313,9 +2096,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 236,
+                        value: 216,
                     },
                 ),
             },
@@ -2332,9 +2115,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 236,
+                        value: 216,
                     },
                 ),
             },

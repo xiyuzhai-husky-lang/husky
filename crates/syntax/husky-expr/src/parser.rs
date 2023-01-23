@@ -240,11 +240,11 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         self.finish_batch()
     }
 
-    pub fn parse_expr_expected<Error>(
+    pub fn parse_expr_expected<E>(
         &mut self,
         env: ExprParseEnvironment,
-        err: impl FnOnce(TokenIdx) -> Error,
-    ) -> Result<ExprIdx, Error> {
+        err: impl FnOnce(TokenIdx) -> E,
+    ) -> Result<ExprIdx, E> {
         let state = self.state();
         self.env.set(env);
         loop {
@@ -265,6 +265,34 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         match self.finish_batch() {
             Some(expr_idx) => Ok(expr_idx),
             None => Err(err(state)),
+        }
+    }
+
+    pub fn parse_expr_expected2(
+        &mut self,
+        env: ExprParseEnvironment,
+        err: impl FnOnce(TokenIdx) -> ExprError,
+    ) -> ExprIdx {
+        let state = self.state();
+        self.env.set(env);
+        loop {
+            let Some((token_idx, token)) = self.token_stream.next_indexed()
+                else {
+                    break
+                };
+            match self.resolve_token(token_idx, token) {
+                ControlFlow::Continue(resolved_token) => self.accept_token(resolved_token),
+                ControlFlow::Break(_) => {
+                    self.rollback(token_idx);
+                    break;
+                }
+            }
+        }
+        self.reduce(Precedence::None);
+        self.env.unset();
+        match self.finish_batch() {
+            Some(expr_idx) => expr_idx,
+            None => todo!(), // Err(err(state)),
         }
     }
 

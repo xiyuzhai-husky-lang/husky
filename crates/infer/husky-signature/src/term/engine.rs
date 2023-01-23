@@ -75,9 +75,10 @@ impl<'a> SignatureTermEngine<'a> {
                 TypeConstraint::RegularParameter { .. }
                 | TypeConstraint::FrameVariable
                 | TypeConstraint::ImplicitTypeParameter => (),
-                TypeConstraint::TypeExpr { expr }
-                | TypeConstraint::TraitExpr { expr }
-                | TypeConstraint::OutputTypeExpr { expr } => self.cache_new(*expr),
+                TypeConstraint::Type { ty: expr }
+                | TypeConstraint::Trait { trai: expr }
+                | TypeConstraint::OutputType { ty: expr }
+                | TypeConstraint::FieldType { ty: expr } => self.cache_new(*expr),
                 TypeConstraint::LetVariables { ty: expr, .. } => unreachable!(),
             }
         }

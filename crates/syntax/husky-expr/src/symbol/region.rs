@@ -70,14 +70,17 @@ pub enum TypeConstraint {
         pattern: PatternExprIdx,
         ty: ExprIdx,
     },
-    TypeExpr {
-        expr: ExprIdx,
+    Type {
+        ty: ExprIdx,
     },
-    TraitExpr {
-        expr: ExprIdx,
+    Trait {
+        trai: ExprIdx,
     },
-    OutputTypeExpr {
-        expr: ExprIdx,
+    OutputType {
+        ty: ExprIdx,
+    },
+    FieldType {
+        ty: ExprIdx,
     },
 }
 

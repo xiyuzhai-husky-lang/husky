@@ -159,6 +159,8 @@ fn expr_error_message(error: &ExprError) -> Option<String> {
         ExprError::UnresolvedSubentity { token_idx, ident } => {
             format!("Syntax Error: unresolved subentity")
         }
+        ExprError::MissingLetVariablesType(_) => todo!(),
+        ExprError::MissingFieldType(_) => todo!(),
     })
 }
 
@@ -222,6 +224,8 @@ fn expr_error_range(error: &ExprError, ranged_token_sheet: &RangedTokenSheet) ->
         }
         ExprError::Token(_) => todo!(),
         ExprError::MissingBlock(_) => todo!(),
+        ExprError::MissingLetVariablesType(_) => todo!(),
+        ExprError::MissingFieldType(_) => todo!(),
     }
 }
 

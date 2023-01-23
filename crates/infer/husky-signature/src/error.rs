@@ -7,6 +7,8 @@ pub enum SignatureError {
     ExprError,
     TermError,
     ParameterTypeTermError(u8),
+    FieldTypeTermError(u8),
+    OutputTypeTermError,
 }
 
 impl<Db: ?Sized + SignatureDb> salsa::DebugWithDb<Db> for SignatureError {

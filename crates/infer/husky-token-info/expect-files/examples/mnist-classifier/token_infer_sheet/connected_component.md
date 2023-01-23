@@ -234,9 +234,9 @@ Ok(
                 current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 70,
+                        value: 54,
                     },
                 ),
             },
@@ -280,9 +280,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 85,
+                        value: 69,
                     },
                 ),
             },
@@ -290,9 +290,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 85,
+                        value: 69,
                     },
                 ),
             },
@@ -304,9 +304,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 85,
+                        value: 69,
                     },
                 ),
             },
@@ -317,9 +317,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 85,
+                        value: 69,
                     },
                 ),
             },
@@ -469,9 +469,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 89,
+                        value: 73,
                     },
                 ),
             },
@@ -490,9 +490,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 89,
+                        value: 73,
                     },
                 ),
             },
@@ -522,9 +522,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 89,
+                        value: 73,
                     },
                 ),
             },
@@ -552,9 +552,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 89,
+                        value: 73,
                     },
                 ),
             },
@@ -566,9 +566,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 89,
+                        value: 73,
                     },
                 ),
             },
@@ -596,9 +596,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 89,
+                        value: 73,
                     },
                 ),
             },
@@ -610,9 +610,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 89,
+                        value: 73,
                     },
                 ),
             },
@@ -656,9 +656,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 89,
+                        value: 73,
                     },
                 ),
             },
@@ -707,9 +707,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 90,
+                        value: 74,
                     },
                 ),
             },
@@ -721,9 +721,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 90,
+                        value: 74,
                     },
                 ),
             },
@@ -739,9 +739,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     4,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 90,
+                        value: 74,
                     },
                 ),
             },
@@ -751,9 +751,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 90,
+                        value: 74,
                     },
                 ),
             },
@@ -768,9 +768,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 90,
+                        value: 74,
                     },
                 ),
             },
@@ -780,9 +780,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     4,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 90,
+                        value: 74,
                     },
                 ),
             },
@@ -792,9 +792,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 90,
+                        value: 74,
                     },
                 ),
             },
@@ -811,9 +811,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 90,
+                        value: 74,
                     },
                 ),
             },
@@ -823,9 +823,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 90,
+                        value: 74,
                     },
                 ),
             },
@@ -835,9 +835,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 90,
+                        value: 74,
                     },
                 ),
             },
@@ -847,9 +847,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 90,
+                        value: 74,
                     },
                 ),
             },
@@ -859,9 +859,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 90,
+                        value: 74,
                     },
                 ),
             },
@@ -924,9 +924,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 91,
+                        value: 75,
                     },
                 ),
             },
@@ -940,9 +940,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     2,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 91,
+                        value: 75,
                     },
                 ),
             },
@@ -954,9 +954,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     2,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 91,
+                        value: 75,
                     },
                 ),
             },
@@ -966,9 +966,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     2,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 91,
+                        value: 75,
                     },
                 ),
             },
@@ -984,9 +984,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 91,
+                        value: 75,
                     },
                 ),
             },
@@ -1002,9 +1002,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     2,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 91,
+                        value: 75,
                     },
                 ),
             },
@@ -1067,9 +1067,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 92,
+                        value: 76,
                     },
                 ),
             },
@@ -1083,9 +1083,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     2,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 92,
+                        value: 76,
                     },
                 ),
             },
@@ -1097,9 +1097,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     2,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 92,
+                        value: 76,
                     },
                 ),
             },
@@ -1113,9 +1113,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 92,
+                        value: 76,
                     },
                 ),
             },
@@ -1130,9 +1130,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     2,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 92,
+                        value: 76,
                     },
                 ),
             },
@@ -1195,9 +1195,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1218,9 +1218,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1234,9 +1234,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1246,9 +1246,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1270,9 +1270,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1285,9 +1285,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1297,9 +1297,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1309,9 +1309,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1321,9 +1321,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 3,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1333,9 +1333,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1348,9 +1348,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 4,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1362,9 +1362,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 4,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1374,9 +1374,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     21,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1386,9 +1386,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 4,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1398,9 +1398,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1410,9 +1410,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1426,9 +1426,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1444,9 +1444,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 5,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1458,9 +1458,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     21,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1470,9 +1470,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     36,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1482,9 +1482,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     21,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1494,9 +1494,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 3,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1506,9 +1506,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1522,9 +1522,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1554,9 +1554,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     36,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1566,9 +1566,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 5,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1578,9 +1578,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 3,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1590,9 +1590,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 77,
                     },
                 ),
             },
@@ -1739,9 +1739,9 @@ Ok(
                 current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 83,
+                        value: 67,
                     },
                 ),
             },
@@ -1784,9 +1784,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 96,
+                        value: 80,
                     },
                 ),
             },
@@ -1796,9 +1796,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 96,
+                        value: 80,
                     },
                 ),
             },
@@ -1811,9 +1811,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 96,
+                        value: 80,
                     },
                 ),
             },
@@ -1834,9 +1834,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 96,
+                        value: 80,
                     },
                 ),
             },
@@ -1849,9 +1849,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 96,
+                        value: 80,
                     },
                 ),
             },
@@ -1861,9 +1861,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     10,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 96,
+                        value: 80,
                     },
                 ),
             },
@@ -1873,9 +1873,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 96,
+                        value: 80,
                     },
                 ),
             },
@@ -1883,9 +1883,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 96,
+                        value: 80,
                     },
                 ),
             },
@@ -1895,9 +1895,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     10,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 96,
+                        value: 80,
                     },
                 ),
             },
@@ -1911,9 +1911,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 96,
+                        value: 80,
                     },
                 ),
             },
@@ -1928,9 +1928,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     10,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 96,
+                        value: 80,
                     },
                 ),
             },
@@ -1976,9 +1976,9 @@ Ok(
                 current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 84,
+                        value: 68,
                     },
                 ),
             },
@@ -2021,9 +2021,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 81,
                     },
                 ),
             },
@@ -2033,9 +2033,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 81,
                     },
                 ),
             },
@@ -2048,9 +2048,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 81,
                     },
                 ),
             },
@@ -2071,9 +2071,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 81,
                     },
                 ),
             },
@@ -2086,9 +2086,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 81,
                     },
                 ),
             },
@@ -2098,9 +2098,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     10,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 81,
                     },
                 ),
             },
@@ -2110,9 +2110,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 81,
                     },
                 ),
             },
@@ -2120,9 +2120,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 81,
                     },
                 ),
             },
@@ -2132,9 +2132,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     10,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 81,
                     },
                 ),
             },
@@ -2148,9 +2148,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 81,
                     },
                 ),
             },
@@ -2165,9 +2165,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     10,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 97,
+                        value: 81,
                     },
                 ),
             },
@@ -2217,9 +2217,9 @@ Ok(
                 current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 72,
+                        value: 56,
                     },
                 ),
             },
@@ -2244,9 +2244,9 @@ Ok(
                 current_symbol_kind: Parameter {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 72,
+                        value: 56,
                     },
                 ),
             },
@@ -2289,9 +2289,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 86,
+                        value: 70,
                     },
                 ),
             },
@@ -2299,9 +2299,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 1,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 86,
+                        value: 70,
                     },
                 ),
             },
@@ -2310,9 +2310,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 86,
+                        value: 70,
                     },
                 ),
             },
@@ -2321,9 +2321,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 86,
+                        value: 70,
                     },
                 ),
             },
@@ -2335,9 +2335,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 86,
+                        value: 70,
                     },
                 ),
             },
@@ -2352,9 +2352,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 86,
+                        value: 70,
                     },
                 ),
             },
@@ -2362,9 +2362,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 1,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 86,
+                        value: 70,
                     },
                 ),
             },
@@ -2375,9 +2375,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 86,
+                        value: 70,
                     },
                 ),
             },
@@ -2388,9 +2388,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 86,
+                        value: 70,
                     },
                 ),
             },
@@ -2404,9 +2404,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 86,
+                        value: 70,
                     },
                 ),
             },
@@ -2420,9 +2420,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 86,
+                        value: 70,
                     },
                 ),
             },
@@ -2432,9 +2432,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 86,
+                        value: 70,
                     },
                 ),
             },
@@ -2444,9 +2444,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 86,
+                        value: 70,
                     },
                 ),
             },
@@ -2456,9 +2456,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 86,
+                        value: 70,
                     },
                 ),
             },
@@ -2467,9 +2467,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 86,
+                        value: 70,
                     },
                 ),
             },
@@ -2477,9 +2477,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 1,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 86,
+                        value: 70,
                     },
                 ),
             },
@@ -2490,9 +2490,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 86,
+                        value: 70,
                     },
                 ),
             },
@@ -2503,25 +2503,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 86,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol: 1,
-                },
-                expr_page: ExprPage(
-                    Id {
-                        value: 86,
+                        value: 70,
                     },
                 ),
             },
@@ -2535,9 +2519,25 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 86,
+                        value: 70,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol: 1,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 70,
                     },
                 ),
             },
@@ -2570,9 +2570,9 @@ Ok(
                 current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 73,
+                        value: 57,
                     },
                 ),
             },
@@ -2604,9 +2604,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2636,9 +2636,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2646,9 +2646,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2662,9 +2662,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     6,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2677,9 +2677,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2689,9 +2689,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2703,9 +2703,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2715,9 +2715,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     6,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2727,9 +2727,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2740,9 +2740,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 3,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2752,9 +2752,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2769,9 +2769,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 4,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2784,9 +2784,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2796,9 +2796,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2824,9 +2824,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     6,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2838,9 +2838,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2852,9 +2852,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 5,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2867,9 +2867,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2879,9 +2879,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2894,9 +2894,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 6,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2906,9 +2906,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 4,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2925,9 +2925,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 7,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2937,9 +2937,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2949,9 +2949,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2964,9 +2964,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 8,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -2976,9 +2976,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3001,9 +3001,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3013,9 +3013,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     6,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3028,9 +3028,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 3,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3040,9 +3040,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     6,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3055,9 +3055,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3069,9 +3069,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3081,9 +3081,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3093,9 +3093,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3106,9 +3106,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 3,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3118,9 +3118,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     6,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3133,9 +3133,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3150,9 +3150,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 9,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3162,9 +3162,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 4,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3174,9 +3174,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3187,9 +3187,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 10,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3199,9 +3199,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3224,9 +3224,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3236,9 +3236,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 3,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3249,9 +3249,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 5,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3261,9 +3261,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 3,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3277,9 +3277,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3289,9 +3289,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3301,9 +3301,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 4,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3314,9 +3314,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 5,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3326,9 +3326,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 3,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3339,9 +3339,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3351,9 +3351,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 8,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3363,9 +3363,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     95,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3377,9 +3377,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 10,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3389,9 +3389,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3404,9 +3404,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 6,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3416,9 +3416,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3429,9 +3429,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     95,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3458,9 +3458,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 6,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },
@@ -3472,9 +3472,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     95,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 87,
+                        value: 71,
                     },
                 ),
             },

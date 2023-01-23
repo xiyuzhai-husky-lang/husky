@@ -19,7 +19,7 @@ Ok(
                                 ),
                             },
                             fields: [
-                                RegularStructFieldDecl {
+                                RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -39,7 +39,7 @@ Ok(
                                     },
                                     ty: 0,
                                 },
-                                RegularStructFieldDecl {
+                                RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -99,7 +99,7 @@ Ok(
                                 ),
                             },
                             fields: [
-                                RegularStructFieldDecl {
+                                RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -119,7 +119,7 @@ Ok(
                                     },
                                     ty: 0,
                                 },
-                                RegularStructFieldDecl {
+                                RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -179,7 +179,7 @@ Ok(
                                 ),
                             },
                             fields: [
-                                RegularStructFieldDecl {
+                                RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -199,7 +199,7 @@ Ok(
                                     },
                                     ty: 0,
                                 },
-                                RegularStructFieldDecl {
+                                RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -259,7 +259,7 @@ Ok(
                                 ),
                             },
                             fields: [
-                                RegularStructFieldDecl {
+                                RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -279,7 +279,7 @@ Ok(
                                     },
                                     ty: 0,
                                 },
-                                RegularStructFieldDecl {
+                                RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -348,7 +348,7 @@ Ok(
                                 ),
                             },
                             fields: [
-                                RegularStructFieldDecl {
+                                RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -368,7 +368,7 @@ Ok(
                                     },
                                     ty: 0,
                                 },
-                                RegularStructFieldDecl {
+                                RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
                                         ident: Identifier(
                                             Word(
