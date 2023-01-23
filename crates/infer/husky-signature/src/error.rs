@@ -6,6 +6,7 @@ use std::convert::Infallible;
 pub enum SignatureError {
     ExprError,
     TermError,
+    ParameterTypeTermError(u8),
 }
 
 impl<Db: ?Sized + SignatureDb> salsa::DebugWithDb<Db> for SignatureError {
@@ -15,7 +16,7 @@ impl<Db: ?Sized + SignatureDb> salsa::DebugWithDb<Db> for SignatureError {
         db: &Db,
         include_all_fields: bool,
     ) -> std::fmt::Result {
-        todo!()
+        <Self as std::fmt::Debug>::fmt(&self, f)
     }
 }
 

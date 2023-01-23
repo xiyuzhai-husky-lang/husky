@@ -105,11 +105,16 @@ impl ParameterSignatures {
         Ok(Self {
             parameters: parameters
                 .iter()
-                .map(|parameter| {
+                .enumerate()
+                .map(|(i, parameter)| {
                     let ty = parameter.ty();
                     let ty = match sheet.expr_term(ty) {
                         Ok(ty) => ty,
-                        Err(_) => todo!(),
+                        Err(_) => {
+                            return Err(SignatureError::ParameterTypeTermError(
+                                i.try_into().unwrap(),
+                            ))
+                        }
                     };
                     Ok(ParameterSignature {
                         pattern: ParameterSignaturePattern {},
