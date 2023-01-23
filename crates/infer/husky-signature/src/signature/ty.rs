@@ -21,17 +21,26 @@ pub use unit_struct_ty::*;
 use super::*;
 use salsa::DbWithJar;
 
-pub(crate) fn ty_signature(db: &dyn SignatureDb, decl: TypeDecl) -> TypeSignature {
+pub(crate) fn ty_signature(
+    db: &dyn SignatureDb,
+    decl: TypeDecl,
+) -> SignatureOutcomeBorrowed<TypeSignature> {
     match decl {
-        TypeDecl::Enum(decl) => enum_ty_signature(db, decl).into(),
-        TypeDecl::RegularStruct(decl) => regular_struct_ty_signature(db, decl).into(),
-        TypeDecl::UnitStruct(decl) => unit_struct_ty_signature(db, decl).into(),
-        TypeDecl::TupleStruct(decl) => tuple_struct_ty_signature(db, decl).into(),
-        TypeDecl::Record(decl) => record_ty_signature(db, decl).into(),
-        TypeDecl::Inductive(decl) => inductive_ty_signature(db, decl).into(),
-        TypeDecl::Structure(decl) => structure_ty_signature(db, decl).into(),
-        TypeDecl::Foreign(decl) => alien_ty_signature(db, decl).into(),
-        TypeDecl::Union(decl) => union_ty_signature(db, decl).into(),
+        TypeDecl::Enum(decl) => enum_ty_signature(db, decl).ok_copy_into_abort_as_ref(),
+        TypeDecl::RegularStruct(decl) => {
+            regular_struct_ty_signature(db, decl).ok_copy_into_abort_as_ref()
+        }
+        TypeDecl::UnitStruct(decl) => {
+            unit_struct_ty_signature(db, decl).ok_copy_into_abort_as_ref()
+        }
+        TypeDecl::TupleStruct(decl) => {
+            tuple_struct_ty_signature(db, decl).ok_copy_into_abort_as_ref()
+        }
+        TypeDecl::Record(decl) => record_ty_signature(db, decl).ok_copy_into_abort_as_ref(),
+        TypeDecl::Inductive(decl) => inductive_ty_signature(db, decl).ok_copy_into_abort_as_ref(),
+        TypeDecl::Structure(decl) => structure_ty_signature(db, decl).ok_copy_into_abort_as_ref(),
+        TypeDecl::Foreign(decl) => alien_ty_signature(db, decl).ok_copy_into_abort_as_ref(),
+        TypeDecl::Union(decl) => union_ty_signature(db, decl).ok_copy_into_abort_as_ref(),
     }
 }
 

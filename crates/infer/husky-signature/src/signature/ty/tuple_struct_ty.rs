@@ -1,20 +1,20 @@
 use super::*;
 use husky_word::Identifier;
 
-#[salsa::tracked(jar = SignatureJar)]
+#[salsa::tracked(jar = SignatureJar,return_ref)]
 pub fn tuple_struct_ty_signature(
     db: &dyn SignatureDb,
     decl: TupleStructTypeDecl,
-) -> TupleStructTypeSignature {
+) -> SignatureOutcome<TupleStructTypeSignature> {
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);
     let term_menu = db.term_menu(expr_region.toolchain(db)).as_ref().unwrap();
-    TupleStructTypeSignature::new(
+    Success(TupleStructTypeSignature::new(
         db,
         // ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), signature_term_region),
         todo!(),
         todo!(),
-    )
+    ))
 }
 
 #[salsa::interned(jar = SignatureJar)]

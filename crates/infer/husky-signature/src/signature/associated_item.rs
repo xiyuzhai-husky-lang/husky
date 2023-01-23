@@ -11,12 +11,14 @@ use super::*;
 pub(crate) fn associated_item_signature(
     db: &dyn SignatureDb,
     decl: AssociatedItemDecl,
-) -> AssociatedItemSignature {
+) -> SignatureOutcomeBorrowed<AssociatedItemSignature> {
     match decl {
-        AssociatedItemDecl::TypeItem(decl) => ty_associated_item_signature(db, decl).into(),
-        AssociatedItemDecl::TraitItem(decl) => trai_associated_item_signature(db, decl).into(),
+        AssociatedItemDecl::TypeItem(decl) => ty_associated_item_signature(db, decl).ok_copy_into(),
+        AssociatedItemDecl::TraitItem(decl) => {
+            trai_associated_item_signature(db, decl).ok_copy_into()
+        }
         AssociatedItemDecl::TypeAsTraitItem(decl) => {
-            ty_as_trai_associated_item_signature(db, decl).into()
+            ty_as_trai_associated_item_signature(db, decl).ok_copy_into()
         } // TypeDecl::Enum(decl) => enum_ty_signature(db, decl).into(),
     }
 }

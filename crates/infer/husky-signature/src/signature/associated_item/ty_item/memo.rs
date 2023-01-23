@@ -1,7 +1,10 @@
 use crate::*;
 
-#[salsa::tracked(jar = SignatureJar)]
-pub(crate) fn ty_memo_signature(db: &dyn SignatureDb, decl: TypeMemoDecl) -> TypeMemoSignature {
+#[salsa::tracked(jar = SignatureJar,return_ref)]
+pub(crate) fn ty_memo_signature(
+    db: &dyn SignatureDb,
+    decl: TypeMemoDecl,
+) -> SignatureOutcome<TypeMemoSignature> {
     let impl_block = decl.associated_item(db).impl_block(db);
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);

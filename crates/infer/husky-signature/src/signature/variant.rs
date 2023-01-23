@@ -8,7 +8,10 @@ pub use unit::*;
 
 use super::*;
 
-pub(crate) fn variant_signature(db: &dyn SignatureDb, decl: VariantDecl) -> VariantSignature {
+pub(crate) fn variant_signature(
+    db: &dyn SignatureDb,
+    decl: VariantDecl,
+) -> SignatureOutcomeBorrowed<VariantSignature> {
     match decl {
         VariantDecl::Props(_) => todo!(),
         VariantDecl::Unit(_) => todo!(),

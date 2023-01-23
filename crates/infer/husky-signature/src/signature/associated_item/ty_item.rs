@@ -15,13 +15,19 @@ use crate::*;
 pub(crate) fn ty_associated_item_signature(
     db: &dyn SignatureDb,
     decl: TypeItemDecl,
-) -> TypeItemSignature {
+) -> SignatureOutcomeBorrowed<TypeItemSignature> {
     match decl {
-        TypeItemDecl::Function(decl) => ty_associated_function_signature(db, decl).into(),
-        TypeItemDecl::Method(decl) => ty_method_signature(db, decl).into(),
-        TypeItemDecl::AlienType(decl) => ty_associated_ty_signature(db, decl).into(),
-        TypeItemDecl::Value(decl) => ty_associated_value_signature(db, decl).into(),
-        TypeItemDecl::Memo(decl) => ty_memo_signature(db, decl).into(),
+        TypeItemDecl::Function(decl) => {
+            ty_associated_function_signature(db, decl).ok_copy_into_abort_as_ref()
+        }
+        TypeItemDecl::Method(decl) => ty_method_signature(db, decl).ok_copy_into_abort_as_ref(),
+        TypeItemDecl::AlienType(decl) => {
+            ty_associated_ty_signature(db, decl).ok_copy_into_abort_as_ref()
+        }
+        TypeItemDecl::Value(decl) => {
+            ty_associated_value_signature(db, decl).ok_copy_into_abort_as_ref()
+        }
+        TypeItemDecl::Memo(decl) => ty_memo_signature(db, decl).ok_copy_into_abort_as_ref(),
         // ImplBlockDecl::TypeImplBlock(decl) => ty_impl_block_signature(db, decl).into(),
         // ImplBlockDecl::TypeAsTraitImplBlock(decl) => ty_as_trai_impl_block_signature(db, decl).into(),
         // TypeDecl::Union(decl) => union_ty_signature(db, decl).into(),
