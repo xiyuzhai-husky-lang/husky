@@ -473,9 +473,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 4,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 102,
+                        value: 86,
                     },
                 ),
             },
@@ -598,9 +598,9 @@ Ok(
                 current_symbol_kind: Parameter {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 84,
                     },
                 ),
             },
@@ -642,9 +642,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 103,
+                        value: 87,
                     },
                 ),
             },
@@ -661,9 +661,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 103,
+                        value: 87,
                     },
                 ),
             },
@@ -681,9 +681,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 103,
+                        value: 87,
                     },
                 ),
             },
@@ -700,9 +700,9 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: Parameter,
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 103,
+                        value: 87,
                     },
                 ),
             },

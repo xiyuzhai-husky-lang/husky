@@ -28,7 +28,7 @@ Ok(
                                 ),
                             },
                             fields: [
-                                RegularStructFieldDecl {
+                                RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
                                         ident: Identifier(
                                             Word(
@@ -48,7 +48,7 @@ Ok(
                                     },
                                     ty: 1,
                                 },
-                                RegularStructFieldDecl {
+                                RegularStructFieldPattern {
                                     ident_token: IdentifierToken {
                                         ident: Identifier(
                                             Word(

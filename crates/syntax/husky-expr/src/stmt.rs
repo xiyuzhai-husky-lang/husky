@@ -17,7 +17,7 @@ pub type StmtMap<V> = ArenaMap<Stmt, V>;
 pub enum Stmt {
     Let {
         let_token: LetToken,
-        let_variable_pattern: ExprResult<LetVariablePattern>,
+        let_variable_pattern: ExprResult<LetVariablesPattern>,
         assign_token: ExprResult<AssignToken>,
         initial_value: ExprResult<ExprIdx>,
     },

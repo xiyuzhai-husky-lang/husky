@@ -9,12 +9,14 @@ pub(crate) fn ty_memo_signature(
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);
     let term_menu = db.term_menu(expr_region.toolchain(db)).as_ref().unwrap();
-    todo!()
-    // let output_ty = match decl.output_ty(db) {
-    //     Ok(output_ty) => engine.query_new(*output_ty),
-    //     Err(_) =>  Err(SignatureTermAbortion::ExprError),
-    // };
-    // TypeMemoSignature::new(db, output_ty, engine.finish())
+    let output_ty = match decl.output_ty(db) {
+        Ok(output_ty) => match signature_term_region.expr_term(output_ty.expr()) {
+            Ok(output_ty) => output_ty,
+            Err(_) => return Err(SignatureError::OutputTypeTermError),
+        },
+        Err(_) => return Err(todo!()),
+    };
+    Ok(TypeMemoSignature::new(db, output_ty))
 }
 
 #[salsa::interned(jar = SignatureJar)]

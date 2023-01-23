@@ -88,6 +88,10 @@ pub enum ExprError {
         token_idx: TokenIdx,
         ident: Identifier,
     },
+    #[error("missing let variables type")]
+    MissingLetVariablesType(TokenIdx),
+    #[error("missing field type")]
+    MissingFieldType(TokenIdx),
 }
 
 pub type ExprResult<T> = Result<T, ExprError>;
@@ -126,7 +130,7 @@ where
     }
 }
 
-impl<'a, Context> FromAbsent<LetVariablePattern, Context> for ExprError
+impl<'a, Context> FromAbsent<LetVariablesPattern, Context> for ExprError
 where
     Context: TokenParseContext<'a>,
 {

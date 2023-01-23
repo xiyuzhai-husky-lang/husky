@@ -1,21 +1,21 @@
 [
-    Type(
-        RegularStruct(
-            RegularStructTypeSignature {
-                implicit_parameters: ImplicitParameterSignatures {
-                    parameters: [],
-                },
-                fields: [
-                    RegularStructFieldSignature {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 169,
-                                },
+    Ok(
+        Type(
+            RegularStruct(
+                RegularStructTypeSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        parameters: [],
+                    },
+                    fields: [
+                        RegularStructFieldSignature {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 169,
+                                    },
+                                ),
                             ),
-                        ),
-                        ty: Success(
-                            Entity(
+                            ty: Entity(
                                 ModuleItem(
                                     Type(
                                         TypePath(
@@ -26,64 +26,49 @@
                                     ),
                                 ),
                             ),
-                        ),
-                    },
-                    RegularStructFieldSignature {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 170,
-                                },
-                            ),
-                        ),
-                        ty: Success(
-                            Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    },
-                ],
-                term_sheet: SignatureTermSheet {
-                    term_symbol_page: TermSymbolPage {
-                        registry: TermSymbolRegistry {
-                            next_ty0: 0,
-                            next_lifetime: 0,
-                            next_binding: 0,
-                            next_usize: 0,
-                            next_parameter: 0,
                         },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
+                        RegularStructFieldSignature {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 170,
+                                    },
+                                ),
+                            ),
+                            ty: Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 13,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
                 },
-            },
+            ),
         ),
     ),
-    Type(
-        RegularStruct(
-            RegularStructTypeSignature {
-                implicit_parameters: ImplicitParameterSignatures {
-                    parameters: [],
-                },
-                fields: [
-                    RegularStructFieldSignature {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 169,
-                                },
+    Ok(
+        Type(
+            RegularStruct(
+                RegularStructTypeSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        parameters: [],
+                    },
+                    fields: [
+                        RegularStructFieldSignature {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 169,
+                                    },
+                                ),
                             ),
-                        ),
-                        ty: Success(
-                            Entity(
+                            ty: Entity(
                                 ModuleItem(
                                     Type(
                                         TypePath(
@@ -94,64 +79,49 @@
                                     ),
                                 ),
                             ),
-                        ),
-                    },
-                    RegularStructFieldSignature {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 170,
-                                },
-                            ),
-                        ),
-                        ty: Success(
-                            Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    },
-                ],
-                term_sheet: SignatureTermSheet {
-                    term_symbol_page: TermSymbolPage {
-                        registry: TermSymbolRegistry {
-                            next_ty0: 0,
-                            next_lifetime: 0,
-                            next_binding: 0,
-                            next_usize: 0,
-                            next_parameter: 0,
                         },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
+                        RegularStructFieldSignature {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 170,
+                                    },
+                                ),
+                            ),
+                            ty: Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 13,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
                 },
-            },
+            ),
         ),
     ),
-    Type(
-        RegularStruct(
-            RegularStructTypeSignature {
-                implicit_parameters: ImplicitParameterSignatures {
-                    parameters: [],
-                },
-                fields: [
-                    RegularStructFieldSignature {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 169,
-                                },
+    Ok(
+        Type(
+            RegularStruct(
+                RegularStructTypeSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        parameters: [],
+                    },
+                    fields: [
+                        RegularStructFieldSignature {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 169,
+                                    },
+                                ),
                             ),
-                        ),
-                        ty: Success(
-                            Entity(
+                            ty: Entity(
                                 ModuleItem(
                                     Type(
                                         TypePath(
@@ -162,64 +132,49 @@
                                     ),
                                 ),
                             ),
-                        ),
-                    },
-                    RegularStructFieldSignature {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 170,
-                                },
-                            ),
-                        ),
-                        ty: Success(
-                            Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    },
-                ],
-                term_sheet: SignatureTermSheet {
-                    term_symbol_page: TermSymbolPage {
-                        registry: TermSymbolRegistry {
-                            next_ty0: 0,
-                            next_lifetime: 0,
-                            next_binding: 0,
-                            next_usize: 0,
-                            next_parameter: 0,
                         },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
+                        RegularStructFieldSignature {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 170,
+                                    },
+                                ),
+                            ),
+                            ty: Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 13,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
                 },
-            },
+            ),
         ),
     ),
-    Type(
-        RegularStruct(
-            RegularStructTypeSignature {
-                implicit_parameters: ImplicitParameterSignatures {
-                    parameters: [],
-                },
-                fields: [
-                    RegularStructFieldSignature {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 195,
-                                },
+    Ok(
+        Type(
+            RegularStruct(
+                RegularStructTypeSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        parameters: [],
+                    },
+                    fields: [
+                        RegularStructFieldSignature {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 195,
+                                    },
+                                ),
                             ),
-                        ),
-                        ty: Success(
-                            Entity(
+                            ty: Entity(
                                 ModuleItem(
                                     Type(
                                         TypePath(
@@ -230,64 +185,49 @@
                                     ),
                                 ),
                             ),
-                        ),
-                    },
-                    RegularStructFieldSignature {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 153,
-                                },
-                            ),
-                        ),
-                        ty: Success(
-                            Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    },
-                ],
-                term_sheet: SignatureTermSheet {
-                    term_symbol_page: TermSymbolPage {
-                        registry: TermSymbolRegistry {
-                            next_ty0: 0,
-                            next_lifetime: 0,
-                            next_binding: 0,
-                            next_usize: 0,
-                            next_parameter: 0,
                         },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
+                        RegularStructFieldSignature {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 153,
+                                    },
+                                ),
+                            ),
+                            ty: Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 13,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
                 },
-            },
+            ),
         ),
     ),
-    Type(
-        RegularStruct(
-            RegularStructTypeSignature {
-                implicit_parameters: ImplicitParameterSignatures {
-                    parameters: [],
-                },
-                fields: [
-                    RegularStructFieldSignature {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 281,
-                                },
+    Ok(
+        Type(
+            RegularStruct(
+                RegularStructTypeSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        parameters: [],
+                    },
+                    fields: [
+                        RegularStructFieldSignature {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 281,
+                                    },
+                                ),
                             ),
-                        ),
-                        ty: Success(
-                            Entity(
+                            ty: Entity(
                                 ModuleItem(
                                     Type(
                                         TypePath(
@@ -298,18 +238,16 @@
                                     ),
                                 ),
                             ),
-                        ),
-                    },
-                    RegularStructFieldSignature {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 282,
-                                },
+                        },
+                        RegularStructFieldSignature {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 282,
+                                    },
+                                ),
                             ),
-                        ),
-                        ty: Success(
-                            Entity(
+                            ty: Entity(
                                 ModuleItem(
                                     Type(
                                         TypePath(
@@ -320,70 +258,39 @@
                                     ),
                                 ),
                             ),
-                        ),
-                    },
-                ],
-                term_sheet: SignatureTermSheet {
-                    term_symbol_page: TermSymbolPage {
-                        registry: TermSymbolRegistry {
-                            next_ty0: 0,
-                            next_lifetime: 0,
-                            next_binding: 0,
-                            next_usize: 0,
-                            next_parameter: 0,
                         },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
+                    ],
                 },
-            },
+            ),
         ),
     ),
-    ImplBlock(
-        TypeImplBlock(
-            TypeImplBlockSignature {
-                ty: Success(
-                    Entity(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 31,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                term_sheet: SignatureTermSheet {
-                    term_symbol_page: TermSymbolPage {
-                        registry: TermSymbolRegistry {
-                            next_ty0: 0,
-                            next_lifetime: 0,
-                            next_binding: 0,
-                            next_usize: 0,
-                            next_parameter: 0,
-                        },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
-                },
-            },
-        ),
-    ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
+    Ok(
+        ImplBlock(
+            TypeImplBlock(
+                TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         parameters: [],
                     },
-                    parameters: ParameterSignatures {
-                        parameters: [
-                            ParameterSignature {
-                                pattern: ParameterSignaturePattern,
-                                ty: Success(
-                                    Entity(
+                    ty: Entity(
+                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                    ),
+                },
+            ),
+        ),
+    ),
+    Ok(
+        AssociatedItem(
+            TypeItem(
+                Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            parameters: [],
+                        },
+                        parameters: ParameterSignatures {
+                            parameters: [
+                                ParameterSignature {
+                                    pattern: ParameterSignaturePattern,
+                                    ty: Entity(
                                         ModuleItem(
                                             Type(
                                                 TypePath(
@@ -394,12 +301,10 @@
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
-                            ParameterSignature {
-                                pattern: ParameterSignaturePattern,
-                                ty: Success(
-                                    Entity(
+                                },
+                                ParameterSignature {
+                                    pattern: ParameterSignaturePattern,
+                                    ty: Entity(
                                         ModuleItem(
                                             Type(
                                                 TypePath(
@@ -410,102 +315,49 @@
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
-                        ],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 31,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 2,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [
-                                TermSymbol {
-                                    idx: 0,
-                                    kind: Parameter,
-                                },
-                                TermSymbol {
-                                    idx: 1,
-                                    kind: Parameter,
                                 },
                             ],
                         },
-                    },
-                },
-            ),
-        ),
-    ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
-                    },
-                    parameters: ParameterSignatures {
-                        parameters: [],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
+                        output_ty: Entity(
+                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                         ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 0,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [],
-                        },
                     },
-                },
+                ),
             ),
         ),
     ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+    Ok(
+        AssociatedItem(
+            TypeItem(
+                Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            parameters: [],
+                        },
+                        parameters: ParameterSignatures {
+                            parameters: [],
+                        },
+                        output_ty: Entity(
+                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                        ),
                     },
-                    parameters: ParameterSignatures {
-                        parameters: [
-                            ParameterSignature {
-                                pattern: ParameterSignaturePattern,
-                                ty: Success(
-                                    Entity(
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        AssociatedItem(
+            TypeItem(
+                Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            parameters: [],
+                        },
+                        parameters: ParameterSignatures {
+                            parameters: [
+                                ParameterSignature {
+                                    pattern: ParameterSignaturePattern,
+                                    ty: Entity(
                                         ModuleItem(
                                             Type(
                                                 TypePath(
@@ -516,98 +368,49 @@
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
-                        ],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 1,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [
-                                TermSymbol {
-                                    idx: 0,
-                                    kind: Parameter,
                                 },
                             ],
                         },
-                    },
-                },
-            ),
-        ),
-    ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
-                    },
-                    parameters: ParameterSignatures {
-                        parameters: [],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
-                            ),
+                        output_ty: Entity(
+                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 0,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [],
-                        },
                     },
-                },
+                ),
             ),
         ),
     ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+    Ok(
+        AssociatedItem(
+            TypeItem(
+                Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            parameters: [],
+                        },
+                        parameters: ParameterSignatures {
+                            parameters: [],
+                        },
+                        output_ty: Entity(
+                            TypePath(`core::num::f32`, `Alien`),
+                        ),
                     },
-                    parameters: ParameterSignatures {
-                        parameters: [
-                            ParameterSignature {
-                                pattern: ParameterSignaturePattern,
-                                ty: Success(
-                                    Entity(
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        AssociatedItem(
+            TypeItem(
+                Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            parameters: [],
+                        },
+                        parameters: ParameterSignatures {
+                            parameters: [
+                                ParameterSignature {
+                                    pattern: ParameterSignaturePattern,
+                                    ty: Entity(
                                         ModuleItem(
                                             Type(
                                                 TypePath(
@@ -618,130 +421,63 @@
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
-                        ],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 1,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [
-                                TermSymbol {
-                                    idx: 0,
-                                    kind: Parameter,
                                 },
                             ],
                         },
-                    },
-                },
-            ),
-        ),
-    ),
-    ImplBlock(
-        TypeImplBlock(
-            TypeImplBlockSignature {
-                ty: Success(
-                    Entity(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 33,
-                                    },
-                                ),
-                            ),
+                        output_ty: Entity(
+                            TypePath(`core::num::f32`, `Alien`),
                         ),
-                    ),
+                    },
                 ),
-                term_sheet: SignatureTermSheet {
-                    term_symbol_page: TermSymbolPage {
-                        registry: TermSymbolRegistry {
-                            next_ty0: 0,
-                            next_lifetime: 0,
-                            next_binding: 0,
-                            next_usize: 0,
-                            next_parameter: 0,
-                        },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
-                },
-            },
+            ),
         ),
     ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
+    Ok(
+        ImplBlock(
+            TypeImplBlock(
+                TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         parameters: [],
                     },
-                    parameters: ParameterSignatures {
-                        parameters: [],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 31,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
+                    ty: Entity(
+                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 0,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [],
-                        },
-                    },
                 },
             ),
         ),
     ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+    Ok(
+        AssociatedItem(
+            TypeItem(
+                Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            parameters: [],
+                        },
+                        parameters: ParameterSignatures {
+                            parameters: [],
+                        },
+                        output_ty: Entity(
+                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                        ),
                     },
-                    parameters: ParameterSignatures {
-                        parameters: [
-                            ParameterSignature {
-                                pattern: ParameterSignaturePattern,
-                                ty: Success(
-                                    Entity(
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        AssociatedItem(
+            TypeItem(
+                Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            parameters: [],
+                        },
+                        parameters: ParameterSignatures {
+                            parameters: [
+                                ParameterSignature {
+                                    pattern: ParameterSignaturePattern,
+                                    ty: Entity(
                                         ModuleItem(
                                             Type(
                                                 TypePath(
@@ -752,98 +488,49 @@
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
-                        ],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 1,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [
-                                TermSymbol {
-                                    idx: 0,
-                                    kind: Parameter,
                                 },
                             ],
                         },
-                    },
-                },
-            ),
-        ),
-    ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
-                    },
-                    parameters: ParameterSignatures {
-                        parameters: [],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
-                            ),
+                        output_ty: Entity(
+                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 0,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [],
-                        },
                     },
-                },
+                ),
             ),
         ),
     ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+    Ok(
+        AssociatedItem(
+            TypeItem(
+                Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            parameters: [],
+                        },
+                        parameters: ParameterSignatures {
+                            parameters: [],
+                        },
+                        output_ty: Entity(
+                            TypePath(`core::num::f32`, `Alien`),
+                        ),
                     },
-                    parameters: ParameterSignatures {
-                        parameters: [
-                            ParameterSignature {
-                                pattern: ParameterSignaturePattern,
-                                ty: Success(
-                                    Entity(
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        AssociatedItem(
+            TypeItem(
+                Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            parameters: [],
+                        },
+                        parameters: ParameterSignatures {
+                            parameters: [
+                                ParameterSignature {
+                                    pattern: ParameterSignaturePattern,
+                                    ty: Entity(
                                         ModuleItem(
                                             Type(
                                                 TypePath(
@@ -854,58 +541,30 @@
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
-                        ],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 1,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [
-                                TermSymbol {
-                                    idx: 0,
-                                    kind: Parameter,
                                 },
                             ],
                         },
+                        output_ty: Entity(
+                            TypePath(`core::num::f32`, `Alien`),
+                        ),
                     },
-                },
+                ),
             ),
         ),
     ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
-                    },
-                    parameters: ParameterSignatures {
-                        parameters: [
-                            ParameterSignature {
-                                pattern: ParameterSignaturePattern,
-                                ty: Success(
-                                    Entity(
+    Ok(
+        AssociatedItem(
+            TypeItem(
+                Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            parameters: [],
+                        },
+                        parameters: ParameterSignatures {
+                            parameters: [
+                                ParameterSignature {
+                                    pattern: ParameterSignaturePattern,
+                                    ty: Entity(
                                         ModuleItem(
                                             Type(
                                                 TypePath(
@@ -916,58 +575,30 @@
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
-                        ],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 1,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [
-                                TermSymbol {
-                                    idx: 0,
-                                    kind: Parameter,
                                 },
                             ],
                         },
+                        output_ty: Entity(
+                            TypePath(`core::num::f32`, `Alien`),
+                        ),
                     },
-                },
+                ),
             ),
         ),
     ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
-                    },
-                    parameters: ParameterSignatures {
-                        parameters: [
-                            ParameterSignature {
-                                pattern: ParameterSignaturePattern,
-                                ty: Success(
-                                    Entity(
+    Ok(
+        AssociatedItem(
+            TypeItem(
+                Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            parameters: [],
+                        },
+                        parameters: ParameterSignatures {
+                            parameters: [
+                                ParameterSignature {
+                                    pattern: ParameterSignaturePattern,
+                                    ty: Entity(
                                         ModuleItem(
                                             Type(
                                                 TypePath(
@@ -978,58 +609,30 @@
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
-                        ],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 1,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [
-                                TermSymbol {
-                                    idx: 0,
-                                    kind: Parameter,
                                 },
                             ],
                         },
+                        output_ty: Entity(
+                            TypePath(`core::num::f32`, `Alien`),
+                        ),
                     },
-                },
+                ),
             ),
         ),
     ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
-                    },
-                    parameters: ParameterSignatures {
-                        parameters: [
-                            ParameterSignature {
-                                pattern: ParameterSignaturePattern,
-                                ty: Success(
-                                    Entity(
+    Ok(
+        AssociatedItem(
+            TypeItem(
+                Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            parameters: [],
+                        },
+                        parameters: ParameterSignatures {
+                            parameters: [
+                                ParameterSignature {
+                                    pattern: ParameterSignaturePattern,
+                                    ty: Entity(
                                         ModuleItem(
                                             Type(
                                                 TypePath(
@@ -1040,58 +643,30 @@
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
-                        ],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 9,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 1,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [
-                                TermSymbol {
-                                    idx: 0,
-                                    kind: Parameter,
                                 },
                             ],
                         },
+                        output_ty: Entity(
+                            TypePath(`core::num::i32`, `Alien`),
+                        ),
                     },
-                },
+                ),
             ),
         ),
     ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
-                    },
-                    parameters: ParameterSignatures {
-                        parameters: [
-                            ParameterSignature {
-                                pattern: ParameterSignaturePattern,
-                                ty: Success(
-                                    Entity(
+    Ok(
+        AssociatedItem(
+            TypeItem(
+                Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            parameters: [],
+                        },
+                        parameters: ParameterSignatures {
+                            parameters: [
+                                ParameterSignature {
+                                    pattern: ParameterSignaturePattern,
+                                    ty: Entity(
                                         ModuleItem(
                                             Type(
                                                 TypePath(
@@ -1102,12 +677,10 @@
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
-                            ParameterSignature {
-                                pattern: ParameterSignaturePattern,
-                                ty: Success(
-                                    Entity(
+                                },
+                                ParameterSignature {
+                                    pattern: ParameterSignaturePattern,
+                                    ty: Entity(
                                         ModuleItem(
                                             Type(
                                                 TypePath(
@@ -1118,218 +691,44 @@
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
-                        ],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 2,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [
-                                TermSymbol {
-                                    idx: 0,
-                                    kind: Parameter,
-                                },
-                                TermSymbol {
-                                    idx: 1,
-                                    kind: Parameter,
                                 },
                             ],
                         },
-                    },
-                },
-            ),
-        ),
-    ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
-                    },
-                    parameters: ParameterSignatures {
-                        parameters: [
-                            ParameterSignature {
-                                pattern: ParameterSignaturePattern,
-                                ty: Success(
-                                    Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 34,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 34,
-                                        },
-                                    ),
-                                ),
-                            ),
+                        output_ty: Entity(
+                            TypePath(`core::num::f32`, `Alien`),
                         ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 1,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [
-                                TermSymbol {
-                                    idx: 0,
-                                    kind: Parameter,
-                                },
-                            ],
-                        },
                     },
-                },
-            ),
-        ),
-    ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
-                    },
-                    parameters: ParameterSignatures {
-                        parameters: [
-                            ParameterSignature {
-                                pattern: ParameterSignaturePattern,
-                                ty: Success(
-                                    Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 1,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [
-                                TermSymbol {
-                                    idx: 0,
-                                    kind: Parameter,
-                                },
-                            ],
-                        },
-                    },
-                },
-            ),
-        ),
-    ),
-    ImplBlock(
-        TypeImplBlock(
-            TypeImplBlockSignature {
-                ty: Success(
-                    Entity(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 35,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
                 ),
-                term_sheet: SignatureTermSheet {
-                    term_symbol_page: TermSymbolPage {
-                        registry: TermSymbolRegistry {
-                            next_ty0: 0,
-                            next_lifetime: 0,
-                            next_binding: 0,
-                            next_usize: 0,
-                            next_parameter: 0,
-                        },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
-                },
-            },
+            ),
         ),
     ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
+    Ok(
+        ImplBlock(
+            TypeImplBlock(
+                TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         parameters: [],
                     },
-                    parameters: ParameterSignatures {
-                        parameters: [
-                            ParameterSignature {
-                                pattern: ParameterSignaturePattern,
-                                ty: Success(
-                                    Entity(
+                    ty: Entity(
+                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                    ),
+                },
+            ),
+        ),
+    ),
+    Ok(
+        AssociatedItem(
+            TypeItem(
+                Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            parameters: [],
+                        },
+                        parameters: ParameterSignatures {
+                            parameters: [
+                                ParameterSignature {
+                                    pattern: ParameterSignaturePattern,
+                                    ty: Entity(
                                         ModuleItem(
                                             Type(
                                                 TypePath(
@@ -1340,58 +739,30 @@
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
-                        ],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 36,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 1,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [
-                                TermSymbol {
-                                    idx: 0,
-                                    kind: Parameter,
                                 },
                             ],
                         },
+                        output_ty: Entity(
+                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                        ),
                     },
-                },
+                ),
             ),
         ),
     ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
-                    },
-                    parameters: ParameterSignatures {
-                        parameters: [
-                            ParameterSignature {
-                                pattern: ParameterSignaturePattern,
-                                ty: Success(
-                                    Entity(
+    Ok(
+        AssociatedItem(
+            TypeItem(
+                Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            parameters: [],
+                        },
+                        parameters: ParameterSignatures {
+                            parameters: [
+                                ParameterSignature {
+                                    pattern: ParameterSignaturePattern,
+                                    ty: Entity(
                                         ModuleItem(
                                             Type(
                                                 TypePath(
@@ -1402,394 +773,180 @@
                                             ),
                                         ),
                                     ),
-                                ),
-                            },
-                        ],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 32,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 1,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [
-                                TermSymbol {
-                                    idx: 0,
-                                    kind: Parameter,
                                 },
                             ],
                         },
-                    },
-                },
-            ),
-        ),
-    ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
-                    },
-                    parameters: ParameterSignatures {
-                        parameters: [],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
-                            ),
+                        output_ty: Entity(
+                            TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                         ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 0,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [],
-                        },
                     },
-                },
-            ),
-        ),
-    ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
-                    },
-                    parameters: ParameterSignatures {
-                        parameters: [],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 0,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [],
-                        },
-                    },
-                },
-            ),
-        ),
-    ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
-                    },
-                    parameters: ParameterSignatures {
-                        parameters: [],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 0,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [],
-                        },
-                    },
-                },
-            ),
-        ),
-    ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
-                    },
-                    parameters: ParameterSignatures {
-                        parameters: [],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 0,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [],
-                        },
-                    },
-                },
-            ),
-        ),
-    ),
-    ImplBlock(
-        TypeImplBlock(
-            TypeImplBlockSignature {
-                ty: Success(
-                    Entity(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 36,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
                 ),
-                term_sheet: SignatureTermSheet {
-                    term_symbol_page: TermSymbolPage {
-                        registry: TermSymbolRegistry {
-                            next_ty0: 0,
-                            next_lifetime: 0,
-                            next_binding: 0,
-                            next_usize: 0,
-                            next_parameter: 0,
-                        },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [],
-                    },
-                },
-            },
+            ),
         ),
     ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
+    Ok(
+        AssociatedItem(
+            TypeItem(
+                Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            parameters: [],
+                        },
+                        parameters: ParameterSignatures {
+                            parameters: [],
+                        },
+                        output_ty: Entity(
+                            TypePath(`core::num::f32`, `Alien`),
+                        ),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        AssociatedItem(
+            TypeItem(
+                Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            parameters: [],
+                        },
+                        parameters: ParameterSignatures {
+                            parameters: [],
+                        },
+                        output_ty: Entity(
+                            TypePath(`core::num::f32`, `Alien`),
+                        ),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        AssociatedItem(
+            TypeItem(
+                Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            parameters: [],
+                        },
+                        parameters: ParameterSignatures {
+                            parameters: [],
+                        },
+                        output_ty: Entity(
+                            TypePath(`core::num::f32`, `Alien`),
+                        ),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        AssociatedItem(
+            TypeItem(
+                Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            parameters: [],
+                        },
+                        parameters: ParameterSignatures {
+                            parameters: [],
+                        },
+                        output_ty: Entity(
+                            TypePath(`core::num::f32`, `Alien`),
+                        ),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        ImplBlock(
+            TypeImplBlock(
+                TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         parameters: [],
                     },
-                    parameters: ParameterSignatures {
-                        parameters: [],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
+                    ty: Entity(
+                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                     ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 0,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [],
-                        },
-                    },
                 },
             ),
         ),
     ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
-                    },
-                    parameters: ParameterSignatures {
-                        parameters: [],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 0,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [],
+    Ok(
+        AssociatedItem(
+            TypeItem(
+                Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            parameters: [],
                         },
+                        parameters: ParameterSignatures {
+                            parameters: [],
+                        },
+                        output_ty: Entity(
+                            TypePath(`core::num::f32`, `Alien`),
+                        ),
                     },
-                },
+                ),
             ),
         ),
     ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
-                    },
-                    parameters: ParameterSignatures {
-                        parameters: [],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 0,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [],
+    Ok(
+        AssociatedItem(
+            TypeItem(
+                Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            parameters: [],
                         },
+                        parameters: ParameterSignatures {
+                            parameters: [],
+                        },
+                        output_ty: Entity(
+                            TypePath(`core::num::f32`, `Alien`),
+                        ),
                     },
-                },
+                ),
             ),
         ),
     ),
-    AssociatedItem(
-        TypeItem(
-            Method(
-                TypeMethodSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
-                    },
-                    parameters: ParameterSignatures {
-                        parameters: [],
-                    },
-                    output_ty: Success(
-                        Entity(
-                            ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                    term_sheet: SignatureTermSheet {
-                        term_symbol_page: TermSymbolPage {
-                            registry: TermSymbolRegistry {
-                                next_ty0: 0,
-                                next_lifetime: 0,
-                                next_binding: 0,
-                                next_usize: 0,
-                                next_parameter: 0,
-                            },
-                            inherited_symbol_terms: [],
-                            current_symbol_terms: [],
+    Ok(
+        AssociatedItem(
+            TypeItem(
+                Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            parameters: [],
                         },
+                        parameters: ParameterSignatures {
+                            parameters: [],
+                        },
+                        output_ty: Entity(
+                            TypePath(`core::num::f32`, `Alien`),
+                        ),
                     },
-                },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        AssociatedItem(
+            TypeItem(
+                Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            parameters: [],
+                        },
+                        parameters: ParameterSignatures {
+                            parameters: [],
+                        },
+                        output_ty: Entity(
+                            TypePath(`core::num::f32`, `Alien`),
+                        ),
+                    },
+                ),
             ),
         ),
     ),

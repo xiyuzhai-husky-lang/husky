@@ -1,16 +1,16 @@
 [
-    Form(
-        Function(
-            FunctionSignature {
-                implicit_parameters: ImplicitParameterSignatures {
-                    parameters: [],
-                },
-                parameter_decl_list: ParameterSignatures {
-                    parameters: [
-                        ParameterSignature {
-                            pattern: ParameterSignaturePattern,
-                            ty: Success(
-                                Entity(
+    Ok(
+        Form(
+            Function(
+                FunctionSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        parameters: [],
+                    },
+                    parameter_decl_list: ParameterSignatures {
+                        parameters: [
+                            ParameterSignature {
+                                pattern: ParameterSignaturePattern,
+                                ty: Entity(
                                     ModuleItem(
                                         Type(
                                             TypePath(
@@ -21,12 +21,10 @@
                                         ),
                                     ),
                                 ),
-                            ),
-                        },
-                        ParameterSignature {
-                            pattern: ParameterSignaturePattern,
-                            ty: Success(
-                                Entity(
+                            },
+                            ParameterSignature {
+                                pattern: ParameterSignaturePattern,
+                                ty: Entity(
                                     ModuleItem(
                                         Type(
                                             TypePath(
@@ -37,46 +35,14 @@
                                         ),
                                     ),
                                 ),
-                            ),
-                        },
-                    ],
-                },
-                output_ty: Success(
-                    Entity(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                term_sheet: SignatureTermSheet {
-                    term_symbol_page: TermSymbolPage {
-                        registry: TermSymbolRegistry {
-                            next_ty0: 0,
-                            next_lifetime: 0,
-                            next_binding: 0,
-                            next_usize: 0,
-                            next_parameter: 2,
-                        },
-                        inherited_symbol_terms: [],
-                        current_symbol_terms: [
-                            TermSymbol {
-                                idx: 0,
-                                kind: Parameter,
-                            },
-                            TermSymbol {
-                                idx: 1,
-                                kind: Parameter,
                             },
                         ],
                     },
+                    output_ty: Entity(
+                        TypePath(`core::basic::bool`, `Alien`),
+                    ),
                 },
-            },
+            ),
         ),
     ),
 ]

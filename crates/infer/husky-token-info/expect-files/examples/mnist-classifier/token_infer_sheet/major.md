@@ -249,9 +249,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 314,
+                        value: 294,
                     },
                 ),
             },
@@ -264,9 +264,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 314,
+                        value: 294,
                     },
                 ),
             },
@@ -278,9 +278,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     3,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 314,
+                        value: 294,
                     },
                 ),
             },
@@ -310,9 +310,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 314,
+                        value: 294,
                     },
                 ),
             },
@@ -337,9 +337,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 314,
+                        value: 294,
                     },
                 ),
             },
@@ -352,9 +352,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 314,
+                        value: 294,
                     },
                 ),
             },
@@ -364,9 +364,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     3,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 314,
+                        value: 294,
                     },
                 ),
             },
@@ -376,9 +376,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     3,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 314,
+                        value: 294,
                     },
                 ),
             },
@@ -388,9 +388,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 314,
+                        value: 294,
                     },
                 ),
             },
@@ -399,9 +399,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 314,
+                        value: 294,
                     },
                 ),
             },
@@ -411,9 +411,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 1,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 314,
+                        value: 294,
                     },
                 ),
             },
@@ -438,9 +438,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 2,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 314,
+                        value: 294,
                     },
                 ),
             },
@@ -478,9 +478,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 315,
+                        value: 295,
                     },
                 ),
             },
@@ -492,9 +492,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     2,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 315,
+                        value: 295,
                     },
                 ),
             },
@@ -523,9 +523,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     2,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 315,
+                        value: 295,
                     },
                 ),
             },
@@ -550,9 +550,9 @@ Ok(
                 current_symbol_kind: LetVariable {
                     pattern_symbol: 0,
                 },
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 315,
+                        value: 295,
                     },
                 ),
             },
@@ -565,9 +565,9 @@ Ok(
                 current_symbol_kind: FrameVariable(
                     2,
                 ),
-                expr_page: ExprPage(
+                expr_region: ExprRegion(
                     Id {
-                        value: 315,
+                        value: 295,
                     },
                 ),
             },
