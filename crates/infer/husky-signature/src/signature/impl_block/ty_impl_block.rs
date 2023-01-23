@@ -1,10 +1,10 @@
 use super::*;
 
-#[salsa::tracked(jar = SignatureJar)]
+#[salsa::tracked(jar = SignatureJar,return_ref)]
 pub(crate) fn ty_impl_block_signature(
     db: &dyn SignatureDb,
     decl: TypeImplBlockDecl,
-) -> TypeImplBlockSignature {
+) -> SignatureOutcome<TypeImplBlockSignature> {
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);
     let term_menu = db.term_menu(expr_region.toolchain(db)).as_ref().unwrap();
@@ -19,7 +19,7 @@ pub(crate) fn ty_impl_block_signature(
         Failure(_) => todo!(),
         Abort(_) => todo!(),
     };
-    TypeImplBlockSignature::new(
+    Success(TypeImplBlockSignature::new(
         db,
         ImplicitParameterSignatures::from_decl(
             decl.implicit_parameters(db),
@@ -27,7 +27,7 @@ pub(crate) fn ty_impl_block_signature(
             term_menu,
         ),
         ty,
-    )
+    ))
 }
 
 #[salsa::interned(jar = SignatureJar)]

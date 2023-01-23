@@ -1,10 +1,10 @@
 use crate::*;
 
-#[salsa::tracked(jar = SignatureJar)]
+#[salsa::tracked(jar = SignatureJar,return_ref)]
 pub(crate) fn ty_method_signature(
     db: &dyn SignatureDb,
     decl: TypeMethodDecl,
-) -> TypeMethodSignature {
+) -> SignatureOutcome<TypeMethodSignature> {
     let impl_block = decl.associated_item(db).impl_block(db);
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);
@@ -25,7 +25,12 @@ pub(crate) fn ty_method_signature(
         },
         Err(_) => todo!(), // Abort(SignatureTermAbortion::ExprError),
     };
-    TypeMethodSignature::new(db, implicit_parameters, parameters, output_ty)
+    Success(TypeMethodSignature::new(
+        db,
+        implicit_parameters,
+        parameters,
+        output_ty,
+    ))
 }
 
 #[salsa::tracked(jar = SignatureJar)]

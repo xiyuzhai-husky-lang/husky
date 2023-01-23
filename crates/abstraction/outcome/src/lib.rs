@@ -67,6 +67,17 @@ impl<T, E, A> Outcome<T, E, A> {
         }
     }
 
+    pub fn ok_copy_into<S>(self) -> Outcome<S, E, A>
+    where
+        T: Copy + Into<S>,
+    {
+        match self {
+            Success(t) => Success(t.into()),
+            Failure(e) => Failure(e),
+            Abort(a) => Abort(a),
+        }
+    }
+
     fn into_result(self) -> Result<T, Stop<E, A>> {
         match self {
             Success(t) => Ok(t),

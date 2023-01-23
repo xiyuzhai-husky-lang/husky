@@ -1,11 +1,11 @@
 use super::*;
 use husky_word::Identifier;
 
-#[salsa::tracked(jar = SignatureJar)]
+#[salsa::tracked(jar = SignatureJar,return_ref)]
 pub fn unit_struct_ty_signature(
     db: &dyn SignatureDb,
     decl: UnitStructTypeDecl,
-) -> UnitStructTypeSignature {
+) -> SignatureOutcome<UnitStructTypeSignature> {
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);
     let term_menu = db.term_menu(expr_region.toolchain(db)).as_ref().unwrap();
@@ -14,7 +14,7 @@ pub fn unit_struct_ty_signature(
         &signature_term_region,
         term_menu,
     );
-    UnitStructTypeSignature::new(db, implicit_parameters)
+    Success(UnitStructTypeSignature::new(db, implicit_parameters))
 }
 
 #[salsa::interned(jar = SignatureJar)]
