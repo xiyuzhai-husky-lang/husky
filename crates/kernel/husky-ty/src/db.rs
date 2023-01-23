@@ -18,7 +18,7 @@ where
             EntityPath::Module(_) => todo!(),
             EntityPath::ModuleItem(path) => match path {
                 ModuleItemPath::Type(path) => {
-                    let signature = match self.ty_signature(path).copy_as_result() {
+                    let signature = match self.ty_signature(path) {
                         Ok(signature) => signature,
                         Err(_) => todo!(),
                     };
@@ -26,7 +26,7 @@ where
                 }
                 ModuleItemPath::Trait(path) => {
                     let signature = self.trai_signature(path);
-                    let signature = match signature.copy_as_result() {
+                    let signature = match signature {
                         Ok(signature) => signature,
                         Err(_) => todo!(),
                     };

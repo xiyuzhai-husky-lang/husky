@@ -4,7 +4,7 @@ use super::*;
 pub fn inductive_ty_signature(
     db: &dyn SignatureDb,
     decl: InductiveTypeDecl,
-) -> SignatureOutcome<InductiveTypeSignature> {
+) -> SignatureResult<InductiveTypeSignature> {
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);
     let term_menu = db.term_menu(expr_region.toolchain(db)).as_ref().unwrap();
@@ -13,7 +13,7 @@ pub fn inductive_ty_signature(
         &signature_term_region,
         term_menu,
     );
-    Success(InductiveTypeSignature::new(db, implicit_parameters))
+    Ok(InductiveTypeSignature::new(db, implicit_parameters))
 }
 
 #[salsa::interned(jar = SignatureJar)]

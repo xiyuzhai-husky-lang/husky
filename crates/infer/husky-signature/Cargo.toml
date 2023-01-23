@@ -7,7 +7,6 @@ edition = "2021"
 [dependencies]
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
-outcome = { path = "../../abstraction/outcome" }
 # kernel
 husky-term = { path = "../../kernel/husky-term" }
 husky-word = { path = "../../kernel/husky-word" }
@@ -23,7 +22,6 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
 # kernel
-
 # infer
 husky-manifest = { path = "../../infer/husky-manifest" }
 # lex

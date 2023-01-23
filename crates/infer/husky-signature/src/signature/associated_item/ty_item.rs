@@ -15,19 +15,19 @@ use crate::*;
 pub(crate) fn ty_associated_item_signature(
     db: &dyn SignatureDb,
     decl: TypeItemDecl,
-) -> SignatureOutcomeBorrowed<TypeItemSignature> {
+) -> SignatureResultBorrowed<TypeItemSignature> {
     match decl {
-        TypeItemDecl::Function(decl) => {
-            ty_associated_function_signature(db, decl).ok_copy_into_abort_as_ref()
-        }
-        TypeItemDecl::Method(decl) => ty_method_signature(db, decl).ok_copy_into_abort_as_ref(),
-        TypeItemDecl::AlienType(decl) => {
-            ty_associated_ty_signature(db, decl).ok_copy_into_abort_as_ref()
-        }
-        TypeItemDecl::Value(decl) => {
-            ty_associated_value_signature(db, decl).ok_copy_into_abort_as_ref()
-        }
-        TypeItemDecl::Memo(decl) => ty_memo_signature(db, decl).ok_copy_into_abort_as_ref(),
+        TypeItemDecl::Function(decl) => ty_associated_function_signature(db, decl)
+            .as_ref()
+            .map(|s| (*s).into()),
+        TypeItemDecl::Method(decl) => ty_method_signature(db, decl).as_ref().map(|s| (*s).into()),
+        TypeItemDecl::AlienType(decl) => ty_associated_ty_signature(db, decl)
+            .as_ref()
+            .map(|s| (*s).into()),
+        TypeItemDecl::Value(decl) => ty_associated_value_signature(db, decl)
+            .as_ref()
+            .map(|s| (*s).into()),
+        TypeItemDecl::Memo(decl) => ty_memo_signature(db, decl).as_ref().map(|s| (*s).into()),
         // ImplBlockDecl::TypeImplBlock(decl) => ty_impl_block_signature(db, decl).into(),
         // ImplBlockDecl::TypeAsTraitImplBlock(decl) => ty_as_trai_impl_block_signature(db, decl).into(),
         // TypeDecl::Union(decl) => union_ty_signature(db, decl).into(),

@@ -5,14 +5,14 @@ use husky_expr::{CurrentSymbolIdx, ExprIdx, ExprMap, ExprPath, ExprRegion};
 pub struct SignatureTermRegion {
     expr_path: ExprPath,
     term_symbol_region: TermSymbolRegion,
-    expr_terms: ExprMap<SignatureTermOutcome<Term>>,
+    expr_terms: ExprMap<SignatureTermResult<Term>>,
 }
 
 impl SignatureTermRegion {
     pub fn new(
         expr_path: ExprPath,
         term_symbol_region: TermSymbolRegion,
-        expr_terms: ExprMap<SignatureTermOutcome<Term>>,
+        expr_terms: ExprMap<SignatureTermResult<Term>>,
     ) -> Self {
         Self {
             expr_path,
@@ -30,8 +30,8 @@ impl SignatureTermRegion {
             .current_symbol_term(current_symbol_idx)
     }
 
-    pub fn expr_term(&self, expr: ExprIdx) -> SignatureTermOutcomeBorrowed<Term> {
-        self.expr_terms[expr].ok_copy_err_as_ref()
+    pub fn expr_term(&self, expr: ExprIdx) -> SignatureTermResultBorrowed<Term> {
+        self.expr_terms[expr].as_ref().map(|t| *t)
     }
 
     pub fn expr_path(&self) -> ExprPath {

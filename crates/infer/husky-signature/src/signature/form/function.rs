@@ -4,7 +4,7 @@ use crate::*;
 pub fn function_signature(
     db: &dyn SignatureDb,
     decl: FunctionDecl,
-) -> SignatureOutcome<FunctionSignature> {
+) -> SignatureResult<FunctionSignature> {
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);
     let term_menu = db.term_menu(expr_region.toolchain(db)).as_ref().unwrap();
@@ -15,16 +15,15 @@ pub fn function_signature(
         term_menu,
     );
 
-    let parameters = ParameterSignatures::from_decl(decl.parameters(db), signature_term_region);
+    let parameters = ParameterSignatures::from_decl(decl.parameters(db), signature_term_region)?;
     let output_ty = match decl.output_ty(db) {
         Ok(output_ty) => match signature_term_region.expr_term(output_ty.expr()) {
-            Success(output_ty) => output_ty,
-            Failure(_) => todo!(),
-            Abort(_) => todo!(),
+            Ok(output_ty) => output_ty,
+            Err(_) => todo!(),
         },
-        Err(_) => return Abort(SignatureAbortion::ExprError),
+        Err(_) => return Err(SignatureError::ExprError),
     };
-    Success(FunctionSignature::new(
+    Ok(FunctionSignature::new(
         db,
         implicit_parameters,
         parameters,

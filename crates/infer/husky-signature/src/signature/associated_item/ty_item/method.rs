@@ -4,7 +4,7 @@ use crate::*;
 pub(crate) fn ty_method_signature(
     db: &dyn SignatureDb,
     decl: TypeMethodDecl,
-) -> SignatureOutcome<TypeMethodSignature> {
+) -> SignatureResult<TypeMethodSignature> {
     let impl_block = decl.associated_item(db).impl_block(db);
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);
@@ -16,16 +16,15 @@ pub(crate) fn ty_method_signature(
         term_menu,
     );
 
-    let parameters = ParameterSignatures::from_decl(decl.parameters(db), signature_term_region);
+    let parameters = ParameterSignatures::from_decl(decl.parameters(db), signature_term_region)?;
     let output_ty = match decl.output_ty(db) {
         Ok(output_ty) => match signature_term_region.expr_term(output_ty.expr()) {
-            Success(output_ty) => output_ty,
-            Failure(_) => todo!(),
-            Abort(_) => todo!(),
+            Ok(output_ty) => output_ty,
+            Err(_) => todo!(),
         },
-        Err(_) => todo!(), // Abort(SignatureTermAbortion::ExprError),
+        Err(_) => todo!(), //  Err(SignatureTermAbortion::ExprError),
     };
-    Success(TypeMethodSignature::new(
+    Ok(TypeMethodSignature::new(
         db,
         implicit_parameters,
         parameters,

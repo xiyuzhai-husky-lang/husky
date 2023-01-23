@@ -75,8 +75,8 @@
 
 // fn finalize(test_result: TestResult) {
 //     match test_result {
-//         TestResult::Success => finalize_success(),
-//         TestResult::Failure => finalize_failure(),
+//         TestResult:: Ok => finalize_success(),
+//         TestResult::Err => finalize_failure(),
 //     }
 // }
 

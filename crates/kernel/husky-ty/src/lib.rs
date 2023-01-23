@@ -10,7 +10,6 @@ use husky_entity_path::*;
 use husky_entity_taxonomy::*;
 use husky_signature::*;
 use husky_term::*;
-use outcome::*;
 
 #[salsa::jar(db=TypeDb)]
 pub struct TypeJar();

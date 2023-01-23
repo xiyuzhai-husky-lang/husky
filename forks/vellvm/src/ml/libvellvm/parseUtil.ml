@@ -198,7 +198,7 @@ let validate_label (l : string) : LLVMAst.raw_id =
     let n = int_of_string l in
     validate_declared_int n
   with
-  | Failure _ -> LLVMAst.Name (str l)
+  | Err _ -> LLVMAst.Name (str l)
 
 let check_or_generate_label (lo : string option) : LLVMAst.raw_id =
   match lo with

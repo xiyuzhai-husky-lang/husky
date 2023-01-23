@@ -9,14 +9,14 @@ use super::*;
 pub(crate) fn impl_block_signature(
     db: &dyn SignatureDb,
     decl: ImplBlockDecl,
-) -> SignatureOutcomeBorrowed<ImplBlockSignature> {
+) -> SignatureResultBorrowed<ImplBlockSignature> {
     match decl {
-        ImplBlockDecl::TypeImplBlock(decl) => {
-            ty_impl_block_signature(db, decl).ok_copy_into_abort_as_ref()
-        }
-        ImplBlockDecl::TypeAsTraitImplBlock(decl) => {
-            ty_as_trai_impl_block_signature(db, decl).ok_copy_into_abort_as_ref()
-        } // TypeDecl::Union(decl) => union_ty_signature(db, decl).into(),
+        ImplBlockDecl::TypeImplBlock(decl) => ty_impl_block_signature(db, decl)
+            .as_ref()
+            .map(|s| (*s).into()),
+        ImplBlockDecl::TypeAsTraitImplBlock(decl) => ty_as_trai_impl_block_signature(db, decl)
+            .as_ref()
+            .map(|s| (*s).into()), // TypeDecl::Union(decl) => union_ty_signature(db, decl).into(),
     }
 }
 

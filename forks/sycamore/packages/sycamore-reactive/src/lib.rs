@@ -192,7 +192,7 @@ impl<'a> ScopeDisposer<'a> {
 /// Creates a reactive scope.
 ///
 /// Returns a disposer function which will release the memory owned by the [`Scope`].
-/// Failure to call the disposer function will result in a memory leak.
+/// Err to call the disposer function will result in a memory leak.
 ///
 /// The callback closure is called in an [untracked](untrack) scope.
 ///

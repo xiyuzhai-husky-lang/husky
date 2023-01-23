@@ -12,7 +12,6 @@ thiserror = "1.0.37"
 thin-vec = { path = "../../../forks/thin-vec" }
 # abstraction
 parsec = { path = "../../abstraction/parsec" }
-outcome = { path = "../../abstraction/outcome" }
 salsa = { path = "../../abstraction/salsa" }
 idx-arena = { path = "../../abstraction/idx-arena" }
 # fs

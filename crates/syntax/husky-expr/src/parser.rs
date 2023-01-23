@@ -12,7 +12,6 @@ pub use block::*;
 pub use env::*;
 use husky_print_utils::p;
 use husky_vfs::Toolchain;
-use outcome::Outcome;
 
 use crate::*;
 use expr_stack::*;
@@ -30,7 +29,6 @@ use salsa::DebugWithDb;
 use std::ops::ControlFlow;
 use symbol::*;
 use unfinished_expr::*;
-use Outcome::*;
 
 #[macro_use]
 macro_rules! report {
@@ -334,26 +332,32 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         parent_path: Option<EntityPath>,
         scope_resolution_token: ScopeResolutionToken,
     ) -> (EntityPathExprIdx, Option<EntityPath>) {
-        let ident_token = self.parse_expected2::<IdentifierToken, _>(
-            EntityPathExprError::ExpectIdentifierAfterScopeResolution,
-        );
-        let path: EntityPathExprOutcome<EntityPath> = match parent_path {
+        let ident_token = self
+            .parse_expected2::<IdentifierToken, _>(
+                OriginalEntityPathExprError::ExpectIdentifierAfterScopeResolution,
+            )
+            .map_err(|e| e.into());
+        let path: EntityPathExprResult<EntityPath> = match parent_path {
             Some(parent_path) => match ident_token {
                 Ok(ident_token) => {
                     let ident = ident_token.ident();
                     match self.parser.db.subentity_path(parent_path, ident) {
-                        Ok(path) => Success(path),
-                        Err(error) => Failure(EntityPathExprError::EntityTree {
+                        Ok(path) => Ok(path),
+                        Err(error) => Err(OriginalEntityPathExprError::EntityTree {
                             token_idx: ident_token.token_idx(),
                             error,
-                        }),
+                        }
+                        .into()),
                     }
                 }
                 Err(_) => todo!(),
             },
             None => todo!(),
         };
-        let parent_path = path.ok_copy();
+        let parent_path = match path {
+            Ok(path) => Some(path),
+            Err(_) => None,
+        };
         let expr = EntityPathExpr::Subentity {
             parent,
             scope_resolution_token,

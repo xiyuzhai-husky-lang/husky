@@ -14,14 +14,14 @@ pub use variant::*;
 
 use crate::*;
 
-pub(crate) fn signature(db: &dyn SignatureDb, decl: Decl) -> SignatureOutcomeBorrowed<Signature> {
+pub(crate) fn signature(db: &dyn SignatureDb, decl: Decl) -> SignatureResultBorrowed<Signature> {
     match decl {
-        Decl::Type(decl) => ty_signature(db, decl).ok_copy_into(),
-        Decl::Form(decl) => form_signature(db, decl).ok_copy_into(),
-        Decl::Trait(decl) => trai_signature(db, decl).ok_copy_into_abort_as_ref(),
-        Decl::ImplBlock(decl) => impl_block_signature(db, decl).ok_copy_into(),
-        Decl::AssociatedItem(decl) => associated_item_signature(db, decl).ok_copy_into(),
-        Decl::Variant(decl) => variant_signature(db, decl).ok_copy_into(),
+        Decl::Type(decl) => ty_signature(db, decl).map(|s| s.into()),
+        Decl::Form(decl) => form_signature(db, decl).map(|s| s.into()),
+        Decl::Trait(decl) => trai_signature(db, decl).as_ref().map(|s| (*s).into()),
+        Decl::ImplBlock(decl) => impl_block_signature(db, decl).map(|s| s.into()),
+        Decl::AssociatedItem(decl) => associated_item_signature(db, decl).map(|s| s.into()),
+        Decl::Variant(decl) => variant_signature(db, decl).map(|s| s.into()),
     }
 }
 

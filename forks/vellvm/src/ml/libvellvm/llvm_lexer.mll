@@ -374,9 +374,9 @@ and lexed_id = parse
     try Llvm_parser.toplevel_entities token lexbuf
     with 
     | Llvm_parser.Error -> parsing_err lexbuf
-    | Failure s -> 
+    | Err s -> 
       begin
-        (Printf.fprintf stderr "Failure: %s\n" s);
+        (Printf.fprintf stderr "Err: %s\n" s);
         parsing_err lexbuf
       end   
 

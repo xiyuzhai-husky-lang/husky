@@ -13,18 +13,20 @@ use super::*;
 pub(crate) fn trai_associated_item_signature(
     db: &dyn SignatureDb,
     decl: TraitItemDecl,
-) -> SignatureOutcomeBorrowed<TraitItemSignature> {
+) -> SignatureResultBorrowed<TraitItemSignature> {
     match decl {
-        TraitItemDecl::Function(decl) => {
-            trai_associated_function_signature(db, decl).ok_copy_into_abort_as_ref()
-        }
-        TraitItemDecl::Method(decl) => trai_method_signature(db, decl).ok_copy_into_abort_as_ref(),
-        TraitItemDecl::AlienType(decl) => {
-            trai_associated_ty_signature(db, decl).ok_copy_into_abort_as_ref()
-        }
-        TraitItemDecl::Value(decl) => {
-            trai_associated_value_signature(db, decl).ok_copy_into_abort_as_ref()
-        }
+        TraitItemDecl::Function(decl) => trai_associated_function_signature(db, decl)
+            .as_ref()
+            .map(|s| (*s).into()),
+        TraitItemDecl::Method(decl) => trai_method_signature(db, decl)
+            .as_ref()
+            .map(|s| (*s).into()),
+        TraitItemDecl::AlienType(decl) => trai_associated_ty_signature(db, decl)
+            .as_ref()
+            .map(|s| (*s).into()),
+        TraitItemDecl::Value(decl) => trai_associated_value_signature(db, decl)
+            .as_ref()
+            .map(|s| (*s).into()),
     }
 }
 

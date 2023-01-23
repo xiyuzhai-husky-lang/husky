@@ -6,7 +6,6 @@ use std::{
     sync::Arc,
 };
 
-use outcome::*;
 use vec_like::{AsVecMapEntry, InsertEntryRepeatError, VecMap, VecSet};
 
 pub trait DebugWithDb<Db: ?Sized> {
@@ -194,30 +193,6 @@ where
 impl<Db: ?Sized> DebugWithDb<Db> for Infallible {
     fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
         unreachable!()
-    }
-}
-
-impl<Db: ?Sized, T, E, A> DebugWithDb<Db> for Outcome<T, E, A>
-where
-    T: DebugWithDb<Db>,
-    E: DebugWithDb<Db>,
-    A: DebugWithDb<Db>,
-{
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
-        match self {
-            Success(t) => f
-                .debug_tuple("Success")
-                .field(&t.debug_with(db, include_all_fields))
-                .finish(),
-            Failure(e) => f
-                .debug_tuple("Success")
-                .field(&e.debug_with(db, include_all_fields))
-                .finish(),
-            Abort(a) => f
-                .debug_tuple("Abort")
-                .field(&a.debug_with(db, include_all_fields))
-                .finish(),
-        }
     }
 }
 

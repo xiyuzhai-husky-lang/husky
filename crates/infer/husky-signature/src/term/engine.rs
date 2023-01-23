@@ -2,7 +2,6 @@ use super::*;
 use husky_expr::*;
 use husky_opn_syntax::{BinaryOpr, PrefixOpr};
 use husky_print_utils::p;
-use outcome::{Success, *};
 use salsa::DebugWithDb;
 
 pub(super) struct SignatureTermEngine<'a> {
@@ -13,7 +12,7 @@ pub(super) struct SignatureTermEngine<'a> {
     entity_path_expr_arena: &'a EntityPathExprArena,
     term_menu: &'a TermMenu,
     symbol_region: &'a SymbolRegion,
-    expr_terms: ExprMap<SignatureTermOutcome<Term>>,
+    expr_terms: ExprMap<SignatureTermResult<Term>>,
     term_symbol_region: TermSymbolRegion,
 }
 
@@ -98,10 +97,8 @@ impl<'a> SignatureTermEngine<'a> {
                         PatternSymbol::Atom(pattern) => {
                             let ty = self.symbol_region.parameter_pattern_ty(*pattern).unwrap();
                             match self.query_new(ty) {
-                                Success(ty) => Ok(ty),
-                                Failure(_) | Abort(_) => {
-                                    Err(TermSymbolTypeErrorKind::SignatureTermError)
-                                }
+                                Ok(ty) => Ok(ty),
+                                Err(_) => Err(TermSymbolTypeErrorKind::SignatureTermError),
                             }
                         }
                     }
@@ -116,12 +113,11 @@ impl<'a> SignatureTermEngine<'a> {
     }
 
     // ask about the term for expr, assuming it hasn't been computed before
-    fn query_new(&mut self, expr_idx: ExprIdx) -> SignatureTermOutcome<Term> {
+    fn query_new(&mut self, expr_idx: ExprIdx) -> SignatureTermResult<Term> {
         let outcome = self.calc(expr_idx);
         let term = match outcome {
-            Success(term) => Success(term),
-            Failure(_) => todo!(),
-            Abort(_) => Abort(SignatureTermAbortion::TermAbortion),
+            Ok(term) => Ok(term),
+            Err(_) => Err(DerivedSignatureTermError::TermAbortion.into()),
         };
         self.save(expr_idx, outcome);
         term
@@ -137,19 +133,19 @@ impl<'a> SignatureTermEngine<'a> {
         SignatureTermRegion::new(self.path, self.term_symbol_region, self.expr_terms)
     }
 
-    fn save(&mut self, expr_idx: ExprIdx, outcome: SignatureTermOutcome<Term>) {
+    fn save(&mut self, expr_idx: ExprIdx, outcome: SignatureTermResult<Term>) {
         self.expr_terms.insert_new(expr_idx, outcome)
     }
 
-    fn calc(&mut self, expr_idx: ExprIdx) -> SignatureTermOutcome<Term> {
+    fn calc(&mut self, expr_idx: ExprIdx) -> SignatureTermResult<Term> {
         match self.expr_arena[expr_idx] {
             Expr::Literal(_) => todo!(),
             Expr::EntityPath {
                 entity_path_expr,
                 entity_path,
             } => match entity_path {
-                Some(entity_path) => Success(Term::Entity(entity_path)),
-                None => Abort(SignatureTermAbortion::InvalidEntityPath),
+                Some(entity_path) => Ok(Term::Entity(entity_path)),
+                None => Err(DerivedSignatureTermError::InvalidEntityPath.into()),
             },
             Expr::InheritedSymbol {
                 ident,
@@ -159,11 +155,10 @@ impl<'a> SignatureTermEngine<'a> {
             } => todo!(),
             Expr::CurrentSymbol {
                 current_symbol_idx, ..
-            } => Success(
-                self.term_symbol_region
-                    .current_symbol_term(current_symbol_idx)
-                    .into(),
-            ),
+            } => Ok(self
+                .term_symbol_region
+                .current_symbol_term(current_symbol_idx)
+                .into()),
             Expr::FrameVarDecl {
                 token_idx,
                 ident,
@@ -175,11 +170,11 @@ impl<'a> SignatureTermEngine<'a> {
             Expr::BinaryOpn {
                 lopd, opr, ropd, ..
             } => {
-                let Success(lopd) = self.query_new(lopd) else {
-                    return Abort(SignatureTermAbortion::CannotInferOperandTermInPrefix);
+                let  Ok(lopd) = self.query_new(lopd) else {
+                    return  Err(DerivedSignatureTermError::CannotInferOperandTermInPrefix.into());
                 };
-                let Success(ropd) = self.query_new(ropd) else {
-                    return Abort(SignatureTermAbortion::CannotInferOperandTermInPrefix);
+                let  Ok(ropd) = self.query_new(ropd) else {
+                    return  Err(DerivedSignatureTermError::CannotInferOperandTermInPrefix.into());
                 };
                 match opr {
                     BinaryOpr::PureClosed(_) => todo!(),
@@ -187,7 +182,7 @@ impl<'a> SignatureTermEngine<'a> {
                     BinaryOpr::ShortcuitLogic(_) => todo!(),
                     BinaryOpr::Assign(_) => todo!(),
                     BinaryOpr::ScopeResolution => todo!(),
-                    BinaryOpr::Curry => Success(TermCurry::new(self.db, lopd, ropd).into()),
+                    BinaryOpr::Curry => Ok(TermCurry::new(self.db, lopd, ropd).into()),
                     BinaryOpr::As => todo!(),
                     BinaryOpr::Is => todo!(),
                     BinaryOpr::In => todo!(),
@@ -199,8 +194,8 @@ impl<'a> SignatureTermEngine<'a> {
                 opr_token_idx,
                 opd,
             } => {
-                let Success(opd) = self.query_new(opd) else {
-                    return Abort(SignatureTermAbortion::CannotInferOperandTermInPrefix);
+                let  Ok(opd) = self.query_new(opd) else {
+                    return  Err(DerivedSignatureTermError::CannotInferOperandTermInPrefix.into());
                 };
                 let tmpl = match opr {
                     PrefixOpr::Minus => todo!(),
@@ -213,7 +208,7 @@ impl<'a> SignatureTermEngine<'a> {
                     PrefixOpr::Array(_) => todo!(),
                     PrefixOpr::Option => self.term_menu.option_ty(),
                 };
-                Success(TermApplication::new(self.db, tmpl, opd).into())
+                Ok(TermApplication::new(self.db, tmpl, opd).into())
             }
             Expr::SuffixOpn {
                 opd,
@@ -234,8 +229,8 @@ impl<'a> SignatureTermEngine<'a> {
                 function, argument, ..
             }
             | Expr::Application { function, argument } => {
-                let Success(argument) = self.query_new(argument) else {
-                        return Abort(SignatureTermAbortion::CannotInferArgumentTermInApplication)
+                let  Ok(argument) = self.query_new(argument) else {
+                        return  Err(DerivedSignatureTermError::CannotInferArgumentTermInApplication.into())
                     };
                 match self.expr_arena[function] {
                     Expr::BoxColon {
@@ -243,7 +238,7 @@ impl<'a> SignatureTermEngine<'a> {
                         lbox_token_idx,
                         colon_token_idx,
                         rbox_token,
-                    } => Success(
+                    } => Ok(
                         TermApplication::new(self.db, self.term_menu.slice_ty(), argument).into(),
                     ),
                     Expr::NewBoxList {
@@ -251,7 +246,7 @@ impl<'a> SignatureTermEngine<'a> {
                         items,
                         ..
                     } => match items.len() {
-                        0 => Success(
+                        0 => Ok(
                             TermApplication::new(self.db, self.term_menu.vec_ty(), argument).into(),
                         ),
                         1 => match self.expr_arena[items.start()] {
@@ -358,14 +353,15 @@ impl<'a> SignatureTermEngine<'a> {
                             } => todo!(),
                             Expr::Block { stmts } => todo!(),
                             Expr::Err(_) => {
-                                Abort(SignatureTermAbortion::CannotInferArgumentTermInBoxList)
+                                Err(DerivedSignatureTermError::CannotInferArgumentTermInBoxList
+                                    .into())
                             }
                         },
                         _ => todo!(),
                     },
                     _ => {
-                        let Success(function) = self.query_new(function) else {
-                            return Abort(SignatureTermAbortion::CannotInferFunctionTermInApplication)
+                        let  Ok(function) = self.query_new(function) else {
+                            return  Err(DerivedSignatureTermError::CannotInferFunctionTermInApplication.into())
                         };
                         todo!()
                     }
@@ -395,7 +391,7 @@ impl<'a> SignatureTermEngine<'a> {
             } => todo!(),
             Expr::Bracketed { item, .. } => self.query_new(item),
             Expr::Block { stmts } => todo!(),
-            Expr::Err(_) => Abort(SignatureTermAbortion::ExprError),
+            Expr::Err(_) => Err(DerivedSignatureTermError::ExprError.into()),
         }
     }
 

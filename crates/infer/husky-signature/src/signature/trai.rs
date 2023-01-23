@@ -1,7 +1,7 @@
 use crate::*;
 
 #[salsa::tracked(jar = SignatureJar,return_ref)]
-pub fn trai_signature(db: &dyn SignatureDb, decl: TraitDecl) -> SignatureOutcome<TraitSignature> {
+pub fn trai_signature(db: &dyn SignatureDb, decl: TraitDecl) -> SignatureResult<TraitSignature> {
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);
     let term_menu = db.term_menu(expr_region.toolchain(db)).as_ref().unwrap();
@@ -10,7 +10,7 @@ pub fn trai_signature(db: &dyn SignatureDb, decl: TraitDecl) -> SignatureOutcome
         &signature_term_region,
         term_menu,
     );
-    Success(TraitSignature::new(db, implicit_parameters))
+    Ok(TraitSignature::new(db, implicit_parameters))
 }
 
 #[salsa::interned(jar = SignatureJar)]

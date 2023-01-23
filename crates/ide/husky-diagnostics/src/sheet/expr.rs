@@ -1,5 +1,6 @@
 use husky_expr::{
-    EntityPathExpr, EntityPathExprError, Expr, ExprError, ExprRegion, Stmt, StmtError,
+    EntityPathExpr, EntityPathExprError, Expr, ExprError, ExprRegion, OriginalEntityPathExprError,
+    Stmt, StmtError,
 };
 use husky_token::RangedTokenSheet;
 use salsa::DebugWithDb;
@@ -100,10 +101,10 @@ fn collect_expr_diagnostics(
                     Err(e) => todo!(),
                 }
                 match entity_path {
-                    Success(_) | Abort(_) => (),
-                    Failure(e) => {
+                    Err(EntityPathExprError::Original(e)) => {
                         diagnostics.push(e.to_diagnostic(db, ranged_token_sheet, token_sheet_data))
                     }
+                    _ => (),
                 }
             }
         }
@@ -224,20 +225,22 @@ fn expr_error_range(error: &ExprError, ranged_token_sheet: &RangedTokenSheet) ->
     }
 }
 
-impl Diagnose for EntityPathExprError {
+impl Diagnose for OriginalEntityPathExprError {
     fn message(&self, db: &dyn DiagnosticsDb) -> String {
         match self {
-            EntityPathExprError::EntityTree { token_idx, error } => {
+            OriginalEntityPathExprError::EntityTree { token_idx, error } => {
                 format!("entity tree error {:?}", error.debug(db))
             }
-            EntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => todo!(),
+            OriginalEntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => todo!(),
         }
     }
 
     fn severity(&self) -> DiagnosticSeverity {
         match self {
-            EntityPathExprError::EntityTree { token_idx, error } => DiagnosticSeverity::Error,
-            EntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => {
+            OriginalEntityPathExprError::EntityTree { token_idx, error } => {
+                DiagnosticSeverity::Error
+            }
+            OriginalEntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => {
                 DiagnosticSeverity::Error
             }
         }
@@ -249,10 +252,10 @@ impl Diagnose for EntityPathExprError {
         token_sheet_data: &TokenSheetData,
     ) -> TextRange {
         match self {
-            EntityPathExprError::EntityTree { token_idx, error } => {
+            OriginalEntityPathExprError::EntityTree { token_idx, error } => {
                 ranged_token_sheet.token_text_range(*token_idx)
             }
-            EntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => todo!(),
+            OriginalEntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => todo!(),
         }
     }
 }

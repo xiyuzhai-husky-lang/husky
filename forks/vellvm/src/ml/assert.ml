@@ -10,7 +10,7 @@
 
 
 (* An assertion is just a unit->unit function that either *)
-(* succeeds silently or throws an Failure exception.       *)
+(* succeeds silently or throws an Err exception.       *)
 type assertion = (unit -> unit)
 
 type 'a test = 
@@ -49,7 +49,7 @@ let run_assertion (f:assertion) : result =
     f ();
     Pass
   with
-    | Failure m -> Fail m
+    | Err m -> Fail m
     | e -> Fail ("test threw exception: " ^ (Printexc.to_string e))
 
 let run_test (t:assertion test) : result test =

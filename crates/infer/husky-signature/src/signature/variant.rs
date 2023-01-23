@@ -11,7 +11,7 @@ use super::*;
 pub(crate) fn variant_signature(
     db: &dyn SignatureDb,
     decl: VariantDecl,
-) -> SignatureOutcomeBorrowed<VariantSignature> {
+) -> SignatureResultBorrowed<VariantSignature> {
     match decl {
         VariantDecl::Props(_) => todo!(),
         VariantDecl::Unit(_) => todo!(),

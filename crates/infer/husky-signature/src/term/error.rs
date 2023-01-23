@@ -1,10 +1,26 @@
-use outcome::Outcome;
+#[derive(Debug, PartialEq, Eq)]
+pub enum SignatureTermError {
+    Original(OriginalSignatureTermError),
+    Derived(DerivedSignatureTermError),
+}
+
+impl From<OriginalSignatureTermError> for SignatureTermError {
+    fn from(v: OriginalSignatureTermError) -> Self {
+        Self::Original(v)
+    }
+}
+
+impl From<DerivedSignatureTermError> for SignatureTermError {
+    fn from(v: DerivedSignatureTermError) -> Self {
+        Self::Derived(v)
+    }
+}
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum SignatureTermError {}
+pub enum OriginalSignatureTermError {}
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum SignatureTermAbortion {
+pub enum DerivedSignatureTermError {
     InvalidEntityPath,
     CannotInferFunctionTermInApplication,
     CannotInferArgumentTermInApplication,
@@ -15,6 +31,4 @@ pub enum SignatureTermAbortion {
 }
 
 pub type SignatureTermResult<T> = Result<T, SignatureTermError>;
-pub type SignatureTermOutcome<T> = Outcome<T, SignatureTermError, SignatureTermAbortion>;
-pub type SignatureTermOutcomeBorrowed<'a, T> =
-    Outcome<T, &'a SignatureTermError, &'a SignatureTermAbortion>;
+pub type SignatureTermResultBorrowed<'a, T> = Result<T, &'a SignatureTermError>;

@@ -93,7 +93,7 @@ let rec step (m : ('a coq_L4, memory_stack * ((local_env * lstack) * (global_env
 
   (* The failE effect is a failure *)
   | VisF (Sum.Coq_inr1 (Sum.Coq_inr1 _), _) ->
-     Error "Failure effect"
+     Error "Err effect"
 
   (* The UndefinedBehaviourE effect is a failure *)
   (* | VisF (Sum.Coq_inr1 (Sum.Coq_inr1 (Sum.Coq_inr1 f)), _) -> *)

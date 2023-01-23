@@ -17,7 +17,7 @@ use husky_decl::*;
 use husky_entity_path::*;
 use husky_term::*;
 use husky_word::*;
-use outcome::*;
+
 #[cfg(test)]
 use tests::*;
 
