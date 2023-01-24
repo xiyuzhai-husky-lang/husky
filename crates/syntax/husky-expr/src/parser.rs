@@ -101,8 +101,13 @@ impl<Db: ExprDb + ?Sized> DebugWithDb<Db> for DeclExprPath {
         let db = <Db as salsa::DbWithJar<ExprJar>>::as_jar_db(db);
         match self {
             DeclExprPath::Entity(path) => f.debug_tuple("Entity").field(&path.debug(db)).finish(),
-            DeclExprPath::ImplBlock(_) => todo!(),
-            DeclExprPath::AssociatedItem(_) => todo!(),
+            DeclExprPath::ImplBlock(path) => {
+                f.debug_tuple("ImplBlock").field(&path.debug(db)).finish()
+            }
+            DeclExprPath::AssociatedItem(path) => f
+                .debug_tuple("AssociatedItem")
+                .field(&path.debug(db))
+                .finish(),
         }
     }
 }
