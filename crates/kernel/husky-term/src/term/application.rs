@@ -2,8 +2,8 @@ use crate::*;
 
 #[salsa::interned(jar = TermJar)]
 pub struct TermApplication {
-    pub m: Term,
-    pub n: Term,
+    pub function: Term,
+    pub argument: Term,
 }
 
 impl From<TermApplication> for Term {
@@ -24,9 +24,9 @@ impl TermRewriteCopy for TermApplication {
     where
         Self: Copy,
     {
-        let old_m = self.m(db);
+        let old_m = self.function(db);
         let m = old_m.substitute_copy(db, substituation);
-        let old_n = self.n(db);
+        let old_n = self.argument(db);
         let n = old_n.substitute_copy(db, substituation);
         if old_m == m && old_n == n {
             return self;

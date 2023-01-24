@@ -12,10 +12,10 @@
         Ok(
             Application(
                 TermApplication {
-                    m: Category(
+                    function: Category(
                         Sort,
                     ),
-                    n: Universe(
+                    argument: Universe(
                         TermUniverse(
                             1,
                         ),
@@ -84,17 +84,17 @@
                         TermDurantParameter {
                             ty: Application(
                                 TermApplication {
-                                    m: Application(
+                                    function: Application(
                                         TermApplication {
-                                            m: Entity(
+                                            function: Entity(
                                                 TypePath(`core::num::Ref`, `Alien`),
                                             ),
-                                            n: Literal(
+                                            argument: Literal(
                                                 EvalLifetime,
                                             ),
                                         },
                                     ),
-                                    n: Entity(
+                                    argument: Entity(
                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                     ),
                                 },
@@ -128,17 +128,17 @@
                         TermDurantParameter {
                             ty: Application(
                                 TermApplication {
-                                    m: Application(
+                                    function: Application(
                                         TermApplication {
-                                            m: Entity(
+                                            function: Entity(
                                                 TypePath(`core::num::Ref`, `Alien`),
                                             ),
-                                            n: Literal(
+                                            argument: Literal(
                                                 EvalLifetime,
                                             ),
                                         },
                                     ),
-                                    n: Entity(
+                                    argument: Entity(
                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                     ),
                                 },
@@ -177,17 +177,17 @@
                         TermDurantParameter {
                             ty: Application(
                                 TermApplication {
-                                    m: Application(
+                                    function: Application(
                                         TermApplication {
-                                            m: Entity(
+                                            function: Entity(
                                                 TypePath(`core::num::Ref`, `Alien`),
                                             ),
-                                            n: Literal(
+                                            argument: Literal(
                                                 EvalLifetime,
                                             ),
                                         },
                                     ),
-                                    n: Entity(
+                                    argument: Entity(
                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                     ),
                                 },
@@ -201,10 +201,10 @@
                     ],
                     y: Application(
                         TermApplication {
-                            m: Entity(
+                            function: Entity(
                                 TypePath(`core::vec::Vec`, `Alien`),
                             ),
-                            n: Entity(
+                            argument: Entity(
                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                             ),
                         },

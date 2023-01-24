@@ -299,10 +299,10 @@
                     },
                     output_ty: Application(
                         TermApplication {
-                            m: Entity(
+                            function: Entity(
                                 TypePath(`core::vec::Vec`, `Alien`),
                             ),
-                            n: Entity(
+                            argument: Entity(
                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                             ),
                         },
@@ -423,10 +423,10 @@
                     TypeMemoSignature {
                         output_ty: Application(
                             TermApplication {
-                                m: Entity(
+                                function: Entity(
                                     TypePath(`core::vec::Vec`, `Alien`),
                                 ),
-                                n: Entity(
+                                argument: Entity(
                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                 ),
                             },

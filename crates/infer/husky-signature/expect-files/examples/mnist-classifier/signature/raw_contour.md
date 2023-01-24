@@ -477,10 +477,10 @@
                     },
                     output_ty: Application(
                         TermApplication {
-                            m: Entity(
+                            function: Entity(
                                 TypePath(`core::vec::Vec`, `Alien`),
                             ),
-                            n: Entity(
+                            argument: Entity(
                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                             ),
                         },

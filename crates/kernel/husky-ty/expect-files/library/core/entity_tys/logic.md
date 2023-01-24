@@ -4,10 +4,10 @@
         Ok(
             Application(
                 TermApplication {
-                    m: Category(
+                    function: Category(
                         Sort,
                     ),
-                    n: Universe(
+                    argument: Universe(
                         TermUniverse(
                             1,
                         ),
@@ -23,10 +23,10 @@
                 TermCurry {
                     x: Application(
                         TermApplication {
-                            m: Category(
+                            function: Category(
                                 Sort,
                             ),
-                            n: Universe(
+                            argument: Universe(
                                 TermUniverse(
                                     1,
                                 ),
@@ -37,10 +37,10 @@
                         TermCurry {
                             x: Application(
                                 TermApplication {
-                                    m: Category(
+                                    function: Category(
                                         Sort,
                                     ),
-                                    n: Universe(
+                                    argument: Universe(
                                         TermUniverse(
                                             1,
                                         ),
@@ -49,10 +49,10 @@
                             ),
                             y: Application(
                                 TermApplication {
-                                    m: Category(
+                                    function: Category(
                                         Sort,
                                     ),
-                                    n: Universe(
+                                    argument: Universe(
                                         TermUniverse(
                                             1,
                                         ),
@@ -72,10 +72,10 @@
                 TermCurry {
                     x: Application(
                         TermApplication {
-                            m: Category(
+                            function: Category(
                                 Sort,
                             ),
-                            n: Universe(
+                            argument: Universe(
                                 TermUniverse(
                                     1,
                                 ),
@@ -86,10 +86,10 @@
                         TermCurry {
                             x: Application(
                                 TermApplication {
-                                    m: Category(
+                                    function: Category(
                                         Sort,
                                     ),
-                                    n: Universe(
+                                    argument: Universe(
                                         TermUniverse(
                                             1,
                                         ),
@@ -98,10 +98,10 @@
                             ),
                             y: Application(
                                 TermApplication {
-                                    m: Category(
+                                    function: Category(
                                         Sort,
                                     ),
-                                    n: Universe(
+                                    argument: Universe(
                                         TermUniverse(
                                             1,
                                         ),

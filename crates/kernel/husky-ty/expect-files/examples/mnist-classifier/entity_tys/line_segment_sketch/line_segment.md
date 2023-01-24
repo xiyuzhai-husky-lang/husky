@@ -4,10 +4,10 @@
         Ok(
             Application(
                 TermApplication {
-                    m: Category(
+                    function: Category(
                         Sort,
                     ),
-                    n: Universe(
+                    argument: Universe(
                         TermUniverse(
                             1,
                         ),

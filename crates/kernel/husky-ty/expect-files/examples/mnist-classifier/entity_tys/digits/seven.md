@@ -17,17 +17,17 @@
                         TermDurantParameter {
                             ty: Application(
                                 TermApplication {
-                                    m: Application(
+                                    function: Application(
                                         TermApplication {
-                                            m: Entity(
+                                            function: Entity(
                                                 TypePath(`core::num::Ref`, `Alien`),
                                             ),
-                                            n: Literal(
+                                            argument: Literal(
                                                 EvalLifetime,
                                             ),
                                         },
                                     ),
-                                    n: Entity(
+                                    argument: Entity(
                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 },
@@ -36,10 +36,10 @@
                     ],
                     y: Application(
                         TermApplication {
-                            m: Entity(
+                            function: Entity(
                                 TypePath(`core::option::Option`, `Enum`),
                             ),
-                            n: Entity(
+                            argument: Entity(
                                 TypePath(`core::num::f32`, `Alien`),
                             ),
                         },
@@ -66,17 +66,17 @@
                         TermDurantParameter {
                             ty: Application(
                                 TermApplication {
-                                    m: Application(
+                                    function: Application(
                                         TermApplication {
-                                            m: Entity(
+                                            function: Entity(
                                                 TypePath(`core::num::Ref`, `Alien`),
                                             ),
-                                            n: Literal(
+                                            argument: Literal(
                                                 EvalLifetime,
                                             ),
                                         },
                                     ),
-                                    n: Entity(
+                                    argument: Entity(
                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 },
@@ -85,10 +85,10 @@
                     ],
                     y: Application(
                         TermApplication {
-                            m: Entity(
+                            function: Entity(
                                 TypePath(`core::option::Option`, `Enum`),
                             ),
-                            n: Entity(
+                            argument: Entity(
                                 TypePath(`core::num::f32`, `Alien`),
                             ),
                         },
@@ -107,17 +107,17 @@
                         TermDurantParameter {
                             ty: Application(
                                 TermApplication {
-                                    m: Application(
+                                    function: Application(
                                         TermApplication {
-                                            m: Entity(
+                                            function: Entity(
                                                 TypePath(`core::num::Ref`, `Alien`),
                                             ),
-                                            n: Literal(
+                                            argument: Literal(
                                                 EvalLifetime,
                                             ),
                                         },
                                     ),
-                                    n: Entity(
+                                    argument: Entity(
                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 },
@@ -126,10 +126,10 @@
                     ],
                     y: Application(
                         TermApplication {
-                            m: Entity(
+                            function: Entity(
                                 TypePath(`core::option::Option`, `Enum`),
                             ),
-                            n: Entity(
+                            argument: Entity(
                                 TypePath(`core::num::f32`, `Alien`),
                             ),
                         },
