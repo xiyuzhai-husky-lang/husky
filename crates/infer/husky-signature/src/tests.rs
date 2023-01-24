@@ -35,7 +35,7 @@ fn module_signatures<'a>(
     db: &'a DB,
     module_path: ModulePath,
 ) -> Vec<SignatureResultRef<'a, Signature>> {
-    let Ok(decl_sheet) = db.module_decl_sheet(module_path) else {
+    let Ok(decl_sheet) = db.decl_sheet(module_path) else {
         return vec![]
     };
     decl_sheet

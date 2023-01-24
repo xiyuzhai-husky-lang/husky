@@ -1,9 +1,9 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct ExprTypeSheet {}
+pub struct ExprTypeRegion {}
 
-impl<Db: ExprTypeDb + ?Sized> salsa::DebugWithDb<Db> for ExprTypeSheet {
+impl<Db: ExprTypeDb + ?Sized> salsa::DebugWithDb<Db> for ExprTypeRegion {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -15,6 +15,6 @@ impl<Db: ExprTypeDb + ?Sized> salsa::DebugWithDb<Db> for ExprTypeSheet {
 }
 
 #[salsa::tracked(jar = ExprTypeJar, return_ref)]
-pub(crate) fn expr_ty_region(db: &dyn ExprTypeDb, expr_region: ExprRegion) -> ExprTypeSheet {
-    todo!()
+pub(crate) fn expr_ty_region(db: &dyn ExprTypeDb, expr_region: ExprRegion) -> ExprTypeRegion {
+    ExprTypeRegion {}
 }

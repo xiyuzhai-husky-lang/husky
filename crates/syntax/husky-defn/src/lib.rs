@@ -64,11 +64,6 @@ pub struct DefnJar(
     TypeAsTraitAssociatedValueDefn,
 );
 
-#[salsa::tracked(jar = DefnJar, return_ref)]
-fn defn_sheet(db: &dyn DefnDb, module_path: ModulePath) -> EntityTreeResult<DefnSheet> {
-    Ok(DefnCollector::new(db, module_path)?.collect_all())
-}
-
 #[test]
 fn defn_sheet_works() {
     use husky_vfs::VfsTestUtils;

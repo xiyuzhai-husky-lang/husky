@@ -10,7 +10,6 @@ thiserror = "1.0.37"
 salsa = { path = "../../abstraction/salsa" }
 # infer
 husky-signature = { path = "../../infer/husky-signature" }
-husky-local-term = { path = "../../infer/husky-local-term" }
 # kernel
 husky-term = { path = "../../kernel/husky-term" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
@@ -20,6 +19,7 @@ husky-ty = { path = "../../kernel/husky-ty" }
 # syntax
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-expr = { path = "../../syntax/husky-expr" }
+husky-defn = { path = "../../syntax/husky-defn" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 

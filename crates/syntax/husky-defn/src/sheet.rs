@@ -2,6 +2,11 @@ use vec_like::VecPairMap;
 
 use crate::*;
 
+#[salsa::tracked(jar = DefnJar, return_ref)]
+pub(crate) fn defn_sheet(db: &dyn DefnDb, module_path: ModulePath) -> EntityTreeResult<DefnSheet> {
+    Ok(DefnCollector::new(db, module_path)?.collect_all())
+}
+
 #[derive(Debug, PartialEq, Eq)]
 pub struct DefnSheet {
     defns: Vec<Defn>,

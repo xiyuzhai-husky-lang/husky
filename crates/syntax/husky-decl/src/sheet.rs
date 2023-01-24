@@ -7,10 +7,7 @@ pub struct DeclSheet<'a> {
     decls: Vec<DeclResultBorrowed<'a, Decl>>,
 }
 
-pub fn module_decl_sheet<'a>(
-    db: &'a dyn DeclDb,
-    path: ModulePath,
-) -> EntityTreeResult<DeclSheet<'a>> {
+pub fn decl_sheet<'a>(db: &'a dyn DeclDb, path: ModulePath) -> EntityTreeResult<DeclSheet<'a>> {
     DeclSheet::collect_from_module(db, path)
 }
 
@@ -19,7 +16,7 @@ fn decl_sheet_works() {
     use husky_vfs::VfsTestUtils;
     use tests::*;
 
-    DB::default().vfs_expect_test_debug_with_db("decl_sheet", DeclDb::module_decl_sheet);
+    DB::default().vfs_expect_test_debug_with_db("decl_sheet", DeclDb::decl_sheet);
 }
 
 impl<'a> DeclSheet<'a> {

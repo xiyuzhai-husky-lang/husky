@@ -1,4 +1,4 @@
-use husky_decl::DeclJar;
+use husky_decl::{DeclDb, DeclJar};
 use husky_print_utils::p;
 use husky_signature::SignatureJar;
 use husky_term::TermJar;
@@ -27,6 +27,7 @@ use husky_word::WordJar;
     TermJar,
     SignatureJar,
     TypeJar,
+    DefnJar,
     ExprTypeJar
 )]
 #[derive(Default)]
@@ -36,11 +37,16 @@ pub(crate) struct DB {
 
 impl salsa::Database for DB {}
 
-fn expr_ty_sheets(db: &DB, module_path: ModulePath) -> Vec<ExprTypeSheet> {
-    todo!()
+fn defn_expr_ty_sheets(db: &DB, module_path: ModulePath) -> Vec<&ExprTypeRegion> {
+    let Ok(defn_sheet) = db.defn_sheet(module_path)
+        else { return vec![] };
+    defn_sheet
+        .defns()
+        .filter_map(|defn| Some(db.expr_ty_region(defn.expr_region(db)?)))
+        .collect()
 }
 
 #[test]
-fn expr_ty_sheets_works() {
-    DB::default().vfs_expect_test_debug_with_db("expr_ty_sheets", expr_ty_sheets)
+fn defn_expr_ty_sheets_works() {
+    DB::default().vfs_expect_test_debug_with_db("defn_expr_ty_sheets", defn_expr_ty_sheets)
 }

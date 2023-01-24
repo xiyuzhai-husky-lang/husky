@@ -13,4 +13,3 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 # infer
-husky-local-term = { path = "../../infer/husky-local-term" }
