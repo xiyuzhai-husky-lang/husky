@@ -22,7 +22,7 @@ impl<'a> DefnCollector<'a> {
             token_sheet_data: db.token_sheet_data(module_path)?,
             ast_sheet: db.ast_sheet(module_path)?,
             ast_range_sheet: db.ast_range_sheet(module_path)?,
-            decl_sheet: db.module_decl_sheet(module_path)?,
+            decl_sheet: db.decl_sheet(module_path)?,
         })
     }
 

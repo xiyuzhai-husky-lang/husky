@@ -3,16 +3,16 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub(crate) struct UnresolvedTermIdx(usize);
 
-pub(crate) struct LocalTermTableEntry {
+pub(crate) struct UnresolvedTermTableEntry {
     unresolved_term: UnresolvedTerm,
     resolve_progress: LocalTerm,
 }
 
-pub(crate) struct LocalTermTable {
-    entries: Vec<LocalTermTableEntry>,
+pub(crate) struct UnresolvedTermTable {
+    entries: Vec<UnresolvedTermTableEntry>,
 }
 
-impl LocalTermTable {
+impl UnresolvedTermTable {
     pub(crate) fn unresolved_term(
         &self,
         unresolved_term_idx: UnresolvedTermIdx,
@@ -29,7 +29,7 @@ impl LocalTermTable {
             Some(idx) => UnresolvedTermIdx(idx),
             None => {
                 let idx = self.entries.len();
-                self.entries.push(LocalTermTableEntry {
+                self.entries.push(UnresolvedTermTableEntry {
                     unresolved_term,
                     resolve_progress: LocalTerm::Unresolved(UnresolvedTermIdx(idx)),
                 });

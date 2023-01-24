@@ -13,7 +13,7 @@ pub trait DeclDb: DbWithJar<DeclJar> + ExprDb {
         &self,
         associated_item: AssociatedItem,
     ) -> DeclResultBorrowed<AssociatedItemDecl>;
-    fn module_decl_sheet<'a>(&'a self, module_path: ModulePath) -> EntityTreeResult<DeclSheet<'a>>;
+    fn decl_sheet<'a>(&'a self, module_path: ModulePath) -> EntityTreeResult<DeclSheet<'a>>;
 }
 
 impl<Db> DeclDb for Db
@@ -36,8 +36,8 @@ where
         form_decl(self, path).as_ref().map(|decl| *decl)
     }
 
-    fn module_decl_sheet<'a>(&'a self, module_path: ModulePath) -> EntityTreeResult<DeclSheet<'a>> {
-        module_decl_sheet(self, module_path)
+    fn decl_sheet<'a>(&'a self, module_path: ModulePath) -> EntityTreeResult<DeclSheet<'a>> {
+        decl_sheet(self, module_path)
     }
 
     fn impl_block_decl(&self, impl_block: ImplBlock) -> DeclResultBorrowed<ImplBlockDecl> {

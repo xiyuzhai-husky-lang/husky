@@ -17,7 +17,7 @@ pub(crate) enum UnresolvedTerm {
     },
     Durant {
         kind: TermDurantKind,
-        params: Vec<LocalTermDurantParameter>,
+        params: Vec<UnresolvedTermDurantParameter>,
         y: LocalTerm,
     },
     Subentity {},
@@ -26,6 +26,6 @@ pub(crate) enum UnresolvedTerm {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub(crate) struct LocalTermDurantParameter {
+pub(crate) struct UnresolvedTermDurantParameter {
     ty: LocalTerm,
 }
