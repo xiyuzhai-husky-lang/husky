@@ -25,10 +25,10 @@
                     },
                     output_ty: Application(
                         TermApplication {
-                            m: Entity(
+                            function: Entity(
                                 TypePath(`core::option::Option`, `Enum`),
                             ),
-                            n: Entity(
+                            argument: Entity(
                                 TypePath(`core::num::f32`, `Alien`),
                             ),
                         },
@@ -63,10 +63,10 @@
                     },
                     output_ty: Application(
                         TermApplication {
-                            m: Entity(
+                            function: Entity(
                                 TypePath(`core::option::Option`, `Enum`),
                             ),
-                            n: Entity(
+                            argument: Entity(
                                 TypePath(`core::num::f32`, `Alien`),
                             ),
                         },
@@ -98,10 +98,10 @@
                     },
                     output_ty: Application(
                         TermApplication {
-                            m: Entity(
+                            function: Entity(
                                 TypePath(`core::option::Option`, `Enum`),
                             ),
-                            n: Entity(
+                            argument: Entity(
                                 TypePath(`core::num::f32`, `Alien`),
                             ),
                         },

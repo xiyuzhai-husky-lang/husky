@@ -4,10 +4,10 @@
         Ok(
             Application(
                 TermApplication {
-                    m: Entity(
+                    function: Entity(
                         TypePath(`core::vec::Vec`, `Alien`),
                     ),
-                    n: Entity(
+                    argument: Entity(
                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                     ),
                 },
@@ -35,10 +35,10 @@
         Ok(
             Application(
                 TermApplication {
-                    m: Entity(
+                    function: Entity(
                         TypePath(`core::vec::Vec`, `Alien`),
                     ),
-                    n: Entity(
+                    argument: Entity(
                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                     ),
                 },
@@ -66,10 +66,10 @@
         Ok(
             Application(
                 TermApplication {
-                    m: Entity(
+                    function: Entity(
                         TypePath(`core::vec::Vec`, `Alien`),
                     ),
-                    n: Entity(
+                    argument: Entity(
                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                     ),
                 },
