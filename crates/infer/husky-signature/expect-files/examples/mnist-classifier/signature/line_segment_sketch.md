@@ -11,7 +11,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 250,
+                                        value: 255,
                                     },
                                 ),
                             ),
@@ -27,7 +27,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 295,
+                                        value: 300,
                                     },
                                 ),
                             ),

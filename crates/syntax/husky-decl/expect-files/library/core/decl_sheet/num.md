@@ -6,10 +6,10 @@ Ok(
                     Foreign(
                         AlienTypeDecl {
                             path: TypePath(`core::num::i8`, `Alien`),
-                            ast_idx: 17,
+                            ast_idx: 18,
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 7,
+                                    value: 15,
                                 },
                             ),
                             implicit_parameter_decl_list: None,
@@ -22,10 +22,10 @@ Ok(
                     Foreign(
                         AlienTypeDecl {
                             path: TypePath(`core::num::i16`, `Alien`),
-                            ast_idx: 22,
+                            ast_idx: 23,
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 8,
+                                    value: 16,
                                 },
                             ),
                             implicit_parameter_decl_list: None,
@@ -38,10 +38,10 @@ Ok(
                     Foreign(
                         AlienTypeDecl {
                             path: TypePath(`core::num::i32`, `Alien`),
-                            ast_idx: 26,
+                            ast_idx: 28,
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 9,
+                                    value: 17,
                                 },
                             ),
                             implicit_parameter_decl_list: None,
@@ -54,10 +54,10 @@ Ok(
                     Foreign(
                         AlienTypeDecl {
                             path: TypePath(`core::num::i64`, `Alien`),
-                            ast_idx: 30,
+                            ast_idx: 33,
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 10,
+                                    value: 18,
                                 },
                             ),
                             implicit_parameter_decl_list: None,
@@ -70,10 +70,10 @@ Ok(
                     Foreign(
                         AlienTypeDecl {
                             path: TypePath(`core::num::f8`, `Alien`),
-                            ast_idx: 34,
+                            ast_idx: 38,
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 11,
+                                    value: 19,
                                 },
                             ),
                             implicit_parameter_decl_list: None,
@@ -86,10 +86,10 @@ Ok(
                     Foreign(
                         AlienTypeDecl {
                             path: TypePath(`core::num::f16`, `Alien`),
-                            ast_idx: 38,
+                            ast_idx: 43,
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 12,
+                                    value: 20,
                                 },
                             ),
                             implicit_parameter_decl_list: None,
@@ -102,10 +102,10 @@ Ok(
                     Foreign(
                         AlienTypeDecl {
                             path: TypePath(`core::num::f32`, `Alien`),
-                            ast_idx: 42,
+                            ast_idx: 48,
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 13,
+                                    value: 21,
                                 },
                             ),
                             implicit_parameter_decl_list: None,
@@ -118,10 +118,10 @@ Ok(
                     Foreign(
                         AlienTypeDecl {
                             path: TypePath(`core::num::f64`, `Alien`),
-                            ast_idx: 46,
+                            ast_idx: 53,
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 14,
+                                    value: 22,
                                 },
                             ),
                             implicit_parameter_decl_list: None,
@@ -133,7 +133,7 @@ Ok(
                 ImplBlock(
                     TypeImplBlock(
                         TypeImplBlockDecl {
-                            ast_idx: 18,
+                            ast_idx: 19,
                             impl_block: ImplBlock(
                                 Id {
                                     value: 1,
@@ -141,7 +141,7 @@ Ok(
                             ),
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    11,
+                                    24,
                                 ),
                             },
                             implicit_parameter_decl_list: None,
@@ -151,13 +151,13 @@ Ok(
                             eol_colon: Ok(
                                 EolColonToken {
                                     token_idx: TokenIdx(
-                                        13,
+                                        26,
                                     ),
                                 },
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 15,
+                                    value: 23,
                                 },
                             ),
                         },
@@ -184,28 +184,28 @@ Ok(
                                 ast_idx: 0,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 16,
+                                        value: 24,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            17,
+                                            30,
                                         ),
                                     },
                                     parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            18,
+                                            31,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            19,
+                                            32,
                                         ),
                                     },
                                 ),
@@ -217,7 +217,7 @@ Ok(
                                 eol_colon: Err(
                                     MissingEolColon(
                                         TokenIdx(
-                                            21,
+                                            34,
                                         ),
                                     ),
                                 ),
@@ -236,7 +236,7 @@ Ok(
                 ImplBlock(
                     TypeImplBlock(
                         TypeImplBlockDecl {
-                            ast_idx: 23,
+                            ast_idx: 24,
                             impl_block: ImplBlock(
                                 Id {
                                     value: 3,
@@ -244,7 +244,7 @@ Ok(
                             ),
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    69,
+                                    82,
                                 ),
                             },
                             implicit_parameter_decl_list: None,
@@ -254,13 +254,13 @@ Ok(
                             eol_colon: Ok(
                                 EolColonToken {
                                     token_idx: TokenIdx(
-                                        71,
+                                        84,
                                     ),
                                 },
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 17,
+                                    value: 25,
                                 },
                             ),
                         },
@@ -287,28 +287,28 @@ Ok(
                                 ast_idx: 2,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 18,
+                                        value: 26,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            75,
+                                            88,
                                         ),
                                     },
                                     parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            76,
+                                            89,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            77,
+                                            90,
                                         ),
                                     },
                                 ),
@@ -320,7 +320,7 @@ Ok(
                                 eol_colon: Err(
                                     MissingEolColon(
                                         TokenIdx(
-                                            79,
+                                            92,
                                         ),
                                     ),
                                 ),
@@ -339,7 +339,7 @@ Ok(
                 ImplBlock(
                     TypeImplBlock(
                         TypeImplBlockDecl {
-                            ast_idx: 27,
+                            ast_idx: 29,
                             impl_block: ImplBlock(
                                 Id {
                                     value: 5,
@@ -347,7 +347,7 @@ Ok(
                             ),
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    114,
+                                    140,
                                 ),
                             },
                             implicit_parameter_decl_list: None,
@@ -357,13 +357,13 @@ Ok(
                             eol_colon: Ok(
                                 EolColonToken {
                                     token_idx: TokenIdx(
-                                        116,
+                                        142,
                                     ),
                                 },
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 19,
+                                    value: 27,
                                 },
                             ),
                         },
@@ -390,28 +390,28 @@ Ok(
                                 ast_idx: 4,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 20,
+                                        value: 28,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            120,
+                                            146,
                                         ),
                                     },
                                     parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            121,
+                                            147,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            122,
+                                            148,
                                         ),
                                     },
                                 ),
@@ -423,7 +423,7 @@ Ok(
                                 eol_colon: Err(
                                     MissingEolColon(
                                         TokenIdx(
-                                            124,
+                                            150,
                                         ),
                                     ),
                                 ),
@@ -442,7 +442,7 @@ Ok(
                 ImplBlock(
                     TypeImplBlock(
                         TypeImplBlockDecl {
-                            ast_idx: 31,
+                            ast_idx: 34,
                             impl_block: ImplBlock(
                                 Id {
                                     value: 7,
@@ -450,7 +450,7 @@ Ok(
                             ),
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    158,
+                                    197,
                                 ),
                             },
                             implicit_parameter_decl_list: None,
@@ -460,13 +460,13 @@ Ok(
                             eol_colon: Ok(
                                 EolColonToken {
                                     token_idx: TokenIdx(
-                                        160,
+                                        199,
                                     ),
                                 },
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 21,
+                                    value: 29,
                                 },
                             ),
                         },
@@ -493,28 +493,28 @@ Ok(
                                 ast_idx: 6,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 22,
+                                        value: 30,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            164,
+                                            203,
                                         ),
                                     },
                                     parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            165,
+                                            204,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            166,
+                                            205,
                                         ),
                                     },
                                 ),
@@ -526,7 +526,7 @@ Ok(
                                 eol_colon: Err(
                                     MissingEolColon(
                                         TokenIdx(
-                                            168,
+                                            207,
                                         ),
                                     ),
                                 ),
@@ -545,7 +545,7 @@ Ok(
                 ImplBlock(
                     TypeImplBlock(
                         TypeImplBlockDecl {
-                            ast_idx: 35,
+                            ast_idx: 39,
                             impl_block: ImplBlock(
                                 Id {
                                     value: 9,
@@ -553,7 +553,7 @@ Ok(
                             ),
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    203,
+                                    255,
                                 ),
                             },
                             implicit_parameter_decl_list: None,
@@ -563,13 +563,13 @@ Ok(
                             eol_colon: Ok(
                                 EolColonToken {
                                     token_idx: TokenIdx(
-                                        205,
+                                        257,
                                     ),
                                 },
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 23,
+                                    value: 31,
                                 },
                             ),
                         },
@@ -596,28 +596,28 @@ Ok(
                                 ast_idx: 8,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 24,
+                                        value: 32,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            209,
+                                            261,
                                         ),
                                     },
                                     parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            210,
+                                            262,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            211,
+                                            263,
                                         ),
                                     },
                                 ),
@@ -629,7 +629,7 @@ Ok(
                                 eol_colon: Err(
                                     MissingEolColon(
                                         TokenIdx(
-                                            213,
+                                            265,
                                         ),
                                     ),
                                 ),
@@ -648,7 +648,7 @@ Ok(
                 ImplBlock(
                     TypeImplBlock(
                         TypeImplBlockDecl {
-                            ast_idx: 39,
+                            ast_idx: 44,
                             impl_block: ImplBlock(
                                 Id {
                                     value: 11,
@@ -656,7 +656,7 @@ Ok(
                             ),
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    248,
+                                    313,
                                 ),
                             },
                             implicit_parameter_decl_list: None,
@@ -666,13 +666,13 @@ Ok(
                             eol_colon: Ok(
                                 EolColonToken {
                                     token_idx: TokenIdx(
-                                        250,
+                                        315,
                                     ),
                                 },
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 25,
+                                    value: 33,
                                 },
                             ),
                         },
@@ -699,28 +699,28 @@ Ok(
                                 ast_idx: 10,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 26,
+                                        value: 34,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            254,
+                                            319,
                                         ),
                                     },
                                     parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            255,
+                                            320,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            256,
+                                            321,
                                         ),
                                     },
                                 ),
@@ -732,7 +732,7 @@ Ok(
                                 eol_colon: Err(
                                     MissingEolColon(
                                         TokenIdx(
-                                            258,
+                                            323,
                                         ),
                                     ),
                                 ),
@@ -751,7 +751,7 @@ Ok(
                 ImplBlock(
                     TypeImplBlock(
                         TypeImplBlockDecl {
-                            ast_idx: 43,
+                            ast_idx: 49,
                             impl_block: ImplBlock(
                                 Id {
                                     value: 13,
@@ -759,7 +759,7 @@ Ok(
                             ),
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    293,
+                                    371,
                                 ),
                             },
                             implicit_parameter_decl_list: None,
@@ -769,13 +769,13 @@ Ok(
                             eol_colon: Ok(
                                 EolColonToken {
                                     token_idx: TokenIdx(
-                                        295,
+                                        373,
                                     ),
                                 },
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 27,
+                                    value: 35,
                                 },
                             ),
                         },
@@ -802,28 +802,28 @@ Ok(
                                 ast_idx: 12,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 28,
+                                        value: 36,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            299,
+                                            377,
                                         ),
                                     },
                                     parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            300,
+                                            378,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            301,
+                                            379,
                                         ),
                                     },
                                 ),
@@ -835,7 +835,7 @@ Ok(
                                 eol_colon: Err(
                                     MissingEolColon(
                                         TokenIdx(
-                                            303,
+                                            381,
                                         ),
                                     ),
                                 ),
@@ -854,7 +854,7 @@ Ok(
                 ImplBlock(
                     TypeImplBlock(
                         TypeImplBlockDecl {
-                            ast_idx: 47,
+                            ast_idx: 54,
                             impl_block: ImplBlock(
                                 Id {
                                     value: 15,
@@ -862,7 +862,7 @@ Ok(
                             ),
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    337,
+                                    428,
                                 ),
                             },
                             implicit_parameter_decl_list: None,
@@ -872,13 +872,13 @@ Ok(
                             eol_colon: Ok(
                                 EolColonToken {
                                     token_idx: TokenIdx(
-                                        339,
+                                        430,
                                     ),
                                 },
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 29,
+                                    value: 37,
                                 },
                             ),
                         },
@@ -905,28 +905,28 @@ Ok(
                                 ast_idx: 14,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 30,
+                                        value: 38,
                                     },
                                 ),
                                 implicit_parameter_decl_list: None,
                                 parameter_decl_list: ParameterDeclList {
                                     lpar: LeftParenthesisToken {
                                         token_idx: TokenIdx(
-                                            343,
+                                            434,
                                         ),
                                     },
                                     parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken {
                                         token_idx: TokenIdx(
-                                            344,
+                                            435,
                                         ),
                                     },
                                 },
                                 curry_token: Ok(
                                     CurryToken {
                                         token_idx: TokenIdx(
-                                            345,
+                                            436,
                                         ),
                                     },
                                 ),
@@ -938,7 +938,7 @@ Ok(
                                 eol_colon: Err(
                                     MissingEolColon(
                                         TokenIdx(
-                                            347,
+                                            438,
                                         ),
                                     ),
                                 ),

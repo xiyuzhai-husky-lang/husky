@@ -6,7 +6,7 @@ Ok(
                     path: TraitPath(`std::ops::Add`),
                     decl: TraitDecl(
                         Id {
-                            value: 2,
+                            value: 10,
                         },
                     ),
                 },

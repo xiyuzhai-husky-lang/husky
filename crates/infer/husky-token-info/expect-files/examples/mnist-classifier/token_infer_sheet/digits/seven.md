@@ -29,7 +29,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 17,
+                                value: 21,
                             },
                         ),
                     ),
@@ -45,7 +45,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 16,
+                                value: 20,
                             },
                         ),
                     ),
@@ -61,7 +61,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 105,
+                                value: 113,
                             },
                         ),
                     ),
@@ -77,7 +77,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 17,
+                                value: 21,
                             },
                         ),
                     ),
@@ -93,7 +93,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 16,
+                                value: 20,
                             },
                         ),
                     ),
@@ -109,7 +109,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 100,
+                                value: 108,
                             },
                         ),
                     ),
@@ -141,7 +141,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 17,
+                                value: 21,
                             },
                         ),
                     ),
@@ -157,7 +157,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 16,
+                                value: 20,
                             },
                         ),
                     ),
@@ -175,7 +175,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 17,
+                                value: 21,
                             },
                         ),
                     ),
@@ -191,7 +191,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 14,
+                                value: 18,
                             },
                         ),
                     ),
@@ -209,7 +209,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 17,
+                                value: 21,
                             },
                         ),
                     ),
@@ -225,7 +225,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 13,
+                                value: 17,
                             },
                         ),
                     ),
@@ -241,7 +241,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 17,
+                                value: 21,
                             },
                         ),
                     ),
@@ -259,7 +259,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 17,
+                                value: 21,
                             },
                         ),
                     ),
@@ -275,7 +275,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 15,
+                                value: 19,
                             },
                         ),
                     ),
@@ -385,7 +385,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 123,
+                        value: 131,
                     },
                 ),
             },
@@ -431,7 +431,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 129,
+                        value: 137,
                     },
                 ),
             },
@@ -441,7 +441,7 @@ Ok(
                 inherited_symbol_kind: Parameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 129,
+                        value: 137,
                     },
                 ),
             },
@@ -457,7 +457,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 129,
+                        value: 137,
                     },
                 ),
             },
@@ -473,7 +473,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 129,
+                        value: 137,
                     },
                 ),
             },
@@ -596,7 +596,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 125,
+                        value: 133,
                     },
                 ),
             },
@@ -642,7 +642,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 131,
+                        value: 139,
                     },
                 ),
             },
@@ -652,7 +652,7 @@ Ok(
                 inherited_symbol_kind: Parameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 131,
+                        value: 139,
                     },
                 ),
             },
@@ -668,7 +668,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 131,
+                        value: 139,
                     },
                 ),
             },
@@ -682,7 +682,7 @@ Ok(
                 inherited_symbol_kind: Parameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 131,
+                        value: 139,
                     },
                 ),
             },
@@ -699,7 +699,7 @@ Ok(
                 inherited_symbol_kind: Parameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 131,
+                        value: 139,
                     },
                 ),
             },
@@ -739,7 +739,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 126,
+                        value: 134,
                     },
                 ),
             },
@@ -785,7 +785,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 132,
+                        value: 140,
                     },
                 ),
             },
@@ -795,7 +795,7 @@ Ok(
                 inherited_symbol_kind: Parameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 132,
+                        value: 140,
                     },
                 ),
             },
@@ -811,7 +811,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 132,
+                        value: 140,
                     },
                 ),
             },
@@ -825,7 +825,7 @@ Ok(
                 inherited_symbol_kind: Parameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 132,
+                        value: 140,
                     },
                 ),
             },
@@ -845,7 +845,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 132,
+                        value: 140,
                     },
                 ),
             },
@@ -855,7 +855,7 @@ Ok(
                 inherited_symbol_kind: Parameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 132,
+                        value: 140,
                     },
                 ),
             },
@@ -876,7 +876,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 132,
+                        value: 140,
                     },
                 ),
             },
@@ -889,7 +889,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 132,
+                        value: 140,
                     },
                 ),
             },
@@ -997,7 +997,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 133,
+                        value: 141,
                     },
                 ),
             },
@@ -1026,7 +1026,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 133,
+                        value: 141,
                     },
                 ),
             },
@@ -1063,7 +1063,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 133,
+                        value: 141,
                     },
                 ),
             },
@@ -1109,7 +1109,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 133,
+                        value: 141,
                     },
                 ),
             },
@@ -1124,7 +1124,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 133,
+                        value: 141,
                     },
                 ),
             },
@@ -1160,7 +1160,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 133,
+                        value: 141,
                     },
                 ),
             },
@@ -1172,7 +1172,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 133,
+                        value: 141,
                     },
                 ),
             },
@@ -1186,7 +1186,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 133,
+                        value: 141,
                     },
                 ),
             },
@@ -1204,7 +1204,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 133,
+                        value: 141,
                     },
                 ),
             },
@@ -1219,7 +1219,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 133,
+                        value: 141,
                     },
                 ),
             },
@@ -1265,7 +1265,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 133,
+                        value: 141,
                     },
                 ),
             },
@@ -1304,7 +1304,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 133,
+                        value: 141,
                     },
                 ),
             },

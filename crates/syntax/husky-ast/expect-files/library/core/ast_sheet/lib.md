@@ -182,10 +182,130 @@ Ok(
                         12,
                     ),
                 },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        6,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        `core::fmt`,
+                    ),
+                    ident_token: IdentifierToken {
+                        ident: `fmt`,
+                        token_idx: TokenIdx(
+                            13,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        14,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        7,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        `core::clone`,
+                    ),
+                    ident_token: IdentifierToken {
+                        ident: `clone`,
+                        token_idx: TokenIdx(
+                            15,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        16,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        8,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        `core::marker`,
+                    ),
+                    ident_token: IdentifierToken {
+                        ident: `marker`,
+                        token_idx: TokenIdx(
+                            17,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        18,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        9,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        `core::cmp`,
+                    ),
+                    ident_token: IdentifierToken {
+                        ident: `cmp`,
+                        token_idx: TokenIdx(
+                            19,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        20,
+                    ),
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..6,
+            0..10,
         ),
     },
 )

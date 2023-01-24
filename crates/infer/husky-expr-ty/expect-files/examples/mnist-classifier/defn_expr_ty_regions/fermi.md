@@ -14,7 +14,7 @@
                         impl_block_id: ImplBlockId {
                             module_path: ModulePath(
                                 Id {
-                                    value: 30,
+                                    value: 34,
                                 },
                             ),
                             impl_block_kind: Type {
@@ -28,7 +28,7 @@
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 249,
+                                    value: 254,
                                 },
                             ),
                         ),
@@ -80,7 +80,7 @@
                         impl_block_id: ImplBlockId {
                             module_path: ModulePath(
                                 Id {
-                                    value: 30,
+                                    value: 34,
                                 },
                             ),
                             impl_block_kind: Type {
@@ -94,7 +94,7 @@
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 317,
+                                    value: 322,
                                 },
                             ),
                         ),
@@ -146,7 +146,7 @@
                         impl_block_id: ImplBlockId {
                             module_path: ModulePath(
                                 Id {
-                                    value: 30,
+                                    value: 34,
                                 },
                             ),
                             impl_block_kind: Type {
@@ -160,7 +160,7 @@
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 341,
+                                    value: 346,
                                 },
                             ),
                         ),

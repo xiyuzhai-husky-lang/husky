@@ -100,7 +100,7 @@ Ok(
             ImplBlock(
                 TypeImplBlock(
                     TypeImplBlockDecl {
-                        ast_idx: 18,
+                        ast_idx: 19,
                         impl_block: ImplBlock(
                             Id {
                                 value: 1,
@@ -108,7 +108,7 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                11,
+                                24,
                             ),
                         },
                         implicit_parameter_decl_list: None,
@@ -118,13 +118,13 @@ Ok(
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    13,
+                                    26,
                                 ),
                             },
                         ),
                         expr_region: ExprRegion(
                             Id {
-                                value: 15,
+                                value: 23,
                             },
                         ),
                     },
@@ -148,7 +148,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 31,
+                                    value: 39,
                                 },
                             ),
                             body: Err(
@@ -161,7 +161,7 @@ Ok(
             ImplBlock(
                 TypeImplBlock(
                     TypeImplBlockDecl {
-                        ast_idx: 23,
+                        ast_idx: 24,
                         impl_block: ImplBlock(
                             Id {
                                 value: 3,
@@ -169,7 +169,7 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                69,
+                                82,
                             ),
                         },
                         implicit_parameter_decl_list: None,
@@ -179,13 +179,13 @@ Ok(
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    71,
+                                    84,
                                 ),
                             },
                         ),
                         expr_region: ExprRegion(
                             Id {
-                                value: 17,
+                                value: 25,
                             },
                         ),
                     },
@@ -209,7 +209,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 32,
+                                    value: 40,
                                 },
                             ),
                             body: Err(
@@ -222,7 +222,7 @@ Ok(
             ImplBlock(
                 TypeImplBlock(
                     TypeImplBlockDecl {
-                        ast_idx: 27,
+                        ast_idx: 29,
                         impl_block: ImplBlock(
                             Id {
                                 value: 5,
@@ -230,7 +230,7 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                114,
+                                140,
                             ),
                         },
                         implicit_parameter_decl_list: None,
@@ -240,13 +240,13 @@ Ok(
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    116,
+                                    142,
                                 ),
                             },
                         ),
                         expr_region: ExprRegion(
                             Id {
-                                value: 19,
+                                value: 27,
                             },
                         ),
                     },
@@ -270,7 +270,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 33,
+                                    value: 41,
                                 },
                             ),
                             body: Err(
@@ -283,7 +283,7 @@ Ok(
             ImplBlock(
                 TypeImplBlock(
                     TypeImplBlockDecl {
-                        ast_idx: 31,
+                        ast_idx: 34,
                         impl_block: ImplBlock(
                             Id {
                                 value: 7,
@@ -291,7 +291,7 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                158,
+                                197,
                             ),
                         },
                         implicit_parameter_decl_list: None,
@@ -301,13 +301,13 @@ Ok(
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    160,
+                                    199,
                                 ),
                             },
                         ),
                         expr_region: ExprRegion(
                             Id {
-                                value: 21,
+                                value: 29,
                             },
                         ),
                     },
@@ -331,7 +331,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 34,
+                                    value: 42,
                                 },
                             ),
                             body: Err(
@@ -344,7 +344,7 @@ Ok(
             ImplBlock(
                 TypeImplBlock(
                     TypeImplBlockDecl {
-                        ast_idx: 35,
+                        ast_idx: 39,
                         impl_block: ImplBlock(
                             Id {
                                 value: 9,
@@ -352,7 +352,7 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                203,
+                                255,
                             ),
                         },
                         implicit_parameter_decl_list: None,
@@ -362,13 +362,13 @@ Ok(
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    205,
+                                    257,
                                 ),
                             },
                         ),
                         expr_region: ExprRegion(
                             Id {
-                                value: 23,
+                                value: 31,
                             },
                         ),
                     },
@@ -392,7 +392,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 35,
+                                    value: 43,
                                 },
                             ),
                             body: Err(
@@ -405,7 +405,7 @@ Ok(
             ImplBlock(
                 TypeImplBlock(
                     TypeImplBlockDecl {
-                        ast_idx: 39,
+                        ast_idx: 44,
                         impl_block: ImplBlock(
                             Id {
                                 value: 11,
@@ -413,7 +413,7 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                248,
+                                313,
                             ),
                         },
                         implicit_parameter_decl_list: None,
@@ -423,13 +423,13 @@ Ok(
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    250,
+                                    315,
                                 ),
                             },
                         ),
                         expr_region: ExprRegion(
                             Id {
-                                value: 25,
+                                value: 33,
                             },
                         ),
                     },
@@ -453,7 +453,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 36,
+                                    value: 44,
                                 },
                             ),
                             body: Err(
@@ -466,7 +466,7 @@ Ok(
             ImplBlock(
                 TypeImplBlock(
                     TypeImplBlockDecl {
-                        ast_idx: 43,
+                        ast_idx: 49,
                         impl_block: ImplBlock(
                             Id {
                                 value: 13,
@@ -474,7 +474,7 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                293,
+                                371,
                             ),
                         },
                         implicit_parameter_decl_list: None,
@@ -484,13 +484,13 @@ Ok(
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    295,
+                                    373,
                                 ),
                             },
                         ),
                         expr_region: ExprRegion(
                             Id {
-                                value: 27,
+                                value: 35,
                             },
                         ),
                     },
@@ -514,7 +514,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 37,
+                                    value: 45,
                                 },
                             ),
                             body: Err(
@@ -527,7 +527,7 @@ Ok(
             ImplBlock(
                 TypeImplBlock(
                     TypeImplBlockDecl {
-                        ast_idx: 47,
+                        ast_idx: 54,
                         impl_block: ImplBlock(
                             Id {
                                 value: 15,
@@ -535,7 +535,7 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                337,
+                                428,
                             ),
                         },
                         implicit_parameter_decl_list: None,
@@ -545,13 +545,13 @@ Ok(
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    339,
+                                    430,
                                 ),
                             },
                         ),
                         expr_region: ExprRegion(
                             Id {
-                                value: 29,
+                                value: 37,
                             },
                         ),
                     },
@@ -575,7 +575,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 38,
+                                    value: 46,
                                 },
                             ),
                             body: Err(

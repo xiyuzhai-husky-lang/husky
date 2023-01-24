@@ -9,7 +9,7 @@ Ok(
                             ast_idx: 2,
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 32,
+                                    value: 40,
                                 },
                             ),
                             implicit_parameter_decl_list: None,

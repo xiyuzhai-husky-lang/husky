@@ -17,10 +17,30 @@ Ok(
                         2,
                     ),
                 },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        3,
+                    ),
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        4,
+                    ),
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        5,
+                    ),
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        6,
+                    ),
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..3,
+            0..7,
         ),
     },
 )

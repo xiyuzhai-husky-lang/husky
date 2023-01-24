@@ -20,7 +20,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 2,
+                            value: 5,
                         },
                     ),
                 ),
@@ -32,7 +32,43 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 3,
+                            value: 7,
+                        },
+                    ),
+                ),
+            ),
+            Keyword(
+                Mod,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 8,
+                        },
+                    ),
+                ),
+            ),
+            Keyword(
+                Mod,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 9,
+                        },
+                    ),
+                ),
+            ),
+            Keyword(
+                Mod,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 10,
                         },
                     ),
                 ),
@@ -56,7 +92,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 5,
+                            value: 2,
                         },
                     ),
                 ),
@@ -73,6 +109,18 @@ Ok(
                     ),
                 ),
             ),
+            Keyword(
+                Mod,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                ),
+            ),
         ],
         group_starts: [
             0,
@@ -81,8 +129,16 @@ Ok(
             6,
             8,
             10,
+            12,
+            14,
+            16,
+            18,
         ],
         indents: [
+            0,
+            0,
+            0,
+            0,
             0,
             0,
             0,

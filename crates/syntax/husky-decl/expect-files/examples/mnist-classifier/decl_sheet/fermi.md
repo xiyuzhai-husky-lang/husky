@@ -9,7 +9,7 @@ Ok(
                             ast_idx: 22,
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 95,
+                                    value: 103,
                                 },
                             ),
                             implicit_parameter_decl_list: None,
@@ -24,7 +24,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 123,
+                                                    value: 129,
                                                 },
                                             ),
                                         ),
@@ -44,7 +44,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 340,
+                                                    value: 345,
                                                 },
                                             ),
                                         ),
@@ -89,7 +89,7 @@ Ok(
                             ast_idx: 24,
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 96,
+                                    value: 104,
                                 },
                             ),
                             implicit_parameter_decl_list: None,
@@ -189,7 +189,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 97,
+                                    value: 105,
                                 },
                             ),
                         },
@@ -216,7 +216,7 @@ Ok(
                                 ast_idx: 12,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 98,
+                                        value: 106,
                                     },
                                 ),
                                 curry_token: Ok(
@@ -263,7 +263,7 @@ Ok(
                                 ast_idx: 13,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 99,
+                                        value: 107,
                                     },
                                 ),
                                 curry_token: Ok(
@@ -310,7 +310,7 @@ Ok(
                                 ast_idx: 14,
                                 expr_region: ExprRegion(
                                     Id {
-                                        value: 100,
+                                        value: 108,
                                     },
                                 ),
                                 curry_token: Ok(

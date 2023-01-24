@@ -33,7 +33,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 51,
+                                        value: 58,
                                     },
                                 ),
                             ),
@@ -45,12 +45,25 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 42,
+                        value: 50,
                     },
                 ),
             },
             None,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Trait(
+                            TraitPath(
+                                Id {
+                                    value: 9,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             None,
@@ -61,7 +74,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 42,
+                        value: 50,
                     },
                 ),
             },
@@ -77,7 +90,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 51,
+                                        value: 58,
                                     },
                                 ),
                             ),
@@ -89,7 +102,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 42,
+                        value: 50,
                     },
                 ),
             },
@@ -103,7 +116,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 47,
+                        value: 55,
                     },
                 ),
             },
@@ -113,7 +126,7 @@ Ok(
                 inherited_symbol_kind: ImplicitParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 47,
+                        value: 55,
                     },
                 ),
             },
@@ -141,7 +154,7 @@ Ok(
                 inherited_symbol_kind: ImplicitParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 47,
+                        value: 55,
                     },
                 ),
             },
@@ -156,7 +169,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 47,
+                        value: 55,
                     },
                 ),
             },
@@ -197,7 +210,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 51,
+                                        value: 58,
                                     },
                                 ),
                             ),
@@ -209,12 +222,25 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 43,
+                        value: 51,
                     },
                 ),
             },
             None,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Trait(
+                            TraitPath(
+                                Id {
+                                    value: 9,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             None,
@@ -225,7 +251,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 43,
+                        value: 51,
                     },
                 ),
             },
@@ -241,7 +267,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 51,
+                                        value: 58,
                                     },
                                 ),
                             ),
@@ -253,7 +279,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 43,
+                        value: 51,
                     },
                 ),
             },
@@ -265,7 +291,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 43,
+                        value: 51,
                     },
                 ),
             },
@@ -279,7 +305,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 43,
+                        value: 51,
                     },
                 ),
             },
@@ -293,7 +319,7 @@ Ok(
                 inherited_symbol_kind: Parameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 48,
+                        value: 56,
                     },
                 ),
             },
@@ -303,7 +329,7 @@ Ok(
                 inherited_symbol_kind: ImplicitParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 48,
+                        value: 56,
                     },
                 ),
             },
@@ -316,7 +342,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 48,
+                        value: 56,
                     },
                 ),
             },
@@ -341,7 +367,7 @@ Ok(
                 inherited_symbol_kind: Parameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 48,
+                        value: 56,
                     },
                 ),
             },
@@ -351,7 +377,7 @@ Ok(
                 inherited_symbol_kind: Parameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 48,
+                        value: 56,
                     },
                 ),
             },
@@ -361,7 +387,7 @@ Ok(
                 inherited_symbol_kind: ImplicitParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 48,
+                        value: 56,
                     },
                 ),
             },
@@ -386,7 +412,7 @@ Ok(
                 inherited_symbol_kind: Parameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 48,
+                        value: 56,
                     },
                 ),
             },
@@ -396,7 +422,7 @@ Ok(
                 inherited_symbol_kind: Parameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 48,
+                        value: 56,
                     },
                 ),
             },
@@ -408,7 +434,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 48,
+                        value: 56,
                     },
                 ),
             },
@@ -435,7 +461,7 @@ Ok(
                 inherited_symbol_kind: Parameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 48,
+                        value: 56,
                     },
                 ),
             },
@@ -447,7 +473,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 48,
+                        value: 56,
                     },
                 ),
             },
@@ -459,7 +485,7 @@ Ok(
                 inherited_symbol_kind: ImplicitParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 48,
+                        value: 56,
                     },
                 ),
             },
@@ -495,7 +521,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 51,
+                                        value: 58,
                                     },
                                 ),
                             ),
@@ -507,12 +533,25 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 44,
+                        value: 52,
                     },
                 ),
             },
             None,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Trait(
+                            TraitPath(
+                                Id {
+                                    value: 9,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             None,
             None,
             None,
@@ -523,7 +562,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 44,
+                        value: 52,
                     },
                 ),
             },
@@ -539,7 +578,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 51,
+                                        value: 58,
                                     },
                                 ),
                             ),
@@ -551,7 +590,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 44,
+                        value: 52,
                     },
                 ),
             },
@@ -563,7 +602,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 44,
+                        value: 52,
                     },
                 ),
             },
@@ -577,7 +616,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 44,
+                        value: 52,
                     },
                 ),
             },
@@ -595,7 +634,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -605,7 +644,7 @@ Ok(
                 inherited_symbol_kind: ImplicitParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -620,7 +659,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -630,7 +669,7 @@ Ok(
                 inherited_symbol_kind: Parameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -645,7 +684,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -655,7 +694,7 @@ Ok(
                 inherited_symbol_kind: ImplicitParameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -669,7 +708,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -681,7 +720,7 @@ Ok(
                 inherited_symbol_kind: Parameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -693,7 +732,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -706,7 +745,7 @@ Ok(
                 inherited_symbol_kind: Parameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -718,7 +757,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -731,7 +770,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -744,7 +783,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -758,7 +797,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -770,7 +809,7 @@ Ok(
                 inherited_symbol_kind: Parameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -782,7 +821,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -795,7 +834,7 @@ Ok(
                 inherited_symbol_kind: Parameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -807,7 +846,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -820,7 +859,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -834,7 +873,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -846,7 +885,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -859,7 +898,7 @@ Ok(
                 inherited_symbol_kind: Parameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -873,7 +912,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -887,7 +926,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -899,7 +938,7 @@ Ok(
                 inherited_symbol_kind: Parameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -913,7 +952,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -927,7 +966,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -941,7 +980,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 49,
+                        value: 57,
                     },
                 ),
             },
@@ -979,7 +1018,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 50,
+                        value: 58,
                     },
                 ),
             },
@@ -1028,7 +1067,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 50,
+                        value: 58,
                     },
                 ),
             },
@@ -1041,7 +1080,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 50,
+                        value: 58,
                     },
                 ),
             },
@@ -1102,7 +1141,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 51,
+                        value: 59,
                     },
                 ),
             },
@@ -1142,7 +1181,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 51,
+                        value: 59,
                     },
                 ),
             },
@@ -1155,7 +1194,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 51,
+                        value: 59,
                     },
                 ),
             },

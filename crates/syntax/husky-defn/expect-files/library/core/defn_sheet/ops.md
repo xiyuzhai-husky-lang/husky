@@ -6,7 +6,7 @@ Ok(
                     path: TraitPath(`core::ops::Add`),
                     decl: TraitDecl(
                         Id {
-                            value: 1,
+                            value: 9,
                         },
                     ),
                 },

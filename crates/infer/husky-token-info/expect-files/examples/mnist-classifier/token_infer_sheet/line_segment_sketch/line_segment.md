@@ -11,7 +11,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 17,
+                                value: 21,
                             },
                         ),
                     ),
@@ -27,7 +27,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 12,
+                                value: 16,
                             },
                         ),
                     ),
@@ -188,7 +188,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 260,
+                        value: 268,
                     },
                 ),
             },
@@ -232,7 +232,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 262,
+                        value: 270,
                     },
                 ),
             },
@@ -250,83 +250,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 262,
-                    },
-                ),
-            },
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            Method,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: Parameter,
-                expr_region: ExprRegion(
-                    Id {
-                        value: 262,
-                    },
-                ),
-            },
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol: 1,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 262,
-                    },
-                ),
-            },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 262,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 262,
-                    },
-                ),
-            },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol: 2,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 262,
+                        value: 270,
                     },
                 ),
             },
@@ -342,20 +266,20 @@ Ok(
                 inherited_symbol_kind: Parameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 262,
+                        value: 270,
                     },
                 ),
             },
             None,
             None,
             CurrentSymbol {
-                current_symbol_idx: 2,
+                current_symbol_idx: 1,
                 current_symbol_kind: LetVariable {
-                    pattern_symbol: 2,
+                    pattern_symbol: 1,
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 262,
+                        value: 270,
                     },
                 ),
             },
@@ -369,7 +293,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 262,
+                        value: 270,
                     },
                 ),
             },
@@ -384,7 +308,83 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 262,
+                        value: 270,
+                    },
+                ),
+            },
+            None,
+            Method,
+            None,
+            None,
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 270,
+                    },
+                ),
+            },
+            None,
+            SelfValue,
+            None,
+            Field,
+            None,
+            Method,
+            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: Parameter,
+                expr_region: ExprRegion(
+                    Id {
+                        value: 270,
+                    },
+                ),
+            },
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol: 2,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 270,
+                    },
+                ),
+            },
+            None,
+            Method,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 270,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 270,
                     },
                 ),
             },
@@ -401,7 +401,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 262,
+                        value: 270,
                     },
                 ),
             },
@@ -415,7 +415,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 262,
+                        value: 270,
                     },
                 ),
             },
@@ -432,7 +432,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 262,
+                        value: 270,
                     },
                 ),
             },
