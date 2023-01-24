@@ -8,6 +8,18 @@ Ok(
                 Identifier(
                     Word(
                         Id {
+                            value: 9,
+                        },
+                    ),
+                ),
+            ),
+            Keyword(
+                Mod,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
                             value: 5,
                         },
                     ),
@@ -20,19 +32,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 2,
-                        },
-                    ),
-                ),
-            ),
-            Keyword(
-                Mod,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 4,
+                            value: 8,
                         },
                     ),
                 ),

@@ -122,6 +122,14 @@ pub enum UseExprError {
     ExpectIdentifier(TokenIdx),
     #[error("token error")]
     Token(#[from] TokenError),
+    #[error("missing use expr")]
+    MissingUseExpr(TokenIdx),
+    #[error("missing `::`")]
+    MissingScopeResolution(TokenIdx),
+    #[error("missing `}}`")]
+    RightCurlyBrace(TokenIdx),
+    #[error("missing `use` token")]
+    MissingUseToken(TokenIdx),
 }
 
 impl<'a, 'b> FromAbsent<IdentifierToken, UseExprParser<'a, 'b>> for UseExprError {
@@ -132,25 +140,25 @@ impl<'a, 'b> FromAbsent<IdentifierToken, UseExprParser<'a, 'b>> for UseExprError
 
 impl<'a, 'b> FromAbsent<RightCurlyBraceToken, UseExprParser<'a, 'b>> for UseExprError {
     fn new_absent_error(state: TokenIdx) -> Self {
-        todo!()
+        UseExprError::RightCurlyBrace(state)
     }
 }
 
 impl<'a, 'b> FromAbsent<UseToken, UseExprParser<'a, 'b>> for UseExprError {
     fn new_absent_error(state: TokenIdx) -> Self {
-        todo!()
+        UseExprError::MissingUseToken(state)
     }
 }
 
 impl<'a, 'b> FromAbsent<ScopeResolutionToken, UseExprParser<'a, 'b>> for UseExprError {
     fn new_absent_error(state: TokenIdx) -> Self {
-        todo!()
+        UseExprError::MissingScopeResolution(state)
     }
 }
 
 impl<'a, 'b> FromAbsent<UseExpr, UseExprParser<'a, 'b>> for UseExprError {
     fn new_absent_error(state: TokenIdx) -> Self {
-        todo!()
+        UseExprError::MissingUseExpr(state)
     }
 }
 

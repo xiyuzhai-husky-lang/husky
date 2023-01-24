@@ -93,6 +93,66 @@ Ok(
                         },
                     ),
                 },
+                NativeEntitySymbolEntry {
+                    ident: `fmt`,
+                    accessibility: PubicUnder(
+                        `core`,
+                    ),
+                    symbol: Submodule(
+                        SubmoduleSymbol {
+                            path: `core::fmt`,
+                            accessibility: PubicUnder(
+                                `core`,
+                            ),
+                            ast_idx: 6,
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `clone`,
+                    accessibility: PubicUnder(
+                        `core`,
+                    ),
+                    symbol: Submodule(
+                        SubmoduleSymbol {
+                            path: `core::clone`,
+                            accessibility: PubicUnder(
+                                `core`,
+                            ),
+                            ast_idx: 7,
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `marker`,
+                    accessibility: PubicUnder(
+                        `core`,
+                    ),
+                    symbol: Submodule(
+                        SubmoduleSymbol {
+                            path: `core::marker`,
+                            accessibility: PubicUnder(
+                                `core`,
+                            ),
+                            ast_idx: 8,
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `cmp`,
+                    accessibility: PubicUnder(
+                        `core`,
+                    ),
+                    symbol: Submodule(
+                        SubmoduleSymbol {
+                            path: `core::cmp`,
+                            accessibility: PubicUnder(
+                                `core`,
+                            ),
+                            ast_idx: 9,
+                        },
+                    ),
+                },
             ],
         ),
         entity_use_roots: EntityUseExprTrackers(

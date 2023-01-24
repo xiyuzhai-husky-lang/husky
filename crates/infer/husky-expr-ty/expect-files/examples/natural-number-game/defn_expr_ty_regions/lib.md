@@ -7,7 +7,7 @@
                         impl_block_id: ImplBlockId {
                             module_path: ModulePath(
                                 Id {
-                                    value: 39,
+                                    value: 43,
                                 },
                             ),
                             impl_block_kind: Type {
@@ -21,7 +21,7 @@
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 24,
+                                    value: 34,
                                 },
                             ),
                         ),

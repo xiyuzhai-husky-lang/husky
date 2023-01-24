@@ -65,7 +65,7 @@
                             ty: TypePath(`core::num::i8`, `Alien`),
                         },
                     },
-                    ast_idx: 18,
+                    ast_idx: 19,
                     body: ArenaIdxRange(
                         0..1,
                     ),
@@ -88,7 +88,7 @@
                         impl_block_id: ImplBlockId {
                             module_path: ModulePath(
                                 Id {
-                                    value: 4,
+                                    value: 8,
                                 },
                             ),
                             impl_block_kind: Type {
@@ -102,7 +102,7 @@
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 21,
+                                    value: 31,
                                 },
                             ),
                         ),
@@ -121,7 +121,7 @@
                                 ty: TypePath(`core::num::i8`, `Alien`),
                             },
                         },
-                        ast_idx: 18,
+                        ast_idx: 19,
                         body: ArenaIdxRange(
                             0..1,
                         ),
@@ -154,7 +154,7 @@
                             ty: TypePath(`core::num::i16`, `Alien`),
                         },
                     },
-                    ast_idx: 23,
+                    ast_idx: 24,
                     body: ArenaIdxRange(
                         2..3,
                     ),
@@ -177,7 +177,7 @@
                         impl_block_id: ImplBlockId {
                             module_path: ModulePath(
                                 Id {
-                                    value: 4,
+                                    value: 8,
                                 },
                             ),
                             impl_block_kind: Type {
@@ -191,7 +191,7 @@
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 21,
+                                    value: 31,
                                 },
                             ),
                         ),
@@ -210,7 +210,7 @@
                                 ty: TypePath(`core::num::i16`, `Alien`),
                             },
                         },
-                        ast_idx: 23,
+                        ast_idx: 24,
                         body: ArenaIdxRange(
                             2..3,
                         ),
@@ -243,7 +243,7 @@
                             ty: TypePath(`core::num::i32`, `Alien`),
                         },
                     },
-                    ast_idx: 27,
+                    ast_idx: 29,
                     body: ArenaIdxRange(
                         4..5,
                     ),
@@ -266,7 +266,7 @@
                         impl_block_id: ImplBlockId {
                             module_path: ModulePath(
                                 Id {
-                                    value: 4,
+                                    value: 8,
                                 },
                             ),
                             impl_block_kind: Type {
@@ -280,7 +280,7 @@
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 21,
+                                    value: 31,
                                 },
                             ),
                         ),
@@ -299,7 +299,7 @@
                                 ty: TypePath(`core::num::i32`, `Alien`),
                             },
                         },
-                        ast_idx: 27,
+                        ast_idx: 29,
                         body: ArenaIdxRange(
                             4..5,
                         ),
@@ -332,7 +332,7 @@
                             ty: TypePath(`core::num::i64`, `Alien`),
                         },
                     },
-                    ast_idx: 31,
+                    ast_idx: 34,
                     body: ArenaIdxRange(
                         6..7,
                     ),
@@ -355,7 +355,7 @@
                         impl_block_id: ImplBlockId {
                             module_path: ModulePath(
                                 Id {
-                                    value: 4,
+                                    value: 8,
                                 },
                             ),
                             impl_block_kind: Type {
@@ -369,7 +369,7 @@
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 21,
+                                    value: 31,
                                 },
                             ),
                         ),
@@ -388,7 +388,7 @@
                                 ty: TypePath(`core::num::i64`, `Alien`),
                             },
                         },
-                        ast_idx: 31,
+                        ast_idx: 34,
                         body: ArenaIdxRange(
                             6..7,
                         ),
@@ -421,7 +421,7 @@
                             ty: TypePath(`core::num::f8`, `Alien`),
                         },
                     },
-                    ast_idx: 35,
+                    ast_idx: 39,
                     body: ArenaIdxRange(
                         8..9,
                     ),
@@ -444,7 +444,7 @@
                         impl_block_id: ImplBlockId {
                             module_path: ModulePath(
                                 Id {
-                                    value: 4,
+                                    value: 8,
                                 },
                             ),
                             impl_block_kind: Type {
@@ -458,7 +458,7 @@
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 21,
+                                    value: 31,
                                 },
                             ),
                         ),
@@ -477,7 +477,7 @@
                                 ty: TypePath(`core::num::f8`, `Alien`),
                             },
                         },
-                        ast_idx: 35,
+                        ast_idx: 39,
                         body: ArenaIdxRange(
                             8..9,
                         ),
@@ -510,7 +510,7 @@
                             ty: TypePath(`core::num::f16`, `Alien`),
                         },
                     },
-                    ast_idx: 39,
+                    ast_idx: 44,
                     body: ArenaIdxRange(
                         10..11,
                     ),
@@ -533,7 +533,7 @@
                         impl_block_id: ImplBlockId {
                             module_path: ModulePath(
                                 Id {
-                                    value: 4,
+                                    value: 8,
                                 },
                             ),
                             impl_block_kind: Type {
@@ -547,7 +547,7 @@
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 21,
+                                    value: 31,
                                 },
                             ),
                         ),
@@ -566,7 +566,7 @@
                                 ty: TypePath(`core::num::f16`, `Alien`),
                             },
                         },
-                        ast_idx: 39,
+                        ast_idx: 44,
                         body: ArenaIdxRange(
                             10..11,
                         ),
@@ -599,7 +599,7 @@
                             ty: TypePath(`core::num::f32`, `Alien`),
                         },
                     },
-                    ast_idx: 43,
+                    ast_idx: 49,
                     body: ArenaIdxRange(
                         12..13,
                     ),
@@ -622,7 +622,7 @@
                         impl_block_id: ImplBlockId {
                             module_path: ModulePath(
                                 Id {
-                                    value: 4,
+                                    value: 8,
                                 },
                             ),
                             impl_block_kind: Type {
@@ -636,7 +636,7 @@
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 21,
+                                    value: 31,
                                 },
                             ),
                         ),
@@ -655,7 +655,7 @@
                                 ty: TypePath(`core::num::f32`, `Alien`),
                             },
                         },
-                        ast_idx: 43,
+                        ast_idx: 49,
                         body: ArenaIdxRange(
                             12..13,
                         ),
@@ -688,7 +688,7 @@
                             ty: TypePath(`core::num::f64`, `Alien`),
                         },
                     },
-                    ast_idx: 47,
+                    ast_idx: 54,
                     body: ArenaIdxRange(
                         14..15,
                     ),
@@ -711,7 +711,7 @@
                         impl_block_id: ImplBlockId {
                             module_path: ModulePath(
                                 Id {
-                                    value: 4,
+                                    value: 8,
                                 },
                             ),
                             impl_block_kind: Type {
@@ -725,7 +725,7 @@
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 21,
+                                    value: 31,
                                 },
                             ),
                         ),
@@ -744,7 +744,7 @@
                                 ty: TypePath(`core::num::f64`, `Alien`),
                             },
                         },
-                        ast_idx: 47,
+                        ast_idx: 54,
                         body: ArenaIdxRange(
                             14..15,
                         ),

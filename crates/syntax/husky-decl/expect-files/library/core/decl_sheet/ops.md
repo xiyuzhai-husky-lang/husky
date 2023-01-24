@@ -8,7 +8,7 @@ Ok(
                         ast_idx: 3,
                         expr_region: ExprRegion(
                             Id {
-                                value: 31,
+                                value: 39,
                             },
                         ),
                         implicit_parameter_decl_list: Some(
@@ -27,7 +27,7 @@ Ok(
                                                     ident: Identifier(
                                                         Word(
                                                             Id {
-                                                                value: 39,
+                                                                value: 43,
                                                             },
                                                         ),
                                                     ),

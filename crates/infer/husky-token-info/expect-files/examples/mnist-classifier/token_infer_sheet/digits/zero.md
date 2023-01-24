@@ -73,7 +73,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 17,
+                                value: 21,
                             },
                         ),
                     ),
@@ -89,7 +89,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 16,
+                                value: 20,
                             },
                         ),
                     ),
@@ -107,7 +107,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 17,
+                                value: 21,
                             },
                         ),
                     ),
@@ -123,7 +123,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 14,
+                                value: 18,
                             },
                         ),
                     ),
@@ -141,7 +141,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 17,
+                                value: 21,
                             },
                         ),
                     ),
@@ -157,7 +157,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 13,
+                                value: 17,
                             },
                         ),
                     ),
@@ -173,7 +173,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 17,
+                                value: 21,
                             },
                         ),
                     ),
@@ -191,7 +191,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 17,
+                                value: 21,
                             },
                         ),
                     ),
@@ -309,7 +309,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 155,
+                        value: 163,
                     },
                 ),
             },
@@ -353,7 +353,7 @@ Ok(
                 inherited_symbol_kind: Parameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 158,
+                        value: 166,
                     },
                 ),
             },
@@ -370,7 +370,7 @@ Ok(
                 inherited_symbol_kind: Parameter,
                 expr_region: ExprRegion(
                     Id {
-                        value: 158,
+                        value: 166,
                     },
                 ),
             },

@@ -1,0 +1,4 @@
+pub trait PartialEq;
+pub trait Eq;
+pub trait PartialOrd;
+pub trait Ord;

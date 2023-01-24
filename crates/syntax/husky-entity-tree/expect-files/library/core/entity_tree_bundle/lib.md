@@ -95,6 +95,66 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `fmt`,
+                            accessibility: PubicUnder(
+                                `core`,
+                            ),
+                            symbol: Submodule(
+                                SubmoduleSymbol {
+                                    path: `core::fmt`,
+                                    accessibility: PubicUnder(
+                                        `core`,
+                                    ),
+                                    ast_idx: 6,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `clone`,
+                            accessibility: PubicUnder(
+                                `core`,
+                            ),
+                            symbol: Submodule(
+                                SubmoduleSymbol {
+                                    path: `core::clone`,
+                                    accessibility: PubicUnder(
+                                        `core`,
+                                    ),
+                                    ast_idx: 7,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `marker`,
+                            accessibility: PubicUnder(
+                                `core`,
+                            ),
+                            symbol: Submodule(
+                                SubmoduleSymbol {
+                                    path: `core::marker`,
+                                    accessibility: PubicUnder(
+                                        `core`,
+                                    ),
+                                    ast_idx: 8,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `cmp`,
+                            accessibility: PubicUnder(
+                                `core`,
+                            ),
+                            symbol: Submodule(
+                                SubmoduleSymbol {
+                                    path: `core::cmp`,
+                                    accessibility: PubicUnder(
+                                        `core`,
+                                    ),
+                                    ast_idx: 9,
+                                },
+                            ),
+                        },
                     ],
                 ),
             },
@@ -189,7 +249,7 @@ Ok(
                                 ModuleItemSymbol {
                                     path: TypePath(`core::num::i8`, `Alien`),
                                     accessibility: Public,
-                                    ast_idx: 17,
+                                    ast_idx: 18,
                                 },
                             ),
                         },
@@ -200,7 +260,7 @@ Ok(
                                 ModuleItemSymbol {
                                     path: TypePath(`core::num::i16`, `Alien`),
                                     accessibility: Public,
-                                    ast_idx: 22,
+                                    ast_idx: 23,
                                 },
                             ),
                         },
@@ -211,7 +271,7 @@ Ok(
                                 ModuleItemSymbol {
                                     path: TypePath(`core::num::i32`, `Alien`),
                                     accessibility: Public,
-                                    ast_idx: 26,
+                                    ast_idx: 28,
                                 },
                             ),
                         },
@@ -222,7 +282,7 @@ Ok(
                                 ModuleItemSymbol {
                                     path: TypePath(`core::num::i64`, `Alien`),
                                     accessibility: Public,
-                                    ast_idx: 30,
+                                    ast_idx: 33,
                                 },
                             ),
                         },
@@ -233,7 +293,7 @@ Ok(
                                 ModuleItemSymbol {
                                     path: TypePath(`core::num::f8`, `Alien`),
                                     accessibility: Public,
-                                    ast_idx: 34,
+                                    ast_idx: 38,
                                 },
                             ),
                         },
@@ -244,7 +304,7 @@ Ok(
                                 ModuleItemSymbol {
                                     path: TypePath(`core::num::f16`, `Alien`),
                                     accessibility: Public,
-                                    ast_idx: 38,
+                                    ast_idx: 43,
                                 },
                             ),
                         },
@@ -255,7 +315,7 @@ Ok(
                                 ModuleItemSymbol {
                                     path: TypePath(`core::num::f32`, `Alien`),
                                     accessibility: Public,
-                                    ast_idx: 42,
+                                    ast_idx: 48,
                                 },
                             ),
                         },
@@ -266,7 +326,7 @@ Ok(
                                 ModuleItemSymbol {
                                     path: TypePath(`core::num::f64`, `Alien`),
                                     accessibility: Public,
-                                    ast_idx: 46,
+                                    ast_idx: 53,
                                 },
                             ),
                         },
@@ -361,7 +421,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`core::num::i8`, `Alien`),
                                             accessibility: Public,
-                                            ast_idx: 17,
+                                            ast_idx: 18,
                                         },
                                     ),
                                     path: TypePath(`core::num::i8`, `Alien`),
@@ -380,7 +440,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`core::num::i16`, `Alien`),
                                             accessibility: Public,
-                                            ast_idx: 22,
+                                            ast_idx: 23,
                                         },
                                     ),
                                     path: TypePath(`core::num::i16`, `Alien`),
@@ -399,7 +459,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`core::num::i32`, `Alien`),
                                             accessibility: Public,
-                                            ast_idx: 26,
+                                            ast_idx: 28,
                                         },
                                     ),
                                     path: TypePath(`core::num::i32`, `Alien`),
@@ -418,7 +478,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`core::num::i64`, `Alien`),
                                             accessibility: Public,
-                                            ast_idx: 30,
+                                            ast_idx: 33,
                                         },
                                     ),
                                     path: TypePath(`core::num::i64`, `Alien`),
@@ -437,7 +497,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`core::num::f8`, `Alien`),
                                             accessibility: Public,
-                                            ast_idx: 34,
+                                            ast_idx: 38,
                                         },
                                     ),
                                     path: TypePath(`core::num::f8`, `Alien`),
@@ -456,7 +516,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`core::num::f16`, `Alien`),
                                             accessibility: Public,
-                                            ast_idx: 38,
+                                            ast_idx: 43,
                                         },
                                     ),
                                     path: TypePath(`core::num::f16`, `Alien`),
@@ -475,7 +535,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`core::num::f32`, `Alien`),
                                             accessibility: Public,
-                                            ast_idx: 42,
+                                            ast_idx: 48,
                                         },
                                     ),
                                     path: TypePath(`core::num::f32`, `Alien`),
@@ -494,7 +554,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`core::num::f64`, `Alien`),
                                             accessibility: Public,
-                                            ast_idx: 46,
+                                            ast_idx: 53,
                                         },
                                     ),
                                     path: TypePath(`core::num::f64`, `Alien`),
@@ -523,6 +583,158 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `Debug`,
+                            accessibility: Public,
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TraitPath(`core::fmt::Debug`),
+                                            accessibility: Public,
+                                            ast_idx: 0,
+                                        },
+                                    ),
+                                    path: TraitPath(`core::fmt::Debug`),
+                                    accessibility: Public,
+                                    ast_idx: 3,
+                                    use_expr_idx: 9,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `Copy`,
+                            accessibility: Public,
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TraitPath(`core::marker::Copy`),
+                                            accessibility: Public,
+                                            ast_idx: 0,
+                                        },
+                                    ),
+                                    path: TraitPath(`core::marker::Copy`),
+                                    accessibility: Public,
+                                    ast_idx: 4,
+                                    use_expr_idx: 12,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `Sized`,
+                            accessibility: Public,
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TraitPath(`core::marker::Sized`),
+                                            accessibility: Public,
+                                            ast_idx: 1,
+                                        },
+                                    ),
+                                    path: TraitPath(`core::marker::Sized`),
+                                    accessibility: Public,
+                                    ast_idx: 4,
+                                    use_expr_idx: 12,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `Clone`,
+                            accessibility: Public,
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TraitPath(`core::clone::Clone`),
+                                            accessibility: Public,
+                                            ast_idx: 1,
+                                        },
+                                    ),
+                                    path: TraitPath(`core::clone::Clone`),
+                                    accessibility: Public,
+                                    ast_idx: 5,
+                                    use_expr_idx: 15,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `PartialEq`,
+                            accessibility: Public,
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TraitPath(`core::cmp::PartialEq`),
+                                            accessibility: Public,
+                                            ast_idx: 0,
+                                        },
+                                    ),
+                                    path: TraitPath(`core::cmp::PartialEq`),
+                                    accessibility: Public,
+                                    ast_idx: 6,
+                                    use_expr_idx: 18,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `Eq`,
+                            accessibility: Public,
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TraitPath(`core::cmp::Eq`),
+                                            accessibility: Public,
+                                            ast_idx: 1,
+                                        },
+                                    ),
+                                    path: TraitPath(`core::cmp::Eq`),
+                                    accessibility: Public,
+                                    ast_idx: 6,
+                                    use_expr_idx: 18,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `PartialOrd`,
+                            accessibility: Public,
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TraitPath(`core::cmp::PartialOrd`),
+                                            accessibility: Public,
+                                            ast_idx: 2,
+                                        },
+                                    ),
+                                    path: TraitPath(`core::cmp::PartialOrd`),
+                                    accessibility: Public,
+                                    ast_idx: 6,
+                                    use_expr_idx: 18,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `Ord`,
+                            accessibility: Public,
+                            symbol: Use(
+                                UseSymbol {
+                                    original_symbol: ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: TraitPath(`core::cmp::Ord`),
+                                            accessibility: Public,
+                                            ast_idx: 3,
+                                        },
+                                    ),
+                                    path: TraitPath(`core::cmp::Ord`),
+                                    accessibility: Public,
+                                    ast_idx: 6,
+                                    use_expr_idx: 18,
+                                },
+                            ),
+                        },
                     ],
                 ),
             },
@@ -538,6 +750,122 @@ Ok(
                                     path: TypePath(`core::raw_bits::r32`, `Alien`),
                                     accessibility: Public,
                                     ast_idx: 2,
+                                },
+                            ),
+                        },
+                    ],
+                ),
+            },
+            EntityTreeSheet {
+                module_path: `core::fmt`,
+                module_specific_symbols: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `Debug`,
+                            accessibility: Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    path: TraitPath(`core::fmt::Debug`),
+                                    accessibility: Public,
+                                    ast_idx: 0,
+                                },
+                            ),
+                        },
+                    ],
+                ),
+            },
+            EntityTreeSheet {
+                module_path: `core::clone`,
+                module_specific_symbols: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `Clone`,
+                            accessibility: Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    path: TraitPath(`core::clone::Clone`),
+                                    accessibility: Public,
+                                    ast_idx: 1,
+                                },
+                            ),
+                        },
+                    ],
+                ),
+            },
+            EntityTreeSheet {
+                module_path: `core::marker`,
+                module_specific_symbols: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `Copy`,
+                            accessibility: Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    path: TraitPath(`core::marker::Copy`),
+                                    accessibility: Public,
+                                    ast_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `Sized`,
+                            accessibility: Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    path: TraitPath(`core::marker::Sized`),
+                                    accessibility: Public,
+                                    ast_idx: 1,
+                                },
+                            ),
+                        },
+                    ],
+                ),
+            },
+            EntityTreeSheet {
+                module_path: `core::cmp`,
+                module_specific_symbols: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `PartialEq`,
+                            accessibility: Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    path: TraitPath(`core::cmp::PartialEq`),
+                                    accessibility: Public,
+                                    ast_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `Eq`,
+                            accessibility: Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    path: TraitPath(`core::cmp::Eq`),
+                                    accessibility: Public,
+                                    ast_idx: 1,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `PartialOrd`,
+                            accessibility: Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    path: TraitPath(`core::cmp::PartialOrd`),
+                                    accessibility: Public,
+                                    ast_idx: 2,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `Ord`,
+                            accessibility: Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    path: TraitPath(`core::cmp::Ord`),
+                                    accessibility: Public,
+                                    ast_idx: 3,
                                 },
                             ),
                         },

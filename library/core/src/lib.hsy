@@ -4,3 +4,7 @@ mod num
 mod ops
 mod prelude
 mod raw_bits
+mod fmt
+mod clone
+mod marker
+mod cmp

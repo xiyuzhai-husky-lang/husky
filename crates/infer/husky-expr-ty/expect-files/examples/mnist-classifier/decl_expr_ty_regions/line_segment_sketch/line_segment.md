@@ -39,7 +39,7 @@
                         impl_block_id: ImplBlockId {
                             module_path: ModulePath(
                                 Id {
-                                    value: 36,
+                                    value: 40,
                                 },
                             ),
                             impl_block_kind: Type {
@@ -53,7 +53,7 @@
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 189,
+                                    value: 194,
                                 },
                             ),
                         ),
@@ -105,7 +105,7 @@
                         impl_block_id: ImplBlockId {
                             module_path: ModulePath(
                                 Id {
-                                    value: 36,
+                                    value: 40,
                                 },
                             ),
                             impl_block_kind: Type {
@@ -119,7 +119,7 @@
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 321,
+                                    value: 326,
                                 },
                             ),
                         ),

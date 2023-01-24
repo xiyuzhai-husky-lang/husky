@@ -6,4 +6,8 @@
     `core::ops`,
     `core::prelude`,
     `core::raw_bits`,
+    `core::fmt`,
+    `core::clone`,
+    `core::marker`,
+    `core::cmp`,
 ]

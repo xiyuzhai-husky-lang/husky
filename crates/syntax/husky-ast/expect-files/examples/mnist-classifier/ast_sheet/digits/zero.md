@@ -251,7 +251,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 26,
+                                value: 30,
                             },
                         ),
                     ),
@@ -286,7 +286,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 26,
+                                value: 30,
                             },
                         ),
                     ),
@@ -321,7 +321,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 26,
+                                value: 30,
                             },
                         ),
                     ),

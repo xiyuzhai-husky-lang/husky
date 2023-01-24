@@ -1,3 +1,7 @@
 pub use crate::basic::*
 pub use crate::num::*
 pub use crate::raw_bits::*
+pub use crate::fmt::*
+pub use crate::marker::*
+pub use crate::clone::*
+pub use crate::cmp::*

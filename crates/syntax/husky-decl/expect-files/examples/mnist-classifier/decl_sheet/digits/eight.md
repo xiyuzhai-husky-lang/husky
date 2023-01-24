@@ -28,7 +28,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 56,
+                                    value: 64,
                                 },
                             ),
                         },
@@ -62,7 +62,7 @@ Ok(
                             ),
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 57,
+                                    value: 65,
                                 },
                             ),
                         },
@@ -77,7 +77,7 @@ Ok(
                             ast_idx: 30,
                             expr_region: ExprRegion(
                                 Id {
-                                    value: 58,
+                                    value: 66,
                                 },
                             ),
                             implicit_parameter_decl_list: None,

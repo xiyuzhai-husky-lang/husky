@@ -7,7 +7,42 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unexpected stmt inside module",
                 severity: Error,
-                range: [11:1, 11:43),
+                range: [2:1, 2:43),
+            },
+            Diagnostic {
+                message: "Syntax Error: unexpected stmt inside module",
+                severity: Error,
+                range: [12:1, 12:43),
+            },
+            Diagnostic {
+                message: "Syntax Error: unexpected stmt inside module",
+                severity: Error,
+                range: [22:1, 22:43),
+            },
+            Diagnostic {
+                message: "Syntax Error: unexpected stmt inside module",
+                severity: Error,
+                range: [32:1, 32:43),
+            },
+            Diagnostic {
+                message: "Syntax Error: unexpected stmt inside module",
+                severity: Error,
+                range: [42:1, 42:43),
+            },
+            Diagnostic {
+                message: "Syntax Error: unexpected stmt inside module",
+                severity: Error,
+                range: [52:1, 52:43),
+            },
+            Diagnostic {
+                message: "Syntax Error: unexpected stmt inside module",
+                severity: Error,
+                range: [62:1, 62:43),
+            },
+            Diagnostic {
+                message: "Syntax Error: unexpected stmt inside module",
+                severity: Error,
+                range: [72:1, 72:43),
             },
         ],
     },
