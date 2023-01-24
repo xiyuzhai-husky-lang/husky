@@ -24,11 +24,21 @@
                     params: [
                         TermDurantParameter {
                             ty: Application(
-                                TermApplication(
-                                    Id {
-                                        value: 9,
-                                    },
-                                ),
+                                TermApplication {
+                                    m: Application(
+                                        TermApplication {
+                                            m: Entity(
+                                                TypePath(`core::num::Ref`, `Alien`),
+                                            ),
+                                            n: Literal(
+                                                EvalLifetime,
+                                            ),
+                                        },
+                                    ),
+                                    n: Entity(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    ),
+                                },
                             ),
                         },
                     ],

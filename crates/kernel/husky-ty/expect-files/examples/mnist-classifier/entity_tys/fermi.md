@@ -25,20 +25,68 @@
                     params: [
                         TermDurantParameter {
                             ty: Application(
-                                TermApplication(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
+                                TermApplication {
+                                    m: Application(
+                                        TermApplication {
+                                            m: Entity(
+                                                TypePath(`core::num::Ref`, `Alien`),
+                                            ),
+                                            n: Literal(
+                                                EvalLifetime,
+                                            ),
+                                        },
+                                    ),
+                                    n: Application(
+                                        TermApplication {
+                                            m: Entity(
+                                                TypePath(`core::vec::Vec`, `Alien`),
+                                            ),
+                                            n: Entity(
+                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         TermDurantParameter {
                             ty: Application(
-                                TermApplication(
-                                    Id {
-                                        value: 15,
-                                    },
-                                ),
+                                TermApplication {
+                                    m: Entity(
+                                        TypePath(`core::vec::Vec`, `Alien`),
+                                    ),
+                                    n: Curry(
+                                        TermCurry {
+                                            x: Application(
+                                                TermApplication {
+                                                    m: Application(
+                                                        TermApplication {
+                                                            m: Entity(
+                                                                TypePath(`core::num::Ref`, `Alien`),
+                                                            ),
+                                                            n: Literal(
+                                                                EvalLifetime,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    n: Entity(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    ),
+                                                },
+                                            ),
+                                            y: Application(
+                                                TermApplication {
+                                                    m: Entity(
+                                                        TypePath(`core::option::Option`, `Enum`),
+                                                    ),
+                                                    n: Entity(
+                                                        TypePath(`core::num::f32`, `Alien`),
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     ],

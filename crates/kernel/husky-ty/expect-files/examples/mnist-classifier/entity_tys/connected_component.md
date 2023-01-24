@@ -42,11 +42,21 @@
                     params: [
                         TermDurantParameter {
                             ty: Application(
-                                TermApplication(
-                                    Id {
-                                        value: 4,
-                                    },
-                                ),
+                                TermApplication {
+                                    m: Application(
+                                        TermApplication {
+                                            m: Entity(
+                                                TypePath(`core::num::Ref`, `Alien`),
+                                            ),
+                                            n: Literal(
+                                                EvalLifetime,
+                                            ),
+                                        },
+                                    ),
+                                    n: Entity(
+                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                    ),
+                                },
                             ),
                         },
                     ],
@@ -81,28 +91,12 @@
                     params: [
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`core::raw_bits::r32`, `Alien`),
                             ),
                         },
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`core::raw_bits::r32`, `Alien`),
                             ),
                         },
                     ],

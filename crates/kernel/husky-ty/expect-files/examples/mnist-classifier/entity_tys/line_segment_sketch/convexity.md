@@ -8,28 +8,12 @@
                     params: [
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 38,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                             ),
                         },
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`core::num::i32`, `Alien`),
                             ),
                         },
                     ],

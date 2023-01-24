@@ -42,28 +42,12 @@
                     params: [
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`core::raw_bits::r32`, `Alien`),
                             ),
                         },
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`core::num::i32`, `Alien`),
                             ),
                         },
                     ],
@@ -83,28 +67,12 @@
                     params: [
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`core::raw_bits::r32`, `Alien`),
                             ),
                         },
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`core::num::i32`, `Alien`),
                             ),
                         },
                     ],
@@ -124,28 +92,12 @@
                     params: [
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`core::raw_bits::r32`, `Alien`),
                             ),
                         },
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`core::num::i32`, `Alien`),
                             ),
                         },
                     ],
@@ -165,41 +117,17 @@
                     params: [
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`core::raw_bits::r32`, `Alien`),
                             ),
                         },
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`core::raw_bits::r32`, `Alien`),
                             ),
                         },
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`core::num::i32`, `Alien`),
                             ),
                         },
                     ],
@@ -219,28 +147,12 @@
                     params: [
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 29,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                             ),
                         },
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 29,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                             ),
                         },
                     ],
@@ -260,54 +172,22 @@
                     params: [
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`core::raw_bits::r32`, `Alien`),
                             ),
                         },
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`core::raw_bits::r32`, `Alien`),
                             ),
                         },
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`core::num::i32`, `Alien`),
                             ),
                         },
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 29,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                             ),
                         },
                     ],
@@ -344,11 +224,14 @@
                     params: [
                         TermDurantParameter {
                             ty: Application(
-                                TermApplication(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
+                                TermApplication {
+                                    m: Entity(
+                                        TypePath(`core::vec::Vec`, `Alien`),
+                                    ),
+                                    n: Entity(
+                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                    ),
+                                },
                             ),
                         },
                     ],
@@ -368,11 +251,21 @@
                     params: [
                         TermDurantParameter {
                             ty: Application(
-                                TermApplication(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
+                                TermApplication {
+                                    m: Application(
+                                        TermApplication {
+                                            m: Entity(
+                                                TypePath(`core::num::Ref`, `Alien`),
+                                            ),
+                                            n: Literal(
+                                                EvalLifetime,
+                                            ),
+                                        },
+                                    ),
+                                    n: Entity(
+                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                    ),
+                                },
                             ),
                         },
                     ],

@@ -33,28 +33,12 @@
                     params: [
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 33,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                             ),
                         },
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`core::num::f32`, `Alien`),
                             ),
                         },
                     ],
@@ -74,28 +58,12 @@
                     params: [
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 33,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                             ),
                         },
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`core::num::f32`, `Alien`),
                             ),
                         },
                     ],
@@ -115,37 +83,31 @@
                     params: [
                         TermDurantParameter {
                             ty: Application(
-                                TermApplication(
-                                    Id {
-                                        value: 4,
-                                    },
-                                ),
+                                TermApplication {
+                                    m: Application(
+                                        TermApplication {
+                                            m: Entity(
+                                                TypePath(`core::num::Ref`, `Alien`),
+                                            ),
+                                            n: Literal(
+                                                EvalLifetime,
+                                            ),
+                                        },
+                                    ),
+                                    n: Entity(
+                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                    ),
+                                },
                             ),
                         },
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`core::num::i32`, `Alien`),
                             ),
                         },
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`core::num::f32`, `Alien`),
                             ),
                         },
                     ],
@@ -165,50 +127,36 @@
                     params: [
                         TermDurantParameter {
                             ty: Application(
-                                TermApplication(
-                                    Id {
-                                        value: 4,
-                                    },
-                                ),
+                                TermApplication {
+                                    m: Application(
+                                        TermApplication {
+                                            m: Entity(
+                                                TypePath(`core::num::Ref`, `Alien`),
+                                            ),
+                                            n: Literal(
+                                                EvalLifetime,
+                                            ),
+                                        },
+                                    ),
+                                    n: Entity(
+                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                    ),
+                                },
                             ),
                         },
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`core::num::i32`, `Alien`),
                             ),
                         },
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`core::num::i32`, `Alien`),
                             ),
                         },
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`core::num::f32`, `Alien`),
                             ),
                         },
                     ],
@@ -228,24 +176,26 @@
                     params: [
                         TermDurantParameter {
                             ty: Application(
-                                TermApplication(
-                                    Id {
-                                        value: 4,
-                                    },
-                                ),
+                                TermApplication {
+                                    m: Application(
+                                        TermApplication {
+                                            m: Entity(
+                                                TypePath(`core::num::Ref`, `Alien`),
+                                            ),
+                                            n: Literal(
+                                                EvalLifetime,
+                                            ),
+                                        },
+                                    ),
+                                    n: Entity(
+                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                    ),
+                                },
                             ),
                         },
                         TermDurantParameter {
                             ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                TypePath(`core::num::f32`, `Alien`),
                             ),
                         },
                     ],
