@@ -8,6 +8,7 @@ impl core::ops::Add<i8> for i8:
     pub fn add(other: i8) -> i8;
 
 #[rust(i16)]
+@derive(Debug, PartialEq, Eq, Clone, Copy)
 pub type i16;
 
 impl i16:

@@ -120,6 +120,19 @@ Ok(
             None,
             None,
             None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
             Entity(
                 Some(
                     ModuleItem(

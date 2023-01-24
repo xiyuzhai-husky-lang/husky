@@ -41,15 +41,15 @@ impl ModuleItemPath {
         match self {
             ModuleItemPath::Type(path) => EntityKind::ModuleItem {
                 module_item_kind: ModuleItemKind::Type(path.ty_kind(db)),
-                connection: path.connection(db),
+                connection: path.connection(db).kind(),
             },
             ModuleItemPath::Trait(path) => EntityKind::ModuleItem {
                 module_item_kind: ModuleItemKind::Trait,
-                connection: path.connection(db),
+                connection: path.connection(db).kind(),
             },
             ModuleItemPath::Form(path) => EntityKind::ModuleItem {
                 module_item_kind: ModuleItemKind::Form(path.form_kind(db)),
-                connection: path.connection(db),
+                connection: path.connection(db).kind(),
             },
         }
     }

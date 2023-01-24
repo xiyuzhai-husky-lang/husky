@@ -1,1 +1,3 @@
+#[rust("u32")]
+@derive(Debug, PartialEq, Eq, Clone, Copy)
 pub type r32;

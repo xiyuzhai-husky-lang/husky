@@ -154,7 +154,7 @@
                             ty: TypePath(`core::num::i16`, `Alien`),
                         },
                     },
-                    ast_idx: 22,
+                    ast_idx: 23,
                     body: ArenaIdxRange(
                         2..3,
                     ),
@@ -210,7 +210,7 @@
                                 ty: TypePath(`core::num::i16`, `Alien`),
                             },
                         },
-                        ast_idx: 22,
+                        ast_idx: 23,
                         body: ArenaIdxRange(
                             2..3,
                         ),
@@ -243,7 +243,7 @@
                             ty: TypePath(`core::num::i32`, `Alien`),
                         },
                     },
-                    ast_idx: 26,
+                    ast_idx: 27,
                     body: ArenaIdxRange(
                         4..5,
                     ),
@@ -299,7 +299,7 @@
                                 ty: TypePath(`core::num::i32`, `Alien`),
                             },
                         },
-                        ast_idx: 26,
+                        ast_idx: 27,
                         body: ArenaIdxRange(
                             4..5,
                         ),
@@ -332,7 +332,7 @@
                             ty: TypePath(`core::num::i64`, `Alien`),
                         },
                     },
-                    ast_idx: 30,
+                    ast_idx: 31,
                     body: ArenaIdxRange(
                         6..7,
                     ),
@@ -388,7 +388,7 @@
                                 ty: TypePath(`core::num::i64`, `Alien`),
                             },
                         },
-                        ast_idx: 30,
+                        ast_idx: 31,
                         body: ArenaIdxRange(
                             6..7,
                         ),
@@ -421,7 +421,7 @@
                             ty: TypePath(`core::num::f8`, `Alien`),
                         },
                     },
-                    ast_idx: 34,
+                    ast_idx: 35,
                     body: ArenaIdxRange(
                         8..9,
                     ),
@@ -477,7 +477,7 @@
                                 ty: TypePath(`core::num::f8`, `Alien`),
                             },
                         },
-                        ast_idx: 34,
+                        ast_idx: 35,
                         body: ArenaIdxRange(
                             8..9,
                         ),
@@ -510,7 +510,7 @@
                             ty: TypePath(`core::num::f16`, `Alien`),
                         },
                     },
-                    ast_idx: 38,
+                    ast_idx: 39,
                     body: ArenaIdxRange(
                         10..11,
                     ),
@@ -566,7 +566,7 @@
                                 ty: TypePath(`core::num::f16`, `Alien`),
                             },
                         },
-                        ast_idx: 38,
+                        ast_idx: 39,
                         body: ArenaIdxRange(
                             10..11,
                         ),
@@ -599,7 +599,7 @@
                             ty: TypePath(`core::num::f32`, `Alien`),
                         },
                     },
-                    ast_idx: 42,
+                    ast_idx: 43,
                     body: ArenaIdxRange(
                         12..13,
                     ),
@@ -655,7 +655,7 @@
                                 ty: TypePath(`core::num::f32`, `Alien`),
                             },
                         },
-                        ast_idx: 42,
+                        ast_idx: 43,
                         body: ArenaIdxRange(
                             12..13,
                         ),
@@ -688,7 +688,7 @@
                             ty: TypePath(`core::num::f64`, `Alien`),
                         },
                     },
-                    ast_idx: 46,
+                    ast_idx: 47,
                     body: ArenaIdxRange(
                         14..15,
                     ),
@@ -744,7 +744,7 @@
                                 ty: TypePath(`core::num::f64`, `Alien`),
                             },
                         },
-                        ast_idx: 46,
+                        ast_idx: 47,
                         body: ArenaIdxRange(
                             14..15,
                         ),

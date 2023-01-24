@@ -3,6 +3,26 @@ Ok(
         token_infos: [
             None,
             None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
             Entity(
                 Some(
                     ModuleItem(

@@ -1,4 +1,4 @@
-use husky_entity_taxonomy::{EntityKind, ModuleItemConnection, ModuleItemKind, TypeKind};
+use husky_entity_taxonomy::{EntityKind, ModuleItemConnectionKind, ModuleItemKind, TypeKind};
 use husky_entity_tree::UseExprRuleState;
 use husky_expr::{CurrentSymbolKind, InheritedSymbolKind};
 
@@ -71,7 +71,7 @@ fn token_to_semantic_token(
         TokenInfo::BoxColon | TokenInfo::BoxPrefix => {
             SemanticToken::Entity(EntityKind::ModuleItem {
                 module_item_kind: ModuleItemKind::Type(TypeKind::Alien),
-                connection: ModuleItemConnection::Connected,
+                connection: ModuleItemConnectionKind::Connected,
             })
         }
         TokenInfo::UseExpr { state, .. } => match state {
