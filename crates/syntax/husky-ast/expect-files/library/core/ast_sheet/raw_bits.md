@@ -2,9 +2,20 @@ Ok(
     AstSheet {
         arena: Arena {
             data: [
-                Defn {
+                Decor {
                     token_group_idx: TokenGroupIdx(
                         0,
+                    ),
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        1,
+                    ),
+                    error: UnexpectedStmtInsideModule,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        2,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -22,19 +33,19 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `r32`,
                         token_idx: TokenIdx(
-                            2,
+                            22,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        3,
+                        23,
                     ),
                 },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..1,
+            0..3,
         ),
     },
 )

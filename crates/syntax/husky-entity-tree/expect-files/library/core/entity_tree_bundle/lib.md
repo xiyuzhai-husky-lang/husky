@@ -200,7 +200,7 @@ Ok(
                                 ModuleItemSymbol {
                                     path: TypePath(`core::num::i16`, `Alien`),
                                     accessibility: Public,
-                                    ast_idx: 21,
+                                    ast_idx: 22,
                                 },
                             ),
                         },
@@ -211,7 +211,7 @@ Ok(
                                 ModuleItemSymbol {
                                     path: TypePath(`core::num::i32`, `Alien`),
                                     accessibility: Public,
-                                    ast_idx: 25,
+                                    ast_idx: 26,
                                 },
                             ),
                         },
@@ -222,7 +222,7 @@ Ok(
                                 ModuleItemSymbol {
                                     path: TypePath(`core::num::i64`, `Alien`),
                                     accessibility: Public,
-                                    ast_idx: 29,
+                                    ast_idx: 30,
                                 },
                             ),
                         },
@@ -233,7 +233,7 @@ Ok(
                                 ModuleItemSymbol {
                                     path: TypePath(`core::num::f8`, `Alien`),
                                     accessibility: Public,
-                                    ast_idx: 33,
+                                    ast_idx: 34,
                                 },
                             ),
                         },
@@ -244,7 +244,7 @@ Ok(
                                 ModuleItemSymbol {
                                     path: TypePath(`core::num::f16`, `Alien`),
                                     accessibility: Public,
-                                    ast_idx: 37,
+                                    ast_idx: 38,
                                 },
                             ),
                         },
@@ -255,7 +255,7 @@ Ok(
                                 ModuleItemSymbol {
                                     path: TypePath(`core::num::f32`, `Alien`),
                                     accessibility: Public,
-                                    ast_idx: 41,
+                                    ast_idx: 42,
                                 },
                             ),
                         },
@@ -266,7 +266,7 @@ Ok(
                                 ModuleItemSymbol {
                                     path: TypePath(`core::num::f64`, `Alien`),
                                     accessibility: Public,
-                                    ast_idx: 45,
+                                    ast_idx: 46,
                                 },
                             ),
                         },
@@ -380,7 +380,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`core::num::i16`, `Alien`),
                                             accessibility: Public,
-                                            ast_idx: 21,
+                                            ast_idx: 22,
                                         },
                                     ),
                                     path: TypePath(`core::num::i16`, `Alien`),
@@ -399,7 +399,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`core::num::i32`, `Alien`),
                                             accessibility: Public,
-                                            ast_idx: 25,
+                                            ast_idx: 26,
                                         },
                                     ),
                                     path: TypePath(`core::num::i32`, `Alien`),
@@ -418,7 +418,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`core::num::i64`, `Alien`),
                                             accessibility: Public,
-                                            ast_idx: 29,
+                                            ast_idx: 30,
                                         },
                                     ),
                                     path: TypePath(`core::num::i64`, `Alien`),
@@ -437,7 +437,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`core::num::f8`, `Alien`),
                                             accessibility: Public,
-                                            ast_idx: 33,
+                                            ast_idx: 34,
                                         },
                                     ),
                                     path: TypePath(`core::num::f8`, `Alien`),
@@ -456,7 +456,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`core::num::f16`, `Alien`),
                                             accessibility: Public,
-                                            ast_idx: 37,
+                                            ast_idx: 38,
                                         },
                                     ),
                                     path: TypePath(`core::num::f16`, `Alien`),
@@ -475,7 +475,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`core::num::f32`, `Alien`),
                                             accessibility: Public,
-                                            ast_idx: 41,
+                                            ast_idx: 42,
                                         },
                                     ),
                                     path: TypePath(`core::num::f32`, `Alien`),
@@ -494,7 +494,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`core::num::f64`, `Alien`),
                                             accessibility: Public,
-                                            ast_idx: 45,
+                                            ast_idx: 46,
                                         },
                                     ),
                                     path: TypePath(`core::num::f64`, `Alien`),
@@ -513,7 +513,7 @@ Ok(
                                         ModuleItemSymbol {
                                             path: TypePath(`core::raw_bits::r32`, `Alien`),
                                             accessibility: Public,
-                                            ast_idx: 0,
+                                            ast_idx: 2,
                                         },
                                     ),
                                     path: TypePath(`core::raw_bits::r32`, `Alien`),
@@ -537,7 +537,7 @@ Ok(
                                 ModuleItemSymbol {
                                     path: TypePath(`core::raw_bits::r32`, `Alien`),
                                     accessibility: Public,
-                                    ast_idx: 0,
+                                    ast_idx: 2,
                                 },
                             ),
                         },

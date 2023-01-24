@@ -10,7 +10,7 @@ Ok(
                         ModuleItemSymbol {
                             path: TypePath(`core::raw_bits::r32`, `Alien`),
                             accessibility: Public,
-                            ast_idx: 0,
+                            ast_idx: 2,
                         },
                     ),
                 },

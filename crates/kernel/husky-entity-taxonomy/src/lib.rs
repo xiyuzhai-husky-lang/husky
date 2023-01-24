@@ -23,7 +23,7 @@ pub enum EntityKind {
     Module,
     ModuleItem {
         module_item_kind: ModuleItemKind,
-        connection: ModuleItemConnection,
+        connection: ModuleItemConnectionKind,
     },
     AssociatedItem {
         associated_item_kind: AssociatedItemKind,
@@ -59,7 +59,7 @@ pub enum TraitItemKind {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum ModuleItemConnection {
+pub enum ModuleItemConnectionKind {
     Connected,
     Disconnected,
 }

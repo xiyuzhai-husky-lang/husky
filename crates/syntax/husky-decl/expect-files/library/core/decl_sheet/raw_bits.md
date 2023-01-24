@@ -6,7 +6,7 @@ Ok(
                     Foreign(
                         AlienTypeDecl {
                             path: TypePath(`core::raw_bits::r32`, `Alien`),
-                            ast_idx: 0,
+                            ast_idx: 2,
                             expr_region: ExprRegion(
                                 Id {
                                     value: 32,

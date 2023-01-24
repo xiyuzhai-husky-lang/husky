@@ -56,7 +56,7 @@ Ok(
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        9,
+                        10,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -71,18 +71,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `abs`,
                         token_idx: TokenIdx(
-                            61,
+                            74,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        62,
+                        75,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        11,
+                        12,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -97,18 +97,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `add`,
                         token_idx: TokenIdx(
-                            81,
+                            94,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        82,
+                        95,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        15,
+                        16,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -123,18 +123,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `abs`,
                         token_idx: TokenIdx(
-                            106,
+                            119,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        107,
+                        120,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        17,
+                        18,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -155,18 +155,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `add`,
                         token_idx: TokenIdx(
-                            125,
+                            138,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        126,
+                        139,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        21,
+                        22,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -181,18 +181,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `abs`,
                         token_idx: TokenIdx(
-                            150,
+                            163,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        151,
+                        164,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        23,
+                        24,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -207,18 +207,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `add`,
                         token_idx: TokenIdx(
-                            170,
+                            183,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        171,
+                        184,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        27,
+                        28,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -233,18 +233,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `abs`,
                         token_idx: TokenIdx(
-                            195,
+                            208,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        196,
+                        209,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        29,
+                        30,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -259,18 +259,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `add`,
                         token_idx: TokenIdx(
-                            215,
+                            228,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        216,
+                        229,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        33,
+                        34,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -285,18 +285,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `abs`,
                         token_idx: TokenIdx(
-                            240,
+                            253,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        241,
+                        254,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        35,
+                        36,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -311,18 +311,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `add`,
                         token_idx: TokenIdx(
-                            260,
+                            273,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        261,
+                        274,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        39,
+                        40,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -337,18 +337,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `abs`,
                         token_idx: TokenIdx(
-                            285,
+                            298,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        286,
+                        299,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        41,
+                        42,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -369,18 +369,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `add`,
                         token_idx: TokenIdx(
-                            304,
+                            317,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        305,
+                        318,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        45,
+                        46,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -395,18 +395,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `abs`,
                         token_idx: TokenIdx(
-                            329,
+                            342,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        330,
+                        343,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        47,
+                        48,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -421,13 +421,13 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `add`,
                         token_idx: TokenIdx(
-                            349,
+                            362,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        350,
+                        363,
                     ),
                 },
                 Decor {
@@ -485,9 +485,15 @@ Ok(
                         6,
                     ),
                 },
-                Defn {
+                Err {
                     token_group_idx: TokenGroupIdx(
                         7,
+                    ),
+                    error: UnexpectedStmtInsideModule,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        8,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -505,18 +511,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `i16`,
                         token_idx: TokenIdx(
-                            54,
+                            67,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        55,
+                        68,
                     ),
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
-                        8,
+                        9,
                     ),
                     body: ArenaIdxRange(
                         2..3,
@@ -524,7 +530,7 @@ Ok(
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
-                        10,
+                        11,
                     ),
                     body: ArenaIdxRange(
                         3..4,
@@ -532,12 +538,12 @@ Ok(
                 },
                 Decor {
                     token_group_idx: TokenGroupIdx(
-                        12,
+                        13,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        13,
+                        14,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -555,18 +561,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `i32`,
                         token_idx: TokenIdx(
-                            99,
+                            112,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        100,
+                        113,
                     ),
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
-                        14,
+                        15,
                     ),
                     body: ArenaIdxRange(
                         4..5,
@@ -574,7 +580,7 @@ Ok(
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
-                        16,
+                        17,
                     ),
                     body: ArenaIdxRange(
                         5..6,
@@ -582,12 +588,12 @@ Ok(
                 },
                 Decor {
                     token_group_idx: TokenGroupIdx(
-                        18,
+                        19,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        19,
+                        20,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -605,18 +611,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `i64`,
                         token_idx: TokenIdx(
-                            143,
+                            156,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        144,
+                        157,
                     ),
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
-                        20,
+                        21,
                     ),
                     body: ArenaIdxRange(
                         6..7,
@@ -624,7 +630,7 @@ Ok(
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
-                        22,
+                        23,
                     ),
                     body: ArenaIdxRange(
                         7..8,
@@ -632,12 +638,12 @@ Ok(
                 },
                 Decor {
                     token_group_idx: TokenGroupIdx(
-                        24,
+                        25,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        25,
+                        26,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -655,18 +661,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `f8`,
                         token_idx: TokenIdx(
-                            188,
+                            201,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        189,
+                        202,
                     ),
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
-                        26,
+                        27,
                     ),
                     body: ArenaIdxRange(
                         8..9,
@@ -674,7 +680,7 @@ Ok(
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
-                        28,
+                        29,
                     ),
                     body: ArenaIdxRange(
                         9..10,
@@ -682,12 +688,12 @@ Ok(
                 },
                 Decor {
                     token_group_idx: TokenGroupIdx(
-                        30,
+                        31,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        31,
+                        32,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -705,18 +711,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `f16`,
                         token_idx: TokenIdx(
-                            233,
+                            246,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        234,
+                        247,
                     ),
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
-                        32,
+                        33,
                     ),
                     body: ArenaIdxRange(
                         10..11,
@@ -724,7 +730,7 @@ Ok(
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
-                        34,
+                        35,
                     ),
                     body: ArenaIdxRange(
                         11..12,
@@ -732,12 +738,12 @@ Ok(
                 },
                 Decor {
                     token_group_idx: TokenGroupIdx(
-                        36,
+                        37,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        37,
+                        38,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -755,18 +761,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `f32`,
                         token_idx: TokenIdx(
-                            278,
+                            291,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        279,
+                        292,
                     ),
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
-                        38,
+                        39,
                     ),
                     body: ArenaIdxRange(
                         12..13,
@@ -774,7 +780,7 @@ Ok(
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
-                        40,
+                        41,
                     ),
                     body: ArenaIdxRange(
                         13..14,
@@ -782,12 +788,12 @@ Ok(
                 },
                 Decor {
                     token_group_idx: TokenGroupIdx(
-                        42,
+                        43,
                     ),
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
-                        43,
+                        44,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -805,18 +811,18 @@ Ok(
                     ident_token: IdentifierToken {
                         ident: `f64`,
                         token_idx: TokenIdx(
-                            322,
+                            335,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        323,
+                        336,
                     ),
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
-                        44,
+                        45,
                     ),
                     body: ArenaIdxRange(
                         14..15,
@@ -824,7 +830,7 @@ Ok(
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
-                        46,
+                        47,
                     ),
                     body: ArenaIdxRange(
                         15..16,
@@ -833,7 +839,7 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            16..48,
+            16..49,
         ),
     },
 )

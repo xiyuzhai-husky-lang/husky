@@ -1,6 +1,6 @@
 use husky_entity_path::*;
 use husky_entity_taxonomy::{
-    AssociatedItemKind, FormKind, ModuleItemConnection, ModuleItemKind, TraitItemKind,
+    AssociatedItemKind, FormKind, ModuleItemConnectionKind, ModuleItemKind, TraitItemKind,
     TypeItemKind, TypeKind,
 };
 use husky_opn_syntax::{BinaryOpr, Bracket};
@@ -38,17 +38,21 @@ impl<'a> AstParser<'a> {
             EntityKind::ModuleItem {
                 module_item_kind,
                 connection,
-            } => Some(match module_item_kind {
-                ModuleItemKind::Type(ty_kind) => {
-                    TypePath::new(self.db, self.module_path, ident, connection, ty_kind).into()
-                }
-                ModuleItemKind::Form(form_kind) => {
-                    FormPath::new(self.db, self.module_path, ident, connection, form_kind).into()
-                }
-                ModuleItemKind::Trait => {
-                    TraitPath::new(self.db, self.module_path, ident, connection).into()
-                }
-            }),
+            } => {
+                let connection = self.new_connection(connection);
+                Some(match module_item_kind {
+                    ModuleItemKind::Type(ty_kind) => {
+                        TypePath::new(self.db, self.module_path, ident, connection, ty_kind).into()
+                    }
+                    ModuleItemKind::Form(form_kind) => {
+                        FormPath::new(self.db, self.module_path, ident, connection, form_kind)
+                            .into()
+                    }
+                    ModuleItemKind::Trait => {
+                        TraitPath::new(self.db, self.module_path, ident, connection).into()
+                    }
+                })
+            }
             EntityKind::AssociatedItem { .. } => None,
             EntityKind::Variant => todo!(),
         };
@@ -86,6 +90,13 @@ impl<'a> AstParser<'a> {
             entity_path,
             saved_stream_state,
         })
+    }
+
+    fn new_connection(&mut self, kind: ModuleItemConnectionKind) -> ModuleItemConnection {
+        match kind {
+            ModuleItemConnectionKind::Connected => ModuleItemConnection::Connected,
+            ModuleItemConnectionKind::Disconnected => todo!(),
+        }
     }
 
     fn parse_enum_variants(&mut self, context: Context) -> AstIdxRange {
@@ -361,7 +372,7 @@ impl<'a> BasicAuxAstParser<'a> {
                     };
                     EntityKind::ModuleItem {
                         module_item_kind: ModuleItemKind::Form(form_kind).into(),
-                        connection: ModuleItemConnection::Connected,
+                        connection: ModuleItemConnectionKind::Connected,
                     }
                 }
                 Keyword::Type(kw) => {
@@ -375,7 +386,7 @@ impl<'a> BasicAuxAstParser<'a> {
                     };
                     EntityKind::ModuleItem {
                         module_item_kind: ModuleItemKind::Type(type_kind).into(),
-                        connection: ModuleItemConnection::Connected,
+                        connection: ModuleItemConnectionKind::Connected,
                     }
                 }
                 Keyword::Stmt(_) => todo!(),
@@ -387,7 +398,7 @@ impl<'a> BasicAuxAstParser<'a> {
                 Keyword::Impl => todo!(),
                 Keyword::Trait => EntityKind::ModuleItem {
                     module_item_kind: ModuleItemKind::Trait.into(),
-                    connection: ModuleItemConnection::Connected,
+                    connection: ModuleItemConnectionKind::Connected,
                 },
                 Keyword::End(_) => todo!(),
                 Keyword::Connection(_) => todo!(),

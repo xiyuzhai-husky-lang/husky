@@ -161,7 +161,7 @@ Ok(
             ImplBlock(
                 TypeImplBlock(
                     TypeImplBlockDecl {
-                        ast_idx: 22,
+                        ast_idx: 23,
                         impl_block: ImplBlock(
                             Id {
                                 value: 3,
@@ -169,7 +169,7 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                56,
+                                69,
                             ),
                         },
                         implicit_parameter_decl_list: None,
@@ -179,7 +179,7 @@ Ok(
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    58,
+                                    71,
                                 ),
                             },
                         ),
@@ -222,7 +222,7 @@ Ok(
             ImplBlock(
                 TypeImplBlock(
                     TypeImplBlockDecl {
-                        ast_idx: 26,
+                        ast_idx: 27,
                         impl_block: ImplBlock(
                             Id {
                                 value: 5,
@@ -230,7 +230,7 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                101,
+                                114,
                             ),
                         },
                         implicit_parameter_decl_list: None,
@@ -240,7 +240,7 @@ Ok(
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    103,
+                                    116,
                                 ),
                             },
                         ),
@@ -283,7 +283,7 @@ Ok(
             ImplBlock(
                 TypeImplBlock(
                     TypeImplBlockDecl {
-                        ast_idx: 30,
+                        ast_idx: 31,
                         impl_block: ImplBlock(
                             Id {
                                 value: 7,
@@ -291,7 +291,7 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                145,
+                                158,
                             ),
                         },
                         implicit_parameter_decl_list: None,
@@ -301,7 +301,7 @@ Ok(
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    147,
+                                    160,
                                 ),
                             },
                         ),
@@ -344,7 +344,7 @@ Ok(
             ImplBlock(
                 TypeImplBlock(
                     TypeImplBlockDecl {
-                        ast_idx: 34,
+                        ast_idx: 35,
                         impl_block: ImplBlock(
                             Id {
                                 value: 9,
@@ -352,7 +352,7 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                190,
+                                203,
                             ),
                         },
                         implicit_parameter_decl_list: None,
@@ -362,7 +362,7 @@ Ok(
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    192,
+                                    205,
                                 ),
                             },
                         ),
@@ -405,7 +405,7 @@ Ok(
             ImplBlock(
                 TypeImplBlock(
                     TypeImplBlockDecl {
-                        ast_idx: 38,
+                        ast_idx: 39,
                         impl_block: ImplBlock(
                             Id {
                                 value: 11,
@@ -413,7 +413,7 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                235,
+                                248,
                             ),
                         },
                         implicit_parameter_decl_list: None,
@@ -423,7 +423,7 @@ Ok(
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    237,
+                                    250,
                                 ),
                             },
                         ),
@@ -466,7 +466,7 @@ Ok(
             ImplBlock(
                 TypeImplBlock(
                     TypeImplBlockDecl {
-                        ast_idx: 42,
+                        ast_idx: 43,
                         impl_block: ImplBlock(
                             Id {
                                 value: 13,
@@ -474,7 +474,7 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                280,
+                                293,
                             ),
                         },
                         implicit_parameter_decl_list: None,
@@ -484,7 +484,7 @@ Ok(
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    282,
+                                    295,
                                 ),
                             },
                         ),
@@ -527,7 +527,7 @@ Ok(
             ImplBlock(
                 TypeImplBlock(
                     TypeImplBlockDecl {
-                        ast_idx: 46,
+                        ast_idx: 47,
                         impl_block: ImplBlock(
                             Id {
                                 value: 15,
@@ -535,7 +535,7 @@ Ok(
                         ),
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                324,
+                                337,
                             ),
                         },
                         implicit_parameter_decl_list: None,
@@ -545,7 +545,7 @@ Ok(
                         eol_colon: Ok(
                             EolColonToken {
                                 token_idx: TokenIdx(
-                                    326,
+                                    339,
                                 ),
                             },
                         ),
