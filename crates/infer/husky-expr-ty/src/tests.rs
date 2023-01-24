@@ -37,7 +37,7 @@ pub(crate) struct DB {
 
 impl salsa::Database for DB {}
 
-fn defn_expr_ty_sheets(db: &DB, module_path: ModulePath) -> Vec<&ExprTypeRegion> {
+fn defn_expr_ty_regions(db: &DB, module_path: ModulePath) -> Vec<&ExprTypeRegion> {
     let Ok(defn_sheet) = db.defn_sheet(module_path)
         else { return vec![] };
     defn_sheet
@@ -48,5 +48,20 @@ fn defn_expr_ty_sheets(db: &DB, module_path: ModulePath) -> Vec<&ExprTypeRegion>
 
 #[test]
 fn defn_expr_ty_sheets_works() {
-    DB::default().vfs_expect_test_debug_with_db("defn_expr_ty_sheets", defn_expr_ty_sheets)
+    DB::default().vfs_expect_test_debug_with_db("defn_expr_ty_regions", defn_expr_ty_regions)
+}
+
+fn decl_expr_ty_regions(db: &DB, module_path: ModulePath) -> Vec<&ExprTypeRegion> {
+    let Ok(decl_sheet) = db.decl_sheet(module_path)
+        else { return vec![] };
+    decl_sheet
+        .decls()
+        .iter()
+        .filter_map(|decl| Some(db.expr_ty_region(decl.ok()?.expr_region(db))))
+        .collect()
+}
+
+#[test]
+fn decl_expr_ty_sheets_works() {
+    DB::default().vfs_expect_test_debug_with_db("decl_expr_ty_regions", decl_expr_ty_regions)
 }
