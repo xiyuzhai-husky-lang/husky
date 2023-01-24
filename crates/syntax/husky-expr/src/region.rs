@@ -4,7 +4,7 @@ use husky_vfs::{ModulePath, Toolchain};
 #[salsa::tracked(jar = ExprJar)]
 pub struct ExprRegion {
     pub parent: Option<ExprRegion>,
-    pub path: ExprPath,
+    pub path: ExprRegionPath,
     #[return_ref]
     pub expr_arena: ExprArena,
     #[return_ref]
@@ -21,13 +21,13 @@ impl ExprRegion {
     pub fn toolchain(self, db: &dyn ExprDb) -> Toolchain {
         // ad hoc
         match self.path(db) {
-            ExprPath::Snippet(toolchain) => toolchain,
-            ExprPath::Decl(path) => match path {
+            ExprRegionPath::Snippet(toolchain) => toolchain,
+            ExprRegionPath::Decl(path) => match path {
                 DeclExprPath::Entity(path) => path.toolchain(db),
                 DeclExprPath::ImplBlock(impl_block) => impl_block.module_path(db).toolchain(db),
                 DeclExprPath::AssociatedItem(item) => item.module_path(db).toolchain(db),
             },
-            ExprPath::Defn(path) => match path {
+            ExprRegionPath::Defn(path) => match path {
                 DefnExprPath::Entity(path) => path.toolchain(db),
                 DefnExprPath::AssociatedItem(item) => item.module_path(db).toolchain(db),
             },

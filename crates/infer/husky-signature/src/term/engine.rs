@@ -6,7 +6,7 @@ use salsa::DebugWithDb;
 
 pub(super) struct SignatureTermEngine<'a> {
     db: &'a dyn SignatureDb,
-    path: ExprPath,
+    path: ExprRegionPath,
     expr_arena: &'a ExprArena,
     pattern_expr_region: &'a PatternExprRegion,
     entity_path_expr_arena: &'a EntityPathExprArena,

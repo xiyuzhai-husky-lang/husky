@@ -44,7 +44,7 @@ impl<'a> SymbolContextMut<'a> {
         self,
         db: &dyn ExprDb,
         parent: Option<ExprRegion>,
-        path: ExprPath,
+        path: ExprRegionPath,
         expr_arena: ExprArena,
         entity_path_expr_arena: EntityPathExprArena,
         pattern_expr_region: PatternExprRegion,
