@@ -1,0 +1,37 @@
+[package]
+name = "husky-expr-ty"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+thiserror = "1.0.37"
+# abstraction
+salsa = { path = "../../abstraction/salsa" }
+# infer
+husky-signature = { path = "../../infer/husky-signature" }
+husky-local-term = { path = "../../infer/husky-local-term" }
+# kernel
+husky-term = { path = "../../kernel/husky-term" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-word = { path = "../../kernel/husky-word" }
+husky-ty = { path = "../../kernel/husky-ty" }
+# syntax
+husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+husky-expr = { path = "../../syntax/husky-expr" }
+# utils
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+
+[dev-dependencies]
+# fs
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
+# kernel
+# infer
+husky-manifest = { path = "../../infer/husky-manifest" }
+# lex
+husky-token = { path = "../../lex/husky-token" }
+# syntax
+husky-ast = { path = "../../syntax/husky-ast" }
+husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-decl = { path = "../../syntax/husky-decl" }
