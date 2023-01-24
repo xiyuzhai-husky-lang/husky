@@ -1,16 +1,16 @@
 use super::*;
-use husky_expr::{CurrentSymbolIdx, ExprIdx, ExprMap, ExprPath, ExprRegion};
+use husky_expr::{CurrentSymbolIdx, ExprIdx, ExprMap, ExprRegion, ExprRegionPath};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SignatureTermRegion {
-    expr_path: ExprPath,
+    expr_path: ExprRegionPath,
     term_symbol_region: TermSymbolRegion,
     expr_terms: ExprMap<SignatureTermResult<Term>>,
 }
 
 impl SignatureTermRegion {
     pub fn new(
-        expr_path: ExprPath,
+        expr_path: ExprRegionPath,
         term_symbol_region: TermSymbolRegion,
         expr_terms: ExprMap<SignatureTermResult<Term>>,
     ) -> Self {
@@ -34,7 +34,7 @@ impl SignatureTermRegion {
         self.expr_terms[expr].as_ref().map(|t| *t)
     }
 
-    pub fn expr_path(&self) -> ExprPath {
+    pub fn expr_path(&self) -> ExprRegionPath {
         self.expr_path
     }
 }

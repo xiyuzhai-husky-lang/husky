@@ -1,3 +1,4 @@
+#![feature(trait_upcasting)]
 mod db;
 mod engine;
 mod local_term;
