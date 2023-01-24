@@ -1,5 +1,6 @@
 mod db;
 mod engine;
+mod local_term;
 mod region;
 #[cfg(test)]
 mod tests;
@@ -13,6 +14,7 @@ use husky_expr::*;
 use husky_signature::*;
 use husky_term::*;
 use husky_ty::*;
+
 #[cfg(test)]
 use tests::*;
 

@@ -2,7 +2,7 @@ use crate::*;
 
 #[salsa::interned(jar = TermJar)]
 pub struct TermAbstraction {
-    x: i32,
+    x: TermSymbol,
     m: Term,
 }
 
