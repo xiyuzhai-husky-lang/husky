@@ -116,8 +116,11 @@ impl<Db: ExprDb + ?Sized> DebugWithDb<Db> for DefnExprPath {
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<ExprJar>>::as_jar_db(db);
         match self {
-            DefnExprPath::Entity(_) => todo!(),
-            DefnExprPath::AssociatedItem(_) => todo!(),
+            DefnExprPath::Entity(path) => f.debug_tuple("Entity").field(&path.debug(db)).finish(),
+            DefnExprPath::AssociatedItem(path) => f
+                .debug_tuple("AssociatedItem")
+                .field(&path.debug(db))
+                .finish(),
         }
     }
 }
