@@ -4,7 +4,7 @@
             RegularStruct(
                 RegularStructTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     fields: [
                         RegularStructFieldSignature {
@@ -57,7 +57,7 @@
             TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     ty: Entity(
                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -72,7 +72,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [],
@@ -91,7 +91,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [

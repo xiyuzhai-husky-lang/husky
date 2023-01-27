@@ -4,7 +4,7 @@
             RegularStruct(
                 RegularStructTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     fields: [
                         RegularStructFieldSignature {
@@ -49,7 +49,7 @@
             Enum(
                 EnumTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                 },
             ),
@@ -60,7 +60,7 @@
             Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     parameters: ParameterSignatures {
                         parameters: [
@@ -106,7 +106,7 @@
             Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     parameters: ParameterSignatures {
                         parameters: [
@@ -152,7 +152,7 @@
             Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     parameters: ParameterSignatures {
                         parameters: [
@@ -198,7 +198,7 @@
             Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     parameters: ParameterSignatures {
                         parameters: [
@@ -258,7 +258,7 @@
             Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     parameters: ParameterSignatures {
                         parameters: [
@@ -304,7 +304,7 @@
             Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     parameters: ParameterSignatures {
                         parameters: [
@@ -378,7 +378,7 @@
             RegularStruct(
                 RegularStructTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     fields: [
                         RegularStructFieldSignature {
@@ -431,7 +431,7 @@
             Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     parameters: ParameterSignatures {
                         parameters: [
@@ -459,7 +459,7 @@
             Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     parameters: ParameterSignatures {
                         parameters: [
@@ -494,7 +494,7 @@
             TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     ty: Entity(
                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -561,7 +561,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [

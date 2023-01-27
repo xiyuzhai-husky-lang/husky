@@ -7,6 +7,7 @@ pub(crate) use repr::*;
 
 use super::*;
 use graph::*;
+use propagate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum VarianceError {
@@ -85,8 +86,6 @@ fn calc_entity_variances(
     path: impl Into<EntityPath>,
 ) -> VarianceResult<Vec<Variance>> {
     let mut graph = VarianceGraph::new(db, path.into())?;
-    while graph.has_changes() {
-        todo!()
-    }
-    todo!()
+    graph.propagate(1000).unwrap();
+    Ok(graph.finish())
 }

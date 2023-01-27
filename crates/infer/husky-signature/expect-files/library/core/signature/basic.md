@@ -4,7 +4,7 @@
             Foreign(
                 AlienTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                 },
             ),
@@ -15,7 +15,7 @@
             Structure(
                 StructureTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                 },
             ),
@@ -26,7 +26,7 @@
             Structure(
                 StructureTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                 },
             ),

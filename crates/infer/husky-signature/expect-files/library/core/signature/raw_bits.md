@@ -4,7 +4,7 @@
             Foreign(
                 AlienTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                 },
             ),

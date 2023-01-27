@@ -9,7 +9,7 @@
             Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     parameters: ParameterSignatures {
                         parameters: [
@@ -44,7 +44,7 @@
             TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     ty: Entity(
                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -137,7 +137,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [],
@@ -156,7 +156,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [],
@@ -175,7 +175,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [],
@@ -194,7 +194,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [],
@@ -213,7 +213,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [],
@@ -232,7 +232,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [],
