@@ -94,7 +94,6 @@ pub(crate) fn function_entity_ty(
         .map(|param| TermDurantParameter::new(param.ty()))
         .collect();
     let output_ty = signature.output_ty(db);
-    todo!();
     Ok(curry_from_implicit_parameter_tys(
         db,
         variances,
@@ -118,8 +117,10 @@ fn curry_from_implicit_parameter_tys(
     mut term: Term,
 ) -> Term {
     assert_eq!(variances.len(), implicit_parameters.len());
-    for implicit_parameter in implicit_parameters.iter().rev() {
-        term = TermCurry::new(db, todo!(), implicit_parameter.ty(), term).into()
+    for (variance, implicit_parameter) in
+        std::iter::zip(variances.iter(), implicit_parameters.iter()).rev()
+    {
+        term = TermCurry::new(db, *variance, implicit_parameter.ty(), term).into()
     }
     term
 }

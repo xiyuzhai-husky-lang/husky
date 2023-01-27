@@ -4,6 +4,7 @@
         Ok(
             Curry(
                 TermCurry {
+                    variance: Independent,
                     x: Application(
                         TermApplication {
                             function: Category(

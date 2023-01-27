@@ -33,14 +33,14 @@ use Variance::*;
 ///
 /// Examples of covariant:
 ///
-/// ```
+/// ```husky
 /// Vec: ∀ u, Type u -> Type u
 /// X -> _: ∀ u, Type u -> Type u
 /// ```
 ///
 /// Examples of contravariant:
 ///
-/// ```
+/// ```husky
 /// _ -> X: ∀ u, Type u -> Type u
 /// ```
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
