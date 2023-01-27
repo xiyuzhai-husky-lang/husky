@@ -17,6 +17,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [
                             ImplicitParameterSignature {
+                                annotated_variance: None,
                                 term_symbol: TermSymbol(
                                     Id {
                                         value: 1,
@@ -32,6 +33,7 @@
                                 traits: [],
                             },
                             ImplicitParameterSignature {
+                                annotated_variance: None,
                                 term_symbol: TermSymbol(
                                     Id {
                                         value: 2,
@@ -59,6 +61,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [
                             ImplicitParameterSignature {
+                                annotated_variance: None,
                                 term_symbol: TermSymbol(
                                     Id {
                                         value: 1,
@@ -74,6 +77,7 @@
                                 traits: [],
                             },
                             ImplicitParameterSignature {
+                                annotated_variance: None,
                                 term_symbol: TermSymbol(
                                     Id {
                                         value: 2,

@@ -139,6 +139,21 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
+                    ident: `vec`,
+                    accessibility: PubicUnder(
+                        `core`,
+                    ),
+                    symbol: Submodule(
+                        SubmoduleSymbol {
+                            path: `core::vec`,
+                            accessibility: PubicUnder(
+                                `core`,
+                            ),
+                            ast_idx: 9,
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
                     ident: `cmp`,
                     accessibility: PubicUnder(
                         `core`,
@@ -149,7 +164,7 @@ Ok(
                             accessibility: PubicUnder(
                                 `core`,
                             ),
-                            ast_idx: 9,
+                            ast_idx: 10,
                         },
                     ),
                 },

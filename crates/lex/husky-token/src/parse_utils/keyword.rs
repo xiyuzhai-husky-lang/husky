@@ -209,7 +209,7 @@ where
     ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Liason(LiasonKeyword::Mut)) => {
+                Token::Keyword(Keyword::Pattern(PatternKeyword::Mut)) => {
                     Ok(Some(MutToken { token_idx }))
                 }
                 Token::Err(_)
@@ -674,4 +674,91 @@ fn super_token_works() {
     assert!(t(&db, ".").unwrap().is_none());
     assert!(t(&db, "||").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum VarianceToken {
+    Covariant(CovariantToken),
+    Contravariant(ContravariantToken),
+}
+
+impl From<ContravariantToken> for VarianceToken {
+    fn from(v: ContravariantToken) -> Self {
+        Self::Contravariant(v)
+    }
+}
+
+impl From<CovariantToken> for VarianceToken {
+    fn from(v: CovariantToken) -> Self {
+        Self::Covariant(v)
+    }
+}
+
+impl<'a, Context> parsec::ParseFrom<Context> for VarianceToken
+where
+    Context: TokenParseContext<'a>,
+{
+    fn parse_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> Result<Option<Self>, <Context as HasParseError>::Error> {
+        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+            match token {
+                Token::Keyword(Keyword::Pattern(PatternKeyword::Covariant)) => {
+                    Ok(Some(CovariantToken { token_idx }.into()))
+                }
+                Token::Keyword(Keyword::Pattern(PatternKeyword::Contravariant)) => {
+                    Ok(Some(ContravariantToken { token_idx }.into()))
+                }
+                Token::Err(_)
+                | Token::Punctuation(_)
+                | Token::Identifier(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Attr(_)
+                | Token::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+#[test]
+fn variance_token_works() {
+    fn t(db: &DB, input: &str) -> TokenResult<Option<VarianceToken>> {
+        quick_parse(db, input)
+    }
+
+    let db = DB::default();
+    assert!(t(&db, "covariant").unwrap().is_some());
+    assert!(t(&db, "contravariant").unwrap().is_some());
+    assert!(t(&db, "super").unwrap().is_none());
+    assert!(t(&db, "Self").unwrap().is_none());
+    assert!(t(&db, "use").unwrap().is_none());
+    assert!(t(&db, ":@").unwrap().is_none());
+    assert!(t(&db, ".").unwrap().is_none());
+    assert!(t(&db, "||").unwrap().is_none());
+    assert!(t(&db, "a").unwrap().is_none());
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct CovariantToken {
+    token_idx: TokenIdx,
+}
+
+impl CovariantToken {
+    pub fn token_idx(self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct ContravariantToken {
+    token_idx: TokenIdx,
+}
+
+impl ContravariantToken {
+    pub fn token_idx(self) -> TokenIdx {
+        self.token_idx
+    }
 }

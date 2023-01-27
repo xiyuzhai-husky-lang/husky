@@ -1,13 +1,15 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum LiasonKeyword {
+pub enum PatternKeyword {
     Mut,
+    Covariant,
+    Contravariant,
 }
 
-impl const From<LiasonKeyword> for Keyword {
-    fn from(val: LiasonKeyword) -> Self {
-        Keyword::Liason(val)
+impl const From<PatternKeyword> for Keyword {
+    fn from(val: PatternKeyword) -> Self {
+        Keyword::Pattern(val)
     }
 }
 
@@ -25,16 +27,18 @@ impl const From<LiasonKeyword> for Keyword {
 //     IllFormedLiteral(LiteralToken),
 // }
 
-impl const From<LiasonKeyword> for Token {
-    fn from(val: LiasonKeyword) -> Self {
+impl const From<PatternKeyword> for Token {
+    fn from(val: PatternKeyword) -> Self {
         Token::Keyword(val.into())
     }
 }
 
-impl LiasonKeyword {
+impl PatternKeyword {
     pub const fn code(self) -> &'static str {
         match self {
-            LiasonKeyword::Mut => "mut",
+            PatternKeyword::Mut => "mut",
+            PatternKeyword::Covariant => "covariant",
+            PatternKeyword::Contravariant => "contravariant",
         }
     }
 }

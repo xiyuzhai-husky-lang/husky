@@ -116,6 +116,18 @@ Ok(
                 Identifier(
                     Word(
                         Id {
+                            value: 11,
+                        },
+                    ),
+                ),
+            ),
+            Keyword(
+                Mod,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
                             value: 3,
                         },
                     ),
@@ -133,8 +145,10 @@ Ok(
             14,
             16,
             18,
+            20,
         ],
         indents: [
+            0,
             0,
             0,
             0,

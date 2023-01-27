@@ -1,9 +1,11 @@
 use husky_expr::{ImplicitParameterDeclPatternVariant, RegularParameterDeclPattern};
+use husky_token::VarianceToken;
 
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct ImplicitParameterSignature {
+    annotated_variance: Option<Variance>,
     term_symbol: TermSymbol,
     ty: Term,
     traits: Vec<Term>,
@@ -11,12 +13,13 @@ pub struct ImplicitParameterSignature {
 
 impl ImplicitParameterSignature {
     fn from_decl(
-        parameter: &ImplicitParameterDecl,
+        parameter_decl: &ImplicitParameterDecl,
         region: &SignatureTermRegion,
         term_menu: &TermMenu,
     ) -> ImplicitParameterSignature {
-        let symbol = parameter.pattern().symbol();
-        let variant = parameter.pattern().variant();
+        let pattern = &parameter_decl.pattern();
+        let symbol = pattern.symbol();
+        let variant = parameter_decl.pattern().variant();
         match variant {
             ImplicitParameterDeclPatternVariant::Type0 { .. } => {
                 ImplicitParameterSignature {
@@ -24,6 +27,10 @@ impl ImplicitParameterSignature {
                     ty: term_menu.ty0(),
                     // ad hoc
                     traits: vec![],
+                    annotated_variance: pattern.annotated_variance_token().map(|t| match t {
+                        VarianceToken::Covariant(_) => Variance::Covariant,
+                        VarianceToken::Contravariant(_) => Variance::Contravariant,
+                    }),
                 }
             }
             ImplicitParameterDeclPatternVariant::Constant => todo!(),
@@ -45,7 +52,7 @@ impl ImplicitParameterSignature {
     }
 
     pub fn annotated_variance(&self) -> Option<Variance> {
-        todo!()
+        self.annotated_variance
     }
 }
 
