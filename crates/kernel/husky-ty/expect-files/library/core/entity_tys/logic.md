@@ -21,6 +21,7 @@
         Ok(
             Curry(
                 TermCurry {
+                    variance: Independent,
                     x: Application(
                         TermApplication {
                             function: Category(
@@ -35,6 +36,7 @@
                     ),
                     y: Curry(
                         TermCurry {
+                            variance: Independent,
                             x: Application(
                                 TermApplication {
                                     function: Category(
@@ -70,6 +72,7 @@
         Ok(
             Curry(
                 TermCurry {
+                    variance: Independent,
                     x: Application(
                         TermApplication {
                             function: Category(
@@ -84,6 +87,7 @@
                     ),
                     y: Curry(
                         TermCurry {
+                            variance: Independent,
                             x: Application(
                                 TermApplication {
                                     function: Category(

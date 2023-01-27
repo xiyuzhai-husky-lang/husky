@@ -57,6 +57,7 @@
                                     ),
                                     argument: Curry(
                                         TermCurry {
+                                            variance: Invariant,
                                             x: Application(
                                                 TermApplication {
                                                     function: Application(

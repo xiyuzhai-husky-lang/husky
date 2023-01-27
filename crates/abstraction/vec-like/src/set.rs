@@ -39,6 +39,9 @@ impl<K> FromIterator<K> for VecSet<K> {
 }
 
 impl<K> VecSet<K> {
+    pub fn len(&self) -> usize {
+        self.data.len()
+    }
     pub fn has(&self, key: K) -> bool
     where
         K: Copy + PartialEq + Eq,

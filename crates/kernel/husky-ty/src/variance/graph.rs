@@ -15,7 +15,7 @@ impl<'a> Graph for VarianceGraph<'a> {
     }
 
     fn dependencies(&self, idx: usize) -> &[usize] {
-        todo!()
+        &self.nodes[idx].dependencies
     }
 
     fn value_mut(&mut self, idx: usize) -> &mut Self::Value {
@@ -33,16 +33,24 @@ impl<'a> VarianceGraph<'a> {
             else {
                 todo!()
             };
-        let mut ids = Default::default();
-        let mut nodes = vec![];
-        for repr in entity_variance_reprs {
-            todo!()
-        }
-        Ok(Self {
+        let mut ids: VecSet<VarianceId> = Default::default();
+        let nodes = entity_variance_reprs
+            .iter()
+            .map(|repr| VarianceGraphNode::new(&mut ids, repr))
+            .collect();
+        let mut this = Self {
             ids,
             nodes,
             original_len: entity_variance_reprs.len(),
-        })
+        };
+        this.init();
+        Ok(this)
+    }
+
+    fn init(&mut self) {
+        while self.ids.len() > self.nodes.len() {
+            todo!()
+        }
     }
 
     pub(crate) fn finish(&self) -> Vec<Variance> {
@@ -56,13 +64,15 @@ impl<'a> VarianceGraph<'a> {
 pub(super) struct VarianceGraphNode<'a> {
     repr: &'a VarianceRepr,
     value: Variance,
+    dependencies: Vec<usize>,
 }
 
 impl<'a> VarianceGraphNode<'a> {
-    pub(super) fn new(node: &'a VarianceRepr) -> Self {
+    pub(super) fn new(ids: &mut VecSet<VarianceId>, repr: &'a VarianceRepr) -> Self {
         Self {
-            repr: node,
-            value: node.base(),
+            repr,
+            value: repr.base(),
+            dependencies: repr.dependencies().iter().map(|_| todo!()).collect(),
         }
     }
 }
