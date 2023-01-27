@@ -4,7 +4,7 @@
             RegularStruct(
                 RegularStructTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     fields: [
                         RegularStructFieldSignature {
@@ -49,7 +49,7 @@
             Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     parameters: ParameterSignatures {
                         parameters: [
@@ -95,7 +95,7 @@
             Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     parameters: ParameterSignatures {
                         parameters: [
@@ -141,7 +141,7 @@
             Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     parameters: ParameterSignatures {
                         parameters: [
@@ -197,7 +197,7 @@
             Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     parameters: ParameterSignatures {
                         parameters: [
@@ -267,7 +267,7 @@
             Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     parameters: ParameterSignatures {
                         parameters: [
@@ -316,7 +316,7 @@
             TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     ty: Entity(
                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -331,7 +331,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [
@@ -389,7 +389,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [],
@@ -407,7 +407,7 @@
             TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     ty: Entity(
                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -455,7 +455,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [

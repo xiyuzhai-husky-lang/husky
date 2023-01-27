@@ -4,7 +4,7 @@
             Inductive(
                 InductiveTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                 },
             ),
@@ -15,7 +15,7 @@
             Structure(
                 StructureTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                 },
             ),
@@ -26,7 +26,7 @@
             Structure(
                 StructureTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                 },
             ),
@@ -37,7 +37,7 @@
             TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     ty: Entity(
                         TypePath(`natural_number_game::Nat`, `Inductive`),

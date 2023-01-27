@@ -4,7 +4,7 @@
             RegularStruct(
                 RegularStructTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     fields: [
                         RegularStructFieldSignature {
@@ -57,7 +57,7 @@
             RegularStruct(
                 RegularStructTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     fields: [
                         RegularStructFieldSignature {
@@ -110,7 +110,7 @@
             RegularStruct(
                 RegularStructTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     fields: [
                         RegularStructFieldSignature {
@@ -163,7 +163,7 @@
             RegularStruct(
                 RegularStructTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     fields: [
                         RegularStructFieldSignature {
@@ -216,7 +216,7 @@
             RegularStruct(
                 RegularStructTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     fields: [
                         RegularStructFieldSignature {
@@ -269,7 +269,7 @@
             TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     ty: Entity(
                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -284,7 +284,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [
@@ -332,7 +332,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [],
@@ -351,7 +351,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [
@@ -385,7 +385,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [],
@@ -404,7 +404,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [
@@ -437,7 +437,7 @@
             TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     ty: Entity(
                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -452,7 +452,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [],
@@ -471,7 +471,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [
@@ -505,7 +505,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [],
@@ -524,41 +524,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
-                        },
-                        parameters: ParameterSignatures {
-                            parameters: [
-                                ParameterSignature {
-                                    pattern: ParameterSignaturePattern,
-                                    ty: Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 33,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ],
-                        },
-                        output_ty: Entity(
-                            TypePath(`core::num::f32`, `Alien`),
-                        ),
-                    },
-                ),
-            ),
-        ),
-    ),
-    Ok(
-        AssociatedItem(
-            TypeItem(
-                Method(
-                    TypeMethodSignature {
-                        implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [
@@ -592,7 +558,41 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
+                        },
+                        parameters: ParameterSignatures {
+                            parameters: [
+                                ParameterSignature {
+                                    pattern: ParameterSignaturePattern,
+                                    ty: Entity(
+                                        ModuleItem(
+                                            Type(
+                                                TypePath(
+                                                    Id {
+                                                        value: 33,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        output_ty: Entity(
+                            TypePath(`core::num::f32`, `Alien`),
+                        ),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        AssociatedItem(
+            TypeItem(
+                Method(
+                    TypeMethodSignature {
+                        implicit_parameters: ImplicitParameterSignatures {
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [
@@ -626,7 +626,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [
@@ -660,7 +660,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [
@@ -707,7 +707,7 @@
             TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     ty: Entity(
                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -722,7 +722,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [
@@ -756,7 +756,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [
@@ -790,7 +790,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [],
@@ -809,7 +809,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [],
@@ -828,7 +828,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [],
@@ -847,7 +847,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [],
@@ -865,7 +865,7 @@
             TypeImplBlock(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     ty: Entity(
                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -880,7 +880,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [],
@@ -899,7 +899,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [],
@@ -918,7 +918,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [],
@@ -937,7 +937,7 @@
                 Method(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
-                            parameters: [],
+                            data: [],
                         },
                         parameters: ParameterSignatures {
                             parameters: [],

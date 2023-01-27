@@ -55,18 +55,34 @@ pub(crate) fn ty_entity_variance_reprs(
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };
-    match signature {
-        TypeSignature::Enum(_) => todo!(),
-        TypeSignature::RegularStruct(_) => todo!(),
-        TypeSignature::UnitStruct(_) => todo!(),
-        TypeSignature::TupleStruct(_) => todo!(),
-        TypeSignature::Record(_) => todo!(),
-        TypeSignature::Inductive(_) => todo!(),
-        TypeSignature::Structure(_) => todo!(),
-        TypeSignature::Foreign(_) => (),
-        TypeSignature::Union(_) => todo!(),
+    let implicit_parameters = signature.implicit_parameters(db);
+    let mut reprs = implicit_parameters
+        .iter()
+        .map(|implicit_parameter| VarianceRepr {
+            base: implicit_parameter.annotated_variance().unwrap_or_default(),
+            dependencies: vec![],
+        })
+        .collect::<Vec<_>>();
+    if reprs.len() > 0 {
+        match signature {
+            TypeSignature::Enum(_) => todo!(),
+            TypeSignature::RegularStruct(_) => todo!(),
+            TypeSignature::UnitStruct(_) => todo!(),
+            TypeSignature::TupleStruct(_) => todo!(),
+            TypeSignature::Record(_) => todo!(),
+            TypeSignature::Inductive(_) => todo!(),
+            TypeSignature::Structure(_) => todo!(),
+            TypeSignature::Foreign(_) => (),
+            TypeSignature::Union(_) => todo!(),
+        }
     }
-    todo!()
+    for (repr, implicit_parameter) in std::iter::zip(reprs.iter(), implicit_parameters.iter()) {
+        if let Some(annotated_variance) = implicit_parameter.annotated_variance() {
+            // verify the calculated is the same as the annotated
+            todo!()
+        }
+    }
+    Ok(reprs)
 }
 
 #[salsa::tracked(jar = TypeJar, return_ref)]
@@ -74,7 +90,27 @@ pub(crate) fn trai_entity_variance_reprs(
     db: &dyn TypeDb,
     path: TraitPath,
 ) -> VarianceResult<Vec<VarianceRepr>> {
-    todo!()
+    let term_menu = db.term_menu(path.toolchain(db)).as_ref().unwrap();
+    let decl = match db.trai_decl(path) {
+        Ok(decl) => decl,
+        Err(_) => return Err(DerivedVarianceError::DeclError.into()),
+    };
+    let signature = match db.trai_signature(decl) {
+        Ok(signature) => signature,
+        Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
+    };
+    let implicit_parameters = signature.implicit_parameters(db);
+    let mut reprs = implicit_parameters
+        .iter()
+        .map(|_| VarianceRepr {
+            base: todo!(),
+            dependencies: vec![],
+        })
+        .collect::<Vec<_>>();
+    if reprs.len() > 0 {
+        todo!()
+    }
+    Ok(reprs)
 }
 
 #[salsa::tracked(jar = TypeJar, return_ref)]

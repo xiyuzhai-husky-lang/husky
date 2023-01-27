@@ -43,21 +43,25 @@ impl ImplicitParameterSignature {
     pub fn traits(&self) -> &[Term] {
         self.traits.as_ref()
     }
+
+    pub fn annotated_variance(&self) -> Option<Variance> {
+        todo!()
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct ImplicitParameterSignatures {
-    parameters: Vec<ImplicitParameterSignature>,
+    data: Vec<ImplicitParameterSignature>,
 }
 
 impl ImplicitParameterSignatures {
     pub(crate) fn from_decl(
-        parameters: &[ImplicitParameterDecl],
+        implicit_parameters: &[ImplicitParameterDecl],
         signature_term_region: &SignatureTermRegion,
         term_menu: &TermMenu,
     ) -> Self {
         Self {
-            parameters: parameters
+            data: implicit_parameters
                 .iter()
                 .map(|parameter| {
                     ImplicitParameterSignature::from_decl(
@@ -71,7 +75,7 @@ impl ImplicitParameterSignatures {
     }
 
     pub fn decls(&self) -> &[ImplicitParameterSignature] {
-        self.parameters.as_ref()
+        self.data.as_ref()
     }
 }
 
@@ -79,7 +83,7 @@ impl std::ops::Deref for ImplicitParameterSignatures {
     type Target = Vec<ImplicitParameterSignature>;
 
     fn deref(&self) -> &Self::Target {
-        &self.parameters
+        &self.data
     }
 }
 

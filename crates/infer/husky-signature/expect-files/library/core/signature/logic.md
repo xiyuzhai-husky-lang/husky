@@ -4,7 +4,7 @@
             Foreign(
                 AlienTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                 },
             ),
@@ -15,7 +15,7 @@
             Structure(
                 StructureTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [
+                        data: [
                             ImplicitParameterSignature {
                                 term_symbol: TermSymbol(
                                     Id {
@@ -57,7 +57,7 @@
             Inductive(
                 InductiveTypeSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [
+                        data: [
                             ImplicitParameterSignature {
                                 term_symbol: TermSymbol(
                                     Id {

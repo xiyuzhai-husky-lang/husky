@@ -7,7 +7,7 @@
             Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     parameters: ParameterSignatures {
                         parameters: [
@@ -51,7 +51,7 @@
             Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     parameters: ParameterSignatures {
                         parameters: [
@@ -86,7 +86,7 @@
             Function(
                 FunctionSignature {
                     implicit_parameters: ImplicitParameterSignatures {
-                        parameters: [],
+                        data: [],
                     },
                     parameters: ParameterSignatures {
                         parameters: [

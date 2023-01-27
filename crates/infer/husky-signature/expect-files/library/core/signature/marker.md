@@ -3,7 +3,7 @@
         Trait(
             TraitSignature {
                 implicit_parameters: ImplicitParameterSignatures {
-                    parameters: [],
+                    data: [],
                 },
             },
         ),
@@ -12,7 +12,7 @@
         Trait(
             TraitSignature {
                 implicit_parameters: ImplicitParameterSignatures {
-                    parameters: [],
+                    data: [],
                 },
             },
         ),
