@@ -24,6 +24,11 @@ where
         &self.data
     }
 }
+impl<K> AsRef<[K]> for VecSet<K> {
+    fn as_ref(&self) -> &[K] {
+        &self.data
+    }
+}
 
 impl<K> FromIterator<K> for VecSet<K> {
     fn from_iter<T: IntoIterator<Item = K>>(t: T) -> Self {

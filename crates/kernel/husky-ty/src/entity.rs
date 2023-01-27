@@ -1,5 +1,19 @@
 use crate::*;
 
+pub(crate) fn entity_ty(db: &dyn TypeDb, entipath: EntityPath) -> Result<Term, &TypeError> {
+    let term_menu = db.term_menu(entipath.toolchain(db)).as_ref().unwrap();
+    match entipath {
+        EntityPath::Module(_) => todo!(),
+        EntityPath::ModuleItem(path) => match path {
+            ModuleItemPath::Type(path) => ty_entity_ty(db, path).as_ref().map(|t| *t),
+            ModuleItemPath::Trait(path) => trai_entity_ty(db, path).as_ref().map(|t| *t),
+            ModuleItemPath::Form(path) => form_entity_ty(db, path).as_ref().map(|t| *t),
+        },
+        EntityPath::AssociatedItem(_) => todo!(),
+        EntityPath::Variant(_) => todo!(),
+    }
+}
+
 #[salsa::tracked(jar = TypeJar, return_ref)]
 pub(crate) fn ty_entity_ty(db: &dyn TypeDb, path: TypePath) -> TypeResult<Term> {
     let term_menu = db.term_menu(path.toolchain(db)).as_ref().unwrap();
@@ -11,8 +25,12 @@ pub(crate) fn ty_entity_ty(db: &dyn TypeDb, path: TypePath) -> TypeResult<Term> 
         Ok(signature) => signature,
         Err(_) => return Err(DerivedTypeError::SignatureError.into()),
     };
+    let Ok(variances) = ty_entity_variances(db, path) else {
+        todo!()
+    };
     Ok(curry_from_implicit_parameter_tys(
         db,
+        variances,
         signature.implicit_parameters(db),
         term_menu.ty0(),
     ))
@@ -25,12 +43,16 @@ pub(crate) fn trai_entity_ty(db: &dyn TypeDb, path: TraitPath) -> TypeResult<Ter
         Ok(decl) => decl,
         Err(_) => return Err(DerivedTypeError::DeclError.into()),
     };
+    let Ok(variances) = trai_entity_variances(db, path) else {
+        todo!()
+    };
     let signature = match db.trai_signature(decl) {
         Ok(signature) => signature,
         Err(_) => todo!(),
     };
     Ok(curry_from_implicit_parameter_tys(
         db,
+        variances,
         signature.implicit_parameters(db),
         term_menu.ty0(),
     ))
@@ -42,21 +64,27 @@ pub(crate) fn form_entity_ty(db: &dyn TypeDb, path: FormPath) -> TypeResult<Term
         Ok(decl) => decl,
         Err(_) => return Err(DerivedTypeError::DeclError.into()),
     };
-    let signature = db.form_signature(decl);
+    let signature = match db.form_signature(decl) {
+        Ok(signature) => signature,
+        Err(_) => return Err(DerivedTypeError::SignatureError.into()),
+    };
+    let Ok(variances) = form_entity_variances(db, path) else {
+        todo!()
+    };
     let term_menu = db.term_menu(path.toolchain(db)).as_ref().unwrap();
     match signature {
-        Ok(signature) => match signature {
-            FormSignature::Function(signature) => function_entity_ty(db, signature, term_menu),
-            FormSignature::Feature(signature) => feature_entity_ty(db, signature, term_menu),
-            FormSignature::Morphism(_) => todo!(),
-            FormSignature::Value(_) => todo!(),
-        },
-        Err(_) => Err(DerivedTypeError::SignatureError.into()),
+        FormSignature::Function(signature) => {
+            function_entity_ty(db, variances, signature, term_menu)
+        }
+        FormSignature::Feature(signature) => feature_entity_ty(db, signature, term_menu),
+        FormSignature::Morphism(_) => todo!(),
+        FormSignature::Value(_) => todo!(),
     }
 }
 
 pub(crate) fn function_entity_ty(
     db: &dyn TypeDb,
+    variances: &[Variance],
     signature: FunctionSignature,
     term_menu: &TermMenu,
 ) -> TypeResult<Term> {
@@ -66,12 +94,13 @@ pub(crate) fn function_entity_ty(
         .map(|param| TermDurantParameter::new(param.ty()))
         .collect();
     let output_ty = signature.output_ty(db);
-    Ok(Term::Durant(TermDurant::new(
+    todo!();
+    Ok(curry_from_implicit_parameter_tys(
         db,
-        TermDurantKind::Fp,
-        param_tys,
-        output_ty,
-    )))
+        variances,
+        signature.implicit_parameters(db),
+        TermDurant::new(db, TermDurantKind::Fp, param_tys, output_ty).into(),
+    ))
 }
 
 pub(crate) fn feature_entity_ty(
@@ -84,11 +113,13 @@ pub(crate) fn feature_entity_ty(
 
 fn curry_from_implicit_parameter_tys(
     db: &dyn TypeDb,
+    variances: &[Variance],
     implicit_parameters: &[ImplicitParameterSignature],
     mut term: Term,
 ) -> Term {
+    assert_eq!(variances.len(), implicit_parameters.len());
     for implicit_parameter in implicit_parameters.iter().rev() {
-        term = TermCurry::new(db, implicit_parameter.ty(), term).into()
+        term = TermCurry::new(db, todo!(), implicit_parameter.ty(), term).into()
     }
     term
 }
