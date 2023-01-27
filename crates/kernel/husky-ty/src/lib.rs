@@ -5,6 +5,7 @@ mod error;
 mod term;
 #[cfg(test)]
 mod tests;
+mod variance;
 
 pub use db::*;
 pub use error::*;
@@ -15,12 +16,22 @@ use husky_entity_taxonomy::*;
 use husky_signature::*;
 use husky_term::*;
 use term::*;
+use variance::*;
 
 #[salsa::jar(db=TypeDb)]
 pub struct TypeJar(
     ty_entity_ty,
     trai_entity_ty,
     form_entity_ty,
+    ty_entity_variances,
+    ty_entity_variance_reprs,
+    ty_entity_variance_crate_dependencies,
+    trai_entity_variances,
+    trai_entity_variance_reprs,
+    trai_entity_variance_crate_dependencies,
+    form_entity_variances,
+    form_entity_variance_reprs,
+    form_entity_variance_crate_dependencies,
     application_expansion_salsa,
     ApplicationArguments,
 );

@@ -55,7 +55,6 @@ fn test_partition_idx() {
     );
     assert_eq!(partitions.opt_nondefault_partition_idx(Label(0)), Some(0));
     assert_eq!(partitions.partition_idx(Label(0)), 0);
-    println!("partitions = {:?}", partitions);
     assert_eq!(partitions.opt_nondefault_partition_idx(Label(1)), None);
     assert_eq!(partitions.partition_idx(Label(1)), 1);
     assert_eq!(partitions.opt_nondefault_partition_idx(Label(5)), None);

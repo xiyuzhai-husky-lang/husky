@@ -8,6 +8,9 @@ edition = "2021"
 thiserror = "1.0.37"
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
+vec-like = { path = "../../abstraction/vec-like" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
 # infer
 husky-signature = { path = "../../infer/husky-signature" }
 # kernel
@@ -21,8 +24,6 @@ husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
-# fs
-husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
 # kernel
 # infer
 husky-manifest = { path = "../../infer/husky-manifest" }

@@ -183,7 +183,16 @@ impl<'a> SignatureTermEngine<'a> {
                     BinaryOpr::ShortcuitLogic(_) => todo!(),
                     BinaryOpr::Assign(_) => todo!(),
                     BinaryOpr::ScopeResolution => todo!(),
-                    BinaryOpr::Curry => Ok(TermCurry::new(self.db, lopd, ropd).into()),
+                    BinaryOpr::Curry => Ok(TermCurry::new(
+                        self.db,
+                        {
+                            // ad hoc
+                            Variance::Invariant
+                        },
+                        lopd,
+                        ropd,
+                    )
+                    .into()),
                     BinaryOpr::As => todo!(),
                     BinaryOpr::Is => todo!(),
                     BinaryOpr::In => todo!(),
