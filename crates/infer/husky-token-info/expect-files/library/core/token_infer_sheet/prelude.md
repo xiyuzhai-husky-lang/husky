@@ -238,7 +238,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 10,
+                                value: 11,
                             },
                         ),
                     ),

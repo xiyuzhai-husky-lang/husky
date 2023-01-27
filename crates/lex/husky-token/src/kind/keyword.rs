@@ -2,7 +2,7 @@ mod ambiguous;
 mod config;
 mod end;
 mod form;
-mod liason;
+mod pattern;
 mod pronoun;
 mod stmt;
 mod ty;
@@ -11,7 +11,7 @@ pub use ambiguous::*;
 pub use config::*;
 pub use end::*;
 pub use form::*;
-pub use liason::*;
+pub use pattern::*;
 pub use pronoun::*;
 pub use stmt::*;
 pub use ty::*;
@@ -24,7 +24,7 @@ impl const From<Keyword> for Token {
     }
 }
 
-pub use liason::*;
+pub use pattern::*;
 
 use serde::{Deserialize, Serialize};
 use std::ops::Deref;
@@ -35,7 +35,7 @@ pub enum Keyword {
     Paradigm(FormKeyword),
     Type(TypeKeyword),
     Stmt(StmtKeyword),
-    Liason(LiasonKeyword),
+    Pattern(PatternKeyword),
     Pronoun(PronounKeyword),
     Main,
     Use,
@@ -76,7 +76,7 @@ impl Keyword {
             Keyword::Mod => "mod",
             Keyword::Main => "main",
             Keyword::Visual => "visual",
-            Keyword::Liason(keyword) => keyword.code(),
+            Keyword::Pattern(keyword) => keyword.code(),
             Keyword::Trait => "trait",
             Keyword::Impl => "impl",
             Keyword::End(_) => todo!(),

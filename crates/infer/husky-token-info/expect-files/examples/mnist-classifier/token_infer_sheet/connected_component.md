@@ -41,7 +41,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 15,
+                                value: 16,
                             },
                         ),
                     ),
@@ -75,99 +75,6 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 16,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Struct,
-                        ),
-                        connection: Connected,
-                    },
-                ),
-            ),
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 9,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 9,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 9,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 9,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
                                     value: 17,
                                 },
                             ),
@@ -186,6 +93,99 @@ Ok(
             None,
             None,
             None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 9,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 9,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 9,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 9,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 18,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Type(
+                            Struct,
+                        ),
+                        connection: Connected,
+                    },
+                ),
+            ),
+            None,
+            None,
+            None,
             BoxPrefix,
             BoxPrefix,
             None,
@@ -196,7 +196,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 19,
+                                    value: 20,
                                 },
                             ),
                         ),
@@ -248,7 +248,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 19,
+                                    value: 20,
                                 },
                             ),
                         ),
@@ -333,7 +333,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 18,
+                                    value: 19,
                                 },
                             ),
                         ),
@@ -360,7 +360,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 18,
+                                    value: 19,
                                 },
                             ),
                         ),
@@ -399,7 +399,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 19,
+                                    value: 20,
                                 },
                             ),
                         ),
@@ -453,7 +453,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 17,
+                                    value: 18,
                                 },
                             ),
                         ),
@@ -507,7 +507,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 19,
+                                    value: 20,
                                 },
                             ),
                         ),
@@ -642,7 +642,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 17,
+                                    value: 18,
                                 },
                             ),
                         ),
@@ -1179,7 +1179,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 16,
+                                    value: 17,
                                 },
                             ),
                         ),
@@ -1540,7 +1540,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 16,
+                                    value: 17,
                                 },
                             ),
                         ),
@@ -2588,7 +2588,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 18,
+                                    value: 19,
                                 },
                             ),
                         ),
@@ -2619,7 +2619,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 18,
+                                    value: 19,
                                 },
                             ),
                         ),
@@ -3444,7 +3444,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 18,
+                                    value: 19,
                                 },
                             ),
                         ),

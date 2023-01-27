@@ -40,7 +40,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 43;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 129,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 43;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 131,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -70,7 +70,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 86;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 134,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 18,\n                    },\n                ),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
+                                value: "\ntoken_idx = 86;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 136,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 19,\n                    },\n                ),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -160,7 +160,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 215;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 41,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 13,\n                    },\n                ),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
+                                value: "\ntoken_idx = 215;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 42,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 13,\n                    },\n                ),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -220,7 +220,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 301;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 135,\n            },\n        ),\n    ),\n);\n\ntoken_info = Field;\n\n\n",
+                                value: "\ntoken_idx = 301;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 137,\n            },\n        ),\n    ),\n);\n\ntoken_info = Field;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 387;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 156,\n            },\n        ),\n    ),\n);\n\ntoken_info = CurrentSymbol {\n    current_symbol_idx: 0,\n    current_symbol_kind: LetVariable {\n        pattern_symbol: 0,\n    },\n    expr_region: ExprRegion(\n        Id {\n            value: 85,\n        },\n    ),\n};\n\nCurrentSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 124,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        291,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                405,\n            ),\n        ),\n    ),\n    variant: LetVariable {\n        pattern_symbol: 0,\n    },\n}\n",
+                                value: "\ntoken_idx = 387;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 158,\n            },\n        ),\n    ),\n);\n\ntoken_info = CurrentSymbol {\n    current_symbol_idx: 0,\n    current_symbol_kind: LetVariable {\n        pattern_symbol: 0,\n    },\n    expr_region: ExprRegion(\n        Id {\n            value: 85,\n        },\n    ),\n};\n\nCurrentSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 126,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        291,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                405,\n            ),\n        ),\n    ),\n    variant: LetVariable {\n        pattern_symbol: 0,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 430;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 157,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        AssociatedItem(\n            TypeItem(\n                TypeItemPath(\n                    Id {\n                        value: 17,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        AssociatedItem {\n            associated_item_kind: TypeItem(\n                Method,\n            ),\n        },\n    ),\n);\n\n\n",
+                                value: "\ntoken_idx = 430;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 159,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        AssociatedItem(\n            TypeItem(\n                TypeItemPath(\n                    Id {\n                        value: 17,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        AssociatedItem {\n            associated_item_kind: TypeItem(\n                Method,\n            ),\n        },\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -400,7 +400,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 559;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 162,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Form(\n                FormPath(\n                    Id {\n                        value: 7,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Form(\n                Function,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
+                                value: "\ntoken_idx = 559;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 164,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Form(\n                FormPath(\n                    Id {\n                        value: 7,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Form(\n                Function,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -460,7 +460,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 645;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 167,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Form(\n                FormPath(\n                    Id {\n                        value: 8,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Form(\n                Function,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
+                                value: "\ntoken_idx = 645;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 169,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Form(\n                FormPath(\n                    Id {\n                        value: 8,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Form(\n                Function,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -490,7 +490,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 688;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 170,\n            },\n        ),\n    ),\n);\n\ntoken_info = CurrentSymbol {\n    current_symbol_idx: 2,\n    current_symbol_kind: FrameVariable(\n        6,\n    ),\n    expr_region: ExprRegion(\n        Id {\n            value: 79,\n        },\n    ),\n};\n\nCurrentSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 159,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        679,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                866,\n            ),\n        ),\n    ),\n    variant: FrameVariable(\n        6,\n    ),\n}\n",
+                                value: "\ntoken_idx = 688;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 172,\n            },\n        ),\n    ),\n);\n\ntoken_info = CurrentSymbol {\n    current_symbol_idx: 2,\n    current_symbol_kind: FrameVariable(\n        6,\n    ),\n    expr_region: ExprRegion(\n        Id {\n            value: 79,\n        },\n    ),\n};\n\nCurrentSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 161,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        679,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                866,\n            ),\n        ),\n    ),\n    variant: FrameVariable(\n        6,\n    ),\n}\n",
                             },
                         ),
                         range: Some(
@@ -550,7 +550,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 774;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 175,\n            },\n        ),\n    ),\n);\n\ntoken_info = CurrentSymbol {\n    current_symbol_idx: 0,\n    current_symbol_kind: LetVariable {\n        pattern_symbol: 0,\n    },\n    expr_region: ExprRegion(\n        Id {\n            value: 79,\n        },\n    ),\n};\n\nCurrentSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 169,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        659,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                868,\n            ),\n        ),\n    ),\n    variant: LetVariable {\n        pattern_symbol: 0,\n    },\n}\n",
+                                value: "\ntoken_idx = 774;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 177,\n            },\n        ),\n    ),\n);\n\ntoken_info = CurrentSymbol {\n    current_symbol_idx: 0,\n    current_symbol_kind: LetVariable {\n        pattern_symbol: 0,\n    },\n    expr_region: ExprRegion(\n        Id {\n            value: 79,\n        },\n    ),\n};\n\nCurrentSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 171,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        659,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                868,\n            ),\n        ),\n    ),\n    variant: LetVariable {\n        pattern_symbol: 0,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -580,7 +580,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 817;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 135,\n            },\n        ),\n    ),\n);\n\ntoken_info = CurrentSymbol {\n    current_symbol_idx: 6,\n    current_symbol_kind: LetVariable {\n        pattern_symbol: 5,\n    },\n    expr_region: ExprRegion(\n        Id {\n            value: 79,\n        },\n    ),\n};\n\nCurrentSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 173,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        723,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                866,\n            ),\n        ),\n    ),\n    variant: LetVariable {\n        pattern_symbol: 5,\n    },\n}\n",
+                                value: "\ntoken_idx = 817;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 137,\n            },\n        ),\n    ),\n);\n\ntoken_info = CurrentSymbol {\n    current_symbol_idx: 6,\n    current_symbol_kind: LetVariable {\n        pattern_symbol: 5,\n    },\n    expr_region: ExprRegion(\n        Id {\n            value: 79,\n        },\n    ),\n};\n\nCurrentSymbol {\n    ident: Identifier(\n        Word(\n            Id {\n                value: 175,\n            },\n        ),\n    ),\n    access_start: TokenIdx(\n        723,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                866,\n            ),\n        ),\n    ),\n    variant: LetVariable {\n        pattern_symbol: 5,\n    },\n}\n",
                             },
                         ),
                         range: Some(

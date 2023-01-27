@@ -141,6 +141,21 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `vec`,
+                            accessibility: PubicUnder(
+                                `core`,
+                            ),
+                            symbol: Submodule(
+                                SubmoduleSymbol {
+                                    path: `core::vec`,
+                                    accessibility: PubicUnder(
+                                        `core`,
+                                    ),
+                                    ast_idx: 9,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `cmp`,
                             accessibility: PubicUnder(
                                 `core`,
@@ -151,7 +166,7 @@ Ok(
                                     accessibility: PubicUnder(
                                         `core`,
                                     ),
-                                    ast_idx: 9,
+                                    ast_idx: 10,
                                 },
                             ),
                         },
@@ -815,6 +830,24 @@ Ok(
                                     path: TraitPath(`core::marker::Sized`),
                                     accessibility: Public,
                                     ast_idx: 1,
+                                },
+                            ),
+                        },
+                    ],
+                ),
+            },
+            EntityTreeSheet {
+                module_path: `core::vec`,
+                module_specific_symbols: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: `Vec`,
+                            accessibility: Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    path: TypePath(`core::vec::Vec`, `Alien`),
+                                    accessibility: Public,
+                                    ast_idx: 0,
                                 },
                             ),
                         },

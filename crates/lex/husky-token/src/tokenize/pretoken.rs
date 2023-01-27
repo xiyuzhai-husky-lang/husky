@@ -98,8 +98,8 @@ impl From<TypeKeyword> for Pretoken {
     }
 }
 
-impl From<LiasonKeyword> for Pretoken {
-    fn from(kw: LiasonKeyword) -> Self {
+impl From<PatternKeyword> for Pretoken {
+    fn from(kw: PatternKeyword) -> Self {
         Pretoken::Certain(kw.into())
     }
 }

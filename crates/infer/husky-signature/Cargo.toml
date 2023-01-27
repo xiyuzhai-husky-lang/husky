@@ -11,6 +11,8 @@ salsa = { path = "../../abstraction/salsa" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
+# lex
+husky-token = { path = "../../lex/husky-token" }
 # syntax
 husky-expr = { path = "../../syntax/husky-expr" }
 husky-decl = { path = "../../syntax/husky-decl" }
@@ -24,8 +26,6 @@ husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
 # kernel
 # infer
 husky-manifest = { path = "../../infer/husky-manifest" }
-# lex
-husky-token = { path = "../../lex/husky-token" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }

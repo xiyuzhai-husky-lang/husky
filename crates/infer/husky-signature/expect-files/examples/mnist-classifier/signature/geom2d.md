@@ -11,7 +11,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 181,
+                                        value: 182,
                                     },
                                 ),
                             ),
@@ -27,6 +27,39 @@
                                 ),
                             ),
                         },
+                        RegularStructFieldSignature {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 183,
+                                    },
+                                ),
+                            ),
+                            ty: Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 13,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
+                },
+            ),
+        ),
+    ),
+    Ok(
+        Type(
+            RegularStruct(
+                RegularStructTypeSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        data: [],
+                    },
+                    fields: [
                         RegularStructFieldSignature {
                             ident: Identifier(
                                 Word(
@@ -47,24 +80,11 @@
                                 ),
                             ),
                         },
-                    ],
-                },
-            ),
-        ),
-    ),
-    Ok(
-        Type(
-            RegularStruct(
-                RegularStructTypeSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        data: [],
-                    },
-                    fields: [
                         RegularStructFieldSignature {
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 181,
+                                        value: 183,
                                     },
                                 ),
                             ),
@@ -80,6 +100,19 @@
                                 ),
                             ),
                         },
+                    ],
+                },
+            ),
+        ),
+    ),
+    Ok(
+        Type(
+            RegularStruct(
+                RegularStructTypeSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        data: [],
+                    },
+                    fields: [
                         RegularStructFieldSignature {
                             ident: Identifier(
                                 Word(
@@ -100,44 +133,11 @@
                                 ),
                             ),
                         },
-                    ],
-                },
-            ),
-        ),
-    ),
-    Ok(
-        Type(
-            RegularStruct(
-                RegularStructTypeSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        data: [],
-                    },
-                    fields: [
                         RegularStructFieldSignature {
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 181,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                        RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 182,
+                                        value: 183,
                                     },
                                 ),
                             ),
@@ -170,7 +170,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 206,
+                                        value: 207,
                                     },
                                 ),
                             ),
@@ -190,7 +190,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 165,
+                                        value: 166,
                                     },
                                 ),
                             ),
@@ -223,7 +223,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 292,
+                                        value: 293,
                                     },
                                 ),
                             ),
@@ -243,7 +243,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 293,
+                                        value: 294,
                                     },
                                 ),
                             ),

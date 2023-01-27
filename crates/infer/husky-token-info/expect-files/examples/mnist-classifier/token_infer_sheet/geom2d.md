@@ -9,7 +9,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -67,7 +67,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -160,7 +160,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -175,7 +175,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -272,7 +272,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 24,
+                                    value: 25,
                                 },
                             ),
                         ),
@@ -287,7 +287,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 24,
+                                    value: 25,
                                 },
                             ),
                         ),
@@ -344,7 +344,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -360,7 +360,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 24,
+                                    value: 25,
                                 },
                             ),
                         ),
@@ -375,7 +375,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 24,
+                                    value: 25,
                                 },
                             ),
                         ),
@@ -516,7 +516,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -567,65 +567,6 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 23,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Struct,
-                        ),
-                        connection: Connected,
-                    },
-                ),
-            ),
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
                                     value: 24,
                                 },
                             ),
@@ -678,13 +619,72 @@ Ok(
             None,
             None,
             None,
+            None,
             Entity(
                 Some(
                     ModuleItem(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 24,
+                                    value: 25,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Type(
+                            Struct,
+                        ),
+                        connection: Connected,
+                    },
+                ),
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 25,
                                 },
                             ),
                         ),
@@ -724,7 +724,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -739,7 +739,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -797,7 +797,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 24,
+                                    value: 25,
                                 },
                             ),
                         ),
@@ -813,7 +813,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 24,
+                                    value: 25,
                                 },
                             ),
                         ),
@@ -828,7 +828,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 24,
+                                    value: 25,
                                 },
                             ),
                         ),
@@ -969,7 +969,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 24,
+                                    value: 25,
                                 },
                             ),
                         ),
@@ -1065,7 +1065,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 24,
+                                    value: 25,
                                 },
                             ),
                         ),
@@ -1326,7 +1326,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 24,
+                                    value: 25,
                                 },
                             ),
                         ),
@@ -1409,7 +1409,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 24,
+                                    value: 25,
                                 },
                             ),
                         ),
@@ -1711,7 +1711,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 25,
+                                    value: 26,
                                 },
                             ),
                         ),
@@ -1879,7 +1879,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 26,
+                                    value: 27,
                                 },
                             ),
                         ),
@@ -1928,7 +1928,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 26,
+                                    value: 27,
                                 },
                             ),
                         ),
@@ -1944,7 +1944,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 27,
+                                    value: 28,
                                 },
                             ),
                         ),
@@ -1959,7 +1959,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 27,
+                                    value: 28,
                                 },
                             ),
                         ),
@@ -2047,7 +2047,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -2063,7 +2063,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -2078,7 +2078,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -2310,7 +2310,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 27,
+                                    value: 28,
                                 },
                             ),
                         ),
@@ -2334,7 +2334,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 25,
+                                    value: 26,
                                 },
                             ),
                         ),
@@ -2351,7 +2351,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 25,
+                                    value: 26,
                                 },
                             ),
                         ),
@@ -2368,7 +2368,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 27,
+                                    value: 28,
                                 },
                             ),
                         ),

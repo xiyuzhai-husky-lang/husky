@@ -201,7 +201,7 @@ impl<'a> BasicAuxAstParser<'a> {
                     }
                 }
                 Keyword::Stmt(_) => todo!(),
-                Keyword::Liason(_) => todo!(),
+                Keyword::Pattern(_) => todo!(),
                 Keyword::Main => todo!(),
                 Keyword::Use => todo!(),
                 Keyword::Mod => todo!(),
@@ -218,7 +218,7 @@ impl<'a> BasicAuxAstParser<'a> {
                 Keyword::Paradigm(_) => todo!(),
                 Keyword::Type(_) => todo!(),
                 Keyword::Stmt(_) => todo!(),
-                Keyword::Liason(_) => todo!(),
+                Keyword::Pattern(_) => todo!(),
                 Keyword::Main => todo!(),
                 Keyword::Use => todo!(),
                 Keyword::Mod => todo!(),
@@ -271,7 +271,7 @@ impl<'a> BasicAuxAstParser<'a> {
                 }
                 Keyword::Type(_) => todo!(),
                 Keyword::Stmt(_) => todo!(),
-                Keyword::Liason(_) => todo!(),
+                Keyword::Pattern(_) => todo!(),
                 Keyword::Main => todo!(),
                 Keyword::Use => todo!(),
                 Keyword::Mod => todo!(),
@@ -325,7 +325,7 @@ impl<'a> BasicAuxAstParser<'a> {
                 }
                 Keyword::Type(_) => todo!(),
                 Keyword::Stmt(_) => todo!(),
-                Keyword::Liason(_) => todo!(),
+                Keyword::Pattern(_) => todo!(),
                 Keyword::Main => todo!(),
                 Keyword::Use => todo!(),
                 Keyword::Mod => todo!(),
@@ -390,7 +390,7 @@ impl<'a> BasicAuxAstParser<'a> {
                     }
                 }
                 Keyword::Stmt(_) => todo!(),
-                Keyword::Liason(_) => todo!(),
+                Keyword::Pattern(_) => todo!(),
                 Keyword::Main => todo!(),
                 Keyword::Use => todo!(),
                 Keyword::Mod => EntityKind::Module,

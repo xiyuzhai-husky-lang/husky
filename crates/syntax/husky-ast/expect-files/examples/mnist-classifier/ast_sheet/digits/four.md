@@ -342,7 +342,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 23,
+                                value: 24,
                             },
                         ),
                     ),
@@ -377,7 +377,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 23,
+                                value: 24,
                             },
                         ),
                     ),
@@ -412,7 +412,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 23,
+                                value: 24,
                             },
                         ),
                     ),
@@ -447,7 +447,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 23,
+                                value: 24,
                             },
                         ),
                     ),
@@ -482,7 +482,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 23,
+                                value: 24,
                             },
                         ),
                     ),
@@ -517,7 +517,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 23,
+                                value: 24,
                             },
                         ),
                     ),
@@ -552,7 +552,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 23,
+                                value: 24,
                             },
                         ),
                     ),

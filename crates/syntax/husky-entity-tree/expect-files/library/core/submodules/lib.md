@@ -9,6 +9,7 @@ Ok(
         `core::fmt`,
         `core::clone`,
         `core::marker`,
+        `core::vec`,
         `core::cmp`,
     ],
 )

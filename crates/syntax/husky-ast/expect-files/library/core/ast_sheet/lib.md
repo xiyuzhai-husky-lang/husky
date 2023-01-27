@@ -288,10 +288,10 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::cmp`,
+                        `core::vec`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: `cmp`,
+                        ident: `vec`,
                         token_idx: TokenIdx(
                             19,
                         ),
@@ -302,10 +302,40 @@ Ok(
                         20,
                     ),
                 },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        10,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        `core::cmp`,
+                    ),
+                    ident_token: IdentifierToken {
+                        ident: `cmp`,
+                        token_idx: TokenIdx(
+                            21,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        22,
+                    ),
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..10,
+            0..11,
         ),
     },
 )

@@ -13,7 +13,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 31,
+                            value: 32,
                         },
                     ),
                 ),
@@ -49,7 +49,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 33,
+                            value: 34,
                         },
                     ),
                 ),
@@ -63,19 +63,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 19,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Comma,
-            ),
-            Identifier(
-                Identifier(
-                    Word(
-                        Id {
-                            value: 15,
+                            value: 20,
                         },
                     ),
                 ),
@@ -99,7 +87,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 14,
+                            value: 17,
                         },
                     ),
                 ),
@@ -111,7 +99,19 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 29,
+                            value: 15,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Comma,
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 30,
                         },
                     ),
                 ),
@@ -133,7 +133,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 48,
+                            value: 49,
                         },
                     ),
                 ),

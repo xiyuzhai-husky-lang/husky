@@ -11,26 +11,6 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 141,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                        RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
                                         value: 142,
                                     },
                                 ),
@@ -87,6 +67,26 @@
                                 ),
                             ),
                         },
+                        RegularStructFieldSignature {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 145,
+                                    },
+                                ),
+                            ),
+                            ty: Entity(
+                                ModuleItem(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 9,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
                     ],
                 },
             ),
@@ -104,7 +104,7 @@
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 146,
+                                        value: 147,
                                     },
                                 ),
                             ),

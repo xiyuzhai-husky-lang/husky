@@ -22,13 +22,14 @@ Ok(
                                     implicit_parameters: [
                                         ImplicitParameterDecl {
                                             pattern: ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
                                                 symbol: 0,
                                                 variant: Type0 {
                                                     ident_token: IdentifierToken {
                                                         ident: Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 58,
+                                                                    value: 60,
                                                                 },
                                                             ),
                                                         ),
@@ -133,13 +134,14 @@ Ok(
                                     implicit_parameters: [
                                         ImplicitParameterDecl {
                                             pattern: ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
                                                 symbol: 0,
                                                 variant: Type0 {
                                                     ident_token: IdentifierToken {
                                                         ident: Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 58,
+                                                                    value: 60,
                                                                 },
                                                             ),
                                                         ),
@@ -279,13 +281,14 @@ Ok(
                                     implicit_parameters: [
                                         ImplicitParameterDecl {
                                             pattern: ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
                                                 symbol: 0,
                                                 variant: Type0 {
                                                     ident_token: IdentifierToken {
                                                         ident: Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 58,
+                                                                    value: 60,
                                                                 },
                                                             ),
                                                         ),
