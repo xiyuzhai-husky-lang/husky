@@ -1,7 +1,10 @@
+use husky_opn_syntax::PrefixOpr;
+
 use crate::*;
 
 pub(crate) struct ExprTypeEngine<'a> {
     db: &'a dyn ExprTypeDb,
+    term_menu: &'a TermMenu,
     expr_region_data: &'a ExprRegionData,
     expr_ty_infos: ExprMap<ExprTypeInfo>,
     unresolved_term_table: UnresolvedTermTable,
@@ -12,6 +15,7 @@ impl<'a> ExprTypeEngine<'a> {
         let expr_region_data = expr_region.data(db);
         Self {
             db,
+            term_menu: db.term_menu(expr_region.toolchain(db)).as_ref().unwrap(),
             expr_region_data,
             expr_ty_infos: ExprMap::new(expr_region_data.expr_arena()),
             unresolved_term_table: Default::default(),
@@ -101,7 +105,27 @@ impl<'a> ExprTypeEngine<'a> {
                 opr,
                 opr_token_idx,
                 opd,
-            } => todo!(),
+            } => {
+
+                let opd_ty = self.infer_new(*opd, None);
+                match opr {
+                    PrefixOpr::Minus => todo!(),
+                    PrefixOpr::Not => todo!(),
+                    PrefixOpr::BitNot => todo!(),
+                    PrefixOpr::Ref => {
+                        // Should consider more cases, could also be taking references
+                        opd_ty
+                    },
+                    PrefixOpr::Vector => todo!(),
+                    PrefixOpr::Slice => todo!(),
+                    PrefixOpr::CyclicSlice => todo!(),
+                    PrefixOpr::Array(_) => todo!(),
+                    PrefixOpr::Option => {
+                        // Should check this is type.
+                        opd_ty
+                    },
+                }
+            },
             Expr::SuffixOpn {
                 opd,
                 punctuation,
@@ -139,8 +163,24 @@ impl<'a> ExprTypeEngine<'a> {
                 implicit_arguments,
             } => todo!(),
             Expr::Application { function, argument } => {
-                let x = todo!();
-                todo!();
+                let function_expr = &self.expr_region_data.expr_arena()[*function];
+                match function_expr {
+                    Expr::NewBoxList { caller: None, lbox_token_idx, items, rbox_token_idx } => {
+                        match items.len() {
+                            0 => {
+                                let argument_ty = self.infer_new(*argument, None);
+                                // check this is type
+                                argument_ty
+                            },
+                            _ => todo!()
+                        }
+                    },
+                    Expr::BoxColon { caller, lbox_token_idx, colon_token_idx, rbox_token } => todo!(),
+                    _ => {
+                        let function_ty = self.infer_new(*function, None); 
+                        todo!() 
+                    } 
+                }
             }
             Expr::Bracketed {
                 lpar_token_idx,
