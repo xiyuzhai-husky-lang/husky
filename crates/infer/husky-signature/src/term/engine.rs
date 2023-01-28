@@ -58,24 +58,9 @@ impl<'a> SignatureTermEngine<'a> {
                 expr_region_data.symbol_region(),
             ),
         };
-        this.init_ty_constraints();
         this.init_current_symbol_term_symbols();
+        this.init_expr_roots();
         this
-    }
-
-    fn init_ty_constraints(&mut self) {
-        for ty_constraint in self.expr_region_data.symbol_region().ty_constraints() {
-            match ty_constraint {
-                TypeConstraint::RegularParameter { .. }
-                | TypeConstraint::FrameVariable
-                | TypeConstraint::ImplicitTypeParameter => (),
-                TypeConstraint::Type { ty: expr }
-                | TypeConstraint::Trait { trai: expr }
-                | TypeConstraint::OutputType { ty: expr }
-                | TypeConstraint::FieldType { ty: expr } => self.cache_new(*expr),
-                TypeConstraint::LetVariables { ty: expr, .. } => unreachable!(),
-            }
-        }
     }
 
     fn init_current_symbol_term_symbols(&mut self) {
@@ -100,7 +85,7 @@ impl<'a> SignatureTermEngine<'a> {
                                 .symbol_region()
                                 .parameter_pattern_ty(*pattern)
                                 .unwrap();
-                            match self.query_new(ty) {
+                            match self.infer_new(ty) {
                                 Ok(ty) => Ok(ty),
                                 Err(_) => Err(TermSymbolTypeErrorKind::SignatureTermError),
                             }
@@ -116,21 +101,27 @@ impl<'a> SignatureTermEngine<'a> {
         }
     }
 
-    // ask about the term for expr, assuming it hasn't been computed before
-    fn query_new(&mut self, expr_idx: ExprIdx) -> SignatureTermResult<Term> {
-        let outcome = self.calc(expr_idx);
-        let term = match outcome {
+    fn init_expr_roots(&mut self) {
+        for expr_root in self.expr_region_data.roots() {
+            self.cache_new(expr_root.expr())
+        }
+    }
+
+    // infer the term for expr, assuming it hasn't been computed before
+    fn infer_new(&mut self, expr_idx: ExprIdx) -> SignatureTermResult<Term> {
+        let result = self.calc(expr_idx);
+        let result_export = match result {
             Ok(term) => Ok(term),
             Err(_) => Err(DerivedSignatureTermError::TermAbortion.into()),
         };
-        self.save(expr_idx, outcome);
-        term
+        self.save(expr_idx, result);
+        result_export
     }
 
     // cache the term for expr, assuming it hasn't been computed before
     fn cache_new(&mut self, expr_idx: ExprIdx) {
-        let outcome = self.calc(expr_idx);
-        self.save(expr_idx, outcome)
+        let result = self.calc(expr_idx);
+        self.save(expr_idx, result)
     }
 
     pub(crate) fn finish(self) -> SignatureTermRegion {
@@ -178,10 +169,10 @@ impl<'a> SignatureTermEngine<'a> {
             Expr::BinaryOpn {
                 lopd, opr, ropd, ..
             } => {
-                let  Ok(lopd) = self.query_new(lopd) else {
+                let  Ok(lopd) = self.infer_new(lopd) else {
                     return  Err(DerivedSignatureTermError::CannotInferOperandTermInPrefix.into());
                 };
-                let  Ok(ropd) = self.query_new(ropd) else {
+                let  Ok(ropd) = self.infer_new(ropd) else {
                     return  Err(DerivedSignatureTermError::CannotInferOperandTermInPrefix.into());
                 };
                 match opr {
@@ -211,7 +202,7 @@ impl<'a> SignatureTermEngine<'a> {
                 opr_token_idx,
                 opd,
             } => {
-                let  Ok(opd) = self.query_new(opd) else {
+                let  Ok(opd) = self.infer_new(opd) else {
                     return  Err(DerivedSignatureTermError::CannotInferOperandTermInPrefix.into());
                 };
                 let tmpl = match opr {
@@ -246,7 +237,7 @@ impl<'a> SignatureTermEngine<'a> {
                 function, argument, ..
             }
             | Expr::Application { function, argument } => {
-                let  Ok(argument) = self.query_new(argument) else {
+                let  Ok(argument) = self.infer_new(argument) else {
                         return  Err(DerivedSignatureTermError::CannotInferArgumentTermInApplication.into())
                     };
                 match self.expr_region_data.expr_arena()[function] {
@@ -377,7 +368,7 @@ impl<'a> SignatureTermEngine<'a> {
                         _ => todo!(),
                     },
                     _ => {
-                        let  Ok(function) = self.query_new(function) else {
+                        let  Ok(function) = self.infer_new(function) else {
                             return  Err(DerivedSignatureTermError::CannotInferFunctionTermInApplication.into())
                         };
                         todo!()
@@ -406,7 +397,7 @@ impl<'a> SignatureTermEngine<'a> {
                 colon_token_idx,
                 rbox_token,
             } => todo!(),
-            Expr::Bracketed { item, .. } => self.query_new(item),
+            Expr::Bracketed { item, .. } => self.infer_new(item),
             Expr::Block { stmts } => todo!(),
             Expr::Err(_) => Err(DerivedSignatureTermError::ExprError.into()),
         }

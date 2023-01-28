@@ -3,11 +3,31 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct ExprTypeRegion {
     path: ExprRegionPath,
-    expr_ty_infos: ExprMap<ExprTypeInfo>,
+    expr_ty_infos: ExprMap<ExprTypeResult<ExprTypeInfo>>,
+}
+
+impl ExprTypeRegion {
+    pub(crate) fn new(
+        path: ExprRegionPath,
+        expr_ty_infos: ExprMap<ExprTypeResult<ExprTypeInfo>>,
+    ) -> Self {
+        Self {
+            path,
+            expr_ty_infos,
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct ExprTypeInfo {}
+pub(crate) struct ExprTypeInfo {
+    ty: LocalTerm,
+}
+
+impl ExprTypeInfo {
+    pub(crate) fn ty(&self) -> LocalTerm {
+        self.ty
+    }
+}
 
 impl<Db: ExprTypeDb + ?Sized> salsa::DebugWithDb<Db> for ExprTypeRegion {
     fn fmt(
