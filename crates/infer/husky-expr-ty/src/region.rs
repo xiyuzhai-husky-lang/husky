@@ -2,13 +2,13 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct ExprTypeRegion {
-    path: ExprRegionPath,
+    path: RegionPath,
     expr_ty_infos: ExprMap<ExprTypeResult<ExprTypeInfo>>,
 }
 
 impl ExprTypeRegion {
     pub(crate) fn new(
-        path: ExprRegionPath,
+        path: RegionPath,
         expr_ty_infos: ExprMap<ExprTypeResult<ExprTypeInfo>>,
     ) -> Self {
         Self {

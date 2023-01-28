@@ -10,7 +10,7 @@ pub struct ExprRegion {
 #[derive(Debug, PartialEq, Eq)]
 pub struct ExprRegionData {
     parent: Option<ExprRegion>,
-    path: ExprRegionPath,
+    path: RegionPath,
     expr_arena: ExprArena,
     entity_path_expr_arena: EntityPathExprArena,
     stmt_arena: StmtArena,
@@ -50,12 +50,13 @@ pub enum ExprRootKind {
 impl ExprRegionData {
     pub fn new(
         parent: Option<ExprRegion>,
-        path: ExprRegionPath,
+        path: RegionPath,
         expr_arena: ExprArena,
         entity_path_expr_arena: EntityPathExprArena,
         stmt_arena: StmtArena,
         pattern_expr_region: PatternExprRegion,
         symbol_region: SymbolRegion,
+        roots: Vec<ExprRoot>,
     ) -> Self {
         Self {
             parent,
@@ -65,7 +66,7 @@ impl ExprRegionData {
             stmt_arena,
             pattern_expr_region,
             symbol_region,
-            roots: vec![],
+            roots,
         }
     }
 
@@ -73,7 +74,7 @@ impl ExprRegionData {
         self.parent
     }
 
-    pub fn path(&self) -> ExprRegionPath {
+    pub fn path(&self) -> RegionPath {
         self.path
     }
 
@@ -102,17 +103,25 @@ impl ExprRegionData {
     }
 }
 
+impl std::ops::Index<ExprIdx> for ExprRegionData {
+    type Output = Expr;
+
+    fn index(&self, index: ExprIdx) -> &Self::Output {
+        &self.expr_arena[index]
+    }
+}
+
 impl ExprRegion {
     pub fn toolchain(self, db: &dyn ExprDb) -> Toolchain {
         // ad hoc
         match self.data(db).path {
-            ExprRegionPath::Snippet(toolchain) => toolchain,
-            ExprRegionPath::Decl(path) => match path {
+            RegionPath::Snippet(toolchain) => toolchain,
+            RegionPath::Decl(path) => match path {
                 DeclExprPath::Entity(path) => path.toolchain(db),
                 DeclExprPath::ImplBlock(impl_block) => impl_block.module_path(db).toolchain(db),
                 DeclExprPath::AssociatedItem(item) => item.module_path(db).toolchain(db),
             },
-            ExprRegionPath::Defn(path) => match path {
+            RegionPath::Defn(path) => match path {
                 DefnExprPath::Entity(path) => path.toolchain(db),
                 DefnExprPath::AssociatedItem(item) => item.module_path(db).toolchain(db),
             },
