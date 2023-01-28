@@ -9,6 +9,7 @@ mod tests;
 pub use db::*;
 pub use region::*;
 
+use engine::*;
 use husky_defn::*;
 use husky_entity_path::*;
 use husky_entity_taxonomy::*;

@@ -95,7 +95,7 @@ impl<'a> HoverResultCalculator<'a> {
             } => {
                 format!(
                     "{:#?}",
-                    expr_region.symbol_region(self.db)[*current_symbol_idx]
+                    expr_region.data(self.db).symbol_region()[*current_symbol_idx]
                 )
             }
             TokenInfo::InheritedSymbol {
@@ -105,7 +105,7 @@ impl<'a> HoverResultCalculator<'a> {
             } => {
                 format!(
                     "{:#?}",
-                    expr_region.symbol_region(self.db)[*inherited_symbol_idx]
+                    expr_region.data(self.db).symbol_region()[*inherited_symbol_idx]
                 )
             }
             TokenInfo::Field => format!(""),

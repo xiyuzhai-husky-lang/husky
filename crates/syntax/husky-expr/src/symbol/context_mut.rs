@@ -52,13 +52,15 @@ impl<'a> SymbolContextMut<'a> {
     ) -> ExprRegion {
         ExprRegion::new(
             db,
-            parent,
-            path,
-            expr_arena,
-            entity_path_expr_arena,
-            stmt_arena,
-            pattern_expr_region,
-            self.symbol_region,
+            ExprRegionData::new(
+                parent,
+                path,
+                expr_arena,
+                entity_path_expr_arena,
+                stmt_arena,
+                pattern_expr_region,
+                self.symbol_region,
+            ),
         )
     }
 
