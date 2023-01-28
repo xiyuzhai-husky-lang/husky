@@ -3,14 +3,11 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct ExprTypeRegion {
     path: RegionPath,
-    expr_ty_infos: ExprMap<ExprTypeResult<ExprTypeInfo>>,
+    expr_ty_infos: ExprMap<ExprTypeInfo>,
 }
 
 impl ExprTypeRegion {
-    pub(crate) fn new(
-        path: RegionPath,
-        expr_ty_infos: ExprMap<ExprTypeResult<ExprTypeInfo>>,
-    ) -> Self {
+    pub(crate) fn new(path: RegionPath, expr_ty_infos: ExprMap<ExprTypeInfo>) -> Self {
         Self {
             path,
             expr_ty_infos,
@@ -20,12 +17,23 @@ impl ExprTypeRegion {
 
 #[derive(Debug, PartialEq, Eq)]
 pub(crate) struct ExprTypeInfo {
-    ty: LocalTerm,
+    ty_result: ExprTypeResult<LocalTerm>,
+    opt_expectation: OptionExpectationIdx,
 }
 
 impl ExprTypeInfo {
-    pub(crate) fn ty(&self) -> LocalTerm {
-        self.ty
+    pub(crate) fn new(
+        ty_result: ExprTypeResult<LocalTerm>,
+        opt_expectation: OptionExpectationIdx,
+    ) -> Self {
+        Self {
+            ty_result,
+            opt_expectation,
+        }
+    }
+
+    pub(crate) fn ty(&self) -> ExprTypeResultRef<LocalTerm> {
+        self.ty_result.as_ref().map(|t| *t)
     }
 }
 

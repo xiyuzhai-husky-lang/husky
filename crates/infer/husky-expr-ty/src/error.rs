@@ -22,6 +22,8 @@ pub enum OriginalExprTypeError {}
 #[derive(Debug, PartialEq, Eq)]
 pub enum DerivedExprTypeError {
     TypeInfoErr,
+    ExprError,
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;
+pub type ExprTypeResultRef<'a, T> = Result<T, &'a ExprTypeError>;
