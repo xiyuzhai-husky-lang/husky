@@ -51,11 +51,11 @@ impl<T> Arena<T> {
         idx
     }
 
-    pub fn intern(&mut self, item: T) -> ArenaIdx<T>
+    pub fn intern(&mut self, item: T, eq: impl Fn(&T, &T) -> bool) -> ArenaIdx<T>
     where
         T: Eq,
     {
-        if let Some(position) = self.data.iter().position(|item1| item1 == &item) {
+        if let Some(position) = self.data.iter().position(|item1| eq(item1, &item)) {
             return ArenaIdx {
                 raw: position,
                 phantom: PhantomData,
