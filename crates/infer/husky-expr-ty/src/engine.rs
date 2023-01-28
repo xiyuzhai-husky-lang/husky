@@ -138,7 +138,10 @@ impl<'a> ExprTypeEngine<'a> {
                 template,
                 implicit_arguments,
             } => todo!(),
-            Expr::Application { function, argument } => todo!(),
+            Expr::Application { function, argument } => {
+                let x = todo!();
+                todo!();
+            }
             Expr::Bracketed {
                 lpar_token_idx,
                 item,
