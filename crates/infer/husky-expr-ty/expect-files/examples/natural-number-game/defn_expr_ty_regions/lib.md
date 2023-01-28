@@ -13,7 +13,7 @@
                             impl_block_kind: Type {
                                 ty: TypePath(
                                     Id {
-                                        value: 35,
+                                        value: 43,
                                     },
                                 ),
                             },
@@ -47,7 +47,7 @@
                         variant: Type {
                             ty: TypePath(
                                 Id {
-                                    value: 35,
+                                    value: 43,
                                 },
                             ),
                         },

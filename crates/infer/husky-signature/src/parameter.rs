@@ -11,7 +11,6 @@ pub struct ImplicitParameterSignature {
     traits: Vec<Term>,
 }
 
-//
 impl ImplicitParameterSignature {
     fn from_decl(
         parameter_decl: &ImplicitParameterDecl,
