@@ -140,6 +140,7 @@ pub struct ExprParser<'a> {
     entity_path_expr_arena: EntityPathExprArena,
     pattern_expr_region: PatternExprRegion,
     stmt_arena: StmtArena,
+    expr_roots: Vec<ExprRoot>,
 }
 
 impl<'a> ExprParser<'a> {
@@ -167,6 +168,7 @@ impl<'a> ExprParser<'a> {
             entity_path_expr_arena: Default::default(),
             pattern_expr_region: Default::default(),
             stmt_arena: Default::default(),
+            expr_roots: vec![],
         }
     }
 
@@ -420,8 +422,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             .allow_self_value()
     }
 
-    pub(crate) fn add_ty_constraint(&mut self, constraint: TypeConstraint) {
-        self.parser.symbol_context.add_ty_constraint(constraint)
+    pub(crate) fn add_expr_root(&mut self, expr_root: ExprRoot) {
+        self.parser.expr_roots.push(expr_root)
     }
 }
 

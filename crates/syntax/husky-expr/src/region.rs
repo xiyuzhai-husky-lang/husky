@@ -16,6 +16,35 @@ pub struct ExprRegionData {
     stmt_arena: StmtArena,
     pattern_expr_region: PatternExprRegion,
     symbol_region: SymbolRegion,
+    roots: Vec<ExprRoot>,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct ExprRoot {
+    kind: ExprRootKind,
+    expr: ExprIdx,
+}
+
+impl ExprRoot {
+    pub fn new(kind: ExprRootKind, expr: ExprIdx) -> Self {
+        Self { kind, expr }
+    }
+
+    pub fn kind(&self) -> ExprRootKind {
+        self.kind
+    }
+
+    pub fn expr(&self) -> ArenaIdx<Expr> {
+        self.expr
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum ExprRootKind {
+    Type,
+    Trait,
+    OutputType,
+    FieldType,
 }
 
 impl ExprRegionData {
@@ -36,6 +65,7 @@ impl ExprRegionData {
             stmt_arena,
             pattern_expr_region,
             symbol_region,
+            roots: vec![],
         }
     }
 
@@ -65,6 +95,10 @@ impl ExprRegionData {
 
     pub fn symbol_region(&self) -> &SymbolRegion {
         &self.symbol_region
+    }
+
+    pub fn roots(&self) -> &[ExprRoot] {
+        self.roots.as_ref()
     }
 }
 

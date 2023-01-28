@@ -75,8 +75,4 @@ impl<'a> SymbolContextMut<'a> {
     pub(crate) fn symbol_region(&self) -> &SymbolRegion {
         &self.symbol_region
     }
-
-    pub(crate) fn add_ty_constraint(&mut self, constraint: TypeConstraint) {
-        self.symbol_region.add_ty_constraint(constraint)
-    }
 }

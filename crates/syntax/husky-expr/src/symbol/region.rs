@@ -70,18 +70,6 @@ pub enum TypeConstraint {
         pattern: PatternExprIdx,
         ty: ExprIdx,
     },
-    Type {
-        ty: ExprIdx,
-    },
-    Trait {
-        trai: ExprIdx,
-    },
-    OutputType {
-        ty: ExprIdx,
-    },
-    FieldType {
-        ty: ExprIdx,
-    },
 }
 
 impl SymbolRegion {
