@@ -44,11 +44,12 @@ impl<'a> SymbolContextMut<'a> {
         self,
         db: &dyn ExprDb,
         parent: Option<ExprRegion>,
-        path: ExprRegionPath,
+        path: RegionPath,
         expr_arena: ExprArena,
         entity_path_expr_arena: EntityPathExprArena,
         pattern_expr_region: PatternExprRegion,
         stmt_arena: StmtArena,
+        roots: Vec<ExprRoot>,
     ) -> ExprRegion {
         ExprRegion::new(
             db,
@@ -60,6 +61,7 @@ impl<'a> SymbolContextMut<'a> {
                 stmt_arena,
                 pattern_expr_region,
                 self.symbol_region,
+                roots,
             ),
         )
     }

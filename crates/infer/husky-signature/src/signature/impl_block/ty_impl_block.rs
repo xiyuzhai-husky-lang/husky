@@ -1,4 +1,6 @@
 use super::*;
+use husky_print_utils::p;
+use salsa::DebugWithDb;
 
 #[salsa::tracked(jar = SignatureJar,return_ref)]
 pub(crate) fn ty_impl_block_signature(
@@ -14,6 +16,10 @@ pub(crate) fn ty_impl_block_signature(
         term_menu,
     );
     let ty = decl.ty(db);
+    p!(
+        expr_region.data(db).roots(),
+        expr_region.data(db).path().debug(db)
+    );
     let ty = match signature_term_region.expr_term(ty.expr()) {
         Ok(ty) => ty,
         Err(_) => todo!(),

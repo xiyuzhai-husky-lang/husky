@@ -42,19 +42,19 @@ macro_rules! report {
 use report;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum ExprRegionPath {
+pub enum RegionPath {
     Snippet(Toolchain),
     Decl(DeclExprPath),
     Defn(DefnExprPath),
 }
 
-impl From<DefnExprPath> for ExprRegionPath {
+impl From<DefnExprPath> for RegionPath {
     fn from(v: DefnExprPath) -> Self {
         Self::Defn(v)
     }
 }
 
-impl From<DeclExprPath> for ExprRegionPath {
+impl From<DeclExprPath> for RegionPath {
     fn from(v: DeclExprPath) -> Self {
         Self::Decl(v)
     }
@@ -73,7 +73,7 @@ pub enum DefnExprPath {
     AssociatedItem(AssociatedItem),
 }
 
-impl<Db: ExprDb + ?Sized> DebugWithDb<Db> for ExprRegionPath {
+impl<Db: ExprDb + ?Sized> DebugWithDb<Db> for RegionPath {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -82,11 +82,9 @@ impl<Db: ExprDb + ?Sized> DebugWithDb<Db> for ExprRegionPath {
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<ExprJar>>::as_jar_db(db);
         match self {
-            ExprRegionPath::Snippet(path) => {
-                f.debug_tuple("Snippet").field(&path.debug(db)).finish()
-            }
-            ExprRegionPath::Decl(path) => f.debug_tuple("Decl").field(&path.debug(db)).finish(),
-            ExprRegionPath::Defn(path) => f.debug_tuple("Defn").field(&path.debug(db)).finish(),
+            RegionPath::Snippet(path) => f.debug_tuple("Snippet").field(&path.debug(db)).finish(),
+            RegionPath::Decl(path) => f.debug_tuple("Decl").field(&path.debug(db)).finish(),
+            RegionPath::Defn(path) => f.debug_tuple("Defn").field(&path.debug(db)).finish(),
         }
     }
 }
@@ -132,7 +130,7 @@ impl<Db: ExprDb + ?Sized> DebugWithDb<Db> for DefnExprPath {
 
 pub struct ExprParser<'a> {
     db: &'a dyn ExprDb,
-    path: ExprRegionPath,
+    path: RegionPath,
     token_sheet_data: &'a TokenSheetData,
     parent_expr_region: Option<ExprRegion>,
     symbol_context: SymbolContextMut<'a>,
@@ -146,7 +144,7 @@ pub struct ExprParser<'a> {
 impl<'a> ExprParser<'a> {
     pub fn new(
         db: &'a dyn ExprDb,
-        path: ExprRegionPath,
+        path: RegionPath,
         token_sheet_data: &'a TokenSheetData,
         module_symbol_context: ModuleSymbolContext<'a>,
         parent_expr_region: Option<ExprRegion>,
@@ -181,6 +179,7 @@ impl<'a> ExprParser<'a> {
             self.entity_path_expr_arena,
             self.pattern_expr_region,
             self.stmt_arena,
+            self.expr_roots,
         )
     }
 
