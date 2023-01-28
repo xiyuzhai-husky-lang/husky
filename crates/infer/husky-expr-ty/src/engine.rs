@@ -1,52 +1,71 @@
 use crate::*;
 
 pub(crate) struct ExprTypeEngine<'a> {
+    db: &'a dyn ExprTypeDb,
     expr_region_data: &'a ExprRegionData,
-    expr_ty_infos: ExprMap<ExprTypeResult<ExprTypeInfo>>,
+    expr_ty_infos: ExprMap<ExprTypeInfo>,
+    unresolved_term_table: UnresolvedTermTable,
 }
 
 impl<'a> ExprTypeEngine<'a> {
     pub(crate) fn new(db: &'a dyn ExprTypeDb, expr_region: ExprRegion) -> Self {
         let expr_region_data = expr_region.data(db);
         Self {
+            db,
             expr_region_data,
             expr_ty_infos: ExprMap::new(expr_region_data.expr_arena()),
+            unresolved_term_table: Default::default(),
         }
     }
 
     pub(crate) fn infer_all(&mut self) {
         for root in self.expr_region_data.roots() {
-            let ty = self.infer_new(root.expr());
+            let ty = self.infer_new(root.expr(), None);
             // todo: check coherence
         }
     }
 
-    fn infer_new(&mut self, expr_idx: ExprIdx) -> ExprTypeResult<LocalTerm> {
-        let info_result = self.calc(expr_idx);
-        let ty_result = match info_result {
-            Ok(ref info) => Ok(info.ty()),
+    fn infer_new(
+        &mut self,
+        expr_idx: ExprIdx,
+        expectation: Option<Expectation>,
+    ) -> ExprTypeResult<LocalTerm> {
+        let ty_result = self.calc(expr_idx, expectation.as_ref());
+        let ty_result_out = match ty_result {
+            Ok(ty) => Ok(ty),
             Err(_) => Err(DerivedExprTypeError::TypeInfoErr.into()),
         };
-        self.save(expr_idx, info_result);
-        ty_result
+        let opt_expectation = self.unresolved_term_table.intern_expection(expectation);
+        self.save(expr_idx, ExprTypeInfo::new(ty_result, opt_expectation));
+        ty_result_out
     }
 
-    fn save(&mut self, expr_idx: ExprIdx, result: ExprTypeResult<ExprTypeInfo>) {
-        self.expr_ty_infos.insert_new(expr_idx, result)
+    fn save(&mut self, expr_idx: ExprIdx, info: ExprTypeInfo) {
+        self.expr_ty_infos.insert_new(expr_idx, info)
     }
 
     pub(crate) fn finish(self) -> ExprTypeRegion {
         ExprTypeRegion::new(self.expr_region_data.path(), self.expr_ty_infos)
     }
 
-    fn calc(&mut self, expr_idx: ExprIdx) -> ExprTypeResult<ExprTypeInfo> {
+    fn calc(
+        &mut self,
+        expr_idx: ExprIdx,
+        expection: Option<&Expectation>,
+    ) -> ExprTypeResult<LocalTerm> {
         let expr = &self.expr_region_data[expr_idx];
         match expr {
             Expr::Literal(_) => todo!(),
             Expr::EntityPath {
                 entity_path_expr,
                 entity_path,
-            } => todo!(),
+            } => match entity_path {
+                Some(entity_path) => match self.db.entity_ty(*entity_path) {
+                    Ok(ty) => Ok(ty.into()),
+                    Err(_) => todo!(),
+                },
+                None => todo!(),
+            },
             Expr::InheritedSymbol {
                 ident,
                 token_idx,
@@ -144,7 +163,7 @@ impl<'a> ExprTypeEngine<'a> {
                 rbox_token,
             } => todo!(),
             Expr::Block { stmts } => todo!(),
-            Expr::Err(_) => todo!(),
+            Expr::Err(_) => Err(DerivedExprTypeError::ExprError.into()),
         }
     }
 }

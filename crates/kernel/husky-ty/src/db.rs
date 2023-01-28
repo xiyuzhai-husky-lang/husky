@@ -1,7 +1,7 @@
 use crate::*;
 
 pub trait TypeDb: salsa::DbWithJar<TypeJar> + SignatureDb {
-    fn entity_ty(&self, entipath: EntityPath) -> TypeResultRef<Term>;
+    fn entity_ty(&self, path: EntityPath) -> TypeResultRef<Term>;
 }
 
 impl<Db> TypeDb for Db

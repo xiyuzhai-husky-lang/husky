@@ -11,3 +11,15 @@ pub(crate) enum LocalTerm {
     Resolved(Term),
     Unresolved(UnresolvedTermIdx),
 }
+
+impl From<UnresolvedTermIdx> for LocalTerm {
+    fn from(v: UnresolvedTermIdx) -> Self {
+        Self::Unresolved(v)
+    }
+}
+
+impl From<Term> for LocalTerm {
+    fn from(v: Term) -> Self {
+        Self::Resolved(v)
+    }
+}

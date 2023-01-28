@@ -51,6 +51,21 @@ impl<T> Arena<T> {
         idx
     }
 
+    pub fn intern(&mut self, item: T) -> ArenaIdx<T>
+    where
+        T: Eq,
+    {
+        if let Some(position) = self.data.iter().position(|item1| item1 == &item) {
+            return ArenaIdx {
+                raw: position,
+                phantom: PhantomData,
+            };
+        };
+        let idx = ArenaIdx::new(self.data.len());
+        self.data.push(item);
+        idx
+    }
+
     pub fn len(&self) -> usize {
         self.data.len()
     }
@@ -203,6 +218,38 @@ pub struct ArenaIdx<T> {
     phantom: PhantomData<T>,
 }
 
+pub struct OptionArenaIdx<T> {
+    raw: usize,
+    phantom: PhantomData<T>,
+}
+
+impl<T> Default for OptionArenaIdx<T> {
+    fn default() -> Self {
+        Self {
+            raw: usize::MAX,
+            phantom: Default::default(),
+        }
+    }
+}
+
+impl<T> From<ArenaIdx<T>> for OptionArenaIdx<T> {
+    fn from(value: ArenaIdx<T>) -> Self {
+        OptionArenaIdx {
+            raw: value.raw,
+            phantom: PhantomData,
+        }
+    }
+}
+
+impl<T> Into<Option<ArenaIdx<T>>> for OptionArenaIdx<T> {
+    fn into(self) -> Option<ArenaIdx<T>> {
+        (self.raw != usize::MAX).then_some(ArenaIdx {
+            raw: self.raw,
+            phantom: PhantomData,
+        })
+    }
+}
+
 impl<T> std::fmt::Display for ArenaIdx<T> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{}", self.raw)
@@ -255,6 +302,26 @@ impl<T> PartialOrd for ArenaIdx<T> {
 }
 
 impl<T> Ord for ArenaIdx<T> {
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        self.raw.cmp(&other.raw)
+    }
+}
+
+impl<T> PartialEq for OptionArenaIdx<T> {
+    fn eq(&self, other: &Self) -> bool {
+        self.raw == other.raw
+    }
+}
+
+impl<T> Eq for OptionArenaIdx<T> {}
+
+impl<T> PartialOrd for OptionArenaIdx<T> {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        self.raw.partial_cmp(&other.raw)
+    }
+}
+
+impl<T> Ord for OptionArenaIdx<T> {
     fn cmp(&self, other: &Self) -> std::cmp::Ordering {
         self.raw.cmp(&other.raw)
     }
@@ -323,6 +390,24 @@ impl<T> Clone for ArenaIdx<T> {
 }
 
 impl<T> Copy for ArenaIdx<T> {}
+
+impl<T> Debug for OptionArenaIdx<T> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let idx: Option<ArenaIdx<T>> = (*self).into();
+        idx.fmt(f)
+    }
+}
+
+impl<T> Clone for OptionArenaIdx<T> {
+    fn clone(&self) -> Self {
+        Self {
+            raw: self.raw.clone(),
+            phantom: PhantomData,
+        }
+    }
+}
+
+impl<T> Copy for OptionArenaIdx<T> {}
 
 impl<T> ArenaIdx<T> {
     pub(crate) fn new(raw: usize) -> Self {
