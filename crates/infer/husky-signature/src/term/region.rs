@@ -44,7 +44,8 @@ pub(crate) fn signature_term_region(
     db: &dyn SignatureDb,
     expr_region: ExprRegion,
 ) -> SignatureTermRegion {
-    let parent_expr_region = expr_region.parent(db);
+    let expr_region_data = expr_region.data(db);
+    let parent_expr_region = expr_region_data.parent();
     let parent_term_symbol_region =
         parent_expr_region.map(|r| signature_term_region(db, r).term_symbol_region());
     SignatureTermEngine::new(db, expr_region, parent_term_symbol_region).finish()

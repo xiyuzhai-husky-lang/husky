@@ -159,7 +159,7 @@ impl<'a> ExprParser<'a> {
             parent_expr_region,
             symbol_context: SymbolContextMut::new(
                 module_symbol_context,
-                parent_expr_region.map(|er| er.symbol_region(db)),
+                parent_expr_region.map(|er| er.data(db).symbol_region()),
                 allow_self_type,
                 allow_self_value,
             ),

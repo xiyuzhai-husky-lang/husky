@@ -3,7 +3,11 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct ExprTypeRegion {
     path: ExprRegionPath,
+    expr_ty_infos: ExprMap<ExprTypeInfo>,
 }
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct ExprTypeInfo {}
 
 impl<Db: ExprTypeDb + ?Sized> salsa::DebugWithDb<Db> for ExprTypeRegion {
     fn fmt(
@@ -21,7 +25,7 @@ impl<Db: ExprTypeDb + ?Sized> salsa::DebugWithDb<Db> for ExprTypeRegion {
 
 #[salsa::tracked(jar = ExprTypeJar, return_ref)]
 pub(crate) fn expr_ty_region(db: &dyn ExprTypeDb, expr_region: ExprRegion) -> ExprTypeRegion {
-    ExprTypeRegion {
-        path: expr_region.path(db),
-    }
+    let mut engine = ExprTypeEngine::new(db, expr_region);
+    engine.infer_all();
+    engine.finish()
 }

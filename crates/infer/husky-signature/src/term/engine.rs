@@ -6,12 +6,8 @@ use salsa::DebugWithDb;
 
 pub(super) struct SignatureTermEngine<'a> {
     db: &'a dyn SignatureDb,
-    path: ExprRegionPath,
-    expr_arena: &'a ExprArena,
-    pattern_expr_region: &'a PatternExprRegion,
-    entity_path_expr_arena: &'a EntityPathExprArena,
+    expr_region_data: &'a ExprRegionData,
     term_menu: &'a TermMenu,
-    symbol_region: &'a SymbolRegion,
     expr_terms: ExprMap<SignatureTermResult<Term>>,
     term_symbol_region: TermSymbolRegion,
 }
@@ -48,21 +44,19 @@ impl<'a> SignatureTermEngine<'a> {
         expr_region: ExprRegion,
         parent_term_symbol_region: Option<&'a TermSymbolRegion>,
     ) -> Self {
-        let expr_arena = &expr_region.expr_arena(db);
         let toolchain = expr_region.toolchain(db);
-        let symbol_region = expr_region.symbol_region(db);
         // ad hoc
         let term_menu = db.term_menu(toolchain).as_ref().unwrap();
+        let expr_region_data = &expr_region.data(db);
         let mut this = Self {
             db,
-            path: expr_region.path(db),
-            expr_arena,
-            pattern_expr_region: expr_region.pattern_expr_region(db),
-            entity_path_expr_arena: expr_region.entity_path_expr_arena(db),
-            symbol_region,
+            expr_region_data,
             term_menu,
-            expr_terms: ExprMap::new(expr_arena),
-            term_symbol_region: TermSymbolRegion::new(parent_term_symbol_region, symbol_region),
+            expr_terms: ExprMap::new(expr_region_data.expr_arena()),
+            term_symbol_region: TermSymbolRegion::new(
+                parent_term_symbol_region,
+                expr_region_data.symbol_region(),
+            ),
         };
         this.init_ty_constraints();
         this.init_current_symbol_term_symbols();
@@ -70,7 +64,7 @@ impl<'a> SignatureTermEngine<'a> {
     }
 
     fn init_ty_constraints(&mut self) {
-        for ty_constraint in self.symbol_region.ty_constraints() {
+        for ty_constraint in self.expr_region_data.symbol_region().ty_constraints() {
             match ty_constraint {
                 TypeConstraint::RegularParameter { .. }
                 | TypeConstraint::FrameVariable
@@ -85,7 +79,11 @@ impl<'a> SignatureTermEngine<'a> {
     }
 
     fn init_current_symbol_term_symbols(&mut self) {
-        for (idx, symbol) in self.symbol_region.indexed_current_symbol_iter() {
+        for (idx, symbol) in self
+            .expr_region_data
+            .symbol_region()
+            .indexed_current_symbol_iter()
+        {
             let ty = match symbol.variant() {
                 CurrentSymbolVariant::ImplicitParameter {
                     implicit_parameter_variant,
@@ -93,10 +91,15 @@ impl<'a> SignatureTermEngine<'a> {
                     ImplicitParameterVariant::Type { .. } => Ok(self.term_menu.ty0()),
                 },
                 CurrentSymbolVariant::Parameter { pattern_symbol } => {
-                    let pattern_symbol = &self.pattern_expr_region[*pattern_symbol];
+                    let pattern_symbol =
+                        &self.expr_region_data.pattern_expr_region()[*pattern_symbol];
                     match pattern_symbol {
                         PatternSymbol::Atom(pattern) => {
-                            let ty = self.symbol_region.parameter_pattern_ty(*pattern).unwrap();
+                            let ty = self
+                                .expr_region_data
+                                .symbol_region()
+                                .parameter_pattern_ty(*pattern)
+                                .unwrap();
                             match self.query_new(ty) {
                                 Ok(ty) => Ok(ty),
                                 Err(_) => Err(TermSymbolTypeErrorKind::SignatureTermError),
@@ -131,7 +134,11 @@ impl<'a> SignatureTermEngine<'a> {
     }
 
     pub(crate) fn finish(self) -> SignatureTermRegion {
-        SignatureTermRegion::new(self.path, self.term_symbol_region, self.expr_terms)
+        SignatureTermRegion::new(
+            self.expr_region_data.path(),
+            self.term_symbol_region,
+            self.expr_terms,
+        )
     }
 
     fn save(&mut self, expr_idx: ExprIdx, outcome: SignatureTermResult<Term>) {
@@ -139,7 +146,7 @@ impl<'a> SignatureTermEngine<'a> {
     }
 
     fn calc(&mut self, expr_idx: ExprIdx) -> SignatureTermResult<Term> {
-        match self.expr_arena[expr_idx] {
+        match self.expr_region_data.expr_arena()[expr_idx] {
             Expr::Literal(_) => todo!(),
             Expr::EntityPath {
                 entity_path_expr,
@@ -242,7 +249,7 @@ impl<'a> SignatureTermEngine<'a> {
                 let  Ok(argument) = self.query_new(argument) else {
                         return  Err(DerivedSignatureTermError::CannotInferArgumentTermInApplication.into())
                     };
-                match self.expr_arena[function] {
+                match self.expr_region_data.expr_arena()[function] {
                     Expr::BoxColon {
                         caller: None,
                         lbox_token_idx,
@@ -259,7 +266,7 @@ impl<'a> SignatureTermEngine<'a> {
                         0 => Ok(
                             TermApplication::new(self.db, self.term_menu.vec_ty(), argument).into(),
                         ),
-                        1 => match self.expr_arena[items.start()] {
+                        1 => match self.expr_region_data.expr_arena()[items.start()] {
                             Expr::Literal(_) => todo!(),
                             Expr::EntityPath {
                                 entity_path_expr,
@@ -383,7 +390,7 @@ impl<'a> SignatureTermEngine<'a> {
                 rpar_token_idx,
                 ..
             } => {
-                p!(self.path.debug(self.db));
+                p!(self.expr_region_data.path().debug(self.db));
                 p!(items.len());
                 todo!()
             }

@@ -66,7 +66,8 @@ fn collect_expr_diagnostics(
     expr_region: ExprRegion,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
-    for expr in expr_region.expr_arena(db).data() {
+    let expr_region_data = expr_region.data(db);
+    for expr in expr_region_data.expr_arena().data() {
         match expr {
             Expr::Err(error) => {
                 if let Some(message) = expr_error_message(error) {
@@ -80,7 +81,7 @@ fn collect_expr_diagnostics(
             _ => (),
         }
     }
-    for stmt in expr_region.stmt_arena(db).data() {
+    for stmt in expr_region_data.stmt_arena().data() {
         match stmt {
             Stmt::Err(e) => {
                 diagnostics.push(e.to_diagnostic(db, ranged_token_sheet, token_sheet_data))
@@ -88,7 +89,7 @@ fn collect_expr_diagnostics(
             _ => (),
         }
     }
-    for entity_path_expr in expr_region.entity_path_expr_arena(db).data() {
+    for entity_path_expr in expr_region_data.entity_path_expr_arena().data() {
         match entity_path_expr {
             EntityPathExpr::Root { .. } => (),
             EntityPathExpr::Subentity {
