@@ -18,10 +18,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `std::prelude`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 16,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `prelude`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 9,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             1,
                         ),
@@ -48,10 +60,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `std::logic`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 14,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `logic`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 5,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             3,
                         ),
@@ -78,10 +102,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `std::ops`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 15,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `ops`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 8,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             5,
                         ),

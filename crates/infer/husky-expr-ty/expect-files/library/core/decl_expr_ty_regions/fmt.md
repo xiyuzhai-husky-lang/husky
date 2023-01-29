@@ -2,7 +2,15 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                TraitPath(`core::fmt::Debug`),
+                ModuleItem(
+                    Trait(
+                        TraitPath(
+                            Id {
+                                value: 2,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: [],

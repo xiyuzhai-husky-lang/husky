@@ -15,10 +15,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TraitPath(`core::cmp::PartialEq`),
+                        ModuleItem(
+                            Trait(
+                                TraitPath(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `PartialEq`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 16,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             2,
                         ),
@@ -42,10 +56,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TraitPath(`core::cmp::Eq`),
+                        ModuleItem(
+                            Trait(
+                                TraitPath(
+                                    Id {
+                                        value: 3,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `Eq`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 17,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             6,
                         ),
@@ -69,10 +97,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TraitPath(`core::cmp::PartialOrd`),
+                        ModuleItem(
+                            Trait(
+                                TraitPath(
+                                    Id {
+                                        value: 4,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `PartialOrd`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 18,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             10,
                         ),
@@ -96,10 +138,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TraitPath(`core::cmp::Ord`),
+                        ModuleItem(
+                            Trait(
+                                TraitPath(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `Ord`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 19,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             14,
                         ),

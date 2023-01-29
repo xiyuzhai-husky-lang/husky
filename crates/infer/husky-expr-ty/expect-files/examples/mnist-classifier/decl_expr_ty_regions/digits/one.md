@@ -2,36 +2,194 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Feature`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        ExprError,
+                    ),
+                ),
+                opt_expectation: None,
+            },
+        ],
     },
     ExprTypeRegion {
         path: Decl(
             Entity(
-                FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 29,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        ExprError,
+                    ),
+                ),
+                opt_expectation: None,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        PrefixOperandTypeNotInferred,
+                    ),
+                ),
+                opt_expectation: None,
+            },
+        ],
     },
     ExprTypeRegion {
         path: Decl(
             Entity(
-                FormPath(`mnist_classifier::digits::one::upmost`, `Function`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 30,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        Application(
+                            TermApplication(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                opt_expectation: None,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        Application(
+                            TermApplication(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                opt_expectation: None,
+            },
+        ],
     },
     ExprTypeRegion {
         path: Decl(
             Entity(
-                FormPath(`mnist_classifier::digits::one::downmost`, `Function`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 31,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        Application(
+                            TermApplication(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                opt_expectation: None,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        Application(
+                            TermApplication(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                opt_expectation: None,
+            },
+        ],
     },
     ExprTypeRegion {
         path: Decl(
             Entity(
-                FormPath(`mnist_classifier::digits::one::hat`, `Function`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 32,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        Application(
+                            TermApplication(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                opt_expectation: None,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        Application(
+                            TermApplication(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                opt_expectation: None,
+            },
+        ],
     },
 ]

@@ -23,7 +23,13 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: `Output`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 48,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             15,
                         ),
@@ -55,7 +61,13 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: `add`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 38,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             17,
                         ),
@@ -84,10 +96,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TraitPath(`core::ops::Add`),
+                        ModuleItem(
+                            Trait(
+                                TraitPath(
+                                    Id {
+                                        value: 9,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `Add`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 37,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             9,
                         ),

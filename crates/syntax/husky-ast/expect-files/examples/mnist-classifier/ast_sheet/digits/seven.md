@@ -2,7 +2,7 @@ Ok(
     AstSheet {
         arena: Arena {
             data: [
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         9,
                     ),
@@ -10,7 +10,7 @@ Ok(
                         0..0,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         11,
                     ),
@@ -18,7 +18,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         12,
                     ),
@@ -26,7 +26,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         13,
                     ),
@@ -34,7 +34,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         15,
                     ),
@@ -42,7 +42,7 @@ Ok(
                         4..4,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         17,
                     ),
@@ -50,7 +50,7 @@ Ok(
                         5..5,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         18,
                     ),
@@ -58,7 +58,7 @@ Ok(
                         5..5,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         19,
                     ),
@@ -66,7 +66,7 @@ Ok(
                         5..5,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         20,
                     ),
@@ -74,7 +74,7 @@ Ok(
                         5..5,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         22,
                     ),
@@ -82,7 +82,7 @@ Ok(
                         9..9,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         23,
                     ),
@@ -90,7 +90,7 @@ Ok(
                         9..9,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         24,
                     ),
@@ -98,7 +98,7 @@ Ok(
                         9..9,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         25,
                     ),
@@ -106,7 +106,7 @@ Ok(
                         9..9,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         26,
                     ),
@@ -114,7 +114,7 @@ Ok(
                         9..9,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         27,
                     ),
@@ -122,7 +122,7 @@ Ok(
                         9..9,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         38,
                     ),
@@ -130,7 +130,7 @@ Ok(
                         15..15,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         39,
                     ),
@@ -138,7 +138,7 @@ Ok(
                         15..15,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         40,
                     ),
@@ -146,7 +146,7 @@ Ok(
                         15..15,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         37,
                     ),
@@ -154,7 +154,7 @@ Ok(
                         15..18,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         35,
                     ),
@@ -162,7 +162,7 @@ Ok(
                         15..15,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         36,
                     ),
@@ -171,13 +171,13 @@ Ok(
                     ),
                 },
                 IfElseStmts {
-                    if_stmt: 18,
-                    elif_stmts: ArenaIdxRange(
+                    if_branch: 18,
+                    elif_branches: ArenaIdxRange(
                         19..19,
                     ),
-                    else_stmt: None,
+                    else_branch: None,
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         41,
                     ),
@@ -185,7 +185,7 @@ Ok(
                         19..19,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         34,
                     ),
@@ -193,7 +193,7 @@ Ok(
                         19..23,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         43,
                     ),
@@ -201,7 +201,7 @@ Ok(
                         24..24,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         44,
                     ),
@@ -209,7 +209,7 @@ Ok(
                         24..24,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         45,
                     ),
@@ -217,7 +217,7 @@ Ok(
                         24..24,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         42,
                     ),
@@ -225,7 +225,7 @@ Ok(
                         24..27,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         29,
                     ),
@@ -233,7 +233,7 @@ Ok(
                         15..15,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         30,
                     ),
@@ -241,7 +241,7 @@ Ok(
                         15..15,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         31,
                     ),
@@ -249,7 +249,7 @@ Ok(
                         15..15,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         32,
                     ),
@@ -257,7 +257,7 @@ Ok(
                         15..15,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         33,
                     ),
@@ -266,20 +266,20 @@ Ok(
                     ),
                 },
                 IfElseStmts {
-                    if_stmt: 23,
-                    elif_stmts: ArenaIdxRange(
+                    if_branch: 23,
+                    elif_branches: ArenaIdxRange(
                         24..24,
                     ),
-                    else_stmt: None,
+                    else_branch: None,
                 },
                 IfElseStmts {
-                    if_stmt: 27,
-                    elif_stmts: ArenaIdxRange(
+                    if_branch: 27,
+                    elif_branches: ArenaIdxRange(
                         28..28,
                     ),
-                    else_stmt: None,
+                    else_branch: None,
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         46,
                     ),
@@ -287,7 +287,7 @@ Ok(
                         28..28,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         47,
                     ),
@@ -295,7 +295,7 @@ Ok(
                         28..28,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         48,
                     ),
@@ -303,7 +303,7 @@ Ok(
                         28..28,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         49,
                     ),
@@ -372,10 +372,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
+                        ModuleItem(
+                            Form(
+                                FormPath(
+                                    Id {
+                                        value: 29,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `simple_seven_match`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 238,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             61,
                         ),
@@ -407,10 +421,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
+                        ModuleItem(
+                            Form(
+                                FormPath(
+                                    Id {
+                                        value: 30,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `simple_leftdown_pattern`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 239,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             74,
                         ),
@@ -442,10 +470,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Feature`),
+                        ModuleItem(
+                            Form(
+                                FormPath(
+                                    Id {
+                                        value: 31,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `special_seven_match`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 240,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             104,
                         ),
@@ -477,10 +519,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
+                        ModuleItem(
+                            Form(
+                                FormPath(
+                                    Id {
+                                        value: 32,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `leftupcc_pattern`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 241,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             119,
                         ),
@@ -512,10 +568,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
+                        ModuleItem(
+                            Form(
+                                FormPath(
+                                    Id {
+                                        value: 33,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `leftdowncc_pattern`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 242,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             162,
                         ),
@@ -547,10 +617,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
+                        ModuleItem(
+                            Form(
+                                FormPath(
+                                    Id {
+                                        value: 34,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `is_seven`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 110,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             216,
                         ),

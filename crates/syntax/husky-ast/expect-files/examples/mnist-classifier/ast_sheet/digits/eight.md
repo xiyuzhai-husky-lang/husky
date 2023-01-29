@@ -2,7 +2,7 @@ Ok(
     AstSheet {
         arena: Arena {
             data: [
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         12,
                     ),
@@ -10,7 +10,7 @@ Ok(
                         0..0,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         21,
                     ),
@@ -18,7 +18,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         20,
                     ),
@@ -27,13 +27,13 @@ Ok(
                     ),
                 },
                 IfElseStmts {
-                    if_stmt: 2,
-                    elif_stmts: ArenaIdxRange(
+                    if_branch: 2,
+                    elif_branches: ArenaIdxRange(
                         3..3,
                     ),
-                    else_stmt: None,
+                    else_branch: None,
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         22,
                     ),
@@ -41,7 +41,7 @@ Ok(
                         3..3,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         19,
                     ),
@@ -49,7 +49,7 @@ Ok(
                         3..5,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         14,
                     ),
@@ -57,7 +57,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         15,
                     ),
@@ -65,7 +65,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         16,
                     ),
@@ -73,7 +73,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         17,
                     ),
@@ -81,7 +81,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         18,
                     ),
@@ -90,13 +90,13 @@ Ok(
                     ),
                 },
                 IfElseStmts {
-                    if_stmt: 5,
-                    elif_stmts: ArenaIdxRange(
+                    if_branch: 5,
+                    elif_branches: ArenaIdxRange(
                         6..6,
                     ),
-                    else_stmt: None,
+                    else_branch: None,
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         23,
                     ),
@@ -104,7 +104,7 @@ Ok(
                         6..6,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         26,
                     ),
@@ -112,7 +112,7 @@ Ok(
                         13..13,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         25,
                     ),
@@ -121,13 +121,13 @@ Ok(
                     ),
                 },
                 IfElseStmts {
-                    if_stmt: 14,
-                    elif_stmts: ArenaIdxRange(
+                    if_branch: 14,
+                    elif_branches: ArenaIdxRange(
                         15..15,
                     ),
-                    else_stmt: None,
+                    else_branch: None,
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         27,
                     ),
@@ -211,10 +211,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Feature`),
+                        ModuleItem(
+                            Form(
+                                FormPath(
+                                    Id {
+                                        value: 9,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `upper_mouth_match`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 176,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             79,
                         ),
@@ -246,10 +260,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                        ModuleItem(
+                            Form(
+                                FormPath(
+                                    Id {
+                                        value: 10,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `is_eight`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 111,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             92,
                         ),
@@ -281,10 +309,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::digits::eight::big_mouth`, `Function`),
+                        ModuleItem(
+                            Form(
+                                FormPath(
+                                    Id {
+                                        value: 11,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `big_mouth`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 179,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             155,
                         ),

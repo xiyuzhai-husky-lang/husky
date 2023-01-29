@@ -2,7 +2,7 @@ Ok(
     AstSheet {
         arena: Arena {
             data: [
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
@@ -10,7 +10,7 @@ Ok(
                         0..0,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         18,
                     ),
@@ -18,7 +18,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         19,
                     ),
@@ -26,7 +26,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         20,
                     ),
@@ -34,7 +34,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         21,
                     ),
@@ -42,7 +42,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         22,
                     ),
@@ -50,7 +50,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         23,
                     ),
@@ -58,7 +58,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         24,
                     ),
@@ -66,7 +66,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         25,
                     ),
@@ -74,7 +74,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         26,
                     ),
@@ -82,7 +82,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         27,
                     ),
@@ -114,10 +114,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::connected_component`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 20,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `connected_component`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 76,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             8,
                         ),
@@ -144,10 +156,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::raw_contour`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 40,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `raw_contour`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 96,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             10,
                         ),
@@ -174,10 +198,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::geom2d`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 33,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `geom2d`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 89,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             12,
                         ),
@@ -204,10 +240,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::line_segment_sketch`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 34,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `line_segment_sketch`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 90,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             14,
                         ),
@@ -234,10 +282,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::fermi`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 32,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `fermi`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 88,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             16,
                         ),
@@ -264,10 +324,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::digits`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 21,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `digits`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 77,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             18,
                         ),
@@ -294,10 +366,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::major`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 39,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `major`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 95,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             20,
                         ),

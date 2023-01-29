@@ -23,7 +23,13 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: `add`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 38,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             13,
                         ),
@@ -67,10 +73,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`natural_number_game::Nat`, `Inductive`),
+                        ModuleItem(
+                            Type(
+                                TypePath(
+                                    Id {
+                                        value: 35,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `Nat`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 452,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             1,
                         ),
@@ -138,10 +158,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`natural_number_game::OddNat`, `Structure`),
+                        ModuleItem(
+                            Type(
+                                TypePath(
+                                    Id {
+                                        value: 36,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `OddNat`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 455,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             85,
                         ),
@@ -173,10 +207,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`natural_number_game::EvenNat`, `Structure`),
+                        ModuleItem(
+                            Type(
+                                TypePath(
+                                    Id {
+                                        value: 37,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `EvenNat`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 458,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             114,
                         ),

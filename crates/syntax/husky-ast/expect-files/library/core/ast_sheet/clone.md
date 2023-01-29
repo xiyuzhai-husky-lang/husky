@@ -23,7 +23,13 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: `clone`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 2,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             5,
                         ),
@@ -47,10 +53,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TraitPath(`core::clone::Clone`),
+                        ModuleItem(
+                            Trait(
+                                TraitPath(
+                                    Id {
+                                        value: 1,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `Clone`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 15,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             2,
                         ),

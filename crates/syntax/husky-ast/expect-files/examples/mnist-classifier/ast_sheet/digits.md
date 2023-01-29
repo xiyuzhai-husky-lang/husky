@@ -18,10 +18,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::digits::zero`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 31,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `zero`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 87,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             1,
                         ),
@@ -48,10 +60,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::digits::one`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 26,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `one`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 82,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             3,
                         ),
@@ -78,10 +102,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::digits::six`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `six`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 84,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             5,
                         ),
@@ -108,10 +144,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::digits::three`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 29,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `three`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 85,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             7,
                         ),
@@ -138,10 +186,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::digits::four`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 24,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `four`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 80,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             9,
                         ),
@@ -168,10 +228,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::digits::five`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 23,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `five`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 79,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             11,
                         ),
@@ -198,10 +270,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::digits::six`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `six`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 84,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             13,
                         ),
@@ -228,10 +312,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::digits::seven`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `seven`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 83,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             15,
                         ),
@@ -258,10 +354,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::digits::eight`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 22,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `eight`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 78,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             17,
                         ),
@@ -288,10 +396,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `mnist_classifier::digits::nine`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 25,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `nine`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 81,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             19,
                         ),

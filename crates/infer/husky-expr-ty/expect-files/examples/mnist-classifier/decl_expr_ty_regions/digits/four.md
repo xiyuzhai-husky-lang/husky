@@ -2,50 +2,244 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                FormPath(`mnist_classifier::digits::four::left_components`, `Feature`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 43,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        ExprError,
+                    ),
+                ),
+                opt_expectation: None,
+            },
+        ],
     },
     ExprTypeRegion {
         path: Decl(
             Entity(
-                FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Function`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 44,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        Application(
+                            TermApplication(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                opt_expectation: None,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        Application(
+                            TermApplication(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                opt_expectation: None,
+            },
+        ],
     },
     ExprTypeRegion {
         path: Decl(
             Entity(
-                FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Feature`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 45,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        ExprError,
+                    ),
+                ),
+                opt_expectation: None,
+            },
+        ],
     },
     ExprTypeRegion {
         path: Decl(
             Entity(
-                FormPath(`mnist_classifier::digits::four::components_max_heights`, `Feature`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 46,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        ExprError,
+                    ),
+                ),
+                opt_expectation: None,
+            },
+        ],
     },
     ExprTypeRegion {
         path: Decl(
             Entity(
-                FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 47,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        ExprError,
+                    ),
+                ),
+                opt_expectation: None,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        PrefixOperandTypeNotInferred,
+                    ),
+                ),
+                opt_expectation: None,
+            },
+        ],
     },
     ExprTypeRegion {
         path: Decl(
             Entity(
-                FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Function`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 48,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        Application(
+                            TermApplication(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                opt_expectation: None,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        Application(
+                            TermApplication(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                opt_expectation: None,
+            },
+        ],
     },
     ExprTypeRegion {
         path: Decl(
             Entity(
-                FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Function`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 49,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        Application(
+                            TermApplication(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                opt_expectation: None,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        Application(
+                            TermApplication(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                opt_expectation: None,
+            },
+        ],
     },
 ]
