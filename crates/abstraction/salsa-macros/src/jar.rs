@@ -15,7 +15,7 @@ pub(crate) fn jar(
     input: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
     let options = syn::parse_macro_input!(args as Args);
-    let db_path = match options.db_path {
+    let db_path = match options.db_trai {
         Some(v) => v,
         None => panic!("no `db` specified"),
     };

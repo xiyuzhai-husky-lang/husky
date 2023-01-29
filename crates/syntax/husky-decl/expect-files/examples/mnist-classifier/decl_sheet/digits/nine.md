@@ -26,11 +26,67 @@ Ok(
                                     ),
                                 },
                             ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 74,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            FormPath(`mnist_classifier::digits::nine::nine_match`, `Feature`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            Err(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        77,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 346,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: False,
+                                        allow_self_value: False,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [
+                                        ExprRoot {
+                                            kind: OutputType,
+                                            expr: 0,
+                                        },
+                                    ],
                                 },
-                            ),
+                            },
                         },
                     ),
                 ),
@@ -60,11 +116,67 @@ Ok(
                                     ),
                                 },
                             ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 75,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Feature`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            Err(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        90,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 346,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: False,
+                                        allow_self_value: False,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [
+                                        ExprRoot {
+                                            kind: OutputType,
+                                            expr: 0,
+                                        },
+                                    ],
                                 },
-                            ),
+                            },
                         },
                     ),
                 ),
@@ -94,11 +206,74 @@ Ok(
                                     ),
                                 },
                             ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 76,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            Err(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        104,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 106,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                            PrefixOpn {
+                                                opr: Option,
+                                                opr_token_idx: TokenIdx(
+                                                    103,
+                                                ),
+                                                opd: 0,
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: False,
+                                        allow_self_value: False,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [
+                                        ExprRoot {
+                                            kind: OutputType,
+                                            expr: 1,
+                                        },
+                                    ],
                                 },
-                            ),
+                            },
                         },
                     ),
                 ),
@@ -109,11 +284,179 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::digits::nine::downmost`, `Function`),
                             ast_idx: 47,
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 77,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            FormPath(`mnist_classifier::digits::nine::downmost`, `Function`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            EntityPath {
+                                                entity_path_expr: 0,
+                                                entity_path: Some(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ),
+                                            },
+                                            PrefixOpn {
+                                                opr: Ref,
+                                                opr_token_idx: TokenIdx(
+                                                    277,
+                                                ),
+                                                opd: 0,
+                                            },
+                                            EntityPath {
+                                                entity_path_expr: 1,
+                                                entity_path: Some(
+                                                    TypePath(`core::num::f32`, `Alien`),
+                                                ),
+                                            },
+                                            PrefixOpn {
+                                                opr: Option,
+                                                opr_token_idx: TokenIdx(
+                                                    281,
+                                                ),
+                                                opd: 2,
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    278,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 287,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 31,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    282,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 42,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 13,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 179,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            275,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                            ],
+                                        },
+                                        pattern_infos: [
+                                            Parameter,
+                                        ],
+                                        pattern_symbol_maps: [
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 179,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    0,
+                                                ),
+                                            ],
+                                        ],
+                                        pattern_symbol_arena: Arena {
+                                            data: [
+                                                Atom(
+                                                    0,
+                                                ),
+                                            ],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 179,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        276,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: Parameter {
+                                                        pattern_symbol: 0,
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        allow_self_type: False,
+                                        allow_self_value: False,
+                                        ty_constraints: [
+                                            RegularParameter {
+                                                pattern: 0,
+                                                ty: 1,
+                                            },
+                                        ],
+                                    },
+                                    roots: [
+                                        ExprRoot {
+                                            kind: OutputType,
+                                            expr: 3,
+                                        },
+                                    ],
                                 },
-                            ),
+                            },
                             implicit_parameter_decl_list: None,
                             parameter_decl_list: ParameterDeclList {
                                 lpar: LeftParenthesisToken {
@@ -171,11 +514,179 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`mnist_classifier::digits::nine::big_cc`, `Function`),
                             ast_idx: 48,
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 78,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            FormPath(`mnist_classifier::digits::nine::big_cc`, `Function`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            EntityPath {
+                                                entity_path_expr: 0,
+                                                entity_path: Some(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ),
+                                            },
+                                            PrefixOpn {
+                                                opr: Ref,
+                                                opr_token_idx: TokenIdx(
+                                                    306,
+                                                ),
+                                                opd: 0,
+                                            },
+                                            EntityPath {
+                                                entity_path_expr: 1,
+                                                entity_path: Some(
+                                                    TypePath(`core::num::f32`, `Alien`),
+                                                ),
+                                            },
+                                            PrefixOpn {
+                                                opr: Option,
+                                                opr_token_idx: TokenIdx(
+                                                    310,
+                                                ),
+                                                opd: 2,
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    307,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 287,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 31,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    311,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 42,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 13,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 179,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            304,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                            ],
+                                        },
+                                        pattern_infos: [
+                                            Parameter,
+                                        ],
+                                        pattern_symbol_maps: [
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 179,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    0,
+                                                ),
+                                            ],
+                                        ],
+                                        pattern_symbol_arena: Arena {
+                                            data: [
+                                                Atom(
+                                                    0,
+                                                ),
+                                            ],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 179,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        305,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: Parameter {
+                                                        pattern_symbol: 0,
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        allow_self_type: False,
+                                        allow_self_value: False,
+                                        ty_constraints: [
+                                            RegularParameter {
+                                                pattern: 0,
+                                                ty: 1,
+                                            },
+                                        ],
+                                    },
+                                    roots: [
+                                        ExprRoot {
+                                            kind: OutputType,
+                                            expr: 3,
+                                        },
+                                    ],
                                 },
-                            ),
+                            },
                             implicit_parameter_decl_list: None,
                             parameter_decl_list: ParameterDeclList {
                                 lpar: LeftParenthesisToken {

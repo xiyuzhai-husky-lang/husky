@@ -14,7 +14,7 @@ impl<T: salsa::DbWithJar<Jar> + Knobs> Db for T {}
 #[salsa::jar(db = Db)]
 pub(crate) struct Jar(MyInput, a, b);
 
-#[salsa::input(jar = Jar)]
+#[salsa::input(db = Db, jar = Jar)]
 pub(crate) struct MyInput {
     field: i32,
 }

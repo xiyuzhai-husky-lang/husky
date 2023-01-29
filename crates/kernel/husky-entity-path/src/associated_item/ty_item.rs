@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::interned(jar = EntityPathJar)]
+#[salsa::interned(db = EntityPathDb, jar = EntityPathJar)]
 pub struct TypeItemPath {
     pub ty: TypePath,
     pub ident: Identifier,

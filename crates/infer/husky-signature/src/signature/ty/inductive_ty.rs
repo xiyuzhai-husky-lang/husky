@@ -16,7 +16,7 @@ pub fn inductive_ty_signature(
     Ok(InductiveTypeSignature::new(db, implicit_parameters))
 }
 
-#[salsa::interned(jar = SignatureJar)]
+#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct InductiveTypeSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,

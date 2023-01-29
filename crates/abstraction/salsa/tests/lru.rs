@@ -35,7 +35,7 @@ impl Drop for HotPotato {
     }
 }
 
-#[salsa::input(jar = Jar)]
+#[salsa::input(db = Db, jar = Jar)]
 struct MyInput {
     field: u32,
 }

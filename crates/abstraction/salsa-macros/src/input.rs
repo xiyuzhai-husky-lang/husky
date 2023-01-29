@@ -40,7 +40,7 @@ impl crate::options::AllowedOptions for InputStruct {
 
     const DATA: bool = true;
 
-    const DB: bool = false;
+    const DB: bool = true;
 
     const RECOVERY_FN: bool = false;
 

@@ -3,7 +3,7 @@ pub use context::*;
 use crate::*;
 
 /// representing term `x -> y`
-#[salsa::interned(jar = TermJar)]
+#[salsa::interned(db = TermDb, jar = TermJar)]
 pub struct TermCurry {
     pub variance: Variance,
     pub x: Term,

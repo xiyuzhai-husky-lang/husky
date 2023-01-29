@@ -38,7 +38,7 @@ impl crate::options::AllowedOptions for TrackedStruct {
 
     const DATA: bool = true;
 
-    const DB: bool = false;
+    const DB: bool = true;
 
     const RECOVERY_FN: bool = false;
 

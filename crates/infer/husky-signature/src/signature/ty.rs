@@ -49,6 +49,7 @@ pub(crate) fn ty_signature(
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = SignatureDb)]
 pub enum TypeSignature {
     Enum(EnumTypeSignature),
     RegularStruct(RegularStructTypeSignature),
@@ -128,51 +129,5 @@ impl From<StructureTypeSignature> for TypeSignature {
 impl From<AlienTypeSignature> for TypeSignature {
     fn from(v: AlienTypeSignature) -> Self {
         Self::Foreign(v)
-    }
-}
-
-impl<Db: SignatureDb + ?Sized> salsa::DebugWithDb<Db> for TypeSignature {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as DbWithJar<SignatureJar>>::as_jar_db(db);
-        match self {
-            TypeSignature::Enum(decl) => f
-                .debug_tuple("Enum")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeSignature::Inductive(decl) => f
-                .debug_tuple("Inductive")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeSignature::Record(decl) => f
-                .debug_tuple("Record")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeSignature::RegularStruct(decl) => f
-                .debug_tuple("RegularStruct")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeSignature::TupleStruct(decl) => f
-                .debug_tuple("TupleStruct")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeSignature::UnitStruct(decl) => f
-                .debug_tuple("UnitStruct")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeSignature::Structure(decl) => f
-                .debug_tuple("Structure")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeSignature::Foreign(decl) => f
-                .debug_tuple("Foreign")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeSignature::Union(_) => todo!(),
-        }
     }
 }

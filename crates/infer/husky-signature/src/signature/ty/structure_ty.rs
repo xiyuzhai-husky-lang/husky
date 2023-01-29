@@ -16,7 +16,7 @@ pub fn structure_ty_signature(
     Ok(StructureTypeSignature::new(db, implicit_parameters))
 }
 
-#[salsa::tracked(jar = SignatureJar)]
+#[salsa::tracked(db = SignatureDb, jar = SignatureJar)]
 pub struct StructureTypeSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,

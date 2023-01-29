@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::interned(jar = VfsJar)]
+#[salsa::interned(db = VfsDb, jar = VfsJar)]
 pub struct CratePath {
     pub package_path: PackagePath,
     pub crate_kind: CrateKind,

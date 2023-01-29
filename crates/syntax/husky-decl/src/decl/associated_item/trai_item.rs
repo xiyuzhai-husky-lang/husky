@@ -12,6 +12,7 @@ use super::*;
 use husky_ast::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = DeclDb)]
 pub enum TraitItemDecl {
     Function(TraitAssociatedFunctionDecl),
     Method(TraitMethodDecl),
@@ -54,16 +55,5 @@ impl TraitItemDecl {
             TraitItemDecl::AlienType(_) => todo!(),
             TraitItemDecl::Value(_) => todo!(),
         }
-    }
-}
-
-impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for TraitItemDecl {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        todo!()
     }
 }

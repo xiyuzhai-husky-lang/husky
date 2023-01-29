@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct EnumTypeDecl {
     #[id]
     pub path: TypePath,

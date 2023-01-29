@@ -8,7 +8,7 @@ struct Jar(MyInput);
 
 trait Db: salsa::DbWithJar<Jar> {}
 
-#[salsa::input(jar = Jar)]
+#[salsa::input(db = Db, jar = Jar)]
 struct MyInput {
     field: u32,
     #[id]

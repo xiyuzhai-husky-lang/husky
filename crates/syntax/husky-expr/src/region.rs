@@ -1,13 +1,14 @@
 use crate::*;
 use husky_vfs::{ModulePath, Toolchain};
 
-#[salsa::tracked(jar = ExprJar)]
+#[salsa::tracked(db = ExprDb, jar = ExprJar)]
 pub struct ExprRegion {
     #[return_ref]
     pub data: ExprRegionData,
 }
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub struct ExprRegionData {
     parent: Option<ExprRegion>,
     path: RegionPath,

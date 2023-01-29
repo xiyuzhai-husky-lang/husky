@@ -15,5 +15,5 @@ pub(crate) fn ty_as_trai_impl_block_signature(
     ))
 }
 
-#[salsa::interned(jar = SignatureJar)]
+#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct TypeAsTraitImplBlockSignature {}

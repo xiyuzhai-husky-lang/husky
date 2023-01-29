@@ -67,6 +67,7 @@ impl BaseEntityPathInclination {
 }
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum Expr {
     Literal(TokenIdx),
     EntityPath {
@@ -176,17 +177,6 @@ pub enum Expr {
         stmts: StmtIdxRange,
     },
     Err(ExprError),
-}
-
-impl<Db: ?Sized> salsa::DebugWithDb<Db> for Expr {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        todo!()
-    }
 }
 
 #[derive(Debug, PartialEq, Eq)]

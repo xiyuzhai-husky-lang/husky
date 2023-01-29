@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct StructureTypeDecl {
     #[id]
     pub path: TypePath,

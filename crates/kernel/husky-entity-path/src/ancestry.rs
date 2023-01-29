@@ -1,6 +1,7 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = EntityPathDb)]
 pub struct EntityAncestry {
     crate_path: CratePath,
     modules: Vec<ModulePath>,
@@ -20,19 +21,3 @@ impl EntityAncestry {
         self.entities.as_ref()
     }
 }
-
-impl salsa::DebugWithDb<dyn EntityPathDb + '_> for EntityAncestry {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EntityPathDb,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        todo!()
-    }
-}
-
-// #[salsa::tracked(jar = EntityPathJar, return_ref)]
-// pub(crate) fn entity_module_ancestry(db: &dyn EntityPathDb, path: EntityPath) -> EntityAncestry {
-//     todo!()
-// }

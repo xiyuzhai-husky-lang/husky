@@ -17,7 +17,7 @@ impl salsa::DebugWithDb<dyn Db + '_> for Token {
     }
 }
 
-#[salsa::tracked(jar = Jar)]
+#[salsa::tracked(db = Db, jar = Jar)]
 struct TokenTree {
     #[return_ref]
     tokens: Vec<Token>,

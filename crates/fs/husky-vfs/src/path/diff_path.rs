@@ -2,7 +2,7 @@ use super::*;
 use std::path::{Path, PathBuf};
 use thiserror::Error;
 
-#[salsa::interned(jar = VfsJar)]
+#[salsa::interned(db = VfsDb, jar = VfsJar)]
 pub struct DiffPath {
     #[return_ref]
     pub data: DiffPathBuf,

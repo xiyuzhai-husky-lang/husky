@@ -10,7 +10,7 @@ struct Jar(MyInput, MyTracked, final_result, intermediate_result);
 
 trait Db: salsa::DbWithJar<Jar> + HasLogger {}
 
-#[salsa::input(jar = Jar)]
+#[salsa::input(db = Db, jar = Jar)]
 struct MyInput {
     field: u32,
 }
@@ -21,7 +21,7 @@ fn final_result(db: &dyn Db, input: MyInput) -> u32 {
     intermediate_result(db, input).field(db) * 2
 }
 
-#[salsa::tracked(jar = Jar)]
+#[salsa::tracked(db = Db, jar = Jar)]
 struct MyTracked {
     field: u32,
 }

@@ -17,7 +17,7 @@ pub fn tuple_struct_ty_signature(
     ))
 }
 
-#[salsa::interned(jar = SignatureJar)]
+#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct TupleStructTypeSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,

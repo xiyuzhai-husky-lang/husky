@@ -16,7 +16,7 @@ pub fn union_ty_signature(
     Ok(UnionTypeSignature::new(db, implicit_parameters))
 }
 
-#[salsa::interned(jar = SignatureJar)]
+#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct UnionTypeSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,

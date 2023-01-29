@@ -21,19 +21,19 @@ pub enum TermLiteral {
 }
 
 /// allowing representing very large number
-#[salsa::interned(jar = TermJar)]
+#[salsa::interned(db = TermDb, jar = TermJar)]
 pub struct TermInteger128 {
     pub value: i128,
 }
 
 /// allowing representing very large number
-#[salsa::interned(jar = TermJar)]
+#[salsa::interned(db = TermDb, jar = TermJar)]
 pub struct TermInteger256 {
     pub value: [i128; 2],
 }
 
 /// allowing representing very large number
-#[salsa::interned(jar = TermJar)]
+#[salsa::interned(db = TermDb, jar = TermJar)]
 pub struct TermNaturalNumber {
     pub bits: Vec<usize>,
 }

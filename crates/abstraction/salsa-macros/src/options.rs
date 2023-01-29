@@ -37,7 +37,7 @@ pub(crate) struct Options<A: AllowedOptions> {
     /// The `db = <path>` option is used to indicate the db.
     ///
     /// If this is `Some`, the value is the `<path>`.
-    pub db_path: Option<syn::Path>,
+    pub db_trai: Option<syn::Path>,
 
     /// The `recovery_fn = <path>` option is used to indicate the recovery function.
     ///
@@ -74,7 +74,7 @@ impl<A: AllowedOptions> Default for Options<A> {
             specify: Default::default(),
             no_eq: Default::default(),
             jar_ty: Default::default(),
-            db_path: Default::default(),
+            db_trai: Default::default(),
             recovery_fn: Default::default(),
             data: Default::default(),
             constructor_name: Default::default(),
@@ -196,7 +196,7 @@ impl<A: AllowedOptions> syn::parse::Parse for Options<A> {
                 if A::DB {
                     let _eq = Equals::parse(input)?;
                     let path = syn::Path::parse(input)?;
-                    if let Some(old) = std::mem::replace(&mut options.db_path, Some(path)) {
+                    if let Some(old) = std::mem::replace(&mut options.db_trai, Some(path)) {
                         return Err(syn::Error::new(old.span(), "option `db` provided twice"));
                     }
                 } else {

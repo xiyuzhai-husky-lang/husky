@@ -4,7 +4,7 @@ use husky_word::IdentPairMap;
 use parsec::ParseContext;
 use thiserror::Error;
 
-#[salsa::tracked(jar = EntityTreeJar)]
+#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
 pub struct ImplBlock {
     #[id]
     pub id: ImplBlockId,

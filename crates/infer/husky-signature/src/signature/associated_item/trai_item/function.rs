@@ -11,7 +11,7 @@ pub(crate) fn trai_associated_function_signature(
     Ok(TraitAssociatedFunctionSignature::new(db, todo!()))
 }
 
-#[salsa::interned(jar = SignatureJar)]
+#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct TraitAssociatedFunctionSignature {
     pub output_ty: Term,
 }

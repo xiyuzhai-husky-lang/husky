@@ -31,6 +31,7 @@ impl AllowSelfType {
 }
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub struct SymbolRegion {
     inherited_symbol_arena: InheritedSymbolArena,
     current_symbol_arena: CurrentSymbolArena,

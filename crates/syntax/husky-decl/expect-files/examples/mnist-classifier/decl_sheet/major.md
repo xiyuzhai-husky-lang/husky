@@ -26,11 +26,97 @@ Ok(
                                     ),
                                 },
                             ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 176,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            NewBoxList {
+                                                caller: None,
+                                                lbox_token_idx: TokenIdx(
+                                                    34,
+                                                ),
+                                                items: ArenaIdxRange(
+                                                    0..0,
+                                                ),
+                                                rbox_token_idx: TokenIdx(
+                                                    35,
+                                                ),
+                                            },
+                                            EntityPath {
+                                                entity_path_expr: 0,
+                                                entity_path: Some(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ),
+                                            },
+                                            Application {
+                                                function: 0,
+                                                argument: 1,
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    36,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 136,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 19,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: False,
+                                        allow_self_value: False,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [
+                                        ExprRoot {
+                                            kind: OutputType,
+                                            expr: 2,
+                                        },
+                                    ],
                                 },
-                            ),
+                            },
                         },
                     ),
                 ),
@@ -60,11 +146,81 @@ Ok(
                                     ),
                                 },
                             ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 177,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            EntityPath {
+                                                entity_path_expr: 0,
+                                                entity_path: Some(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    46,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 136,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 19,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: False,
+                                        allow_self_value: False,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [
+                                        ExprRoot {
+                                            kind: OutputType,
+                                            expr: 0,
+                                        },
+                                    ],
                                 },
-                            ),
+                            },
                         },
                     ),
                 ),
@@ -94,11 +250,81 @@ Ok(
                                     ),
                                 },
                             ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 178,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            EntityPath {
+                                                entity_path_expr: 0,
+                                                entity_path: Some(
+                                                    TypePath(`core::num::f32`, `Alien`),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    96,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 42,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 13,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: False,
+                                        allow_self_value: False,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [
+                                        ExprRoot {
+                                            kind: OutputType,
+                                            expr: 0,
+                                        },
+                                    ],
                                 },
-                            ),
+                            },
                         },
                     ),
                 ),
@@ -128,11 +354,97 @@ Ok(
                                     ),
                                 },
                             ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 179,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            NewBoxList {
+                                                caller: None,
+                                                lbox_token_idx: TokenIdx(
+                                                    130,
+                                                ),
+                                                items: ArenaIdxRange(
+                                                    0..0,
+                                                ),
+                                                rbox_token_idx: TokenIdx(
+                                                    131,
+                                                ),
+                                            },
+                                            EntityPath {
+                                                entity_path_expr: 0,
+                                                entity_path: Some(
+                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                ),
+                                            },
+                                            Application {
+                                                function: 0,
+                                                argument: 1,
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    132,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 132,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 20,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: False,
+                                        allow_self_value: False,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [
+                                        ExprRoot {
+                                            kind: OutputType,
+                                            expr: 2,
+                                        },
+                                    ],
                                 },
-                            ),
+                            },
                         },
                     ),
                 ),
@@ -162,11 +474,81 @@ Ok(
                                     ),
                                 },
                             ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 180,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            EntityPath {
+                                                entity_path_expr: 0,
+                                                entity_path: Some(
+                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    141,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 132,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 20,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: False,
+                                        allow_self_value: False,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [
+                                        ExprRoot {
+                                            kind: OutputType,
+                                            expr: 0,
+                                        },
+                                    ],
                                 },
-                            ),
+                            },
                         },
                     ),
                 ),
@@ -196,11 +578,81 @@ Ok(
                                     ),
                                 },
                             ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 181,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            EntityPath {
+                                                entity_path_expr: 0,
+                                                entity_path: Some(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    153,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 181,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 30,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: False,
+                                        allow_self_value: False,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [
+                                        ExprRoot {
+                                            kind: OutputType,
+                                            expr: 0,
+                                        },
+                                    ],
                                 },
-                            ),
+                            },
                         },
                     ),
                 ),
@@ -230,11 +682,97 @@ Ok(
                                     ),
                                 },
                             ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 182,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            NewBoxList {
+                                                caller: None,
+                                                lbox_token_idx: TokenIdx(
+                                                    162,
+                                                ),
+                                                items: ArenaIdxRange(
+                                                    0..0,
+                                                ),
+                                                rbox_token_idx: TokenIdx(
+                                                    163,
+                                                ),
+                                            },
+                                            EntityPath {
+                                                entity_path_expr: 0,
+                                                entity_path: Some(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ),
+                                            },
+                                            Application {
+                                                function: 0,
+                                                argument: 1,
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    164,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 287,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 31,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: False,
+                                        allow_self_value: False,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [
+                                        ExprRoot {
+                                            kind: OutputType,
+                                            expr: 2,
+                                        },
+                                    ],
                                 },
-                            ),
+                            },
                         },
                     ),
                 ),

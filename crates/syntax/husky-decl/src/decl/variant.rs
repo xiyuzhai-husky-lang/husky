@@ -9,7 +9,7 @@ pub use unit::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DeclDb, jar = DeclJar)]
+#[salsa::derive_debug_with_db(db = DeclDb)]
 pub enum VariantDecl {
     Props(PropsVariantDecl),
     Unit(UnitVariantDecl),

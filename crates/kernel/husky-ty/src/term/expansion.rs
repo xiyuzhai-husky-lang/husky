@@ -29,7 +29,7 @@ pub(crate) struct ApplicationExpansion {
     arguments: Option<ApplicationArguments>,
 }
 
-#[salsa::tracked(jar = TypeJar)]
+#[salsa::tracked(db = TypeDb, jar = TypeJar)]
 pub(crate) struct ApplicationArguments {
     #[return_ref]
     data: Vec<Term>,

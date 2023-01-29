@@ -14,6 +14,7 @@ use crate::*;
 use husky_ast::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = DeclDb)]
 pub enum TypeItemDecl {
     Function(TypeAssociatedFunctionDecl),
     Method(TypeMethodDecl),
@@ -90,39 +91,6 @@ impl TypeItemDecl {
             TypeItemDecl::AlienType(_) => todo!(),
             TypeItemDecl::Value(_) => todo!(),
             TypeItemDecl::Memo(defn) => defn.path(db),
-        }
-    }
-}
-
-impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for TypeItemDecl {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<DeclJar>>::as_jar_db(db);
-        match self {
-            TypeItemDecl::Function(decl) => f
-                .debug_tuple("Function")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeItemDecl::Method(decl) => f
-                .debug_tuple("Method")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeItemDecl::AlienType(decl) => f
-                .debug_tuple("AlienType")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeItemDecl::Value(decl) => f
-                .debug_tuple("Value")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeItemDecl::Memo(decl) => f
-                .debug_tuple("Memo")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
         }
     }
 }

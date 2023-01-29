@@ -8,7 +8,7 @@ struct Jar(MyInput, ComplexStruct);
 
 trait Db: salsa::DbWithJar<Jar> {}
 
-#[salsa::input]
+#[salsa::input(db = Db)]
 struct MyInput {
     field: u32,
 }
@@ -18,7 +18,7 @@ struct NotSalsa {
     field: String,
 }
 
-#[salsa::input]
+#[salsa::input(db = Db)]
 struct ComplexStruct {
     my_input: MyInput,
     not_salsa: NotSalsa,

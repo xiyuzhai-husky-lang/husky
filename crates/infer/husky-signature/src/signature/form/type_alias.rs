@@ -8,5 +8,5 @@ pub fn type_alias_signature(db: &dyn SignatureDb, decl: TypeAliasDecl) -> TypeAl
     TypeAliasSignature::new(db)
 }
 
-#[salsa::interned(jar = SignatureJar)]
+#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct TypeAliasSignature {}

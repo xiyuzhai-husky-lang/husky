@@ -6,7 +6,7 @@ use husky_token::{
 use husky_word::Identifier;
 use parsec::ParseContext;
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct RegularStructTypeDecl {
     #[id]
     pub path: TypePath,

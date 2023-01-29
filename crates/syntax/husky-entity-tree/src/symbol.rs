@@ -8,7 +8,7 @@ use crate::*;
 use husky_token::{TokenAccessibility, TokenIdx};
 use vec_like::VecMapGetEntry;
 
-#[salsa::tracked(jar = EntityTreeJar)]
+#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
 pub struct ModuleItemSymbol {
     #[id]
     pub path: ModuleItemPath,
@@ -16,7 +16,7 @@ pub struct ModuleItemSymbol {
     pub ast_idx: AstIdx,
 }
 
-#[salsa::tracked(jar = EntityTreeJar)]
+#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
 pub struct SubmoduleSymbol {
     #[id]
     pub path: ModulePath,
@@ -24,7 +24,7 @@ pub struct SubmoduleSymbol {
     pub ast_idx: AstIdx,
 }
 
-#[salsa::tracked(jar = EntityTreeJar)]
+#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
 pub struct UseSymbol {
     #[id]
     pub original_symbol: EntitySymbol,

@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::input(jar = TokenJar)]
+#[salsa::input(db = TokenDb, jar = TokenJar)]
 pub struct Snippet {
     #[return_ref]
     pub data: String,

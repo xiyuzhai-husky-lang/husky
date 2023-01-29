@@ -2,7 +2,7 @@ use husky_entity_tree::AssociatedItem;
 
 use crate::*;
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeMemoDecl {
     #[id]
     pub path: Option<TypeItemPath>,
