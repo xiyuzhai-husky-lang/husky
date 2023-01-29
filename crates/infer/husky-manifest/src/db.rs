@@ -8,9 +8,9 @@ pub trait ManifestDb: DbWithJar<ManifestJar> + VfsDb {
     ) -> ManifestResult<&[PackageDependency]>;
 }
 
-impl<Db> ManifestDb for Db
+impl<DB> ManifestDb for DB
 where
-    Db: DbWithJar<ManifestJar> + VfsDb,
+    DB: DbWithJar<ManifestJar> + VfsDb,
 {
     fn package_dependencies(
         &self,

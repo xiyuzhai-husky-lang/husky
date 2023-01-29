@@ -11,11 +11,11 @@ pub enum SignatureError {
     OutputTypeTermError,
 }
 
-impl<Db: ?Sized + SignatureDb> salsa::DebugWithDb<Db> for SignatureError {
+impl<DB: ?Sized + SignatureDb> salsa::DebugWithDb<DB> for SignatureError {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
+        db: &DB,
         include_all_fields: bool,
     ) -> std::fmt::Result {
         <Self as std::fmt::Debug>::fmt(&self, f)
