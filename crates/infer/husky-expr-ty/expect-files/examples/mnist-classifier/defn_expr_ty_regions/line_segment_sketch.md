@@ -5,6 +5,7 @@
                 FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -12,6 +13,7 @@
                 FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -19,6 +21,7 @@
                 FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -26,6 +29,7 @@
                 FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -33,6 +37,7 @@
                 FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -97,6 +102,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -163,6 +169,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -229,6 +236,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -295,6 +303,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -359,5 +368,6 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
 ]

@@ -9,6 +9,25 @@ pub struct ArenaMap<T, V> {
     phantom: PhantomData<T>,
 }
 
+impl<Db: ?Sized, T, V> salsa::DebugWithDb<Db> for ArenaMap<T, V>
+where
+    T: salsa::DebugWithDb<Db>,
+    V: salsa::DebugWithDb<Db>,
+{
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        let elements = self
+            .data
+            .iter()
+            .filter_map(|v| Some(v.as_ref()?.debug_with(db, include_all_fields)));
+        f.debug_list().entries(elements).finish()
+    }
+}
+
 impl<T, V> PartialEq for ArenaMap<T, V>
 where
     V: PartialEq,

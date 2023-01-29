@@ -5,6 +5,7 @@
                 TraitPath(`core::marker::Copy`),
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Decl(
@@ -12,5 +13,6 @@
                 TraitPath(`core::marker::Sized`),
             ),
         ),
+        expr_ty_infos: [],
     },
 ]

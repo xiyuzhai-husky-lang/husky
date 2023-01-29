@@ -62,6 +62,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -128,6 +129,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -194,6 +196,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -260,6 +263,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -326,6 +330,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -390,6 +395,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -454,6 +460,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -520,6 +527,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -586,6 +594,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -652,6 +661,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -718,6 +728,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -784,6 +795,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -850,6 +862,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -916,6 +929,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -982,6 +996,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -1048,6 +1063,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -1114,6 +1130,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -1180,6 +1197,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -1246,6 +1264,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -1312,6 +1331,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -1378,6 +1398,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -1444,6 +1465,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -1510,5 +1532,6 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
 ]

@@ -21,6 +21,17 @@ pub(crate) struct ExprTypeInfo {
     opt_expectation: OptionExpectationIdx,
 }
 
+impl<Db: ?Sized> salsa::DebugWithDb<Db> for ExprTypeInfo {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        todo!()
+    }
+}
+
 impl ExprTypeInfo {
     pub(crate) fn new(
         ty_result: ExprTypeResult<LocalTerm>,
@@ -47,6 +58,10 @@ impl<Db: ExprTypeDb + ?Sized> salsa::DebugWithDb<Db> for ExprTypeRegion {
         let db = <Db as salsa::DbWithJar<ExprTypeJar>>::as_jar_db(db);
         f.debug_struct("ExprTypeRegion")
             .field("path", &self.path.debug_with(db, include_all_fields))
+            .field(
+                "expr_ty_infos",
+                &self.expr_ty_infos.debug_with(db, include_all_fields),
+            )
             .finish()
     }
 }

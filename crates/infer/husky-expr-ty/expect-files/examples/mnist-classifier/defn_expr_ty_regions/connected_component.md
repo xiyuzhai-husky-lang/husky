@@ -5,6 +5,7 @@
                 FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -12,6 +13,7 @@
                 FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -19,6 +21,7 @@
                 FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -85,6 +88,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -151,6 +155,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -217,6 +222,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -283,6 +289,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -349,6 +356,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -415,6 +423,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -481,6 +490,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -547,6 +557,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -613,6 +624,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -679,5 +691,6 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
 ]
