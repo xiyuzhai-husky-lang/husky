@@ -464,12 +464,8 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 30,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::two`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -478,24 +474,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 45,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::digits::two::two_match`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 275,
-                                },
-                            ),
-                        ),
+                        ident: `two_match`,
                         token_idx: TokenIdx(
                             99,
                         ),
@@ -513,12 +495,8 @@ Ok(
                     body: ArenaIdxRange(
                         1..4,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 30,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::two`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -527,24 +505,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 46,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 276,
-                                },
-                            ),
-                        ),
+                        ident: `left_cc_pattern`,
                         token_idx: TokenIdx(
                             116,
                         ),
@@ -562,12 +526,8 @@ Ok(
                     body: ArenaIdxRange(
                         4..7,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 30,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::two`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -576,24 +536,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 47,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 277,
-                                },
-                            ),
-                        ),
+                        ident: `right_cc_pattern`,
                         token_idx: TokenIdx(
                             144,
                         ),
@@ -611,12 +557,8 @@ Ok(
                     body: ArenaIdxRange(
                         7..10,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 30,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::two`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -625,24 +567,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 48,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 278,
-                                },
-                            ),
-                        ),
+                        ident: `down_cc_pattern`,
                         token_idx: TokenIdx(
                             172,
                         ),
@@ -660,12 +588,8 @@ Ok(
                     body: ArenaIdxRange(
                         31..49,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 30,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::two`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -674,24 +598,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 49,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::digits::two::is_two`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 115,
-                                },
-                            ),
-                        ),
+                        ident: `is_two`,
                         token_idx: TokenIdx(
                             200,
                         ),

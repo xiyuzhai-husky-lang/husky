@@ -15,24 +15,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Trait(
-                                TraitPath(
-                                    Id {
-                                        value: 7,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TraitPath(`core::marker::Copy`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 30,
-                                },
-                            ),
-                        ),
+                        ident: `Copy`,
                         token_idx: TokenIdx(
                             2,
                         ),
@@ -56,24 +42,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Trait(
-                                TraitPath(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TraitPath(`core::marker::Sized`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 31,
-                                },
-                            ),
-                        ),
+                        ident: `Sized`,
                         token_idx: TokenIdx(
                             6,
                         ),

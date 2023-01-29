@@ -260,12 +260,8 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 29,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::three`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -274,24 +270,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 40,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 265,
-                                },
-                            ),
-                        ),
+                        ident: `three_fermi_match`,
                         token_idx: TokenIdx(
                             63,
                         ),
@@ -309,12 +291,8 @@ Ok(
                     body: ArenaIdxRange(
                         1..18,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 29,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::three`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -323,24 +301,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 41,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 112,
-                                },
-                            ),
-                        ),
+                        ident: `is_three`,
                         token_idx: TokenIdx(
                             80,
                         ),
@@ -358,12 +322,8 @@ Ok(
                     body: ArenaIdxRange(
                         18..21,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 29,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::three`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -372,24 +332,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 42,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::digits::three::uparc`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 267,
-                                },
-                            ),
-                        ),
+                        ident: `uparc`,
                         token_idx: TokenIdx(
                             210,
                         ),
@@ -407,12 +353,8 @@ Ok(
                     body: ArenaIdxRange(
                         21..24,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 29,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::three`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -421,24 +363,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 43,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::digits::three::downarc`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 266,
-                                },
-                            ),
-                        ),
+                        ident: `downarc`,
                         token_idx: TokenIdx(
                             244,
                         ),
@@ -456,12 +384,8 @@ Ok(
                     body: ArenaIdxRange(
                         24..27,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 29,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::three`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -470,24 +394,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 44,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::digits::three::back`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 268,
-                                },
-                            ),
-                        ),
+                        ident: `back`,
                         token_idx: TokenIdx(
                             278,
                         ),

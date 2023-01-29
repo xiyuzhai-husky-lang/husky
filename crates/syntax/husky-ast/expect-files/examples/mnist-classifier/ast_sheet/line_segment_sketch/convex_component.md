@@ -30,12 +30,8 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 36,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch::convex_component`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
@@ -44,24 +40,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 28,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 349,
-                                },
-                            ),
-                        ),
+                        ident: `ConvexComponent`,
                         token_idx: TokenIdx(
                             7,
                         ),

@@ -15,24 +15,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Trait(
-                                TraitPath(
-                                    Id {
-                                        value: 6,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TraitPath(`core::fmt::Debug`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 20,
-                                },
-                            ),
-                        ),
+                        ident: `Debug`,
                         token_idx: TokenIdx(
                             2,
                         ),

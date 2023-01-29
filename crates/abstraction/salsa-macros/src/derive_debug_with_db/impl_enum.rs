@@ -2,7 +2,7 @@ use syn::{ItemEnum, Variant};
 
 use super::*;
 
-pub(super) fn enum_debug_with_db_impl(jar_ty: &Type, item: &ItemEnum) -> proc_macro2::TokenStream {
+pub(super) fn enum_debug_with_db_impl(db_path: &Path, item: &ItemEnum) -> proc_macro2::TokenStream {
     let ident = &item.ident;
     let ident_string = ident.to_string();
 
@@ -11,18 +11,19 @@ pub(super) fn enum_debug_with_db_impl(jar_ty: &Type, item: &ItemEnum) -> proc_ma
         .iter()
         .map(|variant| -> proc_macro2::TokenStream {
             match variant.fields {
-                syn::Fields::Named(_) => enum_struct_variant_debug_with_db(jar_ty, ident, variant),
-                syn::Fields::Unnamed(_) => enum_tuple_variant_debug_with_db(jar_ty, ident, variant),
-                syn::Fields::Unit => enum_unit_variant_debug_with_db(jar_ty, ident, variant),
+                syn::Fields::Named(_) => enum_struct_variant_debug_with_db(ident, variant),
+                syn::Fields::Unnamed(_) => enum_tuple_variant_debug_with_db(ident, variant),
+                syn::Fields::Unit => enum_unit_variant_debug_with_db(ident, variant),
             }
         })
         .collect::<proc_macro2::TokenStream>();
 
     quote! {
-        impl<DB: ::salsa::DbWithJar<#jar_ty> + ?Sized> ::salsa::DebugWithDb<DB> for #ident {
-            fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &DB, _include_all_fields: bool) -> ::std::fmt::Result {
+        impl<_Db: #db_path + ?Sized> ::salsa::DebugWithDb<_Db> for #ident {
+            fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &_Db, _include_all_fields: bool) -> ::std::fmt::Result {
                 #[allow(unused_imports)]
                 use ::salsa::debug::helper::Fallback;
+                // let _db = <_Db as ::salsa::DbWithJar<#jar_ty>>::as_jar_db(_db);
                 match self {
                     #variants
                 }
@@ -32,7 +33,6 @@ pub(super) fn enum_debug_with_db_impl(jar_ty: &Type, item: &ItemEnum) -> proc_ma
 }
 
 fn enum_struct_variant_debug_with_db(
-    jar_ty: &Type,
     ty_ident: &Ident,
     variant: &Variant,
 ) -> proc_macro2::TokenStream {
@@ -58,7 +58,7 @@ fn enum_struct_variant_debug_with_db(
             let field_debug = quote_spanned! { field.span() =>
                 debug_struct = debug_struct.field(
                     #field_ident_string,
-                    &::salsa::debug::helper::SalsaDebug::<#field_ty, DB>::salsa_debug(
+                    &::salsa::debug::helper::SalsaDebug::<#field_ty, _Db>::salsa_debug(
                         #[allow(clippy::needless_borrow)]
                         #field_ident,
                         _db,
@@ -85,7 +85,6 @@ fn enum_struct_variant_debug_with_db(
 }
 
 fn enum_tuple_variant_debug_with_db(
-    jar_ty: &Type,
     ty_ident: &Ident,
     variant: &Variant,
 ) -> proc_macro2::TokenStream {
@@ -114,7 +113,7 @@ fn enum_tuple_variant_debug_with_db(
 
             let field_debug = quote_spanned! { field.span() =>
                 debug_tuple = debug_tuple.field(
-                    &::salsa::debug::helper::SalsaDebug::<#field_ty, DB>::salsa_debug(
+                    &::salsa::debug::helper::SalsaDebug::<#field_ty, _Db>::salsa_debug(
                         #[allow(clippy::needless_borrow)]
                         &#field_ident,
                         _db,
@@ -141,7 +140,6 @@ fn enum_tuple_variant_debug_with_db(
 }
 
 fn enum_unit_variant_debug_with_db(
-    jar_ty: &Type,
     ty_ident: &Ident,
     variant: &Variant,
 ) -> proc_macro2::TokenStream {

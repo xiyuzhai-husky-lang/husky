@@ -17,13 +17,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 35,
-                                },
-                            ),
-                        ),
+                        ident: `abs`,
                         token_idx: TokenIdx(
                             29,
                         ),
@@ -49,13 +43,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 38,
-                                },
-                            ),
-                        ),
+                        ident: `add`,
                         token_idx: TokenIdx(
                             49,
                         ),
@@ -81,13 +69,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 35,
-                                },
-                            ),
-                        ),
+                        ident: `abs`,
                         token_idx: TokenIdx(
                             87,
                         ),
@@ -113,13 +95,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 38,
-                                },
-                            ),
-                        ),
+                        ident: `add`,
                         token_idx: TokenIdx(
                             107,
                         ),
@@ -145,13 +121,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 35,
-                                },
-                            ),
-                        ),
+                        ident: `abs`,
                         token_idx: TokenIdx(
                             145,
                         ),
@@ -169,12 +139,8 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 8,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `core::num`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
@@ -183,13 +149,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 38,
-                                },
-                            ),
-                        ),
+                        ident: `add`,
                         token_idx: TokenIdx(
                             164,
                         ),
@@ -215,13 +175,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 35,
-                                },
-                            ),
-                        ),
+                        ident: `abs`,
                         token_idx: TokenIdx(
                             202,
                         ),
@@ -247,13 +201,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 38,
-                                },
-                            ),
-                        ),
+                        ident: `add`,
                         token_idx: TokenIdx(
                             222,
                         ),
@@ -279,13 +227,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 35,
-                                },
-                            ),
-                        ),
+                        ident: `abs`,
                         token_idx: TokenIdx(
                             260,
                         ),
@@ -311,13 +253,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 38,
-                                },
-                            ),
-                        ),
+                        ident: `add`,
                         token_idx: TokenIdx(
                             280,
                         ),
@@ -343,13 +279,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 35,
-                                },
-                            ),
-                        ),
+                        ident: `abs`,
                         token_idx: TokenIdx(
                             318,
                         ),
@@ -375,13 +305,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 38,
-                                },
-                            ),
-                        ),
+                        ident: `add`,
                         token_idx: TokenIdx(
                             338,
                         ),
@@ -407,13 +331,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 35,
-                                },
-                            ),
-                        ),
+                        ident: `abs`,
                         token_idx: TokenIdx(
                             376,
                         ),
@@ -431,12 +349,8 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 8,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `core::num`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
@@ -445,13 +359,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 38,
-                                },
-                            ),
-                        ),
+                        ident: `add`,
                         token_idx: TokenIdx(
                             395,
                         ),
@@ -477,13 +385,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 35,
-                                },
-                            ),
-                        ),
+                        ident: `abs`,
                         token_idx: TokenIdx(
                             433,
                         ),
@@ -509,13 +411,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 38,
-                                },
-                            ),
-                        ),
+                        ident: `add`,
                         token_idx: TokenIdx(
                             453,
                         ),
@@ -552,24 +448,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 7,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`core::num::i8`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 33,
-                                },
-                            ),
-                        ),
+                        ident: `i8`,
                         token_idx: TokenIdx(
                             22,
                         ),
@@ -622,24 +504,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`core::num::i16`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 40,
-                                },
-                            ),
-                        ),
+                        ident: `i16`,
                         token_idx: TokenIdx(
                             80,
                         ),
@@ -692,24 +560,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 9,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`core::num::i32`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 41,
-                                },
-                            ),
-                        ),
+                        ident: `i32`,
                         token_idx: TokenIdx(
                             138,
                         ),
@@ -762,24 +616,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 10,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`core::num::i64`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 42,
-                                },
-                            ),
-                        ),
+                        ident: `i64`,
                         token_idx: TokenIdx(
                             195,
                         ),
@@ -832,24 +672,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 11,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`core::num::f8`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
-                        ),
+                        ident: `f8`,
                         token_idx: TokenIdx(
                             253,
                         ),
@@ -902,24 +728,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 12,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`core::num::f16`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 44,
-                                },
-                            ),
-                        ),
+                        ident: `f16`,
                         token_idx: TokenIdx(
                             311,
                         ),
@@ -972,24 +784,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 13,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`core::num::f32`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 45,
-                                },
-                            ),
-                        ),
+                        ident: `f32`,
                         token_idx: TokenIdx(
                             369,
                         ),
@@ -1042,24 +840,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`core::num::f64`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 46,
-                                },
-                            ),
-                        ),
+                        ident: `f64`,
                         token_idx: TokenIdx(
                             426,
                         ),

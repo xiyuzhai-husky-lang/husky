@@ -185,24 +185,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 61,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 294,
-                                },
-                            ),
-                        ),
+                        ident: `connected_components`,
                         token_idx: TokenIdx(
                             32,
                         ),
@@ -228,24 +214,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 62,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 173,
-                                },
-                            ),
-                        ),
+                        ident: `major_connected_component`,
                         token_idx: TokenIdx(
                             44,
                         ),
@@ -271,24 +243,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 63,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 224,
-                                },
-                            ),
-                        ),
+                        ident: `ignored_connected_components_row_span_sum_sum`,
                         token_idx: TokenIdx(
                             94,
                         ),
@@ -314,24 +272,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 64,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 403,
-                                },
-                            ),
-                        ),
+                        ident: `major_raw_contours`,
                         token_idx: TokenIdx(
                             128,
                         ),
@@ -357,24 +301,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 65,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 404,
-                                },
-                            ),
-                        ),
+                        ident: `major_raw_contour`,
                         token_idx: TokenIdx(
                             139,
                         ),
@@ -400,24 +330,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 66,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 261,
-                                },
-                            ),
-                        ),
+                        ident: `major_line_segment_sketch`,
                         token_idx: TokenIdx(
                             151,
                         ),
@@ -443,24 +359,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 67,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 172,
-                                },
-                            ),
-                        ),
+                        ident: `major_concave_components`,
                         token_idx: TokenIdx(
                             160,
                         ),

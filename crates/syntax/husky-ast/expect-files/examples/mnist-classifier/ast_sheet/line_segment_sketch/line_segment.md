@@ -115,12 +115,8 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 38,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch::line_segment`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -129,13 +125,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 206,
-                                },
-                            ),
-                        ),
+                        ident: `displacement`,
                         token_idx: TokenIdx(
                             23,
                         ),
@@ -153,12 +143,8 @@ Ok(
                     body: ArenaIdxRange(
                         10..13,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 38,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch::line_segment`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -167,13 +153,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 339,
-                                },
-                            ),
-                        ),
+                        ident: `dist_to_point`,
                         token_idx: TokenIdx(
                             40,
                         ),
@@ -204,24 +184,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 29,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 342,
-                                },
-                            ),
-                        ),
+                        ident: `LineSegment`,
                         token_idx: TokenIdx(
                             8,
                         ),

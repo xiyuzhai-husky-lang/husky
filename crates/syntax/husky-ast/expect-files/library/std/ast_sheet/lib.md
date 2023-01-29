@@ -9,31 +9,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 13,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `std`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            ModulePath(
-                                Id {
-                                    value: 16,
-                                },
-                            ),
-                        ),
+                        `std::prelude`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 9,
-                                },
-                            ),
-                        ),
+                        ident: `prelude`,
                         token_idx: TokenIdx(
                             1,
                         ),
@@ -51,31 +35,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 13,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `std`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            ModulePath(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
-                        ),
+                        `std::logic`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 5,
-                                },
-                            ),
-                        ),
+                        ident: `logic`,
                         token_idx: TokenIdx(
                             3,
                         ),
@@ -93,31 +61,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 13,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `std`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            ModulePath(
-                                Id {
-                                    value: 15,
-                                },
-                            ),
-                        ),
+                        `std::ops`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 8,
-                                },
-                            ),
-                        ),
+                        ident: `ops`,
                         token_idx: TokenIdx(
                             5,
                         ),

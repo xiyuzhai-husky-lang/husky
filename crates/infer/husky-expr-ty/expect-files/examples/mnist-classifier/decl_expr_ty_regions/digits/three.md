@@ -2,15 +2,7 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 38,
-                            },
-                        ),
-                    ),
-                ),
+                FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Feature`),
             ),
         ),
         expr_ty_infos: [
@@ -27,15 +19,7 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 39,
-                            },
-                        ),
-                    ),
-                ),
+                FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
             ),
         ),
         expr_ty_infos: [
@@ -60,15 +44,7 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
-                    ),
-                ),
+                FormPath(`mnist_classifier::digits::three::uparc`, `Function`),
             ),
         ),
         expr_ty_infos: [
@@ -105,15 +81,7 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 41,
-                            },
-                        ),
-                    ),
-                ),
+                FormPath(`mnist_classifier::digits::three::downarc`, `Function`),
             ),
         ),
         expr_ty_infos: [
@@ -150,15 +118,7 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 42,
-                            },
-                        ),
-                    ),
-                ),
+                FormPath(`mnist_classifier::digits::three::back`, `Function`),
             ),
         ),
         expr_ty_infos: [

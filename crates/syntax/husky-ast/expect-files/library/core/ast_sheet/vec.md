@@ -17,24 +17,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 16,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`core::vec::Vec`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 50,
-                                },
-                            ),
-                        ),
+                        ident: `Vec`,
                         token_idx: TokenIdx(
                             2,
                         ),

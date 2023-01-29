@@ -2,15 +2,7 @@
     ExprTypeRegion {
         path: Defn(
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
-                    ),
-                ),
+                FormPath(`mnist_classifier::digits::six::six_match`, `Feature`),
             ),
         ),
         expr_ty_infos: [],
@@ -18,15 +10,7 @@
     ExprTypeRegion {
         path: Defn(
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 34,
-                            },
-                        ),
-                    ),
-                ),
+                FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Feature`),
             ),
         ),
         expr_ty_infos: [],
@@ -34,15 +18,7 @@
     ExprTypeRegion {
         path: Defn(
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 35,
-                            },
-                        ),
-                    ),
-                ),
+                FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
             ),
         ),
         expr_ty_infos: [],
@@ -50,15 +26,7 @@
     ExprTypeRegion {
         path: Defn(
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 36,
-                            },
-                        ),
-                    ),
-                ),
+                FormPath(`mnist_classifier::digits::six::upmost`, `Function`),
             ),
         ),
         expr_ty_infos: [],
@@ -66,15 +34,7 @@
     ExprTypeRegion {
         path: Defn(
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 37,
-                            },
-                        ),
-                    ),
-                ),
+                FormPath(`mnist_classifier::digits::six::bottom1`, `Function`),
             ),
         ),
         expr_ty_infos: [],

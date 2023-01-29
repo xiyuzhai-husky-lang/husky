@@ -2,15 +2,7 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                ModuleItem(
-                    Trait(
-                        TraitPath(
-                            Id {
-                                value: 3,
-                            },
-                        ),
-                    ),
-                ),
+                TraitPath(`core::clone::Clone`),
             ),
         ),
         expr_ty_infos: [],

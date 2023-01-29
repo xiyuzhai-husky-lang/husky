@@ -17,24 +17,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 4,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`core::logic::Prop`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
-                        ),
+                        ident: `Prop`,
                         token_idx: TokenIdx(
                             2,
                         ),
@@ -60,24 +46,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`core::logic::LogicAnd`, `Structure`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
-                        ),
+                        ident: `LogicAnd`,
                         token_idx: TokenIdx(
                             6,
                         ),
@@ -103,24 +75,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 6,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`core::logic::LogicOr`, `Inductive`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 27,
-                                },
-                            ),
-                        ),
+                        ident: `LogicOr`,
                         token_idx: TokenIdx(
                             28,
                         ),

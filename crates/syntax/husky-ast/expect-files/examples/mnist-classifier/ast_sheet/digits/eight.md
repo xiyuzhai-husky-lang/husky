@@ -197,12 +197,8 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 22,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::eight`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -211,24 +207,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 9,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 176,
-                                },
-                            ),
-                        ),
+                        ident: `upper_mouth_match`,
                         token_idx: TokenIdx(
                             79,
                         ),
@@ -246,12 +228,8 @@ Ok(
                     body: ArenaIdxRange(
                         6..13,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 22,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::eight`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -260,24 +238,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 10,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 111,
-                                },
-                            ),
-                        ),
+                        ident: `is_eight`,
                         token_idx: TokenIdx(
                             92,
                         ),
@@ -295,12 +259,8 @@ Ok(
                     body: ArenaIdxRange(
                         15..17,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 22,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::eight`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -309,24 +269,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 11,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::digits::eight::big_mouth`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 179,
-                                },
-                            ),
-                        ),
+                        ident: `big_mouth`,
                         token_idx: TokenIdx(
                             155,
                         ),

@@ -9,12 +9,8 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 3,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `core::clone`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
@@ -23,13 +19,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 2,
-                                },
-                            ),
-                        ),
+                        ident: `clone`,
                         token_idx: TokenIdx(
                             5,
                         ),
@@ -53,24 +43,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Trait(
-                                TraitPath(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TraitPath(`core::clone::Clone`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 15,
-                                },
-                            ),
-                        ),
+                        ident: `Clone`,
                         token_idx: TokenIdx(
                             2,
                         ),

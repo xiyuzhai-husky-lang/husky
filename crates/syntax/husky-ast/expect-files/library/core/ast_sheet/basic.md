@@ -17,24 +17,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`core::basic::bool`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 12,
-                                },
-                            ),
-                        ),
+                        ident: `bool`,
                         token_idx: TokenIdx(
                             2,
                         ),
@@ -60,24 +46,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`core::basic::Trait`, `Structure`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
-                        ),
+                        ident: `Trait`,
                         token_idx: TokenIdx(
                             6,
                         ),
@@ -103,24 +75,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 3,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`core::basic::Module`, `Structure`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
-                        ),
+                        ident: `Module`,
                         token_idx: TokenIdx(
                             10,
                         ),

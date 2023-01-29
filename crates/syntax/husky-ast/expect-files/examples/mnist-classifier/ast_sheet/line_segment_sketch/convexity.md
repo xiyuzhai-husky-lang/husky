@@ -185,24 +185,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 55,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 346,
-                                },
-                            ),
-                        ),
+                        ident: `is_convex`,
                         token_idx: TokenIdx(
                             20,
                         ),

@@ -320,12 +320,8 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 35,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -334,13 +330,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 209,
-                                },
-                            ),
-                        ),
+                        ident: `norm`,
                         token_idx: TokenIdx(
                             53,
                         ),
@@ -358,12 +348,8 @@ Ok(
                     body: ArenaIdxRange(
                         1..2,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 35,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -372,13 +358,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 228,
-                                },
-                            ),
-                        ),
+                        ident: `rel_norm`,
                         token_idx: TokenIdx(
                             61,
                         ),
@@ -396,12 +376,8 @@ Ok(
                     body: ArenaIdxRange(
                         7..13,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 35,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -410,13 +386,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 334,
-                                },
-                            ),
-                        ),
+                        ident: `hausdorff_norm`,
                         token_idx: TokenIdx(
                             79,
                         ),
@@ -434,12 +404,8 @@ Ok(
                     body: ArenaIdxRange(
                         16..20,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 35,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -448,13 +414,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 211,
-                                },
-                            ),
-                        ),
+                        ident: `angle_change`,
                         token_idx: TokenIdx(
                             166,
                         ),
@@ -472,12 +432,8 @@ Ok(
                     body: ArenaIdxRange(
                         25..32,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 35,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -486,13 +442,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 262,
-                                },
-                            ),
-                        ),
+                        ident: `bounding_box`,
                         token_idx: TokenIdx(
                             237,
                         ),
@@ -510,12 +460,8 @@ Ok(
                     body: ArenaIdxRange(
                         32..33,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 35,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -524,13 +470,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 185,
-                                },
-                            ),
-                        ),
+                        ident: `relative_bounding_box`,
                         token_idx: TokenIdx(
                             366,
                         ),
@@ -548,12 +488,8 @@ Ok(
                     body: ArenaIdxRange(
                         33..34,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 35,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -562,13 +498,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 94,
-                                },
-                            ),
-                        ),
+                        ident: `line_segment`,
                         token_idx: TokenIdx(
                             383,
                         ),
@@ -586,12 +516,8 @@ Ok(
                     body: ArenaIdxRange(
                         34..35,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 35,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -600,13 +526,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 189,
-                                },
-                            ),
-                        ),
+                        ident: `start`,
                         token_idx: TokenIdx(
                             420,
                         ),
@@ -624,12 +544,8 @@ Ok(
                     body: ArenaIdxRange(
                         35..36,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 35,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -638,13 +554,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 190,
-                                },
-                            ),
-                        ),
+                        ident: `end`,
                         token_idx: TokenIdx(
                             440,
                         ),
@@ -662,12 +572,8 @@ Ok(
                     body: ArenaIdxRange(
                         36..37,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 35,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -676,13 +582,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 206,
-                                },
-                            ),
-                        ),
+                        ident: `displacement`,
                         token_idx: TokenIdx(
                             460,
                         ),
@@ -700,12 +600,8 @@ Ok(
                     body: ArenaIdxRange(
                         37..38,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 35,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -714,13 +610,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 244,
-                                },
-                            ),
-                        ),
+                        ident: `start_tangent`,
                         token_idx: TokenIdx(
                             476,
                         ),
@@ -738,12 +628,8 @@ Ok(
                     body: ArenaIdxRange(
                         38..39,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 35,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -752,13 +638,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 247,
-                                },
-                            ),
-                        ),
+                        ident: `end_tangent`,
                         token_idx: TokenIdx(
                             494,
                         ),
@@ -952,24 +832,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 27,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 184,
-                                },
-                            ),
-                        ),
+                        ident: `ConcaveComponent`,
                         token_idx: TokenIdx(
                             34,
                         ),
@@ -1003,24 +869,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 54,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 344,
-                                },
-                            ),
-                        ),
+                        ident: `find_concave_components`,
                         token_idx: TokenIdx(
                             516,
                         ),

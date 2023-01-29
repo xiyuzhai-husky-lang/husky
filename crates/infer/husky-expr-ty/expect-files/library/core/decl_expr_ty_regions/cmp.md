@@ -2,15 +2,7 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                ModuleItem(
-                    Trait(
-                        TraitPath(
-                            Id {
-                                value: 6,
-                            },
-                        ),
-                    ),
-                ),
+                TraitPath(`core::cmp::PartialEq`),
             ),
         ),
         expr_ty_infos: [],
@@ -18,15 +10,7 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                ModuleItem(
-                    Trait(
-                        TraitPath(
-                            Id {
-                                value: 7,
-                            },
-                        ),
-                    ),
-                ),
+                TraitPath(`core::cmp::Eq`),
             ),
         ),
         expr_ty_infos: [],
@@ -34,15 +18,7 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                ModuleItem(
-                    Trait(
-                        TraitPath(
-                            Id {
-                                value: 8,
-                            },
-                        ),
-                    ),
-                ),
+                TraitPath(`core::cmp::PartialOrd`),
             ),
         ),
         expr_ty_infos: [],
@@ -50,15 +26,7 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                ModuleItem(
-                    Trait(
-                        TraitPath(
-                            Id {
-                                value: 9,
-                            },
-                        ),
-                    ),
-                ),
+                TraitPath(`core::cmp::Ord`),
             ),
         ),
         expr_ty_infos: [],

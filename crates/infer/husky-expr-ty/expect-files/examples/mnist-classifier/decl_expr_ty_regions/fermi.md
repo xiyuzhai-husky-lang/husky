@@ -2,15 +2,7 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                ModuleItem(
-                    Type(
-                        TypePath(
-                            Id {
-                                value: 42,
-                            },
-                        ),
-                    ),
-                ),
+                TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
             ),
         ),
         expr_ty_infos: [
@@ -75,15 +67,7 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 24,
-                            },
-                        ),
-                    ),
-                ),
+                FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
             ),
         ),
         expr_ty_infos: [
@@ -106,11 +90,25 @@
     ExprTypeRegion {
         path: Decl(
             ImplBlock(
-                ImplBlock(
-                    Id {
-                        value: 29,
+                ImplBlock {
+                    id: ImplBlockId {
+                        module_path: `mnist_classifier::fermi`,
+                        impl_block_kind: Type {
+                            ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                        },
                     },
-                ),
+                    ast_idx: 23,
+                    body: ArenaIdxRange(
+                        12..15,
+                    ),
+                    variant: Type {
+                        ty: TypePath(
+                            Id {
+                                value: 42,
+                            },
+                        ),
+                    },
+                },
             ),
         ),
         expr_ty_infos: [
@@ -133,11 +131,66 @@
     ExprTypeRegion {
         path: Decl(
             AssociatedItem(
-                AssociatedItem(
-                    Id {
-                        value: 27,
+                AssociatedItem {
+                    id: AssociatedItemId {
+                        impl_block_id: ImplBlockId {
+                            module_path: ModulePath(
+                                Id {
+                                    value: 34,
+                                },
+                            ),
+                            impl_block_kind: Type {
+                                ty: TypePath(
+                                    Id {
+                                        value: 42,
+                                    },
+                                ),
+                            },
+                        },
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 272,
+                                },
+                            ),
+                        ),
                     },
-                ),
+                    path: Some(
+                        TypeItemPath {
+                            ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                            ident: `norm`,
+                            ty_item_kind: Memo,
+                        },
+                    ),
+                    impl_block: ImplBlock {
+                        id: ImplBlockId {
+                            module_path: `mnist_classifier::fermi`,
+                            impl_block_kind: Type {
+                                ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                            },
+                        },
+                        ast_idx: 23,
+                        body: ArenaIdxRange(
+                            12..15,
+                        ),
+                        variant: Type {
+                            ty: TypePath(
+                                Id {
+                                    value: 42,
+                                },
+                            ),
+                        },
+                    },
+                    ast_idx: 12,
+                    ident: `norm`,
+                    associated_item_kind: TypeItem(
+                        Memo,
+                    ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::fermi`,
+                    ),
+                    is_generic: false,
+                },
             ),
         ),
         expr_ty_infos: [
@@ -160,11 +213,66 @@
     ExprTypeRegion {
         path: Decl(
             AssociatedItem(
-                AssociatedItem(
-                    Id {
-                        value: 28,
+                AssociatedItem {
+                    id: AssociatedItemId {
+                        impl_block_id: ImplBlockId {
+                            module_path: ModulePath(
+                                Id {
+                                    value: 34,
+                                },
+                            ),
+                            impl_block_kind: Type {
+                                ty: TypePath(
+                                    Id {
+                                        value: 42,
+                                    },
+                                ),
+                            },
+                        },
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 340,
+                                },
+                            ),
+                        ),
                     },
-                ),
+                    path: Some(
+                        TypeItemPath {
+                            ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                            ident: `rel_norm`,
+                            ty_item_kind: Memo,
+                        },
+                    ),
+                    impl_block: ImplBlock {
+                        id: ImplBlockId {
+                            module_path: `mnist_classifier::fermi`,
+                            impl_block_kind: Type {
+                                ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                            },
+                        },
+                        ast_idx: 23,
+                        body: ArenaIdxRange(
+                            12..15,
+                        ),
+                        variant: Type {
+                            ty: TypePath(
+                                Id {
+                                    value: 42,
+                                },
+                            ),
+                        },
+                    },
+                    ast_idx: 13,
+                    ident: `rel_norm`,
+                    associated_item_kind: TypeItem(
+                        Memo,
+                    ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::fermi`,
+                    ),
+                    is_generic: false,
+                },
             ),
         ),
         expr_ty_infos: [
@@ -187,11 +295,66 @@
     ExprTypeRegion {
         path: Decl(
             AssociatedItem(
-                AssociatedItem(
-                    Id {
-                        value: 29,
+                AssociatedItem {
+                    id: AssociatedItemId {
+                        impl_block_id: ImplBlockId {
+                            module_path: ModulePath(
+                                Id {
+                                    value: 34,
+                                },
+                            ),
+                            impl_block_kind: Type {
+                                ty: TypePath(
+                                    Id {
+                                        value: 42,
+                                    },
+                                ),
+                            },
+                        },
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 364,
+                                },
+                            ),
+                        ),
                     },
-                ),
+                    path: Some(
+                        TypeItemPath {
+                            ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                            ident: `angle_change_norm`,
+                            ty_item_kind: Memo,
+                        },
+                    ),
+                    impl_block: ImplBlock {
+                        id: ImplBlockId {
+                            module_path: `mnist_classifier::fermi`,
+                            impl_block_kind: Type {
+                                ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                            },
+                        },
+                        ast_idx: 23,
+                        body: ArenaIdxRange(
+                            12..15,
+                        ),
+                        variant: Type {
+                            ty: TypePath(
+                                Id {
+                                    value: 42,
+                                },
+                            ),
+                        },
+                    },
+                    ast_idx: 14,
+                    ident: `angle_change_norm`,
+                    associated_item_kind: TypeItem(
+                        Memo,
+                    ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::fermi`,
+                    ),
+                    is_generic: false,
+                },
             ),
         ),
         expr_ty_infos: [

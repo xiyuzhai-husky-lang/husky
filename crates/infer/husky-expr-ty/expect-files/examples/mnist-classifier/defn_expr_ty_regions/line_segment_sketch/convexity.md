@@ -2,15 +2,7 @@
     ExprTypeRegion {
         path: Defn(
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 23,
-                            },
-                        ),
-                    ),
-                ),
+                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
             ),
         ),
         expr_ty_infos: [],

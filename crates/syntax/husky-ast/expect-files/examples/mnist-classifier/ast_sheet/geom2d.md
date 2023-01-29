@@ -57,13 +57,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 303,
-                                },
-                            ),
-                        ),
+                        ident: `from_i_shift28`,
                         token_idx: TokenIdx(
                             18,
                         ),
@@ -81,12 +75,8 @@ Ok(
                     body: ArenaIdxRange(
                         1..2,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -95,13 +85,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 304,
-                                },
-                            ),
-                        ),
+                        ident: `vector`,
                         token_idx: TokenIdx(
                             50,
                         ),
@@ -119,12 +103,8 @@ Ok(
                     body: ArenaIdxRange(
                         2..3,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -133,13 +113,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 306,
-                                },
-                            ),
-                        ),
+                        ident: `to`,
                         token_idx: TokenIdx(
                             67,
                         ),
@@ -157,12 +131,8 @@ Ok(
                     body: ArenaIdxRange(
                         3..4,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -171,13 +141,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 209,
-                                },
-                            ),
-                        ),
+                        ident: `norm`,
                         token_idx: TokenIdx(
                             95,
                         ),
@@ -195,12 +159,8 @@ Ok(
                     body: ArenaIdxRange(
                         4..5,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -209,13 +169,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 273,
-                                },
-                            ),
-                        ),
+                        ident: `dist`,
                         token_idx: TokenIdx(
                             123,
                         ),
@@ -493,13 +447,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 309,
-                                },
-                            ),
-                        ),
+                        ident: `point`,
                         token_idx: TokenIdx(
                             173,
                         ),
@@ -525,13 +473,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 306,
-                                },
-                            ),
-                        ),
+                        ident: `to`,
                         token_idx: TokenIdx(
                             191,
                         ),
@@ -549,12 +491,8 @@ Ok(
                     body: ArenaIdxRange(
                         12..13,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -563,13 +501,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 209,
-                                },
-                            ),
-                        ),
+                        ident: `norm`,
                         token_idx: TokenIdx(
                             219,
                         ),
@@ -587,12 +519,8 @@ Ok(
                     body: ArenaIdxRange(
                         13..14,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -601,13 +529,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 310,
-                                },
-                            ),
-                        ),
+                        ident: `dot`,
                         token_idx: TokenIdx(
                             247,
                         ),
@@ -625,12 +547,8 @@ Ok(
                     body: ArenaIdxRange(
                         14..15,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -639,13 +557,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 311,
-                                },
-                            ),
-                        ),
+                        ident: `cross`,
                         token_idx: TokenIdx(
                             272,
                         ),
@@ -663,12 +575,8 @@ Ok(
                     body: ArenaIdxRange(
                         23..25,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -677,13 +585,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 245,
-                                },
-                            ),
-                        ),
+                        ident: `angle`,
                         token_idx: TokenIdx(
                             297,
                         ),
@@ -701,12 +603,8 @@ Ok(
                     body: ArenaIdxRange(
                         25..26,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -715,13 +613,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 317,
-                                },
-                            ),
-                        ),
+                        ident: `rotation_direction_to`,
                         token_idx: TokenIdx(
                             366,
                         ),
@@ -739,12 +631,8 @@ Ok(
                     body: ArenaIdxRange(
                         35..41,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -753,13 +641,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 318,
-                                },
-                            ),
-                        ),
+                        ident: `angle_to`,
                         token_idx: TokenIdx(
                             386,
                         ),
@@ -833,12 +715,8 @@ Ok(
                     body: ArenaIdxRange(
                         49..54,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -847,13 +725,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 324,
-                                },
-                            ),
-                        ),
+                        ident: `relative_range`,
                         token_idx: TokenIdx(
                             503,
                         ),
@@ -871,12 +743,8 @@ Ok(
                     body: ArenaIdxRange(
                         54..56,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -885,13 +753,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 263,
-                                },
-                            ),
-                        ),
+                        ident: `relative_point`,
                         token_idx: TokenIdx(
                             566,
                         ),
@@ -969,12 +831,8 @@ Ok(
                     body: ArenaIdxRange(
                         60..61,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -983,13 +841,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 185,
-                                },
-                            ),
-                        ),
+                        ident: `relative_bounding_box`,
                         token_idx: TokenIdx(
                             613,
                         ),
@@ -1007,12 +859,8 @@ Ok(
                     body: ArenaIdxRange(
                         61..62,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -1021,13 +869,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 263,
-                                },
-                            ),
-                        ),
+                        ident: `relative_point`,
                         token_idx: TokenIdx(
                             648,
                         ),
@@ -1045,12 +887,8 @@ Ok(
                     body: ArenaIdxRange(
                         62..63,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -1059,13 +897,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 331,
-                                },
-                            ),
-                        ),
+                        ident: `xmin`,
                         token_idx: TokenIdx(
                             683,
                         ),
@@ -1083,12 +915,8 @@ Ok(
                     body: ArenaIdxRange(
                         63..64,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -1097,13 +925,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 197,
-                                },
-                            ),
-                        ),
+                        ident: `xmax`,
                         token_idx: TokenIdx(
                             695,
                         ),
@@ -1121,12 +943,8 @@ Ok(
                     body: ArenaIdxRange(
                         64..65,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -1135,13 +953,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 213,
-                                },
-                            ),
-                        ),
+                        ident: `ymin`,
                         token_idx: TokenIdx(
                             707,
                         ),
@@ -1159,12 +971,8 @@ Ok(
                     body: ArenaIdxRange(
                         65..66,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -1173,13 +981,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 186,
-                                },
-                            ),
-                        ),
+                        ident: `ymax`,
                         token_idx: TokenIdx(
                             719,
                         ),
@@ -1229,12 +1031,8 @@ Ok(
                     body: ArenaIdxRange(
                         72..73,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -1243,13 +1041,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 331,
-                                },
-                            ),
-                        ),
+                        ident: `xmin`,
                         token_idx: TokenIdx(
                             747,
                         ),
@@ -1267,12 +1059,8 @@ Ok(
                     body: ArenaIdxRange(
                         73..74,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -1281,13 +1069,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 197,
-                                },
-                            ),
-                        ),
+                        ident: `xmax`,
                         token_idx: TokenIdx(
                             759,
                         ),
@@ -1305,12 +1087,8 @@ Ok(
                     body: ArenaIdxRange(
                         74..75,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -1319,13 +1097,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 213,
-                                },
-                            ),
-                        ),
+                        ident: `ymin`,
                         token_idx: TokenIdx(
                             771,
                         ),
@@ -1343,12 +1115,8 @@ Ok(
                     body: ArenaIdxRange(
                         75..76,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -1357,13 +1125,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 186,
-                                },
-                            ),
-                        ),
+                        ident: `ymax`,
                         token_idx: TokenIdx(
                             783,
                         ),
@@ -1389,24 +1151,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 21,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 302,
-                                },
-                            ),
-                        ),
+                        ident: `Point2d`,
                         token_idx: TokenIdx(
                             2,
                         ),
@@ -1440,24 +1188,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 22,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 308,
-                                },
-                            ),
-                        ),
+                        ident: `RelativePoint2d`,
                         token_idx: TokenIdx(
                             144,
                         ),
@@ -1483,24 +1217,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 23,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 305,
-                                },
-                            ),
-                        ),
+                        ident: `Vector2d`,
                         token_idx: TokenIdx(
                             157,
                         ),
@@ -1534,24 +1254,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 24,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 322,
-                                },
-                            ),
-                        ),
+                        ident: `ClosedRange`,
                         token_idx: TokenIdx(
                             488,
                         ),
@@ -1585,24 +1291,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 25,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 327,
-                                },
-                            ),
-                        ),
+                        ident: `BoundingBox`,
                         token_idx: TokenIdx(
                             596,
                         ),
@@ -1642,24 +1334,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 26,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 330,
-                                },
-                            ),
-                        ),
+                        ident: `RelativeBoundingBox`,
                         token_idx: TokenIdx(
                             732,
                         ),

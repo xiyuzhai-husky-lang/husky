@@ -9,31 +9,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 21,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            ModulePath(
-                                Id {
-                                    value: 31,
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::zero`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 87,
-                                },
-                            ),
-                        ),
+                        ident: `zero`,
                         token_idx: TokenIdx(
                             1,
                         ),
@@ -51,31 +35,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 21,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            ModulePath(
-                                Id {
-                                    value: 26,
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::one`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 82,
-                                },
-                            ),
-                        ),
+                        ident: `one`,
                         token_idx: TokenIdx(
                             3,
                         ),
@@ -93,31 +61,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 21,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            ModulePath(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::six`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 84,
-                                },
-                            ),
-                        ),
+                        ident: `six`,
                         token_idx: TokenIdx(
                             5,
                         ),
@@ -135,31 +87,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 21,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            ModulePath(
-                                Id {
-                                    value: 29,
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::three`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 85,
-                                },
-                            ),
-                        ),
+                        ident: `three`,
                         token_idx: TokenIdx(
                             7,
                         ),
@@ -177,31 +113,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 21,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            ModulePath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::four`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 80,
-                                },
-                            ),
-                        ),
+                        ident: `four`,
                         token_idx: TokenIdx(
                             9,
                         ),
@@ -219,31 +139,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 21,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            ModulePath(
-                                Id {
-                                    value: 23,
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::five`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 79,
-                                },
-                            ),
-                        ),
+                        ident: `five`,
                         token_idx: TokenIdx(
                             11,
                         ),
@@ -261,31 +165,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 21,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            ModulePath(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::six`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 84,
-                                },
-                            ),
-                        ),
+                        ident: `six`,
                         token_idx: TokenIdx(
                             13,
                         ),
@@ -303,31 +191,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 21,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            ModulePath(
-                                Id {
-                                    value: 27,
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::seven`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 83,
-                                },
-                            ),
-                        ),
+                        ident: `seven`,
                         token_idx: TokenIdx(
                             15,
                         ),
@@ -345,31 +217,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 21,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            ModulePath(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::eight`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 78,
-                                },
-                            ),
-                        ),
+                        ident: `eight`,
                         token_idx: TokenIdx(
                             17,
                         ),
@@ -387,31 +243,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 21,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            ModulePath(
-                                Id {
-                                    value: 25,
-                                },
-                            ),
-                        ),
+                        `mnist_classifier::digits::nine`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 81,
-                                },
-                            ),
-                        ),
+                        ident: `nine`,
                         token_idx: TokenIdx(
                             19,
                         ),
