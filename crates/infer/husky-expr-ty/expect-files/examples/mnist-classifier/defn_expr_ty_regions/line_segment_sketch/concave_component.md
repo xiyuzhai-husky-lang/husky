@@ -5,6 +5,7 @@
                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -71,6 +72,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -137,6 +139,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -203,6 +206,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -269,6 +273,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -335,6 +340,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -401,6 +407,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -467,6 +474,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -533,6 +541,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -599,6 +608,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -665,6 +675,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -731,6 +742,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -797,5 +809,6 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
 ]

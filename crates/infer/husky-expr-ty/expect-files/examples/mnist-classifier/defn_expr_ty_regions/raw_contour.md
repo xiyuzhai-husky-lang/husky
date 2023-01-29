@@ -5,6 +5,7 @@
                 FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -12,6 +13,7 @@
                 FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -19,6 +21,7 @@
                 FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -26,6 +29,7 @@
                 FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -33,6 +37,7 @@
                 FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -40,6 +45,7 @@
                 FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -47,6 +53,7 @@
                 FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -54,6 +61,7 @@
                 FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -120,6 +128,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -186,6 +195,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -252,6 +262,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -318,6 +329,7 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Defn(
@@ -384,5 +396,6 @@
                 },
             ),
         ),
+        expr_ty_infos: [],
     },
 ]

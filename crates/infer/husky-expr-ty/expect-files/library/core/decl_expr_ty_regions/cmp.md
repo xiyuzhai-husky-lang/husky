@@ -5,6 +5,7 @@
                 TraitPath(`core::cmp::PartialEq`),
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Decl(
@@ -12,6 +13,7 @@
                 TraitPath(`core::cmp::Eq`),
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Decl(
@@ -19,6 +21,7 @@
                 TraitPath(`core::cmp::PartialOrd`),
             ),
         ),
+        expr_ty_infos: [],
     },
     ExprTypeRegion {
         path: Decl(
@@ -26,5 +29,6 @@
                 TraitPath(`core::cmp::Ord`),
             ),
         ),
+        expr_ty_infos: [],
     },
 ]

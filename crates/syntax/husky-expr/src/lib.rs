@@ -178,6 +178,17 @@ pub enum Expr {
     Err(ExprError),
 }
 
+impl<Db: ?Sized> salsa::DebugWithDb<Db> for Expr {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        todo!()
+    }
+}
+
 #[derive(Debug, PartialEq, Eq)]
 pub struct ImplicitArgumentList {
     langle: TokenIdx,
