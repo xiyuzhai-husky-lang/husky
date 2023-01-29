@@ -46,13 +46,7 @@ Ok(
                                                 current_symbol_kind: ImplicitParameter {
                                                     implicit_parameter_kind: Type {
                                                         ident_token: IdentifierToken {
-                                                            ident: Identifier(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 60,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            ident: `T`,
                                                             token_idx: TokenIdx(
                                                                 4,
                                                             ),
@@ -72,22 +66,8 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     6,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 51,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Trait(
-                                                        TraitPath(
-                                                            Id {
-                                                                value: 9,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `Ord`,
+                                                entity_path: TraitPath(`core::cmp::Ord`),
                                             },
                                         ],
                                     },
@@ -99,13 +79,7 @@ Ok(
                                             data: [
                                                 Identifier {
                                                     ident_token: IdentifierToken {
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 61,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `arr`,
                                                         token_idx: TokenIdx(
                                                             10,
                                                         ),
@@ -146,13 +120,7 @@ Ok(
                                         current_symbol_arena: Arena {
                                             data: [
                                                 CurrentSymbol {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 60,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `T`,
                                                     access_start: TokenIdx(
                                                         5,
                                                     ),
@@ -160,13 +128,7 @@ Ok(
                                                     variant: ImplicitParameter {
                                                         implicit_parameter_variant: Type {
                                                             ident_token: IdentifierToken {
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 60,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                ident: `T`,
                                                                 token_idx: TokenIdx(
                                                                     4,
                                                                 ),
@@ -175,13 +137,7 @@ Ok(
                                                     },
                                                 },
                                                 CurrentSymbol {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 61,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `arr`,
                                                     access_start: TokenIdx(
                                                         11,
                                                     ),
@@ -351,13 +307,7 @@ Ok(
                                                 current_symbol_kind: ImplicitParameter {
                                                     implicit_parameter_kind: Type {
                                                         ident_token: IdentifierToken {
-                                                            ident: Identifier(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 60,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            ident: `T`,
                                                             token_idx: TokenIdx(
                                                                 43,
                                                             ),
@@ -405,22 +355,8 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     45,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 51,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Trait(
-                                                        TraitPath(
-                                                            Id {
-                                                                value: 9,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `Ord`,
+                                                entity_path: TraitPath(`core::cmp::Ord`),
                                             },
                                         ],
                                     },
@@ -432,13 +368,7 @@ Ok(
                                             data: [
                                                 Identifier {
                                                     ident_token: IdentifierToken {
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 61,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `arr`,
                                                         token_idx: TokenIdx(
                                                             49,
                                                         ),
@@ -447,13 +377,7 @@ Ok(
                                                 },
                                                 Identifier {
                                                     ident_token: IdentifierToken {
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 65,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `low`,
                                                         token_idx: TokenIdx(
                                                             56,
                                                         ),
@@ -462,13 +386,7 @@ Ok(
                                                 },
                                                 Identifier {
                                                     ident_token: IdentifierToken {
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 66,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `high`,
                                                         token_idx: TokenIdx(
                                                             60,
                                                         ),
@@ -541,13 +459,7 @@ Ok(
                                         current_symbol_arena: Arena {
                                             data: [
                                                 CurrentSymbol {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 60,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `T`,
                                                     access_start: TokenIdx(
                                                         44,
                                                     ),
@@ -555,13 +467,7 @@ Ok(
                                                     variant: ImplicitParameter {
                                                         implicit_parameter_variant: Type {
                                                             ident_token: IdentifierToken {
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 60,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                ident: `T`,
                                                                 token_idx: TokenIdx(
                                                                     43,
                                                                 ),
@@ -570,13 +476,7 @@ Ok(
                                                     },
                                                 },
                                                 CurrentSymbol {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 61,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `arr`,
                                                     access_start: TokenIdx(
                                                         50,
                                                     ),
@@ -586,13 +486,7 @@ Ok(
                                                     },
                                                 },
                                                 CurrentSymbol {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 65,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `low`,
                                                     access_start: TokenIdx(
                                                         57,
                                                     ),
@@ -602,13 +496,7 @@ Ok(
                                                     },
                                                 },
                                                 CurrentSymbol {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 66,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `high`,
                                                     access_start: TokenIdx(
                                                         61,
                                                     ),
@@ -821,13 +709,7 @@ Ok(
                                                 current_symbol_kind: ImplicitParameter {
                                                     implicit_parameter_kind: Type {
                                                         ident_token: IdentifierToken {
-                                                            ident: Identifier(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 60,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            ident: `T`,
                                                             token_idx: TokenIdx(
                                                                 104,
                                                             ),
@@ -889,22 +771,8 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     106,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 51,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Trait(
-                                                        TraitPath(
-                                                            Id {
-                                                                value: 9,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `Ord`,
+                                                entity_path: TraitPath(`core::cmp::Ord`),
                                             },
                                         ],
                                     },
@@ -916,13 +784,7 @@ Ok(
                                             data: [
                                                 Identifier {
                                                     ident_token: IdentifierToken {
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 61,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `arr`,
                                                         token_idx: TokenIdx(
                                                             110,
                                                         ),
@@ -931,13 +793,7 @@ Ok(
                                                 },
                                                 Identifier {
                                                     ident_token: IdentifierToken {
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 65,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `low`,
                                                         token_idx: TokenIdx(
                                                             117,
                                                         ),
@@ -946,13 +802,7 @@ Ok(
                                                 },
                                                 Identifier {
                                                     ident_token: IdentifierToken {
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 66,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `high`,
                                                         token_idx: TokenIdx(
                                                             121,
                                                         ),
@@ -1025,13 +875,7 @@ Ok(
                                         current_symbol_arena: Arena {
                                             data: [
                                                 CurrentSymbol {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 60,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `T`,
                                                     access_start: TokenIdx(
                                                         105,
                                                     ),
@@ -1039,13 +883,7 @@ Ok(
                                                     variant: ImplicitParameter {
                                                         implicit_parameter_variant: Type {
                                                             ident_token: IdentifierToken {
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 60,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                ident: `T`,
                                                                 token_idx: TokenIdx(
                                                                     104,
                                                                 ),
@@ -1054,13 +892,7 @@ Ok(
                                                     },
                                                 },
                                                 CurrentSymbol {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 61,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `arr`,
                                                     access_start: TokenIdx(
                                                         111,
                                                     ),
@@ -1070,13 +902,7 @@ Ok(
                                                     },
                                                 },
                                                 CurrentSymbol {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 65,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `low`,
                                                     access_start: TokenIdx(
                                                         118,
                                                     ),
@@ -1086,13 +912,7 @@ Ok(
                                                     },
                                                 },
                                                 CurrentSymbol {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 66,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `high`,
                                                     access_start: TokenIdx(
                                                         122,
                                                     ),

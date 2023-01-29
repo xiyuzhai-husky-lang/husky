@@ -499,22 +499,8 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     25,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 25,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 7,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `i8`,
+                                                entity_path: TypePath(`core::num::i8`, `Alien`),
                                             },
                                         ],
                                     },
@@ -670,22 +656,8 @@ Ok(
                                                                 token_idx: TokenIdx(
                                                                     25,
                                                                 ),
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 25,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                                entity_path: ModuleItem(
-                                                                    Type(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 7,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
+                                                                ident: `i8`,
+                                                                entity_path: TypePath(`core::num::i8`, `Alien`),
                                                             },
                                                         ],
                                                     },
@@ -800,22 +772,8 @@ Ok(
                                                     token_idx: TokenIdx(
                                                         33,
                                                     ),
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 25,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    entity_path: ModuleItem(
-                                                        Type(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 7,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
+                                                    ident: `i8`,
+                                                    entity_path: TypePath(`core::num::i8`, `Alien`),
                                                 },
                                             ],
                                         },
@@ -978,22 +936,8 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     83,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 37,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 8,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `i16`,
+                                                entity_path: TypePath(`core::num::i16`, `Alien`),
                                             },
                                         ],
                                     },
@@ -1149,22 +1093,8 @@ Ok(
                                                                 token_idx: TokenIdx(
                                                                     83,
                                                                 ),
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 37,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                                entity_path: ModuleItem(
-                                                                    Type(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 8,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
+                                                                ident: `i16`,
+                                                                entity_path: TypePath(`core::num::i16`, `Alien`),
                                                             },
                                                         ],
                                                     },
@@ -1279,22 +1209,8 @@ Ok(
                                                     token_idx: TokenIdx(
                                                         91,
                                                     ),
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 37,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    entity_path: ModuleItem(
-                                                        Type(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 8,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
+                                                    ident: `i16`,
+                                                    entity_path: TypePath(`core::num::i16`, `Alien`),
                                                 },
                                             ],
                                         },
@@ -1457,22 +1373,8 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     141,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 38,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 9,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `i32`,
+                                                entity_path: TypePath(`core::num::i32`, `Alien`),
                                             },
                                         ],
                                     },
@@ -1628,22 +1530,8 @@ Ok(
                                                                 token_idx: TokenIdx(
                                                                     141,
                                                                 ),
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 38,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                                entity_path: ModuleItem(
-                                                                    Type(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 9,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
+                                                                ident: `i32`,
+                                                                entity_path: TypePath(`core::num::i32`, `Alien`),
                                                             },
                                                         ],
                                                     },
@@ -1758,22 +1646,8 @@ Ok(
                                                     token_idx: TokenIdx(
                                                         149,
                                                     ),
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 38,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    entity_path: ModuleItem(
-                                                        Type(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 9,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
+                                                    ident: `i32`,
+                                                    entity_path: TypePath(`core::num::i32`, `Alien`),
                                                 },
                                             ],
                                         },
@@ -1936,22 +1810,8 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     198,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 39,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 10,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `i64`,
+                                                entity_path: TypePath(`core::num::i64`, `Alien`),
                                             },
                                         ],
                                     },
@@ -2107,22 +1967,8 @@ Ok(
                                                                 token_idx: TokenIdx(
                                                                     198,
                                                                 ),
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 39,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                                entity_path: ModuleItem(
-                                                                    Type(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 10,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
+                                                                ident: `i64`,
+                                                                entity_path: TypePath(`core::num::i64`, `Alien`),
                                                             },
                                                         ],
                                                     },
@@ -2237,22 +2083,8 @@ Ok(
                                                     token_idx: TokenIdx(
                                                         206,
                                                     ),
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 39,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    entity_path: ModuleItem(
-                                                        Type(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 10,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
+                                                    ident: `i64`,
+                                                    entity_path: TypePath(`core::num::i64`, `Alien`),
                                                 },
                                             ],
                                         },
@@ -2415,22 +2247,8 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     256,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 40,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 11,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `f8`,
+                                                entity_path: TypePath(`core::num::f8`, `Alien`),
                                             },
                                         ],
                                     },
@@ -2586,22 +2404,8 @@ Ok(
                                                                 token_idx: TokenIdx(
                                                                     256,
                                                                 ),
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 40,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                                entity_path: ModuleItem(
-                                                                    Type(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 11,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
+                                                                ident: `f8`,
+                                                                entity_path: TypePath(`core::num::f8`, `Alien`),
                                                             },
                                                         ],
                                                     },
@@ -2716,22 +2520,8 @@ Ok(
                                                     token_idx: TokenIdx(
                                                         264,
                                                     ),
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 40,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    entity_path: ModuleItem(
-                                                        Type(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 11,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
+                                                    ident: `f8`,
+                                                    entity_path: TypePath(`core::num::f8`, `Alien`),
                                                 },
                                             ],
                                         },
@@ -2894,22 +2684,8 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     314,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 41,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 12,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `f16`,
+                                                entity_path: TypePath(`core::num::f16`, `Alien`),
                                             },
                                         ],
                                     },
@@ -3065,22 +2841,8 @@ Ok(
                                                                 token_idx: TokenIdx(
                                                                     314,
                                                                 ),
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 41,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                                entity_path: ModuleItem(
-                                                                    Type(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 12,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
+                                                                ident: `f16`,
+                                                                entity_path: TypePath(`core::num::f16`, `Alien`),
                                                             },
                                                         ],
                                                     },
@@ -3195,22 +2957,8 @@ Ok(
                                                     token_idx: TokenIdx(
                                                         322,
                                                     ),
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 41,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    entity_path: ModuleItem(
-                                                        Type(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 12,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
+                                                    ident: `f16`,
+                                                    entity_path: TypePath(`core::num::f16`, `Alien`),
                                                 },
                                             ],
                                         },
@@ -3373,22 +3121,8 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     372,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 42,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 13,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `f32`,
+                                                entity_path: TypePath(`core::num::f32`, `Alien`),
                                             },
                                         ],
                                     },
@@ -3544,22 +3278,8 @@ Ok(
                                                                 token_idx: TokenIdx(
                                                                     372,
                                                                 ),
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 42,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                                entity_path: ModuleItem(
-                                                                    Type(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 13,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
+                                                                ident: `f32`,
+                                                                entity_path: TypePath(`core::num::f32`, `Alien`),
                                                             },
                                                         ],
                                                     },
@@ -3674,22 +3394,8 @@ Ok(
                                                     token_idx: TokenIdx(
                                                         380,
                                                     ),
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 42,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    entity_path: ModuleItem(
-                                                        Type(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 13,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
+                                                    ident: `f32`,
+                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
                                                 },
                                             ],
                                         },
@@ -3852,22 +3558,8 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     429,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 43,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 14,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `f64`,
+                                                entity_path: TypePath(`core::num::f64`, `Alien`),
                                             },
                                         ],
                                     },
@@ -4023,22 +3715,8 @@ Ok(
                                                                 token_idx: TokenIdx(
                                                                     429,
                                                                 ),
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 43,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                                entity_path: ModuleItem(
-                                                                    Type(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 14,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
+                                                                ident: `f64`,
+                                                                entity_path: TypePath(`core::num::f64`, `Alien`),
                                                             },
                                                         ],
                                                     },
@@ -4153,22 +3831,8 @@ Ok(
                                                     token_idx: TokenIdx(
                                                         437,
                                                     ),
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 43,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    entity_path: ModuleItem(
-                                                        Type(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 14,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
+                                                    ident: `f64`,
+                                                    entity_path: TypePath(`core::num::f64`, `Alien`),
                                                 },
                                             ],
                                         },

@@ -14,6 +14,7 @@ pub type StmtIdxRange = ArenaIdxRange<Stmt>;
 pub type StmtMap<V> = ArenaMap<Stmt, V>;
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum Stmt {
     Let {
         let_token: LetToken,

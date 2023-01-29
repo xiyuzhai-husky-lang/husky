@@ -239,22 +239,8 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     10,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 443,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 35,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `Nat`,
+                                                entity_path: TypePath(`natural_number_game::Nat`, `Inductive`),
                                             },
                                         ],
                                     },
@@ -412,22 +398,8 @@ Ok(
                                                                 token_idx: TokenIdx(
                                                                     10,
                                                                 ),
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 443,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                                entity_path: ModuleItem(
-                                                                    Type(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 35,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
+                                                                ident: `Nat`,
+                                                                entity_path: TypePath(`natural_number_game::Nat`, `Inductive`),
                                                             },
                                                         ],
                                                     },
@@ -573,43 +545,15 @@ Ok(
                                                     token_idx: TokenIdx(
                                                         15,
                                                     ),
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 443,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    entity_path: ModuleItem(
-                                                        Type(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 35,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
+                                                    ident: `Nat`,
+                                                    entity_path: TypePath(`natural_number_game::Nat`, `Inductive`),
                                                 },
                                                 Root {
                                                     token_idx: TokenIdx(
                                                         17,
                                                     ),
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 443,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    entity_path: ModuleItem(
-                                                        Type(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 35,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
+                                                    ident: `Nat`,
+                                                    entity_path: TypePath(`natural_number_game::Nat`, `Inductive`),
                                                 },
                                             ],
                                         },
