@@ -1,6 +1,6 @@
 use proc_macro2::Literal;
-use syn::punctuated::Punctuated;
 use syn::spanned::Spanned;
+use syn::{punctuated::Punctuated, Type};
 use syn::{Field, FieldsUnnamed, Ident, ItemStruct, Path, Token};
 
 use crate::options::Options;
@@ -15,12 +15,12 @@ pub(crate) fn derive_debug_with_db(
     input: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
     let options = syn::parse_macro_input!(args as Args);
-    let db_path = match options.db_path {
-        Some(v) => v,
-        None => panic!("no `db` specified"),
+    let jar_ty = match options.jar_ty {
+        Some(jar_ty) => jar_ty,
+        None => panic!("no `jar` specified"),
     };
     let input = syn::parse_macro_input!(input as ItemStruct);
-    let impl_debug_with_db = impl_struct_debug_with_db(&db_path, &input);
+    let impl_debug_with_db = impl_struct_debug_with_db(&jar_ty, &input);
     quote! {
         #input
 
@@ -42,11 +42,11 @@ impl crate::options::AllowedOptions for DeriveDebugWithDb {
 
     const SINGLETON: bool = false;
 
-    const JAR: bool = false;
+    const JAR: bool = true;
 
     const DATA: bool = false;
 
-    const DB: bool = true;
+    const DB: bool = false;
 
     const RECOVERY_FN: bool = false;
 
@@ -58,21 +58,21 @@ impl crate::options::AllowedOptions for DeriveDebugWithDb {
 }
 
 pub(crate) fn impl_struct_debug_with_db(
-    db_path: &Path,
+    jar_ty: &Type,
     input: &ItemStruct,
 ) -> proc_macro2::TokenStream {
     let ident = &input.ident;
     let ident_string = ident.to_string();
 
     match input.fields {
-        syn::Fields::Named(_) => impl_regular_struct_debug_with_db(db_path, input),
-        syn::Fields::Unnamed(_) => impl_tuple_struct_debug_with_db(db_path, input),
+        syn::Fields::Named(_) => impl_regular_struct_debug_with_db(jar_ty, input),
+        syn::Fields::Unnamed(_) => impl_tuple_struct_debug_with_db(jar_ty, input),
         syn::Fields::Unit => todo!("unit struct debug with db"),
     }
 }
 
 pub(crate) fn impl_regular_struct_debug_with_db(
-    db_path: &Path,
+    jar_ty: &Type,
     input: &ItemStruct,
 ) -> proc_macro2::TokenStream {
     let ident = &input.ident;
@@ -106,7 +106,7 @@ pub(crate) fn impl_regular_struct_debug_with_db(
         .collect::<proc_macro2::TokenStream>();
 
     quote! {
-        impl<DB: #db_path + ?Sized> ::salsa::DebugWithDb<DB> for #ident {
+        impl<DB: ::salsa::DbWithJar<#jar_ty> + ?Sized> ::salsa::DebugWithDb<DB> for #ident {
             fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &DB, _include_all_fields: bool) -> ::std::fmt::Result {
                 #[allow(unused_imports)]
                 use ::salsa::debug::helper::Fallback;
@@ -121,7 +121,7 @@ pub(crate) fn impl_regular_struct_debug_with_db(
 }
 
 pub(crate) fn impl_tuple_struct_debug_with_db(
-    db_path: &Path,
+    jar_ty: &Type,
     input: &ItemStruct,
 ) -> proc_macro2::TokenStream {
     let ident = &input.ident;
@@ -156,7 +156,7 @@ pub(crate) fn impl_tuple_struct_debug_with_db(
         .collect::<proc_macro2::TokenStream>();
 
     quote! {
-        impl<DB: #db_path + ?Sized> ::salsa::DebugWithDb<DB> for #ident {
+        impl<DB: ::salsa::DbWithJar<#jar_ty> + ?Sized> ::salsa::DebugWithDb<DB> for #ident {
             fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &DB, _include_all_fields: bool) -> ::std::fmt::Result {
                 #[allow(unused_imports)]
                 use ::salsa::debug::helper::Fallback;
