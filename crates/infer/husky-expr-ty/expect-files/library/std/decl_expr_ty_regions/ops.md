@@ -2,8 +2,17 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                TraitPath(`std::ops::Add`),
+                ModuleItem(
+                    Trait(
+                        TraitPath(
+                            Id {
+                                value: 23,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
+        expr_ty_infos: [],
     },
 ]

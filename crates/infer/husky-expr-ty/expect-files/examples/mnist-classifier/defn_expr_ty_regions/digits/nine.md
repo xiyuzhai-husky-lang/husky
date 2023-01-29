@@ -2,7 +2,15 @@
     ExprTypeRegion {
         path: Defn(
             Entity(
-                FormPath(`mnist_classifier::digits::nine::nine_match`, `Feature`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 59,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: [],
@@ -10,7 +18,15 @@
     ExprTypeRegion {
         path: Defn(
             Entity(
-                FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Feature`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 60,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: [],
@@ -18,7 +34,15 @@
     ExprTypeRegion {
         path: Defn(
             Entity(
-                FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 61,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: [],
@@ -26,7 +50,15 @@
     ExprTypeRegion {
         path: Defn(
             Entity(
-                FormPath(`mnist_classifier::digits::nine::downmost`, `Function`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 62,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: [],
@@ -34,7 +66,15 @@
     ExprTypeRegion {
         path: Defn(
             Entity(
-                FormPath(`mnist_classifier::digits::nine::big_cc`, `Function`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 63,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: [],

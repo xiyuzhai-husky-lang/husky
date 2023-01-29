@@ -30,6 +30,7 @@ use salsa::DbWithJar;
 pub struct AstJar(ast_sheet, ast_range_sheet);
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(jar = AstJar)]
 pub enum Ast {
     Err {
         token_group_idx: TokenGroupIdx,
@@ -168,122 +169,122 @@ impl std::ops::Deref for AstSheet {
     }
 }
 
-impl<Db: AstDb> salsa::DebugWithDb<Db> for Ast {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        match self {
-            Ast::Err {
-                token_group_idx,
-                error,
-            } => f
-                .debug_struct("Err")
-                .field("token_group_idx", token_group_idx)
-                .field("error", error)
-                .finish(),
-            Ast::Use { token_group_idx } => f
-                .debug_struct("Use")
-                .field("token_group_idx", token_group_idx)
-                .finish(),
-            Ast::Decor { token_group_idx } => f
-                .debug_struct("Decor")
-                .field("token_group_idx", token_group_idx)
-                .finish(),
-            Ast::BasicStmtOrBranch {
-                token_group_idx,
-                body,
-            } => f
-                .debug_struct("Stmt")
-                .field("token_group_idx", token_group_idx)
-                .field("body", body)
-                .finish(),
-            Ast::IfElseStmts {
-                if_branch: if_stmt,
-                elif_branches: elif_stmts,
-                else_branch: else_stmt,
-            } => f
-                .debug_struct("IfElseStmts")
-                .field("if_stmt", if_stmt)
-                .field("elif_stmts", elif_stmts)
-                .field("else_stmt", else_stmt)
-                .finish(),
-            Ast::MatchStmts {
-                pattern_stmt,
-                case_stmts,
-            } => f
-                .debug_struct("MatchStmts")
-                .field("pattern_stmt", pattern_stmt)
-                .field("case_stmts", case_stmts)
-                .finish(),
-            Ast::Defn {
-                token_group_idx,
-                body,
-                accessibility,
-                entity_kind,
-                entity_path,
-                ident_token,
-                is_generic,
-                body_kind,
-                saved_stream_state,
-            } => f
-                .debug_struct("Defn")
-                .field("token_group_idx", token_group_idx)
-                .field("body", body)
-                .field("accessibility", accessibility)
-                .field("entity_kind", entity_kind)
-                .field(
-                    "entity_path",
-                    &entity_path.debug_with(db, include_all_fields),
-                )
-                .field(
-                    "ident_token",
-                    &ident_token.debug_with(db, include_all_fields),
-                )
-                .field("is_generic", is_generic)
-                .field("body_kind", body_kind)
-                .field("saved_stream_state", saved_stream_state)
-                .finish(),
-            Ast::ModuleItemVariant {
-                token_group_idx,
-                module_item_variant_path,
-                ident,
-            } => f
-                .debug_struct("ModuleItemVariant")
-                .field(
-                    "module_item_variant_path",
-                    &module_item_variant_path.debug_with(db, include_all_fields),
-                )
-                .finish(),
-            Ast::Impl {
-                token_group_idx,
-                body,
-            } => f
-                .debug_struct("Impl")
-                .field("token_group_idx", token_group_idx)
-                .field("body", body)
-                .finish(),
-            Ast::Main {
-                token_group_idx,
-                body,
-            } => f
-                .debug_struct("Main")
-                .field("token_group_idx", token_group_idx)
-                .field("body", body)
-                .finish(),
-            Ast::Config {
-                token_group_idx,
-                body,
-            } => f
-                .debug_struct("Config")
-                .field("token_group_idx", token_group_idx)
-                .field("body", body)
-                .finish(),
-        }
-    }
-}
+// impl<Db: AstDb> salsa::DebugWithDb<Db> for Ast {
+//     fn fmt(
+//         &self,
+//         f: &mut std::fmt::Formatter<'_>,
+//         db: &Db,
+//         include_all_fields: bool,
+//     ) -> std::fmt::Result {
+//         match self {
+//             Ast::Err {
+//                 token_group_idx,
+//                 error,
+//             } => f
+//                 .debug_struct("Err")
+//                 .field("token_group_idx", token_group_idx)
+//                 .field("error", error)
+//                 .finish(),
+//             Ast::Use { token_group_idx } => f
+//                 .debug_struct("Use")
+//                 .field("token_group_idx", token_group_idx)
+//                 .finish(),
+//             Ast::Decor { token_group_idx } => f
+//                 .debug_struct("Decor")
+//                 .field("token_group_idx", token_group_idx)
+//                 .finish(),
+//             Ast::BasicStmtOrBranch {
+//                 token_group_idx,
+//                 body,
+//             } => f
+//                 .debug_struct("Stmt")
+//                 .field("token_group_idx", token_group_idx)
+//                 .field("body", body)
+//                 .finish(),
+//             Ast::IfElseStmts {
+//                 if_branch: if_stmt,
+//                 elif_branches: elif_stmts,
+//                 else_branch: else_stmt,
+//             } => f
+//                 .debug_struct("IfElseStmts")
+//                 .field("if_stmt", if_stmt)
+//                 .field("elif_stmts", elif_stmts)
+//                 .field("else_stmt", else_stmt)
+//                 .finish(),
+//             Ast::MatchStmts {
+//                 pattern_stmt,
+//                 case_stmts,
+//             } => f
+//                 .debug_struct("MatchStmts")
+//                 .field("pattern_stmt", pattern_stmt)
+//                 .field("case_stmts", case_stmts)
+//                 .finish(),
+//             Ast::Defn {
+//                 token_group_idx,
+//                 body,
+//                 accessibility,
+//                 entity_kind,
+//                 entity_path,
+//                 ident_token,
+//                 is_generic,
+//                 body_kind,
+//                 saved_stream_state,
+//             } => f
+//                 .debug_struct("Defn")
+//                 .field("token_group_idx", token_group_idx)
+//                 .field("body", body)
+//                 .field("accessibility", accessibility)
+//                 .field("entity_kind", entity_kind)
+//                 .field(
+//                     "entity_path",
+//                     &entity_path.debug_with(db, include_all_fields),
+//                 )
+//                 .field(
+//                     "ident_token",
+//                     &ident_token.debug_with(db, include_all_fields),
+//                 )
+//                 .field("is_generic", is_generic)
+//                 .field("body_kind", body_kind)
+//                 .field("saved_stream_state", saved_stream_state)
+//                 .finish(),
+//             Ast::ModuleItemVariant {
+//                 token_group_idx,
+//                 module_item_variant_path,
+//                 ident,
+//             } => f
+//                 .debug_struct("ModuleItemVariant")
+//                 .field(
+//                     "module_item_variant_path",
+//                     &module_item_variant_path.debug_with(db, include_all_fields),
+//                 )
+//                 .finish(),
+//             Ast::Impl {
+//                 token_group_idx,
+//                 body,
+//             } => f
+//                 .debug_struct("Impl")
+//                 .field("token_group_idx", token_group_idx)
+//                 .field("body", body)
+//                 .finish(),
+//             Ast::Main {
+//                 token_group_idx,
+//                 body,
+//             } => f
+//                 .debug_struct("Main")
+//                 .field("token_group_idx", token_group_idx)
+//                 .field("body", body)
+//                 .finish(),
+//             Ast::Config {
+//                 token_group_idx,
+//                 body,
+//             } => f
+//                 .debug_struct("Config")
+//                 .field("token_group_idx", token_group_idx)
+//                 .field("body", body)
+//                 .finish(),
+//         }
+//     }
+// }
 
 impl<Db: AstDb> salsa::DebugWithDb<Db> for AstSheet {
     fn fmt(

@@ -23,7 +23,13 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: `Output`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 48,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             13,
                         ),
@@ -55,7 +61,13 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: `add`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 38,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             16,
                         ),
@@ -90,10 +102,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TraitPath(`std::ops::Add`),
+                        ModuleItem(
+                            Trait(
+                                TraitPath(
+                                    Id {
+                                        value: 10,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `Add`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 37,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             7,
                         ),

@@ -2,7 +2,7 @@ Ok(
     AstSheet {
         arena: Arena {
             data: [
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
@@ -10,7 +10,7 @@ Ok(
                         0..0,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         13,
                     ),
@@ -18,7 +18,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         14,
                     ),
@@ -26,7 +26,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         12,
                     ),
@@ -34,7 +34,7 @@ Ok(
                         1..3,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         11,
                     ),
@@ -43,13 +43,13 @@ Ok(
                     ),
                 },
                 IfElseStmts {
-                    if_stmt: 3,
-                    elif_stmts: ArenaIdxRange(
+                    if_branch: 3,
+                    elif_branches: ArenaIdxRange(
                         4..4,
                     ),
-                    else_stmt: None,
+                    else_branch: None,
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
@@ -57,7 +57,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         9,
                     ),
@@ -65,7 +65,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         10,
                     ),
@@ -73,7 +73,7 @@ Ok(
                         4..6,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         15,
                     ),
@@ -81,7 +81,7 @@ Ok(
                         6..6,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         19,
                     ),
@@ -89,7 +89,7 @@ Ok(
                         10..10,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         17,
                     ),
@@ -97,7 +97,7 @@ Ok(
                         10..10,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         18,
                     ),
@@ -105,7 +105,7 @@ Ok(
                         10..11,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         20,
                     ),
@@ -113,7 +113,7 @@ Ok(
                         11..11,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         22,
                     ),
@@ -121,7 +121,7 @@ Ok(
                         14..14,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         24,
                     ),
@@ -129,7 +129,7 @@ Ok(
                         15..15,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         26,
                     ),
@@ -137,7 +137,7 @@ Ok(
                         16..16,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         28,
                     ),
@@ -185,10 +185,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                        ModuleItem(
+                            Form(
+                                FormPath(
+                                    Id {
+                                        value: 61,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `connected_components`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 294,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             32,
                         ),
@@ -214,10 +228,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                        ModuleItem(
+                            Form(
+                                FormPath(
+                                    Id {
+                                        value: 62,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `major_connected_component`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 173,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             44,
                         ),
@@ -243,10 +271,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                        ModuleItem(
+                            Form(
+                                FormPath(
+                                    Id {
+                                        value: 63,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `ignored_connected_components_row_span_sum_sum`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 224,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             94,
                         ),
@@ -272,10 +314,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                        ModuleItem(
+                            Form(
+                                FormPath(
+                                    Id {
+                                        value: 64,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `major_raw_contours`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 403,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             128,
                         ),
@@ -301,10 +357,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                        ModuleItem(
+                            Form(
+                                FormPath(
+                                    Id {
+                                        value: 65,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `major_raw_contour`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 404,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             139,
                         ),
@@ -330,10 +400,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                        ModuleItem(
+                            Form(
+                                FormPath(
+                                    Id {
+                                        value: 66,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `major_line_segment_sketch`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 261,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             151,
                         ),
@@ -359,10 +443,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                        ModuleItem(
+                            Form(
+                                FormPath(
+                                    Id {
+                                        value: 67,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `major_concave_components`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 172,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             160,
                         ),

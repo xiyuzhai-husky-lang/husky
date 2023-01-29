@@ -2,7 +2,7 @@ Ok(
     AstSheet {
         arena: Arena {
             data: [
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
@@ -10,7 +10,7 @@ Ok(
                         0..0,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         10,
                     ),
@@ -18,7 +18,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         20,
                     ),
@@ -26,7 +26,7 @@ Ok(
                         2..2,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         19,
                     ),
@@ -34,7 +34,7 @@ Ok(
                         2..3,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         17,
                     ),
@@ -42,7 +42,7 @@ Ok(
                         2..2,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         18,
                     ),
@@ -51,13 +51,13 @@ Ok(
                     ),
                 },
                 IfElseStmts {
-                    if_stmt: 3,
-                    elif_stmts: ArenaIdxRange(
+                    if_branch: 3,
+                    elif_branches: ArenaIdxRange(
                         4..4,
                     ),
-                    else_stmt: None,
+                    else_branch: None,
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         12,
                     ),
@@ -65,7 +65,7 @@ Ok(
                         2..2,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         13,
                     ),
@@ -73,7 +73,7 @@ Ok(
                         2..2,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         14,
                     ),
@@ -81,7 +81,7 @@ Ok(
                         2..2,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         15,
                     ),
@@ -89,7 +89,7 @@ Ok(
                         2..2,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         16,
                     ),
@@ -97,7 +97,7 @@ Ok(
                         4..7,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         21,
                     ),
@@ -105,7 +105,7 @@ Ok(
                         7..7,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         26,
                     ),
@@ -113,7 +113,7 @@ Ok(
                         13..13,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         27,
                     ),
@@ -121,7 +121,7 @@ Ok(
                         13..13,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         28,
                     ),
@@ -129,7 +129,7 @@ Ok(
                         13..13,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         23,
                     ),
@@ -137,7 +137,7 @@ Ok(
                         13..13,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         24,
                     ),
@@ -145,7 +145,7 @@ Ok(
                         13..13,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         25,
                     ),
@@ -153,7 +153,7 @@ Ok(
                         13..16,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         29,
                     ),
@@ -161,7 +161,7 @@ Ok(
                         16..16,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         37,
                     ),
@@ -169,7 +169,7 @@ Ok(
                         20..20,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         38,
                     ),
@@ -177,7 +177,7 @@ Ok(
                         20..20,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         39,
                     ),
@@ -185,7 +185,7 @@ Ok(
                         20..20,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         40,
                     ),
@@ -193,7 +193,7 @@ Ok(
                         20..20,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         41,
                     ),
@@ -201,7 +201,7 @@ Ok(
                         20..20,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         31,
                     ),
@@ -209,7 +209,7 @@ Ok(
                         20..20,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         32,
                     ),
@@ -217,7 +217,7 @@ Ok(
                         20..20,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         33,
                     ),
@@ -225,7 +225,7 @@ Ok(
                         20..20,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         34,
                     ),
@@ -233,7 +233,7 @@ Ok(
                         20..20,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         35,
                     ),
@@ -241,7 +241,7 @@ Ok(
                         20..20,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         36,
                     ),
@@ -249,7 +249,7 @@ Ok(
                         20..25,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         42,
                     ),
@@ -257,7 +257,7 @@ Ok(
                         25..25,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         44,
                     ),
@@ -265,7 +265,7 @@ Ok(
                         32..32,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         46,
                     ),
@@ -273,7 +273,7 @@ Ok(
                         33..33,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         48,
                     ),
@@ -281,7 +281,7 @@ Ok(
                         34..34,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         50,
                     ),
@@ -289,7 +289,7 @@ Ok(
                         35..35,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         52,
                     ),
@@ -297,7 +297,7 @@ Ok(
                         36..36,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         54,
                     ),
@@ -305,7 +305,7 @@ Ok(
                         37..37,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         56,
                     ),
@@ -334,7 +334,13 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: `norm`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 209,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             53,
                         ),
@@ -366,7 +372,13 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: `rel_norm`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 228,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             61,
                         ),
@@ -398,7 +410,13 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: `hausdorff_norm`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 334,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             79,
                         ),
@@ -430,7 +448,13 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: `angle_change`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 211,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             166,
                         ),
@@ -462,7 +486,13 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: `bounding_box`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 262,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             237,
                         ),
@@ -494,7 +524,13 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: `relative_bounding_box`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 185,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             366,
                         ),
@@ -526,7 +562,13 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: `line_segment`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 94,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             383,
                         ),
@@ -558,7 +600,13 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: `start`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 189,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             420,
                         ),
@@ -590,7 +638,13 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: `end`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 190,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             440,
                         ),
@@ -622,7 +676,13 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: `displacement`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 206,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             460,
                         ),
@@ -654,7 +714,13 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: `start_tangent`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 244,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             476,
                         ),
@@ -686,7 +752,13 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: `end_tangent`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 247,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             494,
                         ),
@@ -713,7 +785,7 @@ Ok(
                     ),
                     error: ExcessiveIndent,
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         65,
                     ),
@@ -721,7 +793,7 @@ Ok(
                         53..53,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         69,
                     ),
@@ -729,7 +801,7 @@ Ok(
                         54..54,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         71,
                     ),
@@ -737,7 +809,7 @@ Ok(
                         55..55,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         70,
                     ),
@@ -745,7 +817,7 @@ Ok(
                         55..56,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         68,
                     ),
@@ -754,13 +826,13 @@ Ok(
                     ),
                 },
                 IfElseStmts {
-                    if_stmt: 56,
-                    elif_stmts: ArenaIdxRange(
+                    if_branch: 56,
+                    elif_branches: ArenaIdxRange(
                         57..57,
                     ),
-                    else_stmt: None,
+                    else_branch: None,
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         72,
                     ),
@@ -768,7 +840,7 @@ Ok(
                         57..57,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         73,
                     ),
@@ -776,7 +848,7 @@ Ok(
                         57..57,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         60,
                     ),
@@ -784,7 +856,7 @@ Ok(
                         53..53,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         61,
                     ),
@@ -792,7 +864,7 @@ Ok(
                         53..53,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         62,
                     ),
@@ -800,7 +872,7 @@ Ok(
                         53..53,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         63,
                     ),
@@ -808,7 +880,7 @@ Ok(
                         53..53,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         64,
                     ),
@@ -816,7 +888,7 @@ Ok(
                         53..54,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         66,
                     ),
@@ -824,7 +896,7 @@ Ok(
                         54..54,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         67,
                     ),
@@ -832,7 +904,7 @@ Ok(
                         57..61,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         74,
                     ),
@@ -880,10 +952,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                        ModuleItem(
+                            Type(
+                                TypePath(
+                                    Id {
+                                        value: 27,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `ConcaveComponent`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 184,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             34,
                         ),
@@ -917,10 +1003,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                        ModuleItem(
+                            Form(
+                                FormPath(
+                                    Id {
+                                        value: 54,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `find_concave_components`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 344,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             516,
                         ),

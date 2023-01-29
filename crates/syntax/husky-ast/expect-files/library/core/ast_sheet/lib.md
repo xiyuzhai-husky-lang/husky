@@ -18,10 +18,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::basic`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 2,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `basic`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             1,
                         ),
@@ -48,10 +60,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::logic`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 6,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `logic`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 5,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             3,
                         ),
@@ -78,10 +102,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::num`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 8,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `num`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 7,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             5,
                         ),
@@ -108,10 +144,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::ops`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 9,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `ops`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 8,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             7,
                         ),
@@ -138,10 +186,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::prelude`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 10,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `prelude`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 9,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             9,
                         ),
@@ -168,10 +228,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::raw_bits`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 11,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `raw_bits`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 10,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             11,
                         ),
@@ -198,10 +270,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::fmt`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 5,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `fmt`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             13,
                         ),
@@ -228,10 +312,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::clone`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 3,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `clone`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 2,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             15,
                         ),
@@ -258,10 +354,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::marker`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 7,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `marker`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 6,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             17,
                         ),
@@ -288,10 +396,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::vec`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 12,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `vec`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 11,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             19,
                         ),
@@ -318,10 +438,22 @@ Ok(
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        `core::cmp`,
+                        Module(
+                            ModulePath(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `cmp`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 3,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             21,
                         ),

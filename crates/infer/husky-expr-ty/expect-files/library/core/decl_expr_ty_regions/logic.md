@@ -2,7 +2,15 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                TypePath(`core::logic::Prop`, `Alien`),
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 4,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: [],
@@ -10,7 +18,15 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                TypePath(`core::logic::LogicAnd`, `Structure`),
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 5,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: [],
@@ -18,7 +34,15 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                TypePath(`core::logic::LogicOr`, `Inductive`),
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 6,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: [],

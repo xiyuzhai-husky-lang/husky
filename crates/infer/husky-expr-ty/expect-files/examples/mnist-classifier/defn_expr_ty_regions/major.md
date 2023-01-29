@@ -2,7 +2,15 @@
     ExprTypeRegion {
         path: Defn(
             Entity(
-                FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 64,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: [],
@@ -10,7 +18,15 @@
     ExprTypeRegion {
         path: Defn(
             Entity(
-                FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 65,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: [],
@@ -18,7 +34,15 @@
     ExprTypeRegion {
         path: Defn(
             Entity(
-                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 66,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: [],
@@ -26,7 +50,15 @@
     ExprTypeRegion {
         path: Defn(
             Entity(
-                FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 67,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: [],
@@ -34,7 +66,15 @@
     ExprTypeRegion {
         path: Defn(
             Entity(
-                FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 68,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: [],
@@ -42,7 +82,15 @@
     ExprTypeRegion {
         path: Defn(
             Entity(
-                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 69,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: [],
@@ -50,7 +98,15 @@
     ExprTypeRegion {
         path: Defn(
             Entity(
-                FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 70,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: [],

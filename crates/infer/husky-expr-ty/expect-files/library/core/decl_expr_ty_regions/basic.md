@@ -2,7 +2,15 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                TypePath(`core::basic::bool`, `Alien`),
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: [],
@@ -10,7 +18,15 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                TypePath(`core::basic::Trait`, `Structure`),
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 2,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: [],
@@ -18,7 +34,15 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                TypePath(`core::basic::Module`, `Structure`),
+                ModuleItem(
+                    Type(
+                        TypePath(
+                            Id {
+                                value: 3,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
         expr_ty_infos: [],

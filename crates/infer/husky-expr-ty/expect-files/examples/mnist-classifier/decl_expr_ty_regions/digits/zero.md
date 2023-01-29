@@ -2,22 +2,104 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 25,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        ExprError,
+                    ),
+                ),
+                opt_expectation: None,
+            },
+        ],
     },
     ExprTypeRegion {
         path: Decl(
             Entity(
-                FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        Application(
+                            TermApplication(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                opt_expectation: None,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        Application(
+                            TermApplication(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                opt_expectation: None,
+            },
+        ],
     },
     ExprTypeRegion {
         path: Decl(
             Entity(
-                FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        ExprError,
+                    ),
+                ),
+                opt_expectation: None,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        PrefixOperandTypeNotInferred,
+                    ),
+                ),
+                opt_expectation: None,
+            },
+        ],
     },
 ]

@@ -2,36 +2,174 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                FormPath(`mnist_classifier::digits::nine::nine_match`, `Feature`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 59,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        ExprError,
+                    ),
+                ),
+                opt_expectation: None,
+            },
+        ],
     },
     ExprTypeRegion {
         path: Decl(
             Entity(
-                FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Feature`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 60,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        ExprError,
+                    ),
+                ),
+                opt_expectation: None,
+            },
+        ],
     },
     ExprTypeRegion {
         path: Decl(
             Entity(
-                FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 61,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        ExprError,
+                    ),
+                ),
+                opt_expectation: None,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        PrefixOperandTypeNotInferred,
+                    ),
+                ),
+                opt_expectation: None,
+            },
+        ],
     },
     ExprTypeRegion {
         path: Decl(
             Entity(
-                FormPath(`mnist_classifier::digits::nine::downmost`, `Function`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 62,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        Application(
+                            TermApplication(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                opt_expectation: None,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        Application(
+                            TermApplication(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                opt_expectation: None,
+            },
+        ],
     },
     ExprTypeRegion {
         path: Decl(
             Entity(
-                FormPath(`mnist_classifier::digits::nine::big_cc`, `Function`),
+                ModuleItem(
+                    Form(
+                        FormPath(
+                            Id {
+                                value: 63,
+                            },
+                        ),
+                    ),
+                ),
             ),
         ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        Application(
+                            TermApplication(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                opt_expectation: None,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    Resolved(
+                        Application(
+                            TermApplication(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                opt_expectation: None,
+            },
+        ],
     },
 ]

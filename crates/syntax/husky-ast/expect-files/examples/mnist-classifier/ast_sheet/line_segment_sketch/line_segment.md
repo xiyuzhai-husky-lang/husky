@@ -2,7 +2,7 @@ Ok(
     AstSheet {
         arena: Arena {
             data: [
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
@@ -10,7 +10,7 @@ Ok(
                         0..0,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         9,
                     ),
@@ -18,7 +18,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
@@ -26,7 +26,7 @@ Ok(
                         1..2,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         13,
                     ),
@@ -34,7 +34,7 @@ Ok(
                         3..3,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         12,
                     ),
@@ -42,7 +42,7 @@ Ok(
                         3..4,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         15,
                     ),
@@ -50,7 +50,7 @@ Ok(
                         5..5,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         14,
                     ),
@@ -58,7 +58,7 @@ Ok(
                         5..6,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         11,
                     ),
@@ -67,15 +67,15 @@ Ok(
                     ),
                 },
                 IfElseStmts {
-                    if_stmt: 4,
-                    elif_stmts: ArenaIdxRange(
+                    if_branch: 4,
+                    elif_branches: ArenaIdxRange(
                         5..5,
                     ),
-                    else_stmt: Some(
+                    else_branch: Some(
                         6,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         10,
                     ),
@@ -83,7 +83,7 @@ Ok(
                         7..9,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
@@ -91,7 +91,7 @@ Ok(
                         1..1,
                     ),
                 },
-                Stmt {
+                BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         7,
                     ),
@@ -100,11 +100,11 @@ Ok(
                     ),
                 },
                 IfElseStmts {
-                    if_stmt: 2,
-                    elif_stmts: ArenaIdxRange(
+                    if_branch: 2,
+                    elif_branches: ArenaIdxRange(
                         3..3,
                     ),
-                    else_stmt: Some(
+                    else_branch: Some(
                         9,
                     ),
                 },
@@ -129,7 +129,13 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: `displacement`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 206,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             23,
                         ),
@@ -161,7 +167,13 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: `dist_to_point`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 339,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             40,
                         ),
@@ -192,10 +204,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                        ModuleItem(
+                            Type(
+                                TypePath(
+                                    Id {
+                                        value: 29,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `LineSegment`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 342,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             8,
                         ),

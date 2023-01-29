@@ -44,10 +44,24 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                        ModuleItem(
+                            Type(
+                                TypePath(
+                                    Id {
+                                        value: 28,
+                                    },
+                                ),
+                            ),
+                        ),
                     ),
                     ident_token: IdentifierToken {
-                        ident: `ConvexComponent`,
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 349,
+                                },
+                            ),
+                        ),
                         token_idx: TokenIdx(
                             7,
                         ),
