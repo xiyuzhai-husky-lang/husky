@@ -105,12 +105,8 @@ Ok(
                     body: ArenaIdxRange(
                         1..4,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 32,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::fermi`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -119,13 +115,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 209,
-                                },
-                            ),
-                        ),
+                        ident: `norm`,
                         token_idx: TokenIdx(
                             27,
                         ),
@@ -143,12 +133,8 @@ Ok(
                     body: ArenaIdxRange(
                         5..8,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 32,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::fermi`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -157,13 +143,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 228,
-                                },
-                            ),
-                        ),
+                        ident: `rel_norm`,
                         token_idx: TokenIdx(
                             65,
                         ),
@@ -181,12 +161,8 @@ Ok(
                     body: ArenaIdxRange(
                         9..12,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 32,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::fermi`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -195,13 +171,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 226,
-                                },
-                            ),
-                        ),
+                        ident: `angle_change_norm`,
                         token_idx: TokenIdx(
                             103,
                         ),
@@ -272,12 +242,8 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 32,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::fermi`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
@@ -286,24 +252,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 177,
-                                },
-                            ),
-                        ),
+                        ident: `FermiMatchResult`,
                         token_idx: TokenIdx(
                             5,
                         ),
@@ -337,24 +289,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 53,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 178,
-                                },
-                            ),
-                        ),
+                        ident: `fermi_match`,
                         token_idx: TokenIdx(
                             146,
                         ),

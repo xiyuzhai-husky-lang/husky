@@ -339,12 +339,8 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 24,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::four`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -353,24 +349,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 12,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::digits::four::left_components`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 195,
-                                },
-                            ),
-                        ),
+                        ident: `left_components`,
                         token_idx: TokenIdx(
                             63,
                         ),
@@ -388,12 +370,8 @@ Ok(
                     body: ArenaIdxRange(
                         1..2,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 24,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::four`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -402,24 +380,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 13,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 196,
-                                },
-                            ),
-                        ),
+                        ident: `left_coordinate_max`,
                         token_idx: TokenIdx(
                             78,
                         ),
@@ -437,12 +401,8 @@ Ok(
                     body: ArenaIdxRange(
                         2..3,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 24,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::four`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -451,24 +411,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 198,
-                                },
-                            ),
-                        ),
+                        ident: `components_max_downwards`,
                         token_idx: TokenIdx(
                             97,
                         ),
@@ -486,12 +432,8 @@ Ok(
                     body: ArenaIdxRange(
                         3..4,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 24,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::four`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -500,24 +442,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 15,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::digits::four::components_max_heights`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 200,
-                                },
-                            ),
-                        ),
+                        ident: `components_max_heights`,
                         token_idx: TokenIdx(
                             110,
                         ),
@@ -535,12 +463,8 @@ Ok(
                     body: ArenaIdxRange(
                         19..30,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 24,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::four`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -549,24 +473,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 16,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 202,
-                                },
-                            ),
-                        ),
+                        ident: `is_four`,
                         token_idx: TokenIdx(
                             123,
                         ),
@@ -584,12 +494,8 @@ Ok(
                     body: ArenaIdxRange(
                         30..33,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 24,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::four`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -598,24 +504,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 199,
-                                },
-                            ),
-                        ),
+                        ident: `displacement_downwards`,
                         token_idx: TokenIdx(
                             305,
                         ),
@@ -633,12 +525,8 @@ Ok(
                     body: ArenaIdxRange(
                         33..37,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 24,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::digits::four`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -647,24 +535,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 201,
-                                },
-                            ),
-                        ),
+                        ident: `cc_box_heights`,
                         token_idx: TokenIdx(
                             334,
                         ),

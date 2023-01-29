@@ -2,15 +2,7 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                ModuleItem(
-                    Trait(
-                        TraitPath(
-                            Id {
-                                value: 4,
-                            },
-                        ),
-                    ),
-                ),
+                TraitPath(`core::marker::Copy`),
             ),
         ),
         expr_ty_infos: [],
@@ -18,15 +10,7 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                ModuleItem(
-                    Trait(
-                        TraitPath(
-                            Id {
-                                value: 5,
-                            },
-                        ),
-                    ),
-                ),
+                TraitPath(`core::marker::Sized`),
             ),
         ),
         expr_ty_infos: [],

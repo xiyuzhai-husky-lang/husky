@@ -2,15 +2,7 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                ModuleItem(
-                    Type(
-                        TypePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
-                    ),
-                ),
+                TypePath(`core::raw_bits::r32`, `Alien`),
             ),
         ),
         expr_ty_infos: [],

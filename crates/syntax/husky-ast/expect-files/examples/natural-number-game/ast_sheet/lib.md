@@ -9,12 +9,8 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 41,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `natural_number_game`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -23,13 +19,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 38,
-                                },
-                            ),
-                        ),
+                        ident: `add`,
                         token_idx: TokenIdx(
                             13,
                         ),
@@ -59,12 +49,8 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 41,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `natural_number_game`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
@@ -73,24 +59,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 35,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`natural_number_game::Nat`, `Inductive`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 452,
-                                },
-                            ),
-                        ),
+                        ident: `Nat`,
                         token_idx: TokenIdx(
                             1,
                         ),
@@ -144,12 +116,8 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 41,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `natural_number_game`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
@@ -158,24 +126,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 36,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`natural_number_game::OddNat`, `Structure`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 455,
-                                },
-                            ),
-                        ),
+                        ident: `OddNat`,
                         token_idx: TokenIdx(
                             85,
                         ),
@@ -193,12 +147,8 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 41,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `natural_number_game`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
@@ -207,24 +157,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 37,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`natural_number_game::EvenNat`, `Structure`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 458,
-                                },
-                            ),
-                        ),
+                        ident: `EvenNat`,
                         token_idx: TokenIdx(
                             114,
                         ),

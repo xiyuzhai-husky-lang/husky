@@ -30,7 +30,7 @@ use salsa::DbWithJar;
 pub struct AstJar(ast_sheet, ast_range_sheet);
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(jar = AstJar)]
+#[salsa::derive_debug_with_db(db = AstDb, jar = AstJar)]
 pub enum Ast {
     Err {
         token_group_idx: TokenGroupIdx,

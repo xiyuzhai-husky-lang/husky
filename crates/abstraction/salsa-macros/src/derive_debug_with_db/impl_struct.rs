@@ -2,25 +2,21 @@ use super::*;
 use syn::Fields;
 
 pub(super) fn struct_debug_with_db_impl(
-    jar_ty: &Type,
+    db_path: &Path,
     item: &ItemStruct,
 ) -> proc_macro2::TokenStream {
     let ident = &item.ident;
     let ident_string = ident.to_string();
 
     let body = match item.fields {
-        syn::Fields::Named(_) => {
-            struct_regular_fields_debug_with_db(jar_ty, &item.ident, &item.fields)
-        }
-        syn::Fields::Unnamed(_) => {
-            struct_tuple_fields_debug_with_db(jar_ty, &item.ident, &item.fields)
-        }
+        syn::Fields::Named(_) => struct_regular_fields_debug_with_db(&item.ident, &item.fields),
+        syn::Fields::Unnamed(_) => struct_tuple_fields_debug_with_db(&item.ident, &item.fields),
         syn::Fields::Unit => todo!("unit struct debug with db"),
     };
 
     quote! {
-        impl<DB: ::salsa::DbWithJar<#jar_ty> + ?Sized> ::salsa::DebugWithDb<DB> for #ident {
-            fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &DB, _include_all_fields: bool) -> ::std::fmt::Result {
+        impl<_Db:  #db_path + ?Sized> ::salsa::DebugWithDb<_Db> for #ident {
+            fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &_Db, _include_all_fields: bool) -> ::std::fmt::Result {
                 #[allow(unused_imports)]
                 use ::salsa::debug::helper::Fallback;
                 #body
@@ -29,11 +25,7 @@ pub(super) fn struct_debug_with_db_impl(
     }
 }
 
-fn struct_regular_fields_debug_with_db(
-    jar_ty: &Type,
-    ident: &Ident,
-    fields: &Fields,
-) -> proc_macro2::TokenStream {
+fn struct_regular_fields_debug_with_db(ident: &Ident, fields: &Fields) -> proc_macro2::TokenStream {
     let ident_string = ident.to_string();
     // `::salsa::debug::helper::SalsaDebug` will use `DebugWithDb` or fallbak to `Debug`
     let fields = fields
@@ -47,7 +39,7 @@ fn struct_regular_fields_debug_with_db(
             let field_debug = quote_spanned! { field.span() =>
                 debug_struct = debug_struct.field(
                     #field_ident_string,
-                    &::salsa::debug::helper::SalsaDebug::<#field_ty, DB>::salsa_debug(
+                    &::salsa::debug::helper::SalsaDebug::<#field_ty, _Db>::salsa_debug(
                         #[allow(clippy::needless_borrow)]
                         &self.#field_ident,
                         _db,
@@ -71,11 +63,7 @@ fn struct_regular_fields_debug_with_db(
     }
 }
 
-fn struct_tuple_fields_debug_with_db(
-    jar_ty: &Type,
-    ident: &Ident,
-    fields: &Fields,
-) -> proc_macro2::TokenStream {
+fn struct_tuple_fields_debug_with_db(ident: &Ident, fields: &Fields) -> proc_macro2::TokenStream {
     let ident_string = ident.to_string();
     // `::salsa::debug::helper::SalsaDebug` will use `DebugWithDb` or fallbak to `Debug`
     let fields = fields
@@ -90,7 +78,7 @@ fn struct_tuple_fields_debug_with_db(
 
             let field_debug = quote_spanned! { field.span() =>
                 debug_tuple = debug_tuple.field(
-                    &::salsa::debug::helper::SalsaDebug::<#field_ty, DB>::salsa_debug(
+                    &::salsa::debug::helper::SalsaDebug::<#field_ty, _Db>::salsa_debug(
                         #[allow(clippy::needless_borrow)]
                         &self.#field_idx,
                         _db,

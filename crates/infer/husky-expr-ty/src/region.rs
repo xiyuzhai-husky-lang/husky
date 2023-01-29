@@ -1,7 +1,7 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(jar = ExprTypeJar)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb, jar = ExprTypeJar)]
 pub struct ExprTypeRegion {
     path: RegionPath,
     expr_ty_infos: ExprMap<ExprTypeInfo>,
@@ -17,7 +17,7 @@ impl ExprTypeRegion {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(jar = ExprTypeJar)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb, jar = ExprTypeJar)]
 pub(crate) struct ExprTypeInfo {
     ty_result: ExprTypeResult<LocalTerm>,
     opt_expectation: OptionExpectationIdx,

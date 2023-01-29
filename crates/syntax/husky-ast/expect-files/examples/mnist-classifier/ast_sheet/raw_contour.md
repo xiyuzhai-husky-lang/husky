@@ -225,12 +225,8 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -239,13 +235,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 90,
-                                },
-                            ),
-                        ),
+                        ident: `line_segment_sketch`,
                         token_idx: TokenIdx(
                             46,
                         ),
@@ -263,12 +253,8 @@ Ok(
                     body: ArenaIdxRange(
                         6..13,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -277,13 +263,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 262,
-                                },
-                            ),
-                        ),
+                        ident: `bounding_box`,
                         token_idx: TokenIdx(
                             59,
                         ),
@@ -301,12 +281,8 @@ Ok(
                     body: ArenaIdxRange(
                         13..14,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -315,13 +291,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 185,
-                                },
-                            ),
-                        ),
+                        ident: `relative_bounding_box`,
                         token_idx: TokenIdx(
                             179,
                         ),
@@ -339,12 +309,8 @@ Ok(
                     body: ArenaIdxRange(
                         17..23,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -353,13 +319,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 129,
-                                },
-                            ),
-                        ),
+                        ident: `contour_len`,
                         token_idx: TokenIdx(
                             201,
                         ),
@@ -377,12 +337,8 @@ Ok(
                     body: ArenaIdxRange(
                         23..27,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -391,13 +347,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 206,
-                                },
-                            ),
-                        ),
+                        ident: `displacement`,
                         token_idx: TokenIdx(
                             330,
                         ),
@@ -1693,24 +1643,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 32,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 126,
-                                },
-                            ),
-                        ),
+                        ident: `RawContour`,
                         token_idx: TokenIdx(
                             28,
                         ),
@@ -1736,12 +1672,8 @@ Ok(
                     body: ArenaIdxRange(
                         34..34,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
@@ -1750,24 +1682,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 33,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 409,
-                                },
-                            ),
-                        ),
+                        ident: `Direction`,
                         token_idx: TokenIdx(
                             394,
                         ),
@@ -1809,12 +1727,8 @@ Ok(
                     body: ArenaIdxRange(
                         34..35,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -1823,24 +1737,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 68,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 414,
-                                },
-                            ),
-                        ),
+                        ident: `get_pixel_pair`,
                         token_idx: TokenIdx(
                             404,
                         ),
@@ -1858,12 +1758,8 @@ Ok(
                     body: ArenaIdxRange(
                         35..36,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -1872,24 +1768,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 69,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 416,
-                                },
-                            ),
-                        ),
+                        ident: `get_pixel_to_the_left`,
                         token_idx: TokenIdx(
                             429,
                         ),
@@ -1907,12 +1789,8 @@ Ok(
                     body: ArenaIdxRange(
                         36..37,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -1921,24 +1799,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 70,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 417,
-                                },
-                            ),
-                        ),
+                        ident: `get_pixel_to_the_right`,
                         token_idx: TokenIdx(
                             450,
                         ),
@@ -1956,12 +1820,8 @@ Ok(
                     body: ArenaIdxRange(
                         62..65,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -1970,24 +1830,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 71,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 418,
-                                },
-                            ),
-                        ),
+                        ident: `get_inward_direction`,
                         token_idx: TokenIdx(
                             475,
                         ),
@@ -2005,12 +1851,8 @@ Ok(
                     body: ArenaIdxRange(
                         71..73,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -2019,24 +1861,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 72,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 425,
-                                },
-                            ),
-                        ),
+                        ident: `get_angle_change`,
                         token_idx: TokenIdx(
                             621,
                         ),
@@ -2054,12 +1882,8 @@ Ok(
                     body: ArenaIdxRange(
                         115..118,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -2068,24 +1892,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 73,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 430,
-                                },
-                            ),
-                        ),
+                        ident: `get_outward_direction`,
                         token_idx: TokenIdx(
                             685,
                         ),
@@ -2103,12 +1913,8 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
@@ -2117,24 +1923,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 34,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 432,
-                                },
-                            ),
-                        ),
+                        ident: `StreakCache`,
                         token_idx: TokenIdx(
                             912,
                         ),
@@ -2152,12 +1944,8 @@ Ok(
                     body: ArenaIdxRange(
                         118..122,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -2166,24 +1954,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 74,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 435,
-                                },
-                            ),
-                        ),
+                        ident: `get_concave_middle_point`,
                         token_idx: TokenIdx(
                             924,
                         ),
@@ -2201,12 +1975,8 @@ Ok(
                     body: ArenaIdxRange(
                         190..195,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -2215,24 +1985,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 75,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 101,
-                                },
-                            ),
-                        ),
+                        ident: `find_raw_contours`,
                         token_idx: TokenIdx(
                             989,
                         ),

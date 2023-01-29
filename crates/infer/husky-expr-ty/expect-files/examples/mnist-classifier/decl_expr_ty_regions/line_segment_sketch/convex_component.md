@@ -2,15 +2,7 @@
     ExprTypeRegion {
         path: Decl(
             Entity(
-                ModuleItem(
-                    Type(
-                        TypePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
-                    ),
-                ),
+                TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
             ),
         ),
         expr_ty_infos: [
@@ -63,11 +55,25 @@
     ExprTypeRegion {
         path: Decl(
             ImplBlock(
-                ImplBlock(
-                    Id {
-                        value: 27,
+                ImplBlock {
+                    id: ImplBlockId {
+                        module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                        impl_block_kind: Type {
+                            ty: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                        },
                     },
-                ),
+                    ast_idx: 4,
+                    body: ArenaIdxRange(
+                        0..2,
+                    ),
+                    variant: Type {
+                        ty: TypePath(
+                            Id {
+                                value: 40,
+                            },
+                        ),
+                    },
+                },
             ),
         ),
         expr_ty_infos: [

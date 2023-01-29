@@ -9,6 +9,7 @@ pub use unit::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = DeclDb, jar = DeclJar)]
 pub enum VariantDecl {
     Props(PropsVariantDecl),
     Unit(UnitVariantDecl),
@@ -16,17 +17,6 @@ pub enum VariantDecl {
 }
 impl VariantDecl {
     pub(crate) fn ast_idx(&self, db: &dyn DeclDb) -> AstIdx {
-        todo!()
-    }
-}
-
-impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for VariantDecl {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
         todo!()
     }
 }

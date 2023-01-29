@@ -28,24 +28,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 15,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`core::raw_bits::r32`, `Alien`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 49,
-                                },
-                            ),
-                        ),
+                        ident: `r32`,
                         token_idx: TokenIdx(
                             22,
                         ),

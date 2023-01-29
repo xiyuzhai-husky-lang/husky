@@ -19,14 +19,14 @@ pub(crate) fn derive_debug_with_db(
     input: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
     let options = syn::parse_macro_input!(args as Args);
-    let jar_ty = match options.jar_ty {
-        Some(jar_ty) => jar_ty,
-        None => panic!("no `jar` specified"),
+    let db_path = match options.db_path {
+        Some(db_path) => db_path,
+        None => panic!("no `db` specified"),
     };
     let item = syn::parse_macro_input!(input as Item);
     let impl_debug_with_db = match item {
-        Item::Enum(ref item) => enum_debug_with_db_impl(&jar_ty, item),
-        Item::Struct(ref item) => struct_debug_with_db_impl(&jar_ty, item),
+        Item::Enum(ref item) => enum_debug_with_db_impl(&db_path, item),
+        Item::Struct(ref item) => struct_debug_with_db_impl(&db_path, item),
         _ => panic!("expect enum or struct for `derive_debug_with_db`"),
     };
     quote! {
@@ -54,7 +54,7 @@ impl crate::options::AllowedOptions for DeriveDebugWithDb {
 
     const DATA: bool = false;
 
-    const DB: bool = false;
+    const DB: bool = true;
 
     const RECOVERY_FN: bool = false;
 

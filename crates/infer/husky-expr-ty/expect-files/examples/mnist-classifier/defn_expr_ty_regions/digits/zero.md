@@ -2,15 +2,7 @@
     ExprTypeRegion {
         path: Defn(
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 25,
-                            },
-                        ),
-                    ),
-                ),
+                FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
             ),
         ),
         expr_ty_infos: [],
@@ -18,15 +10,7 @@
     ExprTypeRegion {
         path: Defn(
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 26,
-                            },
-                        ),
-                    ),
-                ),
+                FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
             ),
         ),
         expr_ty_infos: [],
@@ -34,15 +18,7 @@
     ExprTypeRegion {
         path: Defn(
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 27,
-                            },
-                        ),
-                    ),
-                ),
+                FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
             ),
         ),
         expr_ty_infos: [],

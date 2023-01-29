@@ -2,15 +2,7 @@
     ExprTypeRegion {
         path: Defn(
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 56,
-                            },
-                        ),
-                    ),
-                ),
+                FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Feature`),
             ),
         ),
         expr_ty_infos: [],
@@ -18,15 +10,7 @@
     ExprTypeRegion {
         path: Defn(
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 57,
-                            },
-                        ),
-                    ),
-                ),
+                FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
             ),
         ),
         expr_ty_infos: [],
@@ -34,15 +18,7 @@
     ExprTypeRegion {
         path: Defn(
             Entity(
-                ModuleItem(
-                    Form(
-                        FormPath(
-                            Id {
-                                value: 58,
-                            },
-                        ),
-                    ),
-                ),
+                FormPath(`mnist_classifier::digits::eight::big_mouth`, `Function`),
             ),
         ),
         expr_ty_infos: [],

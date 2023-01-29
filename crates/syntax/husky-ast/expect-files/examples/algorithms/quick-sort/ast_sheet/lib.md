@@ -257,24 +257,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`quick_sort::quick_sort`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 53,
-                                },
-                            ),
-                        ),
+                        ident: `quick_sort`,
                         token_idx: TokenIdx(
                             2,
                         ),
@@ -292,12 +278,8 @@ Ok(
                     body: ArenaIdxRange(
                         6..7,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 17,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `quick_sort`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -306,24 +288,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`quick_sort::quick_sort_aux`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 57,
-                                },
-                            ),
-                        ),
+                        ident: `quick_sort_aux`,
                         token_idx: TokenIdx(
                             41,
                         ),
@@ -341,12 +309,8 @@ Ok(
                     body: ArenaIdxRange(
                         18..24,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 17,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `quick_sort`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -355,24 +319,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 3,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`quick_sort::partition`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 62,
-                                },
-                            ),
-                        ),
+                        ident: `partition`,
                         token_idx: TokenIdx(
                             102,
                         ),
@@ -396,12 +346,8 @@ Ok(
                     body: ArenaIdxRange(
                         24..27,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 17,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `quick_sort`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -410,24 +356,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 4,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 69,
-                                },
-                            ),
-                        ),
+                        ident: `quick_sort_works_for_integers`,
                         token_idx: TokenIdx(
                             227,
                         ),
@@ -451,12 +383,8 @@ Ok(
                     body: ArenaIdxRange(
                         27..30,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 17,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `quick_sort`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -465,24 +393,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 71,
-                                },
-                            ),
-                        ),
+                        ident: `quick_sort_works_for_strs`,
                         token_idx: TokenIdx(
                             287,
                         ),

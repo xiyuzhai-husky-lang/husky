@@ -9,12 +9,8 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 9,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `core::ops`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
@@ -23,13 +19,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
-                        ),
+                        ident: `Output`,
                         token_idx: TokenIdx(
                             15,
                         ),
@@ -47,12 +37,8 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 9,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `core::ops`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
@@ -61,13 +47,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 38,
-                                },
-                            ),
-                        ),
+                        ident: `add`,
                         token_idx: TokenIdx(
                             17,
                         ),
@@ -96,24 +76,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Trait(
-                                TraitPath(
-                                    Id {
-                                        value: 9,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TraitPath(`core::ops::Add`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 37,
-                                },
-                            ),
-                        ),
+                        ident: `Add`,
                         token_idx: TokenIdx(
                             9,
                         ),

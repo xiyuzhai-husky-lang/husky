@@ -9,31 +9,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `core`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            ModulePath(
-                                Id {
-                                    value: 2,
-                                },
-                            ),
-                        ),
+                        `core::basic`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 1,
-                                },
-                            ),
-                        ),
+                        ident: `basic`,
                         token_idx: TokenIdx(
                             1,
                         ),
@@ -51,31 +35,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `core`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            ModulePath(
-                                Id {
-                                    value: 6,
-                                },
-                            ),
-                        ),
+                        `core::logic`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 5,
-                                },
-                            ),
-                        ),
+                        ident: `logic`,
                         token_idx: TokenIdx(
                             3,
                         ),
@@ -93,31 +61,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `core`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            ModulePath(
-                                Id {
-                                    value: 8,
-                                },
-                            ),
-                        ),
+                        `core::num`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 7,
-                                },
-                            ),
-                        ),
+                        ident: `num`,
                         token_idx: TokenIdx(
                             5,
                         ),
@@ -135,31 +87,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `core`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            ModulePath(
-                                Id {
-                                    value: 9,
-                                },
-                            ),
-                        ),
+                        `core::ops`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 8,
-                                },
-                            ),
-                        ),
+                        ident: `ops`,
                         token_idx: TokenIdx(
                             7,
                         ),
@@ -177,31 +113,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `core`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            ModulePath(
-                                Id {
-                                    value: 10,
-                                },
-                            ),
-                        ),
+                        `core::prelude`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 9,
-                                },
-                            ),
-                        ),
+                        ident: `prelude`,
                         token_idx: TokenIdx(
                             9,
                         ),
@@ -219,31 +139,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `core`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            ModulePath(
-                                Id {
-                                    value: 11,
-                                },
-                            ),
-                        ),
+                        `core::raw_bits`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 10,
-                                },
-                            ),
-                        ),
+                        ident: `raw_bits`,
                         token_idx: TokenIdx(
                             11,
                         ),
@@ -261,31 +165,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `core`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            ModulePath(
-                                Id {
-                                    value: 5,
-                                },
-                            ),
-                        ),
+                        `core::fmt`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 4,
-                                },
-                            ),
-                        ),
+                        ident: `fmt`,
                         token_idx: TokenIdx(
                             13,
                         ),
@@ -303,31 +191,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `core`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            ModulePath(
-                                Id {
-                                    value: 3,
-                                },
-                            ),
-                        ),
+                        `core::clone`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 2,
-                                },
-                            ),
-                        ),
+                        ident: `clone`,
                         token_idx: TokenIdx(
                             15,
                         ),
@@ -345,31 +217,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `core`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            ModulePath(
-                                Id {
-                                    value: 7,
-                                },
-                            ),
-                        ),
+                        `core::marker`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 6,
-                                },
-                            ),
-                        ),
+                        ident: `marker`,
                         token_idx: TokenIdx(
                             17,
                         ),
@@ -387,31 +243,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `core`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            ModulePath(
-                                Id {
-                                    value: 12,
-                                },
-                            ),
-                        ),
+                        `core::vec`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 11,
-                                },
-                            ),
-                        ),
+                        ident: `vec`,
                         token_idx: TokenIdx(
                             19,
                         ),
@@ -429,31 +269,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `core`,
                     ),
                     entity_kind: Module,
                     entity_path: Some(
-                        Module(
-                            ModulePath(
-                                Id {
-                                    value: 4,
-                                },
-                            ),
-                        ),
+                        `core::cmp`,
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 3,
-                                },
-                            ),
-                        ),
+                        ident: `cmp`,
                         token_idx: TokenIdx(
                             21,
                         ),

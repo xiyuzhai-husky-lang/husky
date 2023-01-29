@@ -540,12 +540,8 @@ Ok(
                     body: ArenaIdxRange(
                         3..4,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -554,13 +550,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 132,
-                                },
-                            ),
-                        ),
+                        ident: `raw_contours`,
                         token_idx: TokenIdx(
                             89,
                         ),
@@ -578,12 +568,8 @@ Ok(
                     body: ArenaIdxRange(
                         4..10,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -592,13 +578,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 133,
-                                },
-                            ),
-                        ),
+                        ident: `eff_holes`,
                         token_idx: TokenIdx(
                             100,
                         ),
@@ -616,12 +596,8 @@ Ok(
                     body: ArenaIdxRange(
                         14..18,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -630,13 +606,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 137,
-                                },
-                            ),
-                        ),
+                        ident: `max_hole_ilen`,
                         token_idx: TokenIdx(
                             161,
                         ),
@@ -654,12 +624,8 @@ Ok(
                     body: ArenaIdxRange(
                         19..22,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -668,13 +634,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 142,
-                                },
-                            ),
-                        ),
+                        ident: `max_row_span`,
                         token_idx: TokenIdx(
                             213,
                         ),
@@ -692,12 +652,8 @@ Ok(
                     body: ArenaIdxRange(
                         23..26,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -706,13 +662,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 146,
-                                },
-                            ),
-                        ),
+                        ident: `row_span_sum`,
                         token_idx: TokenIdx(
                             251,
                         ),
@@ -730,12 +680,8 @@ Ok(
                     body: ArenaIdxRange(
                         34..45,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -744,13 +690,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 147,
-                                },
-                            ),
-                        ),
+                        ident: `distribution`,
                         token_idx: TokenIdx(
                             284,
                         ),
@@ -768,12 +708,8 @@ Ok(
                     body: ArenaIdxRange(
                         45..46,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -782,13 +718,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 122,
-                                },
-                            ),
-                        ),
+                        ident: `upper_mass`,
                         token_idx: TokenIdx(
                             406,
                         ),
@@ -806,12 +736,8 @@ Ok(
                     body: ArenaIdxRange(
                         46..47,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -820,13 +746,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 123,
-                                },
-                            ),
-                        ),
+                        ident: `lower_mass`,
                         token_idx: TokenIdx(
                             418,
                         ),
@@ -844,12 +764,8 @@ Ok(
                     body: ArenaIdxRange(
                         51..57,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -858,13 +774,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 153,
-                                },
-                            ),
-                        ),
+                        ident: `top_k_row_span_sum`,
                         token_idx: TokenIdx(
                             430,
                         ),
@@ -882,12 +792,8 @@ Ok(
                     body: ArenaIdxRange(
                         61..67,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -896,13 +802,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 156,
-                                },
-                            ),
-                        ),
+                        ident: `top_k_row_right_mass_sum`,
                         token_idx: TokenIdx(
                             493,
                         ),
@@ -1268,24 +1168,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 119,
-                                },
-                            ),
-                        ),
+                        ident: `ConnectedComponentDistribution`,
                         token_idx: TokenIdx(
                             20,
                         ),
@@ -1311,24 +1197,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 124,
-                                },
-                            ),
-                        ),
+                        ident: `EffHoles`,
                         token_idx: TokenIdx(
                             41,
                         ),
@@ -1346,12 +1218,8 @@ Ok(
                     body: ArenaIdxRange(
                         0..3,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::connected_component`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -1360,24 +1228,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 6,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 127,
-                                },
-                            ),
-                        ),
+                        ident: `hole_tmpl`,
                         token_idx: TokenIdx(
                             53,
                         ),
@@ -1403,24 +1257,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Type(
-                                TypePath(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 130,
-                                },
-                            ),
-                        ),
+                        ident: `ConnectedComponent`,
                         token_idx: TokenIdx(
                             79,
                         ),
@@ -1446,12 +1286,8 @@ Ok(
                     body: ArenaIdxRange(
                         81..85,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `mnist_classifier::connected_component`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -1460,24 +1296,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 7,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 158,
-                                },
-                            ),
-                        ),
+                        ident: `horizontal_extend`,
                         token_idx: TokenIdx(
                             559,
                         ),
@@ -1503,24 +1325,10 @@ Ok(
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Form(
-                                FormPath(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
-                            ),
-                        ),
+                        FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 163,
-                                },
-                            ),
-                        ),
+                        ident: `find_connected_components`,
                         token_idx: TokenIdx(
                             645,
                         ),

@@ -9,12 +9,8 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `std::ops`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
@@ -23,13 +19,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
-                        ),
+                        ident: `Output`,
                         token_idx: TokenIdx(
                             13,
                         ),
@@ -47,12 +37,8 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `std::ops`,
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
@@ -61,13 +47,7 @@ Ok(
                     },
                     entity_path: None,
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 38,
-                                },
-                            ),
-                        ),
+                        ident: `add`,
                         token_idx: TokenIdx(
                             16,
                         ),
@@ -90,36 +70,18 @@ Ok(
                     body: ArenaIdxRange(
                         0..2,
                     ),
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
+                    accessibility: PubicUnder(
+                        `std::ops`,
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Trait,
                         connection: Connected,
                     },
                     entity_path: Some(
-                        ModuleItem(
-                            Trait(
-                                TraitPath(
-                                    Id {
-                                        value: 10,
-                                    },
-                                ),
-                            ),
-                        ),
+                        TraitPath(`std::ops::Add`),
                     ),
                     ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 37,
-                                },
-                            ),
-                        ),
+                        ident: `Add`,
                         token_idx: TokenIdx(
                             7,
                         ),
