@@ -238,43 +238,15 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     559,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 287,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 31,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `ConcaveComponent`,
+                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             },
                                             Root {
                                                 token_idx: TokenIdx(
                                                     563,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 42,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 13,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `f32`,
+                                                entity_path: TypePath(`core::num::f32`, `Alien`),
                                             },
                                         ],
                                     },
@@ -286,13 +258,7 @@ Ok(
                                             data: [
                                                 Identifier {
                                                     ident_token: IdentifierToken {
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 179,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `cc`,
                                                         token_idx: TokenIdx(
                                                             556,
                                                         ),
@@ -333,13 +299,7 @@ Ok(
                                         current_symbol_arena: Arena {
                                             data: [
                                                 CurrentSymbol {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 179,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `cc`,
                                                     access_start: TokenIdx(
                                                         557,
                                                     ),
@@ -468,43 +428,15 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     588,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 287,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 31,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `ConcaveComponent`,
+                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             },
                                             Root {
                                                 token_idx: TokenIdx(
                                                     592,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 42,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 13,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `f32`,
+                                                entity_path: TypePath(`core::num::f32`, `Alien`),
                                             },
                                         ],
                                     },
@@ -516,13 +448,7 @@ Ok(
                                             data: [
                                                 Identifier {
                                                     ident_token: IdentifierToken {
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 179,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `cc`,
                                                         token_idx: TokenIdx(
                                                             585,
                                                         ),
@@ -563,13 +489,7 @@ Ok(
                                         current_symbol_arena: Arena {
                                             data: [
                                                 CurrentSymbol {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 179,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `cc`,
                                                     access_start: TokenIdx(
                                                         586,
                                                     ),
@@ -698,43 +618,15 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     622,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 287,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 31,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `ConcaveComponent`,
+                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             },
                                             Root {
                                                 token_idx: TokenIdx(
                                                     626,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 42,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 13,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `f32`,
+                                                entity_path: TypePath(`core::num::f32`, `Alien`),
                                             },
                                         ],
                                     },
@@ -746,13 +638,7 @@ Ok(
                                             data: [
                                                 Identifier {
                                                     ident_token: IdentifierToken {
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 179,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `cc`,
                                                         token_idx: TokenIdx(
                                                             619,
                                                         ),
@@ -793,13 +679,7 @@ Ok(
                                         current_symbol_arena: Arena {
                                             data: [
                                                 CurrentSymbol {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 179,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `cc`,
                                                     access_start: TokenIdx(
                                                         620,
                                                     ),

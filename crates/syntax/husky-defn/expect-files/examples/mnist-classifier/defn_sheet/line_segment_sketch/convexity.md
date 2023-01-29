@@ -44,64 +44,22 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     24,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 181,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 30,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `LineSegmentSketch`,
+                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             },
                                             Root {
                                                 token_idx: TokenIdx(
                                                     28,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 38,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 9,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `i32`,
+                                                entity_path: TypePath(`core::num::i32`, `Alien`),
                                             },
                                             Root {
                                                 token_idx: TokenIdx(
                                                     31,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 12,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `bool`,
+                                                entity_path: TypePath(`core::basic::bool`, `Alien`),
                                             },
                                         ],
                                     },
@@ -113,13 +71,7 @@ Ok(
                                             data: [
                                                 Identifier {
                                                     ident_token: IdentifierToken {
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 96,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `line_segment_sketch`,
                                                         token_idx: TokenIdx(
                                                             22,
                                                         ),
@@ -128,13 +80,7 @@ Ok(
                                                 },
                                                 Identifier {
                                                     ident_token: IdentifierToken {
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 334,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `index`,
                                                         token_idx: TokenIdx(
                                                             26,
                                                         ),
@@ -191,13 +137,7 @@ Ok(
                                         current_symbol_arena: Arena {
                                             data: [
                                                 CurrentSymbol {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 96,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `line_segment_sketch`,
                                                     access_start: TokenIdx(
                                                         23,
                                                     ),
@@ -207,13 +147,7 @@ Ok(
                                                     },
                                                 },
                                                 CurrentSymbol {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 334,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `index`,
                                                     access_start: TokenIdx(
                                                         27,
                                                     ),
@@ -350,64 +284,22 @@ Ok(
                                                         token_idx: TokenIdx(
                                                             24,
                                                         ),
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 181,
-                                                                },
-                                                            ),
-                                                        ),
-                                                        entity_path: ModuleItem(
-                                                            Type(
-                                                                TypePath(
-                                                                    Id {
-                                                                        value: 30,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
+                                                        ident: `LineSegmentSketch`,
+                                                        entity_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                     },
                                                     Root {
                                                         token_idx: TokenIdx(
                                                             28,
                                                         ),
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 38,
-                                                                },
-                                                            ),
-                                                        ),
-                                                        entity_path: ModuleItem(
-                                                            Type(
-                                                                TypePath(
-                                                                    Id {
-                                                                        value: 9,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
+                                                        ident: `i32`,
+                                                        entity_path: TypePath(`core::num::i32`, `Alien`),
                                                     },
                                                     Root {
                                                         token_idx: TokenIdx(
                                                             31,
                                                         ),
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 12,
-                                                                },
-                                                            ),
-                                                        ),
-                                                        entity_path: ModuleItem(
-                                                            Type(
-                                                                TypePath(
-                                                                    Id {
-                                                                        value: 1,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
+                                                        ident: `bool`,
+                                                        entity_path: TypePath(`core::basic::bool`, `Alien`),
                                                     },
                                                 ],
                                             },
@@ -419,13 +311,7 @@ Ok(
                                                     data: [
                                                         Identifier {
                                                             ident_token: IdentifierToken {
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 96,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                ident: `line_segment_sketch`,
                                                                 token_idx: TokenIdx(
                                                                     22,
                                                                 ),
@@ -434,13 +320,7 @@ Ok(
                                                         },
                                                         Identifier {
                                                             ident_token: IdentifierToken {
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 334,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                ident: `index`,
                                                                 token_idx: TokenIdx(
                                                                     26,
                                                                 ),
@@ -497,13 +377,7 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
-                                                            ident: Identifier(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 96,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            ident: `line_segment_sketch`,
                                                             access_start: TokenIdx(
                                                                 23,
                                                             ),
@@ -513,13 +387,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
-                                                            ident: Identifier(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 334,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            ident: `index`,
                                                             access_start: TokenIdx(
                                                                 27,
                                                             ),
@@ -2074,13 +1942,7 @@ Ok(
                                         data: [
                                             Identifier {
                                                 ident_token: IdentifierToken {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 293,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `L`,
                                                     token_idx: TokenIdx(
                                                         34,
                                                     ),
@@ -2089,13 +1951,7 @@ Ok(
                                             },
                                             Identifier {
                                                 ident_token: IdentifierToken {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 335,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `current_displacement`,
                                                     token_idx: TokenIdx(
                                                         44,
                                                     ),
@@ -2104,13 +1960,7 @@ Ok(
                                             },
                                             Identifier {
                                                 ident_token: IdentifierToken {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 336,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `previous_displacement`,
                                                     token_idx: TokenIdx(
                                                         59,
                                                     ),
@@ -2119,13 +1969,7 @@ Ok(
                                             },
                                             Identifier {
                                                 ident_token: IdentifierToken {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 337,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `is_rotation_counterclockwise_result`,
                                                     token_idx: TokenIdx(
                                                         78,
                                                     ),
@@ -2134,13 +1978,7 @@ Ok(
                                             },
                                             Identifier {
                                                 ident_token: IdentifierToken {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 338,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `previous_raw_cross`,
                                                     token_idx: TokenIdx(
                                                         93,
                                                     ),
@@ -2149,13 +1987,7 @@ Ok(
                                             },
                                             Identifier {
                                                 ident_token: IdentifierToken {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 339,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `previous_interval`,
                                                     token_idx: TokenIdx(
                                                         98,
                                                     ),
@@ -2164,13 +1996,7 @@ Ok(
                                             },
                                             Identifier {
                                                 ident_token: IdentifierToken {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 196,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `displacement`,
                                                     token_idx: TokenIdx(
                                                         126,
                                                     ),
@@ -2179,13 +2005,7 @@ Ok(
                                             },
                                             Identifier {
                                                 ident_token: IdentifierToken {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 340,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `current_raw_cross`,
                                                     token_idx: TokenIdx(
                                                         155,
                                                     ),
@@ -2194,13 +2014,7 @@ Ok(
                                             },
                                             Identifier {
                                                 ident_token: IdentifierToken {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 341,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `current_interval`,
                                                     token_idx: TokenIdx(
                                                         160,
                                                     ),
@@ -2209,13 +2023,7 @@ Ok(
                                             },
                                             Identifier {
                                                 ident_token: IdentifierToken {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 196,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `displacement`,
                                                     token_idx: TokenIdx(
                                                         184,
                                                     ),
@@ -2397,23 +2205,11 @@ Ok(
                                     inherited_symbol_arena: Arena {
                                         data: [
                                             InheritedSymbol {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 96,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `line_segment_sketch`,
                                                 kind: Parameter,
                                             },
                                             InheritedSymbol {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 334,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `index`,
                                                 kind: Parameter,
                                             },
                                         ],
@@ -2421,13 +2217,7 @@ Ok(
                                     current_symbol_arena: Arena {
                                         data: [
                                             CurrentSymbol {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 293,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `L`,
                                                 access_start: TokenIdx(
                                                     35,
                                                 ),
@@ -2443,13 +2233,7 @@ Ok(
                                                 },
                                             },
                                             CurrentSymbol {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 335,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `current_displacement`,
                                                 access_start: TokenIdx(
                                                     45,
                                                 ),
@@ -2465,13 +2249,7 @@ Ok(
                                                 },
                                             },
                                             CurrentSymbol {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 336,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `previous_displacement`,
                                                 access_start: TokenIdx(
                                                     60,
                                                 ),
@@ -2487,13 +2265,7 @@ Ok(
                                                 },
                                             },
                                             CurrentSymbol {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 337,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `is_rotation_counterclockwise_result`,
                                                 access_start: TokenIdx(
                                                     79,
                                                 ),
@@ -2509,13 +2281,7 @@ Ok(
                                                 },
                                             },
                                             CurrentSymbol {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 338,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `previous_raw_cross`,
                                                 access_start: TokenIdx(
                                                     94,
                                                 ),
@@ -2531,13 +2297,7 @@ Ok(
                                                 },
                                             },
                                             CurrentSymbol {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 339,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `previous_interval`,
                                                 access_start: TokenIdx(
                                                     99,
                                                 ),
@@ -2553,13 +2313,7 @@ Ok(
                                                 },
                                             },
                                             CurrentSymbol {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 156,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `i1`,
                                                 access_start: TokenIdx(
                                                     125,
                                                 ),
@@ -2575,13 +2329,7 @@ Ok(
                                                 ),
                                             },
                                             CurrentSymbol {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 196,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `displacement`,
                                                 access_start: TokenIdx(
                                                     127,
                                                 ),
@@ -2597,13 +2345,7 @@ Ok(
                                                 },
                                             },
                                             CurrentSymbol {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 340,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `current_raw_cross`,
                                                 access_start: TokenIdx(
                                                     156,
                                                 ),
@@ -2619,13 +2361,7 @@ Ok(
                                                 },
                                             },
                                             CurrentSymbol {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 341,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `current_interval`,
                                                 access_start: TokenIdx(
                                                     161,
                                                 ),
@@ -2641,13 +2377,7 @@ Ok(
                                                 },
                                             },
                                             CurrentSymbol {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 158,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `i2`,
                                                 access_start: TokenIdx(
                                                     183,
                                                 ),
@@ -2663,13 +2393,7 @@ Ok(
                                                 ),
                                             },
                                             CurrentSymbol {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 196,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `displacement`,
                                                 access_start: TokenIdx(
                                                     185,
                                                 ),

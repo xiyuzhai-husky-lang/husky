@@ -8,6 +8,7 @@ use crate::*;
 use husky_entity_tree::{CrateSymbolContext, ModuleSymbolContext, PreludeResult};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum Symbol {
     Entity(EntityPath),
     Inherited(InheritedSymbolIdx, InheritedSymbolKind),
@@ -15,18 +16,21 @@ pub enum Symbol {
 }
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub struct InheritedSymbol {
     ident: Identifier,
     kind: InheritedSymbolKind,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum InheritedSymbolKind {
     Parameter,
     ImplicitParameter,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub struct CurrentSymbol {
     ident: Identifier,
     access_start: TokenIdx,
@@ -60,6 +64,7 @@ impl CurrentSymbol {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum CurrentSymbolKind {
     ImplicitParameter {
         implicit_parameter_kind: ImplicitParameterKind,
@@ -74,11 +79,13 @@ pub enum CurrentSymbolKind {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum ImplicitParameterKind {
     Type { ident_token: IdentifierToken },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum CurrentSymbolVariant {
     ImplicitParameter {
         implicit_parameter_variant: ImplicitParameterVariant,
@@ -93,6 +100,7 @@ pub enum CurrentSymbolVariant {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum ImplicitParameterVariant {
     Type { ident_token: IdentifierToken },
 }

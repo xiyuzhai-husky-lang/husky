@@ -1,6 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum PatternSymbol {
     Atom(PatternExprIdx),
 }

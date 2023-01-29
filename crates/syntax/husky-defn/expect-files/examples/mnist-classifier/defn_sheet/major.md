@@ -67,22 +67,8 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     36,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 136,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 19,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `ConnectedComponent`,
+                                                entity_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         ],
                                     },
@@ -172,22 +158,8 @@ Ok(
                                             token_idx: TokenIdx(
                                                 38,
                                             ),
-                                            ident: Identifier(
-                                                Word(
-                                                    Id {
-                                                        value: 169,
-                                                    },
-                                                ),
-                                            ),
-                                            entity_path: ModuleItem(
-                                                Form(
-                                                    FormPath(
-                                                        Id {
-                                                            value: 8,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ident: `find_connected_components`,
+                                            entity_path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
                                         },
                                     ],
                                 },
@@ -278,22 +250,8 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     46,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 136,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 19,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `ConnectedComponent`,
+                                                entity_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             },
                                         ],
                                     },
@@ -573,64 +531,22 @@ Ok(
                                             token_idx: TokenIdx(
                                                 61,
                                             ),
-                                            ident: Identifier(
-                                                Word(
-                                                    Id {
-                                                        value: 365,
-                                                    },
-                                                ),
-                                            ),
-                                            entity_path: ModuleItem(
-                                                Form(
-                                                    FormPath(
-                                                        Id {
-                                                            value: 64,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ident: `connected_components`,
+                                            entity_path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                         },
                                         Root {
                                             token_idx: TokenIdx(
                                                 70,
                                             ),
-                                            ident: Identifier(
-                                                Word(
-                                                    Id {
-                                                        value: 365,
-                                                    },
-                                                ),
-                                            ),
-                                            entity_path: ModuleItem(
-                                                Form(
-                                                    FormPath(
-                                                        Id {
-                                                            value: 64,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ident: `connected_components`,
+                                            entity_path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                         },
                                         Root {
                                             token_idx: TokenIdx(
                                                 88,
                                             ),
-                                            ident: Identifier(
-                                                Word(
-                                                    Id {
-                                                        value: 365,
-                                                    },
-                                                ),
-                                            ),
-                                            entity_path: ModuleItem(
-                                                Form(
-                                                    FormPath(
-                                                        Id {
-                                                            value: 64,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ident: `connected_components`,
+                                            entity_path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                         },
                                     ],
                                 },
@@ -819,13 +735,7 @@ Ok(
                                         data: [
                                             Identifier {
                                                 ident_token: IdentifierToken {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 241,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `i0`,
                                                     token_idx: TokenIdx(
                                                         50,
                                                     ),
@@ -834,13 +744,7 @@ Ok(
                                             },
                                             Identifier {
                                                 ident_token: IdentifierToken {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 438,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `max_row_span_sum`,
                                                     token_idx: TokenIdx(
                                                         55,
                                                     ),
@@ -849,13 +753,7 @@ Ok(
                                             },
                                             Identifier {
                                                 ident_token: IdentifierToken {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 152,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `row_span_sum`,
                                                     token_idx: TokenIdx(
                                                         68,
                                                     ),
@@ -928,13 +826,7 @@ Ok(
                                     current_symbol_arena: Arena {
                                         data: [
                                             CurrentSymbol {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 241,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `i0`,
                                                 access_start: TokenIdx(
                                                     51,
                                                 ),
@@ -950,13 +842,7 @@ Ok(
                                                 },
                                             },
                                             CurrentSymbol {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 438,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `max_row_span_sum`,
                                                 access_start: TokenIdx(
                                                     56,
                                                 ),
@@ -972,13 +858,7 @@ Ok(
                                                 },
                                             },
                                             CurrentSymbol {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 144,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `i`,
                                                 access_start: TokenIdx(
                                                     67,
                                                 ),
@@ -994,13 +874,7 @@ Ok(
                                                 ),
                                             },
                                             CurrentSymbol {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 152,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `row_span_sum`,
                                                 access_start: TokenIdx(
                                                     69,
                                                 ),
@@ -1082,22 +956,8 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     96,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 42,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 13,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `f32`,
+                                                entity_path: TypePath(`core::num::f32`, `Alien`),
                                             },
                                         ],
                                     },
@@ -1312,64 +1172,22 @@ Ok(
                                             token_idx: TokenIdx(
                                                 106,
                                             ),
-                                            ident: Identifier(
-                                                Word(
-                                                    Id {
-                                                        value: 365,
-                                                    },
-                                                ),
-                                            ),
-                                            entity_path: ModuleItem(
-                                                Form(
-                                                    FormPath(
-                                                        Id {
-                                                            value: 64,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ident: `connected_components`,
+                                            entity_path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                         },
                                         Root {
                                             token_idx: TokenIdx(
                                                 114,
                                             ),
-                                            ident: Identifier(
-                                                Word(
-                                                    Id {
-                                                        value: 365,
-                                                    },
-                                                ),
-                                            ),
-                                            entity_path: ModuleItem(
-                                                Form(
-                                                    FormPath(
-                                                        Id {
-                                                            value: 64,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ident: `connected_components`,
+                                            entity_path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                         },
                                         Root {
                                             token_idx: TokenIdx(
                                                 123,
                                             ),
-                                            ident: Identifier(
-                                                Word(
-                                                    Id {
-                                                        value: 362,
-                                                    },
-                                                ),
-                                            ),
-                                            entity_path: ModuleItem(
-                                                Form(
-                                                    FormPath(
-                                                        Id {
-                                                            value: 65,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ident: `major_connected_component`,
+                                            entity_path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                         },
                                     ],
                                 },
@@ -1471,13 +1289,7 @@ Ok(
                                         data: [
                                             Identifier {
                                                 ident_token: IdentifierToken {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 439,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `sum`,
                                                     token_idx: TokenIdx(
                                                         100,
                                                     ),
@@ -1518,13 +1330,7 @@ Ok(
                                     current_symbol_arena: Arena {
                                         data: [
                                             CurrentSymbol {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 439,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `sum`,
                                                 access_start: TokenIdx(
                                                     101,
                                                 ),
@@ -1540,13 +1346,7 @@ Ok(
                                                 },
                                             },
                                             CurrentSymbol {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 144,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `i`,
                                                 access_start: TokenIdx(
                                                     112,
                                                 ),
@@ -1644,22 +1444,8 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     132,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 132,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 20,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `RawContour`,
+                                                entity_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             },
                                         ],
                                     },
@@ -1737,22 +1523,8 @@ Ok(
                                             token_idx: TokenIdx(
                                                 134,
                                             ),
-                                            ident: Identifier(
-                                                Word(
-                                                    Id {
-                                                        value: 362,
-                                                    },
-                                                ),
-                                            ),
-                                            entity_path: ModuleItem(
-                                                Form(
-                                                    FormPath(
-                                                        Id {
-                                                            value: 65,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ident: `major_connected_component`,
+                                            entity_path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                         },
                                     ],
                                 },
@@ -1843,22 +1615,8 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     141,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 132,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 20,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `RawContour`,
+                                                entity_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             },
                                         ],
                                     },
@@ -1955,22 +1713,8 @@ Ok(
                                             token_idx: TokenIdx(
                                                 143,
                                             ),
-                                            ident: Identifier(
-                                                Word(
-                                                    Id {
-                                                        value: 362,
-                                                    },
-                                                ),
-                                            ),
-                                            entity_path: ModuleItem(
-                                                Form(
-                                                    FormPath(
-                                                        Id {
-                                                            value: 65,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ident: `major_connected_component`,
+                                            entity_path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                         },
                                     ],
                                 },
@@ -2061,22 +1805,8 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     153,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 181,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 30,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `LineSegmentSketch`,
+                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             },
                                         ],
                                     },
@@ -2154,22 +1884,8 @@ Ok(
                                             token_idx: TokenIdx(
                                                 155,
                                             ),
-                                            ident: Identifier(
-                                                Word(
-                                                    Id {
-                                                        value: 441,
-                                                    },
-                                                ),
-                                            ),
-                                            entity_path: ModuleItem(
-                                                Form(
-                                                    FormPath(
-                                                        Id {
-                                                            value: 68,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ident: `major_raw_contour`,
+                                            entity_path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                         },
                                     ],
                                 },
@@ -2276,22 +1992,8 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     164,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 287,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 31,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `ConcaveComponent`,
+                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             },
                                         ],
                                     },
@@ -2369,22 +2071,8 @@ Ok(
                                             token_idx: TokenIdx(
                                                 166,
                                             ),
-                                            ident: Identifier(
-                                                Word(
-                                                    Id {
-                                                        value: 370,
-                                                    },
-                                                ),
-                                            ),
-                                            entity_path: ModuleItem(
-                                                Form(
-                                                    FormPath(
-                                                        Id {
-                                                            value: 69,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ident: `major_line_segment_sketch`,
+                                            entity_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                         },
                                     ],
                                 },

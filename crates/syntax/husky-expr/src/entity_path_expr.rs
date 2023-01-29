@@ -3,6 +3,7 @@ use husky_entity_tree::EntityTreeError;
 use thiserror::Error;
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum EntityPathExpr {
     Root {
         token_idx: TokenIdx,

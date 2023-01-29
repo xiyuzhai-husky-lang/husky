@@ -90,43 +90,15 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     13,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 287,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 31,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `ConcaveComponent`,
+                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             },
                                             Root {
                                                 token_idx: TokenIdx(
                                                     20,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 287,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 31,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `ConcaveComponent`,
+                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             },
                                         ],
                                     },
@@ -359,85 +331,29 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     153,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 287,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 31,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `ConcaveComponent`,
+                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             },
                                             Root {
                                                 token_idx: TokenIdx(
                                                     162,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 287,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 31,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `ConcaveComponent`,
+                                                entity_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             },
                                             Root {
                                                 token_idx: TokenIdx(
                                                     166,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 42,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 13,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `f32`,
+                                                entity_path: TypePath(`core::num::f32`, `Alien`),
                                             },
                                             Root {
                                                 token_idx: TokenIdx(
                                                     170,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 346,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 34,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `FermiMatchResult`,
+                                                entity_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                             },
                                         ],
                                     },
@@ -449,13 +365,7 @@ Ok(
                                             data: [
                                                 Identifier {
                                                     ident_token: IdentifierToken {
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 286,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `concave_components`,
                                                         token_idx: TokenIdx(
                                                             148,
                                                         ),
@@ -464,13 +374,7 @@ Ok(
                                                 },
                                                 Identifier {
                                                     ident_token: IdentifierToken {
-                                                        ident: Identifier(
-                                                            Word(
-                                                                Id {
-                                                                    value: 350,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        ident: `templates`,
                                                         token_idx: TokenIdx(
                                                             155,
                                                         ),
@@ -527,13 +431,7 @@ Ok(
                                         current_symbol_arena: Arena {
                                             data: [
                                                 CurrentSymbol {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 286,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `concave_components`,
                                                     access_start: TokenIdx(
                                                         149,
                                                     ),
@@ -543,13 +441,7 @@ Ok(
                                                     },
                                                 },
                                                 CurrentSymbol {
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 350,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `templates`,
                                                     access_start: TokenIdx(
                                                         156,
                                                     ),
@@ -732,22 +624,8 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     24,
                                                 ),
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 346,
-                                                        },
-                                                    ),
-                                                ),
-                                                entity_path: ModuleItem(
-                                                    Type(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 34,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
+                                                ident: `FermiMatchResult`,
+                                                entity_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                             },
                                         ],
                                     },
@@ -905,22 +783,8 @@ Ok(
                                                                 token_idx: TokenIdx(
                                                                     24,
                                                                 ),
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 346,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                                entity_path: ModuleItem(
-                                                                    Type(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 34,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
+                                                                ident: `FermiMatchResult`,
+                                                                entity_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                             },
                                                         ],
                                                     },
@@ -1037,22 +901,8 @@ Ok(
                                                     token_idx: TokenIdx(
                                                         29,
                                                     ),
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 42,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    entity_path: ModuleItem(
-                                                        Type(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 13,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
+                                                    ident: `f32`,
+                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
                                                 },
                                             ],
                                         },
@@ -1230,22 +1080,8 @@ Ok(
                                                                 token_idx: TokenIdx(
                                                                     24,
                                                                 ),
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 346,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                                entity_path: ModuleItem(
-                                                                    Type(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 34,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
+                                                                ident: `FermiMatchResult`,
+                                                                entity_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                             },
                                                         ],
                                                     },
@@ -1362,22 +1198,8 @@ Ok(
                                                     token_idx: TokenIdx(
                                                         67,
                                                     ),
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 42,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    entity_path: ModuleItem(
-                                                        Type(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 13,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
+                                                    ident: `f32`,
+                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
                                                 },
                                             ],
                                         },
@@ -1555,22 +1377,8 @@ Ok(
                                                                 token_idx: TokenIdx(
                                                                     24,
                                                                 ),
-                                                                ident: Identifier(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 346,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                                entity_path: ModuleItem(
-                                                                    Type(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 34,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ),
+                                                                ident: `FermiMatchResult`,
+                                                                entity_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                             },
                                                         ],
                                                     },
@@ -1687,22 +1495,8 @@ Ok(
                                                     token_idx: TokenIdx(
                                                         105,
                                                     ),
-                                                    ident: Identifier(
-                                                        Word(
-                                                            Id {
-                                                                value: 42,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    entity_path: ModuleItem(
-                                                        Type(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 13,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
+                                                    ident: `f32`,
+                                                    entity_path: TypePath(`core::num::f32`, `Alien`),
                                                 },
                                             ],
                                         },

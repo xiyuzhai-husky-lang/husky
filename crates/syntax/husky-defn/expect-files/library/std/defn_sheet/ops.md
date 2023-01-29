@@ -41,13 +41,7 @@ Ok(
                                     current_symbol_arena: Arena {
                                         data: [
                                             CurrentSymbol {
-                                                ident: Identifier(
-                                                    Word(
-                                                        Id {
-                                                            value: 44,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `B`,
                                                 access_start: TokenIdx(
                                                     10,
                                                 ),
@@ -55,13 +49,7 @@ Ok(
                                                 variant: ImplicitParameter {
                                                     implicit_parameter_variant: Type {
                                                         ident_token: IdentifierToken {
-                                                            ident: Identifier(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 44,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            ident: `B`,
                                                             token_idx: TokenIdx(
                                                                 9,
                                                             ),
