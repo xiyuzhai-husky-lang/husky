@@ -23,7 +23,7 @@
                     variant: Type {
                         ty: TypePath(
                             Id {
-                                value: 33,
+                                value: 41,
                             },
                         ),
                     },
@@ -45,7 +45,7 @@
                             impl_block_kind: Type {
                                 ty: TypePath(
                                     Id {
-                                        value: 33,
+                                        value: 41,
                                     },
                                 ),
                             },
@@ -53,7 +53,7 @@
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 196,
+                                    value: 212,
                                 },
                             ),
                         ),
@@ -79,7 +79,7 @@
                         variant: Type {
                             ty: TypePath(
                                 Id {
-                                    value: 33,
+                                    value: 41,
                                 },
                             ),
                         },
@@ -111,7 +111,7 @@
                             impl_block_kind: Type {
                                 ty: TypePath(
                                     Id {
-                                        value: 33,
+                                        value: 41,
                                     },
                                 ),
                             },
@@ -119,7 +119,7 @@
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 328,
+                                    value: 344,
                                 },
                             ),
                         ),
@@ -145,7 +145,7 @@
                         variant: Type {
                             ty: TypePath(
                                 Id {
-                                    value: 33,
+                                    value: 41,
                                 },
                             ),
                         },

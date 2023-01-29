@@ -23,6 +23,12 @@ pub enum OriginalExprTypeError {}
 pub enum DerivedExprTypeError {
     TypeInfoErr,
     ExprError,
+    EntityTypeError,
+    BoxListApplicationFirstArgumentError,
+    ApplicationArgumentTypeNotInferred,
+    PrefixOperandTypeNotInferred,
+    BinaryOpnFirstArgumentTypeNotInferred,
+    BinaryOpnsecondArgumentTypeNotInferred,
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;

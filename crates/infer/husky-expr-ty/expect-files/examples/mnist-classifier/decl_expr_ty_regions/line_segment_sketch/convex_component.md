@@ -23,7 +23,7 @@
                     variant: Type {
                         ty: TypePath(
                             Id {
-                                value: 32,
+                                value: 40,
                             },
                         ),
                     },
