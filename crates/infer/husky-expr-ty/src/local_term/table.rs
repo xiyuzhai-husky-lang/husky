@@ -83,7 +83,7 @@ impl UnresolvedTermTable {
         }
     }
 
-    pub(crate) fn resolve_term(&mut self, unresolved_term_idx: UnresolvedTermIdx) {
+    pub(crate) fn resolve_term(&mut self, unresolved_term_idx: UnresolvedTermIdx) -> Option<Term> {
         self.resolve_as_much_as_possible();
         todo!()
     }

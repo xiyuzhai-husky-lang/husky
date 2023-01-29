@@ -1,4 +1,5 @@
 use husky_opn_syntax::PrefixOpr;
+use husky_print_utils::p;
 
 use crate::*;
 
@@ -8,6 +9,14 @@ pub(crate) struct ExprTypeEngine<'a> {
     expr_region_data: &'a ExprRegionData,
     expr_ty_infos: ExprMap<ExprTypeInfo>,
     unresolved_term_table: UnresolvedTermTable,
+}
+
+impl<'a> std::ops::Index<ExprIdx> for ExprTypeEngine<'a> {
+    type Output = Expr;
+
+    fn index(&self, index: ExprIdx) -> &Self::Output {
+        &self.expr_region_data[index]
+    }
 }
 
 impl<'a> ExprTypeEngine<'a> {
@@ -33,15 +42,26 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         expectation: Option<Expectation>,
-    ) -> ExprTypeResult<LocalTerm> {
+    ) -> Option<LocalTerm> {
         let ty_result = self.calc(expr_idx, expectation.as_ref());
-        let ty_result_out = match ty_result {
-            Ok(ty) => Ok(ty),
-            Err(_) => Err(DerivedExprTypeError::TypeInfoErr.into()),
+        let ty = match ty_result {
+            Ok(ty) => Some(ty),
+            Err(_) => None,
         };
         let opt_expectation = self.unresolved_term_table.intern_expection(expectation);
         self.save(expr_idx, ExprTypeInfo::new(ty_result, opt_expectation));
-        ty_result_out
+        ty
+    }
+
+    fn infer_new_resolved(
+        &mut self,
+        expr_idx: ExprIdx,
+        expectation: Option<Expectation>,
+    ) -> Option<Term> {
+        match self.infer_new(expr_idx, expectation)? {
+            LocalTerm::Resolved(lopd_ty) => Some(lopd_ty),
+            LocalTerm::Unresolved(lopd_ty) => self.unresolved_term_table.resolve_term(lopd_ty),
+        }
     }
 
     fn save(&mut self, expr_idx: ExprIdx, info: ExprTypeInfo) {
@@ -66,7 +86,7 @@ impl<'a> ExprTypeEngine<'a> {
             } => match entity_path {
                 Some(entity_path) => match self.db.entity_ty(*entity_path) {
                     Ok(ty) => Ok(ty.into()),
-                    Err(_) => todo!(),
+                    Err(_) => Err(DerivedExprTypeError::EntityTypeError.into()),
                 },
                 None => todo!(),
             },
@@ -95,7 +115,17 @@ impl<'a> ExprTypeEngine<'a> {
                 opr,
                 opr_token_idx,
                 ropd,
-            } => todo!(),
+            } => {
+                let Some(lopd_ty) = self.infer_new_resolved(*lopd, None)
+                    else {
+                        return Err(DerivedExprTypeError::BinaryOpnFirstArgumentTypeNotInferred.into())
+                    };
+                let Some(ropd_ty) = self.infer_new_resolved(*ropd, None)
+                    else {
+                        return Err(DerivedExprTypeError::BinaryOpnsecondArgumentTypeNotInferred.into())
+                    };
+                todo!()
+            }
             Expr::Be {
                 src,
                 be_token_idx,
@@ -106,7 +136,6 @@ impl<'a> ExprTypeEngine<'a> {
                 opr_token_idx,
                 opd,
             } => {
-
                 let opd_ty = self.infer_new(*opd, None);
                 match opr {
                     PrefixOpr::Minus => todo!(),
@@ -114,18 +143,18 @@ impl<'a> ExprTypeEngine<'a> {
                     PrefixOpr::BitNot => todo!(),
                     PrefixOpr::Ref => {
                         // Should consider more cases, could also be taking references
-                        opd_ty
-                    },
+                        opd_ty.ok_or(DerivedExprTypeError::PrefixOperandTypeNotInferred.into())
+                    }
                     PrefixOpr::Vector => todo!(),
                     PrefixOpr::Slice => todo!(),
                     PrefixOpr::CyclicSlice => todo!(),
                     PrefixOpr::Array(_) => todo!(),
                     PrefixOpr::Option => {
                         // Should check this is type.
-                        opd_ty
-                    },
+                        opd_ty.ok_or(DerivedExprTypeError::PrefixOperandTypeNotInferred.into())
+                    }
                 }
-            },
+            }
             Expr::SuffixOpn {
                 opd,
                 punctuation,
@@ -163,23 +192,47 @@ impl<'a> ExprTypeEngine<'a> {
                 implicit_arguments,
             } => todo!(),
             Expr::Application { function, argument } => {
-                let function_expr = &self.expr_region_data.expr_arena()[*function];
+                let function_expr = &self[*function];
                 match function_expr {
-                    Expr::NewBoxList { caller: None, lbox_token_idx, items, rbox_token_idx } => {
+                    Expr::NewBoxList {
+                        caller: None,
+                        lbox_token_idx,
+                        items,
+                        rbox_token_idx,
+                    } => {
                         match items.len() {
                             0 => {
                                 let argument_ty = self.infer_new(*argument, None);
                                 // check this is type
-                                argument_ty
-                            },
-                            _ => todo!()
+                                argument_ty.ok_or(
+                                    DerivedExprTypeError::ApplicationArgumentTypeNotInferred.into(),
+                                )
+                            }
+                            1 => {
+                                let arg0_ty = self.infer_new(items.start(), None);
+                                match arg0_ty {
+                                    Some(_) => todo!(),
+                                    None => Err(
+                                        DerivedExprTypeError::BoxListApplicationFirstArgumentError
+                                            .into(),
+                                    ),
+                                }
+                            }
+                            n => {
+                                todo!()
+                            }
                         }
-                    },
-                    Expr::BoxColon { caller, lbox_token_idx, colon_token_idx, rbox_token } => todo!(),
+                    }
+                    Expr::BoxColon {
+                        caller,
+                        lbox_token_idx,
+                        colon_token_idx,
+                        rbox_token,
+                    } => todo!(),
                     _ => {
-                        let function_ty = self.infer_new(*function, None); 
-                        todo!() 
-                    } 
+                        let function_ty = self.infer_new(*function, None);
+                        todo!()
+                    }
                 }
             }
             Expr::Bracketed {
