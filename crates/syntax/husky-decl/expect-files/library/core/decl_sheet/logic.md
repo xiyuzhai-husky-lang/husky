@@ -7,11 +7,47 @@ Ok(
                         AlienTypeDecl {
                             path: TypePath(`core::logic::Prop`, `Alien`),
                             ast_idx: 0,
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 10,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            TypePath(`core::logic::Prop`, `Alien`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: False,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
                                 },
-                            ),
+                            },
                             implicit_parameter_decl_list: None,
                         },
                     ),
@@ -23,11 +59,165 @@ Ok(
                         StructureTypeDecl {
                             path: TypePath(`core::logic::LogicAnd`, `Structure`),
                             ast_idx: 1,
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 11,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            TypePath(`core::logic::LogicAnd`, `Structure`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            EntityPath {
+                                                entity_path_expr: 0,
+                                                entity_path: Some(
+                                                    TypePath(`core::logic::Prop`, `Alien`),
+                                                ),
+                                            },
+                                            EntityPath {
+                                                entity_path_expr: 1,
+                                                entity_path: Some(
+                                                    TypePath(`core::logic::Prop`, `Alien`),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    10,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 15,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 4,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    14,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 15,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 4,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 17,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        9,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: ImplicitParameter {
+                                                        implicit_parameter_variant: Type {
+                                                            ident_token: IdentifierToken {
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 17,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                token_idx: TokenIdx(
+                                                                    8,
+                                                                ),
+                                                            },
+                                                        },
+                                                    },
+                                                },
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 18,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        13,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: ImplicitParameter {
+                                                        implicit_parameter_variant: Type {
+                                                            ident_token: IdentifierToken {
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 18,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                token_idx: TokenIdx(
+                                                                    12,
+                                                                ),
+                                                            },
+                                                        },
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: False,
+                                        ty_constraints: [
+                                            ImplicitTypeParameter,
+                                            ImplicitTypeParameter,
+                                        ],
+                                    },
+                                    roots: [],
                                 },
-                            ),
+                            },
                             implicit_parameter_decl_list: Some(
                                 ImplicitParameterDeclList {
                                     langle: LeftAngleBracketOrLessThanToken {
@@ -125,11 +315,165 @@ Ok(
                         InductiveTypeDecl {
                             path: TypePath(`core::logic::LogicOr`, `Inductive`),
                             ast_idx: 2,
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 12,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            TypePath(`core::logic::LogicOr`, `Inductive`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            EntityPath {
+                                                entity_path_expr: 0,
+                                                entity_path: Some(
+                                                    TypePath(`core::logic::Prop`, `Alien`),
+                                                ),
+                                            },
+                                            EntityPath {
+                                                entity_path_expr: 1,
+                                                entity_path: Some(
+                                                    TypePath(`core::logic::Prop`, `Alien`),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    32,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 15,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 4,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    36,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 15,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 4,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 17,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        31,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: ImplicitParameter {
+                                                        implicit_parameter_variant: Type {
+                                                            ident_token: IdentifierToken {
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 17,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                token_idx: TokenIdx(
+                                                                    30,
+                                                                ),
+                                                            },
+                                                        },
+                                                    },
+                                                },
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 18,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        35,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: ImplicitParameter {
+                                                        implicit_parameter_variant: Type {
+                                                            ident_token: IdentifierToken {
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 18,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                token_idx: TokenIdx(
+                                                                    34,
+                                                                ),
+                                                            },
+                                                        },
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: False,
+                                        ty_constraints: [
+                                            ImplicitTypeParameter,
+                                            ImplicitTypeParameter,
+                                        ],
+                                    },
+                                    roots: [],
                                 },
-                            ),
+                            },
                             implicit_parameter_decl_list: Some(
                                 ImplicitParameterDeclList {
                                     langle: LeftAngleBracketOrLessThanToken {

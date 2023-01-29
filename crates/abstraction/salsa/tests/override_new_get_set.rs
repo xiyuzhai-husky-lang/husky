@@ -10,7 +10,7 @@ struct Jar(MyInput, MyInterned, MyTracked);
 
 trait Db: salsa::DbWithJar<Jar> {}
 
-#[salsa::input(jar = Jar, constructor = from_string)]
+#[salsa::input(db = Db, jar = Jar, constructor = from_string)]
 struct MyInput {
     #[get(text)]
     #[set(set_text)]
@@ -31,7 +31,7 @@ impl MyInput {
     }
 }
 
-#[salsa::interned(constructor = from_string)]
+#[salsa::interned(db = Db, constructor = from_string)]
 struct MyInterned {
     #[get(text)]
     #[return_ref]
@@ -48,7 +48,7 @@ impl MyInterned {
     }
 }
 
-#[salsa::tracked(constructor = from_string)]
+#[salsa::tracked(db = Db, constructor = from_string)]
 struct MyTracked {
     #[get(text)]
     field: String,

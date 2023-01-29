@@ -32,7 +32,7 @@ pub(crate) fn ty_method_signature(
     ))
 }
 
-#[salsa::tracked(jar = SignatureJar)]
+#[salsa::tracked(db = SignatureDb, jar = SignatureJar)]
 pub struct TypeMethodSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,

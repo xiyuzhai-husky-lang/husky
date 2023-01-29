@@ -5,11 +5,52 @@ Ok(
                 Foreign(
                     AlienTypeDefn {
                         path: TypePath(`core::num::i8`, `Alien`),
-                        decl: AlienTypeDecl(
-                            Id {
-                                value: 3,
+                        decl: AlienTypeDecl {
+                            path: TypePath(`core::num::i8`, `Alien`),
+                            ast_idx: 18,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            TypePath(`core::num::i8`, `Alien`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: False,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
                             },
-                        ),
+                            implicit_parameter_decl_list: None,
+                        },
                     },
                 ),
             ),
@@ -17,11 +58,52 @@ Ok(
                 Foreign(
                     AlienTypeDefn {
                         path: TypePath(`core::num::i16`, `Alien`),
-                        decl: AlienTypeDecl(
-                            Id {
-                                value: 4,
+                        decl: AlienTypeDecl {
+                            path: TypePath(`core::num::i16`, `Alien`),
+                            ast_idx: 23,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            TypePath(`core::num::i16`, `Alien`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: False,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
                             },
-                        ),
+                            implicit_parameter_decl_list: None,
+                        },
                     },
                 ),
             ),
@@ -29,11 +111,52 @@ Ok(
                 Foreign(
                     AlienTypeDefn {
                         path: TypePath(`core::num::i32`, `Alien`),
-                        decl: AlienTypeDecl(
-                            Id {
-                                value: 5,
+                        decl: AlienTypeDecl {
+                            path: TypePath(`core::num::i32`, `Alien`),
+                            ast_idx: 28,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            TypePath(`core::num::i32`, `Alien`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: False,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
                             },
-                        ),
+                            implicit_parameter_decl_list: None,
+                        },
                     },
                 ),
             ),
@@ -41,11 +164,52 @@ Ok(
                 Foreign(
                     AlienTypeDefn {
                         path: TypePath(`core::num::i64`, `Alien`),
-                        decl: AlienTypeDecl(
-                            Id {
-                                value: 6,
+                        decl: AlienTypeDecl {
+                            path: TypePath(`core::num::i64`, `Alien`),
+                            ast_idx: 33,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            TypePath(`core::num::i64`, `Alien`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: False,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
                             },
-                        ),
+                            implicit_parameter_decl_list: None,
+                        },
                     },
                 ),
             ),
@@ -53,11 +217,52 @@ Ok(
                 Foreign(
                     AlienTypeDefn {
                         path: TypePath(`core::num::f8`, `Alien`),
-                        decl: AlienTypeDecl(
-                            Id {
-                                value: 7,
+                        decl: AlienTypeDecl {
+                            path: TypePath(`core::num::f8`, `Alien`),
+                            ast_idx: 38,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            TypePath(`core::num::f8`, `Alien`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: False,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
                             },
-                        ),
+                            implicit_parameter_decl_list: None,
+                        },
                     },
                 ),
             ),
@@ -65,11 +270,52 @@ Ok(
                 Foreign(
                     AlienTypeDefn {
                         path: TypePath(`core::num::f16`, `Alien`),
-                        decl: AlienTypeDecl(
-                            Id {
-                                value: 8,
+                        decl: AlienTypeDecl {
+                            path: TypePath(`core::num::f16`, `Alien`),
+                            ast_idx: 43,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            TypePath(`core::num::f16`, `Alien`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: False,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
                             },
-                        ),
+                            implicit_parameter_decl_list: None,
+                        },
                     },
                 ),
             ),
@@ -77,11 +323,52 @@ Ok(
                 Foreign(
                     AlienTypeDefn {
                         path: TypePath(`core::num::f32`, `Alien`),
-                        decl: AlienTypeDecl(
-                            Id {
-                                value: 9,
+                        decl: AlienTypeDecl {
+                            path: TypePath(`core::num::f32`, `Alien`),
+                            ast_idx: 48,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            TypePath(`core::num::f32`, `Alien`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: False,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
                             },
-                        ),
+                            implicit_parameter_decl_list: None,
+                        },
                     },
                 ),
             ),
@@ -89,11 +376,52 @@ Ok(
                 Foreign(
                     AlienTypeDefn {
                         path: TypePath(`core::num::f64`, `Alien`),
-                        decl: AlienTypeDecl(
-                            Id {
-                                value: 10,
+                        decl: AlienTypeDecl {
+                            path: TypePath(`core::num::f64`, `Alien`),
+                            ast_idx: 53,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            TypePath(`core::num::f64`, `Alien`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: False,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
                             },
-                        ),
+                            implicit_parameter_decl_list: None,
+                        },
                     },
                 ),
             ),
@@ -101,11 +429,25 @@ Ok(
                 TypeImplBlock(
                     TypeImplBlockDecl {
                         ast_idx: 19,
-                        impl_block: ImplBlock(
-                            Id {
-                                value: 1,
+                        impl_block: ImplBlock {
+                            id: ImplBlockId {
+                                module_path: `core::num`,
+                                impl_block_kind: Type {
+                                    ty: TypePath(`core::num::i8`, `Alien`),
+                                },
                             },
-                        ),
+                            ast_idx: 19,
+                            body: ArenaIdxRange(
+                                0..1,
+                            ),
+                            variant: Type {
+                                ty: TypePath(
+                                    Id {
+                                        value: 7,
+                                    },
+                                ),
+                            },
+                        },
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
                                 24,
@@ -122,11 +464,99 @@ Ok(
                                 ),
                             },
                         ),
-                        expr_region: ExprRegion(
-                            Id {
-                                value: 23,
+                        expr_region: ExprRegion {
+                            data: ExprRegionData {
+                                parent: None,
+                                path: Decl(
+                                    ImplBlock(
+                                        ImplBlock {
+                                            id: ImplBlockId {
+                                                module_path: `core::num`,
+                                                impl_block_kind: Type {
+                                                    ty: TypePath(`core::num::i8`, `Alien`),
+                                                },
+                                            },
+                                            ast_idx: 19,
+                                            body: ArenaIdxRange(
+                                                0..1,
+                                            ),
+                                            variant: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 7,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [
+                                        EntityPath {
+                                            entity_path_expr: 0,
+                                            entity_path: Some(
+                                                TypePath(`core::num::i8`, `Alien`),
+                                            ),
+                                        },
+                                    ],
+                                },
+                                entity_path_expr_arena: Arena {
+                                    data: [
+                                        Root {
+                                            token_idx: TokenIdx(
+                                                25,
+                                            ),
+                                            ident: Identifier(
+                                                Word(
+                                                    Id {
+                                                        value: 25,
+                                                    },
+                                                ),
+                                            ),
+                                            entity_path: ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 7,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: False,
+                                    ty_constraints: [],
+                                },
+                                roots: [
+                                    ExprRoot {
+                                        kind: Type,
+                                        expr: 0,
+                                    },
+                                ],
                             },
-                        ),
+                        },
                     },
                 ),
             ),
@@ -135,22 +565,665 @@ Ok(
                     Method(
                         TypeMethodDefn {
                             path: Some(
-                                TypeItemPath(
-                                    Id {
-                                        value: 1,
+                                TypeItemPath {
+                                    ty: TypePath(`core::num::i8`, `Alien`),
+                                    ident: `abs`,
+                                    ty_item_kind: Method,
+                                },
+                            ),
+                            decl: TypeMethodDecl {
+                                associated_item: AssociatedItem {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId {
+                                            module_path: ModulePath(
+                                                Id {
+                                                    value: 8,
+                                                },
+                                            ),
+                                            impl_block_kind: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 7,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 32,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    path: Some(
+                                        TypeItemPath {
+                                            ty: TypePath(`core::num::i8`, `Alien`),
+                                            ident: `abs`,
+                                            ty_item_kind: Method,
+                                        },
+                                    ),
+                                    impl_block: ImplBlock {
+                                        id: ImplBlockId {
+                                            module_path: `core::num`,
+                                            impl_block_kind: Type {
+                                                ty: TypePath(`core::num::i8`, `Alien`),
+                                            },
+                                        },
+                                        ast_idx: 19,
+                                        body: ArenaIdxRange(
+                                            0..1,
+                                        ),
+                                        variant: Type {
+                                            ty: TypePath(
+                                                Id {
+                                                    value: 7,
+                                                },
+                                            ),
+                                        },
+                                    },
+                                    ast_idx: 0,
+                                    ident: `abs`,
+                                    associated_item_kind: TypeItem(
+                                        Method,
+                                    ),
+                                    accessibility: Public,
+                                    is_generic: false,
+                                },
+                                path: Some(
+                                    TypeItemPath {
+                                        ty: TypePath(`core::num::i8`, `Alien`),
+                                        ident: `abs`,
+                                        ty_item_kind: Method,
                                     },
                                 ),
-                            ),
-                            decl: TypeMethodDecl(
-                                Id {
-                                    value: 1,
+                                ast_idx: 0,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: Some(
+                                            ExprRegion {
+                                                data: ExprRegionData {
+                                                    parent: None,
+                                                    path: Decl(
+                                                        ImplBlock(
+                                                            ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `core::num`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`core::num::i8`, `Alien`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 19,
+                                                                body: ArenaIdxRange(
+                                                                    0..1,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 7,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            EntityPath {
+                                                                entity_path_expr: 0,
+                                                                entity_path: Some(
+                                                                    TypePath(`core::num::i8`, `Alien`),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    entity_path_expr_arena: Arena {
+                                                        data: [
+                                                            Root {
+                                                                token_idx: TokenIdx(
+                                                                    25,
+                                                                ),
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 25,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                entity_path: ModuleItem(
+                                                                    Type(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 7,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_infos: [],
+                                                        pattern_symbol_maps: [],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                    },
+                                                    symbol_region: SymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        allow_self_type: True,
+                                                        allow_self_value: False,
+                                                        ty_constraints: [],
+                                                    },
+                                                    roots: [
+                                                        ExprRoot {
+                                                            kind: Type,
+                                                            expr: 0,
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ),
+                                        path: Decl(
+                                            AssociatedItem(
+                                                AssociatedItem {
+                                                    id: AssociatedItemId {
+                                                        impl_block_id: ImplBlockId {
+                                                            module_path: ModulePath(
+                                                                Id {
+                                                                    value: 8,
+                                                                },
+                                                            ),
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(
+                                                                    Id {
+                                                                        value: 7,
+                                                                    },
+                                                                ),
+                                                            },
+                                                        },
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 32,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    path: Some(
+                                                        TypeItemPath {
+                                                            ty: TypePath(`core::num::i8`, `Alien`),
+                                                            ident: `abs`,
+                                                            ty_item_kind: Method,
+                                                        },
+                                                    ),
+                                                    impl_block: ImplBlock {
+                                                        id: ImplBlockId {
+                                                            module_path: `core::num`,
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(`core::num::i8`, `Alien`),
+                                                            },
+                                                        },
+                                                        ast_idx: 19,
+                                                        body: ArenaIdxRange(
+                                                            0..1,
+                                                        ),
+                                                        variant: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 7,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ast_idx: 0,
+                                                    ident: `abs`,
+                                                    associated_item_kind: TypeItem(
+                                                        Method,
+                                                    ),
+                                                    accessibility: Public,
+                                                    is_generic: false,
+                                                },
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                EntityPath {
+                                                    entity_path_expr: 0,
+                                                    entity_path: Some(
+                                                        TypePath(`core::num::i8`, `Alien`),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                Root {
+                                                    token_idx: TokenIdx(
+                                                        33,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 25,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    entity_path: ModuleItem(
+                                                        Type(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 7,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: True,
+                                            ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: OutputType,
+                                                expr: 0,
+                                            },
+                                        ],
+                                    },
                                 },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 39,
+                                implicit_parameter_decl_list: None,
+                                parameter_decl_list: ParameterDeclList {
+                                    lpar: LeftParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            30,
+                                        ),
+                                    },
+                                    parameters: [],
+                                    commas: [],
+                                    rpar: RightParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            31,
+                                        ),
+                                    },
                                 },
-                            ),
+                                curry_token: Ok(
+                                    CurryToken {
+                                        token_idx: TokenIdx(
+                                            32,
+                                        ),
+                                    },
+                                ),
+                                output_ty: Ok(
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
+                                ),
+                                eol_colon: Err(
+                                    MissingEolColon(
+                                        TokenIdx(
+                                            34,
+                                        ),
+                                    ),
+                                ),
+                            },
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: Some(
+                                        ExprRegion {
+                                            data: ExprRegionData {
+                                                parent: Some(
+                                                    ExprRegion {
+                                                        data: ExprRegionData {
+                                                            parent: None,
+                                                            path: Decl(
+                                                                ImplBlock(
+                                                                    ImplBlock {
+                                                                        id: ImplBlockId {
+                                                                            module_path: `core::num`,
+                                                                            impl_block_kind: Type {
+                                                                                ty: TypePath(`core::num::i8`, `Alien`),
+                                                                            },
+                                                                        },
+                                                                        ast_idx: 19,
+                                                                        body: ArenaIdxRange(
+                                                                            0..1,
+                                                                        ),
+                                                                        variant: Type {
+                                                                            ty: TypePath(
+                                                                                Id {
+                                                                                    value: 7,
+                                                                                },
+                                                                            ),
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            expr_arena: Arena {
+                                                                data: [
+                                                                    EntityPath {
+                                                                        entity_path_expr: 0,
+                                                                        entity_path: Some(
+                                                                            TypePath(`core::num::i8`, `Alien`),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            entity_path_expr_arena: Arena {
+                                                                data: [
+                                                                    Root {
+                                                                        token_idx: TokenIdx(
+                                                                            25,
+                                                                        ),
+                                                                        ident: Identifier(
+                                                                            Word(
+                                                                                Id {
+                                                                                    value: 25,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        entity_path: ModuleItem(
+                                                                            Type(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 7,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            stmt_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_region: PatternExprRegion {
+                                                                pattern_expr_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_infos: [],
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                            },
+                                                            symbol_region: SymbolRegion {
+                                                                inherited_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                current_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                allow_self_type: True,
+                                                                allow_self_value: False,
+                                                                ty_constraints: [],
+                                                            },
+                                                            roots: [
+                                                                ExprRoot {
+                                                                    kind: Type,
+                                                                    expr: 0,
+                                                                },
+                                                            ],
+                                                        },
+                                                    },
+                                                ),
+                                                path: Decl(
+                                                    AssociatedItem(
+                                                        AssociatedItem {
+                                                            id: AssociatedItemId {
+                                                                impl_block_id: ImplBlockId {
+                                                                    module_path: ModulePath(
+                                                                        Id {
+                                                                            value: 8,
+                                                                        },
+                                                                    ),
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(
+                                                                            Id {
+                                                                                value: 7,
+                                                                            },
+                                                                        ),
+                                                                    },
+                                                                },
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 32,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            path: Some(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`core::num::i8`, `Alien`),
+                                                                    ident: `abs`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
+                                                            impl_block: ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `core::num`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`core::num::i8`, `Alien`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 19,
+                                                                body: ArenaIdxRange(
+                                                                    0..1,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 7,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                            ast_idx: 0,
+                                                            ident: `abs`,
+                                                            associated_item_kind: TypeItem(
+                                                                Method,
+                                                            ),
+                                                            accessibility: Public,
+                                                            is_generic: false,
+                                                        },
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        EntityPath {
+                                                            entity_path_expr: 0,
+                                                            entity_path: Some(
+                                                                TypePath(`core::num::i8`, `Alien`),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                entity_path_expr_arena: Arena {
+                                                    data: [
+                                                        Root {
+                                                            token_idx: TokenIdx(
+                                                                33,
+                                                            ),
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 25,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            entity_path: ModuleItem(
+                                                                Type(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 7,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: PatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: True,
+                                                    ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    ExprRoot {
+                                                        kind: OutputType,
+                                                        expr: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: Defn(
+                                        AssociatedItem(
+                                            AssociatedItem {
+                                                id: AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: ModulePath(
+                                                            Id {
+                                                                value: 8,
+                                                            },
+                                                        ),
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 7,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 32,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: Some(
+                                                    TypeItemPath {
+                                                        ty: TypePath(`core::num::i8`, `Alien`),
+                                                        ident: `abs`,
+                                                        ty_item_kind: Method,
+                                                    },
+                                                ),
+                                                impl_block: ImplBlock {
+                                                    id: ImplBlockId {
+                                                        module_path: `core::num`,
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(`core::num::i8`, `Alien`),
+                                                        },
+                                                    },
+                                                    ast_idx: 19,
+                                                    body: ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                    variant: Type {
+                                                        ty: TypePath(
+                                                            Id {
+                                                                value: 7,
+                                                            },
+                                                        ),
+                                                    },
+                                                },
+                                                ast_idx: 0,
+                                                ident: `abs`,
+                                                associated_item_kind: TypeItem(
+                                                    Method,
+                                                ),
+                                                accessibility: Public,
+                                                is_generic: false,
+                                            },
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
+                            },
                             body: Err(
                                 MissingBody,
                             ),
@@ -162,11 +1235,25 @@ Ok(
                 TypeImplBlock(
                     TypeImplBlockDecl {
                         ast_idx: 24,
-                        impl_block: ImplBlock(
-                            Id {
-                                value: 3,
+                        impl_block: ImplBlock {
+                            id: ImplBlockId {
+                                module_path: `core::num`,
+                                impl_block_kind: Type {
+                                    ty: TypePath(`core::num::i16`, `Alien`),
+                                },
                             },
-                        ),
+                            ast_idx: 24,
+                            body: ArenaIdxRange(
+                                2..3,
+                            ),
+                            variant: Type {
+                                ty: TypePath(
+                                    Id {
+                                        value: 8,
+                                    },
+                                ),
+                            },
+                        },
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
                                 82,
@@ -183,11 +1270,99 @@ Ok(
                                 ),
                             },
                         ),
-                        expr_region: ExprRegion(
-                            Id {
-                                value: 25,
+                        expr_region: ExprRegion {
+                            data: ExprRegionData {
+                                parent: None,
+                                path: Decl(
+                                    ImplBlock(
+                                        ImplBlock {
+                                            id: ImplBlockId {
+                                                module_path: `core::num`,
+                                                impl_block_kind: Type {
+                                                    ty: TypePath(`core::num::i16`, `Alien`),
+                                                },
+                                            },
+                                            ast_idx: 24,
+                                            body: ArenaIdxRange(
+                                                2..3,
+                                            ),
+                                            variant: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 8,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [
+                                        EntityPath {
+                                            entity_path_expr: 0,
+                                            entity_path: Some(
+                                                TypePath(`core::num::i16`, `Alien`),
+                                            ),
+                                        },
+                                    ],
+                                },
+                                entity_path_expr_arena: Arena {
+                                    data: [
+                                        Root {
+                                            token_idx: TokenIdx(
+                                                83,
+                                            ),
+                                            ident: Identifier(
+                                                Word(
+                                                    Id {
+                                                        value: 37,
+                                                    },
+                                                ),
+                                            ),
+                                            entity_path: ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 8,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: False,
+                                    ty_constraints: [],
+                                },
+                                roots: [
+                                    ExprRoot {
+                                        kind: Type,
+                                        expr: 0,
+                                    },
+                                ],
                             },
-                        ),
+                        },
                     },
                 ),
             ),
@@ -196,22 +1371,665 @@ Ok(
                     Method(
                         TypeMethodDefn {
                             path: Some(
-                                TypeItemPath(
-                                    Id {
-                                        value: 2,
+                                TypeItemPath {
+                                    ty: TypePath(`core::num::i16`, `Alien`),
+                                    ident: `abs`,
+                                    ty_item_kind: Method,
+                                },
+                            ),
+                            decl: TypeMethodDecl {
+                                associated_item: AssociatedItem {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId {
+                                            module_path: ModulePath(
+                                                Id {
+                                                    value: 8,
+                                                },
+                                            ),
+                                            impl_block_kind: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 8,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 32,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    path: Some(
+                                        TypeItemPath {
+                                            ty: TypePath(`core::num::i16`, `Alien`),
+                                            ident: `abs`,
+                                            ty_item_kind: Method,
+                                        },
+                                    ),
+                                    impl_block: ImplBlock {
+                                        id: ImplBlockId {
+                                            module_path: `core::num`,
+                                            impl_block_kind: Type {
+                                                ty: TypePath(`core::num::i16`, `Alien`),
+                                            },
+                                        },
+                                        ast_idx: 24,
+                                        body: ArenaIdxRange(
+                                            2..3,
+                                        ),
+                                        variant: Type {
+                                            ty: TypePath(
+                                                Id {
+                                                    value: 8,
+                                                },
+                                            ),
+                                        },
+                                    },
+                                    ast_idx: 2,
+                                    ident: `abs`,
+                                    associated_item_kind: TypeItem(
+                                        Method,
+                                    ),
+                                    accessibility: Public,
+                                    is_generic: false,
+                                },
+                                path: Some(
+                                    TypeItemPath {
+                                        ty: TypePath(`core::num::i16`, `Alien`),
+                                        ident: `abs`,
+                                        ty_item_kind: Method,
                                     },
                                 ),
-                            ),
-                            decl: TypeMethodDecl(
-                                Id {
-                                    value: 2,
+                                ast_idx: 2,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: Some(
+                                            ExprRegion {
+                                                data: ExprRegionData {
+                                                    parent: None,
+                                                    path: Decl(
+                                                        ImplBlock(
+                                                            ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `core::num`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`core::num::i16`, `Alien`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 24,
+                                                                body: ArenaIdxRange(
+                                                                    2..3,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 8,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            EntityPath {
+                                                                entity_path_expr: 0,
+                                                                entity_path: Some(
+                                                                    TypePath(`core::num::i16`, `Alien`),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    entity_path_expr_arena: Arena {
+                                                        data: [
+                                                            Root {
+                                                                token_idx: TokenIdx(
+                                                                    83,
+                                                                ),
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 37,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                entity_path: ModuleItem(
+                                                                    Type(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 8,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_infos: [],
+                                                        pattern_symbol_maps: [],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                    },
+                                                    symbol_region: SymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        allow_self_type: True,
+                                                        allow_self_value: False,
+                                                        ty_constraints: [],
+                                                    },
+                                                    roots: [
+                                                        ExprRoot {
+                                                            kind: Type,
+                                                            expr: 0,
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ),
+                                        path: Decl(
+                                            AssociatedItem(
+                                                AssociatedItem {
+                                                    id: AssociatedItemId {
+                                                        impl_block_id: ImplBlockId {
+                                                            module_path: ModulePath(
+                                                                Id {
+                                                                    value: 8,
+                                                                },
+                                                            ),
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(
+                                                                    Id {
+                                                                        value: 8,
+                                                                    },
+                                                                ),
+                                                            },
+                                                        },
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 32,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    path: Some(
+                                                        TypeItemPath {
+                                                            ty: TypePath(`core::num::i16`, `Alien`),
+                                                            ident: `abs`,
+                                                            ty_item_kind: Method,
+                                                        },
+                                                    ),
+                                                    impl_block: ImplBlock {
+                                                        id: ImplBlockId {
+                                                            module_path: `core::num`,
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(`core::num::i16`, `Alien`),
+                                                            },
+                                                        },
+                                                        ast_idx: 24,
+                                                        body: ArenaIdxRange(
+                                                            2..3,
+                                                        ),
+                                                        variant: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 8,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ast_idx: 2,
+                                                    ident: `abs`,
+                                                    associated_item_kind: TypeItem(
+                                                        Method,
+                                                    ),
+                                                    accessibility: Public,
+                                                    is_generic: false,
+                                                },
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                EntityPath {
+                                                    entity_path_expr: 0,
+                                                    entity_path: Some(
+                                                        TypePath(`core::num::i16`, `Alien`),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                Root {
+                                                    token_idx: TokenIdx(
+                                                        91,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 37,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    entity_path: ModuleItem(
+                                                        Type(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 8,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: True,
+                                            ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: OutputType,
+                                                expr: 0,
+                                            },
+                                        ],
+                                    },
                                 },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 40,
+                                implicit_parameter_decl_list: None,
+                                parameter_decl_list: ParameterDeclList {
+                                    lpar: LeftParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            88,
+                                        ),
+                                    },
+                                    parameters: [],
+                                    commas: [],
+                                    rpar: RightParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            89,
+                                        ),
+                                    },
                                 },
-                            ),
+                                curry_token: Ok(
+                                    CurryToken {
+                                        token_idx: TokenIdx(
+                                            90,
+                                        ),
+                                    },
+                                ),
+                                output_ty: Ok(
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
+                                ),
+                                eol_colon: Err(
+                                    MissingEolColon(
+                                        TokenIdx(
+                                            92,
+                                        ),
+                                    ),
+                                ),
+                            },
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: Some(
+                                        ExprRegion {
+                                            data: ExprRegionData {
+                                                parent: Some(
+                                                    ExprRegion {
+                                                        data: ExprRegionData {
+                                                            parent: None,
+                                                            path: Decl(
+                                                                ImplBlock(
+                                                                    ImplBlock {
+                                                                        id: ImplBlockId {
+                                                                            module_path: `core::num`,
+                                                                            impl_block_kind: Type {
+                                                                                ty: TypePath(`core::num::i16`, `Alien`),
+                                                                            },
+                                                                        },
+                                                                        ast_idx: 24,
+                                                                        body: ArenaIdxRange(
+                                                                            2..3,
+                                                                        ),
+                                                                        variant: Type {
+                                                                            ty: TypePath(
+                                                                                Id {
+                                                                                    value: 8,
+                                                                                },
+                                                                            ),
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            expr_arena: Arena {
+                                                                data: [
+                                                                    EntityPath {
+                                                                        entity_path_expr: 0,
+                                                                        entity_path: Some(
+                                                                            TypePath(`core::num::i16`, `Alien`),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            entity_path_expr_arena: Arena {
+                                                                data: [
+                                                                    Root {
+                                                                        token_idx: TokenIdx(
+                                                                            83,
+                                                                        ),
+                                                                        ident: Identifier(
+                                                                            Word(
+                                                                                Id {
+                                                                                    value: 37,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        entity_path: ModuleItem(
+                                                                            Type(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 8,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            stmt_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_region: PatternExprRegion {
+                                                                pattern_expr_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_infos: [],
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                            },
+                                                            symbol_region: SymbolRegion {
+                                                                inherited_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                current_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                allow_self_type: True,
+                                                                allow_self_value: False,
+                                                                ty_constraints: [],
+                                                            },
+                                                            roots: [
+                                                                ExprRoot {
+                                                                    kind: Type,
+                                                                    expr: 0,
+                                                                },
+                                                            ],
+                                                        },
+                                                    },
+                                                ),
+                                                path: Decl(
+                                                    AssociatedItem(
+                                                        AssociatedItem {
+                                                            id: AssociatedItemId {
+                                                                impl_block_id: ImplBlockId {
+                                                                    module_path: ModulePath(
+                                                                        Id {
+                                                                            value: 8,
+                                                                        },
+                                                                    ),
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(
+                                                                            Id {
+                                                                                value: 8,
+                                                                            },
+                                                                        ),
+                                                                    },
+                                                                },
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 32,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            path: Some(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`core::num::i16`, `Alien`),
+                                                                    ident: `abs`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
+                                                            impl_block: ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `core::num`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`core::num::i16`, `Alien`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 24,
+                                                                body: ArenaIdxRange(
+                                                                    2..3,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 8,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                            ast_idx: 2,
+                                                            ident: `abs`,
+                                                            associated_item_kind: TypeItem(
+                                                                Method,
+                                                            ),
+                                                            accessibility: Public,
+                                                            is_generic: false,
+                                                        },
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        EntityPath {
+                                                            entity_path_expr: 0,
+                                                            entity_path: Some(
+                                                                TypePath(`core::num::i16`, `Alien`),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                entity_path_expr_arena: Arena {
+                                                    data: [
+                                                        Root {
+                                                            token_idx: TokenIdx(
+                                                                91,
+                                                            ),
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 37,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            entity_path: ModuleItem(
+                                                                Type(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 8,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: PatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: True,
+                                                    ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    ExprRoot {
+                                                        kind: OutputType,
+                                                        expr: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: Defn(
+                                        AssociatedItem(
+                                            AssociatedItem {
+                                                id: AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: ModulePath(
+                                                            Id {
+                                                                value: 8,
+                                                            },
+                                                        ),
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 8,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 32,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: Some(
+                                                    TypeItemPath {
+                                                        ty: TypePath(`core::num::i16`, `Alien`),
+                                                        ident: `abs`,
+                                                        ty_item_kind: Method,
+                                                    },
+                                                ),
+                                                impl_block: ImplBlock {
+                                                    id: ImplBlockId {
+                                                        module_path: `core::num`,
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(`core::num::i16`, `Alien`),
+                                                        },
+                                                    },
+                                                    ast_idx: 24,
+                                                    body: ArenaIdxRange(
+                                                        2..3,
+                                                    ),
+                                                    variant: Type {
+                                                        ty: TypePath(
+                                                            Id {
+                                                                value: 8,
+                                                            },
+                                                        ),
+                                                    },
+                                                },
+                                                ast_idx: 2,
+                                                ident: `abs`,
+                                                associated_item_kind: TypeItem(
+                                                    Method,
+                                                ),
+                                                accessibility: Public,
+                                                is_generic: false,
+                                            },
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
+                            },
                             body: Err(
                                 MissingBody,
                             ),
@@ -223,11 +2041,25 @@ Ok(
                 TypeImplBlock(
                     TypeImplBlockDecl {
                         ast_idx: 29,
-                        impl_block: ImplBlock(
-                            Id {
-                                value: 5,
+                        impl_block: ImplBlock {
+                            id: ImplBlockId {
+                                module_path: `core::num`,
+                                impl_block_kind: Type {
+                                    ty: TypePath(`core::num::i32`, `Alien`),
+                                },
                             },
-                        ),
+                            ast_idx: 29,
+                            body: ArenaIdxRange(
+                                4..5,
+                            ),
+                            variant: Type {
+                                ty: TypePath(
+                                    Id {
+                                        value: 9,
+                                    },
+                                ),
+                            },
+                        },
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
                                 140,
@@ -244,11 +2076,99 @@ Ok(
                                 ),
                             },
                         ),
-                        expr_region: ExprRegion(
-                            Id {
-                                value: 27,
+                        expr_region: ExprRegion {
+                            data: ExprRegionData {
+                                parent: None,
+                                path: Decl(
+                                    ImplBlock(
+                                        ImplBlock {
+                                            id: ImplBlockId {
+                                                module_path: `core::num`,
+                                                impl_block_kind: Type {
+                                                    ty: TypePath(`core::num::i32`, `Alien`),
+                                                },
+                                            },
+                                            ast_idx: 29,
+                                            body: ArenaIdxRange(
+                                                4..5,
+                                            ),
+                                            variant: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 9,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [
+                                        EntityPath {
+                                            entity_path_expr: 0,
+                                            entity_path: Some(
+                                                TypePath(`core::num::i32`, `Alien`),
+                                            ),
+                                        },
+                                    ],
+                                },
+                                entity_path_expr_arena: Arena {
+                                    data: [
+                                        Root {
+                                            token_idx: TokenIdx(
+                                                141,
+                                            ),
+                                            ident: Identifier(
+                                                Word(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
+                                            ),
+                                            entity_path: ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 9,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: False,
+                                    ty_constraints: [],
+                                },
+                                roots: [
+                                    ExprRoot {
+                                        kind: Type,
+                                        expr: 0,
+                                    },
+                                ],
                             },
-                        ),
+                        },
                     },
                 ),
             ),
@@ -257,22 +2177,665 @@ Ok(
                     Method(
                         TypeMethodDefn {
                             path: Some(
-                                TypeItemPath(
-                                    Id {
-                                        value: 3,
+                                TypeItemPath {
+                                    ty: TypePath(`core::num::i32`, `Alien`),
+                                    ident: `abs`,
+                                    ty_item_kind: Method,
+                                },
+                            ),
+                            decl: TypeMethodDecl {
+                                associated_item: AssociatedItem {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId {
+                                            module_path: ModulePath(
+                                                Id {
+                                                    value: 8,
+                                                },
+                                            ),
+                                            impl_block_kind: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 9,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 32,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    path: Some(
+                                        TypeItemPath {
+                                            ty: TypePath(`core::num::i32`, `Alien`),
+                                            ident: `abs`,
+                                            ty_item_kind: Method,
+                                        },
+                                    ),
+                                    impl_block: ImplBlock {
+                                        id: ImplBlockId {
+                                            module_path: `core::num`,
+                                            impl_block_kind: Type {
+                                                ty: TypePath(`core::num::i32`, `Alien`),
+                                            },
+                                        },
+                                        ast_idx: 29,
+                                        body: ArenaIdxRange(
+                                            4..5,
+                                        ),
+                                        variant: Type {
+                                            ty: TypePath(
+                                                Id {
+                                                    value: 9,
+                                                },
+                                            ),
+                                        },
+                                    },
+                                    ast_idx: 4,
+                                    ident: `abs`,
+                                    associated_item_kind: TypeItem(
+                                        Method,
+                                    ),
+                                    accessibility: Public,
+                                    is_generic: false,
+                                },
+                                path: Some(
+                                    TypeItemPath {
+                                        ty: TypePath(`core::num::i32`, `Alien`),
+                                        ident: `abs`,
+                                        ty_item_kind: Method,
                                     },
                                 ),
-                            ),
-                            decl: TypeMethodDecl(
-                                Id {
-                                    value: 3,
+                                ast_idx: 4,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: Some(
+                                            ExprRegion {
+                                                data: ExprRegionData {
+                                                    parent: None,
+                                                    path: Decl(
+                                                        ImplBlock(
+                                                            ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `core::num`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`core::num::i32`, `Alien`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 29,
+                                                                body: ArenaIdxRange(
+                                                                    4..5,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 9,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            EntityPath {
+                                                                entity_path_expr: 0,
+                                                                entity_path: Some(
+                                                                    TypePath(`core::num::i32`, `Alien`),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    entity_path_expr_arena: Arena {
+                                                        data: [
+                                                            Root {
+                                                                token_idx: TokenIdx(
+                                                                    141,
+                                                                ),
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 38,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                entity_path: ModuleItem(
+                                                                    Type(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 9,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_infos: [],
+                                                        pattern_symbol_maps: [],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                    },
+                                                    symbol_region: SymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        allow_self_type: True,
+                                                        allow_self_value: False,
+                                                        ty_constraints: [],
+                                                    },
+                                                    roots: [
+                                                        ExprRoot {
+                                                            kind: Type,
+                                                            expr: 0,
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ),
+                                        path: Decl(
+                                            AssociatedItem(
+                                                AssociatedItem {
+                                                    id: AssociatedItemId {
+                                                        impl_block_id: ImplBlockId {
+                                                            module_path: ModulePath(
+                                                                Id {
+                                                                    value: 8,
+                                                                },
+                                                            ),
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(
+                                                                    Id {
+                                                                        value: 9,
+                                                                    },
+                                                                ),
+                                                            },
+                                                        },
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 32,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    path: Some(
+                                                        TypeItemPath {
+                                                            ty: TypePath(`core::num::i32`, `Alien`),
+                                                            ident: `abs`,
+                                                            ty_item_kind: Method,
+                                                        },
+                                                    ),
+                                                    impl_block: ImplBlock {
+                                                        id: ImplBlockId {
+                                                            module_path: `core::num`,
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(`core::num::i32`, `Alien`),
+                                                            },
+                                                        },
+                                                        ast_idx: 29,
+                                                        body: ArenaIdxRange(
+                                                            4..5,
+                                                        ),
+                                                        variant: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 9,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ast_idx: 4,
+                                                    ident: `abs`,
+                                                    associated_item_kind: TypeItem(
+                                                        Method,
+                                                    ),
+                                                    accessibility: Public,
+                                                    is_generic: false,
+                                                },
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                EntityPath {
+                                                    entity_path_expr: 0,
+                                                    entity_path: Some(
+                                                        TypePath(`core::num::i32`, `Alien`),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                Root {
+                                                    token_idx: TokenIdx(
+                                                        149,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    entity_path: ModuleItem(
+                                                        Type(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 9,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: True,
+                                            ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: OutputType,
+                                                expr: 0,
+                                            },
+                                        ],
+                                    },
                                 },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 41,
+                                implicit_parameter_decl_list: None,
+                                parameter_decl_list: ParameterDeclList {
+                                    lpar: LeftParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            146,
+                                        ),
+                                    },
+                                    parameters: [],
+                                    commas: [],
+                                    rpar: RightParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            147,
+                                        ),
+                                    },
                                 },
-                            ),
+                                curry_token: Ok(
+                                    CurryToken {
+                                        token_idx: TokenIdx(
+                                            148,
+                                        ),
+                                    },
+                                ),
+                                output_ty: Ok(
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
+                                ),
+                                eol_colon: Err(
+                                    MissingEolColon(
+                                        TokenIdx(
+                                            150,
+                                        ),
+                                    ),
+                                ),
+                            },
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: Some(
+                                        ExprRegion {
+                                            data: ExprRegionData {
+                                                parent: Some(
+                                                    ExprRegion {
+                                                        data: ExprRegionData {
+                                                            parent: None,
+                                                            path: Decl(
+                                                                ImplBlock(
+                                                                    ImplBlock {
+                                                                        id: ImplBlockId {
+                                                                            module_path: `core::num`,
+                                                                            impl_block_kind: Type {
+                                                                                ty: TypePath(`core::num::i32`, `Alien`),
+                                                                            },
+                                                                        },
+                                                                        ast_idx: 29,
+                                                                        body: ArenaIdxRange(
+                                                                            4..5,
+                                                                        ),
+                                                                        variant: Type {
+                                                                            ty: TypePath(
+                                                                                Id {
+                                                                                    value: 9,
+                                                                                },
+                                                                            ),
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            expr_arena: Arena {
+                                                                data: [
+                                                                    EntityPath {
+                                                                        entity_path_expr: 0,
+                                                                        entity_path: Some(
+                                                                            TypePath(`core::num::i32`, `Alien`),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            entity_path_expr_arena: Arena {
+                                                                data: [
+                                                                    Root {
+                                                                        token_idx: TokenIdx(
+                                                                            141,
+                                                                        ),
+                                                                        ident: Identifier(
+                                                                            Word(
+                                                                                Id {
+                                                                                    value: 38,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        entity_path: ModuleItem(
+                                                                            Type(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 9,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            stmt_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_region: PatternExprRegion {
+                                                                pattern_expr_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_infos: [],
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                            },
+                                                            symbol_region: SymbolRegion {
+                                                                inherited_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                current_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                allow_self_type: True,
+                                                                allow_self_value: False,
+                                                                ty_constraints: [],
+                                                            },
+                                                            roots: [
+                                                                ExprRoot {
+                                                                    kind: Type,
+                                                                    expr: 0,
+                                                                },
+                                                            ],
+                                                        },
+                                                    },
+                                                ),
+                                                path: Decl(
+                                                    AssociatedItem(
+                                                        AssociatedItem {
+                                                            id: AssociatedItemId {
+                                                                impl_block_id: ImplBlockId {
+                                                                    module_path: ModulePath(
+                                                                        Id {
+                                                                            value: 8,
+                                                                        },
+                                                                    ),
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(
+                                                                            Id {
+                                                                                value: 9,
+                                                                            },
+                                                                        ),
+                                                                    },
+                                                                },
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 32,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            path: Some(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`core::num::i32`, `Alien`),
+                                                                    ident: `abs`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
+                                                            impl_block: ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `core::num`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`core::num::i32`, `Alien`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 29,
+                                                                body: ArenaIdxRange(
+                                                                    4..5,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 9,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                            ast_idx: 4,
+                                                            ident: `abs`,
+                                                            associated_item_kind: TypeItem(
+                                                                Method,
+                                                            ),
+                                                            accessibility: Public,
+                                                            is_generic: false,
+                                                        },
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        EntityPath {
+                                                            entity_path_expr: 0,
+                                                            entity_path: Some(
+                                                                TypePath(`core::num::i32`, `Alien`),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                entity_path_expr_arena: Arena {
+                                                    data: [
+                                                        Root {
+                                                            token_idx: TokenIdx(
+                                                                149,
+                                                            ),
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 38,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            entity_path: ModuleItem(
+                                                                Type(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 9,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: PatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: True,
+                                                    ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    ExprRoot {
+                                                        kind: OutputType,
+                                                        expr: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: Defn(
+                                        AssociatedItem(
+                                            AssociatedItem {
+                                                id: AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: ModulePath(
+                                                            Id {
+                                                                value: 8,
+                                                            },
+                                                        ),
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 9,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 32,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: Some(
+                                                    TypeItemPath {
+                                                        ty: TypePath(`core::num::i32`, `Alien`),
+                                                        ident: `abs`,
+                                                        ty_item_kind: Method,
+                                                    },
+                                                ),
+                                                impl_block: ImplBlock {
+                                                    id: ImplBlockId {
+                                                        module_path: `core::num`,
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(`core::num::i32`, `Alien`),
+                                                        },
+                                                    },
+                                                    ast_idx: 29,
+                                                    body: ArenaIdxRange(
+                                                        4..5,
+                                                    ),
+                                                    variant: Type {
+                                                        ty: TypePath(
+                                                            Id {
+                                                                value: 9,
+                                                            },
+                                                        ),
+                                                    },
+                                                },
+                                                ast_idx: 4,
+                                                ident: `abs`,
+                                                associated_item_kind: TypeItem(
+                                                    Method,
+                                                ),
+                                                accessibility: Public,
+                                                is_generic: false,
+                                            },
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
+                            },
                             body: Err(
                                 MissingBody,
                             ),
@@ -284,11 +2847,25 @@ Ok(
                 TypeImplBlock(
                     TypeImplBlockDecl {
                         ast_idx: 34,
-                        impl_block: ImplBlock(
-                            Id {
-                                value: 7,
+                        impl_block: ImplBlock {
+                            id: ImplBlockId {
+                                module_path: `core::num`,
+                                impl_block_kind: Type {
+                                    ty: TypePath(`core::num::i64`, `Alien`),
+                                },
                             },
-                        ),
+                            ast_idx: 34,
+                            body: ArenaIdxRange(
+                                6..7,
+                            ),
+                            variant: Type {
+                                ty: TypePath(
+                                    Id {
+                                        value: 10,
+                                    },
+                                ),
+                            },
+                        },
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
                                 197,
@@ -305,11 +2882,99 @@ Ok(
                                 ),
                             },
                         ),
-                        expr_region: ExprRegion(
-                            Id {
-                                value: 29,
+                        expr_region: ExprRegion {
+                            data: ExprRegionData {
+                                parent: None,
+                                path: Decl(
+                                    ImplBlock(
+                                        ImplBlock {
+                                            id: ImplBlockId {
+                                                module_path: `core::num`,
+                                                impl_block_kind: Type {
+                                                    ty: TypePath(`core::num::i64`, `Alien`),
+                                                },
+                                            },
+                                            ast_idx: 34,
+                                            body: ArenaIdxRange(
+                                                6..7,
+                                            ),
+                                            variant: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 10,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [
+                                        EntityPath {
+                                            entity_path_expr: 0,
+                                            entity_path: Some(
+                                                TypePath(`core::num::i64`, `Alien`),
+                                            ),
+                                        },
+                                    ],
+                                },
+                                entity_path_expr_arena: Arena {
+                                    data: [
+                                        Root {
+                                            token_idx: TokenIdx(
+                                                198,
+                                            ),
+                                            ident: Identifier(
+                                                Word(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            ),
+                                            entity_path: ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 10,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: False,
+                                    ty_constraints: [],
+                                },
+                                roots: [
+                                    ExprRoot {
+                                        kind: Type,
+                                        expr: 0,
+                                    },
+                                ],
                             },
-                        ),
+                        },
                     },
                 ),
             ),
@@ -318,22 +2983,665 @@ Ok(
                     Method(
                         TypeMethodDefn {
                             path: Some(
-                                TypeItemPath(
-                                    Id {
-                                        value: 4,
+                                TypeItemPath {
+                                    ty: TypePath(`core::num::i64`, `Alien`),
+                                    ident: `abs`,
+                                    ty_item_kind: Method,
+                                },
+                            ),
+                            decl: TypeMethodDecl {
+                                associated_item: AssociatedItem {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId {
+                                            module_path: ModulePath(
+                                                Id {
+                                                    value: 8,
+                                                },
+                                            ),
+                                            impl_block_kind: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 10,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 32,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    path: Some(
+                                        TypeItemPath {
+                                            ty: TypePath(`core::num::i64`, `Alien`),
+                                            ident: `abs`,
+                                            ty_item_kind: Method,
+                                        },
+                                    ),
+                                    impl_block: ImplBlock {
+                                        id: ImplBlockId {
+                                            module_path: `core::num`,
+                                            impl_block_kind: Type {
+                                                ty: TypePath(`core::num::i64`, `Alien`),
+                                            },
+                                        },
+                                        ast_idx: 34,
+                                        body: ArenaIdxRange(
+                                            6..7,
+                                        ),
+                                        variant: Type {
+                                            ty: TypePath(
+                                                Id {
+                                                    value: 10,
+                                                },
+                                            ),
+                                        },
+                                    },
+                                    ast_idx: 6,
+                                    ident: `abs`,
+                                    associated_item_kind: TypeItem(
+                                        Method,
+                                    ),
+                                    accessibility: Public,
+                                    is_generic: false,
+                                },
+                                path: Some(
+                                    TypeItemPath {
+                                        ty: TypePath(`core::num::i64`, `Alien`),
+                                        ident: `abs`,
+                                        ty_item_kind: Method,
                                     },
                                 ),
-                            ),
-                            decl: TypeMethodDecl(
-                                Id {
-                                    value: 4,
+                                ast_idx: 6,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: Some(
+                                            ExprRegion {
+                                                data: ExprRegionData {
+                                                    parent: None,
+                                                    path: Decl(
+                                                        ImplBlock(
+                                                            ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `core::num`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`core::num::i64`, `Alien`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 34,
+                                                                body: ArenaIdxRange(
+                                                                    6..7,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 10,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            EntityPath {
+                                                                entity_path_expr: 0,
+                                                                entity_path: Some(
+                                                                    TypePath(`core::num::i64`, `Alien`),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    entity_path_expr_arena: Arena {
+                                                        data: [
+                                                            Root {
+                                                                token_idx: TokenIdx(
+                                                                    198,
+                                                                ),
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 39,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                entity_path: ModuleItem(
+                                                                    Type(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 10,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_infos: [],
+                                                        pattern_symbol_maps: [],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                    },
+                                                    symbol_region: SymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        allow_self_type: True,
+                                                        allow_self_value: False,
+                                                        ty_constraints: [],
+                                                    },
+                                                    roots: [
+                                                        ExprRoot {
+                                                            kind: Type,
+                                                            expr: 0,
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ),
+                                        path: Decl(
+                                            AssociatedItem(
+                                                AssociatedItem {
+                                                    id: AssociatedItemId {
+                                                        impl_block_id: ImplBlockId {
+                                                            module_path: ModulePath(
+                                                                Id {
+                                                                    value: 8,
+                                                                },
+                                                            ),
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(
+                                                                    Id {
+                                                                        value: 10,
+                                                                    },
+                                                                ),
+                                                            },
+                                                        },
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 32,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    path: Some(
+                                                        TypeItemPath {
+                                                            ty: TypePath(`core::num::i64`, `Alien`),
+                                                            ident: `abs`,
+                                                            ty_item_kind: Method,
+                                                        },
+                                                    ),
+                                                    impl_block: ImplBlock {
+                                                        id: ImplBlockId {
+                                                            module_path: `core::num`,
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(`core::num::i64`, `Alien`),
+                                                            },
+                                                        },
+                                                        ast_idx: 34,
+                                                        body: ArenaIdxRange(
+                                                            6..7,
+                                                        ),
+                                                        variant: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 10,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ast_idx: 6,
+                                                    ident: `abs`,
+                                                    associated_item_kind: TypeItem(
+                                                        Method,
+                                                    ),
+                                                    accessibility: Public,
+                                                    is_generic: false,
+                                                },
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                EntityPath {
+                                                    entity_path_expr: 0,
+                                                    entity_path: Some(
+                                                        TypePath(`core::num::i64`, `Alien`),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                Root {
+                                                    token_idx: TokenIdx(
+                                                        206,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 39,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    entity_path: ModuleItem(
+                                                        Type(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 10,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: True,
+                                            ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: OutputType,
+                                                expr: 0,
+                                            },
+                                        ],
+                                    },
                                 },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 42,
+                                implicit_parameter_decl_list: None,
+                                parameter_decl_list: ParameterDeclList {
+                                    lpar: LeftParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            203,
+                                        ),
+                                    },
+                                    parameters: [],
+                                    commas: [],
+                                    rpar: RightParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            204,
+                                        ),
+                                    },
                                 },
-                            ),
+                                curry_token: Ok(
+                                    CurryToken {
+                                        token_idx: TokenIdx(
+                                            205,
+                                        ),
+                                    },
+                                ),
+                                output_ty: Ok(
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
+                                ),
+                                eol_colon: Err(
+                                    MissingEolColon(
+                                        TokenIdx(
+                                            207,
+                                        ),
+                                    ),
+                                ),
+                            },
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: Some(
+                                        ExprRegion {
+                                            data: ExprRegionData {
+                                                parent: Some(
+                                                    ExprRegion {
+                                                        data: ExprRegionData {
+                                                            parent: None,
+                                                            path: Decl(
+                                                                ImplBlock(
+                                                                    ImplBlock {
+                                                                        id: ImplBlockId {
+                                                                            module_path: `core::num`,
+                                                                            impl_block_kind: Type {
+                                                                                ty: TypePath(`core::num::i64`, `Alien`),
+                                                                            },
+                                                                        },
+                                                                        ast_idx: 34,
+                                                                        body: ArenaIdxRange(
+                                                                            6..7,
+                                                                        ),
+                                                                        variant: Type {
+                                                                            ty: TypePath(
+                                                                                Id {
+                                                                                    value: 10,
+                                                                                },
+                                                                            ),
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            expr_arena: Arena {
+                                                                data: [
+                                                                    EntityPath {
+                                                                        entity_path_expr: 0,
+                                                                        entity_path: Some(
+                                                                            TypePath(`core::num::i64`, `Alien`),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            entity_path_expr_arena: Arena {
+                                                                data: [
+                                                                    Root {
+                                                                        token_idx: TokenIdx(
+                                                                            198,
+                                                                        ),
+                                                                        ident: Identifier(
+                                                                            Word(
+                                                                                Id {
+                                                                                    value: 39,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        entity_path: ModuleItem(
+                                                                            Type(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 10,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            stmt_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_region: PatternExprRegion {
+                                                                pattern_expr_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_infos: [],
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                            },
+                                                            symbol_region: SymbolRegion {
+                                                                inherited_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                current_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                allow_self_type: True,
+                                                                allow_self_value: False,
+                                                                ty_constraints: [],
+                                                            },
+                                                            roots: [
+                                                                ExprRoot {
+                                                                    kind: Type,
+                                                                    expr: 0,
+                                                                },
+                                                            ],
+                                                        },
+                                                    },
+                                                ),
+                                                path: Decl(
+                                                    AssociatedItem(
+                                                        AssociatedItem {
+                                                            id: AssociatedItemId {
+                                                                impl_block_id: ImplBlockId {
+                                                                    module_path: ModulePath(
+                                                                        Id {
+                                                                            value: 8,
+                                                                        },
+                                                                    ),
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(
+                                                                            Id {
+                                                                                value: 10,
+                                                                            },
+                                                                        ),
+                                                                    },
+                                                                },
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 32,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            path: Some(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`core::num::i64`, `Alien`),
+                                                                    ident: `abs`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
+                                                            impl_block: ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `core::num`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`core::num::i64`, `Alien`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 34,
+                                                                body: ArenaIdxRange(
+                                                                    6..7,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 10,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                            ast_idx: 6,
+                                                            ident: `abs`,
+                                                            associated_item_kind: TypeItem(
+                                                                Method,
+                                                            ),
+                                                            accessibility: Public,
+                                                            is_generic: false,
+                                                        },
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        EntityPath {
+                                                            entity_path_expr: 0,
+                                                            entity_path: Some(
+                                                                TypePath(`core::num::i64`, `Alien`),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                entity_path_expr_arena: Arena {
+                                                    data: [
+                                                        Root {
+                                                            token_idx: TokenIdx(
+                                                                206,
+                                                            ),
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 39,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            entity_path: ModuleItem(
+                                                                Type(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 10,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: PatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: True,
+                                                    ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    ExprRoot {
+                                                        kind: OutputType,
+                                                        expr: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: Defn(
+                                        AssociatedItem(
+                                            AssociatedItem {
+                                                id: AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: ModulePath(
+                                                            Id {
+                                                                value: 8,
+                                                            },
+                                                        ),
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 10,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 32,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: Some(
+                                                    TypeItemPath {
+                                                        ty: TypePath(`core::num::i64`, `Alien`),
+                                                        ident: `abs`,
+                                                        ty_item_kind: Method,
+                                                    },
+                                                ),
+                                                impl_block: ImplBlock {
+                                                    id: ImplBlockId {
+                                                        module_path: `core::num`,
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(`core::num::i64`, `Alien`),
+                                                        },
+                                                    },
+                                                    ast_idx: 34,
+                                                    body: ArenaIdxRange(
+                                                        6..7,
+                                                    ),
+                                                    variant: Type {
+                                                        ty: TypePath(
+                                                            Id {
+                                                                value: 10,
+                                                            },
+                                                        ),
+                                                    },
+                                                },
+                                                ast_idx: 6,
+                                                ident: `abs`,
+                                                associated_item_kind: TypeItem(
+                                                    Method,
+                                                ),
+                                                accessibility: Public,
+                                                is_generic: false,
+                                            },
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
+                            },
                             body: Err(
                                 MissingBody,
                             ),
@@ -345,11 +3653,25 @@ Ok(
                 TypeImplBlock(
                     TypeImplBlockDecl {
                         ast_idx: 39,
-                        impl_block: ImplBlock(
-                            Id {
-                                value: 9,
+                        impl_block: ImplBlock {
+                            id: ImplBlockId {
+                                module_path: `core::num`,
+                                impl_block_kind: Type {
+                                    ty: TypePath(`core::num::f8`, `Alien`),
+                                },
                             },
-                        ),
+                            ast_idx: 39,
+                            body: ArenaIdxRange(
+                                8..9,
+                            ),
+                            variant: Type {
+                                ty: TypePath(
+                                    Id {
+                                        value: 11,
+                                    },
+                                ),
+                            },
+                        },
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
                                 255,
@@ -366,11 +3688,99 @@ Ok(
                                 ),
                             },
                         ),
-                        expr_region: ExprRegion(
-                            Id {
-                                value: 31,
+                        expr_region: ExprRegion {
+                            data: ExprRegionData {
+                                parent: None,
+                                path: Decl(
+                                    ImplBlock(
+                                        ImplBlock {
+                                            id: ImplBlockId {
+                                                module_path: `core::num`,
+                                                impl_block_kind: Type {
+                                                    ty: TypePath(`core::num::f8`, `Alien`),
+                                                },
+                                            },
+                                            ast_idx: 39,
+                                            body: ArenaIdxRange(
+                                                8..9,
+                                            ),
+                                            variant: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 11,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [
+                                        EntityPath {
+                                            entity_path_expr: 0,
+                                            entity_path: Some(
+                                                TypePath(`core::num::f8`, `Alien`),
+                                            ),
+                                        },
+                                    ],
+                                },
+                                entity_path_expr_arena: Arena {
+                                    data: [
+                                        Root {
+                                            token_idx: TokenIdx(
+                                                256,
+                                            ),
+                                            ident: Identifier(
+                                                Word(
+                                                    Id {
+                                                        value: 40,
+                                                    },
+                                                ),
+                                            ),
+                                            entity_path: ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 11,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: False,
+                                    ty_constraints: [],
+                                },
+                                roots: [
+                                    ExprRoot {
+                                        kind: Type,
+                                        expr: 0,
+                                    },
+                                ],
                             },
-                        ),
+                        },
                     },
                 ),
             ),
@@ -379,22 +3789,665 @@ Ok(
                     Method(
                         TypeMethodDefn {
                             path: Some(
-                                TypeItemPath(
-                                    Id {
-                                        value: 5,
+                                TypeItemPath {
+                                    ty: TypePath(`core::num::f8`, `Alien`),
+                                    ident: `abs`,
+                                    ty_item_kind: Method,
+                                },
+                            ),
+                            decl: TypeMethodDecl {
+                                associated_item: AssociatedItem {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId {
+                                            module_path: ModulePath(
+                                                Id {
+                                                    value: 8,
+                                                },
+                                            ),
+                                            impl_block_kind: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 11,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 32,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    path: Some(
+                                        TypeItemPath {
+                                            ty: TypePath(`core::num::f8`, `Alien`),
+                                            ident: `abs`,
+                                            ty_item_kind: Method,
+                                        },
+                                    ),
+                                    impl_block: ImplBlock {
+                                        id: ImplBlockId {
+                                            module_path: `core::num`,
+                                            impl_block_kind: Type {
+                                                ty: TypePath(`core::num::f8`, `Alien`),
+                                            },
+                                        },
+                                        ast_idx: 39,
+                                        body: ArenaIdxRange(
+                                            8..9,
+                                        ),
+                                        variant: Type {
+                                            ty: TypePath(
+                                                Id {
+                                                    value: 11,
+                                                },
+                                            ),
+                                        },
+                                    },
+                                    ast_idx: 8,
+                                    ident: `abs`,
+                                    associated_item_kind: TypeItem(
+                                        Method,
+                                    ),
+                                    accessibility: Public,
+                                    is_generic: false,
+                                },
+                                path: Some(
+                                    TypeItemPath {
+                                        ty: TypePath(`core::num::f8`, `Alien`),
+                                        ident: `abs`,
+                                        ty_item_kind: Method,
                                     },
                                 ),
-                            ),
-                            decl: TypeMethodDecl(
-                                Id {
-                                    value: 5,
+                                ast_idx: 8,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: Some(
+                                            ExprRegion {
+                                                data: ExprRegionData {
+                                                    parent: None,
+                                                    path: Decl(
+                                                        ImplBlock(
+                                                            ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `core::num`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`core::num::f8`, `Alien`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 39,
+                                                                body: ArenaIdxRange(
+                                                                    8..9,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 11,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            EntityPath {
+                                                                entity_path_expr: 0,
+                                                                entity_path: Some(
+                                                                    TypePath(`core::num::f8`, `Alien`),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    entity_path_expr_arena: Arena {
+                                                        data: [
+                                                            Root {
+                                                                token_idx: TokenIdx(
+                                                                    256,
+                                                                ),
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 40,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                entity_path: ModuleItem(
+                                                                    Type(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 11,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_infos: [],
+                                                        pattern_symbol_maps: [],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                    },
+                                                    symbol_region: SymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        allow_self_type: True,
+                                                        allow_self_value: False,
+                                                        ty_constraints: [],
+                                                    },
+                                                    roots: [
+                                                        ExprRoot {
+                                                            kind: Type,
+                                                            expr: 0,
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ),
+                                        path: Decl(
+                                            AssociatedItem(
+                                                AssociatedItem {
+                                                    id: AssociatedItemId {
+                                                        impl_block_id: ImplBlockId {
+                                                            module_path: ModulePath(
+                                                                Id {
+                                                                    value: 8,
+                                                                },
+                                                            ),
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(
+                                                                    Id {
+                                                                        value: 11,
+                                                                    },
+                                                                ),
+                                                            },
+                                                        },
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 32,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    path: Some(
+                                                        TypeItemPath {
+                                                            ty: TypePath(`core::num::f8`, `Alien`),
+                                                            ident: `abs`,
+                                                            ty_item_kind: Method,
+                                                        },
+                                                    ),
+                                                    impl_block: ImplBlock {
+                                                        id: ImplBlockId {
+                                                            module_path: `core::num`,
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(`core::num::f8`, `Alien`),
+                                                            },
+                                                        },
+                                                        ast_idx: 39,
+                                                        body: ArenaIdxRange(
+                                                            8..9,
+                                                        ),
+                                                        variant: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 11,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ast_idx: 8,
+                                                    ident: `abs`,
+                                                    associated_item_kind: TypeItem(
+                                                        Method,
+                                                    ),
+                                                    accessibility: Public,
+                                                    is_generic: false,
+                                                },
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                EntityPath {
+                                                    entity_path_expr: 0,
+                                                    entity_path: Some(
+                                                        TypePath(`core::num::f8`, `Alien`),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                Root {
+                                                    token_idx: TokenIdx(
+                                                        264,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 40,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    entity_path: ModuleItem(
+                                                        Type(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 11,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: True,
+                                            ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: OutputType,
+                                                expr: 0,
+                                            },
+                                        ],
+                                    },
                                 },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 43,
+                                implicit_parameter_decl_list: None,
+                                parameter_decl_list: ParameterDeclList {
+                                    lpar: LeftParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            261,
+                                        ),
+                                    },
+                                    parameters: [],
+                                    commas: [],
+                                    rpar: RightParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            262,
+                                        ),
+                                    },
                                 },
-                            ),
+                                curry_token: Ok(
+                                    CurryToken {
+                                        token_idx: TokenIdx(
+                                            263,
+                                        ),
+                                    },
+                                ),
+                                output_ty: Ok(
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
+                                ),
+                                eol_colon: Err(
+                                    MissingEolColon(
+                                        TokenIdx(
+                                            265,
+                                        ),
+                                    ),
+                                ),
+                            },
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: Some(
+                                        ExprRegion {
+                                            data: ExprRegionData {
+                                                parent: Some(
+                                                    ExprRegion {
+                                                        data: ExprRegionData {
+                                                            parent: None,
+                                                            path: Decl(
+                                                                ImplBlock(
+                                                                    ImplBlock {
+                                                                        id: ImplBlockId {
+                                                                            module_path: `core::num`,
+                                                                            impl_block_kind: Type {
+                                                                                ty: TypePath(`core::num::f8`, `Alien`),
+                                                                            },
+                                                                        },
+                                                                        ast_idx: 39,
+                                                                        body: ArenaIdxRange(
+                                                                            8..9,
+                                                                        ),
+                                                                        variant: Type {
+                                                                            ty: TypePath(
+                                                                                Id {
+                                                                                    value: 11,
+                                                                                },
+                                                                            ),
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            expr_arena: Arena {
+                                                                data: [
+                                                                    EntityPath {
+                                                                        entity_path_expr: 0,
+                                                                        entity_path: Some(
+                                                                            TypePath(`core::num::f8`, `Alien`),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            entity_path_expr_arena: Arena {
+                                                                data: [
+                                                                    Root {
+                                                                        token_idx: TokenIdx(
+                                                                            256,
+                                                                        ),
+                                                                        ident: Identifier(
+                                                                            Word(
+                                                                                Id {
+                                                                                    value: 40,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        entity_path: ModuleItem(
+                                                                            Type(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 11,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            stmt_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_region: PatternExprRegion {
+                                                                pattern_expr_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_infos: [],
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                            },
+                                                            symbol_region: SymbolRegion {
+                                                                inherited_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                current_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                allow_self_type: True,
+                                                                allow_self_value: False,
+                                                                ty_constraints: [],
+                                                            },
+                                                            roots: [
+                                                                ExprRoot {
+                                                                    kind: Type,
+                                                                    expr: 0,
+                                                                },
+                                                            ],
+                                                        },
+                                                    },
+                                                ),
+                                                path: Decl(
+                                                    AssociatedItem(
+                                                        AssociatedItem {
+                                                            id: AssociatedItemId {
+                                                                impl_block_id: ImplBlockId {
+                                                                    module_path: ModulePath(
+                                                                        Id {
+                                                                            value: 8,
+                                                                        },
+                                                                    ),
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(
+                                                                            Id {
+                                                                                value: 11,
+                                                                            },
+                                                                        ),
+                                                                    },
+                                                                },
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 32,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            path: Some(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`core::num::f8`, `Alien`),
+                                                                    ident: `abs`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
+                                                            impl_block: ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `core::num`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`core::num::f8`, `Alien`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 39,
+                                                                body: ArenaIdxRange(
+                                                                    8..9,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 11,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                            ast_idx: 8,
+                                                            ident: `abs`,
+                                                            associated_item_kind: TypeItem(
+                                                                Method,
+                                                            ),
+                                                            accessibility: Public,
+                                                            is_generic: false,
+                                                        },
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        EntityPath {
+                                                            entity_path_expr: 0,
+                                                            entity_path: Some(
+                                                                TypePath(`core::num::f8`, `Alien`),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                entity_path_expr_arena: Arena {
+                                                    data: [
+                                                        Root {
+                                                            token_idx: TokenIdx(
+                                                                264,
+                                                            ),
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 40,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            entity_path: ModuleItem(
+                                                                Type(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 11,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: PatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: True,
+                                                    ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    ExprRoot {
+                                                        kind: OutputType,
+                                                        expr: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: Defn(
+                                        AssociatedItem(
+                                            AssociatedItem {
+                                                id: AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: ModulePath(
+                                                            Id {
+                                                                value: 8,
+                                                            },
+                                                        ),
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 11,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 32,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: Some(
+                                                    TypeItemPath {
+                                                        ty: TypePath(`core::num::f8`, `Alien`),
+                                                        ident: `abs`,
+                                                        ty_item_kind: Method,
+                                                    },
+                                                ),
+                                                impl_block: ImplBlock {
+                                                    id: ImplBlockId {
+                                                        module_path: `core::num`,
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(`core::num::f8`, `Alien`),
+                                                        },
+                                                    },
+                                                    ast_idx: 39,
+                                                    body: ArenaIdxRange(
+                                                        8..9,
+                                                    ),
+                                                    variant: Type {
+                                                        ty: TypePath(
+                                                            Id {
+                                                                value: 11,
+                                                            },
+                                                        ),
+                                                    },
+                                                },
+                                                ast_idx: 8,
+                                                ident: `abs`,
+                                                associated_item_kind: TypeItem(
+                                                    Method,
+                                                ),
+                                                accessibility: Public,
+                                                is_generic: false,
+                                            },
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
+                            },
                             body: Err(
                                 MissingBody,
                             ),
@@ -406,11 +4459,25 @@ Ok(
                 TypeImplBlock(
                     TypeImplBlockDecl {
                         ast_idx: 44,
-                        impl_block: ImplBlock(
-                            Id {
-                                value: 11,
+                        impl_block: ImplBlock {
+                            id: ImplBlockId {
+                                module_path: `core::num`,
+                                impl_block_kind: Type {
+                                    ty: TypePath(`core::num::f16`, `Alien`),
+                                },
                             },
-                        ),
+                            ast_idx: 44,
+                            body: ArenaIdxRange(
+                                10..11,
+                            ),
+                            variant: Type {
+                                ty: TypePath(
+                                    Id {
+                                        value: 12,
+                                    },
+                                ),
+                            },
+                        },
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
                                 313,
@@ -427,11 +4494,99 @@ Ok(
                                 ),
                             },
                         ),
-                        expr_region: ExprRegion(
-                            Id {
-                                value: 33,
+                        expr_region: ExprRegion {
+                            data: ExprRegionData {
+                                parent: None,
+                                path: Decl(
+                                    ImplBlock(
+                                        ImplBlock {
+                                            id: ImplBlockId {
+                                                module_path: `core::num`,
+                                                impl_block_kind: Type {
+                                                    ty: TypePath(`core::num::f16`, `Alien`),
+                                                },
+                                            },
+                                            ast_idx: 44,
+                                            body: ArenaIdxRange(
+                                                10..11,
+                                            ),
+                                            variant: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 12,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [
+                                        EntityPath {
+                                            entity_path_expr: 0,
+                                            entity_path: Some(
+                                                TypePath(`core::num::f16`, `Alien`),
+                                            ),
+                                        },
+                                    ],
+                                },
+                                entity_path_expr_arena: Arena {
+                                    data: [
+                                        Root {
+                                            token_idx: TokenIdx(
+                                                314,
+                                            ),
+                                            ident: Identifier(
+                                                Word(
+                                                    Id {
+                                                        value: 41,
+                                                    },
+                                                ),
+                                            ),
+                                            entity_path: ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 12,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: False,
+                                    ty_constraints: [],
+                                },
+                                roots: [
+                                    ExprRoot {
+                                        kind: Type,
+                                        expr: 0,
+                                    },
+                                ],
                             },
-                        ),
+                        },
                     },
                 ),
             ),
@@ -440,22 +4595,665 @@ Ok(
                     Method(
                         TypeMethodDefn {
                             path: Some(
-                                TypeItemPath(
-                                    Id {
-                                        value: 6,
+                                TypeItemPath {
+                                    ty: TypePath(`core::num::f16`, `Alien`),
+                                    ident: `abs`,
+                                    ty_item_kind: Method,
+                                },
+                            ),
+                            decl: TypeMethodDecl {
+                                associated_item: AssociatedItem {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId {
+                                            module_path: ModulePath(
+                                                Id {
+                                                    value: 8,
+                                                },
+                                            ),
+                                            impl_block_kind: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 12,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 32,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    path: Some(
+                                        TypeItemPath {
+                                            ty: TypePath(`core::num::f16`, `Alien`),
+                                            ident: `abs`,
+                                            ty_item_kind: Method,
+                                        },
+                                    ),
+                                    impl_block: ImplBlock {
+                                        id: ImplBlockId {
+                                            module_path: `core::num`,
+                                            impl_block_kind: Type {
+                                                ty: TypePath(`core::num::f16`, `Alien`),
+                                            },
+                                        },
+                                        ast_idx: 44,
+                                        body: ArenaIdxRange(
+                                            10..11,
+                                        ),
+                                        variant: Type {
+                                            ty: TypePath(
+                                                Id {
+                                                    value: 12,
+                                                },
+                                            ),
+                                        },
+                                    },
+                                    ast_idx: 10,
+                                    ident: `abs`,
+                                    associated_item_kind: TypeItem(
+                                        Method,
+                                    ),
+                                    accessibility: Public,
+                                    is_generic: false,
+                                },
+                                path: Some(
+                                    TypeItemPath {
+                                        ty: TypePath(`core::num::f16`, `Alien`),
+                                        ident: `abs`,
+                                        ty_item_kind: Method,
                                     },
                                 ),
-                            ),
-                            decl: TypeMethodDecl(
-                                Id {
-                                    value: 6,
+                                ast_idx: 10,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: Some(
+                                            ExprRegion {
+                                                data: ExprRegionData {
+                                                    parent: None,
+                                                    path: Decl(
+                                                        ImplBlock(
+                                                            ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `core::num`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`core::num::f16`, `Alien`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 44,
+                                                                body: ArenaIdxRange(
+                                                                    10..11,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 12,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            EntityPath {
+                                                                entity_path_expr: 0,
+                                                                entity_path: Some(
+                                                                    TypePath(`core::num::f16`, `Alien`),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    entity_path_expr_arena: Arena {
+                                                        data: [
+                                                            Root {
+                                                                token_idx: TokenIdx(
+                                                                    314,
+                                                                ),
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 41,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                entity_path: ModuleItem(
+                                                                    Type(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 12,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_infos: [],
+                                                        pattern_symbol_maps: [],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                    },
+                                                    symbol_region: SymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        allow_self_type: True,
+                                                        allow_self_value: False,
+                                                        ty_constraints: [],
+                                                    },
+                                                    roots: [
+                                                        ExprRoot {
+                                                            kind: Type,
+                                                            expr: 0,
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ),
+                                        path: Decl(
+                                            AssociatedItem(
+                                                AssociatedItem {
+                                                    id: AssociatedItemId {
+                                                        impl_block_id: ImplBlockId {
+                                                            module_path: ModulePath(
+                                                                Id {
+                                                                    value: 8,
+                                                                },
+                                                            ),
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(
+                                                                    Id {
+                                                                        value: 12,
+                                                                    },
+                                                                ),
+                                                            },
+                                                        },
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 32,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    path: Some(
+                                                        TypeItemPath {
+                                                            ty: TypePath(`core::num::f16`, `Alien`),
+                                                            ident: `abs`,
+                                                            ty_item_kind: Method,
+                                                        },
+                                                    ),
+                                                    impl_block: ImplBlock {
+                                                        id: ImplBlockId {
+                                                            module_path: `core::num`,
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(`core::num::f16`, `Alien`),
+                                                            },
+                                                        },
+                                                        ast_idx: 44,
+                                                        body: ArenaIdxRange(
+                                                            10..11,
+                                                        ),
+                                                        variant: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 12,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ast_idx: 10,
+                                                    ident: `abs`,
+                                                    associated_item_kind: TypeItem(
+                                                        Method,
+                                                    ),
+                                                    accessibility: Public,
+                                                    is_generic: false,
+                                                },
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                EntityPath {
+                                                    entity_path_expr: 0,
+                                                    entity_path: Some(
+                                                        TypePath(`core::num::f16`, `Alien`),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                Root {
+                                                    token_idx: TokenIdx(
+                                                        322,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 41,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    entity_path: ModuleItem(
+                                                        Type(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 12,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: True,
+                                            ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: OutputType,
+                                                expr: 0,
+                                            },
+                                        ],
+                                    },
                                 },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 44,
+                                implicit_parameter_decl_list: None,
+                                parameter_decl_list: ParameterDeclList {
+                                    lpar: LeftParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            319,
+                                        ),
+                                    },
+                                    parameters: [],
+                                    commas: [],
+                                    rpar: RightParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            320,
+                                        ),
+                                    },
                                 },
-                            ),
+                                curry_token: Ok(
+                                    CurryToken {
+                                        token_idx: TokenIdx(
+                                            321,
+                                        ),
+                                    },
+                                ),
+                                output_ty: Ok(
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
+                                ),
+                                eol_colon: Err(
+                                    MissingEolColon(
+                                        TokenIdx(
+                                            323,
+                                        ),
+                                    ),
+                                ),
+                            },
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: Some(
+                                        ExprRegion {
+                                            data: ExprRegionData {
+                                                parent: Some(
+                                                    ExprRegion {
+                                                        data: ExprRegionData {
+                                                            parent: None,
+                                                            path: Decl(
+                                                                ImplBlock(
+                                                                    ImplBlock {
+                                                                        id: ImplBlockId {
+                                                                            module_path: `core::num`,
+                                                                            impl_block_kind: Type {
+                                                                                ty: TypePath(`core::num::f16`, `Alien`),
+                                                                            },
+                                                                        },
+                                                                        ast_idx: 44,
+                                                                        body: ArenaIdxRange(
+                                                                            10..11,
+                                                                        ),
+                                                                        variant: Type {
+                                                                            ty: TypePath(
+                                                                                Id {
+                                                                                    value: 12,
+                                                                                },
+                                                                            ),
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            expr_arena: Arena {
+                                                                data: [
+                                                                    EntityPath {
+                                                                        entity_path_expr: 0,
+                                                                        entity_path: Some(
+                                                                            TypePath(`core::num::f16`, `Alien`),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            entity_path_expr_arena: Arena {
+                                                                data: [
+                                                                    Root {
+                                                                        token_idx: TokenIdx(
+                                                                            314,
+                                                                        ),
+                                                                        ident: Identifier(
+                                                                            Word(
+                                                                                Id {
+                                                                                    value: 41,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        entity_path: ModuleItem(
+                                                                            Type(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 12,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            stmt_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_region: PatternExprRegion {
+                                                                pattern_expr_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_infos: [],
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                            },
+                                                            symbol_region: SymbolRegion {
+                                                                inherited_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                current_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                allow_self_type: True,
+                                                                allow_self_value: False,
+                                                                ty_constraints: [],
+                                                            },
+                                                            roots: [
+                                                                ExprRoot {
+                                                                    kind: Type,
+                                                                    expr: 0,
+                                                                },
+                                                            ],
+                                                        },
+                                                    },
+                                                ),
+                                                path: Decl(
+                                                    AssociatedItem(
+                                                        AssociatedItem {
+                                                            id: AssociatedItemId {
+                                                                impl_block_id: ImplBlockId {
+                                                                    module_path: ModulePath(
+                                                                        Id {
+                                                                            value: 8,
+                                                                        },
+                                                                    ),
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(
+                                                                            Id {
+                                                                                value: 12,
+                                                                            },
+                                                                        ),
+                                                                    },
+                                                                },
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 32,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            path: Some(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`core::num::f16`, `Alien`),
+                                                                    ident: `abs`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
+                                                            impl_block: ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `core::num`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`core::num::f16`, `Alien`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 44,
+                                                                body: ArenaIdxRange(
+                                                                    10..11,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 12,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                            ast_idx: 10,
+                                                            ident: `abs`,
+                                                            associated_item_kind: TypeItem(
+                                                                Method,
+                                                            ),
+                                                            accessibility: Public,
+                                                            is_generic: false,
+                                                        },
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        EntityPath {
+                                                            entity_path_expr: 0,
+                                                            entity_path: Some(
+                                                                TypePath(`core::num::f16`, `Alien`),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                entity_path_expr_arena: Arena {
+                                                    data: [
+                                                        Root {
+                                                            token_idx: TokenIdx(
+                                                                322,
+                                                            ),
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 41,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            entity_path: ModuleItem(
+                                                                Type(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 12,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: PatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: True,
+                                                    ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    ExprRoot {
+                                                        kind: OutputType,
+                                                        expr: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: Defn(
+                                        AssociatedItem(
+                                            AssociatedItem {
+                                                id: AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: ModulePath(
+                                                            Id {
+                                                                value: 8,
+                                                            },
+                                                        ),
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 12,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 32,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: Some(
+                                                    TypeItemPath {
+                                                        ty: TypePath(`core::num::f16`, `Alien`),
+                                                        ident: `abs`,
+                                                        ty_item_kind: Method,
+                                                    },
+                                                ),
+                                                impl_block: ImplBlock {
+                                                    id: ImplBlockId {
+                                                        module_path: `core::num`,
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(`core::num::f16`, `Alien`),
+                                                        },
+                                                    },
+                                                    ast_idx: 44,
+                                                    body: ArenaIdxRange(
+                                                        10..11,
+                                                    ),
+                                                    variant: Type {
+                                                        ty: TypePath(
+                                                            Id {
+                                                                value: 12,
+                                                            },
+                                                        ),
+                                                    },
+                                                },
+                                                ast_idx: 10,
+                                                ident: `abs`,
+                                                associated_item_kind: TypeItem(
+                                                    Method,
+                                                ),
+                                                accessibility: Public,
+                                                is_generic: false,
+                                            },
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
+                            },
                             body: Err(
                                 MissingBody,
                             ),
@@ -467,11 +5265,25 @@ Ok(
                 TypeImplBlock(
                     TypeImplBlockDecl {
                         ast_idx: 49,
-                        impl_block: ImplBlock(
-                            Id {
-                                value: 13,
+                        impl_block: ImplBlock {
+                            id: ImplBlockId {
+                                module_path: `core::num`,
+                                impl_block_kind: Type {
+                                    ty: TypePath(`core::num::f32`, `Alien`),
+                                },
                             },
-                        ),
+                            ast_idx: 49,
+                            body: ArenaIdxRange(
+                                12..13,
+                            ),
+                            variant: Type {
+                                ty: TypePath(
+                                    Id {
+                                        value: 13,
+                                    },
+                                ),
+                            },
+                        },
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
                                 371,
@@ -488,11 +5300,99 @@ Ok(
                                 ),
                             },
                         ),
-                        expr_region: ExprRegion(
-                            Id {
-                                value: 35,
+                        expr_region: ExprRegion {
+                            data: ExprRegionData {
+                                parent: None,
+                                path: Decl(
+                                    ImplBlock(
+                                        ImplBlock {
+                                            id: ImplBlockId {
+                                                module_path: `core::num`,
+                                                impl_block_kind: Type {
+                                                    ty: TypePath(`core::num::f32`, `Alien`),
+                                                },
+                                            },
+                                            ast_idx: 49,
+                                            body: ArenaIdxRange(
+                                                12..13,
+                                            ),
+                                            variant: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 13,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [
+                                        EntityPath {
+                                            entity_path_expr: 0,
+                                            entity_path: Some(
+                                                TypePath(`core::num::f32`, `Alien`),
+                                            ),
+                                        },
+                                    ],
+                                },
+                                entity_path_expr_arena: Arena {
+                                    data: [
+                                        Root {
+                                            token_idx: TokenIdx(
+                                                372,
+                                            ),
+                                            ident: Identifier(
+                                                Word(
+                                                    Id {
+                                                        value: 42,
+                                                    },
+                                                ),
+                                            ),
+                                            entity_path: ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 13,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: False,
+                                    ty_constraints: [],
+                                },
+                                roots: [
+                                    ExprRoot {
+                                        kind: Type,
+                                        expr: 0,
+                                    },
+                                ],
                             },
-                        ),
+                        },
                     },
                 ),
             ),
@@ -501,22 +5401,665 @@ Ok(
                     Method(
                         TypeMethodDefn {
                             path: Some(
-                                TypeItemPath(
-                                    Id {
-                                        value: 7,
+                                TypeItemPath {
+                                    ty: TypePath(`core::num::f32`, `Alien`),
+                                    ident: `abs`,
+                                    ty_item_kind: Method,
+                                },
+                            ),
+                            decl: TypeMethodDecl {
+                                associated_item: AssociatedItem {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId {
+                                            module_path: ModulePath(
+                                                Id {
+                                                    value: 8,
+                                                },
+                                            ),
+                                            impl_block_kind: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 13,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 32,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    path: Some(
+                                        TypeItemPath {
+                                            ty: TypePath(`core::num::f32`, `Alien`),
+                                            ident: `abs`,
+                                            ty_item_kind: Method,
+                                        },
+                                    ),
+                                    impl_block: ImplBlock {
+                                        id: ImplBlockId {
+                                            module_path: `core::num`,
+                                            impl_block_kind: Type {
+                                                ty: TypePath(`core::num::f32`, `Alien`),
+                                            },
+                                        },
+                                        ast_idx: 49,
+                                        body: ArenaIdxRange(
+                                            12..13,
+                                        ),
+                                        variant: Type {
+                                            ty: TypePath(
+                                                Id {
+                                                    value: 13,
+                                                },
+                                            ),
+                                        },
+                                    },
+                                    ast_idx: 12,
+                                    ident: `abs`,
+                                    associated_item_kind: TypeItem(
+                                        Method,
+                                    ),
+                                    accessibility: Public,
+                                    is_generic: false,
+                                },
+                                path: Some(
+                                    TypeItemPath {
+                                        ty: TypePath(`core::num::f32`, `Alien`),
+                                        ident: `abs`,
+                                        ty_item_kind: Method,
                                     },
                                 ),
-                            ),
-                            decl: TypeMethodDecl(
-                                Id {
-                                    value: 7,
+                                ast_idx: 12,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: Some(
+                                            ExprRegion {
+                                                data: ExprRegionData {
+                                                    parent: None,
+                                                    path: Decl(
+                                                        ImplBlock(
+                                                            ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `core::num`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`core::num::f32`, `Alien`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 49,
+                                                                body: ArenaIdxRange(
+                                                                    12..13,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 13,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            EntityPath {
+                                                                entity_path_expr: 0,
+                                                                entity_path: Some(
+                                                                    TypePath(`core::num::f32`, `Alien`),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    entity_path_expr_arena: Arena {
+                                                        data: [
+                                                            Root {
+                                                                token_idx: TokenIdx(
+                                                                    372,
+                                                                ),
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 42,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                entity_path: ModuleItem(
+                                                                    Type(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 13,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_infos: [],
+                                                        pattern_symbol_maps: [],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                    },
+                                                    symbol_region: SymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        allow_self_type: True,
+                                                        allow_self_value: False,
+                                                        ty_constraints: [],
+                                                    },
+                                                    roots: [
+                                                        ExprRoot {
+                                                            kind: Type,
+                                                            expr: 0,
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ),
+                                        path: Decl(
+                                            AssociatedItem(
+                                                AssociatedItem {
+                                                    id: AssociatedItemId {
+                                                        impl_block_id: ImplBlockId {
+                                                            module_path: ModulePath(
+                                                                Id {
+                                                                    value: 8,
+                                                                },
+                                                            ),
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(
+                                                                    Id {
+                                                                        value: 13,
+                                                                    },
+                                                                ),
+                                                            },
+                                                        },
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 32,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    path: Some(
+                                                        TypeItemPath {
+                                                            ty: TypePath(`core::num::f32`, `Alien`),
+                                                            ident: `abs`,
+                                                            ty_item_kind: Method,
+                                                        },
+                                                    ),
+                                                    impl_block: ImplBlock {
+                                                        id: ImplBlockId {
+                                                            module_path: `core::num`,
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(`core::num::f32`, `Alien`),
+                                                            },
+                                                        },
+                                                        ast_idx: 49,
+                                                        body: ArenaIdxRange(
+                                                            12..13,
+                                                        ),
+                                                        variant: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 13,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ast_idx: 12,
+                                                    ident: `abs`,
+                                                    associated_item_kind: TypeItem(
+                                                        Method,
+                                                    ),
+                                                    accessibility: Public,
+                                                    is_generic: false,
+                                                },
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                EntityPath {
+                                                    entity_path_expr: 0,
+                                                    entity_path: Some(
+                                                        TypePath(`core::num::f32`, `Alien`),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                Root {
+                                                    token_idx: TokenIdx(
+                                                        380,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 42,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    entity_path: ModuleItem(
+                                                        Type(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 13,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: True,
+                                            ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: OutputType,
+                                                expr: 0,
+                                            },
+                                        ],
+                                    },
                                 },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 45,
+                                implicit_parameter_decl_list: None,
+                                parameter_decl_list: ParameterDeclList {
+                                    lpar: LeftParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            377,
+                                        ),
+                                    },
+                                    parameters: [],
+                                    commas: [],
+                                    rpar: RightParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            378,
+                                        ),
+                                    },
                                 },
-                            ),
+                                curry_token: Ok(
+                                    CurryToken {
+                                        token_idx: TokenIdx(
+                                            379,
+                                        ),
+                                    },
+                                ),
+                                output_ty: Ok(
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
+                                ),
+                                eol_colon: Err(
+                                    MissingEolColon(
+                                        TokenIdx(
+                                            381,
+                                        ),
+                                    ),
+                                ),
+                            },
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: Some(
+                                        ExprRegion {
+                                            data: ExprRegionData {
+                                                parent: Some(
+                                                    ExprRegion {
+                                                        data: ExprRegionData {
+                                                            parent: None,
+                                                            path: Decl(
+                                                                ImplBlock(
+                                                                    ImplBlock {
+                                                                        id: ImplBlockId {
+                                                                            module_path: `core::num`,
+                                                                            impl_block_kind: Type {
+                                                                                ty: TypePath(`core::num::f32`, `Alien`),
+                                                                            },
+                                                                        },
+                                                                        ast_idx: 49,
+                                                                        body: ArenaIdxRange(
+                                                                            12..13,
+                                                                        ),
+                                                                        variant: Type {
+                                                                            ty: TypePath(
+                                                                                Id {
+                                                                                    value: 13,
+                                                                                },
+                                                                            ),
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            expr_arena: Arena {
+                                                                data: [
+                                                                    EntityPath {
+                                                                        entity_path_expr: 0,
+                                                                        entity_path: Some(
+                                                                            TypePath(`core::num::f32`, `Alien`),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            entity_path_expr_arena: Arena {
+                                                                data: [
+                                                                    Root {
+                                                                        token_idx: TokenIdx(
+                                                                            372,
+                                                                        ),
+                                                                        ident: Identifier(
+                                                                            Word(
+                                                                                Id {
+                                                                                    value: 42,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        entity_path: ModuleItem(
+                                                                            Type(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 13,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            stmt_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_region: PatternExprRegion {
+                                                                pattern_expr_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_infos: [],
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                            },
+                                                            symbol_region: SymbolRegion {
+                                                                inherited_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                current_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                allow_self_type: True,
+                                                                allow_self_value: False,
+                                                                ty_constraints: [],
+                                                            },
+                                                            roots: [
+                                                                ExprRoot {
+                                                                    kind: Type,
+                                                                    expr: 0,
+                                                                },
+                                                            ],
+                                                        },
+                                                    },
+                                                ),
+                                                path: Decl(
+                                                    AssociatedItem(
+                                                        AssociatedItem {
+                                                            id: AssociatedItemId {
+                                                                impl_block_id: ImplBlockId {
+                                                                    module_path: ModulePath(
+                                                                        Id {
+                                                                            value: 8,
+                                                                        },
+                                                                    ),
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(
+                                                                            Id {
+                                                                                value: 13,
+                                                                            },
+                                                                        ),
+                                                                    },
+                                                                },
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 32,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            path: Some(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`core::num::f32`, `Alien`),
+                                                                    ident: `abs`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
+                                                            impl_block: ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `core::num`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`core::num::f32`, `Alien`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 49,
+                                                                body: ArenaIdxRange(
+                                                                    12..13,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 13,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                            ast_idx: 12,
+                                                            ident: `abs`,
+                                                            associated_item_kind: TypeItem(
+                                                                Method,
+                                                            ),
+                                                            accessibility: Public,
+                                                            is_generic: false,
+                                                        },
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        EntityPath {
+                                                            entity_path_expr: 0,
+                                                            entity_path: Some(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                entity_path_expr_arena: Arena {
+                                                    data: [
+                                                        Root {
+                                                            token_idx: TokenIdx(
+                                                                380,
+                                                            ),
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 42,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            entity_path: ModuleItem(
+                                                                Type(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 13,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: PatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: True,
+                                                    ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    ExprRoot {
+                                                        kind: OutputType,
+                                                        expr: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: Defn(
+                                        AssociatedItem(
+                                            AssociatedItem {
+                                                id: AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: ModulePath(
+                                                            Id {
+                                                                value: 8,
+                                                            },
+                                                        ),
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 13,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 32,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: Some(
+                                                    TypeItemPath {
+                                                        ty: TypePath(`core::num::f32`, `Alien`),
+                                                        ident: `abs`,
+                                                        ty_item_kind: Method,
+                                                    },
+                                                ),
+                                                impl_block: ImplBlock {
+                                                    id: ImplBlockId {
+                                                        module_path: `core::num`,
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(`core::num::f32`, `Alien`),
+                                                        },
+                                                    },
+                                                    ast_idx: 49,
+                                                    body: ArenaIdxRange(
+                                                        12..13,
+                                                    ),
+                                                    variant: Type {
+                                                        ty: TypePath(
+                                                            Id {
+                                                                value: 13,
+                                                            },
+                                                        ),
+                                                    },
+                                                },
+                                                ast_idx: 12,
+                                                ident: `abs`,
+                                                associated_item_kind: TypeItem(
+                                                    Method,
+                                                ),
+                                                accessibility: Public,
+                                                is_generic: false,
+                                            },
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
+                            },
                             body: Err(
                                 MissingBody,
                             ),
@@ -528,11 +6071,25 @@ Ok(
                 TypeImplBlock(
                     TypeImplBlockDecl {
                         ast_idx: 54,
-                        impl_block: ImplBlock(
-                            Id {
-                                value: 15,
+                        impl_block: ImplBlock {
+                            id: ImplBlockId {
+                                module_path: `core::num`,
+                                impl_block_kind: Type {
+                                    ty: TypePath(`core::num::f64`, `Alien`),
+                                },
                             },
-                        ),
+                            ast_idx: 54,
+                            body: ArenaIdxRange(
+                                14..15,
+                            ),
+                            variant: Type {
+                                ty: TypePath(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
+                            },
+                        },
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
                                 428,
@@ -549,11 +6106,99 @@ Ok(
                                 ),
                             },
                         ),
-                        expr_region: ExprRegion(
-                            Id {
-                                value: 37,
+                        expr_region: ExprRegion {
+                            data: ExprRegionData {
+                                parent: None,
+                                path: Decl(
+                                    ImplBlock(
+                                        ImplBlock {
+                                            id: ImplBlockId {
+                                                module_path: `core::num`,
+                                                impl_block_kind: Type {
+                                                    ty: TypePath(`core::num::f64`, `Alien`),
+                                                },
+                                            },
+                                            ast_idx: 54,
+                                            body: ArenaIdxRange(
+                                                14..15,
+                                            ),
+                                            variant: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 14,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [
+                                        EntityPath {
+                                            entity_path_expr: 0,
+                                            entity_path: Some(
+                                                TypePath(`core::num::f64`, `Alien`),
+                                            ),
+                                        },
+                                    ],
+                                },
+                                entity_path_expr_arena: Arena {
+                                    data: [
+                                        Root {
+                                            token_idx: TokenIdx(
+                                                429,
+                                            ),
+                                            ident: Identifier(
+                                                Word(
+                                                    Id {
+                                                        value: 43,
+                                                    },
+                                                ),
+                                            ),
+                                            entity_path: ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 14,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: False,
+                                    ty_constraints: [],
+                                },
+                                roots: [
+                                    ExprRoot {
+                                        kind: Type,
+                                        expr: 0,
+                                    },
+                                ],
                             },
-                        ),
+                        },
                     },
                 ),
             ),
@@ -562,22 +6207,665 @@ Ok(
                     Method(
                         TypeMethodDefn {
                             path: Some(
-                                TypeItemPath(
-                                    Id {
-                                        value: 8,
+                                TypeItemPath {
+                                    ty: TypePath(`core::num::f64`, `Alien`),
+                                    ident: `abs`,
+                                    ty_item_kind: Method,
+                                },
+                            ),
+                            decl: TypeMethodDecl {
+                                associated_item: AssociatedItem {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId {
+                                            module_path: ModulePath(
+                                                Id {
+                                                    value: 8,
+                                                },
+                                            ),
+                                            impl_block_kind: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 14,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 32,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    path: Some(
+                                        TypeItemPath {
+                                            ty: TypePath(`core::num::f64`, `Alien`),
+                                            ident: `abs`,
+                                            ty_item_kind: Method,
+                                        },
+                                    ),
+                                    impl_block: ImplBlock {
+                                        id: ImplBlockId {
+                                            module_path: `core::num`,
+                                            impl_block_kind: Type {
+                                                ty: TypePath(`core::num::f64`, `Alien`),
+                                            },
+                                        },
+                                        ast_idx: 54,
+                                        body: ArenaIdxRange(
+                                            14..15,
+                                        ),
+                                        variant: Type {
+                                            ty: TypePath(
+                                                Id {
+                                                    value: 14,
+                                                },
+                                            ),
+                                        },
+                                    },
+                                    ast_idx: 14,
+                                    ident: `abs`,
+                                    associated_item_kind: TypeItem(
+                                        Method,
+                                    ),
+                                    accessibility: Public,
+                                    is_generic: false,
+                                },
+                                path: Some(
+                                    TypeItemPath {
+                                        ty: TypePath(`core::num::f64`, `Alien`),
+                                        ident: `abs`,
+                                        ty_item_kind: Method,
                                     },
                                 ),
-                            ),
-                            decl: TypeMethodDecl(
-                                Id {
-                                    value: 8,
+                                ast_idx: 14,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: Some(
+                                            ExprRegion {
+                                                data: ExprRegionData {
+                                                    parent: None,
+                                                    path: Decl(
+                                                        ImplBlock(
+                                                            ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `core::num`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`core::num::f64`, `Alien`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 54,
+                                                                body: ArenaIdxRange(
+                                                                    14..15,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 14,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            EntityPath {
+                                                                entity_path_expr: 0,
+                                                                entity_path: Some(
+                                                                    TypePath(`core::num::f64`, `Alien`),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    entity_path_expr_arena: Arena {
+                                                        data: [
+                                                            Root {
+                                                                token_idx: TokenIdx(
+                                                                    429,
+                                                                ),
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 43,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                entity_path: ModuleItem(
+                                                                    Type(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 14,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_infos: [],
+                                                        pattern_symbol_maps: [],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                    },
+                                                    symbol_region: SymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        allow_self_type: True,
+                                                        allow_self_value: False,
+                                                        ty_constraints: [],
+                                                    },
+                                                    roots: [
+                                                        ExprRoot {
+                                                            kind: Type,
+                                                            expr: 0,
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ),
+                                        path: Decl(
+                                            AssociatedItem(
+                                                AssociatedItem {
+                                                    id: AssociatedItemId {
+                                                        impl_block_id: ImplBlockId {
+                                                            module_path: ModulePath(
+                                                                Id {
+                                                                    value: 8,
+                                                                },
+                                                            ),
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(
+                                                                    Id {
+                                                                        value: 14,
+                                                                    },
+                                                                ),
+                                                            },
+                                                        },
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 32,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    path: Some(
+                                                        TypeItemPath {
+                                                            ty: TypePath(`core::num::f64`, `Alien`),
+                                                            ident: `abs`,
+                                                            ty_item_kind: Method,
+                                                        },
+                                                    ),
+                                                    impl_block: ImplBlock {
+                                                        id: ImplBlockId {
+                                                            module_path: `core::num`,
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(`core::num::f64`, `Alien`),
+                                                            },
+                                                        },
+                                                        ast_idx: 54,
+                                                        body: ArenaIdxRange(
+                                                            14..15,
+                                                        ),
+                                                        variant: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 14,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ast_idx: 14,
+                                                    ident: `abs`,
+                                                    associated_item_kind: TypeItem(
+                                                        Method,
+                                                    ),
+                                                    accessibility: Public,
+                                                    is_generic: false,
+                                                },
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                EntityPath {
+                                                    entity_path_expr: 0,
+                                                    entity_path: Some(
+                                                        TypePath(`core::num::f64`, `Alien`),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                Root {
+                                                    token_idx: TokenIdx(
+                                                        437,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 43,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    entity_path: ModuleItem(
+                                                        Type(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 14,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: True,
+                                            ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: OutputType,
+                                                expr: 0,
+                                            },
+                                        ],
+                                    },
                                 },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 46,
+                                implicit_parameter_decl_list: None,
+                                parameter_decl_list: ParameterDeclList {
+                                    lpar: LeftParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            434,
+                                        ),
+                                    },
+                                    parameters: [],
+                                    commas: [],
+                                    rpar: RightParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            435,
+                                        ),
+                                    },
                                 },
-                            ),
+                                curry_token: Ok(
+                                    CurryToken {
+                                        token_idx: TokenIdx(
+                                            436,
+                                        ),
+                                    },
+                                ),
+                                output_ty: Ok(
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
+                                ),
+                                eol_colon: Err(
+                                    MissingEolColon(
+                                        TokenIdx(
+                                            438,
+                                        ),
+                                    ),
+                                ),
+                            },
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: Some(
+                                        ExprRegion {
+                                            data: ExprRegionData {
+                                                parent: Some(
+                                                    ExprRegion {
+                                                        data: ExprRegionData {
+                                                            parent: None,
+                                                            path: Decl(
+                                                                ImplBlock(
+                                                                    ImplBlock {
+                                                                        id: ImplBlockId {
+                                                                            module_path: `core::num`,
+                                                                            impl_block_kind: Type {
+                                                                                ty: TypePath(`core::num::f64`, `Alien`),
+                                                                            },
+                                                                        },
+                                                                        ast_idx: 54,
+                                                                        body: ArenaIdxRange(
+                                                                            14..15,
+                                                                        ),
+                                                                        variant: Type {
+                                                                            ty: TypePath(
+                                                                                Id {
+                                                                                    value: 14,
+                                                                                },
+                                                                            ),
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            expr_arena: Arena {
+                                                                data: [
+                                                                    EntityPath {
+                                                                        entity_path_expr: 0,
+                                                                        entity_path: Some(
+                                                                            TypePath(`core::num::f64`, `Alien`),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            entity_path_expr_arena: Arena {
+                                                                data: [
+                                                                    Root {
+                                                                        token_idx: TokenIdx(
+                                                                            429,
+                                                                        ),
+                                                                        ident: Identifier(
+                                                                            Word(
+                                                                                Id {
+                                                                                    value: 43,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        entity_path: ModuleItem(
+                                                                            Type(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 14,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            stmt_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_region: PatternExprRegion {
+                                                                pattern_expr_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_infos: [],
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                            },
+                                                            symbol_region: SymbolRegion {
+                                                                inherited_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                current_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                allow_self_type: True,
+                                                                allow_self_value: False,
+                                                                ty_constraints: [],
+                                                            },
+                                                            roots: [
+                                                                ExprRoot {
+                                                                    kind: Type,
+                                                                    expr: 0,
+                                                                },
+                                                            ],
+                                                        },
+                                                    },
+                                                ),
+                                                path: Decl(
+                                                    AssociatedItem(
+                                                        AssociatedItem {
+                                                            id: AssociatedItemId {
+                                                                impl_block_id: ImplBlockId {
+                                                                    module_path: ModulePath(
+                                                                        Id {
+                                                                            value: 8,
+                                                                        },
+                                                                    ),
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(
+                                                                            Id {
+                                                                                value: 14,
+                                                                            },
+                                                                        ),
+                                                                    },
+                                                                },
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 32,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            path: Some(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`core::num::f64`, `Alien`),
+                                                                    ident: `abs`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
+                                                            impl_block: ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `core::num`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`core::num::f64`, `Alien`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 54,
+                                                                body: ArenaIdxRange(
+                                                                    14..15,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 14,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                            ast_idx: 14,
+                                                            ident: `abs`,
+                                                            associated_item_kind: TypeItem(
+                                                                Method,
+                                                            ),
+                                                            accessibility: Public,
+                                                            is_generic: false,
+                                                        },
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        EntityPath {
+                                                            entity_path_expr: 0,
+                                                            entity_path: Some(
+                                                                TypePath(`core::num::f64`, `Alien`),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                entity_path_expr_arena: Arena {
+                                                    data: [
+                                                        Root {
+                                                            token_idx: TokenIdx(
+                                                                437,
+                                                            ),
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 43,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            entity_path: ModuleItem(
+                                                                Type(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 14,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: PatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: True,
+                                                    ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    ExprRoot {
+                                                        kind: OutputType,
+                                                        expr: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: Defn(
+                                        AssociatedItem(
+                                            AssociatedItem {
+                                                id: AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: ModulePath(
+                                                            Id {
+                                                                value: 8,
+                                                            },
+                                                        ),
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 14,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 32,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: Some(
+                                                    TypeItemPath {
+                                                        ty: TypePath(`core::num::f64`, `Alien`),
+                                                        ident: `abs`,
+                                                        ty_item_kind: Method,
+                                                    },
+                                                ),
+                                                impl_block: ImplBlock {
+                                                    id: ImplBlockId {
+                                                        module_path: `core::num`,
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(`core::num::f64`, `Alien`),
+                                                        },
+                                                    },
+                                                    ast_idx: 54,
+                                                    body: ArenaIdxRange(
+                                                        14..15,
+                                                    ),
+                                                    variant: Type {
+                                                        ty: TypePath(
+                                                            Id {
+                                                                value: 14,
+                                                            },
+                                                        ),
+                                                    },
+                                                },
+                                                ast_idx: 14,
+                                                ident: `abs`,
+                                                associated_item_kind: TypeItem(
+                                                    Method,
+                                                ),
+                                                accessibility: Public,
+                                                is_generic: false,
+                                            },
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
+                            },
                             body: Err(
                                 MissingBody,
                             ),

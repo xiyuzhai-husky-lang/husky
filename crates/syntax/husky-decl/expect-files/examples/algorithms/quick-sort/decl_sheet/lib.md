@@ -7,11 +7,204 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`quick_sort::quick_sort`, `Function`),
                             ast_idx: 30,
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 42,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            FormPath(`quick_sort::quick_sort`, `Function`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            EntityPath {
+                                                entity_path_expr: 0,
+                                                entity_path: Some(
+                                                    TraitPath(`core::cmp::Ord`),
+                                                ),
+                                            },
+                                            BoxColon {
+                                                caller: None,
+                                                lbox_token_idx: TokenIdx(
+                                                    12,
+                                                ),
+                                                colon_token_idx: TokenIdx(
+                                                    13,
+                                                ),
+                                                rbox_token: RightBoxBracketToken {
+                                                    token_idx: TokenIdx(
+                                                        14,
+                                                    ),
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: `T`,
+                                                token_idx: TokenIdx(
+                                                    15,
+                                                ),
+                                                current_symbol_idx: 0,
+                                                current_symbol_kind: ImplicitParameter {
+                                                    implicit_parameter_kind: Type {
+                                                        ident_token: IdentifierToken {
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 60,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            token_idx: TokenIdx(
+                                                                4,
+                                                            ),
+                                                        },
+                                                    },
+                                                },
+                                            },
+                                            Application {
+                                                function: 1,
+                                                argument: 2,
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    6,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Trait(
+                                                        TraitPath(
+                                                            Id {
+                                                                value: 9,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 61,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            10,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                            ],
+                                        },
+                                        pattern_infos: [
+                                            Parameter,
+                                        ],
+                                        pattern_symbol_maps: [
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    0,
+                                                ),
+                                            ],
+                                        ],
+                                        pattern_symbol_arena: Arena {
+                                            data: [
+                                                Atom(
+                                                    0,
+                                                ),
+                                            ],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 60,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        5,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: ImplicitParameter {
+                                                        implicit_parameter_variant: Type {
+                                                            ident_token: IdentifierToken {
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 60,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                token_idx: TokenIdx(
+                                                                    4,
+                                                                ),
+                                                            },
+                                                        },
+                                                    },
+                                                },
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        11,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: Parameter {
+                                                        pattern_symbol: 0,
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        allow_self_type: False,
+                                        allow_self_value: False,
+                                        ty_constraints: [
+                                            ImplicitTypeParameter,
+                                            RegularParameter {
+                                                pattern: 0,
+                                                ty: 3,
+                                            },
+                                        ],
+                                    },
+                                    roots: [],
                                 },
-                            ),
+                            },
                             implicit_parameter_decl_list: Some(
                                 ImplicitParameterDeclList {
                                     langle: LeftAngleBracketOrLessThanToken {
@@ -119,11 +312,334 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`quick_sort::quick_sort_aux`, `Function`),
                             ast_idx: 31,
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 43,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            EntityPath {
+                                                entity_path_expr: 0,
+                                                entity_path: Some(
+                                                    TraitPath(`core::cmp::Ord`),
+                                                ),
+                                            },
+                                            BoxColon {
+                                                caller: None,
+                                                lbox_token_idx: TokenIdx(
+                                                    51,
+                                                ),
+                                                colon_token_idx: TokenIdx(
+                                                    52,
+                                                ),
+                                                rbox_token: RightBoxBracketToken {
+                                                    token_idx: TokenIdx(
+                                                        53,
+                                                    ),
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: `T`,
+                                                token_idx: TokenIdx(
+                                                    54,
+                                                ),
+                                                current_symbol_idx: 0,
+                                                current_symbol_kind: ImplicitParameter {
+                                                    implicit_parameter_kind: Type {
+                                                        ident_token: IdentifierToken {
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 60,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            token_idx: TokenIdx(
+                                                                43,
+                                                            ),
+                                                        },
+                                                    },
+                                                },
+                                            },
+                                            Application {
+                                                function: 1,
+                                                argument: 2,
+                                            },
+                                            Err(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        58,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 64,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                            Err(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        62,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 64,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    45,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Trait(
+                                                        TraitPath(
+                                                            Id {
+                                                                value: 9,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 61,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            49,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 65,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            56,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 66,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            60,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                            ],
+                                        },
+                                        pattern_infos: [
+                                            Parameter,
+                                            Parameter,
+                                            Parameter,
+                                        ],
+                                        pattern_symbol_maps: [
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    0,
+                                                ),
+                                            ],
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 65,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    1,
+                                                ),
+                                            ],
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 66,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    2,
+                                                ),
+                                            ],
+                                        ],
+                                        pattern_symbol_arena: Arena {
+                                            data: [
+                                                Atom(
+                                                    0,
+                                                ),
+                                                Atom(
+                                                    1,
+                                                ),
+                                                Atom(
+                                                    2,
+                                                ),
+                                            ],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 60,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        44,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: ImplicitParameter {
+                                                        implicit_parameter_variant: Type {
+                                                            ident_token: IdentifierToken {
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 60,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                token_idx: TokenIdx(
+                                                                    43,
+                                                                ),
+                                                            },
+                                                        },
+                                                    },
+                                                },
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        50,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: Parameter {
+                                                        pattern_symbol: 0,
+                                                    },
+                                                },
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 65,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        57,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: Parameter {
+                                                        pattern_symbol: 1,
+                                                    },
+                                                },
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 66,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        61,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: Parameter {
+                                                        pattern_symbol: 2,
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        allow_self_type: False,
+                                        allow_self_value: False,
+                                        ty_constraints: [
+                                            ImplicitTypeParameter,
+                                            RegularParameter {
+                                                pattern: 0,
+                                                ty: 3,
+                                            },
+                                            RegularParameter {
+                                                pattern: 1,
+                                                ty: 4,
+                                            },
+                                            RegularParameter {
+                                                pattern: 2,
+                                                ty: 5,
+                                            },
+                                        ],
+                                    },
+                                    roots: [],
                                 },
-                            ),
+                            },
                             implicit_parameter_decl_list: Some(
                                 ImplicitParameterDeclList {
                                     langle: LeftAngleBracketOrLessThanToken {
@@ -266,11 +782,353 @@ Ok(
                         FunctionDecl {
                             path: FormPath(`quick_sort::partition`, `Function`),
                             ast_idx: 32,
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 44,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            FormPath(`quick_sort::partition`, `Function`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            EntityPath {
+                                                entity_path_expr: 0,
+                                                entity_path: Some(
+                                                    TraitPath(`core::cmp::Ord`),
+                                                ),
+                                            },
+                                            BoxColon {
+                                                caller: None,
+                                                lbox_token_idx: TokenIdx(
+                                                    112,
+                                                ),
+                                                colon_token_idx: TokenIdx(
+                                                    113,
+                                                ),
+                                                rbox_token: RightBoxBracketToken {
+                                                    token_idx: TokenIdx(
+                                                        114,
+                                                    ),
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: `T`,
+                                                token_idx: TokenIdx(
+                                                    115,
+                                                ),
+                                                current_symbol_idx: 0,
+                                                current_symbol_kind: ImplicitParameter {
+                                                    implicit_parameter_kind: Type {
+                                                        ident_token: IdentifierToken {
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 60,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            token_idx: TokenIdx(
+                                                                104,
+                                                            ),
+                                                        },
+                                                    },
+                                                },
+                                            },
+                                            Application {
+                                                function: 1,
+                                                argument: 2,
+                                            },
+                                            Err(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        119,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 64,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                            Err(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        123,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 64,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                            Err(
+                                                UnrecognizedIdentifier {
+                                                    token_idx: TokenIdx(
+                                                        126,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 64,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    106,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Trait(
+                                                        TraitPath(
+                                                            Id {
+                                                                value: 9,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 61,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            110,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 65,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            117,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 66,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            121,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                            ],
+                                        },
+                                        pattern_infos: [
+                                            Parameter,
+                                            Parameter,
+                                            Parameter,
+                                        ],
+                                        pattern_symbol_maps: [
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    0,
+                                                ),
+                                            ],
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 65,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    1,
+                                                ),
+                                            ],
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 66,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    2,
+                                                ),
+                                            ],
+                                        ],
+                                        pattern_symbol_arena: Arena {
+                                            data: [
+                                                Atom(
+                                                    0,
+                                                ),
+                                                Atom(
+                                                    1,
+                                                ),
+                                                Atom(
+                                                    2,
+                                                ),
+                                            ],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 60,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        105,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: ImplicitParameter {
+                                                        implicit_parameter_variant: Type {
+                                                            ident_token: IdentifierToken {
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 60,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                token_idx: TokenIdx(
+                                                                    104,
+                                                                ),
+                                                            },
+                                                        },
+                                                    },
+                                                },
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        111,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: Parameter {
+                                                        pattern_symbol: 0,
+                                                    },
+                                                },
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 65,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        118,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: Parameter {
+                                                        pattern_symbol: 1,
+                                                    },
+                                                },
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 66,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        122,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: Parameter {
+                                                        pattern_symbol: 2,
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        allow_self_type: False,
+                                        allow_self_value: False,
+                                        ty_constraints: [
+                                            ImplicitTypeParameter,
+                                            RegularParameter {
+                                                pattern: 0,
+                                                ty: 3,
+                                            },
+                                            RegularParameter {
+                                                pattern: 1,
+                                                ty: 4,
+                                            },
+                                            RegularParameter {
+                                                pattern: 2,
+                                                ty: 5,
+                                            },
+                                        ],
+                                    },
+                                    roots: [
+                                        ExprRoot {
+                                            kind: OutputType,
+                                            expr: 6,
+                                        },
+                                    ],
                                 },
-                            ),
+                            },
                             implicit_parameter_decl_list: Some(
                                 ImplicitParameterDeclList {
                                     langle: LeftAngleBracketOrLessThanToken {
@@ -432,11 +1290,47 @@ Ok(
                                     ),
                                 },
                             ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 45,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: False,
+                                        allow_self_value: False,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
                                 },
-                            ),
+                            },
                         },
                     ),
                 ),
@@ -468,11 +1362,47 @@ Ok(
                                     ),
                                 },
                             ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 46,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: False,
+                                        allow_self_value: False,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
                                 },
-                            ),
+                            },
                         },
                     ),
                 ),

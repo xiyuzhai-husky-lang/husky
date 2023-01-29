@@ -31,7 +31,7 @@ pub fn function_signature(
     ))
 }
 
-#[salsa::interned(jar = SignatureJar)]
+#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct FunctionSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,

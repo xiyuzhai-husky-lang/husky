@@ -18,7 +18,7 @@ struct Jar(
 
 trait Db: salsa::DbWithJar<Jar> + HasLogger {}
 
-#[salsa::input(jar = Jar)]
+#[salsa::input(db = Db, jar = Jar)]
 struct MyInput {
     field: u32,
 }
@@ -35,7 +35,7 @@ fn final_result_depends_on_y(db: &dyn Db, input: MyInput) -> u32 {
     intermediate_result(db, input).y(db) * 2
 }
 
-#[salsa::tracked(jar = Jar)]
+#[salsa::tracked(db = Db, jar = Jar)]
 struct MyTracked {
     x: u32,
     y: u32,

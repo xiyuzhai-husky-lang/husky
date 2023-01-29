@@ -118,7 +118,7 @@ pub struct RangedTokenSheet {
     comments: Vec<Comment>,
 }
 
-#[salsa::tracked(jar = TokenJar)]
+#[salsa::tracked(db = TokenDb, jar = TokenJar)]
 pub struct TokenSheet {
     #[return_ref]
     pub(crate) data: TokenSheetData,

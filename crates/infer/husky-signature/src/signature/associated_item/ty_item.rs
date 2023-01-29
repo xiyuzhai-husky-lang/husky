@@ -35,6 +35,7 @@ pub(crate) fn ty_associated_item_signature(
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = SignatureDb)]
 pub enum TypeItemSignature {
     Function(TypeAssociatedFunctionSignature),
     Method(TypeMethodSignature),
@@ -81,39 +82,6 @@ impl TypeItemSignature {
             TypeItemSignature::AlienType(_) => todo!(),
             TypeItemSignature::Value(_) => todo!(),
             TypeItemSignature::Memo(_) => todo!(),
-        }
-    }
-}
-
-impl<Db: SignatureDb + ?Sized> salsa::DebugWithDb<Db> for TypeItemSignature {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<SignatureJar>>::as_jar_db(db);
-        match self {
-            TypeItemSignature::Function(decl) => f
-                .debug_tuple("Function")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeItemSignature::Method(decl) => f
-                .debug_tuple("Method")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeItemSignature::AlienType(decl) => f
-                .debug_tuple("AlienType")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeItemSignature::Value(decl) => f
-                .debug_tuple("Value")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeItemSignature::Memo(decl) => f
-                .debug_tuple("Memo")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
         }
     }
 }

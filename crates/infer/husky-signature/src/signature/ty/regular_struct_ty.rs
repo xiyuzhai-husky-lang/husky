@@ -33,7 +33,7 @@ pub fn regular_struct_ty_signature(
     ))
 }
 
-#[salsa::tracked(jar = SignatureJar)]
+#[salsa::tracked(db = SignatureDb, jar = SignatureJar)]
 pub struct RegularStructTypeSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,

@@ -18,12 +18,12 @@ struct Jar(
 
 trait Db: salsa::DbWithJar<Jar> + HasLogger {}
 
-#[salsa::input]
+#[salsa::input(db = Db)]
 struct MyInput {
     field: u32,
 }
 
-#[salsa::tracked]
+#[salsa::tracked(db = Db)]
 struct MyTracked {
     input: MyInput,
 }

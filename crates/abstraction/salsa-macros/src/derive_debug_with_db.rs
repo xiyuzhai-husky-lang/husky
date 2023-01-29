@@ -19,7 +19,7 @@ pub(crate) fn derive_debug_with_db(
     input: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
     let options = syn::parse_macro_input!(args as Args);
-    let db_path = match options.db_path {
+    let db_path = match options.db_trai {
         Some(db_path) => db_path,
         None => panic!("no `db` specified"),
     };

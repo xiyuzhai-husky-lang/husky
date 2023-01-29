@@ -10,7 +10,7 @@ struct Jar(MyInput);
 
 trait Db: salsa::DbWithJar<Jar> + HasLogger {}
 
-#[salsa::input(jar = Jar)]
+#[salsa::input(db = Db, jar = Jar)]
 struct MyInput {
     field: String,
 }

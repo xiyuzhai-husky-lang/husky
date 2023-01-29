@@ -58,7 +58,7 @@ impl<Db: VfsDb> salsa::DebugWithDb<Db> for ToolchainData {
     }
 }
 
-#[salsa::interned(jar=VfsJar)]
+#[salsa::interned(db = VfsDb, jar = VfsJar)]
 pub struct PublishedToolchain {
     channel: ToolchainChannel,
     date: ToolchainDate,

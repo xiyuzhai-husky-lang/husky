@@ -2,7 +2,7 @@ use husky_token::{CurryToken, EolColonToken};
 
 use crate::*;
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct FunctionDecl {
     #[id]
     pub path: FormPath,

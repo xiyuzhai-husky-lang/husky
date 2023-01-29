@@ -11,7 +11,7 @@ pub(crate) fn ty_associated_function_signature(
     Ok(TypeAssociatedFunctionSignature::new(db, todo!()))
 }
 
-#[salsa::tracked(jar = SignatureJar)]
+#[salsa::tracked(db = SignatureDb, jar = SignatureJar)]
 pub struct TypeAssociatedFunctionSignature {
     pub output_ty: Term,
 }

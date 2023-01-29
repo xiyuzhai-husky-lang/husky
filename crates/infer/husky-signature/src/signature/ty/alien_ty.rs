@@ -18,7 +18,7 @@ pub fn alien_ty_signature(
     ))
 }
 
-#[salsa::interned(jar = SignatureJar)]
+#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct AlienTypeSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,

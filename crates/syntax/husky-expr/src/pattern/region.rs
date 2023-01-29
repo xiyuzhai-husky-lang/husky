@@ -1,6 +1,7 @@
 use super::*;
 
 #[derive(Debug, Default, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub struct PatternExprRegion {
     pattern_expr_arena: PatternExprArena,
     pattern_infos: Vec<PatternExprInfo>,

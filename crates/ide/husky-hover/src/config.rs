@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::input(jar = HoverJar)]
+#[salsa::input(db = HoverDb, jar = HoverJar)]
 pub struct HoverConfig {
     #[return_ref]
     pub data: HoverConfigData,

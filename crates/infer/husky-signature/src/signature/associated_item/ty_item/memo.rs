@@ -19,7 +19,7 @@ pub(crate) fn ty_memo_signature(
     Ok(TypeMemoSignature::new(db, output_ty))
 }
 
-#[salsa::interned(jar = SignatureJar)]
+#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct TypeMemoSignature {
     pub output_ty: Term,
 }

@@ -20,7 +20,7 @@ struct Jar(
 
 trait Db: salsa::DbWithJar<Jar> + HasLogger {}
 
-#[salsa::input(singleton)]
+#[salsa::input(db = Db, singleton)]
 struct MyInput {
     field: u32,
 }
@@ -35,7 +35,7 @@ fn final_result(db: &dyn Db, input: MyInput) -> u32 {
     sum
 }
 
-#[salsa::tracked]
+#[salsa::tracked(db = Db)]
 struct MyTracked {
     field: u32,
 }

@@ -12,7 +12,7 @@ struct Jar(MyInput, result_depends_on_x, result_depends_on_y);
 
 trait Db: salsa::DbWithJar<Jar> + HasLogger {}
 
-#[salsa::input(jar = Jar)]
+#[salsa::input(db = Db, jar = Jar)]
 struct MyInput {
     x: u32,
     y: u32,

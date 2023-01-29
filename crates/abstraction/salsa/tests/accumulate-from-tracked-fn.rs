@@ -12,7 +12,7 @@ struct Jar(List, Integers, compute);
 
 trait Db: salsa::DbWithJar<Jar> + HasLogger {}
 
-#[salsa::input]
+#[salsa::input(db = Db)]
 struct List {
     value: u32,
     next: Option<List>,

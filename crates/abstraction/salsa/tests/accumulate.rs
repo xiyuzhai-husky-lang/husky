@@ -12,7 +12,7 @@ struct Jar(MyInput, Logs, push_logs, push_a_logs, push_b_logs);
 
 trait Db: salsa::DbWithJar<Jar> + HasLogger {}
 
-#[salsa::input]
+#[salsa::input(db = Db)]
 struct MyInput {
     field_a: u32,
     field_b: u32,

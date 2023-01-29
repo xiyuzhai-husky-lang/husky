@@ -1,8 +1,8 @@
 mod alien_ty;
 mod enum_ty;
 mod inductive_ty;
-mod props_struct_ty;
 mod record_ty;
+mod regular_struct_ty;
 mod structure_ty;
 mod tuple_struct_ty;
 mod union_ty;
@@ -11,8 +11,8 @@ mod unit_struct_ty;
 pub use alien_ty::*;
 pub use enum_ty::*;
 pub use inductive_ty::*;
-pub use props_struct_ty::*;
 pub use record_ty::*;
+pub use regular_struct_ty::*;
 pub use structure_ty::*;
 pub use tuple_struct_ty::*;
 pub use union_ty::*;
@@ -22,6 +22,7 @@ use super::*;
 use salsa::DbWithJar;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = DeclDb)]
 pub enum TypeDecl {
     Enum(EnumTypeDecl),
     RegularStruct(RegularStructTypeDecl),
@@ -147,51 +148,5 @@ impl From<StructureTypeDecl> for TypeDecl {
 impl From<AlienTypeDecl> for TypeDecl {
     fn from(v: AlienTypeDecl) -> Self {
         Self::Foreign(v)
-    }
-}
-
-impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for TypeDecl {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as DbWithJar<DeclJar>>::as_jar_db(db);
-        match self {
-            TypeDecl::Enum(decl) => f
-                .debug_tuple("Enum")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeDecl::Inductive(decl) => f
-                .debug_tuple("Inductive")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeDecl::Record(decl) => f
-                .debug_tuple("Record")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeDecl::RegularStruct(decl) => f
-                .debug_tuple("RegularStruct")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeDecl::TupleStruct(decl) => f
-                .debug_tuple("TupleStruct")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeDecl::UnitStruct(decl) => f
-                .debug_tuple("UnitStruct")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeDecl::Structure(decl) => f
-                .debug_tuple("Structure")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeDecl::Foreign(decl) => f
-                .debug_tuple("Foreign")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            TypeDecl::Union(_) => todo!(),
-        }
     }
 }

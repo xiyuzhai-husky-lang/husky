@@ -21,6 +21,7 @@ pub(crate) fn variant_signature(
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = SignatureDb)]
 pub enum VariantSignature {
     Props(PropsVariantSignature),
     Unit(UnitVariantSignature),
@@ -33,16 +34,5 @@ impl VariantSignature {
             VariantSignature::Unit(signature) => signature.term_sheet(db),
             VariantSignature::Tuple(signature) => signature.term_sheet(db),
         }
-    }
-}
-
-impl<Db: SignatureDb + ?Sized> salsa::DebugWithDb<Db> for VariantSignature {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        todo!()
     }
 }

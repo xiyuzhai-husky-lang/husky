@@ -11,5 +11,5 @@ pub(crate) fn ty_as_trai_associated_value_signature(
     Ok(TypeAsTraitAssociatedValueSignature::new(db))
 }
 
-#[salsa::interned(jar = SignatureJar)]
+#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct TypeAsTraitAssociatedValueSignature {}

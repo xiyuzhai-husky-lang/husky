@@ -20,7 +20,7 @@ pub(crate) fn ty_as_trai_method_signature(
     // TypeAsTraitMethodSignature::new(db, implicit_parameters, parameters, output_ty)
 }
 
-#[salsa::interned(jar = SignatureJar)]
+#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct TypeAsTraitMethodSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,

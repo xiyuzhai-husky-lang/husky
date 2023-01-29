@@ -5,11 +5,222 @@ Ok(
                 RegularStruct(
                     RegularStructTypeDefn {
                         path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        decl: RegularStructTypeDecl(
-                            Id {
-                                value: 10,
+                        decl: RegularStructTypeDecl {
+                            path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            ast_idx: 74,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            EntityPath {
+                                                entity_path_expr: 0,
+                                                entity_path: Some(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                ),
+                                            },
+                                            PrefixOpn {
+                                                opr: Ref,
+                                                opr_token_idx: TokenIdx(
+                                                    38,
+                                                ),
+                                                opd: 0,
+                                            },
+                                            Err(
+                                                NoLeftOperandForBinaryOperator {
+                                                    binary_token_idx: TokenIdx(
+                                                        44,
+                                                    ),
+                                                },
+                                            ),
+                                            Err(
+                                                NoRightOperandForBinaryOperator {
+                                                    lopd: 2,
+                                                    punctuation: PureClosed(
+                                                        RemEuclid,
+                                                    ),
+                                                    punctuation_token_idx: TokenIdx(
+                                                        44,
+                                                    ),
+                                                },
+                                            ),
+                                            NewBoxList {
+                                                caller: None,
+                                                lbox_token_idx: TokenIdx(
+                                                    43,
+                                                ),
+                                                items: ArenaIdxRange(
+                                                    3..4,
+                                                ),
+                                                rbox_token_idx: TokenIdx(
+                                                    45,
+                                                ),
+                                            },
+                                            EntityPath {
+                                                entity_path_expr: 1,
+                                                entity_path: Some(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                ),
+                                            },
+                                            Application {
+                                                function: 4,
+                                                argument: 5,
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    39,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 181,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 30,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    46,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 279,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 29,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: False,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [
+                                        ExprRoot {
+                                            kind: FieldType,
+                                            expr: 1,
+                                        },
+                                        ExprRoot {
+                                            kind: FieldType,
+                                            expr: 6,
+                                        },
+                                    ],
+                                },
                             },
-                        ),
+                            implicit_parameter_decl_list: None,
+                            lcurl: LeftCurlyBraceToken {
+                                token_idx: TokenIdx(
+                                    35,
+                                ),
+                            },
+                            fields: [
+                                RegularStructFieldPattern {
+                                    ident_token: IdentifierToken {
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 96,
+                                                },
+                                            ),
+                                        ),
+                                        token_idx: TokenIdx(
+                                            36,
+                                        ),
+                                    },
+                                    colon: ColonToken {
+                                        token_idx: TokenIdx(
+                                            37,
+                                        ),
+                                    },
+                                    ty: 1,
+                                },
+                                RegularStructFieldPattern {
+                                    ident_token: IdentifierToken {
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 285,
+                                                },
+                                            ),
+                                        ),
+                                        token_idx: TokenIdx(
+                                            41,
+                                        ),
+                                    },
+                                    colon: ColonToken {
+                                        token_idx: TokenIdx(
+                                            42,
+                                        ),
+                                    },
+                                    ty: 6,
+                                },
+                            ],
+                            separators: [
+                                CommaToken {
+                                    token_idx: TokenIdx(
+                                        40,
+                                    ),
+                                },
+                                CommaToken {
+                                    token_idx: TokenIdx(
+                                        47,
+                                    ),
+                                },
+                            ],
+                            rcurl: RightCurlyBraceToken {
+                                token_idx: TokenIdx(
+                                    48,
+                                ),
+                            },
+                        },
                     },
                 ),
             ),
@@ -17,16 +228,1725 @@ Ok(
                 Function(
                     FunctionDefn {
                         path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
-                        decl: FunctionDecl(
-                            Id {
-                                value: 26,
+                        decl: FunctionDecl {
+                            path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                            ast_idx: 76,
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: Decl(
+                                        Entity(
+                                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            EntityPath {
+                                                entity_path_expr: 0,
+                                                entity_path: Some(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                ),
+                                            },
+                                            PrefixOpn {
+                                                opr: Ref,
+                                                opr_token_idx: TokenIdx(
+                                                    520,
+                                                ),
+                                                opd: 0,
+                                            },
+                                            NewBoxList {
+                                                caller: None,
+                                                lbox_token_idx: TokenIdx(
+                                                    524,
+                                                ),
+                                                items: ArenaIdxRange(
+                                                    2..2,
+                                                ),
+                                                rbox_token_idx: TokenIdx(
+                                                    525,
+                                                ),
+                                            },
+                                            EntityPath {
+                                                entity_path_expr: 1,
+                                                entity_path: Some(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ),
+                                            },
+                                            Application {
+                                                function: 2,
+                                                argument: 3,
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    521,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 181,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 30,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    526,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 287,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 31,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 96,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            518,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                            ],
+                                        },
+                                        pattern_infos: [
+                                            Parameter,
+                                        ],
+                                        pattern_symbol_maps: [
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 96,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    0,
+                                                ),
+                                            ],
+                                        ],
+                                        pattern_symbol_arena: Arena {
+                                            data: [
+                                                Atom(
+                                                    0,
+                                                ),
+                                            ],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 96,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        519,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: Parameter {
+                                                        pattern_symbol: 0,
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        allow_self_type: False,
+                                        allow_self_value: False,
+                                        ty_constraints: [
+                                            RegularParameter {
+                                                pattern: 0,
+                                                ty: 1,
+                                            },
+                                        ],
+                                    },
+                                    roots: [
+                                        ExprRoot {
+                                            kind: OutputType,
+                                            expr: 4,
+                                        },
+                                    ],
+                                },
                             },
-                        ),
-                        expr_region: ExprRegion(
-                            Id {
-                                value: 248,
+                            implicit_parameter_decl_list: None,
+                            parameter_decl_list: ParameterDeclList {
+                                lpar: LeftParenthesisToken {
+                                    token_idx: TokenIdx(
+                                        517,
+                                    ),
+                                },
+                                parameters: [
+                                    RegularParameterDeclPattern {
+                                        pattern: 0,
+                                        variables: ArenaIdxRange(
+                                            0..1,
+                                        ),
+                                        colon: ColonToken {
+                                            token_idx: TokenIdx(
+                                                519,
+                                            ),
+                                        },
+                                        ty: 1,
+                                    },
+                                ],
+                                commas: [],
+                                rpar: RightParenthesisToken {
+                                    token_idx: TokenIdx(
+                                        522,
+                                    ),
+                                },
                             },
-                        ),
+                            curry_token: Ok(
+                                CurryToken {
+                                    token_idx: TokenIdx(
+                                        523,
+                                    ),
+                                },
+                            ),
+                            output_ty: Ok(
+                                OutputTypeExpr {
+                                    expr: 4,
+                                },
+                            ),
+                            eol_colon: Ok(
+                                EolColonToken {
+                                    token_idx: TokenIdx(
+                                        527,
+                                    ),
+                                },
+                            ),
+                        },
+                        expr_region: ExprRegion {
+                            data: ExprRegionData {
+                                parent: Some(
+                                    ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: None,
+                                            path: Decl(
+                                                Entity(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    EntityPath {
+                                                        entity_path_expr: 0,
+                                                        entity_path: Some(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                        ),
+                                                    },
+                                                    PrefixOpn {
+                                                        opr: Ref,
+                                                        opr_token_idx: TokenIdx(
+                                                            520,
+                                                        ),
+                                                        opd: 0,
+                                                    },
+                                                    NewBoxList {
+                                                        caller: None,
+                                                        lbox_token_idx: TokenIdx(
+                                                            524,
+                                                        ),
+                                                        items: ArenaIdxRange(
+                                                            2..2,
+                                                        ),
+                                                        rbox_token_idx: TokenIdx(
+                                                            525,
+                                                        ),
+                                                    },
+                                                    EntityPath {
+                                                        entity_path_expr: 1,
+                                                        entity_path: Some(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ),
+                                                    },
+                                                    Application {
+                                                        function: 2,
+                                                        argument: 3,
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [
+                                                    Root {
+                                                        token_idx: TokenIdx(
+                                                            521,
+                                                        ),
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 181,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        entity_path: ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 30,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    Root {
+                                                        token_idx: TokenIdx(
+                                                            526,
+                                                        ),
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 287,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        entity_path: ModuleItem(
+                                                            Type(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 31,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        Identifier {
+                                                            ident_token: IdentifierToken {
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 96,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                token_idx: TokenIdx(
+                                                                    518,
+                                                                ),
+                                                            },
+                                                            liason: None,
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Parameter,
+                                                ],
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 96,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSymbol {
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 96,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            access_start: TokenIdx(
+                                                                519,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: Parameter {
+                                                                pattern_symbol: 0,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: False,
+                                                allow_self_value: False,
+                                                ty_constraints: [
+                                                    RegularParameter {
+                                                        pattern: 0,
+                                                        ty: 1,
+                                                    },
+                                                ],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: OutputType,
+                                                    expr: 4,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                ),
+                                path: Defn(
+                                    Entity(
+                                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [
+                                        EntityPath {
+                                            entity_path_expr: 0,
+                                            entity_path: Some(
+                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ),
+                                        },
+                                        NewBoxList {
+                                            caller: None,
+                                            lbox_token_idx: TokenIdx(
+                                                532,
+                                            ),
+                                            items: ArenaIdxRange(
+                                                0..0,
+                                            ),
+                                            rbox_token_idx: TokenIdx(
+                                                533,
+                                            ),
+                                        },
+                                        FunctionCall {
+                                            function: 0,
+                                            implicit_arguments: None,
+                                            lpar_token_idx: TokenIdx(
+                                                535,
+                                            ),
+                                            arguments: ArenaIdxRange(
+                                                1..1,
+                                            ),
+                                            rpar_token_idx: TokenIdx(
+                                                536,
+                                            ),
+                                        },
+                                        Application {
+                                            function: 1,
+                                            argument: 2,
+                                        },
+                                        InheritedSymbol {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                540,
+                                            ),
+                                            inherited_symbol_idx: 0,
+                                            inherited_symbol_kind: Parameter,
+                                        },
+                                        Field {
+                                            this_expr: 4,
+                                            dot_token_idx: TokenIdx(
+                                                541,
+                                            ),
+                                            ident_token: IdentifierToken {
+                                                ident: `strokes`,
+                                                token_idx: TokenIdx(
+                                                    542,
+                                                ),
+                                            },
+                                        },
+                                        MethodCall {
+                                            this_expr: 5,
+                                            dot_token_idx: TokenIdx(
+                                                543,
+                                            ),
+                                            ident_token: IdentifierToken {
+                                                ident: `ilen`,
+                                                token_idx: TokenIdx(
+                                                    544,
+                                                ),
+                                            },
+                                            implicit_arguments: None,
+                                            lpar_token_idx: TokenIdx(
+                                                545,
+                                            ),
+                                            arguments: ArenaIdxRange(
+                                                6..6,
+                                            ),
+                                            rpar_token_idx: TokenIdx(
+                                                546,
+                                            ),
+                                        },
+                                        Literal(
+                                            TokenIdx(
+                                                551,
+                                            ),
+                                        ),
+                                        Literal(
+                                            TokenIdx(
+                                                556,
+                                            ),
+                                        ),
+                                        CurrentSymbol {
+                                            ident: `L`,
+                                            token_idx: TokenIdx(
+                                                561,
+                                            ),
+                                            current_symbol_idx: 2,
+                                            current_symbol_kind: LetVariable {
+                                                pattern_symbol: 2,
+                                            },
+                                        },
+                                        CurrentSymbol {
+                                            ident: `start`,
+                                            token_idx: TokenIdx(
+                                                558,
+                                            ),
+                                            current_symbol_idx: 1,
+                                            current_symbol_kind: LetVariable {
+                                                pattern_symbol: 1,
+                                            },
+                                        },
+                                        PrefixOpn {
+                                            opr: Minus,
+                                            opr_token_idx: TokenIdx(
+                                                560,
+                                            ),
+                                            opd: 9,
+                                        },
+                                        EntityPath {
+                                            entity_path_expr: 1,
+                                            entity_path: Some(
+                                                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                                            ),
+                                        },
+                                        InheritedSymbol {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                566,
+                                            ),
+                                            inherited_symbol_idx: 0,
+                                            inherited_symbol_kind: Parameter,
+                                        },
+                                        CurrentSymbol {
+                                            ident: `start`,
+                                            token_idx: TokenIdx(
+                                                568,
+                                            ),
+                                            current_symbol_idx: 1,
+                                            current_symbol_kind: LetVariable {
+                                                pattern_symbol: 1,
+                                            },
+                                        },
+                                        FunctionCall {
+                                            function: 12,
+                                            implicit_arguments: None,
+                                            lpar_token_idx: TokenIdx(
+                                                565,
+                                            ),
+                                            arguments: ArenaIdxRange(
+                                                13..15,
+                                            ),
+                                            rpar_token_idx: TokenIdx(
+                                                569,
+                                            ),
+                                        },
+                                        BinaryOpn {
+                                            lopd: 10,
+                                            opr: Comparison(
+                                                Greater,
+                                            ),
+                                            opr_token_idx: TokenIdx(
+                                                559,
+                                            ),
+                                            ropd: 11,
+                                        },
+                                        PrefixOpn {
+                                            opr: Not,
+                                            opr_token_idx: TokenIdx(
+                                                563,
+                                            ),
+                                            opd: 15,
+                                        },
+                                        BinaryOpn {
+                                            lopd: 16,
+                                            opr: ShortcuitLogic(
+                                                And,
+                                            ),
+                                            opr_token_idx: TokenIdx(
+                                                562,
+                                            ),
+                                            ropd: 17,
+                                        },
+                                        CurrentSymbol {
+                                            ident: `start`,
+                                            token_idx: TokenIdx(
+                                                571,
+                                            ),
+                                            current_symbol_idx: 1,
+                                            current_symbol_kind: LetVariable {
+                                                pattern_symbol: 1,
+                                            },
+                                        },
+                                        SuffixOpn {
+                                            opd: 19,
+                                            punctuation: Decr,
+                                            punctuation_token_idx: TokenIdx(
+                                                572,
+                                            ),
+                                        },
+                                        CurrentSymbol {
+                                            ident: `start`,
+                                            token_idx: TokenIdx(
+                                                576,
+                                            ),
+                                            current_symbol_idx: 2,
+                                            current_symbol_kind: LetVariable {
+                                                pattern_symbol: 2,
+                                            },
+                                        },
+                                        CurrentSymbol {
+                                            ident: `ccv_start`,
+                                            token_idx: TokenIdx(
+                                                580,
+                                            ),
+                                            current_symbol_idx: 0,
+                                            current_symbol_kind: LetVariable {
+                                                pattern_symbol: 0,
+                                            },
+                                        },
+                                        CurrentSymbol {
+                                            ident: `L`,
+                                            token_idx: TokenIdx(
+                                                582,
+                                            ),
+                                            current_symbol_idx: 3,
+                                            current_symbol_kind: LetVariable {
+                                                pattern_symbol: 3,
+                                            },
+                                        },
+                                        CurrentSymbol {
+                                            ident: `start`,
+                                            token_idx: TokenIdx(
+                                                578,
+                                            ),
+                                            current_symbol_idx: 2,
+                                            current_symbol_kind: LetVariable {
+                                                pattern_symbol: 2,
+                                            },
+                                        },
+                                        BinaryOpn {
+                                            lopd: 22,
+                                            opr: PureClosed(
+                                                Add,
+                                            ),
+                                            opr_token_idx: TokenIdx(
+                                                581,
+                                            ),
+                                            ropd: 23,
+                                        },
+                                        BinaryOpn {
+                                            lopd: 24,
+                                            opr: Comparison(
+                                                Less,
+                                            ),
+                                            opr_token_idx: TokenIdx(
+                                                579,
+                                            ),
+                                            ropd: 25,
+                                        },
+                                        CurrentSymbol {
+                                            ident: `start`,
+                                            token_idx: TokenIdx(
+                                                587,
+                                            ),
+                                            current_symbol_idx: 2,
+                                            current_symbol_kind: LetVariable {
+                                                pattern_symbol: 2,
+                                            },
+                                        },
+                                        CurrentSymbol {
+                                            ident: `L`,
+                                            token_idx: TokenIdx(
+                                                589,
+                                            ),
+                                            current_symbol_idx: 3,
+                                            current_symbol_kind: LetVariable {
+                                                pattern_symbol: 3,
+                                            },
+                                        },
+                                        CurrentSymbol {
+                                            ident: `end`,
+                                            token_idx: TokenIdx(
+                                                585,
+                                            ),
+                                            current_symbol_idx: 1,
+                                            current_symbol_kind: LetVariable {
+                                                pattern_symbol: 1,
+                                            },
+                                        },
+                                        BinaryOpn {
+                                            lopd: 27,
+                                            opr: PureClosed(
+                                                Add,
+                                            ),
+                                            opr_token_idx: TokenIdx(
+                                                588,
+                                            ),
+                                            ropd: 28,
+                                        },
+                                        EntityPath {
+                                            entity_path_expr: 2,
+                                            entity_path: Some(
+                                                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                                            ),
+                                        },
+                                        InheritedSymbol {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                594,
+                                            ),
+                                            inherited_symbol_idx: 0,
+                                            inherited_symbol_kind: Parameter,
+                                        },
+                                        CurrentSymbol {
+                                            ident: `end`,
+                                            token_idx: TokenIdx(
+                                                596,
+                                            ),
+                                            current_symbol_idx: 1,
+                                            current_symbol_kind: LetVariable {
+                                                pattern_symbol: 1,
+                                            },
+                                        },
+                                        FunctionCall {
+                                            function: 31,
+                                            implicit_arguments: None,
+                                            lpar_token_idx: TokenIdx(
+                                                593,
+                                            ),
+                                            arguments: ArenaIdxRange(
+                                                32..34,
+                                            ),
+                                            rpar_token_idx: TokenIdx(
+                                                597,
+                                            ),
+                                        },
+                                        BinaryOpn {
+                                            lopd: 29,
+                                            opr: Comparison(
+                                                Leq,
+                                            ),
+                                            opr_token_idx: TokenIdx(
+                                                586,
+                                            ),
+                                            ropd: 30,
+                                        },
+                                        PrefixOpn {
+                                            opr: Not,
+                                            opr_token_idx: TokenIdx(
+                                                591,
+                                            ),
+                                            opd: 34,
+                                        },
+                                        BinaryOpn {
+                                            lopd: 35,
+                                            opr: ShortcuitLogic(
+                                                And,
+                                            ),
+                                            opr_token_idx: TokenIdx(
+                                                590,
+                                            ),
+                                            ropd: 36,
+                                        },
+                                        CurrentSymbol {
+                                            ident: `end`,
+                                            token_idx: TokenIdx(
+                                                599,
+                                            ),
+                                            current_symbol_idx: 1,
+                                            current_symbol_kind: LetVariable {
+                                                pattern_symbol: 1,
+                                            },
+                                        },
+                                        SuffixOpn {
+                                            opd: 38,
+                                            punctuation: Incr,
+                                            punctuation_token_idx: TokenIdx(
+                                                600,
+                                            ),
+                                        },
+                                        CurrentSymbol {
+                                            ident: `start`,
+                                            token_idx: TokenIdx(
+                                                604,
+                                            ),
+                                            current_symbol_idx: 2,
+                                            current_symbol_kind: LetVariable {
+                                                pattern_symbol: 2,
+                                            },
+                                        },
+                                        Literal(
+                                            TokenIdx(
+                                                606,
+                                            ),
+                                        ),
+                                        CurrentSymbol {
+                                            ident: `end`,
+                                            token_idx: TokenIdx(
+                                                602,
+                                            ),
+                                            current_symbol_idx: 1,
+                                            current_symbol_kind: LetVariable {
+                                                pattern_symbol: 1,
+                                            },
+                                        },
+                                        BinaryOpn {
+                                            lopd: 40,
+                                            opr: PureClosed(
+                                                Add,
+                                            ),
+                                            opr_token_idx: TokenIdx(
+                                                605,
+                                            ),
+                                            ropd: 41,
+                                        },
+                                        BinaryOpn {
+                                            lopd: 42,
+                                            opr: Comparison(
+                                                Greater,
+                                            ),
+                                            opr_token_idx: TokenIdx(
+                                                603,
+                                            ),
+                                            ropd: 43,
+                                        },
+                                        CurrentSymbol {
+                                            ident: `concave_components`,
+                                            token_idx: TokenIdx(
+                                                608,
+                                            ),
+                                            current_symbol_idx: 4,
+                                            current_symbol_kind: LetVariable {
+                                                pattern_symbol: 4,
+                                            },
+                                        },
+                                        EntityPath {
+                                            entity_path_expr: 3,
+                                            entity_path: Some(
+                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ),
+                                        },
+                                        InheritedSymbol {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                616,
+                                            ),
+                                            inherited_symbol_idx: 0,
+                                            inherited_symbol_kind: Parameter,
+                                        },
+                                        Field {
+                                            this_expr: 47,
+                                            dot_token_idx: TokenIdx(
+                                                617,
+                                            ),
+                                            ident_token: IdentifierToken {
+                                                ident: `strokes`,
+                                                token_idx: TokenIdx(
+                                                    618,
+                                                ),
+                                            },
+                                        },
+                                        CurrentSymbol {
+                                            ident: `start`,
+                                            token_idx: TokenIdx(
+                                                622,
+                                            ),
+                                            current_symbol_idx: 2,
+                                            current_symbol_kind: LetVariable {
+                                                pattern_symbol: 2,
+                                            },
+                                        },
+                                        CurrentSymbol {
+                                            ident: `end`,
+                                            token_idx: TokenIdx(
+                                                624,
+                                            ),
+                                            current_symbol_idx: 1,
+                                            current_symbol_kind: LetVariable {
+                                                pattern_symbol: 1,
+                                            },
+                                        },
+                                        InheritedSymbol {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                614,
+                                            ),
+                                            inherited_symbol_idx: 0,
+                                            inherited_symbol_kind: Parameter,
+                                        },
+                                        MethodCall {
+                                            this_expr: 48,
+                                            dot_token_idx: TokenIdx(
+                                                619,
+                                            ),
+                                            ident_token: IdentifierToken {
+                                                ident: `cyclic_slice`,
+                                                token_idx: TokenIdx(
+                                                    620,
+                                                ),
+                                            },
+                                            implicit_arguments: None,
+                                            lpar_token_idx: TokenIdx(
+                                                621,
+                                            ),
+                                            arguments: ArenaIdxRange(
+                                                49..51,
+                                            ),
+                                            rpar_token_idx: TokenIdx(
+                                                625,
+                                            ),
+                                        },
+                                        FunctionCall {
+                                            function: 46,
+                                            implicit_arguments: None,
+                                            lpar_token_idx: TokenIdx(
+                                                613,
+                                            ),
+                                            arguments: ArenaIdxRange(
+                                                51..53,
+                                            ),
+                                            rpar_token_idx: TokenIdx(
+                                                626,
+                                            ),
+                                        },
+                                        MethodCall {
+                                            this_expr: 45,
+                                            dot_token_idx: TokenIdx(
+                                                609,
+                                            ),
+                                            ident_token: IdentifierToken {
+                                                ident: `push`,
+                                                token_idx: TokenIdx(
+                                                    610,
+                                                ),
+                                            },
+                                            implicit_arguments: None,
+                                            lpar_token_idx: TokenIdx(
+                                                611,
+                                            ),
+                                            arguments: ArenaIdxRange(
+                                                53..54,
+                                            ),
+                                            rpar_token_idx: TokenIdx(
+                                                627,
+                                            ),
+                                        },
+                                        CurrentSymbol {
+                                            ident: `start`,
+                                            token_idx: TokenIdx(
+                                                628,
+                                            ),
+                                            current_symbol_idx: 2,
+                                            current_symbol_kind: LetVariable {
+                                                pattern_symbol: 2,
+                                            },
+                                        },
+                                        CurrentSymbol {
+                                            ident: `end`,
+                                            token_idx: TokenIdx(
+                                                630,
+                                            ),
+                                            current_symbol_idx: 1,
+                                            current_symbol_kind: LetVariable {
+                                                pattern_symbol: 1,
+                                            },
+                                        },
+                                        BinaryOpn {
+                                            lopd: 55,
+                                            opr: Assign(
+                                                None,
+                                            ),
+                                            opr_token_idx: TokenIdx(
+                                                629,
+                                            ),
+                                            ropd: 56,
+                                        },
+                                        CurrentSymbol {
+                                            ident: `start`,
+                                            token_idx: TokenIdx(
+                                                633,
+                                            ),
+                                            current_symbol_idx: 2,
+                                            current_symbol_kind: LetVariable {
+                                                pattern_symbol: 2,
+                                            },
+                                        },
+                                        Literal(
+                                            TokenIdx(
+                                                635,
+                                            ),
+                                        ),
+                                        CurrentSymbol {
+                                            ident: `end`,
+                                            token_idx: TokenIdx(
+                                                631,
+                                            ),
+                                            current_symbol_idx: 1,
+                                            current_symbol_kind: LetVariable {
+                                                pattern_symbol: 1,
+                                            },
+                                        },
+                                        BinaryOpn {
+                                            lopd: 58,
+                                            opr: PureClosed(
+                                                Add,
+                                            ),
+                                            opr_token_idx: TokenIdx(
+                                                634,
+                                            ),
+                                            ropd: 59,
+                                        },
+                                        BinaryOpn {
+                                            lopd: 60,
+                                            opr: Assign(
+                                                None,
+                                            ),
+                                            opr_token_idx: TokenIdx(
+                                                632,
+                                            ),
+                                            ropd: 61,
+                                        },
+                                        CurrentSymbol {
+                                            ident: `concave_components`,
+                                            token_idx: TokenIdx(
+                                                637,
+                                            ),
+                                            current_symbol_idx: 4,
+                                            current_symbol_kind: LetVariable {
+                                                pattern_symbol: 4,
+                                            },
+                                        },
+                                        Block {
+                                            stmts: ArenaIdxRange(
+                                                7..15,
+                                            ),
+                                        },
+                                    ],
+                                },
+                                entity_path_expr_arena: Arena {
+                                    data: [
+                                        Root {
+                                            token_idx: TokenIdx(
+                                                534,
+                                            ),
+                                            ident: Identifier(
+                                                Word(
+                                                    Id {
+                                                        value: 287,
+                                                    },
+                                                ),
+                                            ),
+                                            entity_path: ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 31,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        Root {
+                                            token_idx: TokenIdx(
+                                                564,
+                                            ),
+                                            ident: Identifier(
+                                                Word(
+                                                    Id {
+                                                        value: 331,
+                                                    },
+                                                ),
+                                            ),
+                                            entity_path: ModuleItem(
+                                                Form(
+                                                    FormPath(
+                                                        Id {
+                                                            value: 23,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        Root {
+                                            token_idx: TokenIdx(
+                                                592,
+                                            ),
+                                            ident: Identifier(
+                                                Word(
+                                                    Id {
+                                                        value: 331,
+                                                    },
+                                                ),
+                                            ),
+                                            entity_path: ModuleItem(
+                                                Form(
+                                                    FormPath(
+                                                        Id {
+                                                            value: 23,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        Root {
+                                            token_idx: TokenIdx(
+                                                612,
+                                            ),
+                                            ident: Identifier(
+                                                Word(
+                                                    Id {
+                                                        value: 287,
+                                                    },
+                                                ),
+                                            ),
+                                            entity_path: ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 31,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ],
+                                },
+                                stmt_arena: Arena {
+                                    data: [
+                                        Eval {
+                                            expr: 20,
+                                        },
+                                        Eval {
+                                            expr: 39,
+                                        },
+                                        Eval {
+                                            expr: 54,
+                                        },
+                                        While {
+                                            while_token: WhileToken {
+                                                token_idx: TokenIdx(
+                                                    584,
+                                                ),
+                                            },
+                                            condition: Ok(
+                                                37,
+                                            ),
+                                            eol_colon: Ok(
+                                                EolColonToken {
+                                                    token_idx: TokenIdx(
+                                                        598,
+                                                    ),
+                                                },
+                                            ),
+                                            block: Ok(
+                                                ArenaIdxRange(
+                                                    1..2,
+                                                ),
+                                            ),
+                                        },
+                                        IfElse {
+                                            if_branch: IfBranch {
+                                                if_token: IfToken {
+                                                    token_idx: TokenIdx(
+                                                        601,
+                                                    ),
+                                                },
+                                                condition: Ok(
+                                                    44,
+                                                ),
+                                                eol_colon: Ok(
+                                                    EolColonToken {
+                                                        token_idx: TokenIdx(
+                                                            607,
+                                                        ),
+                                                    },
+                                                ),
+                                                block: Ok(
+                                                    ArenaIdxRange(
+                                                        2..3,
+                                                    ),
+                                                ),
+                                            },
+                                            elif_branches: [],
+                                            else_branch: None,
+                                        },
+                                        Eval {
+                                            expr: 57,
+                                        },
+                                        Eval {
+                                            expr: 62,
+                                        },
+                                        Let {
+                                            let_token: LetToken {
+                                                token_idx: TokenIdx(
+                                                    528,
+                                                ),
+                                            },
+                                            let_variable_pattern: Ok(
+                                                LetVariablesPattern {
+                                                    pattern: 0,
+                                                    variables: ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                    colon_token: Ok(
+                                                        None,
+                                                    ),
+                                                    ty: None,
+                                                },
+                                            ),
+                                            assign_token: Ok(
+                                                AssignToken {
+                                                    token_idx: TokenIdx(
+                                                        531,
+                                                    ),
+                                                },
+                                            ),
+                                            initial_value: Ok(
+                                                3,
+                                            ),
+                                        },
+                                        Let {
+                                            let_token: LetToken {
+                                                token_idx: TokenIdx(
+                                                    537,
+                                                ),
+                                            },
+                                            let_variable_pattern: Ok(
+                                                LetVariablesPattern {
+                                                    pattern: 1,
+                                                    variables: ArenaIdxRange(
+                                                        1..2,
+                                                    ),
+                                                    colon_token: Ok(
+                                                        None,
+                                                    ),
+                                                    ty: None,
+                                                },
+                                            ),
+                                            assign_token: Ok(
+                                                AssignToken {
+                                                    token_idx: TokenIdx(
+                                                        539,
+                                                    ),
+                                                },
+                                            ),
+                                            initial_value: Ok(
+                                                6,
+                                            ),
+                                        },
+                                        Let {
+                                            let_token: LetToken {
+                                                token_idx: TokenIdx(
+                                                    547,
+                                                ),
+                                            },
+                                            let_variable_pattern: Ok(
+                                                LetVariablesPattern {
+                                                    pattern: 2,
+                                                    variables: ArenaIdxRange(
+                                                        2..3,
+                                                    ),
+                                                    colon_token: Ok(
+                                                        None,
+                                                    ),
+                                                    ty: None,
+                                                },
+                                            ),
+                                            assign_token: Ok(
+                                                AssignToken {
+                                                    token_idx: TokenIdx(
+                                                        550,
+                                                    ),
+                                                },
+                                            ),
+                                            initial_value: Ok(
+                                                7,
+                                            ),
+                                        },
+                                        Let {
+                                            let_token: LetToken {
+                                                token_idx: TokenIdx(
+                                                    552,
+                                                ),
+                                            },
+                                            let_variable_pattern: Ok(
+                                                LetVariablesPattern {
+                                                    pattern: 3,
+                                                    variables: ArenaIdxRange(
+                                                        3..4,
+                                                    ),
+                                                    colon_token: Ok(
+                                                        None,
+                                                    ),
+                                                    ty: None,
+                                                },
+                                            ),
+                                            assign_token: Ok(
+                                                AssignToken {
+                                                    token_idx: TokenIdx(
+                                                        555,
+                                                    ),
+                                                },
+                                            ),
+                                            initial_value: Ok(
+                                                8,
+                                            ),
+                                        },
+                                        While {
+                                            while_token: WhileToken {
+                                                token_idx: TokenIdx(
+                                                    557,
+                                                ),
+                                            },
+                                            condition: Ok(
+                                                18,
+                                            ),
+                                            eol_colon: Ok(
+                                                EolColonToken {
+                                                    token_idx: TokenIdx(
+                                                        570,
+                                                    ),
+                                                },
+                                            ),
+                                            block: Ok(
+                                                ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                            ),
+                                        },
+                                        Let {
+                                            let_token: LetToken {
+                                                token_idx: TokenIdx(
+                                                    573,
+                                                ),
+                                            },
+                                            let_variable_pattern: Ok(
+                                                LetVariablesPattern {
+                                                    pattern: 4,
+                                                    variables: ArenaIdxRange(
+                                                        4..5,
+                                                    ),
+                                                    colon_token: Ok(
+                                                        None,
+                                                    ),
+                                                    ty: None,
+                                                },
+                                            ),
+                                            assign_token: Ok(
+                                                AssignToken {
+                                                    token_idx: TokenIdx(
+                                                        575,
+                                                    ),
+                                                },
+                                            ),
+                                            initial_value: Ok(
+                                                21,
+                                            ),
+                                        },
+                                        While {
+                                            while_token: WhileToken {
+                                                token_idx: TokenIdx(
+                                                    577,
+                                                ),
+                                            },
+                                            condition: Ok(
+                                                26,
+                                            ),
+                                            eol_colon: Ok(
+                                                EolColonToken {
+                                                    token_idx: TokenIdx(
+                                                        583,
+                                                    ),
+                                                },
+                                            ),
+                                            block: Ok(
+                                                ArenaIdxRange(
+                                                    3..7,
+                                                ),
+                                            ),
+                                        },
+                                        Return {
+                                            return_token: ReturnToken {
+                                                token_idx: TokenIdx(
+                                                    636,
+                                                ),
+                                            },
+                                            result: Ok(
+                                                63,
+                                            ),
+                                        },
+                                    ],
+                                },
+                                pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [
+                                            Identifier {
+                                                ident_token: IdentifierToken {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 286,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    token_idx: TokenIdx(
+                                                        530,
+                                                    ),
+                                                },
+                                                liason: None,
+                                            },
+                                            Identifier {
+                                                ident_token: IdentifierToken {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 293,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    token_idx: TokenIdx(
+                                                        538,
+                                                    ),
+                                                },
+                                                liason: None,
+                                            },
+                                            Identifier {
+                                                ident_token: IdentifierToken {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 197,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    token_idx: TokenIdx(
+                                                        549,
+                                                    ),
+                                                },
+                                                liason: None,
+                                            },
+                                            Identifier {
+                                                ident_token: IdentifierToken {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 198,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    token_idx: TokenIdx(
+                                                        554,
+                                                    ),
+                                                },
+                                                liason: None,
+                                            },
+                                            Identifier {
+                                                ident_token: IdentifierToken {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 332,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    token_idx: TokenIdx(
+                                                        574,
+                                                    ),
+                                                },
+                                                liason: None,
+                                            },
+                                        ],
+                                    },
+                                    pattern_infos: [
+                                        Let,
+                                        Let,
+                                        Let,
+                                        Let,
+                                        Let,
+                                    ],
+                                    pattern_symbol_maps: [
+                                        [
+                                            (
+                                                Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 286,
+                                                        },
+                                                    ),
+                                                ),
+                                                0,
+                                            ),
+                                        ],
+                                        [
+                                            (
+                                                Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 293,
+                                                        },
+                                                    ),
+                                                ),
+                                                1,
+                                            ),
+                                        ],
+                                        [
+                                            (
+                                                Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 197,
+                                                        },
+                                                    ),
+                                                ),
+                                                2,
+                                            ),
+                                        ],
+                                        [
+                                            (
+                                                Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 198,
+                                                        },
+                                                    ),
+                                                ),
+                                                3,
+                                            ),
+                                        ],
+                                        [
+                                            (
+                                                Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 332,
+                                                        },
+                                                    ),
+                                                ),
+                                                4,
+                                            ),
+                                        ],
+                                    ],
+                                    pattern_symbol_arena: Arena {
+                                        data: [
+                                            Atom(
+                                                0,
+                                            ),
+                                            Atom(
+                                                1,
+                                            ),
+                                            Atom(
+                                                2,
+                                            ),
+                                            Atom(
+                                                3,
+                                            ),
+                                            Atom(
+                                                4,
+                                            ),
+                                        ],
+                                    },
+                                },
+                                symbol_region: SymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [
+                                            InheritedSymbol {
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 96,
+                                                        },
+                                                    ),
+                                                ),
+                                                kind: Parameter,
+                                            },
+                                        ],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [
+                                            CurrentSymbol {
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 286,
+                                                        },
+                                                    ),
+                                                ),
+                                                access_start: TokenIdx(
+                                                    531,
+                                                ),
+                                                access_end: Some(
+                                                    TokenIdxRangeEnd(
+                                                        TokenIdx(
+                                                            638,
+                                                        ),
+                                                    ),
+                                                ),
+                                                variant: LetVariable {
+                                                    pattern_symbol: 0,
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 293,
+                                                        },
+                                                    ),
+                                                ),
+                                                access_start: TokenIdx(
+                                                    539,
+                                                ),
+                                                access_end: Some(
+                                                    TokenIdxRangeEnd(
+                                                        TokenIdx(
+                                                            638,
+                                                        ),
+                                                    ),
+                                                ),
+                                                variant: LetVariable {
+                                                    pattern_symbol: 1,
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 197,
+                                                        },
+                                                    ),
+                                                ),
+                                                access_start: TokenIdx(
+                                                    550,
+                                                ),
+                                                access_end: Some(
+                                                    TokenIdxRangeEnd(
+                                                        TokenIdx(
+                                                            638,
+                                                        ),
+                                                    ),
+                                                ),
+                                                variant: LetVariable {
+                                                    pattern_symbol: 2,
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 198,
+                                                        },
+                                                    ),
+                                                ),
+                                                access_start: TokenIdx(
+                                                    555,
+                                                ),
+                                                access_end: Some(
+                                                    TokenIdxRangeEnd(
+                                                        TokenIdx(
+                                                            638,
+                                                        ),
+                                                    ),
+                                                ),
+                                                variant: LetVariable {
+                                                    pattern_symbol: 3,
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 332,
+                                                        },
+                                                    ),
+                                                ),
+                                                access_start: TokenIdx(
+                                                    575,
+                                                ),
+                                                access_end: Some(
+                                                    TokenIdxRangeEnd(
+                                                        TokenIdx(
+                                                            638,
+                                                        ),
+                                                    ),
+                                                ),
+                                                variant: LetVariable {
+                                                    pattern_symbol: 4,
+                                                },
+                                            },
+                                        ],
+                                    },
+                                    allow_self_type: False,
+                                    allow_self_value: False,
+                                    ty_constraints: [],
+                                },
+                                roots: [],
+                            },
+                        },
                         body: Ok(
                             64,
                         ),
@@ -37,11 +1957,25 @@ Ok(
                 TypeImplBlock(
                     TypeImplBlockDecl {
                         ast_idx: 75,
-                        impl_block: ImplBlock(
-                            Id {
-                                value: 26,
+                        impl_block: ImplBlock {
+                            id: ImplBlockId {
+                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                impl_block_kind: Type {
+                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                },
                             },
-                        ),
+                            ast_idx: 75,
+                            body: ArenaIdxRange(
+                                39..53,
+                            ),
+                            variant: Type {
+                                ty: TypePath(
+                                    Id {
+                                        value: 31,
+                                    },
+                                ),
+                            },
+                        },
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
                                 49,
@@ -58,11 +1992,99 @@ Ok(
                                 ),
                             },
                         ),
-                        expr_region: ExprRegion(
-                            Id {
-                                value: 235,
+                        expr_region: ExprRegion {
+                            data: ExprRegionData {
+                                parent: None,
+                                path: Decl(
+                                    ImplBlock(
+                                        ImplBlock {
+                                            id: ImplBlockId {
+                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                impl_block_kind: Type {
+                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                },
+                                            },
+                                            ast_idx: 75,
+                                            body: ArenaIdxRange(
+                                                39..53,
+                                            ),
+                                            variant: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 31,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [
+                                        EntityPath {
+                                            entity_path_expr: 0,
+                                            entity_path: Some(
+                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ),
+                                        },
+                                    ],
+                                },
+                                entity_path_expr_arena: Arena {
+                                    data: [
+                                        Root {
+                                            token_idx: TokenIdx(
+                                                50,
+                                            ),
+                                            ident: Identifier(
+                                                Word(
+                                                    Id {
+                                                        value: 287,
+                                                    },
+                                                ),
+                                            ),
+                                            entity_path: ModuleItem(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 31,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: False,
+                                    ty_constraints: [],
+                                },
+                                roots: [
+                                    ExprRoot {
+                                        kind: Type,
+                                        expr: 0,
+                                    },
+                                ],
                             },
-                        ),
+                        },
                     },
                 ),
             ),
@@ -71,22 +2093,685 @@ Ok(
                     Memo(
                         TypeMemoDefn {
                             path: Some(
-                                TypeItemPath(
-                                    Id {
-                                        value: 45,
+                                TypeItemPath {
+                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    ident: `norm`,
+                                    ty_item_kind: Memo,
+                                },
+                            ),
+                            decl: TypeMemoDecl {
+                                path: Some(
+                                    TypeItemPath {
+                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ident: `norm`,
+                                        ty_item_kind: Memo,
                                     },
                                 ),
-                            ),
-                            decl: TypeMemoDecl(
-                                Id {
-                                    value: 12,
+                                associated_item: AssociatedItem {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId {
+                                            module_path: ModulePath(
+                                                Id {
+                                                    value: 37,
+                                                },
+                                            ),
+                                            impl_block_kind: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 31,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 256,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    path: Some(
+                                        TypeItemPath {
+                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ident: `norm`,
+                                            ty_item_kind: Memo,
+                                        },
+                                    ),
+                                    impl_block: ImplBlock {
+                                        id: ImplBlockId {
+                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                            impl_block_kind: Type {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            },
+                                        },
+                                        ast_idx: 75,
+                                        body: ArenaIdxRange(
+                                            39..53,
+                                        ),
+                                        variant: Type {
+                                            ty: TypePath(
+                                                Id {
+                                                    value: 31,
+                                                },
+                                            ),
+                                        },
+                                    },
+                                    ast_idx: 39,
+                                    ident: `norm`,
+                                    associated_item_kind: TypeItem(
+                                        Memo,
+                                    ),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    is_generic: false,
                                 },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 249,
+                                ast_idx: 39,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: Some(
+                                            ExprRegion {
+                                                data: ExprRegionData {
+                                                    parent: None,
+                                                    path: Decl(
+                                                        ImplBlock(
+                                                            ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 75,
+                                                                body: ArenaIdxRange(
+                                                                    39..53,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            EntityPath {
+                                                                entity_path_expr: 0,
+                                                                entity_path: Some(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    entity_path_expr_arena: Arena {
+                                                        data: [
+                                                            Root {
+                                                                token_idx: TokenIdx(
+                                                                    50,
+                                                                ),
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 287,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                entity_path: ModuleItem(
+                                                                    Type(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_infos: [],
+                                                        pattern_symbol_maps: [],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                    },
+                                                    symbol_region: SymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        allow_self_type: True,
+                                                        allow_self_value: False,
+                                                        ty_constraints: [],
+                                                    },
+                                                    roots: [
+                                                        ExprRoot {
+                                                            kind: Type,
+                                                            expr: 0,
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ),
+                                        path: Decl(
+                                            AssociatedItem(
+                                                AssociatedItem {
+                                                    id: AssociatedItemId {
+                                                        impl_block_id: ImplBlockId {
+                                                            module_path: ModulePath(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(
+                                                                    Id {
+                                                                        value: 31,
+                                                                    },
+                                                                ),
+                                                            },
+                                                        },
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 256,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    path: Some(
+                                                        TypeItemPath {
+                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            ident: `norm`,
+                                                            ty_item_kind: Memo,
+                                                        },
+                                                    ),
+                                                    impl_block: ImplBlock {
+                                                        id: ImplBlockId {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            },
+                                                        },
+                                                        ast_idx: 75,
+                                                        body: ArenaIdxRange(
+                                                            39..53,
+                                                        ),
+                                                        variant: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 31,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ast_idx: 39,
+                                                    ident: `norm`,
+                                                    associated_item_kind: TypeItem(
+                                                        Memo,
+                                                    ),
+                                                    accessibility: PubicUnder(
+                                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ),
+                                                    is_generic: false,
+                                                },
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                EntityPath {
+                                                    entity_path_expr: 0,
+                                                    entity_path: Some(
+                                                        TypePath(`core::num::f32`, `Alien`),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                Root {
+                                                    token_idx: TokenIdx(
+                                                        55,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 42,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    entity_path: ModuleItem(
+                                                        Type(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 13,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: True,
+                                            ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: OutputType,
+                                                expr: 0,
+                                            },
+                                        ],
+                                    },
                                 },
-                            ),
+                                curry_token: Ok(
+                                    CurryToken {
+                                        token_idx: TokenIdx(
+                                            54,
+                                        ),
+                                    },
+                                ),
+                                output_ty: Ok(
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
+                                ),
+                                eol_colon: Ok(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            56,
+                                        ),
+                                    },
+                                ),
+                            },
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: Some(
+                                        ExprRegion {
+                                            data: ExprRegionData {
+                                                parent: Some(
+                                                    ExprRegion {
+                                                        data: ExprRegionData {
+                                                            parent: None,
+                                                            path: Decl(
+                                                                ImplBlock(
+                                                                    ImplBlock {
+                                                                        id: ImplBlockId {
+                                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                            impl_block_kind: Type {
+                                                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            },
+                                                                        },
+                                                                        ast_idx: 75,
+                                                                        body: ArenaIdxRange(
+                                                                            39..53,
+                                                                        ),
+                                                                        variant: Type {
+                                                                            ty: TypePath(
+                                                                                Id {
+                                                                                    value: 31,
+                                                                                },
+                                                                            ),
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            expr_arena: Arena {
+                                                                data: [
+                                                                    EntityPath {
+                                                                        entity_path_expr: 0,
+                                                                        entity_path: Some(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            entity_path_expr_arena: Arena {
+                                                                data: [
+                                                                    Root {
+                                                                        token_idx: TokenIdx(
+                                                                            50,
+                                                                        ),
+                                                                        ident: Identifier(
+                                                                            Word(
+                                                                                Id {
+                                                                                    value: 287,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        entity_path: ModuleItem(
+                                                                            Type(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 31,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            stmt_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_region: PatternExprRegion {
+                                                                pattern_expr_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_infos: [],
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                            },
+                                                            symbol_region: SymbolRegion {
+                                                                inherited_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                current_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                allow_self_type: True,
+                                                                allow_self_value: False,
+                                                                ty_constraints: [],
+                                                            },
+                                                            roots: [
+                                                                ExprRoot {
+                                                                    kind: Type,
+                                                                    expr: 0,
+                                                                },
+                                                            ],
+                                                        },
+                                                    },
+                                                ),
+                                                path: Decl(
+                                                    AssociatedItem(
+                                                        AssociatedItem {
+                                                            id: AssociatedItemId {
+                                                                impl_block_id: ImplBlockId {
+                                                                    module_path: ModulePath(
+                                                                        Id {
+                                                                            value: 37,
+                                                                        },
+                                                                    ),
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    },
+                                                                },
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 256,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            path: Some(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ident: `norm`,
+                                                                    ty_item_kind: Memo,
+                                                                },
+                                                            ),
+                                                            impl_block: ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 75,
+                                                                body: ArenaIdxRange(
+                                                                    39..53,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                            ast_idx: 39,
+                                                            ident: `norm`,
+                                                            associated_item_kind: TypeItem(
+                                                                Memo,
+                                                            ),
+                                                            accessibility: PubicUnder(
+                                                                `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ),
+                                                            is_generic: false,
+                                                        },
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        EntityPath {
+                                                            entity_path_expr: 0,
+                                                            entity_path: Some(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                entity_path_expr_arena: Arena {
+                                                    data: [
+                                                        Root {
+                                                            token_idx: TokenIdx(
+                                                                55,
+                                                            ),
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 42,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            entity_path: ModuleItem(
+                                                                Type(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 13,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: PatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: True,
+                                                    ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    ExprRoot {
+                                                        kind: OutputType,
+                                                        expr: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: Defn(
+                                        AssociatedItem(
+                                            AssociatedItem {
+                                                id: AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: ModulePath(
+                                                            Id {
+                                                                value: 37,
+                                                            },
+                                                        ),
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 31,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 256,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: Some(
+                                                    TypeItemPath {
+                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ident: `norm`,
+                                                        ty_item_kind: Memo,
+                                                    },
+                                                ),
+                                                impl_block: ImplBlock {
+                                                    id: ImplBlockId {
+                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        },
+                                                    },
+                                                    ast_idx: 75,
+                                                    body: ArenaIdxRange(
+                                                        39..53,
+                                                    ),
+                                                    variant: Type {
+                                                        ty: TypePath(
+                                                            Id {
+                                                                value: 31,
+                                                            },
+                                                        ),
+                                                    },
+                                                },
+                                                ast_idx: 39,
+                                                ident: `norm`,
+                                                associated_item_kind: TypeItem(
+                                                    Memo,
+                                                ),
+                                                accessibility: PubicUnder(
+                                                    `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ),
+                                                is_generic: false,
+                                            },
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SelfValue(
+                                                TokenIdx(
+                                                    57,
+                                                ),
+                                            ),
+                                            Field {
+                                                this_expr: 0,
+                                                dot_token_idx: TokenIdx(
+                                                    58,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `hausdorff_norm`,
+                                                    token_idx: TokenIdx(
+                                                        59,
+                                                    ),
+                                                },
+                                            },
+                                            Block {
+                                                stmts: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [
+                                            Eval {
+                                                expr: 1,
+                                            },
+                                        ],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
+                            },
                             body: Ok(
                                 2,
                             ),
@@ -99,22 +2784,744 @@ Ok(
                     Memo(
                         TypeMemoDefn {
                             path: Some(
-                                TypeItemPath(
-                                    Id {
-                                        value: 46,
+                                TypeItemPath {
+                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    ident: `rel_norm`,
+                                    ty_item_kind: Memo,
+                                },
+                            ),
+                            decl: TypeMemoDecl {
+                                path: Some(
+                                    TypeItemPath {
+                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ident: `rel_norm`,
+                                        ty_item_kind: Memo,
                                     },
                                 ),
-                            ),
-                            decl: TypeMemoDecl(
-                                Id {
-                                    value: 13,
+                                associated_item: AssociatedItem {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId {
+                                            module_path: ModulePath(
+                                                Id {
+                                                    value: 37,
+                                                },
+                                            ),
+                                            impl_block_kind: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 31,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 324,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    path: Some(
+                                        TypeItemPath {
+                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ident: `rel_norm`,
+                                            ty_item_kind: Memo,
+                                        },
+                                    ),
+                                    impl_block: ImplBlock {
+                                        id: ImplBlockId {
+                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                            impl_block_kind: Type {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            },
+                                        },
+                                        ast_idx: 75,
+                                        body: ArenaIdxRange(
+                                            39..53,
+                                        ),
+                                        variant: Type {
+                                            ty: TypePath(
+                                                Id {
+                                                    value: 31,
+                                                },
+                                            ),
+                                        },
+                                    },
+                                    ast_idx: 40,
+                                    ident: `rel_norm`,
+                                    associated_item_kind: TypeItem(
+                                        Memo,
+                                    ),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    is_generic: false,
                                 },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 250,
+                                ast_idx: 40,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: Some(
+                                            ExprRegion {
+                                                data: ExprRegionData {
+                                                    parent: None,
+                                                    path: Decl(
+                                                        ImplBlock(
+                                                            ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 75,
+                                                                body: ArenaIdxRange(
+                                                                    39..53,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            EntityPath {
+                                                                entity_path_expr: 0,
+                                                                entity_path: Some(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    entity_path_expr_arena: Arena {
+                                                        data: [
+                                                            Root {
+                                                                token_idx: TokenIdx(
+                                                                    50,
+                                                                ),
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 287,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                entity_path: ModuleItem(
+                                                                    Type(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_infos: [],
+                                                        pattern_symbol_maps: [],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                    },
+                                                    symbol_region: SymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        allow_self_type: True,
+                                                        allow_self_value: False,
+                                                        ty_constraints: [],
+                                                    },
+                                                    roots: [
+                                                        ExprRoot {
+                                                            kind: Type,
+                                                            expr: 0,
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ),
+                                        path: Decl(
+                                            AssociatedItem(
+                                                AssociatedItem {
+                                                    id: AssociatedItemId {
+                                                        impl_block_id: ImplBlockId {
+                                                            module_path: ModulePath(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(
+                                                                    Id {
+                                                                        value: 31,
+                                                                    },
+                                                                ),
+                                                            },
+                                                        },
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 324,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    path: Some(
+                                                        TypeItemPath {
+                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            ident: `rel_norm`,
+                                                            ty_item_kind: Memo,
+                                                        },
+                                                    ),
+                                                    impl_block: ImplBlock {
+                                                        id: ImplBlockId {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            },
+                                                        },
+                                                        ast_idx: 75,
+                                                        body: ArenaIdxRange(
+                                                            39..53,
+                                                        ),
+                                                        variant: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 31,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ast_idx: 40,
+                                                    ident: `rel_norm`,
+                                                    associated_item_kind: TypeItem(
+                                                        Memo,
+                                                    ),
+                                                    accessibility: PubicUnder(
+                                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ),
+                                                    is_generic: false,
+                                                },
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                EntityPath {
+                                                    entity_path_expr: 0,
+                                                    entity_path: Some(
+                                                        TypePath(`core::num::f32`, `Alien`),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                Root {
+                                                    token_idx: TokenIdx(
+                                                        63,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 42,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    entity_path: ModuleItem(
+                                                        Type(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 13,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: True,
+                                            ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: OutputType,
+                                                expr: 0,
+                                            },
+                                        ],
+                                    },
                                 },
-                            ),
+                                curry_token: Ok(
+                                    CurryToken {
+                                        token_idx: TokenIdx(
+                                            62,
+                                        ),
+                                    },
+                                ),
+                                output_ty: Ok(
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
+                                ),
+                                eol_colon: Ok(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            64,
+                                        ),
+                                    },
+                                ),
+                            },
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: Some(
+                                        ExprRegion {
+                                            data: ExprRegionData {
+                                                parent: Some(
+                                                    ExprRegion {
+                                                        data: ExprRegionData {
+                                                            parent: None,
+                                                            path: Decl(
+                                                                ImplBlock(
+                                                                    ImplBlock {
+                                                                        id: ImplBlockId {
+                                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                            impl_block_kind: Type {
+                                                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            },
+                                                                        },
+                                                                        ast_idx: 75,
+                                                                        body: ArenaIdxRange(
+                                                                            39..53,
+                                                                        ),
+                                                                        variant: Type {
+                                                                            ty: TypePath(
+                                                                                Id {
+                                                                                    value: 31,
+                                                                                },
+                                                                            ),
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            expr_arena: Arena {
+                                                                data: [
+                                                                    EntityPath {
+                                                                        entity_path_expr: 0,
+                                                                        entity_path: Some(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            entity_path_expr_arena: Arena {
+                                                                data: [
+                                                                    Root {
+                                                                        token_idx: TokenIdx(
+                                                                            50,
+                                                                        ),
+                                                                        ident: Identifier(
+                                                                            Word(
+                                                                                Id {
+                                                                                    value: 287,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        entity_path: ModuleItem(
+                                                                            Type(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 31,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            stmt_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_region: PatternExprRegion {
+                                                                pattern_expr_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_infos: [],
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                            },
+                                                            symbol_region: SymbolRegion {
+                                                                inherited_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                current_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                allow_self_type: True,
+                                                                allow_self_value: False,
+                                                                ty_constraints: [],
+                                                            },
+                                                            roots: [
+                                                                ExprRoot {
+                                                                    kind: Type,
+                                                                    expr: 0,
+                                                                },
+                                                            ],
+                                                        },
+                                                    },
+                                                ),
+                                                path: Decl(
+                                                    AssociatedItem(
+                                                        AssociatedItem {
+                                                            id: AssociatedItemId {
+                                                                impl_block_id: ImplBlockId {
+                                                                    module_path: ModulePath(
+                                                                        Id {
+                                                                            value: 37,
+                                                                        },
+                                                                    ),
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    },
+                                                                },
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 324,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            path: Some(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ident: `rel_norm`,
+                                                                    ty_item_kind: Memo,
+                                                                },
+                                                            ),
+                                                            impl_block: ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 75,
+                                                                body: ArenaIdxRange(
+                                                                    39..53,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                            ast_idx: 40,
+                                                            ident: `rel_norm`,
+                                                            associated_item_kind: TypeItem(
+                                                                Memo,
+                                                            ),
+                                                            accessibility: PubicUnder(
+                                                                `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ),
+                                                            is_generic: false,
+                                                        },
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        EntityPath {
+                                                            entity_path_expr: 0,
+                                                            entity_path: Some(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                entity_path_expr_arena: Arena {
+                                                    data: [
+                                                        Root {
+                                                            token_idx: TokenIdx(
+                                                                63,
+                                                            ),
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 42,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            entity_path: ModuleItem(
+                                                                Type(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 13,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: PatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: True,
+                                                    ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    ExprRoot {
+                                                        kind: OutputType,
+                                                        expr: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: Defn(
+                                        AssociatedItem(
+                                            AssociatedItem {
+                                                id: AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: ModulePath(
+                                                            Id {
+                                                                value: 37,
+                                                            },
+                                                        ),
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 31,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 324,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: Some(
+                                                    TypeItemPath {
+                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ident: `rel_norm`,
+                                                        ty_item_kind: Memo,
+                                                    },
+                                                ),
+                                                impl_block: ImplBlock {
+                                                    id: ImplBlockId {
+                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        },
+                                                    },
+                                                    ast_idx: 75,
+                                                    body: ArenaIdxRange(
+                                                        39..53,
+                                                    ),
+                                                    variant: Type {
+                                                        ty: TypePath(
+                                                            Id {
+                                                                value: 31,
+                                                            },
+                                                        ),
+                                                    },
+                                                },
+                                                ast_idx: 40,
+                                                ident: `rel_norm`,
+                                                associated_item_kind: TypeItem(
+                                                    Memo,
+                                                ),
+                                                accessibility: PubicUnder(
+                                                    `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ),
+                                                is_generic: false,
+                                            },
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SelfValue(
+                                                TokenIdx(
+                                                    65,
+                                                ),
+                                            ),
+                                            SelfValue(
+                                                TokenIdx(
+                                                    69,
+                                                ),
+                                            ),
+                                            MethodCall {
+                                                this_expr: 1,
+                                                dot_token_idx: TokenIdx(
+                                                    70,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `displacement`,
+                                                    token_idx: TokenIdx(
+                                                        71,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    72,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    2..2,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    73,
+                                                ),
+                                            },
+                                            Field {
+                                                this_expr: 0,
+                                                dot_token_idx: TokenIdx(
+                                                    66,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `norm`,
+                                                    token_idx: TokenIdx(
+                                                        67,
+                                                    ),
+                                                },
+                                            },
+                                            MethodCall {
+                                                this_expr: 2,
+                                                dot_token_idx: TokenIdx(
+                                                    74,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `norm`,
+                                                    token_idx: TokenIdx(
+                                                        75,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    76,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    3..3,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    77,
+                                                ),
+                                            },
+                                            BinaryOpn {
+                                                lopd: 3,
+                                                opr: PureClosed(
+                                                    Div,
+                                                ),
+                                                opr_token_idx: TokenIdx(
+                                                    68,
+                                                ),
+                                                ropd: 4,
+                                            },
+                                            Block {
+                                                stmts: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [
+                                            Eval {
+                                                expr: 5,
+                                            },
+                                        ],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
+                            },
                             body: Ok(
                                 6,
                             ),
@@ -127,22 +3534,1664 @@ Ok(
                     Memo(
                         TypeMemoDefn {
                             path: Some(
-                                TypeItemPath(
-                                    Id {
-                                        value: 47,
+                                TypeItemPath {
+                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    ident: `hausdorff_norm`,
+                                    ty_item_kind: Memo,
+                                },
+                            ),
+                            decl: TypeMemoDecl {
+                                path: Some(
+                                    TypeItemPath {
+                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ident: `hausdorff_norm`,
+                                        ty_item_kind: Memo,
                                     },
                                 ),
-                            ),
-                            decl: TypeMemoDecl(
-                                Id {
-                                    value: 14,
+                                associated_item: AssociatedItem {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId {
+                                            module_path: ModulePath(
+                                                Id {
+                                                    value: 37,
+                                                },
+                                            ),
+                                            impl_block_kind: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 31,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 323,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    path: Some(
+                                        TypeItemPath {
+                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ident: `hausdorff_norm`,
+                                            ty_item_kind: Memo,
+                                        },
+                                    ),
+                                    impl_block: ImplBlock {
+                                        id: ImplBlockId {
+                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                            impl_block_kind: Type {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            },
+                                        },
+                                        ast_idx: 75,
+                                        body: ArenaIdxRange(
+                                            39..53,
+                                        ),
+                                        variant: Type {
+                                            ty: TypePath(
+                                                Id {
+                                                    value: 31,
+                                                },
+                                            ),
+                                        },
+                                    },
+                                    ast_idx: 41,
+                                    ident: `hausdorff_norm`,
+                                    associated_item_kind: TypeItem(
+                                        Memo,
+                                    ),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    is_generic: false,
                                 },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 251,
+                                ast_idx: 41,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: Some(
+                                            ExprRegion {
+                                                data: ExprRegionData {
+                                                    parent: None,
+                                                    path: Decl(
+                                                        ImplBlock(
+                                                            ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 75,
+                                                                body: ArenaIdxRange(
+                                                                    39..53,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            EntityPath {
+                                                                entity_path_expr: 0,
+                                                                entity_path: Some(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    entity_path_expr_arena: Arena {
+                                                        data: [
+                                                            Root {
+                                                                token_idx: TokenIdx(
+                                                                    50,
+                                                                ),
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 287,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                entity_path: ModuleItem(
+                                                                    Type(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_infos: [],
+                                                        pattern_symbol_maps: [],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                    },
+                                                    symbol_region: SymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        allow_self_type: True,
+                                                        allow_self_value: False,
+                                                        ty_constraints: [],
+                                                    },
+                                                    roots: [
+                                                        ExprRoot {
+                                                            kind: Type,
+                                                            expr: 0,
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ),
+                                        path: Decl(
+                                            AssociatedItem(
+                                                AssociatedItem {
+                                                    id: AssociatedItemId {
+                                                        impl_block_id: ImplBlockId {
+                                                            module_path: ModulePath(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(
+                                                                    Id {
+                                                                        value: 31,
+                                                                    },
+                                                                ),
+                                                            },
+                                                        },
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 323,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    path: Some(
+                                                        TypeItemPath {
+                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            ident: `hausdorff_norm`,
+                                                            ty_item_kind: Memo,
+                                                        },
+                                                    ),
+                                                    impl_block: ImplBlock {
+                                                        id: ImplBlockId {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            },
+                                                        },
+                                                        ast_idx: 75,
+                                                        body: ArenaIdxRange(
+                                                            39..53,
+                                                        ),
+                                                        variant: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 31,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ast_idx: 41,
+                                                    ident: `hausdorff_norm`,
+                                                    associated_item_kind: TypeItem(
+                                                        Memo,
+                                                    ),
+                                                    accessibility: PubicUnder(
+                                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ),
+                                                    is_generic: false,
+                                                },
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                EntityPath {
+                                                    entity_path_expr: 0,
+                                                    entity_path: Some(
+                                                        TypePath(`core::num::f32`, `Alien`),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                Root {
+                                                    token_idx: TokenIdx(
+                                                        81,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 42,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    entity_path: ModuleItem(
+                                                        Type(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 13,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: True,
+                                            ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: OutputType,
+                                                expr: 0,
+                                            },
+                                        ],
+                                    },
                                 },
-                            ),
+                                curry_token: Ok(
+                                    CurryToken {
+                                        token_idx: TokenIdx(
+                                            80,
+                                        ),
+                                    },
+                                ),
+                                output_ty: Ok(
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
+                                ),
+                                eol_colon: Ok(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            82,
+                                        ),
+                                    },
+                                ),
+                            },
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: Some(
+                                        ExprRegion {
+                                            data: ExprRegionData {
+                                                parent: Some(
+                                                    ExprRegion {
+                                                        data: ExprRegionData {
+                                                            parent: None,
+                                                            path: Decl(
+                                                                ImplBlock(
+                                                                    ImplBlock {
+                                                                        id: ImplBlockId {
+                                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                            impl_block_kind: Type {
+                                                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            },
+                                                                        },
+                                                                        ast_idx: 75,
+                                                                        body: ArenaIdxRange(
+                                                                            39..53,
+                                                                        ),
+                                                                        variant: Type {
+                                                                            ty: TypePath(
+                                                                                Id {
+                                                                                    value: 31,
+                                                                                },
+                                                                            ),
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            expr_arena: Arena {
+                                                                data: [
+                                                                    EntityPath {
+                                                                        entity_path_expr: 0,
+                                                                        entity_path: Some(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            entity_path_expr_arena: Arena {
+                                                                data: [
+                                                                    Root {
+                                                                        token_idx: TokenIdx(
+                                                                            50,
+                                                                        ),
+                                                                        ident: Identifier(
+                                                                            Word(
+                                                                                Id {
+                                                                                    value: 287,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        entity_path: ModuleItem(
+                                                                            Type(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 31,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            stmt_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_region: PatternExprRegion {
+                                                                pattern_expr_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_infos: [],
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                            },
+                                                            symbol_region: SymbolRegion {
+                                                                inherited_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                current_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                allow_self_type: True,
+                                                                allow_self_value: False,
+                                                                ty_constraints: [],
+                                                            },
+                                                            roots: [
+                                                                ExprRoot {
+                                                                    kind: Type,
+                                                                    expr: 0,
+                                                                },
+                                                            ],
+                                                        },
+                                                    },
+                                                ),
+                                                path: Decl(
+                                                    AssociatedItem(
+                                                        AssociatedItem {
+                                                            id: AssociatedItemId {
+                                                                impl_block_id: ImplBlockId {
+                                                                    module_path: ModulePath(
+                                                                        Id {
+                                                                            value: 37,
+                                                                        },
+                                                                    ),
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    },
+                                                                },
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 323,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            path: Some(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ident: `hausdorff_norm`,
+                                                                    ty_item_kind: Memo,
+                                                                },
+                                                            ),
+                                                            impl_block: ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 75,
+                                                                body: ArenaIdxRange(
+                                                                    39..53,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                            ast_idx: 41,
+                                                            ident: `hausdorff_norm`,
+                                                            associated_item_kind: TypeItem(
+                                                                Memo,
+                                                            ),
+                                                            accessibility: PubicUnder(
+                                                                `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ),
+                                                            is_generic: false,
+                                                        },
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        EntityPath {
+                                                            entity_path_expr: 0,
+                                                            entity_path: Some(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                entity_path_expr_arena: Arena {
+                                                    data: [
+                                                        Root {
+                                                            token_idx: TokenIdx(
+                                                                81,
+                                                            ),
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 42,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            entity_path: ModuleItem(
+                                                                Type(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 13,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: PatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: True,
+                                                    ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    ExprRoot {
+                                                        kind: OutputType,
+                                                        expr: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: Defn(
+                                        AssociatedItem(
+                                            AssociatedItem {
+                                                id: AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: ModulePath(
+                                                            Id {
+                                                                value: 37,
+                                                            },
+                                                        ),
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 31,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 323,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: Some(
+                                                    TypeItemPath {
+                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ident: `hausdorff_norm`,
+                                                        ty_item_kind: Memo,
+                                                    },
+                                                ),
+                                                impl_block: ImplBlock {
+                                                    id: ImplBlockId {
+                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        },
+                                                    },
+                                                    ast_idx: 75,
+                                                    body: ArenaIdxRange(
+                                                        39..53,
+                                                    ),
+                                                    variant: Type {
+                                                        ty: TypePath(
+                                                            Id {
+                                                                value: 31,
+                                                            },
+                                                        ),
+                                                    },
+                                                },
+                                                ast_idx: 41,
+                                                ident: `hausdorff_norm`,
+                                                associated_item_kind: TypeItem(
+                                                    Memo,
+                                                ),
+                                                accessibility: PubicUnder(
+                                                    `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ),
+                                                is_generic: false,
+                                            },
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            Literal(
+                                                TokenIdx(
+                                                    87,
+                                                ),
+                                            ),
+                                            SelfValue(
+                                                TokenIdx(
+                                                    91,
+                                                ),
+                                            ),
+                                            Field {
+                                                this_expr: 1,
+                                                dot_token_idx: TokenIdx(
+                                                    92,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `strokes`,
+                                                    token_idx: TokenIdx(
+                                                        93,
+                                                    ),
+                                                },
+                                            },
+                                            MethodCall {
+                                                this_expr: 2,
+                                                dot_token_idx: TokenIdx(
+                                                    94,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `firstx`,
+                                                    token_idx: TokenIdx(
+                                                        95,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    96,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    3..3,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    97,
+                                                ),
+                                            },
+                                            Field {
+                                                this_expr: 3,
+                                                dot_token_idx: TokenIdx(
+                                                    98,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `start`,
+                                                    token_idx: TokenIdx(
+                                                        99,
+                                                    ),
+                                                },
+                                            },
+                                            SelfValue(
+                                                TokenIdx(
+                                                    103,
+                                                ),
+                                            ),
+                                            MethodCall {
+                                                this_expr: 5,
+                                                dot_token_idx: TokenIdx(
+                                                    104,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `line_segment`,
+                                                    token_idx: TokenIdx(
+                                                        105,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    106,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    6..6,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    107,
+                                                ),
+                                            },
+                                            CurrentSymbol {
+                                                ident: `curve_ls`,
+                                                token_idx: TokenIdx(
+                                                    111,
+                                                ),
+                                                current_symbol_idx: 1,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 1,
+                                                },
+                                            },
+                                            MethodCall {
+                                                this_expr: 7,
+                                                dot_token_idx: TokenIdx(
+                                                    112,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `displacement`,
+                                                    token_idx: TokenIdx(
+                                                        113,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    114,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    8..8,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    115,
+                                                ),
+                                            },
+                                            MethodCall {
+                                                this_expr: 8,
+                                                dot_token_idx: TokenIdx(
+                                                    116,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `norm`,
+                                                    token_idx: TokenIdx(
+                                                        117,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    118,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    9..9,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    119,
+                                                ),
+                                            },
+                                            SelfValue(
+                                                TokenIdx(
+                                                    121,
+                                                ),
+                                            ),
+                                            Field {
+                                                this_expr: 10,
+                                                dot_token_idx: TokenIdx(
+                                                    122,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `strokes`,
+                                                    token_idx: TokenIdx(
+                                                        123,
+                                                    ),
+                                                },
+                                            },
+                                            Field {
+                                                this_expr: 11,
+                                                dot_token_idx: TokenIdx(
+                                                    124,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `start`,
+                                                    token_idx: TokenIdx(
+                                                        125,
+                                                    ),
+                                                },
+                                            },
+                                            FrameVarDecl {
+                                                token_idx: TokenIdx(
+                                                    127,
+                                                ),
+                                                ident: `i`,
+                                                current_symbol_idx: 4,
+                                                current_symbol_kind: FrameVariable(
+                                                    13,
+                                                ),
+                                            },
+                                            SelfValue(
+                                                TokenIdx(
+                                                    129,
+                                                ),
+                                            ),
+                                            Field {
+                                                this_expr: 14,
+                                                dot_token_idx: TokenIdx(
+                                                    130,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `strokes`,
+                                                    token_idx: TokenIdx(
+                                                        131,
+                                                    ),
+                                                },
+                                            },
+                                            BinaryOpn {
+                                                lopd: 12,
+                                                opr: Comparison(
+                                                    Leq,
+                                                ),
+                                                opr_token_idx: TokenIdx(
+                                                    126,
+                                                ),
+                                                ropd: 13,
+                                            },
+                                            Field {
+                                                this_expr: 15,
+                                                dot_token_idx: TokenIdx(
+                                                    132,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `end`,
+                                                    token_idx: TokenIdx(
+                                                        133,
+                                                    ),
+                                                },
+                                            },
+                                            BinaryOpn {
+                                                lopd: 16,
+                                                opr: Comparison(
+                                                    Less,
+                                                ),
+                                                opr_token_idx: TokenIdx(
+                                                    128,
+                                                ),
+                                                ropd: 17,
+                                            },
+                                            SelfValue(
+                                                TokenIdx(
+                                                    138,
+                                                ),
+                                            ),
+                                            Field {
+                                                this_expr: 19,
+                                                dot_token_idx: TokenIdx(
+                                                    139,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `strokes`,
+                                                    token_idx: TokenIdx(
+                                                        140,
+                                                    ),
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: `i`,
+                                                token_idx: TokenIdx(
+                                                    142,
+                                                ),
+                                                current_symbol_idx: 1,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 1,
+                                                },
+                                            },
+                                            NewBoxList {
+                                                caller: Some(
+                                                    20,
+                                                ),
+                                                lbox_token_idx: TokenIdx(
+                                                    141,
+                                                ),
+                                                items: ArenaIdxRange(
+                                                    21..22,
+                                                ),
+                                                rbox_token_idx: TokenIdx(
+                                                    143,
+                                                ),
+                                            },
+                                            Field {
+                                                this_expr: 22,
+                                                dot_token_idx: TokenIdx(
+                                                    144,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `end`,
+                                                    token_idx: TokenIdx(
+                                                        145,
+                                                    ),
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: `curve_ls`,
+                                                token_idx: TokenIdx(
+                                                    149,
+                                                ),
+                                                current_symbol_idx: 4,
+                                                current_symbol_kind: FrameVariable(
+                                                    13,
+                                                ),
+                                            },
+                                            CurrentSymbol {
+                                                ident: `point`,
+                                                token_idx: TokenIdx(
+                                                    153,
+                                                ),
+                                                current_symbol_idx: 1,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 1,
+                                                },
+                                            },
+                                            MethodCall {
+                                                this_expr: 24,
+                                                dot_token_idx: TokenIdx(
+                                                    150,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `dist_to_point`,
+                                                    token_idx: TokenIdx(
+                                                        151,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    152,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    25..26,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    154,
+                                                ),
+                                            },
+                                            CurrentSymbol {
+                                                ident: `point_dist`,
+                                                token_idx: TokenIdx(
+                                                    156,
+                                                ),
+                                                current_symbol_idx: 0,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 0,
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: `hausdorff_norm`,
+                                                token_idx: TokenIdx(
+                                                    158,
+                                                ),
+                                                current_symbol_idx: 6,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 5,
+                                                },
+                                            },
+                                            BinaryOpn {
+                                                lopd: 27,
+                                                opr: Comparison(
+                                                    Greater,
+                                                ),
+                                                opr_token_idx: TokenIdx(
+                                                    157,
+                                                ),
+                                                ropd: 28,
+                                            },
+                                            CurrentSymbol {
+                                                ident: `hausdorff_norm`,
+                                                token_idx: TokenIdx(
+                                                    160,
+                                                ),
+                                                current_symbol_idx: 6,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 5,
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: `point_dist`,
+                                                token_idx: TokenIdx(
+                                                    162,
+                                                ),
+                                                current_symbol_idx: 0,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 0,
+                                                },
+                                            },
+                                            BinaryOpn {
+                                                lopd: 30,
+                                                opr: Assign(
+                                                    None,
+                                                ),
+                                                opr_token_idx: TokenIdx(
+                                                    161,
+                                                ),
+                                                ropd: 31,
+                                            },
+                                            CurrentSymbol {
+                                                ident: `hausdorff_norm`,
+                                                token_idx: TokenIdx(
+                                                    164,
+                                                ),
+                                                current_symbol_idx: 6,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 5,
+                                                },
+                                            },
+                                            Block {
+                                                stmts: ArenaIdxRange(
+                                                    4..10,
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [
+                                            Eval {
+                                                expr: 32,
+                                            },
+                                            Let {
+                                                let_token: LetToken {
+                                                    token_idx: TokenIdx(
+                                                        135,
+                                                    ),
+                                                },
+                                                let_variable_pattern: Ok(
+                                                    LetVariablesPattern {
+                                                        pattern: 4,
+                                                        variables: ArenaIdxRange(
+                                                            5..6,
+                                                        ),
+                                                        colon_token: Ok(
+                                                            None,
+                                                        ),
+                                                        ty: None,
+                                                    },
+                                                ),
+                                                assign_token: Ok(
+                                                    AssignToken {
+                                                        token_idx: TokenIdx(
+                                                            137,
+                                                        ),
+                                                    },
+                                                ),
+                                                initial_value: Ok(
+                                                    23,
+                                                ),
+                                            },
+                                            Let {
+                                                let_token: LetToken {
+                                                    token_idx: TokenIdx(
+                                                        146,
+                                                    ),
+                                                },
+                                                let_variable_pattern: Ok(
+                                                    LetVariablesPattern {
+                                                        pattern: 5,
+                                                        variables: ArenaIdxRange(
+                                                            6..7,
+                                                        ),
+                                                        colon_token: Ok(
+                                                            None,
+                                                        ),
+                                                        ty: None,
+                                                    },
+                                                ),
+                                                assign_token: Ok(
+                                                    AssignToken {
+                                                        token_idx: TokenIdx(
+                                                            148,
+                                                        ),
+                                                    },
+                                                ),
+                                                initial_value: Ok(
+                                                    26,
+                                                ),
+                                            },
+                                            IfElse {
+                                                if_branch: IfBranch {
+                                                    if_token: IfToken {
+                                                        token_idx: TokenIdx(
+                                                            155,
+                                                        ),
+                                                    },
+                                                    condition: Ok(
+                                                        29,
+                                                    ),
+                                                    eol_colon: Ok(
+                                                        EolColonToken {
+                                                            token_idx: TokenIdx(
+                                                                159,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    block: Ok(
+                                                        ArenaIdxRange(
+                                                            0..1,
+                                                        ),
+                                                    ),
+                                                },
+                                                elif_branches: [],
+                                                else_branch: None,
+                                            },
+                                            Let {
+                                                let_token: LetToken {
+                                                    token_idx: TokenIdx(
+                                                        83,
+                                                    ),
+                                                },
+                                                let_variable_pattern: Ok(
+                                                    LetVariablesPattern {
+                                                        pattern: 0,
+                                                        variables: ArenaIdxRange(
+                                                            0..1,
+                                                        ),
+                                                        colon_token: Ok(
+                                                            None,
+                                                        ),
+                                                        ty: None,
+                                                    },
+                                                ),
+                                                assign_token: Ok(
+                                                    AssignToken {
+                                                        token_idx: TokenIdx(
+                                                            86,
+                                                        ),
+                                                    },
+                                                ),
+                                                initial_value: Ok(
+                                                    0,
+                                                ),
+                                            },
+                                            Let {
+                                                let_token: LetToken {
+                                                    token_idx: TokenIdx(
+                                                        88,
+                                                    ),
+                                                },
+                                                let_variable_pattern: Ok(
+                                                    LetVariablesPattern {
+                                                        pattern: 1,
+                                                        variables: ArenaIdxRange(
+                                                            1..2,
+                                                        ),
+                                                        colon_token: Ok(
+                                                            None,
+                                                        ),
+                                                        ty: None,
+                                                    },
+                                                ),
+                                                assign_token: Ok(
+                                                    AssignToken {
+                                                        token_idx: TokenIdx(
+                                                            90,
+                                                        ),
+                                                    },
+                                                ),
+                                                initial_value: Ok(
+                                                    4,
+                                                ),
+                                            },
+                                            Let {
+                                                let_token: LetToken {
+                                                    token_idx: TokenIdx(
+                                                        100,
+                                                    ),
+                                                },
+                                                let_variable_pattern: Ok(
+                                                    LetVariablesPattern {
+                                                        pattern: 2,
+                                                        variables: ArenaIdxRange(
+                                                            2..3,
+                                                        ),
+                                                        colon_token: Ok(
+                                                            None,
+                                                        ),
+                                                        ty: None,
+                                                    },
+                                                ),
+                                                assign_token: Ok(
+                                                    AssignToken {
+                                                        token_idx: TokenIdx(
+                                                            102,
+                                                        ),
+                                                    },
+                                                ),
+                                                initial_value: Ok(
+                                                    6,
+                                                ),
+                                            },
+                                            Let {
+                                                let_token: LetToken {
+                                                    token_idx: TokenIdx(
+                                                        108,
+                                                    ),
+                                                },
+                                                let_variable_pattern: Ok(
+                                                    LetVariablesPattern {
+                                                        pattern: 3,
+                                                        variables: ArenaIdxRange(
+                                                            3..4,
+                                                        ),
+                                                        colon_token: Ok(
+                                                            None,
+                                                        ),
+                                                        ty: None,
+                                                    },
+                                                ),
+                                                assign_token: Ok(
+                                                    AssignToken {
+                                                        token_idx: TokenIdx(
+                                                            110,
+                                                        ),
+                                                    },
+                                                ),
+                                                initial_value: Ok(
+                                                    9,
+                                                ),
+                                            },
+                                            ForBetween {
+                                                for_token: ForToken {
+                                                    token_idx: TokenIdx(
+                                                        120,
+                                                    ),
+                                                },
+                                                particulars: ForBetweenParticulars {
+                                                    frame_var_token_idx: TokenIdx(
+                                                        127,
+                                                    ),
+                                                    frame_var_expr_idx: 13,
+                                                    frame_var_ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 144,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    range: ForBetweenRange {
+                                                        initial_boundary: LoopBoundary {
+                                                            bound_expr: Some(
+                                                                12,
+                                                            ),
+                                                            kind: LowerClosed,
+                                                        },
+                                                        final_boundary: LoopBoundary {
+                                                            bound_expr: Some(
+                                                                17,
+                                                            ),
+                                                            kind: UpperOpen,
+                                                        },
+                                                        step: Constant(
+                                                            1,
+                                                        ),
+                                                    },
+                                                },
+                                                eol_colon: Ok(
+                                                    EolColonToken {
+                                                        token_idx: TokenIdx(
+                                                            134,
+                                                        ),
+                                                    },
+                                                ),
+                                                block: Ok(
+                                                    ArenaIdxRange(
+                                                        1..4,
+                                                    ),
+                                                ),
+                                            },
+                                            Return {
+                                                return_token: ReturnToken {
+                                                    token_idx: TokenIdx(
+                                                        163,
+                                                    ),
+                                                },
+                                                result: Ok(
+                                                    33,
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 323,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            85,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 325,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            89,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 326,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            101,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 304,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            109,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 190,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            136,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 327,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            147,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                            ],
+                                        },
+                                        pattern_infos: [
+                                            Let,
+                                            Let,
+                                            Let,
+                                            Let,
+                                            Let,
+                                            Let,
+                                        ],
+                                        pattern_symbol_maps: [
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 323,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    0,
+                                                ),
+                                            ],
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 325,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    1,
+                                                ),
+                                            ],
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 326,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    2,
+                                                ),
+                                            ],
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 304,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    3,
+                                                ),
+                                            ],
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 190,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    4,
+                                                ),
+                                            ],
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 327,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    5,
+                                                ),
+                                            ],
+                                        ],
+                                        pattern_symbol_arena: Arena {
+                                            data: [
+                                                Atom(
+                                                    0,
+                                                ),
+                                                Atom(
+                                                    1,
+                                                ),
+                                                Atom(
+                                                    2,
+                                                ),
+                                                Atom(
+                                                    3,
+                                                ),
+                                                Atom(
+                                                    4,
+                                                ),
+                                                Atom(
+                                                    5,
+                                                ),
+                                            ],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 323,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        86,
+                                                    ),
+                                                    access_end: Some(
+                                                        TokenIdxRangeEnd(
+                                                            TokenIdx(
+                                                                165,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    variant: LetVariable {
+                                                        pattern_symbol: 0,
+                                                    },
+                                                },
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 325,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        90,
+                                                    ),
+                                                    access_end: Some(
+                                                        TokenIdxRangeEnd(
+                                                            TokenIdx(
+                                                                165,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    variant: LetVariable {
+                                                        pattern_symbol: 1,
+                                                    },
+                                                },
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 326,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        102,
+                                                    ),
+                                                    access_end: Some(
+                                                        TokenIdxRangeEnd(
+                                                            TokenIdx(
+                                                                165,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    variant: LetVariable {
+                                                        pattern_symbol: 2,
+                                                    },
+                                                },
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 304,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        110,
+                                                    ),
+                                                    access_end: Some(
+                                                        TokenIdxRangeEnd(
+                                                            TokenIdx(
+                                                                165,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    variant: LetVariable {
+                                                        pattern_symbol: 3,
+                                                    },
+                                                },
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 144,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        135,
+                                                    ),
+                                                    access_end: Some(
+                                                        TokenIdxRangeEnd(
+                                                            TokenIdx(
+                                                                163,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    variant: FrameVariable(
+                                                        13,
+                                                    ),
+                                                },
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 190,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        137,
+                                                    ),
+                                                    access_end: Some(
+                                                        TokenIdxRangeEnd(
+                                                            TokenIdx(
+                                                                163,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    variant: LetVariable {
+                                                        pattern_symbol: 4,
+                                                    },
+                                                },
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 327,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        148,
+                                                    ),
+                                                    access_end: Some(
+                                                        TokenIdxRangeEnd(
+                                                            TokenIdx(
+                                                                163,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    variant: LetVariable {
+                                                        pattern_symbol: 5,
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        ty_constraints: [
+                                            FrameVariable,
+                                        ],
+                                    },
+                                    roots: [],
+                                },
+                            },
                             body: Ok(
                                 34,
                             ),
@@ -155,22 +5204,1352 @@ Ok(
                     Memo(
                         TypeMemoDefn {
                             path: Some(
-                                TypeItemPath(
-                                    Id {
-                                        value: 48,
+                                TypeItemPath {
+                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    ident: `angle_change`,
+                                    ty_item_kind: Memo,
+                                },
+                            ),
+                            decl: TypeMemoDecl {
+                                path: Some(
+                                    TypeItemPath {
+                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ident: `angle_change`,
+                                        ty_item_kind: Memo,
                                     },
                                 ),
-                            ),
-                            decl: TypeMemoDecl(
-                                Id {
-                                    value: 15,
+                                associated_item: AssociatedItem {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId {
+                                            module_path: ModulePath(
+                                                Id {
+                                                    value: 37,
+                                                },
+                                            ),
+                                            impl_block_kind: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 31,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 251,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    path: Some(
+                                        TypeItemPath {
+                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ident: `angle_change`,
+                                            ty_item_kind: Memo,
+                                        },
+                                    ),
+                                    impl_block: ImplBlock {
+                                        id: ImplBlockId {
+                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                            impl_block_kind: Type {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            },
+                                        },
+                                        ast_idx: 75,
+                                        body: ArenaIdxRange(
+                                            39..53,
+                                        ),
+                                        variant: Type {
+                                            ty: TypePath(
+                                                Id {
+                                                    value: 31,
+                                                },
+                                            ),
+                                        },
+                                    },
+                                    ast_idx: 42,
+                                    ident: `angle_change`,
+                                    associated_item_kind: TypeItem(
+                                        Memo,
+                                    ),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    is_generic: false,
                                 },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 252,
+                                ast_idx: 42,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: Some(
+                                            ExprRegion {
+                                                data: ExprRegionData {
+                                                    parent: None,
+                                                    path: Decl(
+                                                        ImplBlock(
+                                                            ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 75,
+                                                                body: ArenaIdxRange(
+                                                                    39..53,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            EntityPath {
+                                                                entity_path_expr: 0,
+                                                                entity_path: Some(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    entity_path_expr_arena: Arena {
+                                                        data: [
+                                                            Root {
+                                                                token_idx: TokenIdx(
+                                                                    50,
+                                                                ),
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 287,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                entity_path: ModuleItem(
+                                                                    Type(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_infos: [],
+                                                        pattern_symbol_maps: [],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                    },
+                                                    symbol_region: SymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        allow_self_type: True,
+                                                        allow_self_value: False,
+                                                        ty_constraints: [],
+                                                    },
+                                                    roots: [
+                                                        ExprRoot {
+                                                            kind: Type,
+                                                            expr: 0,
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ),
+                                        path: Decl(
+                                            AssociatedItem(
+                                                AssociatedItem {
+                                                    id: AssociatedItemId {
+                                                        impl_block_id: ImplBlockId {
+                                                            module_path: ModulePath(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(
+                                                                    Id {
+                                                                        value: 31,
+                                                                    },
+                                                                ),
+                                                            },
+                                                        },
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 251,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    path: Some(
+                                                        TypeItemPath {
+                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            ident: `angle_change`,
+                                                            ty_item_kind: Memo,
+                                                        },
+                                                    ),
+                                                    impl_block: ImplBlock {
+                                                        id: ImplBlockId {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            },
+                                                        },
+                                                        ast_idx: 75,
+                                                        body: ArenaIdxRange(
+                                                            39..53,
+                                                        ),
+                                                        variant: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 31,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ast_idx: 42,
+                                                    ident: `angle_change`,
+                                                    associated_item_kind: TypeItem(
+                                                        Memo,
+                                                    ),
+                                                    accessibility: PubicUnder(
+                                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ),
+                                                    is_generic: false,
+                                                },
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                EntityPath {
+                                                    entity_path_expr: 0,
+                                                    entity_path: Some(
+                                                        TypePath(`core::num::f32`, `Alien`),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                Root {
+                                                    token_idx: TokenIdx(
+                                                        168,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 42,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    entity_path: ModuleItem(
+                                                        Type(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 13,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: True,
+                                            ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: OutputType,
+                                                expr: 0,
+                                            },
+                                        ],
+                                    },
                                 },
-                            ),
+                                curry_token: Ok(
+                                    CurryToken {
+                                        token_idx: TokenIdx(
+                                            167,
+                                        ),
+                                    },
+                                ),
+                                output_ty: Ok(
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
+                                ),
+                                eol_colon: Ok(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            169,
+                                        ),
+                                    },
+                                ),
+                            },
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: Some(
+                                        ExprRegion {
+                                            data: ExprRegionData {
+                                                parent: Some(
+                                                    ExprRegion {
+                                                        data: ExprRegionData {
+                                                            parent: None,
+                                                            path: Decl(
+                                                                ImplBlock(
+                                                                    ImplBlock {
+                                                                        id: ImplBlockId {
+                                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                            impl_block_kind: Type {
+                                                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            },
+                                                                        },
+                                                                        ast_idx: 75,
+                                                                        body: ArenaIdxRange(
+                                                                            39..53,
+                                                                        ),
+                                                                        variant: Type {
+                                                                            ty: TypePath(
+                                                                                Id {
+                                                                                    value: 31,
+                                                                                },
+                                                                            ),
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            expr_arena: Arena {
+                                                                data: [
+                                                                    EntityPath {
+                                                                        entity_path_expr: 0,
+                                                                        entity_path: Some(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            entity_path_expr_arena: Arena {
+                                                                data: [
+                                                                    Root {
+                                                                        token_idx: TokenIdx(
+                                                                            50,
+                                                                        ),
+                                                                        ident: Identifier(
+                                                                            Word(
+                                                                                Id {
+                                                                                    value: 287,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        entity_path: ModuleItem(
+                                                                            Type(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 31,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            stmt_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_region: PatternExprRegion {
+                                                                pattern_expr_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_infos: [],
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                            },
+                                                            symbol_region: SymbolRegion {
+                                                                inherited_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                current_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                allow_self_type: True,
+                                                                allow_self_value: False,
+                                                                ty_constraints: [],
+                                                            },
+                                                            roots: [
+                                                                ExprRoot {
+                                                                    kind: Type,
+                                                                    expr: 0,
+                                                                },
+                                                            ],
+                                                        },
+                                                    },
+                                                ),
+                                                path: Decl(
+                                                    AssociatedItem(
+                                                        AssociatedItem {
+                                                            id: AssociatedItemId {
+                                                                impl_block_id: ImplBlockId {
+                                                                    module_path: ModulePath(
+                                                                        Id {
+                                                                            value: 37,
+                                                                        },
+                                                                    ),
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    },
+                                                                },
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 251,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            path: Some(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ident: `angle_change`,
+                                                                    ty_item_kind: Memo,
+                                                                },
+                                                            ),
+                                                            impl_block: ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 75,
+                                                                body: ArenaIdxRange(
+                                                                    39..53,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                            ast_idx: 42,
+                                                            ident: `angle_change`,
+                                                            associated_item_kind: TypeItem(
+                                                                Memo,
+                                                            ),
+                                                            accessibility: PubicUnder(
+                                                                `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ),
+                                                            is_generic: false,
+                                                        },
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        EntityPath {
+                                                            entity_path_expr: 0,
+                                                            entity_path: Some(
+                                                                TypePath(`core::num::f32`, `Alien`),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                entity_path_expr_arena: Arena {
+                                                    data: [
+                                                        Root {
+                                                            token_idx: TokenIdx(
+                                                                168,
+                                                            ),
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 42,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            entity_path: ModuleItem(
+                                                                Type(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 13,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: PatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: True,
+                                                    ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    ExprRoot {
+                                                        kind: OutputType,
+                                                        expr: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: Defn(
+                                        AssociatedItem(
+                                            AssociatedItem {
+                                                id: AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: ModulePath(
+                                                            Id {
+                                                                value: 37,
+                                                            },
+                                                        ),
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 31,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 251,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: Some(
+                                                    TypeItemPath {
+                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ident: `angle_change`,
+                                                        ty_item_kind: Memo,
+                                                    },
+                                                ),
+                                                impl_block: ImplBlock {
+                                                    id: ImplBlockId {
+                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        },
+                                                    },
+                                                    ast_idx: 75,
+                                                    body: ArenaIdxRange(
+                                                        39..53,
+                                                    ),
+                                                    variant: Type {
+                                                        ty: TypePath(
+                                                            Id {
+                                                                value: 31,
+                                                            },
+                                                        ),
+                                                    },
+                                                },
+                                                ast_idx: 42,
+                                                ident: `angle_change`,
+                                                associated_item_kind: TypeItem(
+                                                    Memo,
+                                                ),
+                                                accessibility: PubicUnder(
+                                                    `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ),
+                                                is_generic: false,
+                                            },
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            Literal(
+                                                TokenIdx(
+                                                    174,
+                                                ),
+                                            ),
+                                            SelfValue(
+                                                TokenIdx(
+                                                    179,
+                                                ),
+                                            ),
+                                            Field {
+                                                this_expr: 1,
+                                                dot_token_idx: TokenIdx(
+                                                    180,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `strokes`,
+                                                    token_idx: TokenIdx(
+                                                        181,
+                                                    ),
+                                                },
+                                            },
+                                            SelfValue(
+                                                TokenIdx(
+                                                    183,
+                                                ),
+                                            ),
+                                            Field {
+                                                this_expr: 3,
+                                                dot_token_idx: TokenIdx(
+                                                    184,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `strokes`,
+                                                    token_idx: TokenIdx(
+                                                        185,
+                                                    ),
+                                                },
+                                            },
+                                            Field {
+                                                this_expr: 4,
+                                                dot_token_idx: TokenIdx(
+                                                    186,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `start`,
+                                                    token_idx: TokenIdx(
+                                                        187,
+                                                    ),
+                                                },
+                                            },
+                                            NewBoxList {
+                                                caller: Some(
+                                                    2,
+                                                ),
+                                                lbox_token_idx: TokenIdx(
+                                                    182,
+                                                ),
+                                                items: ArenaIdxRange(
+                                                    5..6,
+                                                ),
+                                                rbox_token_idx: TokenIdx(
+                                                    188,
+                                                ),
+                                            },
+                                            MethodCall {
+                                                this_expr: 6,
+                                                dot_token_idx: TokenIdx(
+                                                    189,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `displacement`,
+                                                    token_idx: TokenIdx(
+                                                        190,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    191,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    7..7,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    192,
+                                                ),
+                                            },
+                                            SelfValue(
+                                                TokenIdx(
+                                                    194,
+                                                ),
+                                            ),
+                                            Field {
+                                                this_expr: 8,
+                                                dot_token_idx: TokenIdx(
+                                                    195,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `strokes`,
+                                                    token_idx: TokenIdx(
+                                                        196,
+                                                    ),
+                                                },
+                                            },
+                                            Field {
+                                                this_expr: 9,
+                                                dot_token_idx: TokenIdx(
+                                                    197,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `start`,
+                                                    token_idx: TokenIdx(
+                                                        198,
+                                                    ),
+                                                },
+                                            },
+                                            FrameVarDecl {
+                                                token_idx: TokenIdx(
+                                                    200,
+                                                ),
+                                                ident: `i`,
+                                                current_symbol_idx: 2,
+                                                current_symbol_kind: FrameVariable(
+                                                    11,
+                                                ),
+                                            },
+                                            SelfValue(
+                                                TokenIdx(
+                                                    202,
+                                                ),
+                                            ),
+                                            Field {
+                                                this_expr: 12,
+                                                dot_token_idx: TokenIdx(
+                                                    203,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `strokes`,
+                                                    token_idx: TokenIdx(
+                                                        204,
+                                                    ),
+                                                },
+                                            },
+                                            BinaryOpn {
+                                                lopd: 10,
+                                                opr: Comparison(
+                                                    Less,
+                                                ),
+                                                opr_token_idx: TokenIdx(
+                                                    199,
+                                                ),
+                                                ropd: 11,
+                                            },
+                                            Field {
+                                                this_expr: 13,
+                                                dot_token_idx: TokenIdx(
+                                                    205,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `end`,
+                                                    token_idx: TokenIdx(
+                                                        206,
+                                                    ),
+                                                },
+                                            },
+                                            BinaryOpn {
+                                                lopd: 14,
+                                                opr: Comparison(
+                                                    Less,
+                                                ),
+                                                opr_token_idx: TokenIdx(
+                                                    201,
+                                                ),
+                                                ropd: 15,
+                                            },
+                                            SelfValue(
+                                                TokenIdx(
+                                                    211,
+                                                ),
+                                            ),
+                                            Field {
+                                                this_expr: 17,
+                                                dot_token_idx: TokenIdx(
+                                                    212,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `strokes`,
+                                                    token_idx: TokenIdx(
+                                                        213,
+                                                    ),
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: `i`,
+                                                token_idx: TokenIdx(
+                                                    215,
+                                                ),
+                                                current_symbol_idx: 1,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 1,
+                                                },
+                                            },
+                                            NewBoxList {
+                                                caller: Some(
+                                                    18,
+                                                ),
+                                                lbox_token_idx: TokenIdx(
+                                                    214,
+                                                ),
+                                                items: ArenaIdxRange(
+                                                    19..20,
+                                                ),
+                                                rbox_token_idx: TokenIdx(
+                                                    216,
+                                                ),
+                                            },
+                                            MethodCall {
+                                                this_expr: 20,
+                                                dot_token_idx: TokenIdx(
+                                                    217,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `displacement`,
+                                                    token_idx: TokenIdx(
+                                                        218,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    219,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    21..21,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    220,
+                                                ),
+                                            },
+                                            CurrentSymbol {
+                                                ident: `dp0`,
+                                                token_idx: TokenIdx(
+                                                    223,
+                                                ),
+                                                current_symbol_idx: 2,
+                                                current_symbol_kind: FrameVariable(
+                                                    11,
+                                                ),
+                                            },
+                                            CurrentSymbol {
+                                                ident: `dp`,
+                                                token_idx: TokenIdx(
+                                                    227,
+                                                ),
+                                                current_symbol_idx: 0,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 0,
+                                                },
+                                            },
+                                            Literal(
+                                                TokenIdx(
+                                                    229,
+                                                ),
+                                            ),
+                                            CurrentSymbol {
+                                                ident: `angle_change`,
+                                                token_idx: TokenIdx(
+                                                    221,
+                                                ),
+                                                current_symbol_idx: 3,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 2,
+                                                },
+                                            },
+                                            MethodCall {
+                                                this_expr: 22,
+                                                dot_token_idx: TokenIdx(
+                                                    224,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `angle_to`,
+                                                    token_idx: TokenIdx(
+                                                        225,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    226,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    23..25,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    230,
+                                                ),
+                                            },
+                                            BinaryOpn {
+                                                lopd: 25,
+                                                opr: Assign(
+                                                    Some(
+                                                        Add,
+                                                    ),
+                                                ),
+                                                opr_token_idx: TokenIdx(
+                                                    222,
+                                                ),
+                                                ropd: 26,
+                                            },
+                                            CurrentSymbol {
+                                                ident: `dp0`,
+                                                token_idx: TokenIdx(
+                                                    231,
+                                                ),
+                                                current_symbol_idx: 2,
+                                                current_symbol_kind: FrameVariable(
+                                                    11,
+                                                ),
+                                            },
+                                            CurrentSymbol {
+                                                ident: `dp`,
+                                                token_idx: TokenIdx(
+                                                    233,
+                                                ),
+                                                current_symbol_idx: 0,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 0,
+                                                },
+                                            },
+                                            BinaryOpn {
+                                                lopd: 28,
+                                                opr: Assign(
+                                                    None,
+                                                ),
+                                                opr_token_idx: TokenIdx(
+                                                    232,
+                                                ),
+                                                ropd: 29,
+                                            },
+                                            CurrentSymbol {
+                                                ident: `angle_change`,
+                                                token_idx: TokenIdx(
+                                                    235,
+                                                ),
+                                                current_symbol_idx: 3,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 2,
+                                                },
+                                            },
+                                            Block {
+                                                stmts: ArenaIdxRange(
+                                                    3..7,
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [
+                                            Let {
+                                                let_token: LetToken {
+                                                    token_idx: TokenIdx(
+                                                        208,
+                                                    ),
+                                                },
+                                                let_variable_pattern: Ok(
+                                                    LetVariablesPattern {
+                                                        pattern: 2,
+                                                        variables: ArenaIdxRange(
+                                                            3..4,
+                                                        ),
+                                                        colon_token: Ok(
+                                                            None,
+                                                        ),
+                                                        ty: None,
+                                                    },
+                                                ),
+                                                assign_token: Ok(
+                                                    AssignToken {
+                                                        token_idx: TokenIdx(
+                                                            210,
+                                                        ),
+                                                    },
+                                                ),
+                                                initial_value: Ok(
+                                                    21,
+                                                ),
+                                            },
+                                            Eval {
+                                                expr: 27,
+                                            },
+                                            Eval {
+                                                expr: 30,
+                                            },
+                                            Let {
+                                                let_token: LetToken {
+                                                    token_idx: TokenIdx(
+                                                        170,
+                                                    ),
+                                                },
+                                                let_variable_pattern: Ok(
+                                                    LetVariablesPattern {
+                                                        pattern: 0,
+                                                        variables: ArenaIdxRange(
+                                                            0..1,
+                                                        ),
+                                                        colon_token: Ok(
+                                                            None,
+                                                        ),
+                                                        ty: None,
+                                                    },
+                                                ),
+                                                assign_token: Ok(
+                                                    AssignToken {
+                                                        token_idx: TokenIdx(
+                                                            173,
+                                                        ),
+                                                    },
+                                                ),
+                                                initial_value: Ok(
+                                                    0,
+                                                ),
+                                            },
+                                            Let {
+                                                let_token: LetToken {
+                                                    token_idx: TokenIdx(
+                                                        175,
+                                                    ),
+                                                },
+                                                let_variable_pattern: Ok(
+                                                    LetVariablesPattern {
+                                                        pattern: 1,
+                                                        variables: ArenaIdxRange(
+                                                            1..2,
+                                                        ),
+                                                        colon_token: Ok(
+                                                            None,
+                                                        ),
+                                                        ty: None,
+                                                    },
+                                                ),
+                                                assign_token: Ok(
+                                                    AssignToken {
+                                                        token_idx: TokenIdx(
+                                                            178,
+                                                        ),
+                                                    },
+                                                ),
+                                                initial_value: Ok(
+                                                    7,
+                                                ),
+                                            },
+                                            ForBetween {
+                                                for_token: ForToken {
+                                                    token_idx: TokenIdx(
+                                                        193,
+                                                    ),
+                                                },
+                                                particulars: ForBetweenParticulars {
+                                                    frame_var_token_idx: TokenIdx(
+                                                        200,
+                                                    ),
+                                                    frame_var_expr_idx: 11,
+                                                    frame_var_ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 144,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    range: ForBetweenRange {
+                                                        initial_boundary: LoopBoundary {
+                                                            bound_expr: Some(
+                                                                10,
+                                                            ),
+                                                            kind: LowerOpen,
+                                                        },
+                                                        final_boundary: LoopBoundary {
+                                                            bound_expr: Some(
+                                                                15,
+                                                            ),
+                                                            kind: UpperOpen,
+                                                        },
+                                                        step: Constant(
+                                                            1,
+                                                        ),
+                                                    },
+                                                },
+                                                eol_colon: Ok(
+                                                    EolColonToken {
+                                                        token_idx: TokenIdx(
+                                                            207,
+                                                        ),
+                                                    },
+                                                ),
+                                                block: Ok(
+                                                    ArenaIdxRange(
+                                                        0..3,
+                                                    ),
+                                                ),
+                                            },
+                                            Return {
+                                                return_token: ReturnToken {
+                                                    token_idx: TokenIdx(
+                                                        234,
+                                                    ),
+                                                },
+                                                result: Ok(
+                                                    31,
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 251,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            172,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 309,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            177,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 299,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            209,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                            ],
+                                        },
+                                        pattern_infos: [
+                                            Let,
+                                            Let,
+                                            Let,
+                                        ],
+                                        pattern_symbol_maps: [
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 251,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    0,
+                                                ),
+                                            ],
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 309,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    1,
+                                                ),
+                                            ],
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 299,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    2,
+                                                ),
+                                            ],
+                                        ],
+                                        pattern_symbol_arena: Arena {
+                                            data: [
+                                                Atom(
+                                                    0,
+                                                ),
+                                                Atom(
+                                                    1,
+                                                ),
+                                                Atom(
+                                                    2,
+                                                ),
+                                            ],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 251,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        173,
+                                                    ),
+                                                    access_end: Some(
+                                                        TokenIdxRangeEnd(
+                                                            TokenIdx(
+                                                                236,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    variant: LetVariable {
+                                                        pattern_symbol: 0,
+                                                    },
+                                                },
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 309,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        178,
+                                                    ),
+                                                    access_end: Some(
+                                                        TokenIdxRangeEnd(
+                                                            TokenIdx(
+                                                                236,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    variant: LetVariable {
+                                                        pattern_symbol: 1,
+                                                    },
+                                                },
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 144,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        208,
+                                                    ),
+                                                    access_end: Some(
+                                                        TokenIdxRangeEnd(
+                                                            TokenIdx(
+                                                                234,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    variant: FrameVariable(
+                                                        11,
+                                                    ),
+                                                },
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 299,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        210,
+                                                    ),
+                                                    access_end: Some(
+                                                        TokenIdxRangeEnd(
+                                                            TokenIdx(
+                                                                234,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    variant: LetVariable {
+                                                        pattern_symbol: 2,
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        ty_constraints: [
+                                            FrameVariable,
+                                        ],
+                                    },
+                                    roots: [],
+                                },
+                            },
                             body: Ok(
                                 32,
                             ),
@@ -183,22 +6562,1994 @@ Ok(
                     Memo(
                         TypeMemoDefn {
                             path: Some(
-                                TypeItemPath(
-                                    Id {
-                                        value: 49,
+                                TypeItemPath {
+                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    ident: `bounding_box`,
+                                    ty_item_kind: Memo,
+                                },
+                            ),
+                            decl: TypeMemoDecl {
+                                path: Some(
+                                    TypeItemPath {
+                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ident: `bounding_box`,
+                                        ty_item_kind: Memo,
                                     },
                                 ),
-                            ),
-                            decl: TypeMemoDecl(
-                                Id {
-                                    value: 16,
+                                associated_item: AssociatedItem {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId {
+                                            module_path: ModulePath(
+                                                Id {
+                                                    value: 37,
+                                                },
+                                            ),
+                                            impl_block_kind: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 31,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 183,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    path: Some(
+                                        TypeItemPath {
+                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ident: `bounding_box`,
+                                            ty_item_kind: Memo,
+                                        },
+                                    ),
+                                    impl_block: ImplBlock {
+                                        id: ImplBlockId {
+                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                            impl_block_kind: Type {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            },
+                                        },
+                                        ast_idx: 75,
+                                        body: ArenaIdxRange(
+                                            39..53,
+                                        ),
+                                        variant: Type {
+                                            ty: TypePath(
+                                                Id {
+                                                    value: 31,
+                                                },
+                                            ),
+                                        },
+                                    },
+                                    ast_idx: 43,
+                                    ident: `bounding_box`,
+                                    associated_item_kind: TypeItem(
+                                        Memo,
+                                    ),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    is_generic: false,
                                 },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 253,
+                                ast_idx: 43,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: Some(
+                                            ExprRegion {
+                                                data: ExprRegionData {
+                                                    parent: None,
+                                                    path: Decl(
+                                                        ImplBlock(
+                                                            ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 75,
+                                                                body: ArenaIdxRange(
+                                                                    39..53,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            EntityPath {
+                                                                entity_path_expr: 0,
+                                                                entity_path: Some(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    entity_path_expr_arena: Arena {
+                                                        data: [
+                                                            Root {
+                                                                token_idx: TokenIdx(
+                                                                    50,
+                                                                ),
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 287,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                entity_path: ModuleItem(
+                                                                    Type(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_infos: [],
+                                                        pattern_symbol_maps: [],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                    },
+                                                    symbol_region: SymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        allow_self_type: True,
+                                                        allow_self_value: False,
+                                                        ty_constraints: [],
+                                                    },
+                                                    roots: [
+                                                        ExprRoot {
+                                                            kind: Type,
+                                                            expr: 0,
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ),
+                                        path: Decl(
+                                            AssociatedItem(
+                                                AssociatedItem {
+                                                    id: AssociatedItemId {
+                                                        impl_block_id: ImplBlockId {
+                                                            module_path: ModulePath(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(
+                                                                    Id {
+                                                                        value: 31,
+                                                                    },
+                                                                ),
+                                                            },
+                                                        },
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 183,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    path: Some(
+                                                        TypeItemPath {
+                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            ident: `bounding_box`,
+                                                            ty_item_kind: Memo,
+                                                        },
+                                                    ),
+                                                    impl_block: ImplBlock {
+                                                        id: ImplBlockId {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            },
+                                                        },
+                                                        ast_idx: 75,
+                                                        body: ArenaIdxRange(
+                                                            39..53,
+                                                        ),
+                                                        variant: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 31,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ast_idx: 43,
+                                                    ident: `bounding_box`,
+                                                    associated_item_kind: TypeItem(
+                                                        Memo,
+                                                    ),
+                                                    accessibility: PubicUnder(
+                                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ),
+                                                    is_generic: false,
+                                                },
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                EntityPath {
+                                                    entity_path_expr: 0,
+                                                    entity_path: Some(
+                                                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                Root {
+                                                    token_idx: TokenIdx(
+                                                        239,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 184,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    entity_path: ModuleItem(
+                                                        Type(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 27,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: True,
+                                            ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: OutputType,
+                                                expr: 0,
+                                            },
+                                        ],
+                                    },
                                 },
-                            ),
+                                curry_token: Ok(
+                                    CurryToken {
+                                        token_idx: TokenIdx(
+                                            238,
+                                        ),
+                                    },
+                                ),
+                                output_ty: Ok(
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
+                                ),
+                                eol_colon: Ok(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            240,
+                                        ),
+                                    },
+                                ),
+                            },
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: Some(
+                                        ExprRegion {
+                                            data: ExprRegionData {
+                                                parent: Some(
+                                                    ExprRegion {
+                                                        data: ExprRegionData {
+                                                            parent: None,
+                                                            path: Decl(
+                                                                ImplBlock(
+                                                                    ImplBlock {
+                                                                        id: ImplBlockId {
+                                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                            impl_block_kind: Type {
+                                                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            },
+                                                                        },
+                                                                        ast_idx: 75,
+                                                                        body: ArenaIdxRange(
+                                                                            39..53,
+                                                                        ),
+                                                                        variant: Type {
+                                                                            ty: TypePath(
+                                                                                Id {
+                                                                                    value: 31,
+                                                                                },
+                                                                            ),
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            expr_arena: Arena {
+                                                                data: [
+                                                                    EntityPath {
+                                                                        entity_path_expr: 0,
+                                                                        entity_path: Some(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            entity_path_expr_arena: Arena {
+                                                                data: [
+                                                                    Root {
+                                                                        token_idx: TokenIdx(
+                                                                            50,
+                                                                        ),
+                                                                        ident: Identifier(
+                                                                            Word(
+                                                                                Id {
+                                                                                    value: 287,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        entity_path: ModuleItem(
+                                                                            Type(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 31,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            stmt_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_region: PatternExprRegion {
+                                                                pattern_expr_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_infos: [],
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                            },
+                                                            symbol_region: SymbolRegion {
+                                                                inherited_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                current_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                allow_self_type: True,
+                                                                allow_self_value: False,
+                                                                ty_constraints: [],
+                                                            },
+                                                            roots: [
+                                                                ExprRoot {
+                                                                    kind: Type,
+                                                                    expr: 0,
+                                                                },
+                                                            ],
+                                                        },
+                                                    },
+                                                ),
+                                                path: Decl(
+                                                    AssociatedItem(
+                                                        AssociatedItem {
+                                                            id: AssociatedItemId {
+                                                                impl_block_id: ImplBlockId {
+                                                                    module_path: ModulePath(
+                                                                        Id {
+                                                                            value: 37,
+                                                                        },
+                                                                    ),
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    },
+                                                                },
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 183,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            path: Some(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ident: `bounding_box`,
+                                                                    ty_item_kind: Memo,
+                                                                },
+                                                            ),
+                                                            impl_block: ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 75,
+                                                                body: ArenaIdxRange(
+                                                                    39..53,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                            ast_idx: 43,
+                                                            ident: `bounding_box`,
+                                                            associated_item_kind: TypeItem(
+                                                                Memo,
+                                                            ),
+                                                            accessibility: PubicUnder(
+                                                                `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ),
+                                                            is_generic: false,
+                                                        },
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        EntityPath {
+                                                            entity_path_expr: 0,
+                                                            entity_path: Some(
+                                                                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                entity_path_expr_arena: Arena {
+                                                    data: [
+                                                        Root {
+                                                            token_idx: TokenIdx(
+                                                                239,
+                                                            ),
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 184,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            entity_path: ModuleItem(
+                                                                Type(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 27,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: PatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: True,
+                                                    ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    ExprRoot {
+                                                        kind: OutputType,
+                                                        expr: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: Defn(
+                                        AssociatedItem(
+                                            AssociatedItem {
+                                                id: AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: ModulePath(
+                                                            Id {
+                                                                value: 37,
+                                                            },
+                                                        ),
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 31,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 183,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: Some(
+                                                    TypeItemPath {
+                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ident: `bounding_box`,
+                                                        ty_item_kind: Memo,
+                                                    },
+                                                ),
+                                                impl_block: ImplBlock {
+                                                    id: ImplBlockId {
+                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        },
+                                                    },
+                                                    ast_idx: 75,
+                                                    body: ArenaIdxRange(
+                                                        39..53,
+                                                    ),
+                                                    variant: Type {
+                                                        ty: TypePath(
+                                                            Id {
+                                                                value: 31,
+                                                            },
+                                                        ),
+                                                    },
+                                                },
+                                                ast_idx: 43,
+                                                ident: `bounding_box`,
+                                                associated_item_kind: TypeItem(
+                                                    Memo,
+                                                ),
+                                                accessibility: PubicUnder(
+                                                    `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ),
+                                                is_generic: false,
+                                            },
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SelfValue(
+                                                TokenIdx(
+                                                    244,
+                                                ),
+                                            ),
+                                            Field {
+                                                this_expr: 0,
+                                                dot_token_idx: TokenIdx(
+                                                    245,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `strokes`,
+                                                    token_idx: TokenIdx(
+                                                        246,
+                                                    ),
+                                                },
+                                            },
+                                            MethodCall {
+                                                this_expr: 1,
+                                                dot_token_idx: TokenIdx(
+                                                    247,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `firstx`,
+                                                    token_idx: TokenIdx(
+                                                        248,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    249,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    2..2,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    250,
+                                                ),
+                                            },
+                                            Field {
+                                                this_expr: 2,
+                                                dot_token_idx: TokenIdx(
+                                                    251,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `start`,
+                                                    token_idx: TokenIdx(
+                                                        252,
+                                                    ),
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: `start_point`,
+                                                token_idx: TokenIdx(
+                                                    257,
+                                                ),
+                                                current_symbol_idx: 1,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 1,
+                                                },
+                                            },
+                                            Field {
+                                                this_expr: 4,
+                                                dot_token_idx: TokenIdx(
+                                                    258,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `x`,
+                                                    token_idx: TokenIdx(
+                                                        259,
+                                                    ),
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: `start_point`,
+                                                token_idx: TokenIdx(
+                                                    264,
+                                                ),
+                                                current_symbol_idx: 2,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 2,
+                                                },
+                                            },
+                                            Field {
+                                                this_expr: 6,
+                                                dot_token_idx: TokenIdx(
+                                                    265,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `x`,
+                                                    token_idx: TokenIdx(
+                                                        266,
+                                                    ),
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: `start_point`,
+                                                token_idx: TokenIdx(
+                                                    271,
+                                                ),
+                                                current_symbol_idx: 3,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 3,
+                                                },
+                                            },
+                                            Field {
+                                                this_expr: 8,
+                                                dot_token_idx: TokenIdx(
+                                                    272,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `y`,
+                                                    token_idx: TokenIdx(
+                                                        273,
+                                                    ),
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: `start_point`,
+                                                token_idx: TokenIdx(
+                                                    278,
+                                                ),
+                                                current_symbol_idx: 4,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 4,
+                                                },
+                                            },
+                                            Field {
+                                                this_expr: 10,
+                                                dot_token_idx: TokenIdx(
+                                                    279,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `y`,
+                                                    token_idx: TokenIdx(
+                                                        280,
+                                                    ),
+                                                },
+                                            },
+                                            SelfValue(
+                                                TokenIdx(
+                                                    282,
+                                                ),
+                                            ),
+                                            Field {
+                                                this_expr: 12,
+                                                dot_token_idx: TokenIdx(
+                                                    283,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `strokes`,
+                                                    token_idx: TokenIdx(
+                                                        284,
+                                                    ),
+                                                },
+                                            },
+                                            Field {
+                                                this_expr: 13,
+                                                dot_token_idx: TokenIdx(
+                                                    285,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `start`,
+                                                    token_idx: TokenIdx(
+                                                        286,
+                                                    ),
+                                                },
+                                            },
+                                            FrameVarDecl {
+                                                token_idx: TokenIdx(
+                                                    288,
+                                                ),
+                                                ident: `i`,
+                                                current_symbol_idx: 5,
+                                                current_symbol_kind: FrameVariable(
+                                                    15,
+                                                ),
+                                            },
+                                            SelfValue(
+                                                TokenIdx(
+                                                    290,
+                                                ),
+                                            ),
+                                            Field {
+                                                this_expr: 16,
+                                                dot_token_idx: TokenIdx(
+                                                    291,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `strokes`,
+                                                    token_idx: TokenIdx(
+                                                        292,
+                                                    ),
+                                                },
+                                            },
+                                            BinaryOpn {
+                                                lopd: 14,
+                                                opr: Comparison(
+                                                    Leq,
+                                                ),
+                                                opr_token_idx: TokenIdx(
+                                                    287,
+                                                ),
+                                                ropd: 15,
+                                            },
+                                            Field {
+                                                this_expr: 17,
+                                                dot_token_idx: TokenIdx(
+                                                    293,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `end`,
+                                                    token_idx: TokenIdx(
+                                                        294,
+                                                    ),
+                                                },
+                                            },
+                                            BinaryOpn {
+                                                lopd: 18,
+                                                opr: Comparison(
+                                                    Less,
+                                                ),
+                                                opr_token_idx: TokenIdx(
+                                                    289,
+                                                ),
+                                                ropd: 19,
+                                            },
+                                            SelfValue(
+                                                TokenIdx(
+                                                    299,
+                                                ),
+                                            ),
+                                            Field {
+                                                this_expr: 21,
+                                                dot_token_idx: TokenIdx(
+                                                    300,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `strokes`,
+                                                    token_idx: TokenIdx(
+                                                        301,
+                                                    ),
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: `i`,
+                                                token_idx: TokenIdx(
+                                                    303,
+                                                ),
+                                                current_symbol_idx: 1,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 1,
+                                                },
+                                            },
+                                            NewBoxList {
+                                                caller: Some(
+                                                    22,
+                                                ),
+                                                lbox_token_idx: TokenIdx(
+                                                    302,
+                                                ),
+                                                items: ArenaIdxRange(
+                                                    23..24,
+                                                ),
+                                                rbox_token_idx: TokenIdx(
+                                                    304,
+                                                ),
+                                            },
+                                            Field {
+                                                this_expr: 24,
+                                                dot_token_idx: TokenIdx(
+                                                    305,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `end`,
+                                                    token_idx: TokenIdx(
+                                                        306,
+                                                    ),
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: `xmin`,
+                                                token_idx: TokenIdx(
+                                                    309,
+                                                ),
+                                                current_symbol_idx: 5,
+                                                current_symbol_kind: FrameVariable(
+                                                    15,
+                                                ),
+                                            },
+                                            CurrentSymbol {
+                                                ident: `point`,
+                                                token_idx: TokenIdx(
+                                                    313,
+                                                ),
+                                                current_symbol_idx: 0,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 0,
+                                                },
+                                            },
+                                            Field {
+                                                this_expr: 27,
+                                                dot_token_idx: TokenIdx(
+                                                    314,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `x`,
+                                                    token_idx: TokenIdx(
+                                                        315,
+                                                    ),
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: `xmin`,
+                                                token_idx: TokenIdx(
+                                                    307,
+                                                ),
+                                                current_symbol_idx: 5,
+                                                current_symbol_kind: FrameVariable(
+                                                    15,
+                                                ),
+                                            },
+                                            MethodCall {
+                                                this_expr: 26,
+                                                dot_token_idx: TokenIdx(
+                                                    310,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `min`,
+                                                    token_idx: TokenIdx(
+                                                        311,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    312,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    28..29,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    316,
+                                                ),
+                                            },
+                                            BinaryOpn {
+                                                lopd: 29,
+                                                opr: Assign(
+                                                    None,
+                                                ),
+                                                opr_token_idx: TokenIdx(
+                                                    308,
+                                                ),
+                                                ropd: 30,
+                                            },
+                                            CurrentSymbol {
+                                                ident: `xmax`,
+                                                token_idx: TokenIdx(
+                                                    319,
+                                                ),
+                                                current_symbol_idx: 4,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 4,
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: `point`,
+                                                token_idx: TokenIdx(
+                                                    323,
+                                                ),
+                                                current_symbol_idx: 0,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 0,
+                                                },
+                                            },
+                                            Field {
+                                                this_expr: 33,
+                                                dot_token_idx: TokenIdx(
+                                                    324,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `x`,
+                                                    token_idx: TokenIdx(
+                                                        325,
+                                                    ),
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: `xmax`,
+                                                token_idx: TokenIdx(
+                                                    317,
+                                                ),
+                                                current_symbol_idx: 4,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 4,
+                                                },
+                                            },
+                                            MethodCall {
+                                                this_expr: 32,
+                                                dot_token_idx: TokenIdx(
+                                                    320,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `max`,
+                                                    token_idx: TokenIdx(
+                                                        321,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    322,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    34..35,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    326,
+                                                ),
+                                            },
+                                            BinaryOpn {
+                                                lopd: 35,
+                                                opr: Assign(
+                                                    None,
+                                                ),
+                                                opr_token_idx: TokenIdx(
+                                                    318,
+                                                ),
+                                                ropd: 36,
+                                            },
+                                            CurrentSymbol {
+                                                ident: `ymin`,
+                                                token_idx: TokenIdx(
+                                                    329,
+                                                ),
+                                                current_symbol_idx: 3,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 3,
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: `point`,
+                                                token_idx: TokenIdx(
+                                                    333,
+                                                ),
+                                                current_symbol_idx: 0,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 0,
+                                                },
+                                            },
+                                            Field {
+                                                this_expr: 39,
+                                                dot_token_idx: TokenIdx(
+                                                    334,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `y`,
+                                                    token_idx: TokenIdx(
+                                                        335,
+                                                    ),
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: `ymin`,
+                                                token_idx: TokenIdx(
+                                                    327,
+                                                ),
+                                                current_symbol_idx: 3,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 3,
+                                                },
+                                            },
+                                            MethodCall {
+                                                this_expr: 38,
+                                                dot_token_idx: TokenIdx(
+                                                    330,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `min`,
+                                                    token_idx: TokenIdx(
+                                                        331,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    332,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    40..41,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    336,
+                                                ),
+                                            },
+                                            BinaryOpn {
+                                                lopd: 41,
+                                                opr: Assign(
+                                                    None,
+                                                ),
+                                                opr_token_idx: TokenIdx(
+                                                    328,
+                                                ),
+                                                ropd: 42,
+                                            },
+                                            CurrentSymbol {
+                                                ident: `ymax`,
+                                                token_idx: TokenIdx(
+                                                    339,
+                                                ),
+                                                current_symbol_idx: 2,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 2,
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: `point`,
+                                                token_idx: TokenIdx(
+                                                    343,
+                                                ),
+                                                current_symbol_idx: 0,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 0,
+                                                },
+                                            },
+                                            Field {
+                                                this_expr: 45,
+                                                dot_token_idx: TokenIdx(
+                                                    344,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `y`,
+                                                    token_idx: TokenIdx(
+                                                        345,
+                                                    ),
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: `ymax`,
+                                                token_idx: TokenIdx(
+                                                    337,
+                                                ),
+                                                current_symbol_idx: 2,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 2,
+                                                },
+                                            },
+                                            MethodCall {
+                                                this_expr: 44,
+                                                dot_token_idx: TokenIdx(
+                                                    340,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `max`,
+                                                    token_idx: TokenIdx(
+                                                        341,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    342,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    46..47,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    346,
+                                                ),
+                                            },
+                                            BinaryOpn {
+                                                lopd: 47,
+                                                opr: Assign(
+                                                    None,
+                                                ),
+                                                opr_token_idx: TokenIdx(
+                                                    338,
+                                                ),
+                                                ropd: 48,
+                                            },
+                                            EntityPath {
+                                                entity_path_expr: 0,
+                                                entity_path: Some(
+                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                ),
+                                            },
+                                            EntityPath {
+                                                entity_path_expr: 1,
+                                                entity_path: Some(
+                                                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                ),
+                                            },
+                                            CurrentSymbol {
+                                                ident: `xmin`,
+                                                token_idx: TokenIdx(
+                                                    352,
+                                                ),
+                                                current_symbol_idx: 5,
+                                                current_symbol_kind: FrameVariable(
+                                                    15,
+                                                ),
+                                            },
+                                            CurrentSymbol {
+                                                ident: `xmax`,
+                                                token_idx: TokenIdx(
+                                                    354,
+                                                ),
+                                                current_symbol_idx: 4,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 4,
+                                                },
+                                            },
+                                            EntityPath {
+                                                entity_path_expr: 2,
+                                                entity_path: Some(
+                                                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                ),
+                                            },
+                                            CurrentSymbol {
+                                                ident: `ymin`,
+                                                token_idx: TokenIdx(
+                                                    359,
+                                                ),
+                                                current_symbol_idx: 3,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 3,
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                ident: `ymax`,
+                                                token_idx: TokenIdx(
+                                                    361,
+                                                ),
+                                                current_symbol_idx: 2,
+                                                current_symbol_kind: LetVariable {
+                                                    pattern_symbol: 2,
+                                                },
+                                            },
+                                            FunctionCall {
+                                                function: 51,
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    351,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    52..54,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    355,
+                                                ),
+                                            },
+                                            FunctionCall {
+                                                function: 54,
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    358,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    55..57,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    362,
+                                                ),
+                                            },
+                                            FunctionCall {
+                                                function: 50,
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    349,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    57..59,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    364,
+                                                ),
+                                            },
+                                            Block {
+                                                stmts: ArenaIdxRange(
+                                                    5..12,
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    348,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 184,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 27,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    350,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 192,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 26,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    357,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 192,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 26,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [
+                                            Let {
+                                                let_token: LetToken {
+                                                    token_idx: TokenIdx(
+                                                        296,
+                                                    ),
+                                                },
+                                                let_variable_pattern: Ok(
+                                                    LetVariablesPattern {
+                                                        pattern: 5,
+                                                        variables: ArenaIdxRange(
+                                                            6..7,
+                                                        ),
+                                                        colon_token: Ok(
+                                                            None,
+                                                        ),
+                                                        ty: None,
+                                                    },
+                                                ),
+                                                assign_token: Ok(
+                                                    AssignToken {
+                                                        token_idx: TokenIdx(
+                                                            298,
+                                                        ),
+                                                    },
+                                                ),
+                                                initial_value: Ok(
+                                                    25,
+                                                ),
+                                            },
+                                            Eval {
+                                                expr: 31,
+                                            },
+                                            Eval {
+                                                expr: 37,
+                                            },
+                                            Eval {
+                                                expr: 43,
+                                            },
+                                            Eval {
+                                                expr: 49,
+                                            },
+                                            Let {
+                                                let_token: LetToken {
+                                                    token_idx: TokenIdx(
+                                                        241,
+                                                    ),
+                                                },
+                                                let_variable_pattern: Ok(
+                                                    LetVariablesPattern {
+                                                        pattern: 0,
+                                                        variables: ArenaIdxRange(
+                                                            0..1,
+                                                        ),
+                                                        colon_token: Ok(
+                                                            None,
+                                                        ),
+                                                        ty: None,
+                                                    },
+                                                ),
+                                                assign_token: Ok(
+                                                    AssignToken {
+                                                        token_idx: TokenIdx(
+                                                            243,
+                                                        ),
+                                                    },
+                                                ),
+                                                initial_value: Ok(
+                                                    3,
+                                                ),
+                                            },
+                                            Let {
+                                                let_token: LetToken {
+                                                    token_idx: TokenIdx(
+                                                        253,
+                                                    ),
+                                                },
+                                                let_variable_pattern: Ok(
+                                                    LetVariablesPattern {
+                                                        pattern: 1,
+                                                        variables: ArenaIdxRange(
+                                                            1..2,
+                                                        ),
+                                                        colon_token: Ok(
+                                                            None,
+                                                        ),
+                                                        ty: None,
+                                                    },
+                                                ),
+                                                assign_token: Ok(
+                                                    AssignToken {
+                                                        token_idx: TokenIdx(
+                                                            256,
+                                                        ),
+                                                    },
+                                                ),
+                                                initial_value: Ok(
+                                                    5,
+                                                ),
+                                            },
+                                            Let {
+                                                let_token: LetToken {
+                                                    token_idx: TokenIdx(
+                                                        260,
+                                                    ),
+                                                },
+                                                let_variable_pattern: Ok(
+                                                    LetVariablesPattern {
+                                                        pattern: 2,
+                                                        variables: ArenaIdxRange(
+                                                            2..3,
+                                                        ),
+                                                        colon_token: Ok(
+                                                            None,
+                                                        ),
+                                                        ty: None,
+                                                    },
+                                                ),
+                                                assign_token: Ok(
+                                                    AssignToken {
+                                                        token_idx: TokenIdx(
+                                                            263,
+                                                        ),
+                                                    },
+                                                ),
+                                                initial_value: Ok(
+                                                    7,
+                                                ),
+                                            },
+                                            Let {
+                                                let_token: LetToken {
+                                                    token_idx: TokenIdx(
+                                                        267,
+                                                    ),
+                                                },
+                                                let_variable_pattern: Ok(
+                                                    LetVariablesPattern {
+                                                        pattern: 3,
+                                                        variables: ArenaIdxRange(
+                                                            3..4,
+                                                        ),
+                                                        colon_token: Ok(
+                                                            None,
+                                                        ),
+                                                        ty: None,
+                                                    },
+                                                ),
+                                                assign_token: Ok(
+                                                    AssignToken {
+                                                        token_idx: TokenIdx(
+                                                            270,
+                                                        ),
+                                                    },
+                                                ),
+                                                initial_value: Ok(
+                                                    9,
+                                                ),
+                                            },
+                                            Let {
+                                                let_token: LetToken {
+                                                    token_idx: TokenIdx(
+                                                        274,
+                                                    ),
+                                                },
+                                                let_variable_pattern: Ok(
+                                                    LetVariablesPattern {
+                                                        pattern: 4,
+                                                        variables: ArenaIdxRange(
+                                                            4..5,
+                                                        ),
+                                                        colon_token: Ok(
+                                                            None,
+                                                        ),
+                                                        ty: None,
+                                                    },
+                                                ),
+                                                assign_token: Ok(
+                                                    AssignToken {
+                                                        token_idx: TokenIdx(
+                                                            277,
+                                                        ),
+                                                    },
+                                                ),
+                                                initial_value: Ok(
+                                                    11,
+                                                ),
+                                            },
+                                            ForBetween {
+                                                for_token: ForToken {
+                                                    token_idx: TokenIdx(
+                                                        281,
+                                                    ),
+                                                },
+                                                particulars: ForBetweenParticulars {
+                                                    frame_var_token_idx: TokenIdx(
+                                                        288,
+                                                    ),
+                                                    frame_var_expr_idx: 15,
+                                                    frame_var_ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 144,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    range: ForBetweenRange {
+                                                        initial_boundary: LoopBoundary {
+                                                            bound_expr: Some(
+                                                                14,
+                                                            ),
+                                                            kind: LowerClosed,
+                                                        },
+                                                        final_boundary: LoopBoundary {
+                                                            bound_expr: Some(
+                                                                19,
+                                                            ),
+                                                            kind: UpperOpen,
+                                                        },
+                                                        step: Constant(
+                                                            1,
+                                                        ),
+                                                    },
+                                                },
+                                                eol_colon: Ok(
+                                                    EolColonToken {
+                                                        token_idx: TokenIdx(
+                                                            295,
+                                                        ),
+                                                    },
+                                                ),
+                                                block: Ok(
+                                                    ArenaIdxRange(
+                                                        0..5,
+                                                    ),
+                                                ),
+                                            },
+                                            Return {
+                                                return_token: ReturnToken {
+                                                    token_idx: TokenIdx(
+                                                        347,
+                                                    ),
+                                                },
+                                                result: Ok(
+                                                    59,
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 185,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            242,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 186,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            255,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 187,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            262,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 188,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            269,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 189,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            276,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                                Identifier {
+                                                    ident_token: IdentifierToken {
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 190,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            297,
+                                                        ),
+                                                    },
+                                                    liason: None,
+                                                },
+                                            ],
+                                        },
+                                        pattern_infos: [
+                                            Let,
+                                            Let,
+                                            Let,
+                                            Let,
+                                            Let,
+                                            Let,
+                                        ],
+                                        pattern_symbol_maps: [
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 185,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    0,
+                                                ),
+                                            ],
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 186,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    1,
+                                                ),
+                                            ],
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 187,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    2,
+                                                ),
+                                            ],
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 188,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    3,
+                                                ),
+                                            ],
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 189,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    4,
+                                                ),
+                                            ],
+                                            [
+                                                (
+                                                    Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 190,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    5,
+                                                ),
+                                            ],
+                                        ],
+                                        pattern_symbol_arena: Arena {
+                                            data: [
+                                                Atom(
+                                                    0,
+                                                ),
+                                                Atom(
+                                                    1,
+                                                ),
+                                                Atom(
+                                                    2,
+                                                ),
+                                                Atom(
+                                                    3,
+                                                ),
+                                                Atom(
+                                                    4,
+                                                ),
+                                                Atom(
+                                                    5,
+                                                ),
+                                            ],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 185,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        243,
+                                                    ),
+                                                    access_end: Some(
+                                                        TokenIdxRangeEnd(
+                                                            TokenIdx(
+                                                                365,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    variant: LetVariable {
+                                                        pattern_symbol: 0,
+                                                    },
+                                                },
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 186,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        256,
+                                                    ),
+                                                    access_end: Some(
+                                                        TokenIdxRangeEnd(
+                                                            TokenIdx(
+                                                                365,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    variant: LetVariable {
+                                                        pattern_symbol: 1,
+                                                    },
+                                                },
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 187,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        263,
+                                                    ),
+                                                    access_end: Some(
+                                                        TokenIdxRangeEnd(
+                                                            TokenIdx(
+                                                                365,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    variant: LetVariable {
+                                                        pattern_symbol: 2,
+                                                    },
+                                                },
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 188,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        270,
+                                                    ),
+                                                    access_end: Some(
+                                                        TokenIdxRangeEnd(
+                                                            TokenIdx(
+                                                                365,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    variant: LetVariable {
+                                                        pattern_symbol: 3,
+                                                    },
+                                                },
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 189,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        277,
+                                                    ),
+                                                    access_end: Some(
+                                                        TokenIdxRangeEnd(
+                                                            TokenIdx(
+                                                                365,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    variant: LetVariable {
+                                                        pattern_symbol: 4,
+                                                    },
+                                                },
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 144,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        296,
+                                                    ),
+                                                    access_end: Some(
+                                                        TokenIdxRangeEnd(
+                                                            TokenIdx(
+                                                                347,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    variant: FrameVariable(
+                                                        15,
+                                                    ),
+                                                },
+                                                CurrentSymbol {
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 190,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    access_start: TokenIdx(
+                                                        298,
+                                                    ),
+                                                    access_end: Some(
+                                                        TokenIdxRangeEnd(
+                                                            TokenIdx(
+                                                                347,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    variant: LetVariable {
+                                                        pattern_symbol: 5,
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        ty_constraints: [
+                                            FrameVariable,
+                                        ],
+                                    },
+                                    roots: [],
+                                },
+                            },
                             body: Ok(
                                 60,
                             ),
@@ -211,22 +8562,736 @@ Ok(
                     Memo(
                         TypeMemoDefn {
                             path: Some(
-                                TypeItemPath(
-                                    Id {
-                                        value: 50,
+                                TypeItemPath {
+                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    ident: `relative_bounding_box`,
+                                    ty_item_kind: Memo,
+                                },
+                            ),
+                            decl: TypeMemoDecl {
+                                path: Some(
+                                    TypeItemPath {
+                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ident: `relative_bounding_box`,
+                                        ty_item_kind: Memo,
                                     },
                                 ),
-                            ),
-                            decl: TypeMemoDecl(
-                                Id {
-                                    value: 17,
+                                associated_item: AssociatedItem {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId {
+                                            module_path: ModulePath(
+                                                Id {
+                                                    value: 37,
+                                                },
+                                            ),
+                                            impl_block_kind: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 31,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 193,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    path: Some(
+                                        TypeItemPath {
+                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ident: `relative_bounding_box`,
+                                            ty_item_kind: Memo,
+                                        },
+                                    ),
+                                    impl_block: ImplBlock {
+                                        id: ImplBlockId {
+                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                            impl_block_kind: Type {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            },
+                                        },
+                                        ast_idx: 75,
+                                        body: ArenaIdxRange(
+                                            39..53,
+                                        ),
+                                        variant: Type {
+                                            ty: TypePath(
+                                                Id {
+                                                    value: 31,
+                                                },
+                                            ),
+                                        },
+                                    },
+                                    ast_idx: 44,
+                                    ident: `relative_bounding_box`,
+                                    associated_item_kind: TypeItem(
+                                        Memo,
+                                    ),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    is_generic: false,
                                 },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 254,
+                                ast_idx: 44,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: Some(
+                                            ExprRegion {
+                                                data: ExprRegionData {
+                                                    parent: None,
+                                                    path: Decl(
+                                                        ImplBlock(
+                                                            ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 75,
+                                                                body: ArenaIdxRange(
+                                                                    39..53,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            EntityPath {
+                                                                entity_path_expr: 0,
+                                                                entity_path: Some(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    entity_path_expr_arena: Arena {
+                                                        data: [
+                                                            Root {
+                                                                token_idx: TokenIdx(
+                                                                    50,
+                                                                ),
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 287,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                entity_path: ModuleItem(
+                                                                    Type(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_infos: [],
+                                                        pattern_symbol_maps: [],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                    },
+                                                    symbol_region: SymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        allow_self_type: True,
+                                                        allow_self_value: False,
+                                                        ty_constraints: [],
+                                                    },
+                                                    roots: [
+                                                        ExprRoot {
+                                                            kind: Type,
+                                                            expr: 0,
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ),
+                                        path: Decl(
+                                            AssociatedItem(
+                                                AssociatedItem {
+                                                    id: AssociatedItemId {
+                                                        impl_block_id: ImplBlockId {
+                                                            module_path: ModulePath(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(
+                                                                    Id {
+                                                                        value: 31,
+                                                                    },
+                                                                ),
+                                                            },
+                                                        },
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 193,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    path: Some(
+                                                        TypeItemPath {
+                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            ident: `relative_bounding_box`,
+                                                            ty_item_kind: Memo,
+                                                        },
+                                                    ),
+                                                    impl_block: ImplBlock {
+                                                        id: ImplBlockId {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            },
+                                                        },
+                                                        ast_idx: 75,
+                                                        body: ArenaIdxRange(
+                                                            39..53,
+                                                        ),
+                                                        variant: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 31,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ast_idx: 44,
+                                                    ident: `relative_bounding_box`,
+                                                    associated_item_kind: TypeItem(
+                                                        Memo,
+                                                    ),
+                                                    accessibility: PubicUnder(
+                                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ),
+                                                    is_generic: false,
+                                                },
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                EntityPath {
+                                                    entity_path_expr: 0,
+                                                    entity_path: Some(
+                                                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                Root {
+                                                    token_idx: TokenIdx(
+                                                        368,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 194,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    entity_path: ModuleItem(
+                                                        Type(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 28,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: True,
+                                            ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: OutputType,
+                                                expr: 0,
+                                            },
+                                        ],
+                                    },
                                 },
-                            ),
+                                curry_token: Ok(
+                                    CurryToken {
+                                        token_idx: TokenIdx(
+                                            367,
+                                        ),
+                                    },
+                                ),
+                                output_ty: Ok(
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
+                                ),
+                                eol_colon: Ok(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            369,
+                                        ),
+                                    },
+                                ),
+                            },
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: Some(
+                                        ExprRegion {
+                                            data: ExprRegionData {
+                                                parent: Some(
+                                                    ExprRegion {
+                                                        data: ExprRegionData {
+                                                            parent: None,
+                                                            path: Decl(
+                                                                ImplBlock(
+                                                                    ImplBlock {
+                                                                        id: ImplBlockId {
+                                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                            impl_block_kind: Type {
+                                                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            },
+                                                                        },
+                                                                        ast_idx: 75,
+                                                                        body: ArenaIdxRange(
+                                                                            39..53,
+                                                                        ),
+                                                                        variant: Type {
+                                                                            ty: TypePath(
+                                                                                Id {
+                                                                                    value: 31,
+                                                                                },
+                                                                            ),
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            expr_arena: Arena {
+                                                                data: [
+                                                                    EntityPath {
+                                                                        entity_path_expr: 0,
+                                                                        entity_path: Some(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            entity_path_expr_arena: Arena {
+                                                                data: [
+                                                                    Root {
+                                                                        token_idx: TokenIdx(
+                                                                            50,
+                                                                        ),
+                                                                        ident: Identifier(
+                                                                            Word(
+                                                                                Id {
+                                                                                    value: 287,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        entity_path: ModuleItem(
+                                                                            Type(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 31,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            stmt_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_region: PatternExprRegion {
+                                                                pattern_expr_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_infos: [],
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                            },
+                                                            symbol_region: SymbolRegion {
+                                                                inherited_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                current_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                allow_self_type: True,
+                                                                allow_self_value: False,
+                                                                ty_constraints: [],
+                                                            },
+                                                            roots: [
+                                                                ExprRoot {
+                                                                    kind: Type,
+                                                                    expr: 0,
+                                                                },
+                                                            ],
+                                                        },
+                                                    },
+                                                ),
+                                                path: Decl(
+                                                    AssociatedItem(
+                                                        AssociatedItem {
+                                                            id: AssociatedItemId {
+                                                                impl_block_id: ImplBlockId {
+                                                                    module_path: ModulePath(
+                                                                        Id {
+                                                                            value: 37,
+                                                                        },
+                                                                    ),
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    },
+                                                                },
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 193,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            path: Some(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ident: `relative_bounding_box`,
+                                                                    ty_item_kind: Memo,
+                                                                },
+                                                            ),
+                                                            impl_block: ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 75,
+                                                                body: ArenaIdxRange(
+                                                                    39..53,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                            ast_idx: 44,
+                                                            ident: `relative_bounding_box`,
+                                                            associated_item_kind: TypeItem(
+                                                                Memo,
+                                                            ),
+                                                            accessibility: PubicUnder(
+                                                                `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ),
+                                                            is_generic: false,
+                                                        },
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        EntityPath {
+                                                            entity_path_expr: 0,
+                                                            entity_path: Some(
+                                                                TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                entity_path_expr_arena: Arena {
+                                                    data: [
+                                                        Root {
+                                                            token_idx: TokenIdx(
+                                                                368,
+                                                            ),
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 194,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            entity_path: ModuleItem(
+                                                                Type(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 28,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: PatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: True,
+                                                    ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    ExprRoot {
+                                                        kind: OutputType,
+                                                        expr: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: Defn(
+                                        AssociatedItem(
+                                            AssociatedItem {
+                                                id: AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: ModulePath(
+                                                            Id {
+                                                                value: 37,
+                                                            },
+                                                        ),
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 31,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 193,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: Some(
+                                                    TypeItemPath {
+                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ident: `relative_bounding_box`,
+                                                        ty_item_kind: Memo,
+                                                    },
+                                                ),
+                                                impl_block: ImplBlock {
+                                                    id: ImplBlockId {
+                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        },
+                                                    },
+                                                    ast_idx: 75,
+                                                    body: ArenaIdxRange(
+                                                        39..53,
+                                                    ),
+                                                    variant: Type {
+                                                        ty: TypePath(
+                                                            Id {
+                                                                value: 31,
+                                                            },
+                                                        ),
+                                                    },
+                                                },
+                                                ast_idx: 44,
+                                                ident: `relative_bounding_box`,
+                                                associated_item_kind: TypeItem(
+                                                    Memo,
+                                                ),
+                                                accessibility: PubicUnder(
+                                                    `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ),
+                                                is_generic: false,
+                                            },
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SelfValue(
+                                                TokenIdx(
+                                                    370,
+                                                ),
+                                            ),
+                                            Field {
+                                                this_expr: 0,
+                                                dot_token_idx: TokenIdx(
+                                                    371,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `line_segment_sketch`,
+                                                    token_idx: TokenIdx(
+                                                        372,
+                                                    ),
+                                                },
+                                            },
+                                            Field {
+                                                this_expr: 1,
+                                                dot_token_idx: TokenIdx(
+                                                    373,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `bounding_box`,
+                                                    token_idx: TokenIdx(
+                                                        374,
+                                                    ),
+                                                },
+                                            },
+                                            SelfValue(
+                                                TokenIdx(
+                                                    378,
+                                                ),
+                                            ),
+                                            Field {
+                                                this_expr: 3,
+                                                dot_token_idx: TokenIdx(
+                                                    379,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `bounding_box`,
+                                                    token_idx: TokenIdx(
+                                                        380,
+                                                    ),
+                                                },
+                                            },
+                                            MethodCall {
+                                                this_expr: 2,
+                                                dot_token_idx: TokenIdx(
+                                                    375,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `relative_bounding_box`,
+                                                    token_idx: TokenIdx(
+                                                        376,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    377,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    4..5,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    381,
+                                                ),
+                                            },
+                                            Block {
+                                                stmts: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [
+                                            Eval {
+                                                expr: 5,
+                                            },
+                                        ],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
+                            },
                             body: Ok(
                                 6,
                             ),
@@ -239,22 +9304,870 @@ Ok(
                     Method(
                         TypeMethodDefn {
                             path: Some(
-                                TypeItemPath(
-                                    Id {
-                                        value: 51,
+                                TypeItemPath {
+                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    ident: `line_segment`,
+                                    ty_item_kind: Method,
+                                },
+                            ),
+                            decl: TypeMethodDecl {
+                                associated_item: AssociatedItem {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId {
+                                            module_path: ModulePath(
+                                                Id {
+                                                    value: 37,
+                                                },
+                                            ),
+                                            impl_block_kind: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 31,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 100,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    path: Some(
+                                        TypeItemPath {
+                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ident: `line_segment`,
+                                            ty_item_kind: Method,
+                                        },
+                                    ),
+                                    impl_block: ImplBlock {
+                                        id: ImplBlockId {
+                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                            impl_block_kind: Type {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            },
+                                        },
+                                        ast_idx: 75,
+                                        body: ArenaIdxRange(
+                                            39..53,
+                                        ),
+                                        variant: Type {
+                                            ty: TypePath(
+                                                Id {
+                                                    value: 31,
+                                                },
+                                            ),
+                                        },
+                                    },
+                                    ast_idx: 45,
+                                    ident: `line_segment`,
+                                    associated_item_kind: TypeItem(
+                                        Method,
+                                    ),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    is_generic: false,
+                                },
+                                path: Some(
+                                    TypeItemPath {
+                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ident: `line_segment`,
+                                        ty_item_kind: Method,
                                     },
                                 ),
-                            ),
-                            decl: TypeMethodDecl(
-                                Id {
-                                    value: 34,
+                                ast_idx: 45,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: Some(
+                                            ExprRegion {
+                                                data: ExprRegionData {
+                                                    parent: None,
+                                                    path: Decl(
+                                                        ImplBlock(
+                                                            ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 75,
+                                                                body: ArenaIdxRange(
+                                                                    39..53,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            EntityPath {
+                                                                entity_path_expr: 0,
+                                                                entity_path: Some(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    entity_path_expr_arena: Arena {
+                                                        data: [
+                                                            Root {
+                                                                token_idx: TokenIdx(
+                                                                    50,
+                                                                ),
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 287,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                entity_path: ModuleItem(
+                                                                    Type(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_infos: [],
+                                                        pattern_symbol_maps: [],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                    },
+                                                    symbol_region: SymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        allow_self_type: True,
+                                                        allow_self_value: False,
+                                                        ty_constraints: [],
+                                                    },
+                                                    roots: [
+                                                        ExprRoot {
+                                                            kind: Type,
+                                                            expr: 0,
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ),
+                                        path: Decl(
+                                            AssociatedItem(
+                                                AssociatedItem {
+                                                    id: AssociatedItemId {
+                                                        impl_block_id: ImplBlockId {
+                                                            module_path: ModulePath(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(
+                                                                    Id {
+                                                                        value: 31,
+                                                                    },
+                                                                ),
+                                                            },
+                                                        },
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 100,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    path: Some(
+                                                        TypeItemPath {
+                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            ident: `line_segment`,
+                                                            ty_item_kind: Method,
+                                                        },
+                                                    ),
+                                                    impl_block: ImplBlock {
+                                                        id: ImplBlockId {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            },
+                                                        },
+                                                        ast_idx: 75,
+                                                        body: ArenaIdxRange(
+                                                            39..53,
+                                                        ),
+                                                        variant: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 31,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ast_idx: 45,
+                                                    ident: `line_segment`,
+                                                    associated_item_kind: TypeItem(
+                                                        Method,
+                                                    ),
+                                                    accessibility: PubicUnder(
+                                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ),
+                                                    is_generic: false,
+                                                },
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                EntityPath {
+                                                    entity_path_expr: 0,
+                                                    entity_path: Some(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                Root {
+                                                    token_idx: TokenIdx(
+                                                        387,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 284,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    entity_path: ModuleItem(
+                                                        Type(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 33,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: True,
+                                            ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: OutputType,
+                                                expr: 0,
+                                            },
+                                        ],
+                                    },
                                 },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 255,
+                                implicit_parameter_decl_list: None,
+                                parameter_decl_list: ParameterDeclList {
+                                    lpar: LeftParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            384,
+                                        ),
+                                    },
+                                    parameters: [],
+                                    commas: [],
+                                    rpar: RightParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            385,
+                                        ),
+                                    },
                                 },
-                            ),
+                                curry_token: Ok(
+                                    CurryToken {
+                                        token_idx: TokenIdx(
+                                            386,
+                                        ),
+                                    },
+                                ),
+                                output_ty: Ok(
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
+                                ),
+                                eol_colon: Ok(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            388,
+                                        ),
+                                    },
+                                ),
+                            },
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: Some(
+                                        ExprRegion {
+                                            data: ExprRegionData {
+                                                parent: Some(
+                                                    ExprRegion {
+                                                        data: ExprRegionData {
+                                                            parent: None,
+                                                            path: Decl(
+                                                                ImplBlock(
+                                                                    ImplBlock {
+                                                                        id: ImplBlockId {
+                                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                            impl_block_kind: Type {
+                                                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            },
+                                                                        },
+                                                                        ast_idx: 75,
+                                                                        body: ArenaIdxRange(
+                                                                            39..53,
+                                                                        ),
+                                                                        variant: Type {
+                                                                            ty: TypePath(
+                                                                                Id {
+                                                                                    value: 31,
+                                                                                },
+                                                                            ),
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            expr_arena: Arena {
+                                                                data: [
+                                                                    EntityPath {
+                                                                        entity_path_expr: 0,
+                                                                        entity_path: Some(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            entity_path_expr_arena: Arena {
+                                                                data: [
+                                                                    Root {
+                                                                        token_idx: TokenIdx(
+                                                                            50,
+                                                                        ),
+                                                                        ident: Identifier(
+                                                                            Word(
+                                                                                Id {
+                                                                                    value: 287,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        entity_path: ModuleItem(
+                                                                            Type(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 31,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            stmt_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_region: PatternExprRegion {
+                                                                pattern_expr_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_infos: [],
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                            },
+                                                            symbol_region: SymbolRegion {
+                                                                inherited_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                current_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                allow_self_type: True,
+                                                                allow_self_value: False,
+                                                                ty_constraints: [],
+                                                            },
+                                                            roots: [
+                                                                ExprRoot {
+                                                                    kind: Type,
+                                                                    expr: 0,
+                                                                },
+                                                            ],
+                                                        },
+                                                    },
+                                                ),
+                                                path: Decl(
+                                                    AssociatedItem(
+                                                        AssociatedItem {
+                                                            id: AssociatedItemId {
+                                                                impl_block_id: ImplBlockId {
+                                                                    module_path: ModulePath(
+                                                                        Id {
+                                                                            value: 37,
+                                                                        },
+                                                                    ),
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    },
+                                                                },
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 100,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            path: Some(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ident: `line_segment`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
+                                                            impl_block: ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 75,
+                                                                body: ArenaIdxRange(
+                                                                    39..53,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                            ast_idx: 45,
+                                                            ident: `line_segment`,
+                                                            associated_item_kind: TypeItem(
+                                                                Method,
+                                                            ),
+                                                            accessibility: PubicUnder(
+                                                                `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ),
+                                                            is_generic: false,
+                                                        },
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        EntityPath {
+                                                            entity_path_expr: 0,
+                                                            entity_path: Some(
+                                                                TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                entity_path_expr_arena: Arena {
+                                                    data: [
+                                                        Root {
+                                                            token_idx: TokenIdx(
+                                                                387,
+                                                            ),
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 284,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            entity_path: ModuleItem(
+                                                                Type(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 33,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: PatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: True,
+                                                    ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    ExprRoot {
+                                                        kind: OutputType,
+                                                        expr: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: Defn(
+                                        AssociatedItem(
+                                            AssociatedItem {
+                                                id: AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: ModulePath(
+                                                            Id {
+                                                                value: 37,
+                                                            },
+                                                        ),
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 31,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 100,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: Some(
+                                                    TypeItemPath {
+                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ident: `line_segment`,
+                                                        ty_item_kind: Method,
+                                                    },
+                                                ),
+                                                impl_block: ImplBlock {
+                                                    id: ImplBlockId {
+                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        },
+                                                    },
+                                                    ast_idx: 75,
+                                                    body: ArenaIdxRange(
+                                                        39..53,
+                                                    ),
+                                                    variant: Type {
+                                                        ty: TypePath(
+                                                            Id {
+                                                                value: 31,
+                                                            },
+                                                        ),
+                                                    },
+                                                },
+                                                ast_idx: 45,
+                                                ident: `line_segment`,
+                                                associated_item_kind: TypeItem(
+                                                    Method,
+                                                ),
+                                                accessibility: PubicUnder(
+                                                    `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ),
+                                                is_generic: false,
+                                            },
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            EntityPath {
+                                                entity_path_expr: 0,
+                                                entity_path: Some(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                ),
+                                            },
+                                            SelfValue(
+                                                TokenIdx(
+                                                    391,
+                                                ),
+                                            ),
+                                            Field {
+                                                this_expr: 1,
+                                                dot_token_idx: TokenIdx(
+                                                    392,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `strokes`,
+                                                    token_idx: TokenIdx(
+                                                        393,
+                                                    ),
+                                                },
+                                            },
+                                            MethodCall {
+                                                this_expr: 2,
+                                                dot_token_idx: TokenIdx(
+                                                    394,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `firstx`,
+                                                    token_idx: TokenIdx(
+                                                        395,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    396,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    3..3,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    397,
+                                                ),
+                                            },
+                                            Field {
+                                                this_expr: 3,
+                                                dot_token_idx: TokenIdx(
+                                                    398,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `start`,
+                                                    token_idx: TokenIdx(
+                                                        399,
+                                                    ),
+                                                },
+                                            },
+                                            SelfValue(
+                                                TokenIdx(
+                                                    405,
+                                                ),
+                                            ),
+                                            Field {
+                                                this_expr: 5,
+                                                dot_token_idx: TokenIdx(
+                                                    406,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `strokes`,
+                                                    token_idx: TokenIdx(
+                                                        407,
+                                                    ),
+                                                },
+                                            },
+                                            MethodCall {
+                                                this_expr: 6,
+                                                dot_token_idx: TokenIdx(
+                                                    408,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `lastx`,
+                                                    token_idx: TokenIdx(
+                                                        409,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    410,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    7..7,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    411,
+                                                ),
+                                            },
+                                            Field {
+                                                this_expr: 7,
+                                                dot_token_idx: TokenIdx(
+                                                    412,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `end`,
+                                                    token_idx: TokenIdx(
+                                                        413,
+                                                    ),
+                                                },
+                                            },
+                                            MethodCall {
+                                                this_expr: 4,
+                                                dot_token_idx: TokenIdx(
+                                                    400,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `clone`,
+                                                    token_idx: TokenIdx(
+                                                        401,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    402,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    5..5,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    403,
+                                                ),
+                                            },
+                                            MethodCall {
+                                                this_expr: 8,
+                                                dot_token_idx: TokenIdx(
+                                                    414,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `clone`,
+                                                    token_idx: TokenIdx(
+                                                        415,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    416,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    9..9,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    417,
+                                                ),
+                                            },
+                                            FunctionCall {
+                                                function: 0,
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    390,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    9..11,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    418,
+                                                ),
+                                            },
+                                            Block {
+                                                stmts: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [
+                                            Root {
+                                                token_idx: TokenIdx(
+                                                    389,
+                                                ),
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 284,
+                                                        },
+                                                    ),
+                                                ),
+                                                entity_path: ModuleItem(
+                                                    Type(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 33,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [
+                                            Eval {
+                                                expr: 11,
+                                            },
+                                        ],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
+                            },
                             body: Ok(
                                 12,
                             ),
@@ -267,22 +10180,756 @@ Ok(
                     Method(
                         TypeMethodDefn {
                             path: Some(
-                                TypeItemPath(
-                                    Id {
-                                        value: 52,
+                                TypeItemPath {
+                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    ident: `start`,
+                                    ty_item_kind: Method,
+                                },
+                            ),
+                            decl: TypeMethodDecl {
+                                associated_item: AssociatedItem {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId {
+                                            module_path: ModulePath(
+                                                Id {
+                                                    value: 37,
+                                                },
+                                            ),
+                                            impl_block_kind: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 31,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 197,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    path: Some(
+                                        TypeItemPath {
+                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ident: `start`,
+                                            ty_item_kind: Method,
+                                        },
+                                    ),
+                                    impl_block: ImplBlock {
+                                        id: ImplBlockId {
+                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                            impl_block_kind: Type {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            },
+                                        },
+                                        ast_idx: 75,
+                                        body: ArenaIdxRange(
+                                            39..53,
+                                        ),
+                                        variant: Type {
+                                            ty: TypePath(
+                                                Id {
+                                                    value: 31,
+                                                },
+                                            ),
+                                        },
+                                    },
+                                    ast_idx: 46,
+                                    ident: `start`,
+                                    associated_item_kind: TypeItem(
+                                        Method,
+                                    ),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    is_generic: false,
+                                },
+                                path: Some(
+                                    TypeItemPath {
+                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ident: `start`,
+                                        ty_item_kind: Method,
                                     },
                                 ),
-                            ),
-                            decl: TypeMethodDecl(
-                                Id {
-                                    value: 35,
+                                ast_idx: 46,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: Some(
+                                            ExprRegion {
+                                                data: ExprRegionData {
+                                                    parent: None,
+                                                    path: Decl(
+                                                        ImplBlock(
+                                                            ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 75,
+                                                                body: ArenaIdxRange(
+                                                                    39..53,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            EntityPath {
+                                                                entity_path_expr: 0,
+                                                                entity_path: Some(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    entity_path_expr_arena: Arena {
+                                                        data: [
+                                                            Root {
+                                                                token_idx: TokenIdx(
+                                                                    50,
+                                                                ),
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 287,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                entity_path: ModuleItem(
+                                                                    Type(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_infos: [],
+                                                        pattern_symbol_maps: [],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                    },
+                                                    symbol_region: SymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        allow_self_type: True,
+                                                        allow_self_value: False,
+                                                        ty_constraints: [],
+                                                    },
+                                                    roots: [
+                                                        ExprRoot {
+                                                            kind: Type,
+                                                            expr: 0,
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ),
+                                        path: Decl(
+                                            AssociatedItem(
+                                                AssociatedItem {
+                                                    id: AssociatedItemId {
+                                                        impl_block_id: ImplBlockId {
+                                                            module_path: ModulePath(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(
+                                                                    Id {
+                                                                        value: 31,
+                                                                    },
+                                                                ),
+                                                            },
+                                                        },
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 197,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    path: Some(
+                                                        TypeItemPath {
+                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            ident: `start`,
+                                                            ty_item_kind: Method,
+                                                        },
+                                                    ),
+                                                    impl_block: ImplBlock {
+                                                        id: ImplBlockId {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            },
+                                                        },
+                                                        ast_idx: 75,
+                                                        body: ArenaIdxRange(
+                                                            39..53,
+                                                        ),
+                                                        variant: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 31,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ast_idx: 46,
+                                                    ident: `start`,
+                                                    associated_item_kind: TypeItem(
+                                                        Method,
+                                                    ),
+                                                    accessibility: PubicUnder(
+                                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ),
+                                                    is_generic: false,
+                                                },
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                EntityPath {
+                                                    entity_path_expr: 0,
+                                                    entity_path: Some(
+                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                Root {
+                                                    token_idx: TokenIdx(
+                                                        424,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 180,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    entity_path: ModuleItem(
+                                                        Type(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 23,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: True,
+                                            ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: OutputType,
+                                                expr: 0,
+                                            },
+                                        ],
+                                    },
                                 },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 256,
+                                implicit_parameter_decl_list: None,
+                                parameter_decl_list: ParameterDeclList {
+                                    lpar: LeftParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            421,
+                                        ),
+                                    },
+                                    parameters: [],
+                                    commas: [],
+                                    rpar: RightParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            422,
+                                        ),
+                                    },
                                 },
-                            ),
+                                curry_token: Ok(
+                                    CurryToken {
+                                        token_idx: TokenIdx(
+                                            423,
+                                        ),
+                                    },
+                                ),
+                                output_ty: Ok(
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
+                                ),
+                                eol_colon: Ok(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            425,
+                                        ),
+                                    },
+                                ),
+                            },
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: Some(
+                                        ExprRegion {
+                                            data: ExprRegionData {
+                                                parent: Some(
+                                                    ExprRegion {
+                                                        data: ExprRegionData {
+                                                            parent: None,
+                                                            path: Decl(
+                                                                ImplBlock(
+                                                                    ImplBlock {
+                                                                        id: ImplBlockId {
+                                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                            impl_block_kind: Type {
+                                                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            },
+                                                                        },
+                                                                        ast_idx: 75,
+                                                                        body: ArenaIdxRange(
+                                                                            39..53,
+                                                                        ),
+                                                                        variant: Type {
+                                                                            ty: TypePath(
+                                                                                Id {
+                                                                                    value: 31,
+                                                                                },
+                                                                            ),
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            expr_arena: Arena {
+                                                                data: [
+                                                                    EntityPath {
+                                                                        entity_path_expr: 0,
+                                                                        entity_path: Some(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            entity_path_expr_arena: Arena {
+                                                                data: [
+                                                                    Root {
+                                                                        token_idx: TokenIdx(
+                                                                            50,
+                                                                        ),
+                                                                        ident: Identifier(
+                                                                            Word(
+                                                                                Id {
+                                                                                    value: 287,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        entity_path: ModuleItem(
+                                                                            Type(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 31,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            stmt_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_region: PatternExprRegion {
+                                                                pattern_expr_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_infos: [],
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                            },
+                                                            symbol_region: SymbolRegion {
+                                                                inherited_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                current_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                allow_self_type: True,
+                                                                allow_self_value: False,
+                                                                ty_constraints: [],
+                                                            },
+                                                            roots: [
+                                                                ExprRoot {
+                                                                    kind: Type,
+                                                                    expr: 0,
+                                                                },
+                                                            ],
+                                                        },
+                                                    },
+                                                ),
+                                                path: Decl(
+                                                    AssociatedItem(
+                                                        AssociatedItem {
+                                                            id: AssociatedItemId {
+                                                                impl_block_id: ImplBlockId {
+                                                                    module_path: ModulePath(
+                                                                        Id {
+                                                                            value: 37,
+                                                                        },
+                                                                    ),
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    },
+                                                                },
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 197,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            path: Some(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ident: `start`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
+                                                            impl_block: ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 75,
+                                                                body: ArenaIdxRange(
+                                                                    39..53,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                            ast_idx: 46,
+                                                            ident: `start`,
+                                                            associated_item_kind: TypeItem(
+                                                                Method,
+                                                            ),
+                                                            accessibility: PubicUnder(
+                                                                `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ),
+                                                            is_generic: false,
+                                                        },
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        EntityPath {
+                                                            entity_path_expr: 0,
+                                                            entity_path: Some(
+                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                entity_path_expr_arena: Arena {
+                                                    data: [
+                                                        Root {
+                                                            token_idx: TokenIdx(
+                                                                424,
+                                                            ),
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 180,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            entity_path: ModuleItem(
+                                                                Type(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 23,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: PatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: True,
+                                                    ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    ExprRoot {
+                                                        kind: OutputType,
+                                                        expr: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: Defn(
+                                        AssociatedItem(
+                                            AssociatedItem {
+                                                id: AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: ModulePath(
+                                                            Id {
+                                                                value: 37,
+                                                            },
+                                                        ),
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 31,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 197,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: Some(
+                                                    TypeItemPath {
+                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ident: `start`,
+                                                        ty_item_kind: Method,
+                                                    },
+                                                ),
+                                                impl_block: ImplBlock {
+                                                    id: ImplBlockId {
+                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        },
+                                                    },
+                                                    ast_idx: 75,
+                                                    body: ArenaIdxRange(
+                                                        39..53,
+                                                    ),
+                                                    variant: Type {
+                                                        ty: TypePath(
+                                                            Id {
+                                                                value: 31,
+                                                            },
+                                                        ),
+                                                    },
+                                                },
+                                                ast_idx: 46,
+                                                ident: `start`,
+                                                associated_item_kind: TypeItem(
+                                                    Method,
+                                                ),
+                                                accessibility: PubicUnder(
+                                                    `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ),
+                                                is_generic: false,
+                                            },
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SelfValue(
+                                                TokenIdx(
+                                                    426,
+                                                ),
+                                            ),
+                                            Field {
+                                                this_expr: 0,
+                                                dot_token_idx: TokenIdx(
+                                                    427,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `strokes`,
+                                                    token_idx: TokenIdx(
+                                                        428,
+                                                    ),
+                                                },
+                                            },
+                                            MethodCall {
+                                                this_expr: 1,
+                                                dot_token_idx: TokenIdx(
+                                                    429,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `firstx`,
+                                                    token_idx: TokenIdx(
+                                                        430,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    431,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    2..2,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    432,
+                                                ),
+                                            },
+                                            Field {
+                                                this_expr: 2,
+                                                dot_token_idx: TokenIdx(
+                                                    433,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `start`,
+                                                    token_idx: TokenIdx(
+                                                        434,
+                                                    ),
+                                                },
+                                            },
+                                            MethodCall {
+                                                this_expr: 3,
+                                                dot_token_idx: TokenIdx(
+                                                    435,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `clone`,
+                                                    token_idx: TokenIdx(
+                                                        436,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    437,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    4..4,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    438,
+                                                ),
+                                            },
+                                            Block {
+                                                stmts: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [
+                                            Eval {
+                                                expr: 4,
+                                            },
+                                        ],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
+                            },
                             body: Ok(
                                 5,
                             ),
@@ -295,22 +10942,756 @@ Ok(
                     Method(
                         TypeMethodDefn {
                             path: Some(
-                                TypeItemPath(
-                                    Id {
-                                        value: 53,
+                                TypeItemPath {
+                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    ident: `end`,
+                                    ty_item_kind: Method,
+                                },
+                            ),
+                            decl: TypeMethodDecl {
+                                associated_item: AssociatedItem {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId {
+                                            module_path: ModulePath(
+                                                Id {
+                                                    value: 37,
+                                                },
+                                            ),
+                                            impl_block_kind: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 31,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 198,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    path: Some(
+                                        TypeItemPath {
+                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ident: `end`,
+                                            ty_item_kind: Method,
+                                        },
+                                    ),
+                                    impl_block: ImplBlock {
+                                        id: ImplBlockId {
+                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                            impl_block_kind: Type {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            },
+                                        },
+                                        ast_idx: 75,
+                                        body: ArenaIdxRange(
+                                            39..53,
+                                        ),
+                                        variant: Type {
+                                            ty: TypePath(
+                                                Id {
+                                                    value: 31,
+                                                },
+                                            ),
+                                        },
+                                    },
+                                    ast_idx: 47,
+                                    ident: `end`,
+                                    associated_item_kind: TypeItem(
+                                        Method,
+                                    ),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    is_generic: false,
+                                },
+                                path: Some(
+                                    TypeItemPath {
+                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ident: `end`,
+                                        ty_item_kind: Method,
                                     },
                                 ),
-                            ),
-                            decl: TypeMethodDecl(
-                                Id {
-                                    value: 36,
+                                ast_idx: 47,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: Some(
+                                            ExprRegion {
+                                                data: ExprRegionData {
+                                                    parent: None,
+                                                    path: Decl(
+                                                        ImplBlock(
+                                                            ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 75,
+                                                                body: ArenaIdxRange(
+                                                                    39..53,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            EntityPath {
+                                                                entity_path_expr: 0,
+                                                                entity_path: Some(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    entity_path_expr_arena: Arena {
+                                                        data: [
+                                                            Root {
+                                                                token_idx: TokenIdx(
+                                                                    50,
+                                                                ),
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 287,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                entity_path: ModuleItem(
+                                                                    Type(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_infos: [],
+                                                        pattern_symbol_maps: [],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                    },
+                                                    symbol_region: SymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        allow_self_type: True,
+                                                        allow_self_value: False,
+                                                        ty_constraints: [],
+                                                    },
+                                                    roots: [
+                                                        ExprRoot {
+                                                            kind: Type,
+                                                            expr: 0,
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ),
+                                        path: Decl(
+                                            AssociatedItem(
+                                                AssociatedItem {
+                                                    id: AssociatedItemId {
+                                                        impl_block_id: ImplBlockId {
+                                                            module_path: ModulePath(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(
+                                                                    Id {
+                                                                        value: 31,
+                                                                    },
+                                                                ),
+                                                            },
+                                                        },
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 198,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    path: Some(
+                                                        TypeItemPath {
+                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            ident: `end`,
+                                                            ty_item_kind: Method,
+                                                        },
+                                                    ),
+                                                    impl_block: ImplBlock {
+                                                        id: ImplBlockId {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            },
+                                                        },
+                                                        ast_idx: 75,
+                                                        body: ArenaIdxRange(
+                                                            39..53,
+                                                        ),
+                                                        variant: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 31,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ast_idx: 47,
+                                                    ident: `end`,
+                                                    associated_item_kind: TypeItem(
+                                                        Method,
+                                                    ),
+                                                    accessibility: PubicUnder(
+                                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ),
+                                                    is_generic: false,
+                                                },
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                EntityPath {
+                                                    entity_path_expr: 0,
+                                                    entity_path: Some(
+                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                Root {
+                                                    token_idx: TokenIdx(
+                                                        444,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 180,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    entity_path: ModuleItem(
+                                                        Type(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 23,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: True,
+                                            ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: OutputType,
+                                                expr: 0,
+                                            },
+                                        ],
+                                    },
                                 },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 257,
+                                implicit_parameter_decl_list: None,
+                                parameter_decl_list: ParameterDeclList {
+                                    lpar: LeftParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            441,
+                                        ),
+                                    },
+                                    parameters: [],
+                                    commas: [],
+                                    rpar: RightParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            442,
+                                        ),
+                                    },
                                 },
-                            ),
+                                curry_token: Ok(
+                                    CurryToken {
+                                        token_idx: TokenIdx(
+                                            443,
+                                        ),
+                                    },
+                                ),
+                                output_ty: Ok(
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
+                                ),
+                                eol_colon: Ok(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            445,
+                                        ),
+                                    },
+                                ),
+                            },
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: Some(
+                                        ExprRegion {
+                                            data: ExprRegionData {
+                                                parent: Some(
+                                                    ExprRegion {
+                                                        data: ExprRegionData {
+                                                            parent: None,
+                                                            path: Decl(
+                                                                ImplBlock(
+                                                                    ImplBlock {
+                                                                        id: ImplBlockId {
+                                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                            impl_block_kind: Type {
+                                                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            },
+                                                                        },
+                                                                        ast_idx: 75,
+                                                                        body: ArenaIdxRange(
+                                                                            39..53,
+                                                                        ),
+                                                                        variant: Type {
+                                                                            ty: TypePath(
+                                                                                Id {
+                                                                                    value: 31,
+                                                                                },
+                                                                            ),
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            expr_arena: Arena {
+                                                                data: [
+                                                                    EntityPath {
+                                                                        entity_path_expr: 0,
+                                                                        entity_path: Some(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            entity_path_expr_arena: Arena {
+                                                                data: [
+                                                                    Root {
+                                                                        token_idx: TokenIdx(
+                                                                            50,
+                                                                        ),
+                                                                        ident: Identifier(
+                                                                            Word(
+                                                                                Id {
+                                                                                    value: 287,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        entity_path: ModuleItem(
+                                                                            Type(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 31,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            stmt_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_region: PatternExprRegion {
+                                                                pattern_expr_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_infos: [],
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                            },
+                                                            symbol_region: SymbolRegion {
+                                                                inherited_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                current_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                allow_self_type: True,
+                                                                allow_self_value: False,
+                                                                ty_constraints: [],
+                                                            },
+                                                            roots: [
+                                                                ExprRoot {
+                                                                    kind: Type,
+                                                                    expr: 0,
+                                                                },
+                                                            ],
+                                                        },
+                                                    },
+                                                ),
+                                                path: Decl(
+                                                    AssociatedItem(
+                                                        AssociatedItem {
+                                                            id: AssociatedItemId {
+                                                                impl_block_id: ImplBlockId {
+                                                                    module_path: ModulePath(
+                                                                        Id {
+                                                                            value: 37,
+                                                                        },
+                                                                    ),
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    },
+                                                                },
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 198,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            path: Some(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ident: `end`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
+                                                            impl_block: ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 75,
+                                                                body: ArenaIdxRange(
+                                                                    39..53,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                            ast_idx: 47,
+                                                            ident: `end`,
+                                                            associated_item_kind: TypeItem(
+                                                                Method,
+                                                            ),
+                                                            accessibility: PubicUnder(
+                                                                `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ),
+                                                            is_generic: false,
+                                                        },
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        EntityPath {
+                                                            entity_path_expr: 0,
+                                                            entity_path: Some(
+                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                entity_path_expr_arena: Arena {
+                                                    data: [
+                                                        Root {
+                                                            token_idx: TokenIdx(
+                                                                444,
+                                                            ),
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 180,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            entity_path: ModuleItem(
+                                                                Type(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 23,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: PatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: True,
+                                                    ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    ExprRoot {
+                                                        kind: OutputType,
+                                                        expr: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: Defn(
+                                        AssociatedItem(
+                                            AssociatedItem {
+                                                id: AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: ModulePath(
+                                                            Id {
+                                                                value: 37,
+                                                            },
+                                                        ),
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 31,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 198,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: Some(
+                                                    TypeItemPath {
+                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ident: `end`,
+                                                        ty_item_kind: Method,
+                                                    },
+                                                ),
+                                                impl_block: ImplBlock {
+                                                    id: ImplBlockId {
+                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        },
+                                                    },
+                                                    ast_idx: 75,
+                                                    body: ArenaIdxRange(
+                                                        39..53,
+                                                    ),
+                                                    variant: Type {
+                                                        ty: TypePath(
+                                                            Id {
+                                                                value: 31,
+                                                            },
+                                                        ),
+                                                    },
+                                                },
+                                                ast_idx: 47,
+                                                ident: `end`,
+                                                associated_item_kind: TypeItem(
+                                                    Method,
+                                                ),
+                                                accessibility: PubicUnder(
+                                                    `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ),
+                                                is_generic: false,
+                                            },
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SelfValue(
+                                                TokenIdx(
+                                                    446,
+                                                ),
+                                            ),
+                                            Field {
+                                                this_expr: 0,
+                                                dot_token_idx: TokenIdx(
+                                                    447,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `strokes`,
+                                                    token_idx: TokenIdx(
+                                                        448,
+                                                    ),
+                                                },
+                                            },
+                                            MethodCall {
+                                                this_expr: 1,
+                                                dot_token_idx: TokenIdx(
+                                                    449,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `lastx`,
+                                                    token_idx: TokenIdx(
+                                                        450,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    451,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    2..2,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    452,
+                                                ),
+                                            },
+                                            Field {
+                                                this_expr: 2,
+                                                dot_token_idx: TokenIdx(
+                                                    453,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `end`,
+                                                    token_idx: TokenIdx(
+                                                        454,
+                                                    ),
+                                                },
+                                            },
+                                            MethodCall {
+                                                this_expr: 3,
+                                                dot_token_idx: TokenIdx(
+                                                    455,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `clone`,
+                                                    token_idx: TokenIdx(
+                                                        456,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    457,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    4..4,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    458,
+                                                ),
+                                            },
+                                            Block {
+                                                stmts: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [
+                                            Eval {
+                                                expr: 4,
+                                            },
+                                        ],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
+                            },
                             body: Ok(
                                 5,
                             ),
@@ -323,22 +11704,732 @@ Ok(
                     Method(
                         TypeMethodDefn {
                             path: Some(
-                                TypeItemPath(
-                                    Id {
-                                        value: 54,
+                                TypeItemPath {
+                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    ident: `displacement`,
+                                    ty_item_kind: Method,
+                                },
+                            ),
+                            decl: TypeMethodDecl {
+                                associated_item: AssociatedItem {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId {
+                                            module_path: ModulePath(
+                                                Id {
+                                                    value: 37,
+                                                },
+                                            ),
+                                            impl_block_kind: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 31,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 196,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    path: Some(
+                                        TypeItemPath {
+                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ident: `displacement`,
+                                            ty_item_kind: Method,
+                                        },
+                                    ),
+                                    impl_block: ImplBlock {
+                                        id: ImplBlockId {
+                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                            impl_block_kind: Type {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            },
+                                        },
+                                        ast_idx: 75,
+                                        body: ArenaIdxRange(
+                                            39..53,
+                                        ),
+                                        variant: Type {
+                                            ty: TypePath(
+                                                Id {
+                                                    value: 31,
+                                                },
+                                            ),
+                                        },
+                                    },
+                                    ast_idx: 48,
+                                    ident: `displacement`,
+                                    associated_item_kind: TypeItem(
+                                        Method,
+                                    ),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    is_generic: false,
+                                },
+                                path: Some(
+                                    TypeItemPath {
+                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ident: `displacement`,
+                                        ty_item_kind: Method,
                                     },
                                 ),
-                            ),
-                            decl: TypeMethodDecl(
-                                Id {
-                                    value: 37,
+                                ast_idx: 48,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: Some(
+                                            ExprRegion {
+                                                data: ExprRegionData {
+                                                    parent: None,
+                                                    path: Decl(
+                                                        ImplBlock(
+                                                            ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 75,
+                                                                body: ArenaIdxRange(
+                                                                    39..53,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            EntityPath {
+                                                                entity_path_expr: 0,
+                                                                entity_path: Some(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    entity_path_expr_arena: Arena {
+                                                        data: [
+                                                            Root {
+                                                                token_idx: TokenIdx(
+                                                                    50,
+                                                                ),
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 287,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                entity_path: ModuleItem(
+                                                                    Type(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_infos: [],
+                                                        pattern_symbol_maps: [],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                    },
+                                                    symbol_region: SymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        allow_self_type: True,
+                                                        allow_self_value: False,
+                                                        ty_constraints: [],
+                                                    },
+                                                    roots: [
+                                                        ExprRoot {
+                                                            kind: Type,
+                                                            expr: 0,
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ),
+                                        path: Decl(
+                                            AssociatedItem(
+                                                AssociatedItem {
+                                                    id: AssociatedItemId {
+                                                        impl_block_id: ImplBlockId {
+                                                            module_path: ModulePath(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(
+                                                                    Id {
+                                                                        value: 31,
+                                                                    },
+                                                                ),
+                                                            },
+                                                        },
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 196,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    path: Some(
+                                                        TypeItemPath {
+                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            ident: `displacement`,
+                                                            ty_item_kind: Method,
+                                                        },
+                                                    ),
+                                                    impl_block: ImplBlock {
+                                                        id: ImplBlockId {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            },
+                                                        },
+                                                        ast_idx: 75,
+                                                        body: ArenaIdxRange(
+                                                            39..53,
+                                                        ),
+                                                        variant: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 31,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ast_idx: 48,
+                                                    ident: `displacement`,
+                                                    associated_item_kind: TypeItem(
+                                                        Method,
+                                                    ),
+                                                    accessibility: PubicUnder(
+                                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ),
+                                                    is_generic: false,
+                                                },
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                EntityPath {
+                                                    entity_path_expr: 0,
+                                                    entity_path: Some(
+                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                Root {
+                                                    token_idx: TokenIdx(
+                                                        464,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 199,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    entity_path: ModuleItem(
+                                                        Type(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 25,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: True,
+                                            ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: OutputType,
+                                                expr: 0,
+                                            },
+                                        ],
+                                    },
                                 },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 258,
+                                implicit_parameter_decl_list: None,
+                                parameter_decl_list: ParameterDeclList {
+                                    lpar: LeftParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            461,
+                                        ),
+                                    },
+                                    parameters: [],
+                                    commas: [],
+                                    rpar: RightParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            462,
+                                        ),
+                                    },
                                 },
-                            ),
+                                curry_token: Ok(
+                                    CurryToken {
+                                        token_idx: TokenIdx(
+                                            463,
+                                        ),
+                                    },
+                                ),
+                                output_ty: Ok(
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
+                                ),
+                                eol_colon: Ok(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            465,
+                                        ),
+                                    },
+                                ),
+                            },
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: Some(
+                                        ExprRegion {
+                                            data: ExprRegionData {
+                                                parent: Some(
+                                                    ExprRegion {
+                                                        data: ExprRegionData {
+                                                            parent: None,
+                                                            path: Decl(
+                                                                ImplBlock(
+                                                                    ImplBlock {
+                                                                        id: ImplBlockId {
+                                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                            impl_block_kind: Type {
+                                                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            },
+                                                                        },
+                                                                        ast_idx: 75,
+                                                                        body: ArenaIdxRange(
+                                                                            39..53,
+                                                                        ),
+                                                                        variant: Type {
+                                                                            ty: TypePath(
+                                                                                Id {
+                                                                                    value: 31,
+                                                                                },
+                                                                            ),
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            expr_arena: Arena {
+                                                                data: [
+                                                                    EntityPath {
+                                                                        entity_path_expr: 0,
+                                                                        entity_path: Some(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            entity_path_expr_arena: Arena {
+                                                                data: [
+                                                                    Root {
+                                                                        token_idx: TokenIdx(
+                                                                            50,
+                                                                        ),
+                                                                        ident: Identifier(
+                                                                            Word(
+                                                                                Id {
+                                                                                    value: 287,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        entity_path: ModuleItem(
+                                                                            Type(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 31,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            stmt_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_region: PatternExprRegion {
+                                                                pattern_expr_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_infos: [],
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                            },
+                                                            symbol_region: SymbolRegion {
+                                                                inherited_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                current_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                allow_self_type: True,
+                                                                allow_self_value: False,
+                                                                ty_constraints: [],
+                                                            },
+                                                            roots: [
+                                                                ExprRoot {
+                                                                    kind: Type,
+                                                                    expr: 0,
+                                                                },
+                                                            ],
+                                                        },
+                                                    },
+                                                ),
+                                                path: Decl(
+                                                    AssociatedItem(
+                                                        AssociatedItem {
+                                                            id: AssociatedItemId {
+                                                                impl_block_id: ImplBlockId {
+                                                                    module_path: ModulePath(
+                                                                        Id {
+                                                                            value: 37,
+                                                                        },
+                                                                    ),
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    },
+                                                                },
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 196,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            path: Some(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ident: `displacement`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
+                                                            impl_block: ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 75,
+                                                                body: ArenaIdxRange(
+                                                                    39..53,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                            ast_idx: 48,
+                                                            ident: `displacement`,
+                                                            associated_item_kind: TypeItem(
+                                                                Method,
+                                                            ),
+                                                            accessibility: PubicUnder(
+                                                                `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ),
+                                                            is_generic: false,
+                                                        },
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        EntityPath {
+                                                            entity_path_expr: 0,
+                                                            entity_path: Some(
+                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                entity_path_expr_arena: Arena {
+                                                    data: [
+                                                        Root {
+                                                            token_idx: TokenIdx(
+                                                                464,
+                                                            ),
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 199,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            entity_path: ModuleItem(
+                                                                Type(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 25,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: PatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: True,
+                                                    ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    ExprRoot {
+                                                        kind: OutputType,
+                                                        expr: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: Defn(
+                                        AssociatedItem(
+                                            AssociatedItem {
+                                                id: AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: ModulePath(
+                                                            Id {
+                                                                value: 37,
+                                                            },
+                                                        ),
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 31,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 196,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: Some(
+                                                    TypeItemPath {
+                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ident: `displacement`,
+                                                        ty_item_kind: Method,
+                                                    },
+                                                ),
+                                                impl_block: ImplBlock {
+                                                    id: ImplBlockId {
+                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        },
+                                                    },
+                                                    ast_idx: 75,
+                                                    body: ArenaIdxRange(
+                                                        39..53,
+                                                    ),
+                                                    variant: Type {
+                                                        ty: TypePath(
+                                                            Id {
+                                                                value: 31,
+                                                            },
+                                                        ),
+                                                    },
+                                                },
+                                                ast_idx: 48,
+                                                ident: `displacement`,
+                                                associated_item_kind: TypeItem(
+                                                    Method,
+                                                ),
+                                                accessibility: PubicUnder(
+                                                    `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ),
+                                                is_generic: false,
+                                            },
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SelfValue(
+                                                TokenIdx(
+                                                    466,
+                                                ),
+                                            ),
+                                            MethodCall {
+                                                this_expr: 0,
+                                                dot_token_idx: TokenIdx(
+                                                    467,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `line_segment`,
+                                                    token_idx: TokenIdx(
+                                                        468,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    469,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    1..1,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    470,
+                                                ),
+                                            },
+                                            MethodCall {
+                                                this_expr: 1,
+                                                dot_token_idx: TokenIdx(
+                                                    471,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `displacement`,
+                                                    token_idx: TokenIdx(
+                                                        472,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    473,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    2..2,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    474,
+                                                ),
+                                            },
+                                            Block {
+                                                stmts: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [
+                                            Eval {
+                                                expr: 2,
+                                            },
+                                        ],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
+                            },
                             body: Ok(
                                 3,
                             ),
@@ -351,22 +12442,744 @@ Ok(
                     Method(
                         TypeMethodDefn {
                             path: Some(
-                                TypeItemPath(
-                                    Id {
-                                        value: 55,
+                                TypeItemPath {
+                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    ident: `start_tangent`,
+                                    ty_item_kind: Method,
+                                },
+                            ),
+                            decl: TypeMethodDecl {
+                                associated_item: AssociatedItem {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId {
+                                            module_path: ModulePath(
+                                                Id {
+                                                    value: 37,
+                                                },
+                                            ),
+                                            impl_block_kind: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 31,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 329,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    path: Some(
+                                        TypeItemPath {
+                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ident: `start_tangent`,
+                                            ty_item_kind: Method,
+                                        },
+                                    ),
+                                    impl_block: ImplBlock {
+                                        id: ImplBlockId {
+                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                            impl_block_kind: Type {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            },
+                                        },
+                                        ast_idx: 75,
+                                        body: ArenaIdxRange(
+                                            39..53,
+                                        ),
+                                        variant: Type {
+                                            ty: TypePath(
+                                                Id {
+                                                    value: 31,
+                                                },
+                                            ),
+                                        },
+                                    },
+                                    ast_idx: 49,
+                                    ident: `start_tangent`,
+                                    associated_item_kind: TypeItem(
+                                        Method,
+                                    ),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    is_generic: false,
+                                },
+                                path: Some(
+                                    TypeItemPath {
+                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ident: `start_tangent`,
+                                        ty_item_kind: Method,
                                     },
                                 ),
-                            ),
-                            decl: TypeMethodDecl(
-                                Id {
-                                    value: 38,
+                                ast_idx: 49,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: Some(
+                                            ExprRegion {
+                                                data: ExprRegionData {
+                                                    parent: None,
+                                                    path: Decl(
+                                                        ImplBlock(
+                                                            ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 75,
+                                                                body: ArenaIdxRange(
+                                                                    39..53,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            EntityPath {
+                                                                entity_path_expr: 0,
+                                                                entity_path: Some(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    entity_path_expr_arena: Arena {
+                                                        data: [
+                                                            Root {
+                                                                token_idx: TokenIdx(
+                                                                    50,
+                                                                ),
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 287,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                entity_path: ModuleItem(
+                                                                    Type(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_infos: [],
+                                                        pattern_symbol_maps: [],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                    },
+                                                    symbol_region: SymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        allow_self_type: True,
+                                                        allow_self_value: False,
+                                                        ty_constraints: [],
+                                                    },
+                                                    roots: [
+                                                        ExprRoot {
+                                                            kind: Type,
+                                                            expr: 0,
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ),
+                                        path: Decl(
+                                            AssociatedItem(
+                                                AssociatedItem {
+                                                    id: AssociatedItemId {
+                                                        impl_block_id: ImplBlockId {
+                                                            module_path: ModulePath(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(
+                                                                    Id {
+                                                                        value: 31,
+                                                                    },
+                                                                ),
+                                                            },
+                                                        },
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 329,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    path: Some(
+                                                        TypeItemPath {
+                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            ident: `start_tangent`,
+                                                            ty_item_kind: Method,
+                                                        },
+                                                    ),
+                                                    impl_block: ImplBlock {
+                                                        id: ImplBlockId {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            },
+                                                        },
+                                                        ast_idx: 75,
+                                                        body: ArenaIdxRange(
+                                                            39..53,
+                                                        ),
+                                                        variant: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 31,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ast_idx: 49,
+                                                    ident: `start_tangent`,
+                                                    associated_item_kind: TypeItem(
+                                                        Method,
+                                                    ),
+                                                    accessibility: PubicUnder(
+                                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ),
+                                                    is_generic: false,
+                                                },
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                EntityPath {
+                                                    entity_path_expr: 0,
+                                                    entity_path: Some(
+                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                Root {
+                                                    token_idx: TokenIdx(
+                                                        480,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 199,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    entity_path: ModuleItem(
+                                                        Type(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 25,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: True,
+                                            ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: OutputType,
+                                                expr: 0,
+                                            },
+                                        ],
+                                    },
                                 },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 259,
+                                implicit_parameter_decl_list: None,
+                                parameter_decl_list: ParameterDeclList {
+                                    lpar: LeftParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            477,
+                                        ),
+                                    },
+                                    parameters: [],
+                                    commas: [],
+                                    rpar: RightParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            478,
+                                        ),
+                                    },
                                 },
-                            ),
+                                curry_token: Ok(
+                                    CurryToken {
+                                        token_idx: TokenIdx(
+                                            479,
+                                        ),
+                                    },
+                                ),
+                                output_ty: Ok(
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
+                                ),
+                                eol_colon: Ok(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            481,
+                                        ),
+                                    },
+                                ),
+                            },
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: Some(
+                                        ExprRegion {
+                                            data: ExprRegionData {
+                                                parent: Some(
+                                                    ExprRegion {
+                                                        data: ExprRegionData {
+                                                            parent: None,
+                                                            path: Decl(
+                                                                ImplBlock(
+                                                                    ImplBlock {
+                                                                        id: ImplBlockId {
+                                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                            impl_block_kind: Type {
+                                                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            },
+                                                                        },
+                                                                        ast_idx: 75,
+                                                                        body: ArenaIdxRange(
+                                                                            39..53,
+                                                                        ),
+                                                                        variant: Type {
+                                                                            ty: TypePath(
+                                                                                Id {
+                                                                                    value: 31,
+                                                                                },
+                                                                            ),
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            expr_arena: Arena {
+                                                                data: [
+                                                                    EntityPath {
+                                                                        entity_path_expr: 0,
+                                                                        entity_path: Some(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            entity_path_expr_arena: Arena {
+                                                                data: [
+                                                                    Root {
+                                                                        token_idx: TokenIdx(
+                                                                            50,
+                                                                        ),
+                                                                        ident: Identifier(
+                                                                            Word(
+                                                                                Id {
+                                                                                    value: 287,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        entity_path: ModuleItem(
+                                                                            Type(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 31,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            stmt_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_region: PatternExprRegion {
+                                                                pattern_expr_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_infos: [],
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                            },
+                                                            symbol_region: SymbolRegion {
+                                                                inherited_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                current_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                allow_self_type: True,
+                                                                allow_self_value: False,
+                                                                ty_constraints: [],
+                                                            },
+                                                            roots: [
+                                                                ExprRoot {
+                                                                    kind: Type,
+                                                                    expr: 0,
+                                                                },
+                                                            ],
+                                                        },
+                                                    },
+                                                ),
+                                                path: Decl(
+                                                    AssociatedItem(
+                                                        AssociatedItem {
+                                                            id: AssociatedItemId {
+                                                                impl_block_id: ImplBlockId {
+                                                                    module_path: ModulePath(
+                                                                        Id {
+                                                                            value: 37,
+                                                                        },
+                                                                    ),
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    },
+                                                                },
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 329,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            path: Some(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ident: `start_tangent`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
+                                                            impl_block: ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 75,
+                                                                body: ArenaIdxRange(
+                                                                    39..53,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                            ast_idx: 49,
+                                                            ident: `start_tangent`,
+                                                            associated_item_kind: TypeItem(
+                                                                Method,
+                                                            ),
+                                                            accessibility: PubicUnder(
+                                                                `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ),
+                                                            is_generic: false,
+                                                        },
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        EntityPath {
+                                                            entity_path_expr: 0,
+                                                            entity_path: Some(
+                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                entity_path_expr_arena: Arena {
+                                                    data: [
+                                                        Root {
+                                                            token_idx: TokenIdx(
+                                                                480,
+                                                            ),
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 199,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            entity_path: ModuleItem(
+                                                                Type(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 25,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: PatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: True,
+                                                    ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    ExprRoot {
+                                                        kind: OutputType,
+                                                        expr: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: Defn(
+                                        AssociatedItem(
+                                            AssociatedItem {
+                                                id: AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: ModulePath(
+                                                            Id {
+                                                                value: 37,
+                                                            },
+                                                        ),
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 31,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 329,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: Some(
+                                                    TypeItemPath {
+                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ident: `start_tangent`,
+                                                        ty_item_kind: Method,
+                                                    },
+                                                ),
+                                                impl_block: ImplBlock {
+                                                    id: ImplBlockId {
+                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        },
+                                                    },
+                                                    ast_idx: 75,
+                                                    body: ArenaIdxRange(
+                                                        39..53,
+                                                    ),
+                                                    variant: Type {
+                                                        ty: TypePath(
+                                                            Id {
+                                                                value: 31,
+                                                            },
+                                                        ),
+                                                    },
+                                                },
+                                                ast_idx: 49,
+                                                ident: `start_tangent`,
+                                                associated_item_kind: TypeItem(
+                                                    Method,
+                                                ),
+                                                accessibility: PubicUnder(
+                                                    `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ),
+                                                is_generic: false,
+                                            },
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SelfValue(
+                                                TokenIdx(
+                                                    482,
+                                                ),
+                                            ),
+                                            Field {
+                                                this_expr: 0,
+                                                dot_token_idx: TokenIdx(
+                                                    483,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `strokes`,
+                                                    token_idx: TokenIdx(
+                                                        484,
+                                                    ),
+                                                },
+                                            },
+                                            MethodCall {
+                                                this_expr: 1,
+                                                dot_token_idx: TokenIdx(
+                                                    485,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `firstx`,
+                                                    token_idx: TokenIdx(
+                                                        486,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    487,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    2..2,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    488,
+                                                ),
+                                            },
+                                            MethodCall {
+                                                this_expr: 2,
+                                                dot_token_idx: TokenIdx(
+                                                    489,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `displacement`,
+                                                    token_idx: TokenIdx(
+                                                        490,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    491,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    3..3,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    492,
+                                                ),
+                                            },
+                                            Block {
+                                                stmts: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [
+                                            Eval {
+                                                expr: 3,
+                                            },
+                                        ],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
+                            },
                             body: Ok(
                                 4,
                             ),
@@ -379,22 +13192,744 @@ Ok(
                     Method(
                         TypeMethodDefn {
                             path: Some(
-                                TypeItemPath(
-                                    Id {
-                                        value: 56,
+                                TypeItemPath {
+                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    ident: `end_tangent`,
+                                    ty_item_kind: Method,
+                                },
+                            ),
+                            decl: TypeMethodDecl {
+                                associated_item: AssociatedItem {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId {
+                                            module_path: ModulePath(
+                                                Id {
+                                                    value: 37,
+                                                },
+                                            ),
+                                            impl_block_kind: Type {
+                                                ty: TypePath(
+                                                    Id {
+                                                        value: 31,
+                                                    },
+                                                ),
+                                            },
+                                        },
+                                        ident: Identifier(
+                                            Word(
+                                                Id {
+                                                    value: 330,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    path: Some(
+                                        TypeItemPath {
+                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ident: `end_tangent`,
+                                            ty_item_kind: Method,
+                                        },
+                                    ),
+                                    impl_block: ImplBlock {
+                                        id: ImplBlockId {
+                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                            impl_block_kind: Type {
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            },
+                                        },
+                                        ast_idx: 75,
+                                        body: ArenaIdxRange(
+                                            39..53,
+                                        ),
+                                        variant: Type {
+                                            ty: TypePath(
+                                                Id {
+                                                    value: 31,
+                                                },
+                                            ),
+                                        },
+                                    },
+                                    ast_idx: 50,
+                                    ident: `end_tangent`,
+                                    associated_item_kind: TypeItem(
+                                        Method,
+                                    ),
+                                    accessibility: PubicUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    is_generic: false,
+                                },
+                                path: Some(
+                                    TypeItemPath {
+                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ident: `end_tangent`,
+                                        ty_item_kind: Method,
                                     },
                                 ),
-                            ),
-                            decl: TypeMethodDecl(
-                                Id {
-                                    value: 39,
+                                ast_idx: 50,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: Some(
+                                            ExprRegion {
+                                                data: ExprRegionData {
+                                                    parent: None,
+                                                    path: Decl(
+                                                        ImplBlock(
+                                                            ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 75,
+                                                                body: ArenaIdxRange(
+                                                                    39..53,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            EntityPath {
+                                                                entity_path_expr: 0,
+                                                                entity_path: Some(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    entity_path_expr_arena: Arena {
+                                                        data: [
+                                                            Root {
+                                                                token_idx: TokenIdx(
+                                                                    50,
+                                                                ),
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 287,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                entity_path: ModuleItem(
+                                                                    Type(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_infos: [],
+                                                        pattern_symbol_maps: [],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                    },
+                                                    symbol_region: SymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        allow_self_type: True,
+                                                        allow_self_value: False,
+                                                        ty_constraints: [],
+                                                    },
+                                                    roots: [
+                                                        ExprRoot {
+                                                            kind: Type,
+                                                            expr: 0,
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ),
+                                        path: Decl(
+                                            AssociatedItem(
+                                                AssociatedItem {
+                                                    id: AssociatedItemId {
+                                                        impl_block_id: ImplBlockId {
+                                                            module_path: ModulePath(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(
+                                                                    Id {
+                                                                        value: 31,
+                                                                    },
+                                                                ),
+                                                            },
+                                                        },
+                                                        ident: Identifier(
+                                                            Word(
+                                                                Id {
+                                                                    value: 330,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                    path: Some(
+                                                        TypeItemPath {
+                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            ident: `end_tangent`,
+                                                            ty_item_kind: Method,
+                                                        },
+                                                    ),
+                                                    impl_block: ImplBlock {
+                                                        id: ImplBlockId {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            impl_block_kind: Type {
+                                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            },
+                                                        },
+                                                        ast_idx: 75,
+                                                        body: ArenaIdxRange(
+                                                            39..53,
+                                                        ),
+                                                        variant: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 31,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ast_idx: 50,
+                                                    ident: `end_tangent`,
+                                                    associated_item_kind: TypeItem(
+                                                        Method,
+                                                    ),
+                                                    accessibility: PubicUnder(
+                                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ),
+                                                    is_generic: false,
+                                                },
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                EntityPath {
+                                                    entity_path_expr: 0,
+                                                    entity_path: Some(
+                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                Root {
+                                                    token_idx: TokenIdx(
+                                                        498,
+                                                    ),
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 199,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    entity_path: ModuleItem(
+                                                        Type(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 25,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: True,
+                                            ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: OutputType,
+                                                expr: 0,
+                                            },
+                                        ],
+                                    },
                                 },
-                            ),
-                            expr_region: ExprRegion(
-                                Id {
-                                    value: 260,
+                                implicit_parameter_decl_list: None,
+                                parameter_decl_list: ParameterDeclList {
+                                    lpar: LeftParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            495,
+                                        ),
+                                    },
+                                    parameters: [],
+                                    commas: [],
+                                    rpar: RightParenthesisToken {
+                                        token_idx: TokenIdx(
+                                            496,
+                                        ),
+                                    },
                                 },
-                            ),
+                                curry_token: Ok(
+                                    CurryToken {
+                                        token_idx: TokenIdx(
+                                            497,
+                                        ),
+                                    },
+                                ),
+                                output_ty: Ok(
+                                    OutputTypeExpr {
+                                        expr: 0,
+                                    },
+                                ),
+                                eol_colon: Ok(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            499,
+                                        ),
+                                    },
+                                ),
+                            },
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: Some(
+                                        ExprRegion {
+                                            data: ExprRegionData {
+                                                parent: Some(
+                                                    ExprRegion {
+                                                        data: ExprRegionData {
+                                                            parent: None,
+                                                            path: Decl(
+                                                                ImplBlock(
+                                                                    ImplBlock {
+                                                                        id: ImplBlockId {
+                                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                            impl_block_kind: Type {
+                                                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            },
+                                                                        },
+                                                                        ast_idx: 75,
+                                                                        body: ArenaIdxRange(
+                                                                            39..53,
+                                                                        ),
+                                                                        variant: Type {
+                                                                            ty: TypePath(
+                                                                                Id {
+                                                                                    value: 31,
+                                                                                },
+                                                                            ),
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            expr_arena: Arena {
+                                                                data: [
+                                                                    EntityPath {
+                                                                        entity_path_expr: 0,
+                                                                        entity_path: Some(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            entity_path_expr_arena: Arena {
+                                                                data: [
+                                                                    Root {
+                                                                        token_idx: TokenIdx(
+                                                                            50,
+                                                                        ),
+                                                                        ident: Identifier(
+                                                                            Word(
+                                                                                Id {
+                                                                                    value: 287,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        entity_path: ModuleItem(
+                                                                            Type(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 31,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            stmt_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_region: PatternExprRegion {
+                                                                pattern_expr_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_infos: [],
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                            },
+                                                            symbol_region: SymbolRegion {
+                                                                inherited_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                current_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                allow_self_type: True,
+                                                                allow_self_value: False,
+                                                                ty_constraints: [],
+                                                            },
+                                                            roots: [
+                                                                ExprRoot {
+                                                                    kind: Type,
+                                                                    expr: 0,
+                                                                },
+                                                            ],
+                                                        },
+                                                    },
+                                                ),
+                                                path: Decl(
+                                                    AssociatedItem(
+                                                        AssociatedItem {
+                                                            id: AssociatedItemId {
+                                                                impl_block_id: ImplBlockId {
+                                                                    module_path: ModulePath(
+                                                                        Id {
+                                                                            value: 37,
+                                                                        },
+                                                                    ),
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    },
+                                                                },
+                                                                ident: Identifier(
+                                                                    Word(
+                                                                        Id {
+                                                                            value: 330,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            path: Some(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ident: `end_tangent`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
+                                                            impl_block: ImplBlock {
+                                                                id: ImplBlockId {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    impl_block_kind: Type {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    },
+                                                                },
+                                                                ast_idx: 75,
+                                                                body: ArenaIdxRange(
+                                                                    39..53,
+                                                                ),
+                                                                variant: Type {
+                                                                    ty: TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                },
+                                                            },
+                                                            ast_idx: 50,
+                                                            ident: `end_tangent`,
+                                                            associated_item_kind: TypeItem(
+                                                                Method,
+                                                            ),
+                                                            accessibility: PubicUnder(
+                                                                `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ),
+                                                            is_generic: false,
+                                                        },
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        EntityPath {
+                                                            entity_path_expr: 0,
+                                                            entity_path: Some(
+                                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                entity_path_expr_arena: Arena {
+                                                    data: [
+                                                        Root {
+                                                            token_idx: TokenIdx(
+                                                                498,
+                                                            ),
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 199,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            entity_path: ModuleItem(
+                                                                Type(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 25,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: PatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: True,
+                                                    ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    ExprRoot {
+                                                        kind: OutputType,
+                                                        expr: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: Defn(
+                                        AssociatedItem(
+                                            AssociatedItem {
+                                                id: AssociatedItemId {
+                                                    impl_block_id: ImplBlockId {
+                                                        module_path: ModulePath(
+                                                            Id {
+                                                                value: 37,
+                                                            },
+                                                        ),
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(
+                                                                Id {
+                                                                    value: 31,
+                                                                },
+                                                            ),
+                                                        },
+                                                    },
+                                                    ident: Identifier(
+                                                        Word(
+                                                            Id {
+                                                                value: 330,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: Some(
+                                                    TypeItemPath {
+                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ident: `end_tangent`,
+                                                        ty_item_kind: Method,
+                                                    },
+                                                ),
+                                                impl_block: ImplBlock {
+                                                    id: ImplBlockId {
+                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        impl_block_kind: Type {
+                                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        },
+                                                    },
+                                                    ast_idx: 75,
+                                                    body: ArenaIdxRange(
+                                                        39..53,
+                                                    ),
+                                                    variant: Type {
+                                                        ty: TypePath(
+                                                            Id {
+                                                                value: 31,
+                                                            },
+                                                        ),
+                                                    },
+                                                },
+                                                ast_idx: 50,
+                                                ident: `end_tangent`,
+                                                associated_item_kind: TypeItem(
+                                                    Method,
+                                                ),
+                                                accessibility: PubicUnder(
+                                                    `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ),
+                                                is_generic: false,
+                                            },
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SelfValue(
+                                                TokenIdx(
+                                                    500,
+                                                ),
+                                            ),
+                                            Field {
+                                                this_expr: 0,
+                                                dot_token_idx: TokenIdx(
+                                                    501,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `strokes`,
+                                                    token_idx: TokenIdx(
+                                                        502,
+                                                    ),
+                                                },
+                                            },
+                                            MethodCall {
+                                                this_expr: 1,
+                                                dot_token_idx: TokenIdx(
+                                                    503,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `lastx`,
+                                                    token_idx: TokenIdx(
+                                                        504,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    505,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    2..2,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    506,
+                                                ),
+                                            },
+                                            MethodCall {
+                                                this_expr: 2,
+                                                dot_token_idx: TokenIdx(
+                                                    507,
+                                                ),
+                                                ident_token: IdentifierToken {
+                                                    ident: `displacement`,
+                                                    token_idx: TokenIdx(
+                                                        508,
+                                                    ),
+                                                },
+                                                implicit_arguments: None,
+                                                lpar_token_idx: TokenIdx(
+                                                    509,
+                                                ),
+                                                arguments: ArenaIdxRange(
+                                                    3..3,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    510,
+                                                ),
+                                            },
+                                            Block {
+                                                stmts: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    entity_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [
+                                            Eval {
+                                                expr: 3,
+                                            },
+                                        ],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
+                            },
                             body: Ok(
                                 4,
                             ),

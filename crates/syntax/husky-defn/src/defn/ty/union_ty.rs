@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::tracked(jar = DefnJar)]
+#[salsa::tracked(db = DefnDb, jar = DefnJar)]
 pub struct UnionTypeDefn {
     #[id]
     pub path: TypePath,

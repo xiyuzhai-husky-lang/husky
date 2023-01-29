@@ -14,6 +14,7 @@ pub use value::*;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = DeclDb)]
 pub enum FormDecl {
     Function(FunctionDecl),
     Feature(FeatureDecl),
@@ -80,34 +81,5 @@ impl From<FeatureDecl> for FormDecl {
 impl From<FunctionDecl> for FormDecl {
     fn from(v: FunctionDecl) -> Self {
         Self::Function(v)
-    }
-}
-
-impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for FormDecl {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as DbWithJar<DeclJar>>::as_jar_db(db);
-        match self {
-            FormDecl::Function(decl) => f
-                .debug_tuple("Function")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            FormDecl::Feature(decl) => f
-                .debug_tuple("Feature")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            FormDecl::Morphism(decl) => f
-                .debug_tuple("Morphism")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            FormDecl::Value(decl) => f
-                .debug_tuple("Value")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-        }
     }
 }

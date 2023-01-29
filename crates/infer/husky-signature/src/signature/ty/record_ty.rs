@@ -16,7 +16,7 @@ pub fn record_ty_signature(
     Ok(RecordTypeSignature::new(db, implicit_parameters))
 }
 
-#[salsa::interned(jar = SignatureJar)]
+#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct RecordTypeSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,

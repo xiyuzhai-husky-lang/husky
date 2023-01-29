@@ -4,7 +4,7 @@ use husky_word::IdentPairMap;
 
 use crate::*;
 
-#[salsa::tracked(jar = EntityTreeJar)]
+#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
 pub struct AssociatedItem {
     #[id]
     pub id: AssociatedItemId,

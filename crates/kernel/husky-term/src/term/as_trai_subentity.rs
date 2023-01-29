@@ -1,7 +1,7 @@
 use crate::*;
 use husky_word::Identifier;
 
-#[salsa::interned(jar = TermJar)]
+#[salsa::interned(db = TermDb, jar = TermJar)]
 pub struct TermAsTraitSubentity {
     parent: Term,
     trai: Term,

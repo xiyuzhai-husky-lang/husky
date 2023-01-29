@@ -9,6 +9,7 @@ use husky_entity_tree::{ImplBlock, ImplBlockId};
 use husky_token::ImplToken;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = DeclDb)]
 pub enum ImplBlockDecl {
     TypeImplBlock(TypeImplBlockDecl),
     TypeAsTraitImplBlock(TypeAsTraitImplBlockDecl),
@@ -42,27 +43,6 @@ impl ImplBlockDecl {
         match self {
             ImplBlockDecl::TypeImplBlock(decl) => decl.expr_region(db),
             ImplBlockDecl::TypeAsTraitImplBlock(decl) => decl.expr_region(db),
-        }
-    }
-}
-
-impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for ImplBlockDecl {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<DeclJar>>::as_jar_db(db);
-        match self {
-            ImplBlockDecl::TypeImplBlock(decl) => f
-                .debug_tuple("TypeImplBlock")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
-            ImplBlockDecl::TypeAsTraitImplBlock(decl) => f
-                .debug_tuple("TypeAsTraitImplBlock")
-                .field(&decl.debug_with(db, include_all_fields))
-                .finish(),
         }
     }
 }

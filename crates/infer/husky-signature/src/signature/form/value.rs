@@ -8,7 +8,7 @@ pub fn value_signature(db: &dyn SignatureDb, decl: ValueDecl) -> SignatureResult
     Ok(ValueSignature::new(db))
 }
 
-#[salsa::interned(jar = SignatureJar)]
+#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct ValueSignature {}
 
 impl ValueSignature {

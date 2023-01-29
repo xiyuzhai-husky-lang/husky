@@ -83,7 +83,7 @@ impl salsa::Database for Database {}
 
 impl RefUnwindSafe for Database {}
 
-#[salsa::input(jar = Jar)]
+#[salsa::input(db = Db, jar = Jar)]
 struct MyInput {}
 
 #[salsa::tracked(jar = Jar)]
@@ -120,7 +120,7 @@ enum CycleQuery {
     AthenC,
 }
 
-#[salsa::input(jar = Jar)]
+#[salsa::input(db = Db, jar = Jar)]
 struct ABC {
     a: CycleQuery,
     b: CycleQuery,

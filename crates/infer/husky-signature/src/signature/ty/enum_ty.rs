@@ -16,7 +16,7 @@ pub fn enum_ty_signature(
     Ok(EnumTypeSignature::new(db, implicit_parameters))
 }
 
-#[salsa::interned(jar = SignatureJar)]
+#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct EnumTypeSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,

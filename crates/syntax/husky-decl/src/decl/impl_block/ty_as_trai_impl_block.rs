@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeAsTraitImplBlockDecl {
     pub ast_idx: AstIdx,
     pub impl_token: ImplToken,

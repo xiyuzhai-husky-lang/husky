@@ -31,6 +31,7 @@ pub(crate) fn trai_associated_item_signature(
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = SignatureDb)]
 pub enum TraitItemSignature {
     Function(TraitAssociatedFunctionSignature),
     Method(TraitMethodSignature),
@@ -70,16 +71,5 @@ impl From<TraitAssociatedValueSignature> for TraitItemSignature {
 impl From<TraitAssociatedTypeSignature> for TraitItemSignature {
     fn from(v: TraitAssociatedTypeSignature) -> Self {
         Self::AlienType(v)
-    }
-}
-
-impl<Db: SignatureDb + ?Sized> salsa::DebugWithDb<Db> for TraitItemSignature {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        todo!()
     }
 }

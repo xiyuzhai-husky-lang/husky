@@ -18,7 +18,7 @@ pub fn feature_signature(
     Ok(FeatureSignature::new(db, output_ty))
 }
 
-#[salsa::interned(jar = SignatureJar)]
+#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct FeatureSignature {
     pub output_ty: Term,
 }

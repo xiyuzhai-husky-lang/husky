@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::interned(jar = TermJar)]
+#[salsa::interned(db = TermDb, jar = TermJar)]
 pub struct TermTraitConstraint {
     ty: Term,
     trai: Term,

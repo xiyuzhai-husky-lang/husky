@@ -1,7 +1,7 @@
 use super::*;
 use husky_token::EolColonToken;
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeImplBlockDecl {
     pub ast_idx: AstIdx,
     pub impl_block: ImplBlock,

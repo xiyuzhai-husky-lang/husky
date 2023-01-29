@@ -11,5 +11,5 @@ pub(crate) fn ty_associated_value_signature(
     Ok(TypeAssociatedValueSignature::new(db))
 }
 
-#[salsa::interned(jar = SignatureJar)]
+#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct TypeAssociatedValueSignature {}

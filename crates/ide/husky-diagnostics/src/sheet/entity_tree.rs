@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::tracked(jar = DiagnosticsJar)]
+#[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
 pub struct EntityTreeDiagnosticSheet {
     #[return_ref]
     pub diagnostics: Vec<Diagnostic>,

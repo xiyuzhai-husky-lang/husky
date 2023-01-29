@@ -6,11 +6,79 @@ Ok(
                     TraitDecl {
                         path: TraitPath(`core::ops::Add`),
                         ast_idx: 3,
-                        expr_region: ExprRegion(
-                            Id {
-                                value: 39,
+                        expr_region: ExprRegion {
+                            data: ExprRegionData {
+                                parent: None,
+                                path: Decl(
+                                    Entity(
+                                        TraitPath(`core::ops::Add`),
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [],
+                                },
+                                entity_path_expr_arena: Arena {
+                                    data: [],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [
+                                            CurrentSymbol {
+                                                ident: Identifier(
+                                                    Word(
+                                                        Id {
+                                                            value: 44,
+                                                        },
+                                                    ),
+                                                ),
+                                                access_start: TokenIdx(
+                                                    12,
+                                                ),
+                                                access_end: None,
+                                                variant: ImplicitParameter {
+                                                    implicit_parameter_variant: Type {
+                                                        ident_token: IdentifierToken {
+                                                            ident: Identifier(
+                                                                Word(
+                                                                    Id {
+                                                                        value: 44,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            token_idx: TokenIdx(
+                                                                11,
+                                                            ),
+                                                        },
+                                                    },
+                                                },
+                                            },
+                                        ],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: False,
+                                    ty_constraints: [
+                                        ImplicitTypeParameter,
+                                    ],
+                                },
+                                roots: [],
                             },
-                        ),
+                        },
                         implicit_parameter_decl_list: Some(
                             ImplicitParameterDeclList {
                                 langle: LeftAngleBracketOrLessThanToken {

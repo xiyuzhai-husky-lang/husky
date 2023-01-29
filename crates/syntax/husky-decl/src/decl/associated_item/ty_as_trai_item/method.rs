@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_tree::AssociatedItem;
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeAsTraitMethodDecl {
     #[id]
     pub path: Option<TypeAsTraitItemPath>,

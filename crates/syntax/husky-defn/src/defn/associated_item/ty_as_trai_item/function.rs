@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::tracked(jar = DefnJar)]
+#[salsa::tracked(db = DefnDb, jar = DefnJar)]
 pub struct TypeAsTraitAssociatedFunctionDefn {
     #[id]
     pub path: Option<TypeAsTraitItemPath>,

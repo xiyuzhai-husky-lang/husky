@@ -13,7 +13,7 @@ struct Jar(MyInput);
 
 trait Db: salsa::DbWithJar<Jar> + HasLogger {}
 
-#[salsa::input(singleton)]
+#[salsa::input(db = Db, singleton)]
 struct MyInput {
     field: u32,
     #[id]

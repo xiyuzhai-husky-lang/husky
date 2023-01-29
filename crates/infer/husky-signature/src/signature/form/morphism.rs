@@ -16,7 +16,7 @@ pub fn morphism_signature(
     Ok(MorphismSignature::new(db, implicit_parameters))
 }
 
-#[salsa::interned(jar = SignatureJar)]
+#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct MorphismSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,

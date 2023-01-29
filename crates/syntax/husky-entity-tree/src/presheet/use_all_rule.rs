@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb, jar = EntityTreeJar)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct UseAllRule {
     parent: ModulePath,
     ast_idx: AstIdx,

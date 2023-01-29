@@ -35,7 +35,7 @@ pub(crate) fn ty_impl_block_signature(
     ))
 }
 
-#[salsa::interned(jar = SignatureJar)]
+#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct TypeImplBlockSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,

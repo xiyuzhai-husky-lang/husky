@@ -147,6 +147,10 @@ impl<A: AllowedOptions> SalsaStruct<A> {
         self.args.singleton.is_some()
     }
 
+    pub(crate) fn db_trai(&self) -> Option<&syn::Path> {
+        self.args.db_trai.as_ref()
+    }
+
     pub(crate) fn db_dyn_ty(&self) -> syn::Type {
         let jar_ty = self.jar_ty();
         parse_quote! {
@@ -304,8 +308,16 @@ impl<A: AllowedOptions> SalsaStruct<A> {
     /// Generate `impl salsa::DebugWithDb for Foo`
     pub(crate) fn as_debug_with_db_impl(&self) -> syn::ItemImpl {
         let ident = self.id_ident();
-
-        let db_type = self.db_dyn_ty();
+        let jar_ty = self.jar_ty();
+        let db_trai: TokenStream = match self.db_trai() {
+            Some(db_trai) => quote! {
+                #db_trai
+            },
+            None => quote! {
+                MissingDbArgument
+            },
+        };
+        let db_dyn_ty = self.db_dyn_ty();
         let ident_string = ident.to_string();
 
         // `::salsa::debug::helper::SalsaDebug` will use `DebugWithDb` or fallbak to `Debug`
@@ -320,7 +332,7 @@ impl<A: AllowedOptions> SalsaStruct<A> {
                 let field_debug = quote_spanned! { field.field.span() =>
                     debug_struct = debug_struct.field(
                         #field_name_string,
-                        &::salsa::debug::helper::SalsaDebug::<#field_ty, #db_type>::salsa_debug(
+                        &::salsa::debug::helper::SalsaDebug::<#field_ty, #db_dyn_ty>::salsa_debug(
                             #[allow(clippy::needless_borrow)]
                             &self.#field_getter(_db),
                             _db,
@@ -337,10 +349,11 @@ impl<A: AllowedOptions> SalsaStruct<A> {
 
         // `use ::salsa::debug::helper::Fallback` is needed for the fallback to `Debug` impl
         parse_quote_spanned! {ident.span()=>
-            impl ::salsa::DebugWithDb<#db_type> for #ident {
-                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &#db_type, _include_all_fields: bool) -> ::std::fmt::Result {
+            impl<_Db: #db_trai + ?Sized> ::salsa::DebugWithDb<_Db> for #ident {
+                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &_Db, _include_all_fields: bool) -> ::std::fmt::Result {
                     #[allow(unused_imports)]
                     use ::salsa::debug::helper::Fallback;
+                    let _db = <_Db as ::salsa::DbWithJar<#jar_ty>>::as_jar_db(_db);
                     let mut debug_struct = &mut f.debug_struct(#ident_string);
                     if _include_all_fields {
                         debug_struct = debug_struct.field("[salsa id]", &self.0.as_u32());

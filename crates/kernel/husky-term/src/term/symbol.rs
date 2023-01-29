@@ -1,7 +1,7 @@
 use crate::*;
 use thiserror::Error;
 
-#[salsa::interned(jar = TermJar)]
+#[salsa::interned(db = TermDb, jar = TermJar)]
 pub struct TermSymbol {
     ty: TermSymbolTypeResult<Term>,
     /// this is the index for all symbols with the same type
