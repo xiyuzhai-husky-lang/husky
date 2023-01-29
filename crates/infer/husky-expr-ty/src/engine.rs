@@ -122,7 +122,7 @@ impl<'a> ExprTypeEngine<'a> {
                     };
                 let Some(ropd_ty) = self.infer_new_resolved(*ropd, None)
                     else {
-                        return Err(DerivedExprTypeError::BinaryOpnsecondArgumentTypeNotInferred.into())
+                        return Err(DerivedExprTypeError::BinaryOpnSecondArgumentTypeNotInferred.into())
                     };
                 todo!()
             }
